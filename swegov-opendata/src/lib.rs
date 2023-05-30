@@ -1,14 +1,17 @@
 #[derive(Debug, Clone, serde::Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct DokumentStatusPage {
     dokumentstatus: DokumentStatus,
 }
 #[derive(Debug, Clone, serde::Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct DokumentStatus {
     dokument: SfsDokument,
     dokuppgift: DokUppgift,
 }
 
 #[derive(Debug, Clone, serde::Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct SfsDokument {
     dok_id: String,
     rm: String,
@@ -31,11 +34,13 @@ pub struct SfsDokument {
 }
 
 #[derive(Debug, Clone, serde::Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct DokUppgift {
     uppgift: Vec<Uppgift>,
 }
 
 #[derive(Debug, Clone, serde::Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Uppgift {
     kod: String,
     namn: String,
