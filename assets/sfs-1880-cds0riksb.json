@@ -1,1 +1,79 @@
-{"dokumentstatus":{"dokbilaga":{"bilaga":[{"dok_id":"cds0riksb","fil_url":"https://weburn.kb.se/riks/tv%C3%A5kammarriksdagen/pdf/web/1880/web_regl-riksb_1880____/regl-riksb_1880____.pdf","filnamn":"regl-riksb_1880____.pdf","filstorlek":"2507640","filtyp":"pdf","subtitel":"","titel":"för Riksbankens styrelse och förvaltning, utfärdadt den 12 maj 1880"}]},"dokument":{"beteckning":"","datum":"1880-05-12 00:00:00","debattnamn":"Svensk författningssamling","dok_id":"cds0riksb","doktyp":"sfs","dokument_url_html":"http://data.riksdagen.se/dokument/cds0riksb","dokument_url_text":"http://data.riksdagen.se/dokument/cds0riksb/text","dokumentnamn":"Svensk författningssamling","dokumentstatus_url_xml":"http://data.riksdagen.se/dokumentstatus/cds0riksb","hangar_id":"4980882","htmlformat":"html","mottagare":"","nummer":"0","organ":"riksb","publicerad":"2018-03-08 00:00:00","relaterat_id":"","rm":"1880","slutnummer":"0","source":"digitalisering","sourceid":"regl-riksb_1880____","status":"ocr","subtitel":"","subtyp":"regl-riksb","systemdatum":"2018-03-08 15:36:52","tempbeteckning":"492","titel":"för Riksbankens styrelse och förvaltning, utfärdadt den 12 maj 1880","typ":"sfs","typrubrik":"Svensk författningssamling "},"dokuppgift":{"uppgift":[{"dok_id":"cds0riksb","kod":"sidantal","namn":"Antal sidor","systemdatum":"2018-03-08 15:36:52","text":"48"},{"dok_id":"cds0riksb","kod":"riksdag","namn":"riksdag","systemdatum":"2018-03-08 15:36:52","text":"tvåkammaren"},{"dok_id":"cds0riksb","kod":"kammare","namn":"kammare","systemdatum":"2018-03-08 15:36:52","text":""},{"dok_id":"cds0riksb","kod":"session","namn":"session","systemdatum":"2018-03-08 15:36:52","text":"lagtima"}]}}}
+{
+    "dokumentstatus": {
+        "dokbilaga": {
+            "bilaga": [
+                {
+                    "dok_id": "cds0riksb",
+                    "fil_url": "https://weburn.kb.se/riks/tv%C3%A5kammarriksdagen/pdf/web/1880/web_regl-riksb_1880____/regl-riksb_1880____.pdf",
+                    "filnamn": "regl-riksb_1880____.pdf",
+                    "filstorlek": "2507640",
+                    "filtyp": "pdf",
+                    "subtitel": "",
+                    "titel": "för Riksbankens styrelse och förvaltning, utfärdadt den 12 maj 1880"
+                }
+            ]
+        },
+        "dokument": {
+            "beteckning": "",
+            "datum": "1880-05-12 00:00:00",
+            "debattnamn": "Svensk författningssamling",
+            "dok_id": "cds0riksb",
+            "doktyp": "sfs",
+            "dokument_url_html": "http://data.riksdagen.se/dokument/cds0riksb",
+            "dokument_url_text": "http://data.riksdagen.se/dokument/cds0riksb/text",
+            "dokumentnamn": "Svensk författningssamling",
+            "dokumentstatus_url_xml": "http://data.riksdagen.se/dokumentstatus/cds0riksb",
+            "hangar_id": "4980882",
+            "htmlformat": "html",
+            "mottagare": "",
+            "nummer": "0",
+            "organ": "riksb",
+            "publicerad": "2018-03-08 00:00:00",
+            "relaterat_id": "",
+            "rm": "1880",
+            "slutnummer": "0",
+            "source": "digitalisering",
+            "sourceid": "regl-riksb_1880____",
+            "status": "ocr",
+            "subtitel": "",
+            "subtyp": "regl-riksb",
+            "systemdatum": "2018-03-08 15:36:52",
+            "tempbeteckning": "492",
+            "titel": "för Riksbankens styrelse och förvaltning, utfärdadt den 12 maj 1880",
+            "typ": "sfs",
+            "typrubrik": "Svensk författningssamling "
+        },
+        "dokuppgift": {
+            "uppgift": [
+                {
+                    "dok_id": "cds0riksb",
+                    "kod": "sidantal",
+                    "namn": "Antal sidor",
+                    "systemdatum": "2018-03-08 15:36:52",
+                    "text": "48"
+                },
+                {
+                    "dok_id": "cds0riksb",
+                    "kod": "riksdag",
+                    "namn": "riksdag",
+                    "systemdatum": "2018-03-08 15:36:52",
+                    "text": "tvåkammaren"
+                },
+                {
+                    "dok_id": "cds0riksb",
+                    "kod": "kammare",
+                    "namn": "kammare",
+                    "systemdatum": "2018-03-08 15:36:52",
+                    "text": ""
+                },
+                {
+                    "dok_id": "cds0riksb",
+                    "kod": "session",
+                    "namn": "session",
+                    "systemdatum": "2018-03-08 15:36:52",
+                    "text": "lagtima"
+                }
+            ]
+        }
+    }
+}
