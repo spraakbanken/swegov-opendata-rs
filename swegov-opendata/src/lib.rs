@@ -1,24 +1,25 @@
 pub mod date_formats;
+pub mod try_parse;
+
+use crate::try_parse::{deserialize_tryparse_from_string, TryParse};
 
 use serde_aux::field_attributes::deserialize_number_from_string;
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct DokumentStatusPage {
-    dokumentstatus: DokumentStatus,
+    pub dokumentstatus: DokumentStatus,
 }
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
 pub struct DokumentStatus {
-    dokument: SfsDokument,
-    dokuppgift: DokUppgift,
-    dokumentuppgift: Option<DokUppgift>,
-    dokbilaga: Option<DokBilaga>,
+    pub dokument: Dokument,
+    pub dokuppgift: DokUppgift,
+    pub dokbilaga: Option<DokBilaga>,
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
-pub struct SfsDokument {
-    dok_id: String,
+pub struct Dokument {
+    pub dok_id: String,
     hangar_id: String,
     rm: String,
     beteckning: String,
@@ -31,8 +32,8 @@ pub struct SfsDokument {
     tempbeteckning: String,
     organ: String,
     mottagare: Option<String>,
-    #[serde(deserialize_with = "deserialize_number_from_string")]
-    nummer: u64,
+    #[serde(deserialize_with = "deserialize_tryparse_from_string")]
+    nummer: TryParse<u64>,
     #[serde(deserialize_with = "deserialize_number_from_string")]
     slutnummer: u64,
     #[serde(with = "date_formats::swe_date_format")]
@@ -54,6 +55,27 @@ pub struct SfsDokument {
     utskottsforslag_url_xml: Option<String>,
     text: Option<String>,
     html: Option<String>,
+}
+
+impl Dokument {
+    pub fn dok_id(&self) -> &str {
+        &self.dok_id
+    }
+    pub fn rm(&self) -> &str {
+        &self.rm
+    }
+    pub fn datum(&self) -> NaiveDate {
+        self.datum.date()
+    }
+    pub fn titel(&self) -> &str {
+        &self.titel
+    }
+    pub fn organ(&self) -> &str {
+        &self.organ
+    }
+    pub fn html(&self) -> Option<&str> {
+        self.html.as_ref().map(|s| s.as_str())
+    }
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]

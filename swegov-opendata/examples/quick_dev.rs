@@ -14,6 +14,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     test_dokumentstatus("assets/sfs-1880-cds0riksb.json")?;
 
     test_dokumentstatus("assets/sfs-1976-114.json")?;
+    test_dokumentstatus("assets/sfs-1909-bih__29_s_1.json")?;
     Ok(())
 }
 
