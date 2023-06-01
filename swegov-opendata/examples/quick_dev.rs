@@ -9,20 +9,18 @@ fn main() -> Result<(), Box<dyn Error>> {
     let dokumentlista: DokumentListaPage = serde_json::from_reader(dokumentlista_file)?;
     println!("{:#?}", dokumentlista);
 
-    let dokumentstatus_path = "assets/sfs-1880-48_s_1.json";
+    test_dokumentstatus("assets/sfs-1880-48_s_1.json")?;
 
-    let dokumentstatus_file = fs::File::open(dokumentstatus_path)?;
-    println!("{:<5}: {}", "DokumentStatus", dokumentstatus_path);
-    let dokumentstatus: DokumentStatusPage = serde_json::from_reader(dokumentstatus_file)?;
-    println!("{:#?}", dokumentstatus);
+    test_dokumentstatus("assets/sfs-1880-cds0riksb.json")?;
 
-    let string = serde_json::to_string(&dokumentstatus)?;
-    println!("serialized: {}", string);
+    test_dokumentstatus("assets/sfs-1976-114.json")?;
+    Ok(())
+}
 
-    let dokumentstatus_path = "assets/sfs-1880-cds0riksb.json";
-
-    let dokumentstatus_file = fs::File::open(dokumentstatus_path)?;
-    println!("{:<5}: {}", "DokumentStatus", dokumentstatus_path);
+fn test_dokumentstatus(path: &str) -> Result<(), Box<dyn Error>> {
+    println!(" === Reading '{}'", path);
+    let dokumentstatus_file = fs::File::open(path)?;
+    println!("{:<5}: {}", "DokumentStatus", path);
     let dokumentstatus: DokumentStatusPage = serde_json::from_reader(dokumentstatus_file)?;
     println!("{:#?}", dokumentstatus);
 

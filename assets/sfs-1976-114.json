@@ -1,0 +1,83 @@
+{
+    "dokumentstatus": {
+        "dokument": {
+            "beteckning": "1976:114",
+            "datum": "1976-01-22 00:00:00",
+            "dok_id": "sfs-1976-114",
+            "dokumentnamn": "Svensk författningssamling",
+            "hangar_id": "",
+            "html": "\r\n\r\n\r\n<style>\r\n.document div {\r\n    overflow: visible !important;\r\n    width: 550px !important;\r\n}\r\n</style>\r\n\r\n<b>SFS nr</b>:     \r\n1976:114<br />\r\n\r\n<b>Departement/myndighet</b>:   \r\nCivildepartementet <br />  \r\n\r\n<b>Utfärdad</b>:   \r\n1976-01-22 <br />  \r\n\r\n\r\n<b>Upphävd</b>: \r\n1989-01-01<br />\r\n\r\n<b>Författningen har upphävts genom</b>: \r\nSFS 1988:1081<br />\r\n\r\n\r\n<b>Ändringsregister</b>:   \r\n<a href=\"http://rkrattsbaser.gov.se/sfsr?bet=1976:114\">SFSR (Regeringskansliet)</a> <br />\r\n\r\n<b>Källa</b>: \r\n\r\n<a href=\"http://rkrattsbaser.gov.se/sfst?bet=1976:114\">Fulltext (Regeringskansliet)</a> \r\n\r\n\r\n<br />\r\n\r\n<hr />\r\n\r\n\r\n\r\n<div><p><a name=\"S1\"></a></p></div>",
+            "nummer": "114",
+            "organ": "Civildepartementet",
+            "publicerad": "2016-02-11 15:26:28",
+            "rm": "1976",
+            "slutnummer": "0",
+            "status": "",
+            "subtitel": "",
+            "subtyp": "sfst",
+            "systemdatum": "2016-02-11 15:26:28",
+            "tempbeteckning": "",
+            "text": "",
+            "titel": "Förordning (1976:114) om biträde vid utdelande av \r\nnattvarden inom svenska kyrkan\r\n",
+            "typ": "sfs"
+        },
+        "dokumentuppgift": {
+            "uppgift": [
+                {
+                    "kod": "artal",
+                    "namn": "artal",
+                    "text": "1976"
+                },
+                {
+                    "kod": "utfardad",
+                    "namn": "utfardad",
+                    "text": "1976-01-22"
+                },
+                {
+                    "kod": "upphnr",
+                    "namn": "upphnr",
+                    "text": "SFS 1988:1081"
+                },
+                {
+                    "kod": "upphavd",
+                    "namn": "upphavd",
+                    "text": "1989-01-01 00:00:00"
+                },
+                {
+                    "kod": "utdrag",
+                    "namn": "utdrag",
+                    "text": null
+                }
+            ]
+        },
+        "dokuppgift": {
+            "uppgift": [
+                {
+                    "kod": "artal",
+                    "namn": "artal",
+                    "text": "1976"
+                },
+                {
+                    "kod": "utfardad",
+                    "namn": "utfardad",
+                    "text": "1976-01-22"
+                },
+                {
+                    "kod": "upphnr",
+                    "namn": "upphnr",
+                    "text": "SFS 1988:1081"
+                },
+                {
+                    "kod": "upphavd",
+                    "namn": "upphavd",
+                    "text": "1989-01-01 00:00:00"
+                },
+                {
+                    "kod": "utdrag",
+                    "namn": "utdrag",
+                    "text": null
+                }
+            ]
+        }
+    }
+}

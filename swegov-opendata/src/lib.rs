@@ -87,7 +87,7 @@ pub struct Uppgift {
     namn: String,
     #[serde(with = "date_formats::option_swe_date_format", default)]
     systemdatum: Option<NaiveDateTime>,
-    text: String,
+    text: Option<String>,
 }
 
 use chrono::{NaiveDate, NaiveDateTime};
