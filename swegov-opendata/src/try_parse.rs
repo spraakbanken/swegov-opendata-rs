@@ -3,7 +3,7 @@
 use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 use std::fmt;
-use std::{collections::HashMap, str::FromStr};
+use std::str::FromStr;
 
 #[derive(Debug)]
 pub enum TryParse<T> {
@@ -79,7 +79,7 @@ impl<T: FromStr> FromStr for TryParse<T> {
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match T::from_str(s) {
             Ok(t) => Ok(TryParse::Parsed(t)),
-            Err(err) => Ok(TryParse::Unparsed(s.into())),
+            Err(_) => Ok(TryParse::Unparsed(s.into())),
         }
     }
 }

@@ -1,7 +1,7 @@
 const FORMAT: &'static str = "%Y-%m-%d %H:%M:%S";
 
 pub mod swe_date_format {
-    use chrono::{DateTime, NaiveDateTime, TimeZone, Utc};
+    use chrono::NaiveDateTime;
     use serde::{self, Deserialize, Deserializer, Serializer};
 
     use super::FORMAT;
@@ -37,7 +37,7 @@ pub mod swe_date_format {
 }
 
 pub mod option_swe_date_format {
-    use chrono::{DateTime, NaiveDateTime, TimeZone, Utc};
+    use chrono::NaiveDateTime;
     use serde::{self, Deserialize, Deserializer, Serializer};
 
     use super::FORMAT;

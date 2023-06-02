@@ -2,6 +2,8 @@ pub mod date_formats;
 pub mod try_parse;
 
 use crate::try_parse::{deserialize_tryparse_from_string, TryParse};
+use serde_with::serde_as;
+use serde_with::DisplayFromStr;
 
 use serde_aux::field_attributes::deserialize_number_from_string;
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
@@ -120,47 +122,136 @@ pub struct DokumentListaPage {
     dokumentlista: DokumentLista,
 }
 
+#[serde_as]
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-// #[serde(deny_unknown_fields)]
+#[serde(deny_unknown_fields, rename = "dokumentlista")]
 pub struct DokumentLista {
     #[serde(rename = "@dDt")]
     d_dt: String,
     #[serde(rename = "@dPre")]
     d_pre: String,
-    dokument: Vec<DokumentListaDokument>,
+    #[serde(rename = "@dR")]
+    d_r: String,
+    #[serde(rename = "@dSol")]
+    d_sol: String,
+    #[serde(rename = "@datum", with = "date_formats::swe_date_format")]
+    datum: NaiveDateTime,
+    #[serde(rename = "@ms")]
+    ms: String,
     #[serde(rename = "@nasta_sida")]
     nasta_sida: String,
-    #[serde(rename = "@sida")]
-    sida: String,
     #[serde(rename = "@q")]
     q: String,
-
+    #[serde(rename = "@sida")]
+    #[serde_as(as = "DisplayFromStr")]
+    sida: u64,
     #[serde(rename = "@sidor")]
-    sidor: String,
-    #[serde(rename = "@traffar")]
-    traffar: String,
+    #[serde_as(as = "DisplayFromStr")]
+    sidor: u64,
     #[serde(rename = "@traff_fran")]
-    traff_fran: String,
+    #[serde_as(as = "DisplayFromStr")]
+    traff_fran: u64,
     #[serde(rename = "@traff_till")]
-    traff_till: String,
+    #[serde_as(as = "DisplayFromStr")]
+    traff_till: u64,
+    #[serde(rename = "@traffar")]
+    #[serde_as(as = "DisplayFromStr")]
+    traffar: u64,
+    #[serde(rename = "@varning")]
+    varning: String,
     #[serde(rename = "@version")]
     version: String,
+    dokument: Vec<DokumentListaDokument>,
+    facettlista: Option<String>,
+}
+
+#[serde_as]
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct DokumentListaDokument {
+    ardometyp: String,
+    audio: String,
+    avdelning: String,
+    beredningsdag: String,
+    beslutad: String,
+    beslutsdag: String,
+    beteckning: String,
+    database: String,
+    datum: NaiveDate,
+    debatt: Option<String>,
+    debattdag: String,
+    debattgrupp: String,
+    debattnamn: String,
+    debattsekunder: String,
+    dok_id: String,
+    dokintressent: Option<String>,
+    doktyp: String,
+    dokument_url_html: String,
+    dokument_url_text: String,
+    dokumentformat: String,
+    dokumentnamn: String,
+    domain: String,
+    filbilaga: Option<String>,
+    id: String,
+    inlamnad: String,
+    justeringsdag: String,
+    kall_id: String,
+    kalla: String,
+    klockslag: String,
+    lang: String,
+    motionstid: String,
+    notis: String,
+    notisrubrik: String,
+    nummer: TryParse<u64>,
+    organ: String,
+    plats: String,
+    #[serde(with = "date_formats::swe_date_format")]
+    publicerad: NaiveDateTime,
+    rddata: Option<String>,
+    rdrest: Option<String>,
+    relaterat_id: String,
+    relurl: String,
+    reservationer: String,
+    rm: String,
+    score: String,
+    slutdatum: String,
+    sokdata: SokData,
+    status: String,
+    struktur: String,
+    subtyp: String,
+    summary: String,
+    #[serde(with = "date_formats::swe_date_format")]
+    systemdatum: NaiveDateTime,
+    tempbeteckning: String,
+    tilldelat: String,
+    titel: String,
+    #[serde_as(as = "DisplayFromStr")]
+    traff: u64,
+    typ: String,
+    undertitel: String,
+    url: String,
+    video: String,
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-pub struct DokumentListaDokument {
-    id: String,
-    dok_id: String,
-    traff: String,
-    domain: String,
-    database: String,
-    datum: NaiveDate,
-    #[serde(with = "date_formats::swe_date_format")]
-    publicerad: NaiveDateTime,
-    #[serde(with = "date_formats::swe_date_format")]
-    systemdatum: NaiveDateTime,
+#[serde(deny_unknown_fields)]
+pub struct SokData {
+    brodsmula: String,
+    parti_epost: String,
+    parti_kod: String,
+    parti_logotyp_img_alt: String,
+    parti_logotyp_img_id: String,
+    parti_logotyp_img_url: String,
+    parti_mandat: String,
+    parti_namn: String,
+    parti_telefon: String,
+    parti_website_namn: String,
+    parti_website_url: String,
+    soktyp: String,
+    statusrad: NaiveDate,
+    titel: String,
+    undertitel: String,
 }
-
 // #[cfg(test)]
 // mod tests {
 //     use super::*;
