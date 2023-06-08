@@ -158,7 +158,7 @@ pub struct DokumentLista {
     #[serde_as(as = "DisplayFromStr")]
     traffar: u64,
     #[serde(rename = "@varning")]
-    varning: String,
+    varning: Option<String>,
     #[serde(rename = "@version")]
     version: String,
     dokument: Vec<DokumentListaDokument>,
@@ -167,7 +167,7 @@ pub struct DokumentLista {
 
 #[serde_as]
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
+// #[serde(deny_unknown_fields)]
 pub struct DokumentListaDokument {
     ardometyp: String,
     audio: String,
@@ -191,7 +191,8 @@ pub struct DokumentListaDokument {
     dokumentformat: String,
     dokumentnamn: String,
     domain: String,
-    filbilaga: Option<String>,
+    #[serde(deserialize_with = "deserialize_null_default")]
+    filbilaga: FilBilaga,
     id: String,
     inlamnad: String,
     justeringsdag: String,
@@ -205,8 +206,9 @@ pub struct DokumentListaDokument {
     nummer: TryParse<u64>,
     organ: String,
     plats: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    publicerad: NaiveDateTime,
+    // #[serde(with = "date_formats::option_swe_date_format")]
+    /// TODO this field can contain date (2018-03-07) and datetime (2016-02-11 15:28:15)
+    publicerad: String,
     rddata: Option<String>,
     rdrest: Option<String>,
     relaterat_id: String,
@@ -233,6 +235,26 @@ pub struct DokumentListaDokument {
     video: String,
 }
 
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct FilBilaga {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    fil: Option<Fil>,
+}
+
+impl Default for FilBilaga {
+    fn default() -> Self {
+        Self { fil: None }
+    }
+}
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct Fil {
+    typ: String,
+    namn: String,
+    storlek: u64,
+    url: String,
+}
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct SokData {
@@ -262,3 +284,13 @@ pub struct SokData {
 //         assert_eq!(result, 4);
 //     }
 // }
+
+fn deserialize_null_default<'de, D, T>(deserializer: D) -> Result<T, D::Error>
+where
+    T: Default + serde::Deserialize<'de>,
+    D: serde::Deserializer<'de>,
+{
+    use serde::Deserialize;
+    let opt = Option::deserialize(deserializer)?;
+    Ok(opt.unwrap_or_default())
+}
