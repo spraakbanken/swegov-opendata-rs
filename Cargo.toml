@@ -1,5 +1,28 @@
+[package]
+name = "swegov-opendata-crawler"
+version = "0.1.1"
+edition = "2021"
+
+[[bin]]
+name = "fetch-sfs"
+path = "src/fetch_sfs.rs"
+test = false
+doctest = false
+
+[dependencies]
+anyhow = "1.0.71"
+config = "0.13.3"
+serde = { version = "1.0.160", features = ["derive"] }
+tokio = { version = "1.28.0", features = ["macros", "rt-multi-thread", "fs"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
+webcrawler = { version = "0.1.0", path = "webcrawler" }
+opendata-spiders = { version = "0.1.0", path = "opendata-spiders" }
+
 [workspace]
 members = [
     "sfs-corpus",
     "swegov-opendata",
+    "webcrawler",
+    "opendata-spiders",
 ]
