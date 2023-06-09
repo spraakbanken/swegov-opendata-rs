@@ -1,4 +1,5 @@
 mod error;
+pub mod item;
 pub mod sfs;
 
 pub use crate::error::Error;

@@ -18,3 +18,5 @@ tokio = { version = "1.28.0", features = ["macros", "rt-multi-thread", "fs"] }
 ulid = "1.0.0"
 webcrawler = { version = "0.1.0", path = "../webcrawler" }
 swegov-opendata = { version = "0.2.0", path = "../swegov-opendata" }
+deserx = { git = "https://github.com/kod-kristoff/deserx", version = "0.1.0" }
+anyhow = "1.0.71"

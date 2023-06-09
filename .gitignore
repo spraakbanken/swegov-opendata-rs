@@ -15,3 +15,4 @@ Cargo.lock
 
 # Data dir
 /data/
+/output/

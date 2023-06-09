@@ -1,14 +1,16 @@
 use std::{fmt::Debug, path::PathBuf};
 
 use async_trait::async_trait;
+use deserx::DeXml;
 use flate2::Compression;
 use quick_xml::de as quick_xml_de;
 use reqwest::Client;
 use serde_json::Value as JsonValue;
 use std::fs;
-use swegov_opendata::{Dokument, DokumentLista};
+use swegov_opendata::{Dokument, DokumentLista, DokumentStatus};
 use ulid::Ulid;
 
+use crate::item::Item;
 use crate::Error;
 
 pub struct SfsSpider {
@@ -69,7 +71,7 @@ impl Default for SfsSpiderOptions {
 }
 #[async_trait]
 impl webcrawler::Spider for SfsSpider {
-    type Item = (String, JsonValue);
+    type Item = (String, Item);
     type Error = Error;
 
     fn name(&self) -> String {
@@ -87,13 +89,13 @@ impl webcrawler::Spider for SfsSpider {
 
         for (from_year, to_year) in [
             (1880, 1900),
-            // (1901, 1920),
-            // (1921, 1940),
-            // (1941, 1960),
-            // (1961, 1980),
-            // (1981, 2000),
-            // (2001, 2020),
-            // (2021, 2023),
+            (1901, 1920),
+            (1921, 1940),
+            (1941, 1960),
+            (1961, 1980),
+            (1981, 2000),
+            (2001, 2020),
+            (2021, 2023),
         ] {
             urls.push(format!(
                 "{base_url}&from={from_year}-01-01&tom={to_year}-12-31{base_suffix}"
@@ -130,62 +132,89 @@ impl webcrawler::Spider for SfsSpider {
             tracing::error!("Failed getting text: {}", err);
             err
         })?;
-        println!("{}", text);
-        let xml_object: Root = quick_xml_de::from_str(&text).map_err(|err| {
-            tracing::error!("Failed parsing XML: {}", err);
-            err
-        })?;
-        println!("xml={:#?}", xml_object);
+        // println!("{}", text);
+        let item: Item = match quick_xml_de::from_str(&text) {
+            Err(err) if url.contains("dokument/") => {
+                tracing::error!("Failed parsing XML: {}", err);
+                tracing::error!("Failing xml: {}", text);
+                let new_url = url.replace("dokument", "dokumentstatus");
+                tracing::info!("Trying {} instead", new_url);
+                new_urls.push(new_url);
+                if text.starts_with("<div") {
+                    items.push((format!("{url}_text"), Item::Div(text)));
+                }
+                return Ok((items, new_urls));
+            }
+            Err(err) => {
+                tracing::error!("Failed parsing XML: {}", err);
+                tracing::error!("Failing xml: {}", text);
+                return Err(err.into());
+            }
+            Ok(item) => item,
+        };
+        println!("item={:#?}", item);
         println!("url={url}");
         // let item: JsonValue = response.json().await.map_err(|err| {
         //     tracing::error!("Failed parsing JSON: {}", err);
         //     err
         // })?;
-        if url.contains("dokumentlista") {
-            // if let Some(nasta_sida) = item["dokumentlista"].get("@nasta_sida") {
-            //     if let Some(url) = nasta_sida.as_str() {
-            //         new_urls.push(url.into());
-            //     }
-            // }
-            // for dokument in item["dokumentlista"]["dokument"]
-            //     .as_array()
-            //     .ok_or_else(|| {
-            //         Error::UnexpectedJsonFormat("'dokumentlist.dokument' is not an array".into())
-            //     })?
-            // {
-            //     let dok_id = dokument["dok_id"].as_str().ok_or_else(|| {
-            //         Error::UnexpectedJsonFormat("dokument is missing 'dok_id'".into())
-            //     })?;
-            //     // let new_url = if dok_id.contains("sfs-N") {
-            //     //     format!("{dokument_url}/{dok_id}/json")
-            //     // } else if dok_id.contains("riks") {
-            //     //     format!("{dokumentstatus_url}/{dok_id}.json")
-            //     // } else {
-            //     //     format!("{dokumentstatus_url}/{dok_id}?utdata=json")
-            //     // };
-            //     let new_url = format!("{dokument_url}/{dok_id}.json");
-            //     new_urls.push(new_url);
-            // }
-        } else if url.contains("dokumentstatus") {
-            tracing::trace!("scraping dokumentstatus");
-        } else if url.contains("dokument") {
-            tracing::trace!("scraping dokument");
-            // let mut create_new_url = true;
-            // if let Some(dokumentstatus) = item.get("dokumentstatus") {
-            //     if let Some(dokument) = dokumentstatus.get("dokument") {
-            //         if let Some(_dokument) = dokument.get("dok_id") {
-            //             create_new_url = false;
-            //         }
-            //     }
-            // }
-            // if create_new_url {
-            //     let new_url = url.replace("dokument", "dokumentstatus");
-            //     new_urls.push(new_url);
-            // }
-        } else {
-            tracing::warn!("don't know how to scrape '{}'", url);
+        match &item {
+            Item::DokumentStatus(dokumentstatus) => {}
+            Item::DokumentLista(dokumentlista) => {
+                new_urls.push(dokumentlista.nasta_sida.clone());
+                for dokument in &dokumentlista.dokument {
+                    let dok_id = dokument.dok_id.as_str();
+                    let new_url = format!("{dokument_url}/{dok_id}");
+                    new_urls.push(new_url);
+                }
+            }
+            _ => {}
         }
-        // items.push((url, item));
+        // if url.contains("dokumentlista") {
+        //     // if let Some(nasta_sida) = item["dokumentlista"].get("@nasta_sida") {
+        //     //     if let Some(url) = nasta_sida.as_str() {
+        //     //         new_urls.push(url.into());
+        //     //     }
+        //     // }
+        //     // for dokument in item["dokumentlista"]["dokument"]
+        //     //     .as_array()
+        //     //     .ok_or_else(|| {
+        //     //         Error::UnexpectedJsonFormat("'dokumentlist.dokument' is not an array".into())
+        //     //     })?
+        //     // {
+        //     //     let dok_id = dokument["dok_id"].as_str().ok_or_else(|| {
+        //     //         Error::UnexpectedJsonFormat("dokument is missing 'dok_id'".into())
+        //     //     })?;
+        //     //     // let new_url = if dok_id.contains("sfs-N") {
+        //     //     //     format!("{dokument_url}/{dok_id}/json")
+        //     //     // } else if dok_id.contains("riks") {
+        //     //     //     format!("{dokumentstatus_url}/{dok_id}.json")
+        //     //     // } else {
+        //     //     //     format!("{dokumentstatus_url}/{dok_id}?utdata=json")
+        //     //     // };
+        //     //     let new_url = format!("{dokument_url}/{dok_id}.json");
+        //     //     new_urls.push(new_url);
+        //     // }
+        // } else if url.contains("dokumentstatus") {
+        //     tracing::trace!("scraping dokumentstatus");
+        // } else if url.contains("dokument") {
+        //     tracing::trace!("scraping dokument");
+        //     // let mut create_new_url = true;
+        //     // if let Some(dokumentstatus) = item.get("dokumentstatus") {
+        //     //     if let Some(dokument) = dokumentstatus.get("dokument") {
+        //     //         if let Some(_dokument) = dokument.get("dok_id") {
+        //     //             create_new_url = false;
+        //     //         }
+        //     //     }
+        //     // }
+        //     // if create_new_url {
+        //     //     let new_url = url.replace("dokument", "dokumentstatus");
+        //     //     new_urls.push(new_url);
+        //     // }
+        // } else {
+        //     tracing::warn!("don't know how to scrape '{}'", url);
+        // }
+        items.push((url, item));
         Ok((items, new_urls))
     }
 
@@ -193,36 +222,46 @@ impl webcrawler::Spider for SfsSpider {
     async fn process(&self, item: Self::Item) -> Result<(), Error> {
         let (url, item) = item;
         let mut path = self.output_path.clone();
-        let mut file_name = String::new();
+        let file_name;
         tracing::info!("analyzing url={}", url);
-        if let Some(dokument_lista) = item.get("dokumentlista") {
-            path.push("dokumentlista");
-            file_name = dokument_lista["@q"]
+        match &item {
+            Item::DokumentLista(dokumentlista) => {
+                path.push("dokumentlista");
+                file_name = dokumentlista
+                    .q
+                    .as_str()
+                    // .ok_or_else(|| {
+                    //     tracing::error!("item={:?} url={}", item, url);
+                    //     Error::UnexpectedJsonFormat("Can't find 'dokumentlista.@q".into())
+                    // })?
+                    .replace('&', "_");
+            }
+            Item::DokumentStatus(dokumentstatus) => {
+                let dokument_typ = dokumentstatus.dokument.typ
                 .as_str()
-                .ok_or_else(|| {
-                    tracing::error!("item={:?} url={}", item, url);
-                    Error::UnexpectedJsonFormat("Can't find 'dokumentlista.@q".into())
-                })?
-                .replace('&', "_");
-        } else if let Some(dokumentstatus) = item.get("dokumentstatus") {
-            let dokument_typ = dokumentstatus["dokument"]["typ"]
-                .as_str()
-                .unwrap_or("NO_TYP");
-            path.push(dokument_typ);
-            let dokument_rm = dokumentstatus["dokument"]["rm"].as_str().unwrap_or("NO_RM");
-            path.push(dokument_rm);
+                // .unwrap_or("NO_TYP")
+                ;
+                path.push(dokument_typ);
+                let dokument_rm = dokumentstatus.dokument.rm.as_str(); //.unwrap_or("NO_RM");
+                path.push(dokument_rm);
 
-            file_name = dokumentstatus["dokument"]["dok_id"]
-                .as_str()
-                .unwrap_or_else(|| {
-                    tracing::error!("no dok_id in item={:?} for url={}", item, url);
-                    ""
-                    // Error::UnexpectedJsonFormat("can't find 'dokument.dok_id'".into())
-                })
-                .replace(' ', "_")
-                .replace('.', "_");
+                file_name = dokumentstatus
+                    .dokument
+                    .dok_id
+                    .as_str()
+                    // .unwrap_or_else(|| {
+                    //     tracing::error!("no dok_id in item={:?} for url={}", item, url);
+                    //     ""
+                    //     // Error::UnexpectedJsonFormat("can't find 'dokument.dok_id'".into())
+                    // })
+                    .replace(' ', "_")
+                    .replace('.', "_");
+            }
+            _ => {
+                file_name = String::new();
+                path.push("unknown");
+            }
         }
-
         tokio::fs::create_dir_all(&path).await.map_err(|err| {
             tracing::error!("failed creating path='{}', url={}", path.display(), url);
             err
@@ -256,13 +295,4 @@ impl webcrawler::Spider for SfsSpider {
         })?;
         Ok(())
     }
-}
-
-#[derive(Debug, serde::Deserialize)]
-#[serde(rename_all = "snake_case")]
-pub enum Root {
-    Dokument(Dokument),
-    #[serde(rename = "dokumentlista")]
-    DokumentLista(DokumentLista),
-    // Other(String),
 }
