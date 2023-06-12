@@ -154,14 +154,13 @@ impl webcrawler::Spider for SfsSpider {
         };
         println!("item={:#?}", item);
         println!("url={url}");
-        // let item: JsonValue = response.json().await.map_err(|err| {
-        //     tracing::error!("Failed parsing JSON: {}", err);
-        //     err
-        // })?;
+
         match &item {
             Item::DokumentStatus(dokumentstatus) => {}
             Item::DokumentLista(dokumentlista) => {
-                new_urls.push(dokumentlista.nasta_sida.clone());
+                if let Some(nasta_sida) = &dokumentlista.nasta_sida {
+                    new_urls.push(nasta_sida.clone());
+                }
                 for dokument in &dokumentlista.dokument {
                     let dok_id = dokument.dok_id.as_str();
                     let new_url = format!("{dokument_url}/{dok_id}");
@@ -170,50 +169,7 @@ impl webcrawler::Spider for SfsSpider {
             }
             _ => {}
         }
-        // if url.contains("dokumentlista") {
-        //     // if let Some(nasta_sida) = item["dokumentlista"].get("@nasta_sida") {
-        //     //     if let Some(url) = nasta_sida.as_str() {
-        //     //         new_urls.push(url.into());
-        //     //     }
-        //     // }
-        //     // for dokument in item["dokumentlista"]["dokument"]
-        //     //     .as_array()
-        //     //     .ok_or_else(|| {
-        //     //         Error::UnexpectedJsonFormat("'dokumentlist.dokument' is not an array".into())
-        //     //     })?
-        //     // {
-        //     //     let dok_id = dokument["dok_id"].as_str().ok_or_else(|| {
-        //     //         Error::UnexpectedJsonFormat("dokument is missing 'dok_id'".into())
-        //     //     })?;
-        //     //     // let new_url = if dok_id.contains("sfs-N") {
-        //     //     //     format!("{dokument_url}/{dok_id}/json")
-        //     //     // } else if dok_id.contains("riks") {
-        //     //     //     format!("{dokumentstatus_url}/{dok_id}.json")
-        //     //     // } else {
-        //     //     //     format!("{dokumentstatus_url}/{dok_id}?utdata=json")
-        //     //     // };
-        //     //     let new_url = format!("{dokument_url}/{dok_id}.json");
-        //     //     new_urls.push(new_url);
-        //     // }
-        // } else if url.contains("dokumentstatus") {
-        //     tracing::trace!("scraping dokumentstatus");
-        // } else if url.contains("dokument") {
-        //     tracing::trace!("scraping dokument");
-        //     // let mut create_new_url = true;
-        //     // if let Some(dokumentstatus) = item.get("dokumentstatus") {
-        //     //     if let Some(dokument) = dokumentstatus.get("dokument") {
-        //     //         if let Some(_dokument) = dokument.get("dok_id") {
-        //     //             create_new_url = false;
-        //     //         }
-        //     //     }
-        //     // }
-        //     // if create_new_url {
-        //     //     let new_url = url.replace("dokument", "dokumentstatus");
-        //     //     new_urls.push(new_url);
-        //     // }
-        // } else {
-        //     tracing::warn!("don't know how to scrape '{}'", url);
-        // }
+
         items.push((url, item));
         Ok((items, new_urls))
     }
@@ -227,14 +183,7 @@ impl webcrawler::Spider for SfsSpider {
         match &item {
             Item::DokumentLista(dokumentlista) => {
                 path.push("dokumentlista");
-                file_name = dokumentlista
-                    .q
-                    .as_str()
-                    // .ok_or_else(|| {
-                    //     tracing::error!("item={:?} url={}", item, url);
-                    //     Error::UnexpectedJsonFormat("Can't find 'dokumentlista.@q".into())
-                    // })?
-                    .replace('&', "_");
+                file_name = dokumentlista.q.as_str().replace('&', "_");
             }
             Item::DokumentStatus(dokumentstatus) => {
                 let dokument_typ = dokumentstatus.dokument.typ
@@ -242,18 +191,13 @@ impl webcrawler::Spider for SfsSpider {
                 // .unwrap_or("NO_TYP")
                 ;
                 path.push(dokument_typ);
-                let dokument_rm = dokumentstatus.dokument.rm.as_str(); //.unwrap_or("NO_RM");
+                let dokument_rm = dokumentstatus.dokument.rm.as_str();
                 path.push(dokument_rm);
 
                 file_name = dokumentstatus
                     .dokument
                     .dok_id
                     .as_str()
-                    // .unwrap_or_else(|| {
-                    //     tracing::error!("no dok_id in item={:?} for url={}", item, url);
-                    //     ""
-                    //     // Error::UnexpectedJsonFormat("can't find 'dokument.dok_id'".into())
-                    // })
                     .replace(' ', "_")
                     .replace('.', "_");
             }

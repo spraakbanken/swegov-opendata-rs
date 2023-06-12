@@ -17,27 +17,12 @@ where
         match reader.read_event_into(&mut buf)? {
             Event::Decl(_) => {}
             Event::Start(start) => {
-                // let mut obj = Value::Object(Map::<String, Value>::new());
-                // for attr in start.attributes() {
-                //     let attr = attr?;
-                //     let attr_key = String::from_utf8(attr.key.as_ref().to_vec()).unwrap();
-                //     let attr_value = attr.unescape_value().unwrap().to_string();
-                //     let attr_key = format!("@{attr_key}");
-                //     obj[attr_key] = Value::String(attr_value);
-                // }
                 let obj = xml_to_json_value(reader, &start)?;
                 let key = String::from_utf8(start.name().as_ref().to_vec()).unwrap();
                 json[key] = obj
             }
             Event::Empty(start) => {
-                let mut obj = Value::Object(Map::<String, Value>::new());
-                for attr in start.attributes() {
-                    let attr = attr?;
-                    let attr_key = String::from_utf8(attr.key.as_ref().to_vec()).unwrap();
-                    let attr_value = attr.unescape_value().unwrap().to_string();
-                    let attr_key = format!("@{attr_key}");
-                    obj[attr_key] = Value::String(attr_value);
-                }
+                let obj = json_object_from_attributes(&start)?;
                 let key = String::from_utf8(start.name().as_ref().to_vec()).unwrap();
                 json[key] = obj
             }
@@ -59,14 +44,7 @@ where
 {
     use quick_xml::events::Event;
     use serde_json::{Map, Value};
-    // let mut obj = Value::Object(Map::<String, Value>::new());
-    // for attr in start.attributes() {
-    //     let attr = attr?;
-    //     let attr_key = String::from_utf8(attr.key.as_ref().to_vec()).unwrap();
-    //     let attr_value = attr.unescape_value().unwrap().to_string();
-    //     let attr_key = format!("@{attr_key}");
-    //     obj[attr_key] = Value::String(attr_value);
-    // }
+
     let mut obj = json_object_from_attributes(start)?;
     let mut buf = Vec::new();
     let expected_end = start.to_end().to_owned();
