@@ -25,4 +25,5 @@ members = [
     "swegov-opendata",
     "webcrawler",
     "opendata-spiders",
+    "xml2json",
 ]

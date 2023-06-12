@@ -1,9 +1,19 @@
-use deserx::DeXml;
-use opendata_spiders::item::Item;
-use quick_xml::{events::BytesStart, NsReader};
+use error_iter::ErrorIter as _;
 use std::{collections::HashMap, error::Error, fs, io};
+use xml2json::xml_to_json;
 
-fn main() -> Result<(), Box<dyn Error>> {
+fn main() {
+    if let Err(err) = try_main() {
+        eprintln!("Error: {}", err);
+        if let Some(source) = err.source() {
+            eprintln!("  Caused by: {}", source);
+        }
+        // for source in err.sources().skip(1) {
+        //     eprintln!("  Caused by: {}", source);
+        // }
+    }
+}
+fn try_main() -> Result<(), Box<dyn Error + 'static>> {
     // read_dokumentlista_json("assets/dokumentlista.json")?;
 
     // test_dokumentstatus("assets/sfs-1880-48_s_1.json")?;
