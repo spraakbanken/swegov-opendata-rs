@@ -6,3 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.71"
+chrono = { version = "0.4.26", features = ["serde"] }
+flate2 = "1.0.26"
+minidom = "0.15.2"
+quick-xml = { version = "0.29.0", features = ["serialize"] }
+scraper = "0.16.0"
+serde = "1.0.164"
+serde_json = "1.0.96"
+swegov-opendata = { version = "0.2.0", path = "../swegov-opendata" }
+walkdir = "2.3.3"

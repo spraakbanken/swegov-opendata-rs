@@ -26,56 +26,56 @@ pub struct DokumentStatus {
 #[serde(deny_unknown_fields)]
 pub struct Dokument {
     pub dok_id: String,
-    hangar_id: String,
+    pub hangar_id: String,
     pub rm: String,
-    beteckning: String,
+    pub beteckning: String,
     pub typ: String,
-    subtyp: String,
+    pub subtyp: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    doktyp: Option<String>,
+    pub doktyp: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    typrubrik: Option<String>,
-    dokumentnamn: String,
+    pub typrubrik: Option<String>,
+    pub dokumentnamn: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    debattnamn: Option<String>,
-    tempbeteckning: String,
-    organ: String,
+    pub debattnamn: Option<String>,
+    pub tempbeteckning: String,
+    pub organ: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    mottagare: Option<String>,
+    pub mottagare: Option<String>,
     // #[serde(deserialize_with = "deserialize_tryparse_from_string")]
     // nummer: TryParse<u64>,
-    nummer: String,
+    pub nummer: String,
     // #[serde(deserialize_with = "deserialize_number_from_string")]
-    slutnummer: String,
+    pub slutnummer: String,
     #[serde(with = "date_formats::swe_date_format")]
-    datum: NaiveDateTime,
+    pub datum: NaiveDateTime,
     #[serde(with = "date_formats::swe_date_format")]
-    publicerad: NaiveDateTime,
+    pub publicerad: NaiveDateTime,
     #[serde(with = "date_formats::swe_date_format")]
-    systemdatum: NaiveDateTime,
-    titel: String,
-    subtitel: String,
-    status: String,
+    pub systemdatum: NaiveDateTime,
+    pub titel: String,
+    pub subtitel: String,
+    pub status: String,
     #[serde(skip_serializing_if = "Option::is_none")]
-    htmlformat: Option<String>,
+    pub htmlformat: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    relaterat_id: Option<String>,
+    pub relaterat_id: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    source: Option<String>,
+    pub source: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    sourceid: Option<String>,
+    pub sourceid: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    dokument_url_text: Option<String>,
+    pub dokument_url_text: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    dokument_url_html: Option<String>,
+    pub dokument_url_html: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    dokumentstatus_url_xml: Option<String>,
+    pub dokumentstatus_url_xml: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    utskottsforslag_url_xml: Option<String>,
+    pub utskottsforslag_url_xml: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    text: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub html: Option<String>,
+    pub text: Option<String>,
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    pub html: String,
 }
 
 impl Dokument {
@@ -94,15 +94,18 @@ impl Dokument {
     pub fn organ(&self) -> &str {
         &self.organ
     }
-    pub fn html(&self) -> Option<&str> {
-        self.html.as_ref().map(|s| s.as_str())
+    // pub fn html(&self) -> Option<&str> {
+    //     self.html.as_ref().map(|s| s.as_str())
+    // }
+    pub fn html(&self) -> &str {
+        self.html.as_str()
     }
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct DokUppgift {
-    uppgift: Vec<Uppgift>,
+    pub uppgift: Vec<Uppgift>,
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
@@ -126,16 +129,16 @@ pub struct Bilaga {
 #[serde(deny_unknown_fields)]
 pub struct Uppgift {
     #[serde(skip_serializing_if = "Option::is_none")]
-    dok_id: Option<String>,
-    kod: String,
-    namn: String,
+    pub dok_id: Option<String>,
+    pub kod: String,
+    pub namn: String,
     #[serde(
         skip_serializing_if = "Option::is_none",
         with = "date_formats::option_swe_date_format",
         default
     )]
-    systemdatum: Option<NaiveDateTime>,
-    text: Option<String>,
+    pub systemdatum: Option<NaiveDateTime>,
+    pub text: Option<String>,
 }
 
 use chrono::{NaiveDate, NaiveDateTime};
