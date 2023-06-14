@@ -20,7 +20,7 @@ pub struct SfsSpider {
 
 impl SfsSpider {
     pub fn new(options: SfsSpiderOptions) -> Self {
-        println!("{:?}", options);
+        // println!("{:?}", options);
         let SfsSpiderOptions {
             user_agent: user_agent_opt,
             output_path,
@@ -152,8 +152,8 @@ impl webcrawler::Spider for SfsSpider {
             }
             Ok(item) => item,
         };
-        println!("item={:#?}", item);
-        println!("url={url}");
+        // println!("item={:#?}", item);
+        // println!("url={url}");
 
         match &item {
             Item::DokumentStatus(dokumentstatus) => {}
