@@ -75,7 +75,7 @@ pub struct Dokument {
     #[serde(skip_serializing_if = "Option::is_none")]
     text: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    html: Option<String>,
+    pub html: Option<String>,
 }
 
 impl Dokument {
