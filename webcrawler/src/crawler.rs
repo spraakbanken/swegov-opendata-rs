@@ -1,7 +1,11 @@
 use crate::Spider;
 use futures::stream::StreamExt;
+use serde::de::Deserialize;
 use std::{
     collections::HashSet,
+    fs,
+    io::{self, Write},
+    path::PathBuf,
     sync::{
         atomic::{AtomicUsize, Ordering},
         Arc,
@@ -17,6 +21,7 @@ pub struct Crawler {
     delay: Duration,
     crawling_concurrency: usize,
     processing_concurrency: usize,
+    saved_state_path: Option<PathBuf>,
 }
 
 impl Crawler {
@@ -24,11 +29,13 @@ impl Crawler {
         delay: Duration,
         crawling_concurrency: usize,
         processing_concurrency: usize,
+        saved_state_path: Option<PathBuf>,
     ) -> Self {
         Self {
             delay,
             crawling_concurrency,
             processing_concurrency,
+            saved_state_path,
         }
     }
 
@@ -38,7 +45,54 @@ impl Crawler {
     ) {
         tracing::info!("running spider '{}'", spider.name());
         let starting_time = Instant::now();
-        let mut visited_urls = HashSet::<String>::new();
+        let mut visited_urls = if let Some(saved_state_path) = &self.saved_state_path {
+            match fs::File::open(saved_state_path) {
+                Ok(file) => {
+                    let reader = io::BufReader::new(file);
+                    match serde_json::from_reader::<io::BufReader<fs::File>, serde_json::Value>(
+                        reader,
+                    ) {
+                        Ok(mut json) => {
+                            match HashSet::<String>::deserialize(json["visited_urls"].take()) {
+                                Ok(visited_urls) => {
+                                    tracing::info!(
+                                        "read saved state from '{}'",
+                                        saved_state_path.display()
+                                    );
+                                    visited_urls
+                                }
+                                Err(err) => {
+                                    tracing::error!(
+                                        "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
+                                        saved_state_path.display(),
+                                        err
+                                    );
+                                    HashSet::<String>::new()
+                                }
+                            }
+                        }
+                        Err(err) => {
+                            tracing::error!(
+                                "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
+                                saved_state_path.display(),
+                                err
+                            );
+                            HashSet::<String>::new()
+                        }
+                    }
+                }
+                Err(err) => {
+                    tracing::error!(
+                        "Failed to open file from '{}' Error: '{:?}'. Ignoring",
+                        saved_state_path.display(),
+                        err
+                    );
+                    HashSet::<String>::new()
+                }
+            }
+        } else {
+            HashSet::<String>::new()
+        };
         let crawling_concurrency = self.crawling_concurrency;
         let crawling_queue_capacity = crawling_concurrency * 400;
         let processing_concurrency = self.processing_concurrency;
@@ -115,6 +169,46 @@ impl Crawler {
 
         // and then we wait for the streams to complete
         barrier.wait().await;
+
+        let json = serde_json::json!({ "visited_urls": visited_urls });
+        match serde_json::to_string(&json) {
+            Ok(json_string) => {
+                if let Some(state_path) = &self.saved_state_path {
+                    tracing::info!("crawler: writing state to '{}'", state_path.display());
+
+                    match fs::File::create(state_path) {
+                        Ok(mut file) => match file.write_all(json_string.as_bytes()) {
+                            Ok(_) => {
+                                tracing::info!("crawler: wrote state to '{}'", state_path.display())
+                            }
+                            Err(err) => {
+                                tracing::error!(
+                                    "failed write to '{}', error '{:?}'",
+                                    state_path.display(),
+                                    err
+                                );
+                                tracing::error!("visited_urls={:?}", json_string);
+                            }
+                        },
+                        Err(err) => {
+                            tracing::error!(
+                                "failed to create '{}', error '{:?}'",
+                                state_path.display(),
+                                err
+                            );
+                            tracing::error!("visited_urls={:?}", json_string);
+                        }
+                    }
+                } else {
+                    tracing::info!("crawler: writing state to 'stdout'");
+                    let _ = io::stdout().lock().write_all(json_string.as_bytes());
+                }
+            }
+            Err(err) => {
+                tracing::error!("failed to serialize state, error '{:?}'", err);
+                tracing::error!("visited_urls={:?}", json);
+            }
+        }
 
         let num_procs = num_processings.load(Ordering::Relaxed);
         let num_proc_errors = num_process_errors.load(Ordering::Relaxed);

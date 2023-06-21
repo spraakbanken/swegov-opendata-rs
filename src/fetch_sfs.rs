@@ -7,6 +7,7 @@ use webcrawler::Crawler;
 mod configuration;
 
 // pub use crate::error::Error;
+const PROCESSED_STATE: &str = "visited.json";
 
 #[tokio::main]
 async fn main() {
@@ -22,7 +23,7 @@ async fn try_main() -> anyhow::Result<()> {
         .json()
         .with_env_filter(
             EnvFilter::try_from_default_env()
-                .or_else(|_| EnvFilter::try_new("fetch_sfs=trace,info"))
+                .or_else(|_| EnvFilter::try_new("fetch_sfs=info,info"))
                 .expect("telemetry: Creating EnvFilter"),
         )
         .with_writer(io::stderr)
@@ -32,7 +33,12 @@ async fn try_main() -> anyhow::Result<()> {
 
     let config = configuration::get_configuration()?;
 
-    let crawler = Crawler::new(Duration::from_millis(500), 2, 50);
+    let crawler = Crawler::new(
+        Duration::from_millis(500),
+        2,
+        50,
+        Some(PROCESSED_STATE.into()),
+    );
     let spider = Arc::new(opendata_spiders::sfs::SfsSpider::new(config.sfs));
     crawler.run(spider).await;
     Ok(())
