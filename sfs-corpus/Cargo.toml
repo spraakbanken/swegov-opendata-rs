@@ -9,7 +9,7 @@ edition = "2021"
 anyhow = "1.0.71"
 chrono = { version = "0.4.26", features = ["serde"] }
 flate2 = "1.0.26"
-minidom = "0.15.2"
+minidom = { package = "minidom-14", version = "0.16" }
 quick-xml = { version = "0.29.0", features = ["serialize"] }
 scraper = "0.16.0"
 serde = "1.0.164"
@@ -18,3 +18,11 @@ swegov-opendata = { version = "0.2.0", path = "../swegov-opendata" }
 walkdir = "2.3.3"
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
+select = "0.6.0"
+tracing-appender = "0.2.2"
+soup = "0.5.1"
+markup5ever = "0.11.0"
+html5ever = "0.22.5"
+
+[dev-dependencies]
+itertools = "0.11.0"

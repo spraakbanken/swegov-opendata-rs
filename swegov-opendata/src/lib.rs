@@ -108,6 +108,17 @@ pub struct DokUppgift {
     pub uppgift: Vec<Uppgift>,
 }
 
+impl DokUppgift {
+    pub fn get_by_kod(&self, kod: &str) -> Option<&String> {
+        for uppgift in &self.uppgift {
+            if uppgift.kod.as_str() == kod {
+                return uppgift.text.as_ref();
+            }
+        }
+        None
+    }
+}
+
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct DokBilaga {

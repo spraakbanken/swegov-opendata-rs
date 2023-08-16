@@ -9,3 +9,6 @@ spiders-quick-dev:
 
 quick-dev:
     cargo watch -q -c -w src -w sfs-corpus-core -x 'run -- generate xml data/sfs/output/sfs'
+
+sfs-corpus-watch-test:
+    cargo watch -q -c -w sfs-corpus -x 'test -p sfs-corpus'
