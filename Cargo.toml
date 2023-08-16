@@ -14,8 +14,8 @@ anyhow = "1.0.71"
 config = "0.13.3"
 serde = { version = "1.0.160", features = ["derive"] }
 tokio = { version = "1.28.0", features = ["macros", "rt-multi-thread", "fs"] }
-tracing = "0.1.37"
-tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
 webcrawler = { version = "0.1.0", path = "webcrawler" }
 opendata-spiders = { version = "0.1.0", path = "opendata-spiders" }
 
@@ -28,3 +28,7 @@ members = [
     "opendata-spiders",
     "xml2json",
 ]
+
+[workspace.dependencies]
+tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
+tracing = "0.1.37"
