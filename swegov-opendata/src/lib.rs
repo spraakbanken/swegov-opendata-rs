@@ -1,13 +1,10 @@
 pub mod date_formats;
 pub mod try_parse;
 
-use crate::try_parse::{deserialize_tryparse_from_string, TryParse};
-use deserx::DeXml;
-use quick_xml::events::BytesEnd;
+use crate::try_parse::TryParse;
 use serde_with::serde_as;
 use serde_with::DisplayFromStr;
 
-use serde_aux::field_attributes::deserialize_number_from_string;
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct DokumentStatusPage {
@@ -122,19 +119,19 @@ impl DokUppgift {
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct DokBilaga {
-    bilaga: Vec<Bilaga>,
+    pub bilaga: Vec<Bilaga>,
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Bilaga {
-    dok_id: String,
-    fil_url: String,
-    filnamn: String,
-    filstorlek: String,
-    filtyp: String,
-    subtitel: String,
-    titel: String,
+    pub dok_id: String,
+    pub fil_url: String,
+    pub filnamn: String,
+    pub filstorlek: String,
+    pub filtyp: String,
+    pub subtitel: String,
+    pub titel: String,
 }
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]

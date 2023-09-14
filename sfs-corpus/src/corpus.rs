@@ -1,21 +1,13 @@
-use std::fmt;
-
-use chrono::{NaiveDate, NaiveDateTime};
+use chrono::NaiveDate;
 use html5ever::rcdom::{self, NodeData};
 use minidom::{Element, Node};
-use quick_xml::{events::Event, Reader};
-use scraper::{ElementRef, Html, Selector};
-use select::{
-    document::Document,
-    predicate::{self, Class},
-};
+
 use soup::prelude::*;
-use swegov_opendata::{DokUppgift, Dokument, DokumentStatus, DokumentStatusPage};
+use swegov_opendata::{Dokument, DokumentStatus};
 
 use crate::error::Error;
 
-#[derive(Debug, Clone)] //, serde::Deserialize, serde::Serialize)]
-                        // #[serde(rename = "corpus")]
+#[derive(Debug, Clone)]
 pub struct Corpus {
     id: String,
     pub text: Vec<Text>,
@@ -51,31 +43,20 @@ impl Corpus {
         elem_builder.build()
     }
 }
-#[derive(Debug, Clone)] //, serde::Deserialize, serde::Serialize)]
-                        // #[serde(rename = "text")]
+#[derive(Debug, Clone)]
 pub struct Text {
-    // #[serde(rename = "@dok_id")]
     dok_id: String,
-    // #[serde(rename = "@title")]
     title: String,
-    // #[serde(rename = "@subtitle")]
     subtitle: String,
-    // #[serde(rename = "@rm")]
     rm: String,
-    // #[serde(rename = "@date")]
     date: NaiveDate,
-    // #[serde(
-    //     rename = "@num_pages",
-    //     skip_serializing_if = "Option::is_none",
-    //     default
-    // )]
     num_pages: Option<String>,
-    // text: String,
-    // #[serde(rename = "page")]
     upphnr: Option<String>,
     upphavd: Option<NaiveDate>,
+    source: Option<String>,
+    source_id: Option<String>,
+    source_url: Option<String>,
     pages: Vec<Page>,
-    // paragraphs: Vec<Paragraph>,
 }
 
 impl Text {
@@ -95,13 +76,19 @@ impl Text {
         if let Some(upphavd) = &self.upphavd {
             elem_builder = elem_builder.attr("upphavd", upphavd.to_string());
         }
+        if let Some(source) = &self.source {
+            elem_builder = elem_builder.attr("source", source);
+        }
+        if let Some(source_id) = &self.source_id {
+            elem_builder = elem_builder.attr("source_id", source_id);
+        }
+        if let Some(source_url) = &self.source_url {
+            elem_builder = elem_builder.attr("source_url", source_url);
+        }
         for page in &self.pages {
             elem_builder = elem_builder.append(page.element.clone());
         }
         let elem = elem_builder.build();
-        // let mut buffer = Vec::new();
-        // dbg!(&elem);
-        // elem.write_to(&mut buffer).expect("valid elem");
         elem
     }
 }
@@ -110,7 +97,6 @@ impl TryFrom<DokumentStatus> for Text {
     type Error = Error;
 
     fn try_from(value: DokumentStatus) -> Result<Self, Self::Error> {
-        // println!("value={:#?}", value);
         let DokumentStatus {
             dokument,
             dokuppgift,
@@ -125,58 +111,13 @@ impl TryFrom<DokumentStatus> for Text {
             subtitel,
             ..
         } = dokument;
-        // let mut pages = Vec::new();
         if html.is_empty() {
             todo!("handle `html` empty");
         }
 
-        println!("parsing html ...");
+        tracing::debug!("parsing html ...");
         let pages = parse_html(&html)?;
-        // let fragment = Html::parse_fragment(&html);
 
-        // dbg!(&fragment.html());
-        // let document = select::document::Document::from(html.as_str());
-        // dbg!(&document);
-
-        // if parse_ocr_div(&text, &mut pages)? {}
-        // let div_selector = make_selector("div[class=\"sida\"]");
-        // for (i, div_page) in fragment.select(&div_selector).enumerate() {
-        //     let mut page = parse_page(div_page).map_err(|err| match err {
-        //         Error::XmlDe(msg, _num) => Error::XmlDe(msg, Some(i)),
-        //         _ => err,
-        //     })?;
-        //     page.set_number(i);
-        //     pages.push(page);
-        // }
-        // if pages.len() == 0 {
-        //     let div_selector = make_selector("div");
-        //     for (i, div_page) in fragment.select(&div_selector).enumerate() {
-        //         let mut page = parse_2023_div(div_page).map_err(|err| match err {
-        //             Error::XmlDe(msg, _num) => Error::XmlDe(msg, Some(i)),
-        //             _ => err,
-        //         })?;
-        //         page.set_number(i);
-        //         pages.push(page);
-        //     }
-        // }
-        // let p_selector = Selector::parse("p").unwrap();
-        // let p_any_selector = Selector::parse("p > *").unwrap();
-        // let mut paragraphs = Vec::new();
-        // for div in fragment.select(&div_selector) {
-        //     let mut paragraph = Paragraph::new();
-        //     // println!("div={:?}", div.html());
-        //     // let p: Element = div.html().parse().unwrap();
-        //     // println!("p={:?}", p);
-        //     for p in div.select(&p_any_selector) {
-        //         let p_str = p.html().replace("<br>", "<br />");
-        //         println!("p={:?}", p_str);
-        //         let p_f: Fragment = quick_xml::de::from_str(&p_str).expect("parse paragraph");
-        //         println!("fragment={:?}", p_f);
-        //         paragraph.add_fragment(p_f);
-        //     }
-        //     paragraphs.push(paragraph);
-        // }
-        // println!("fragment={:?}", fragment.html());
         let upphavd_opt = dokuppgift.get_by_kod("uppphavd");
         let upphavd = if let Some(upphavd_str) = upphavd_opt {
             let (upphavd_at, _remaining) =
@@ -185,7 +126,26 @@ impl TryFrom<DokumentStatus> for Text {
         } else {
             None
         };
-        println!("return from try_from for Text");
+        let source = dokument.source.clone();
+        let source_id = dokument.sourceid.clone();
+        let source_url = if let Some(dokbilaga) = dokbilaga {
+            let mut source_url = None;
+            for bilaga in dokbilaga.bilaga.iter() {
+                if !bilaga.fil_url.is_empty() {
+                    if source_url.is_some() {
+                        panic!(
+                            "source_url is already {:?} and also found '{}'",
+                            source_url, &bilaga.fil_url
+                        );
+                    }
+                    source_url = Some(bilaga.fil_url.clone());
+                }
+            }
+            source_url
+        } else {
+            None
+        };
+        tracing::debug!("return from try_from for Text");
         Ok(Self {
             dok_id,
             title: titel,
@@ -196,416 +156,79 @@ impl TryFrom<DokumentStatus> for Text {
             // text: html,
             upphnr: dokuppgift.get_by_kod("upphnr").cloned(),
             upphavd,
+            source,
+            source_id,
+            source_url,
             pages,
         })
     }
 }
 
-pub fn unescape(s: &str) -> String {
-    let mut result = String::with_capacity(s.len());
-    let mut chars = s.chars();
-    while let Some(ch) = chars.next() {
-        tracing::trace!("ch = {}", ch);
-        result.push(if ch != '\\' {
-            ch
-        } else {
-            match chars.next() {
-                Some('"') => '"',
-                // Some('\\') => '\\',
-                Some(ch2) => {
-                    tracing::trace!("ch2 = {}", ch2);
-                    ch2
-                }
-                None => panic!("Malformed escape"),
-            }
-        })
-    }
-    result
-}
-
-// pub fn parse_html(html: &str) -> Result<Vec<Page>, Error> {
 #[tracing::instrument]
 pub fn parse_html(html: &str) -> Result<Vec<Page>, Error> {
-    println!("parse_html");
-    //     tracing::trace!("parsing html '{}'", html);
-    let mut pages = Vec::new();
-    let document = Document::from(html);
+    let soup = Soup::new(html);
+    let pages = extract_pages_a1(&soup)?;
 
-    for (i, node) in document.find(Class("sida")).enumerate() {
-        // dbg!(&node);
-        let mut elem_builder = Element::builder("div", "").attr("page-no", i);
-        for (attr, value) in node.attrs() {
-            if attr != "style" {
-                elem_builder = elem_builder.attr(attr, value);
-            }
-        }
-        for child in node.children() {
-            if let Some(child_elem) = parse_html_node_to_elem(&child) {
-                elem_builder = elem_builder.append(child_elem);
-            }
-        }
-        let elem = elem_builder.build();
-        let page = Page {
-            number: i,
-            element: elem,
-        };
-        // dbg!(&page);
-        pages.push(page);
-    }
-
-    if pages.len() == 0 {
-        let soup = Soup::new(html);
-        pages = extract_pages_a1(&soup)?;
-    }
-    //     let html_str: String = unescape(html);
-    //     let mut reader = Reader::from_str(&html_str);
-
-    //     loop {
-    //         match reader.read_event()? {
-    //             Event::Start(e) => match e.name().as_ref() {
-    //                 b"div" => println!("div: {:?}", e),
-    //                 b"style" => {
-    //                     let _ = reader.read_to_end(e.to_end().name())?;
-    //                 }
-    //                 b"p" => {
-    //                     println!("p: {:?}", e)
-    //                 }
-    //                 b"span" => {
-    //                     println!("span: {:?}", e)
-    //                 }
-    //                 b"table" => {
-    //                     println!("table: {:?}", e)
-    //                 }
-    //                 b"tr" => {
-    //                     println!("tr: {:?}", e)
-    //                 }
-    //                 b"td" => {
-    //                     println!("td: {:?}", e)
-    //                 }
-    //                 _ => todo!("handle {:?}", e),
-    //             },
-    //             // Event::Text(e) => txt.push(e.unescape()?.into_owned()),
-    //             Event::Eof => break,
-    //             _ => (),
-    //         }
-    //     }
-    println!("returning from parse_html");
+    tracing::debug!("returning from parse_html");
     Ok(pages)
 }
 
-pub fn parse_html_node_to_elem<'a>(node: &select::node::Node<'a>) -> Option<Node> {
-    println!("parse_html_node_to_elem node={:?}", node);
-    if let Some(text) = node.as_text() {
-        Some(Node::Text(text.to_string()))
-    } else if let Some(name) = node.name() {
-        if !allowed_elem_name(name) {
-            tracing::warn!()
-        }
-        let mut elem_builder = Element::builder(name, "");
-        for (attr, value) in node.attrs() {
-            if attr != "style" {
-                elem_builder = elem_builder.attr(attr, value);
-            }
-        }
-        for child in node.children() {
-            if let Some(child_elem) = parse_html_node_to_elem(&child) {
-                elem_builder = elem_builder.append(child_elem);
-            }
-        }
-        let elem = elem_builder.build();
-        Some(Node::Element(elem))
-    } else if let Some(text) = node.as_comment() {
-        Some(Node::Text(text.to_string()))
-    } else {
-        todo!("parse child as node {:?}", node)
-    }
-}
-pub fn make_selector(selectors: &str) -> Selector {
-    Selector::parse(selectors).expect("corpus: valid selectors")
-}
-// pub fn parse_2023_div(div: ElementRef) -> Result<Page, Error> {
-//     let mut paragraphs = Vec::new();
-//     // let mut paragraph = Paragraph::new();
-
-//     // let p_str = div.inner_html().replace("<br>", "<br />");
-//     // println!("  p={:?}", p_str);
-//     // let p_f: Fragment = match quick_xml::de::from_str(&p_str) {
-//     //     Ok(p_f) => p_f,
-//     //     Err(err) => {
-//     //         eprintln!("parse_2023_div: Error: {:?}", err);
-//     //         println!("Error: {:?}", err);
-//     //         Fragment::Bad(Bad { text: p_str })
-//     //     }
-//     // };
-//     // println!("fragment={:?}", p_f);
-//     // paragraph.add_fragment(p_f);
-//     // paragraphs.push(paragraph);
-
-//     let div_selector = make_selector("div");
-//     let p_any_selector = make_selector("div>*");
-//     for div in div.select(&p_any_selector) {
-//         let mut paragraph = Paragraph::new();
-//         println!("  [parse_2023_div] p={:?}", div.html());
-//         // let p: Element = div.html().parse().unwrap();
-//         // println!("p={:?}", p);
-//         for p in div.select(&p_any_selector) {
-//             let p_str = p.html().replace("<br>", "<br />");
-//             println!("  p={:?}", p_str);
-//             let p_f: Fragment = match quick_xml::de::from_str(&p_str) {
-//                 Ok(p_f) => p_f,
-//                 Err(err) => {
-//                     eprintln!("Error: {:?}", err);
-//                     println!("Error: {:?}", err);
-//                     Fragment::Bad(Bad { text: p_str })
-//                 }
-//             };
-//             println!("fragment={:?}", p_f);
-//             paragraph.add_fragment(p_f);
-//         }
-//         paragraphs.push(paragraph);
-//     }
-//     Ok(Page {
-//         paragraphs,
-//         ..Default::default()
-//     })
-// }
-// pub fn parse_ocr_div(div: ElementRef) -> Result<Page, Error> {
-//     let div_selector = make_selector("div[class=\"sida\"]");
-//     for (i, div_page) in fragment.select(&div_selector).enumerate() {
-//         let mut page = parse_page(div_page).map_err(|err| match err {
-//             Error::XmlDe(msg, _num) => Error::XmlDe(msg, Some(i)),
-//             _ => err,
-//         })?;
-//         page.set_number(i);
-//         pages.push(page);
-//     }
-//     let mut paragraphs = Vec::new();
-//     let div_selector = make_selector("div");
-//     let p_any_selector = make_selector("p > *");
-//     for div in div.select(&div_selector) {
-//         let mut paragraph = Paragraph::new();
-//         // println!("div={:?}", div.html());
-//         // let p: Element = div.html().parse().unwrap();
-//         // println!("p={:?}", p);
-//         for p in div.select(&p_any_selector) {
-//             let p_str = p.html().replace("<br>", "<br />");
-//             println!("  [parse_page] p={:?}", p_str);
-//             let p_f: Fragment = match quick_xml::de::from_str(&p_str) {
-//                 Ok(p_f) => p_f,
-//                 Err(err) => {
-//                     eprintln!("Error: {:?}", err);
-//                     println!("Error: {:?}", err);
-//                     Fragment::Bad(Bad { text: p_str })
-//                 }
-//             };
-//             println!("fragment={:?}", p_f);
-//             paragraph.add_fragment(p_f);
-//         }
-//         paragraphs.push(paragraph);
-//     }
-//     Ok(Page {
-//         paragraphs,
-//         ..Default::default()
-//     })
-// }
 #[derive(Debug, Clone, PartialEq)]
 pub struct Page {
     number: usize,
     element: Element,
 }
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-// #[serde(rename = "p")]
-pub struct Page_01 {
-    #[serde(rename = "@nr")]
-    number: usize,
-    #[serde(rename = "div")]
-    paragraphs: Vec<Paragraph>,
-}
 
-// impl Default for Page {
-//     fn default() -> Self {
-//         Self {
-//             number: 0,
-//             paragraphs: Vec::default(),
-//         }
-//     }
-// }
+impl Default for Page {
+    fn default() -> Self {
+        Self::new(0)
+    }
+}
 
 impl Page {
-    pub fn set_number(&mut self, number: usize) {
-        self.number = number;
-    }
-}
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-// #[serde(rename = "p")]
-pub struct Paragraph {
-    // #[serde(flatten)]
-    #[serde(rename = "p")]
-    fragments: Vec<Holder>,
-}
+    pub fn new(number: usize) -> Self {
+        let element = Element::builder("page", "")
+            .attr("page-number", number.to_string())
+            .build();
 
-impl Default for Paragraph {
-    fn default() -> Self {
-        Self {
-            fragments: Vec::default(),
-        }
-    }
-}
-impl Paragraph {
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    pub fn add_fragment(&mut self, fragment: Fragment) {
-        self.fragments.push(Holder { any_name: fragment })
+        Self { number, element }
     }
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-pub struct Holder {
-    #[serde(rename = "$value")]
-    any_name: Fragment,
-}
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub enum Fragment {
-    #[serde(rename = "span")]
-    Span(Span),
-    #[serde(rename = "br")]
-    Br,
-    #[serde(rename = "i")]
-    Italic(Italic),
-    #[serde(rename = "b")]
-    Bold(Bold),
-    #[serde(rename = "a")]
-    Tag(Tag),
-    #[serde(rename = "li")]
-    ListItem(ListItem),
-    // #[serde(rename = "$text")]
-    // Text(String>),
-    #[serde(rename = "bad")]
-    Bad(Bad),
-    // #[serde(rename = "$text", default)]
-    // Text(String),
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub struct Span {
-    #[serde(rename = "$text", default)]
-    text: String,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub struct Italic {
-    #[serde(rename = "$text", default)]
-    text: String,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub struct Bold {
-    #[serde(rename = "$text", default)]
-    text: String,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub struct ListItem {
-    #[serde(rename = "$text", default)]
-    text: String,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub struct Bad {
-    #[serde(rename = "$text", default)]
-    text: String,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize, PartialEq)]
-pub struct Tag {
-    #[serde(rename = "@name")]
-    name: Option<String>,
-    #[serde(rename = "@href")]
-    href: Option<String>,
-    #[serde(rename = "$text", default)]
-    text: String,
-}
-
-pub fn parse_fragment(text: &str) -> Result<Fragment, Error> {
-    let p_f: Fragment = match quick_xml::de::from_str(text) {
-        Ok(p_f) => p_f,
-        Err(err) => {
-            eprintln!("Error: {:?}", err);
-            println!("Error: {:?}", err);
-            Fragment::Bad(Bad {
-                text: text.to_string(),
-            })
-        }
-    };
-    Ok(p_f)
-}
-
-#[tracing::instrument]
+#[tracing::instrument(skip(soup))]
 pub fn extract_pages_a1(soup: &Soup) -> Result<Vec<Page>, Error> {
     let mut pages = Vec::new();
 
-    let mut page: Page = Page {
-        number: 0,
-        element: Element::bare("page", ""),
-    };
     let mut current_page_nr = 0;
+    let mut page: Page = Page::new(current_page_nr);
     let body = soup.tag("body").find().expect("body tag");
-    dbg_node(&body);
-    for child in body.children() {
-        dbg_node(&child);
-        println!("converting soup to minidom");
+    let body = body.tag("div").class("dok").find().unwrap_or(body);
+    tracing::trace!("scanning childs");
+    for (i, child) in body.children().enumerate() {
+        tracing::trace!("- child {}, current_page_nr = {}", i, current_page_nr);
+        tracing::trace!("converting soup to minidom");
         let node = soup_node_to_minidom(&child);
         if let Some(node) = node {
-            println!("adding node to page.element {:?}", node);
+            if let Some(elem) = node.as_element() {
+                if elem.attr("class") == Some("pageWrap") {
+                    tracing::trace!("- found 'pageWrap' current_page_nr={}", current_page_nr);
+                    if current_page_nr > 0 {
+                        tracing::trace!("- pushing page number {}", page.number);
+                        pages.push(page);
+                        page = Page::new(current_page_nr);
+                    }
+                    current_page_nr += 1;
+                }
+            }
+            tracing::trace!("adding node to page.element {:?}", node);
             page.element.append_node(node);
-            println!("added node to page.element");
-            // if let Some(page) = &mut page {
-            //     page.element.append_node(node);
-            // } else {
-            //     match node {
-            //         Node::Element(element) => {
-            //             page = Some(Page {
-            //                 number: current_page_nr,
-            //                 element: element,
-            //             });
-            //             current_page_nr += 1;
-            //         }
-            //         Node::Text(text) => todo!("handle this"),
-            //     }
-            // }
+            tracing::trace!("added node to page.element");
         }
     }
-    // dbg!(&page);
-    // for elem in soup.tag(true).find_all() {
-    //     match &elem.data {
-    //         NodeData::Element {
-    //             name,
-    //             attrs,
-    //             template_contents,
-    //             mathml_annotation_xml_integration_point,
-    //         } => {
-    //             if name.local == *"html"
-    //                 || name.local == *"head"
-    //                 || name.local == *"style"
-    //                 || name.local == *"body"
-    //             {
-    //                 continue;
-    //             }
-    //             page = Some(Page {
-    //                 number: current_page_nr,
-    //                 element: Element::bare(name.local.to_string(), ""),
-    //             });
-    //             current_page_nr += 1;
-    //         }
-    //         _ => todo!("handle this"),
-    //     }
-    //     dbg_node(&elem);
-    //     // todo!("help")
-    // }
+
+    tracing::trace!("- pushing page number {}", page.number);
     pages.push(page);
-    println!("returning from extract_pages_a1");
+    tracing::trace!("returning from extract_pages_a1");
     Ok(pages)
 }
 
@@ -614,8 +237,8 @@ fn soup_node_to_minidom(node: &rcdom::Handle) -> Option<minidom::Node> {
         NodeData::Element {
             name,
             attrs,
-            template_contents,
-            mathml_annotation_xml_integration_point,
+            template_contents: _,
+            mathml_annotation_xml_integration_point: _,
         } => {
             if name.local == *"html"
                 || name.local == *"head"
@@ -624,62 +247,94 @@ fn soup_node_to_minidom(node: &rcdom::Handle) -> Option<minidom::Node> {
             {
                 return None;
             }
-            println!("soup_node_to_minidom.element.name.local = {}", name.local);
+            tracing::trace!("soup_node_to_minidom.element.name.local = {}", name.local);
+            if !allowed_elem_name(&name.local) {
+                tracing::warn!("!!! Unallowed name '{}'", name.local);
+                return Some(Node::Text(format!("<{}", name.local)));
+            }
             let mut elem_builder = Element::builder(name.local.to_string(), "");
             for attr in &*attrs.borrow() {
-                let mut name = attr.name.local.to_string();
-                // let name_trimmed = name.find(char::is_alphanumeric);.trim_start_matches(is_not_alphanumeric);
-                // dbg!(name_trimmed);
-                // name.retain(char::is_alphanumeric);
-                let mut value = attr.value.to_string();
-                println!(
-                    "soup_node_to_minidom.element.attr: value (before trim) = '{}'",
+                if attr.name.local.as_ref() == "style" {
+                    continue;
+                }
+
+                let value = attr.value.trim_start_matches("\\\"");
+                let value = value.trim_end_matches("\\\"");
+                tracing::trace!(
+                    "soup_node_to_minidom.element.attr: {} = '{}'",
+                    attr.name.local,
                     value
                 );
-                // value.retain(char::is_alphanumeric);
-                let value = value.trim_start_matches("\\\"");
-                let value = value.trim_end_matches("\\\"");
-                println!("soup_node_to_minidom.element.attr: {} = '{}'", name, value);
-
-                elem_builder = elem_builder.attr(name, value);
-                println!("added attr");
+                elem_builder = elem_builder.attr(attr.name.local.as_ref(), value);
+                tracing::trace!("added attr");
             }
             for child in node.children() {
                 if let Some(child_node) = soup_node_to_minidom(&child) {
                     elem_builder = elem_builder.append(child_node);
-                    println!("appended child_node")
+                    tracing::trace!("appended child_node")
                 }
             }
             return Some(Node::Element(elem_builder.build()));
         }
         NodeData::Text { contents } => {
-            println!("soup_node_to_minidom.contents = {:?}", contents);
+            tracing::trace!("soup_node_to_minidom.contents = {:?}", contents);
             return Some(Node::Text(String::from(&*contents.borrow())));
         }
-        _ => todo!("handle this"),
+        NodeData::Comment { contents } => {
+            if contents.contains("begin:pages") {
+                return None;
+            }
+            tracing::trace!("soup_node_to_minidom.Comment = {:?}", contents);
+            return Some(Node::Text(String::from(&*contents)));
+        }
+        _ => {
+            dbg_node(&node);
+            todo!("handle this")
+        }
     }
     None
 }
 
-fn dbg_node(node: &rcdom::Handle) {
+fn allowed_elem_name(name: &str) -> bool {
+    name == "div"
+        || name == "span"
+        || name == "a"
+        || name == "p"
+        || name == "b"
+        || name == "br"
+        || name == "table"
+}
+
+fn dbg_node(node: &rcdom::Handle) -> String {
     match &node.data {
         NodeData::Element {
             name,
             attrs,
-            template_contents,
-            mathml_annotation_xml_integration_point,
+            template_contents: _,
+            mathml_annotation_xml_integration_point: _,
         } => {
-            println!("Element {{ name = {},  }}", name.local);
+            let attrs_str: Vec<String> = if attrs.borrow().len() > 0 {
+                attrs
+                    .borrow()
+                    .iter()
+                    .map(|a| format!("{}='{}'", a.name.local, a.value))
+                    .collect()
+            } else {
+                vec![]
+            };
+            format!(
+                "Element {{ name = {}, attrs = {:?} }}",
+                name.local, attrs_str
+            )
         }
         NodeData::Text { contents } => {
-            println!("Text '{:?}'", contents);
+            format!("Text '{:?}'", contents)
+        }
+        NodeData::Comment { contents } => {
+            format!("Comment '{:?}'", contents)
         }
         _ => todo!("handle"),
     }
-}
-
-fn is_not_alphanumeric(c: char) -> bool {
-    !c.is_alphanumeric()
 }
 
 #[cfg(test)]
@@ -687,29 +342,6 @@ mod tests {
     use itertools::Itertools;
 
     use super::*;
-
-    // #[test]
-    // fn parse_fragment_duplicate_text() {
-    //     let text = "<a name=\"K2\">2 kap. Har upphävts genom <i>lag (2016:51)</i>.\n</a>";
-    //     let fragment = parse_fragment(text).unwrap();
-    //     assert_eq!(
-    //         fragment,
-    //         Fragment::Tag(Tag {
-    //             name: Some("K2".to_string()),
-    //             href: None,
-    //             text: "2 kap.".to_string()
-    //         })
-    //     )
-
-    //     // let p_f: Fragment = match parse_fragment(&p_str) {
-    //     //     Ok(p_f) => p_f,
-    //     //     Err(err) => {
-    //     //         eprintln!("Error: {:?}", err);
-    //     //         println!("Error: {:?}", err);
-    //     //         Fragment::Bad(Bad { text: p_str })
-    //     //     }
-    //     // };
-    // }
 
     const EXAMPLE_HTML_FRAGMENT: &str = r##"<style>
     .document div {
@@ -953,7 +585,7 @@ mod tests {
                         .append(Node::Element(
                             Element::builder("a", "")
                                 .attr("name", "P2").attr("class", "paragraf")
-                                .append(Node::Element(Element::builder("b", "").append((Node::Text("2 §".into()))).build()))
+                                .append(Node::Element(Element::builder("b", "").append(Node::Text("2 §".into())).build()))
                                 .build(),
                         ))
                         .append(Node::Text(" \u{a0}\u{a0}Låneverksamheten utövas av\n    plan- och bostadsverket, länsbostadsnämnderna och kommunerna.".into()))

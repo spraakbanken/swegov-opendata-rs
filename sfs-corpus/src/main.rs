@@ -1,15 +1,13 @@
 use std::{
-    fmt::Write,
     fs,
-    io::{self, Read, Write as IoWrite},
+    io::{self, Read},
     path::Path,
 };
 
 use anyhow::Context;
-use swegov_opendata::{Dokument, DokumentStatus, DokumentStatusPage};
+use swegov_opendata::DokumentStatusPage;
 use tracing::Level;
 use tracing_subscriber::EnvFilter;
-use walkdir::{DirEntry, WalkDir};
 mod corpus;
 pub mod error;
 use corpus::{Corpus, Text};
@@ -19,7 +17,8 @@ fn main() {
     // construct a subscriber that prints formatted traces to stdout
     let subscriber = tracing_subscriber::fmt()
         .json()
-        // .with_span_list(true)
+        .with_span_list(true)
+        .with_current_span(true)
         .with_env_filter(
             EnvFilter::try_from_default_env()
                 .or_else(|_| EnvFilter::try_new("sfs_corpus=trace,info"))
@@ -37,7 +36,7 @@ fn main() {
 }
 
 fn try_main() -> anyhow::Result<()> {
-    let mut args = std::env::args();
+    let args = std::env::args();
     let mut args = args.skip(1);
     let input = args.next().expect("`INPUT` required");
     let output = args.next().expect("`OUTPUT` required");
@@ -48,25 +47,10 @@ fn try_main() -> anyhow::Result<()> {
 
 #[tracing::instrument]
 pub fn walk_and_build_sparv_xml(input: &str, output: &str) -> anyhow::Result<()> {
-    let sfs_folder = if let Some(sfs_folder) = fs::read_dir(input)?.find(|e| {
-        e.as_ref()
-            .unwrap()
-            .file_name()
-            .to_str()
-            .unwrap()
-            .ends_with("sfs")
-    }) {
-        sfs_folder?
-    } else {
-        return Err(anyhow::anyhow!("Can't find `sfs` folder"));
-    };
-    println!("sfs_folder: {:?}", sfs_folder);
+    println!("Reading from '{}' ...", input);
 
-    for (i, year) in fs::read_dir(sfs_folder.path())?.enumerate() {
+    for year in fs::read_dir(input)? {
         let year = year?;
-        // if i > 0 {
-        //     continue;
-        // }
         match build_sparv_xml_from_year(year.path().as_path(), Path::new(output)) {
             Ok(()) => {}
             Err(error) => {
@@ -89,10 +73,10 @@ pub fn build_sparv_xml_from_year(path: &Path, output_base: &Path) -> anyhow::Res
             file_path = ?file_path,
             "reading a file"
         );
-        println!("reading text from {}", file_path.path().display());
+        tracing::debug!("reading text from {}", file_path.path().display());
         let text = read_text(file_path.path().as_path())?;
 
-        println!("adding text to corpus");
+        tracing::debug!("adding text to corpus");
         corpus.add_text(text);
     }
 
@@ -101,8 +85,8 @@ pub fn build_sparv_xml_from_year(path: &Path, output_base: &Path) -> anyhow::Res
     let year_filename = format!("sfs-{year}.xml");
     let year_filename = output_base.join(year_filename);
     // tracing::event!("filename = {:#?}", year_filename);
-    // println!("sfs_year = {:#?}", sfs_year);
-    println!("writing corpus");
+    // tracing::debug!("sfs_year = {:#?}", sfs_year);
+    tracing::debug!("writing corpus");
     write_corpus(&corpus, &year_filename)
         .with_context(|| format!("error when writing corpus to '{}'", year_filename.display()))?;
     Ok(())
@@ -114,17 +98,17 @@ pub fn read_text(path: &Path) -> anyhow::Result<Text> {
     let file_reader = io::BufReader::new(file);
     let mut reader = flate2::read::GzDecoder::new(file_reader);
 
-    println!("[main.read_text] parsing JSON");
+    tracing::debug!("[main.read_text] parsing JSON");
     let mut text = String::new();
     reader.read_to_string(&mut text)?;
     let DokumentStatusPage { dokumentstatus } = serde_json::from_str(&text)
         .map_err(|err| {
-            // println!("text={}", text);
+            // tracing::debug!("text={}", text);
             err
         })
         .with_context(|| format!("Failed to deserialize file: {}", path.display()))?;
     // let DokumentStatusPage { dokumentstatus } = dokumentstatus;
-    println!("[main.read_text] create Text");
+    tracing::debug!("[main.read_text] create Text");
     Ok(Text::try_from(dokumentstatus)
         .with_context(|| format!("Failed to parse Text from '{}'", path.display()))?)
 }
@@ -136,9 +120,9 @@ pub fn write_corpus(corpus: &Corpus, path: &Path) -> anyhow::Result<()> {
     let file = fs::File::create(path)?;
     let mut writer = io::BufWriter::new(file);
 
-    println!("building elem from corpus");
+    tracing::debug!("building elem from corpus");
     let elem = corpus.build_elem();
-    println!("built elem from corpus, writing ...");
+    tracing::debug!("built elem from corpus, writing ...");
     // dbg!(&elem);
     elem.write_to(&mut writer)?;
     // file.write_all(&buffer.as_bytes())?;
