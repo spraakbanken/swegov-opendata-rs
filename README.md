@@ -43,6 +43,7 @@ This spider handles the following inconsistencies in the api.
 
 ## sfs-corpus
 Uses [`swegov-opendata`](#swegov-opendata).
+Build corpus files for processing with sparv.
 
 ## swegov-opendata
 
