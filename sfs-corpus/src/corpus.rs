@@ -164,7 +164,6 @@ impl TryFrom<DokumentStatus> for Text {
     }
 }
 
-#[tracing::instrument]
 pub fn parse_html(html: &str) -> Result<Vec<Page>, Error> {
     let soup = Soup::new(html);
     let pages = extract_pages_a1(&soup)?;
@@ -195,7 +194,6 @@ impl Page {
     }
 }
 
-#[tracing::instrument(skip(soup))]
 pub fn extract_pages_a1(soup: &Soup) -> Result<Vec<Page>, Error> {
     let mut pages = Vec::new();
 
@@ -303,6 +301,17 @@ fn allowed_elem_name(name: &str) -> bool {
         || name == "b"
         || name == "br"
         || name == "table"
+        || name == "tbody"
+        || name == "tr"
+        || name == "td"
+        || name == "hr"
+        || name == "h2"
+        || name == "h3"
+        || name == "h4"
+        || name == "ul"
+        || name == "li"
+        || name == "pre"
+        || name == "i"
 }
 
 fn dbg_node(node: &rcdom::Handle) -> String {

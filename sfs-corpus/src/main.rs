@@ -2,6 +2,7 @@ use std::{
     fs,
     io::{self, Read},
     path::Path,
+    time::Instant,
 };
 
 use anyhow::Context;
@@ -13,6 +14,7 @@ pub mod error;
 use corpus::{Corpus, Text};
 
 fn main() {
+    let start = Instant::now();
     let file_appender = tracing_appender::rolling::never("logs", "sfs-corpus.jsonl");
     // construct a subscriber that prints formatted traces to stdout
     let subscriber = tracing_subscriber::fmt()
@@ -21,7 +23,7 @@ fn main() {
         .with_current_span(true)
         .with_env_filter(
             EnvFilter::try_from_default_env()
-                .or_else(|_| EnvFilter::try_new("sfs_corpus=trace,info"))
+                .or_else(|_| EnvFilter::try_new("sfs_corpus=info,info"))
                 .expect("telemetry: Creating EnvFilter"),
         )
         // .with_writer(io::stderr)
@@ -30,8 +32,13 @@ fn main() {
     // use that subscriber to process traces emitted after this point
     tracing::subscriber::set_global_default(subscriber).expect("telemetry: setting subscriber");
 
-    if let Err(err) = try_main() {
+    let res = try_main();
+    let time_elapsed = start.elapsed();
+    tracing::info!(?time_elapsed, "elapsed time");
+    println!("running time: {:?}", time_elapsed);
+    if let Err(err) = res {
         eprintln!("Error: {:?}", err);
+        std::process::exit(1);
     }
 }
 
@@ -41,43 +48,54 @@ fn try_main() -> anyhow::Result<()> {
     let input = args.next().expect("`INPUT` required");
     let output = args.next().expect("`OUTPUT` required");
 
-    walk_and_build_sparv_xml(&input, &output)?;
+    let num_files_read = walk_and_build_sparv_xml(&input, &output)?;
+    tracing::info!(count = num_files_read, "files read");
     Ok(())
 }
 
 #[tracing::instrument]
-pub fn walk_and_build_sparv_xml(input: &str, output: &str) -> anyhow::Result<()> {
+pub fn walk_and_build_sparv_xml(input: &str, output: &str) -> anyhow::Result<usize> {
     println!("Reading from '{}' ...", input);
 
+    let mut num_files_read = 0;
     for year in fs::read_dir(input)? {
         let year = year?;
         match build_sparv_xml_from_year(year.path().as_path(), Path::new(output)) {
-            Ok(()) => {}
+            Ok(num_files_read_for_year) => {
+                tracing::info!(
+                    count = num_files_read_for_year,
+                    ?year,
+                    "files read for year"
+                );
+                num_files_read += num_files_read_for_year;
+            }
             Err(error) => {
                 tracing::error!(?year, error = ?error, "Error when processing year");
                 continue;
             }
         };
     }
-    Ok(())
+    Ok(num_files_read)
 }
 
 #[tracing::instrument]
-pub fn build_sparv_xml_from_year(path: &Path, output_base: &Path) -> anyhow::Result<()> {
+pub fn build_sparv_xml_from_year(path: &Path, output_base: &Path) -> anyhow::Result<usize> {
     fs::create_dir_all(output_base)?;
     let mut corpus = Corpus::new("sfs");
+    let mut num_files_read = 0;
     for file_path in fs::read_dir(path)? {
         let file_path = file_path?;
-        tracing::event!(
-            Level::INFO,
-            file_path = ?file_path,
-            "reading a file"
-        );
+        // tracing::event!(
+        //     Level::INFO,
+        //     file_path = ?file_path,
+        //     "reading a file"
+        // );
         tracing::debug!("reading text from {}", file_path.path().display());
         let text = read_text(file_path.path().as_path())?;
 
         tracing::debug!("adding text to corpus");
         corpus.add_text(text);
+        num_files_read += 1;
     }
 
     let year_str = path.display().to_string();
@@ -89,7 +107,7 @@ pub fn build_sparv_xml_from_year(path: &Path, output_base: &Path) -> anyhow::Res
     tracing::debug!("writing corpus");
     write_corpus(&corpus, &year_filename)
         .with_context(|| format!("error when writing corpus to '{}'", year_filename.display()))?;
-    Ok(())
+    Ok(num_files_read)
 }
 
 #[tracing::instrument]
@@ -113,7 +131,7 @@ pub fn read_text(path: &Path) -> anyhow::Result<Text> {
         .with_context(|| format!("Failed to parse Text from '{}'", path.display()))?)
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(corpus))]
 pub fn write_corpus(corpus: &Corpus, path: &Path) -> anyhow::Result<()> {
     // let mut buffer = String::new();
     // quick_xml::se::to_writer(&mut buffer, corpus)?;
