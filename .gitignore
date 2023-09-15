@@ -16,3 +16,6 @@ Cargo.lock
 # Data dir
 /data/
 /output/
+
+# Log dir
+/logs/
