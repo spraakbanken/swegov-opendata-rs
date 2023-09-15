@@ -1,5 +1,4 @@
-use error_iter::ErrorIter as _;
-use std::{collections::HashMap, error::Error, fs, io};
+use std::{error::Error, fs, io};
 use xml2json::xml_to_json;
 
 fn main() {

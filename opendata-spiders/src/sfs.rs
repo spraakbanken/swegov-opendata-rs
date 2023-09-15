@@ -1,13 +1,12 @@
 use std::{fmt::Debug, path::PathBuf};
 
 use async_trait::async_trait;
-use deserx::DeXml;
+
 use flate2::Compression;
 use quick_xml::de as quick_xml_de;
 use reqwest::Client;
-use serde_json::Value as JsonValue;
+
 use std::fs;
-use swegov_opendata::{Dokument, DokumentLista, DokumentStatus};
 use ulid::Ulid;
 
 use crate::item::Item;
@@ -109,7 +108,6 @@ impl webcrawler::Spider for SfsSpider {
         let mut new_urls = Vec::new();
         let mut items = Vec::new();
 
-        let dokumentstatus_url = "https://data.riksdagen.se/dokumentstatus";
         let dokument_url = "https://data.riksdagen.se/dokument";
         tracing::debug!("calling {}", url);
         let response = self.http_client.get(&url).send().await.map_err(|err| {
@@ -156,7 +154,6 @@ impl webcrawler::Spider for SfsSpider {
         // println!("url={url}");
 
         match &item {
-            Item::DokumentStatus(dokumentstatus) => {}
             Item::DokumentLista(dokumentlista) => {
                 if let Some(nasta_sida) = &dokumentlista.nasta_sida {
                     new_urls.push(nasta_sida.clone());

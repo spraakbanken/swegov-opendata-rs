@@ -1,7 +1,6 @@
-use deserx::DeXml;
 use opendata_spiders::item::Item;
-use quick_xml::{events::BytesStart, NsReader};
-use std::{collections::HashMap, error::Error, fs, io};
+
+use std::{error::Error, fs, io};
 
 fn main() -> Result<(), Box<dyn Error>> {
     // read_dokumentlista_json("assets/dokumentlista.json")?;
