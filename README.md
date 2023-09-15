@@ -57,7 +57,6 @@ The spiders work in 2 steps,
 - scraping an url for new urls and/or data
 - processing the fetched data
 
-## xml2json
 
 
 # References
