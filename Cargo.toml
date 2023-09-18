@@ -25,6 +25,7 @@ members = [
     "swegov-opendata",
     "webcrawler",
     "opendata-spiders",
+    "preprocess-rd",
 ]
 
 [workspace.dependencies]

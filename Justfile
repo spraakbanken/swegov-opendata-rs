@@ -9,3 +9,9 @@ quick-dev:
 
 sfs-corpus-watch-test:
     cargo watch -q -c -w sfs-corpus -x 'test -p sfs-corpus'
+
+preprocess-rd-watch-quick-dev:
+    cargo watch -q -c -w preprocess-rd -x 'run -p preprocess-rd'
+
+preprocess-rd-watch-test:
+    cargo watch -q -c -w preprocess-rd -x 'test -p preprocess-rd'
