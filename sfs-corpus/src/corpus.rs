@@ -208,7 +208,7 @@ pub fn extract_pages_a1(soup: &Soup) -> Result<Vec<Page>, Error> {
         let node = soup_node_to_minidom(&child);
         if let Some(node) = node {
             if let Some(elem) = node.as_element() {
-                if elem.attr("class") == Some("pageWrap") {
+                if soup_attr_equals(&child, "class", "pageWrap") {
                     tracing::trace!("- found 'pageWrap' current_page_nr={}", current_page_nr);
                     if current_page_nr > 0 {
                         tracing::trace!("- pushing page number {}", page.number);
@@ -230,6 +230,22 @@ pub fn extract_pages_a1(soup: &Soup) -> Result<Vec<Page>, Error> {
     Ok(pages)
 }
 
+fn soup_attr_equals<'a>(node: &'a rcdom::Handle, name: &str, test: &str) -> bool {
+    match &node.data {
+        NodeData::Element {
+            name: _,
+            attrs,
+            template_contents: _,
+            mathml_annotation_xml_integration_point: _,
+        } => attrs
+            .borrow()
+            .iter()
+            .find(|attr| attr.name.local.as_ref() == name)
+            .map(|attr| attr.value.as_ref() == test)
+            .unwrap_or(false),
+        _ => false,
+    }
+}
 fn soup_node_to_minidom(node: &rcdom::Handle) -> Option<minidom::Node> {
     match &node.data {
         NodeData::Element {
@@ -252,7 +268,7 @@ fn soup_node_to_minidom(node: &rcdom::Handle) -> Option<minidom::Node> {
             }
             let mut elem_builder = Element::builder(name.local.to_string(), "");
             for attr in &*attrs.borrow() {
-                if attr.name.local.as_ref() == "style" {
+                if ["style", "class"].contains(&attr.name.local.as_ref()) {
                     continue;
                 }
 
