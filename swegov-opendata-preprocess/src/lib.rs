@@ -1,6 +1,6 @@
 mod corpusinfo;
 pub mod nodeinfo;
-mod preprocess;
+pub mod preprocess;
 mod sparv_config;
 
 pub use self::corpusinfo::corpusinfo;

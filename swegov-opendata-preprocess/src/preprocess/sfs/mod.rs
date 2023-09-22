@@ -5,7 +5,8 @@ use minidom::{Element, Node};
 use soup::prelude::*;
 use swegov_opendata::{Dokument, DokumentStatus};
 
-use crate::error::Error;
+mod error;
+use self::error::Error;
 
 #[derive(Debug, Clone)]
 pub struct Corpus {

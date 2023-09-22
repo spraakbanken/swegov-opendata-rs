@@ -6,7 +6,7 @@ fn main() -> error_stack::Result<(), PreprocessError> {
         // .with(fmt::layer())
         .with_env_filter(
             EnvFilter::try_from_default_env()
-                .or_else(|_| EnvFilter::try_new("preprocess_rd=debug,info"))
+                .or_else(|_| EnvFilter::try_new("rd_preprocess=debug,info"))
                 .expect("telemetry: valid envfilter"),
         )
         .finish();

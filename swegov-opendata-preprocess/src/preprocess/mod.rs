@@ -9,6 +9,7 @@ use error_stack::{Context, ResultExt};
 use regex::Regex;
 use zip::ZipArchive;
 pub mod html;
+pub mod sfs;
 mod xml;
 
 use crate::{corpusinfo, preprocess::xml::preprocess_xml, sparv_config::make_corpus_config};
