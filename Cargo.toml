@@ -21,7 +21,6 @@ opendata-spiders = { version = "0.1.0", path = "opendata-spiders" }
 
 [workspace]
 members = [
-    "sfs-corpus",
     "swegov-opendata",
     "webcrawler",
     "opendata-spiders",
