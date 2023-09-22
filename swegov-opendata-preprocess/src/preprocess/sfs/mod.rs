@@ -6,6 +6,8 @@ use soup::prelude::*;
 use swegov_opendata::{Dokument, DokumentStatus};
 
 mod error;
+use crate::nodeinfo::dbg_rcdom_node;
+
 use self::error::Error;
 
 #[derive(Debug, Clone)]
@@ -188,7 +190,7 @@ impl Default for Page {
 impl Page {
     pub fn new(number: usize) -> Self {
         let element = Element::builder("page", "")
-            .attr("page-number", number.to_string())
+            .attr("id", number.to_string())
             .build();
 
         Self { number, element }
@@ -303,8 +305,7 @@ fn soup_node_to_minidom(node: &rcdom::Handle) -> Option<minidom::Node> {
             return Some(Node::Text(String::from(&*contents)));
         }
         _ => {
-            dbg_node(&node);
-            todo!("handle this")
+            todo!("handle this {}", dbg_rcdom_node(&node))
         }
     }
     None
@@ -329,38 +330,6 @@ fn allowed_elem_name(name: &str) -> bool {
         || name == "li"
         || name == "pre"
         || name == "i"
-}
-
-fn dbg_node(node: &rcdom::Handle) -> String {
-    match &node.data {
-        NodeData::Element {
-            name,
-            attrs,
-            template_contents: _,
-            mathml_annotation_xml_integration_point: _,
-        } => {
-            let attrs_str: Vec<String> = if attrs.borrow().len() > 0 {
-                attrs
-                    .borrow()
-                    .iter()
-                    .map(|a| format!("{}='{}'", a.name.local, a.value))
-                    .collect()
-            } else {
-                vec![]
-            };
-            format!(
-                "Element {{ name = {}, attrs = {:?} }}",
-                name.local, attrs_str
-            )
-        }
-        NodeData::Text { contents } => {
-            format!("Text '{:?}'", contents)
-        }
-        NodeData::Comment { contents } => {
-            format!("Comment '{:?}'", contents)
-        }
-        _ => todo!("handle"),
-    }
 }
 
 #[cfg(test)]
@@ -402,50 +371,6 @@ mod tests {
     plan- och bostadsverket, länsbostadsnämnderna och kommunerna.<p><a name=\"P2S2\"></a></p>Organ för kommuns
     låneförmedling och annan verksamhet som sammanhänger med den (förmedlingsorgan) är kommunstyrelsen om ej kommunen
     har beslutat att verksamheten skall utövas av annat kommunalt organ.</div>"##;
-
-    fn assert_node_equal(left: &Node, right: &Node) {
-        match (left, right) {
-            (Node::Text(left_text), Node::Text(right_text)) => assert_eq!(left_text, right_text),
-            (Node::Element(left_elem), Node::Element(right_elem)) => {
-                assert_elem_equal(left_elem, right_elem)
-            }
-            (l, r) => assert_eq!(l, r),
-        }
-    }
-
-    fn assert_elem_equal(left: &Element, right: &Element) {
-        use itertools::EitherOrBoth;
-
-        dbg!(left, right);
-
-        assert_eq!(left.name(), right.name());
-        assert_eq!(left.ns(), right.ns());
-        assert!(left.attrs().eq(right.attrs()));
-
-        for cmp in left.nodes().zip_longest(right.nodes()) {
-            match cmp {
-                EitherOrBoth::Both(node1, node2) => assert_node_equal(node1, node2),
-                EitherOrBoth::Left(node1) => {
-                    dbg!(node1);
-
-                    panic!("left is longer '{:?}'", node1)
-                }
-                EitherOrBoth::Right(node2) => {
-                    dbg!(node2);
-                    panic!("right is longer '{:?}'", node2)
-                }
-            }
-        }
-        // assert!(left
-        //     .nodes()
-        //     .zip_longest(right.nodes())
-        //     .all(|either_or_both| {
-        //         match either_or_both {
-        //             itertools::EitherOrBoth::Both(node1, node2) => node1 == node2,
-        //             _ => false,
-        //         }
-        //     }));
-    }
 
     fn assert_pages_equal(left: &Page, right: &Page) {
         assert_eq!(left.number, right.number);
