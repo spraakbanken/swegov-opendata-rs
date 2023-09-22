@@ -1,5 +1,5 @@
-use preprocess_rd::{preprocess_corpura, PreprocessError};
-use tracing_subscriber::{fmt, prelude::*, EnvFilter};
+use swegov_opendata_preprocess::{preprocess_corpura, PreprocessError};
+use tracing_subscriber::EnvFilter;
 
 fn main() -> error_stack::Result<(), PreprocessError> {
     let subscriber = tracing_subscriber::fmt()
