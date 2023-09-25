@@ -1,11 +1,15 @@
+use std::borrow::Cow;
+
 use html5ever::rcdom::{self, NodeData};
 use minidom::Element;
+use once_cell::sync::Lazy;
+use regex::Regex;
 use soup::prelude::*;
 
 use crate::nodeinfo::{dbg_rcdom_node, minidom_text_len, rcdom_text_len};
 
 /// Process the actual text content of the document.
-pub fn process_html(elem: &str, textelem: &mut Element, filename: &str) {
+pub fn process_html(elem: &str, textelem: &mut Element, filename: &Cow<'_, str>) {
     // let contents = format!("<text>{}</text>", elem);
     let contentsxml = Soup::new(&elem);
     let body = contentsxml.tag("body").find().unwrap();
@@ -33,14 +37,16 @@ pub fn process_html(elem: &str, textelem: &mut Element, filename: &str) {
         .map(|node| minidom_text_len(&node))
         .sum();
     dbg!(&text_length);
-    if text_length != orig_text_length {
+    if text_length < orig_text_length {
         let diff = orig_text_length - text_length;
         tracing::warn!("Contents were lost in {filename} ({diff} chars missing)");
+    } else if text_length > orig_text_length {
+        tracing::warn!("Contents differ in {filename} (found {text_length} but expected {orig_text_length} chars)");
     }
 
     // Remove unnecessary whitespace
     for text in textelem.texts_mut() {
-        *text = text.trim().to_string();
+        *text = text.trim().replace('\u{00A0}', " ");
         // if element.tail is not None and not element.tail.strip():
         //     element.tail = None
         // if element.text and not element.text.strip():
@@ -49,6 +55,8 @@ pub fn process_html(elem: &str, textelem: &mut Element, filename: &str) {
 }
 
 fn process_node(node: &rcdom::Handle) -> Vec<minidom::Node> {
+    static SPECIAL_SPACES: Lazy<Regex> =
+        Lazy::new(|| Regex::new(r"[\n\u{00A0}\u{2006}]").expect("whitespace regex"));
     let mut result = vec![];
     match &node.data {
         NodeData::Element {
@@ -59,6 +67,15 @@ fn process_node(node: &rcdom::Handle) -> Vec<minidom::Node> {
         } => {
             if element_to_strip(name.local.as_ref()) {
                 tracing::trace!("skipping element <{}>", name.local);
+
+                return result;
+            }
+            if name.local.as_ref() == "div"
+                && attrs.borrow().iter().any(|attr| {
+                    attr.name.local.as_ref() == "class" && attr.value.as_ref() == "brask"
+                })
+            {
+                tracing::trace!("skipping element <{} class=\"brask\">", name.local);
 
                 return result;
             }
@@ -141,7 +158,10 @@ fn process_node(node: &rcdom::Handle) -> Vec<minidom::Node> {
         }
         NodeData::Text { contents } => {
             tracing::trace!("contents = {:?}", contents);
-            let text = contents.borrow().replace('\n', " ");
+            let text = SPECIAL_SPACES
+                .replace_all(contents.borrow().as_ref(), " ")
+                .to_string();
+
             if !text.is_empty() {
                 result.push(minidom::Node::Text(text));
             }
@@ -155,11 +175,6 @@ fn process_node(node: &rcdom::Handle) -> Vec<minidom::Node> {
     result
 }
 
-fn clean_text(text: &str) -> String {
-    let text = text.replace('\n', " ");
-    let text = text.replace("  ", " ");
-    text
-}
 fn element_to_strip(tag: &str) -> bool {
     [
         "style",

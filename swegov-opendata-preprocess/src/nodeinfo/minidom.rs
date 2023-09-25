@@ -28,14 +28,21 @@ pub fn minidom_text_len(node: &minidom::Node) -> usize {
     }
 }
 
-#[cfg(test)]
 pub mod asserts {
-    use itertools::{EitherOrBoth, Itertools};
     use minidom::{Element, Node};
+    use pretty_assertions::assert_eq;
+
+    use crate::preprocess::xml::clean_text;
 
     pub fn assert_node_equal(left: &Node, right: &Node) {
         match (left, right) {
-            (Node::Text(left_text), Node::Text(right_text)) => assert_eq!(left_text, right_text),
+            (Node::Text(left_text), Node::Text(right_text)) => {
+                let mut left_text = left_text.replace('\n', " ");
+                clean_text(&mut left_text);
+                let mut right_text = right_text.replace('\n', " ");
+                clean_text(&mut right_text);
+                assert_eq!(&left_text, &right_text);
+            }
             (Node::Element(left_elem), Node::Element(right_elem)) => {
                 assert_elem_equal(left_elem, right_elem)
             }
@@ -43,34 +50,27 @@ pub mod asserts {
         }
     }
     pub fn assert_elem_equal(left: &Element, right: &Element) {
-        dbg!(left, right);
+        // dbg!(left, right);
 
         assert_eq!(left.name(), right.name());
         assert_eq!(left.ns(), right.ns());
-        assert!(left.attrs().eq(right.attrs()));
+        assert!(
+            left.attrs().eq(right.attrs()),
+            "we are testing attrs of {:#?} and {:#?}",
+            left,
+            right
+        );
 
-        for cmp in left.nodes().zip_longest(right.nodes()) {
-            match cmp {
-                EitherOrBoth::Both(node1, node2) => assert_node_equal(node1, node2),
-                EitherOrBoth::Left(node1) => {
-                    dbg!(node1);
+        assert_eq!(
+            left.nodes().len(),
+            right.nodes().len(),
+            "we are testing len of {:?} and {:?}",
+            left,
+            right
+        );
 
-                    panic!("left is longer '{:?}'", node1)
-                }
-                EitherOrBoth::Right(node2) => {
-                    dbg!(node2);
-                    panic!("right is longer '{:?}'", node2)
-                }
-            }
+        for (l1, r1) in left.nodes().zip(right.nodes()) {
+            assert_node_equal(l1, r1);
         }
-        // assert!(left
-        //     .nodes()
-        //     .zip_longest(right.nodes())
-        //     .all(|either_or_both| {
-        //         match either_or_both {
-        //             itertools::EitherOrBoth::Both(node1, node2) => node1 == node2,
-        //             _ => false,
-        //         }
-        //     }));
     }
 }

@@ -14,4 +14,4 @@ rd-preprocess-watch-quick-dev:
     cargo watch -q -c -w swegov-opendata-preprocess -x 'run --bin rd-preprocess'
 
 preprocess-watch-test:
-    cargo watch -q -c -w swegov-opendata-preprocess -x 'test -p swegov-opendata-preprocess'
+    cargo watch -q -c -w swegov-opendata-preprocess -x 'test -p swegov-opendata-preprocess --tests'

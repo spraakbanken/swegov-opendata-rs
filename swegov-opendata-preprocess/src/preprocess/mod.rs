@@ -1,4 +1,5 @@
 use std::{
+    borrow::Cow,
     collections::HashMap,
     fmt, fs,
     io::{self, Read},
@@ -10,7 +11,7 @@ use regex::Regex;
 use zip::ZipArchive;
 pub mod html;
 pub mod sfs;
-mod xml;
+pub mod xml;
 
 use crate::{corpusinfo, preprocess::xml::preprocess_xml, sparv_config::make_corpus_config};
 
@@ -147,8 +148,8 @@ pub fn preprocess_corpura(
                     .change_context(PreprocessError)
                     .attach_printable("failed to read zip file")?;
 
-                let xmlstring =
-                    preprocess_xml(&filecontents, zipobj.name()).change_context(PreprocessError)?;
+                let xmlstring = preprocess_xml(&filecontents, Cow::from(zipobj.name()))
+                    .change_context(PreprocessError)?;
                 if xmlstring.is_empty() {
                     tracing::warn!("'{}' generated empty xml", zipobj.name());
                     continue;

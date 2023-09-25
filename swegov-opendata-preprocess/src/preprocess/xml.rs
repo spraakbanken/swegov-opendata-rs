@@ -1,3 +1,4 @@
+use std::borrow::Cow;
 use std::fmt;
 
 use error_stack::Context;
@@ -13,7 +14,10 @@ use super::html::process_html;
 
 /// Extract meta data and html from f.
 #[tracing::instrument(skip(xml_string))]
-pub fn preprocess_xml(xml_string: &str, filename: &str) -> error_stack::Result<Vec<u8>, XmlError> {
+pub fn preprocess_xml(
+    xml_string: &str,
+    filename: Cow<'_, str>,
+) -> error_stack::Result<Vec<u8>, XmlError> {
     // let tree = Soup::new(xml_string);
 
     // Create new element and build document
@@ -70,7 +74,7 @@ pub fn preprocess_xml(xml_string: &str, filename: &str) -> error_stack::Result<V
                         Ok(s) => s,
                         Err(err) => panic!("unescape failed: {:?}", err),
                     };
-                    process_html(&html_string, &mut textelem, filename);
+                    process_html(&html_string, &mut textelem, &filename);
                     // tracing::trace!("textelem = {:?}", textelem);
                 } else if doc_attr.is_some() {
                     let name = doc_attr.take().unwrap();
