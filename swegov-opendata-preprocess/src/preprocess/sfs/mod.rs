@@ -1,14 +1,100 @@
+use std::borrow::Cow;
+
 use chrono::NaiveDate;
+use error_stack::ResultExt;
 use html5ever::rcdom::{self, NodeData};
-use minidom::{Element, Node};
+use minidom::{quick_xml::Writer, Element, Node};
 
 use soup::prelude::*;
-use swegov_opendata::{Dokument, DokumentStatus};
+use swegov_opendata::{Dokument, DokumentStatus, DokumentStatusPage};
 
 mod error;
 use crate::nodeinfo::dbg_rcdom_node;
 
-use self::error::Error;
+pub use self::error::SfsPreprocessError;
+
+use super::{html::process_html, xml::clean_element};
+
+#[tracing::instrument(skip(source))]
+pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreprocessError> {
+    let DokumentStatusPage {
+        dokumentstatus:
+            DokumentStatus {
+                dokument,
+                dokuppgift,
+                dokbilaga,
+            },
+    } = serde_json::from_str(source).change_context(SfsPreprocessError::Json)?;
+    dbg!(&dokument);
+    dbg!(&dokuppgift);
+    dbg!(&dokbilaga);
+    // Create new element and build document
+    let mut docelem = Element::builder("dokument", "").build();
+    let mut textelem = Element::builder("text", "")
+        .attr("datatyp", "huvuddokument")
+        .build();
+    docelem.set_attr("dok_id", &dokument.dok_id);
+    for (attr, value_opt) in [
+        ("dokument_url_text", &dokument.dokument_url_text),
+        ("dokument_url_html", &dokument.dokument_url_html),
+    ] {
+        if let Some(value) = value_opt {
+            docelem.set_attr(attr, value);
+        }
+    }
+
+    // text attributes
+    for (name, value) in [
+        ("hangar_id", &dokument.hangar_id),
+        ("rm", &dokument.rm),
+        ("beteckning", &dokument.beteckning),
+        ("dokumentnamn", &dokument.dokumentnamn),
+        ("typ", &dokument.typ),
+        ("subtyp", &dokument.subtyp),
+        ("organ", &dokument.organ),
+        ("nummer", &dokument.nummer),
+        ("slutnummer", &dokument.slutnummer),
+        ("titel", &dokument.titel),
+        ("status", &dokument.status),
+    ] {
+        textelem.set_attr(name, value.replace("\r\n", " "));
+    }
+    for (name, value) in [
+        ("subtitel", &dokument.subtitel),
+        ("tempbeteckning", &dokument.tempbeteckning),
+    ] {
+        if !value.is_empty() {
+            textelem.set_attr(name, value.replace("\r\n", " "));
+        }
+    }
+    for (name, value) in [
+        ("publicerad", &dokument.publicerad),
+        ("systemdatum", &dokument.systemdatum),
+        ("datum", &dokument.datum),
+    ] {
+        textelem.set_attr(name, value.to_string());
+    }
+    if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
+        let (upphavd_at, _remaining) =
+            NaiveDate::parse_and_remainder(&upphavd_str, "%Y-%m-%d").unwrap();
+        textelem.set_attr("upphavd", upphavd_at.to_string());
+    }
+    if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
+        textelem.set_attr("upphnr", upphnr);
+    }
+
+    if !dokument.html.is_empty() {
+        process_html(&dokument.html, &mut textelem, &Cow::from("unknown"));
+    }
+    let textelem = clean_element(&textelem).unwrap();
+    docelem.append_child(textelem);
+    let mut result = Vec::new();
+    let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
+    docelem
+        .to_writer(&mut writer)
+        .change_context(SfsPreprocessError::Write)?;
+    Ok(result)
+}
 
 #[derive(Debug, Clone)]
 pub struct Corpus {
@@ -97,7 +183,7 @@ impl Text {
 }
 
 impl TryFrom<DokumentStatus> for Text {
-    type Error = Error;
+    type Error = SfsPreprocessError;
 
     fn try_from(value: DokumentStatus) -> Result<Self, Self::Error> {
         let DokumentStatus {
@@ -167,7 +253,7 @@ impl TryFrom<DokumentStatus> for Text {
     }
 }
 
-pub fn parse_html(html: &str) -> Result<Vec<Page>, Error> {
+pub fn parse_html(html: &str) -> Result<Vec<Page>, SfsPreprocessError> {
     let soup = Soup::new(html);
     let pages = extract_pages_a1(&soup)?;
 
@@ -197,7 +283,7 @@ impl Page {
     }
 }
 
-pub fn extract_pages_a1(soup: &Soup) -> Result<Vec<Page>, Error> {
+pub fn extract_pages_a1(soup: &Soup) -> Result<Vec<Page>, SfsPreprocessError> {
     let mut pages = Vec::new();
 
     let mut current_page_nr = 0;

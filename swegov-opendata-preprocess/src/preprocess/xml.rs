@@ -148,7 +148,7 @@ impl fmt::Display for XmlError {
 impl Context for XmlError {}
 
 pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
-    // dbg!(&elem);
+    dbg!(&elem);
     let mut elem_builder = Element::builder(elem.name(), elem.ns());
     for (name, value) in elem.attrs() {
         elem_builder = elem_builder.attr(name, value);
@@ -176,6 +176,10 @@ pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
                                 for child_node in child_elem.nodes() {
                                     elem_builder = elem_builder.append(child_node.clone());
                                 }
+                            } else if child_elem.name() == "div" {
+                                for child_node in child_elem.nodes() {
+                                    elem_builder = elem_builder.append(child_node.clone());
+                                }
                             } else {
                                 elem_builder =
                                     elem_builder.append(minidom::Node::Element(child_elem));
@@ -190,7 +194,7 @@ pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
                                         curr_node = Some(minidom::Node::Text(contents));
                                     }
                                     minidom::Node::Text(text) => {
-                                        println!("adding text to current text");
+                                        // println!("adding text to current text");
                                         curr_node =
                                             Some(minidom::Node::Text(format!("{text} {contents}")))
                                     }
@@ -201,7 +205,7 @@ pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
                                 // } else if let Some {}
                                 // elem_builder = elem_builder.append(minidom::Node::Text(contents));
                             } else {
-                                println!("puting text to current text");
+                                // println!("puting text to current text");
                                 curr_node = Some(minidom::Node::Text(contents));
                             }
                         }
@@ -222,7 +226,7 @@ pub fn clean_node(node: &minidom::Node) -> Option<minidom::Node> {
     // dbg!(&node);
     match node {
         minidom::Node::Text(contents) => {
-            let mut text = contents.clone();
+            let text = contents.clone();
             // clean_text(&mut text);
             Some(minidom::Node::Text(text))
         }
@@ -261,7 +265,7 @@ pub fn node_is_empty(node: &minidom::Node) -> bool {
             elem.children().count() == 0
                 && elem.texts().filter(|text| !text.is_empty()).count() == 0
         }
-        minidom::Node::Text(contents) => contents.is_empty(),
+        minidom::Node::Text(contents) => contents.trim().is_empty(),
     }
 }
 
@@ -315,6 +319,12 @@ mod tests {
                 <b><span>Civilutskottets betänkanden nr 13 år 1971</span>
                 </b><b><span>    </span></b><b><span>CU 1971</span></b></p>"#,
             Some(r#"<p xmlns="">Civilutskottets betänkanden nr 13 år 1971 CU 1971</p>"#)
+        )]
+        #[case(
+            r#"<text xmlns=""><div>
+                <p>  Civilutskottets betänkanden nr 13 år 1971  </p>
+                </div></text>"#,
+            Some(r#"<text xmlns=""><p>Civilutskottets betänkanden nr 13 år 1971</p></text>"#)
         )]
         fn clean_element_cleans(#[case] given: &str, #[case] expected: Option<&str>) {
             let elem: Element = given.parse().unwrap();

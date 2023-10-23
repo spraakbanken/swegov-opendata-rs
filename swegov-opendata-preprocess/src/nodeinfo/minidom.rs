@@ -29,6 +29,8 @@ pub fn minidom_text_len(node: &minidom::Node) -> usize {
 }
 
 pub mod asserts {
+    use std::collections::BTreeMap;
+
     use minidom::{Element, Node};
     use pretty_assertions::assert_eq;
 
@@ -52,19 +54,27 @@ pub mod asserts {
     pub fn assert_elem_equal(left: &Element, right: &Element) {
         // dbg!(left, right);
 
-        assert_eq!(left.name(), right.name());
-        assert_eq!(left.ns(), right.ns());
-        assert!(
-            left.attrs().eq(right.attrs()),
-            "we are testing attrs of {:#?} and {:#?}",
+        assert_eq!(
+            left.name(),
+            right.name(),
+            "tag of {:#?} and {:#?}",
             left,
             right
         );
+        assert_eq!(left.ns(), right.ns());
+        let left_attrs: BTreeMap<&str, &str> = left.attrs().collect();
+        let right_attrs: BTreeMap<&str, &str> = right.attrs().collect();
+        assert_eq!(left_attrs, right_attrs);
+
+        //     "we are testing attrs of {:#?} and {:#?}",
+        //     left,
+        //     right
+        // );
 
         assert_eq!(
             left.nodes().len(),
             right.nodes().len(),
-            "we are testing len of {:?} and {:?}",
+            "len of {:#?} and {:#?}",
             left,
             right
         );

@@ -17,9 +17,10 @@ pub fn dbg_rcdom_node(node: &rcdom::Handle) -> String {
             } else {
                 vec![]
             };
+            let num_children = node.children.borrow().len();
             format!(
-                "Element {{ name = {}, attrs = {:?} }}",
-                name.local, attrs_str
+                "Element {{ name = {}, attrs = {:?}, children({}) }}",
+                name.local, attrs_str, num_children
             )
         }
         NodeData::Text { contents } => {
