@@ -1,3 +1,4 @@
+pub mod core;
 mod corpusinfo;
 pub mod nodeinfo;
 pub mod preprocess;
