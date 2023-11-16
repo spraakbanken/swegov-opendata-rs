@@ -17,7 +17,7 @@ impl<'a> XmlSourceWriter<'a> {
     pub fn new(target_dir: &'a Path) -> Self {
         Self {
             target_dir,
-            counter: 0,
+            counter: 1,
             result: Vec::new(),
             total_size: 0,
         }
@@ -67,7 +67,9 @@ impl<'a> XmlSourceWriter<'a> {
         fs::create_dir_all(corpus_source_dir).change_context(SparvError)?;
         let xmlfile = fs::File::create(xmlpath).change_context(SparvError)?;
         let mut writer = io::BufWriter::new(xmlfile);
-        writer.write(b"<file>\n").change_context(SparvError)?;
+        writer
+            .write(b"<file xmlns=\"\">\n")
+            .change_context(SparvError)?;
         for text in texts {
             writer.write(text).change_context(SparvError)?;
             writer.write(b"\n").change_context(SparvError)?;

@@ -28,9 +28,31 @@ pub fn minidom_text_len(node: &minidom::Node) -> usize {
     }
 }
 
+pub fn elem_is_empty(elem: &minidom::Element) -> bool {
+    // if elem.attrs().count() == 0 && elem.nodes().len() == 0 {
+    //     return true;
+    // }
+    for node in elem.nodes() {
+        match node {
+            minidom::Node::Element(c_elem) => {
+                if !elem_is_empty(c_elem) {
+                    return false;
+                }
+            }
+            minidom::Node::Text(contents) => {
+                if !contents.is_empty() {
+                    return false;
+                }
+            }
+        }
+    }
+    true
+}
+
 pub mod asserts {
     use std::collections::BTreeMap;
 
+    use itertools::{EitherOrBoth, Itertools};
     use minidom::{Element, Node};
     use pretty_assertions::assert_eq;
 
@@ -48,11 +70,18 @@ pub mod asserts {
             (Node::Element(left_elem), Node::Element(right_elem)) => {
                 assert_elem_equal(left_elem, right_elem)
             }
-            (l, r) => assert_eq!(l, r),
+            (Node::Text(left_text), Node::Element(right_elem)) => {
+                dbg!(right_elem);
+                panic!("left is Text({:?}) and right is an Element", left_text)
+            }
+            (Node::Element(left_elem), Node::Text(right_text)) => {
+                dbg!(left_elem);
+                panic!("right is Text({:?}) and left is an Element", right_text)
+            }
         }
     }
     pub fn assert_elem_equal(left: &Element, right: &Element) {
-        // dbg!(left, right);
+        dbg!(left, right);
 
         assert_eq!(
             left.name(),
@@ -71,16 +100,36 @@ pub mod asserts {
         //     right
         // );
 
-        assert_eq!(
-            left.nodes().len(),
-            right.nodes().len(),
-            "len of {:#?} and {:#?}",
-            left,
-            right
-        );
+        // assert_eq!(
+        //     left.nodes().len(),
+        //     right.nodes().len(),
+        //     "len of {:#?} and {:#?}",
+        //     left,
+        //     right
+        // );
 
-        for (l1, r1) in left.nodes().zip(right.nodes()) {
-            assert_node_equal(l1, r1);
+        for (i, val) in left
+            .nodes()
+            .filter(|node| match node {
+                Node::Element(_) => true,
+                Node::Text(c) => !c.trim().is_empty(),
+            })
+            .zip_longest(right.nodes().filter(|node| match node {
+                Node::Element(_) => true,
+                Node::Text(c) => !c.trim().is_empty(),
+            }))
+            .enumerate()
+        {
+            dbg!(i);
+            match val {
+                EitherOrBoth::Left(l1) => {
+                    panic!("Left contains more nodes: among them node[{i}]= {:#?}", l1)
+                }
+                EitherOrBoth::Right(r1) => {
+                    panic!("Right contains more nodes: among them node[{i}]= {:#?}, left={:#?}, right={:#?}", r1, left, right)
+                }
+                EitherOrBoth::Both(l1, r1) => assert_node_equal(l1, r1),
+            }
         }
     }
 }

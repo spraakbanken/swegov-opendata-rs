@@ -242,7 +242,7 @@ pub fn clean_node(node: &minidom::Node) -> Option<minidom::Node> {
 
 pub fn clean_text(text: &mut String) {
     text.truncate(text.trim_end().len());
-    dbg!(&text);
+    // dbg!(&text);
 
     let mut prev = ' ';
     text.retain(|ch| {

@@ -19,3 +19,5 @@ Cargo.lock
 
 # Log dir
 /logs/
+swegov-opendata-preprocess/assets/gen/
+swegov-opendata-preprocess/assets/*.html

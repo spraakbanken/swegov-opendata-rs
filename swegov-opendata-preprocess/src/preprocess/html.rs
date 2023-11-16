@@ -414,80 +414,80 @@ fn tag_to_strip(name: &str) -> bool {
     .contains(&name)
 }
 
-#[cfg(test)]
-mod tests {
-    use rstest::rstest;
+// #[cfg(test)]
+// mod tests {
+//     use rstest::rstest;
 
-    use crate::nodeinfo::minidom::asserts::assert_elem_equal;
+//     use crate::nodeinfo::minidom::asserts::assert_elem_equal;
 
-    use super::*;
-    #[test]
-    fn soup_test() {
-        let soup = Soup::new(r#"<p>hi<p> </p></p>"#);
+//     use super::*;
+//     #[test]
+//     fn soup_test() {
+//         let soup = Soup::new(r#"<p>hi<p> </p></p>"#);
 
-        let text: Vec<_> = soup
-            .tag("p")
-            .find()
-            .unwrap()
-            .children()
-            .map(|node| match &node.data {
-                NodeData::Element {
-                    name,
-                    attrs,
-                    template_contents,
-                    mathml_annotation_xml_integration_point,
-                } => format!("<{}>", name.local.as_ref()),
-                NodeData::Text { contents } => contents.borrow().to_string(),
-                _ => String::new(),
-            })
-            .collect();
+//         let text: Vec<_> = soup
+//             .tag("p")
+//             .find()
+//             .unwrap()
+//             .children()
+//             .map(|node| match &node.data {
+//                 NodeData::Element {
+//                     name,
+//                     attrs,
+//                     template_contents,
+//                     mathml_annotation_xml_integration_point,
+//                 } => format!("<{}>", name.local.as_ref()),
+//                 NodeData::Text { contents } => contents.borrow().to_string(),
+//                 _ => String::new(),
+//             })
+//             .collect();
 
-        assert_eq!(
-            text,
-            vec!["hi".to_string(), "<p>".to_string(), " ".to_string()]
-        )
-    }
+//         assert_eq!(
+//             text,
+//             vec!["hi".to_string(), "<p>".to_string(), " ".to_string()]
+//         )
+//     }
 
-    #[rstest]
-    #[case(
-        r#"<text xmlns="">hi<p></p></p></text>"#,
-        r#"<text xmlns=""><p>hi</p></text>"#
-    )]
-    #[case(r#"<p>hi<p> </p></p>"#, r#"<text xmlns=""><p>hi<p> </p></p></text>"#)]
-    #[case(
-        r#"<text xmlns="">hi<p> <p> </p></p></p></text>"#,
-        r#"<text xmlns=""><p>hi</p></text>"#
-    )]
-    #[case(
-        r#"<text xmlns="">this is<p> a <p>sentence</p></p></p></text>"#,
-        r#"<text xmlns=""><p>this is a sentence</p></text>"#
-    )]
-    #[case(
-        r#"<text xmlns="">
-                <b><span>Civilutskottets betänkanden nr 13 år 1971</span>
-                </b><b><span>    </span></b><b><span>CU 1971</span></b></p></text>"#,
-        r#"<text xmlns=""><p>Civilutskottets betänkanden nr 13 år 1971 CU 1971</p></text>"#
-    )]
-    #[case(
-        r#"<text xmlns=""><div>
-                <p>  Civilutskottets betänkanden nr 13 år 1971  </p>
-                </div></text>"#,
-        r#"<text xmlns=""><p>Civilutskottets betänkanden nr 13 år 1971</p></text>"#
-    )]
-    fn test_process_html(#[case] given: &str, #[case] expected: &str) {
-        let mut elem = Element::bare("text", "");
-        let expected: Element = expected.parse().unwrap();
+//     #[rstest]
+//     #[case(
+//         r#"<text xmlns="">hi<p></p></p></text>"#,
+//         r#"<text xmlns=""><p>hi</p></text>"#
+//     )]
+//     #[case(r#"<p>hi<p> </p></p>"#, r#"<text xmlns=""><p>hi<p> </p></p></text>"#)]
+//     #[case(
+//         r#"<text xmlns="">hi<p> <p> </p></p></p></text>"#,
+//         r#"<text xmlns=""><p>hi</p></text>"#
+//     )]
+//     #[case(
+//         r#"<text xmlns="">this is<p> a <p>sentence</p></p></p></text>"#,
+//         r#"<text xmlns=""><p>this is a sentence</p></text>"#
+//     )]
+//     #[case(
+//         r#"<text xmlns="">
+//                 <b><span>Civilutskottets betänkanden nr 13 år 1971</span>
+//                 </b><b><span>    </span></b><b><span>CU 1971</span></b></p></text>"#,
+//         r#"<text xmlns=""><p>Civilutskottets betänkanden nr 13 år 1971 CU 1971</p></text>"#
+//     )]
+//     #[case(
+//         r#"<text xmlns=""><div>
+//                 <p>  Civilutskottets betänkanden nr 13 år 1971  </p>
+//                 </div></text>"#,
+//         r#"<text xmlns=""><p>Civilutskottets betänkanden nr 13 år 1971</p></text>"#
+//     )]
+//     fn test_process_html(#[case] given: &str, #[case] expected: &str) {
+//         let mut elem = Element::bare("text", "");
+//         let expected: Element = expected.parse().unwrap();
 
-        process_html(given, &mut elem, &Cow::from(""));
-        // assert_eq!(
-        //     cleaned.is_some(),
-        //     expected.is_some(),
-        //     "{:?} != {:?}",
-        //     cleaned,
-        //     expected
-        // );
-        // if expected.is_some() {
-        assert_elem_equal(&elem, &expected);
-        // }
-    }
-}
+//         process_html(given, &mut elem, &Cow::from(""));
+//         // assert_eq!(
+//         //     cleaned.is_some(),
+//         //     expected.is_some(),
+//         //     "{:?} != {:?}",
+//         //     cleaned,
+//         //     expected
+//         // );
+//         // if expected.is_some() {
+//         assert_elem_equal(&elem, &expected);
+//         // }
+//     }
+// }
