@@ -9,6 +9,7 @@ path = "src/fetch_sfs.rs"
 test = false
 doctest = false
 
+
 [dependencies]
 anyhow = "1.0.71"
 config = "0.13.3"
@@ -24,6 +25,7 @@ members = [
     "swegov-opendata",
     "webcrawler",
     "opendata-spiders",
+    "preprocessors",
     "swegov-opendata-preprocess",
 ]
 
@@ -31,3 +33,4 @@ members = [
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
 tracing = "0.1.37"
 minidom = "0.15.2"
+error-stack = "0.4.1"

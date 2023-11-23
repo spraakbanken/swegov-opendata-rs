@@ -1,0 +1,17 @@
+[package]
+name = "preprocessors"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "sfs-preprocess"
+path = "src/sfs_preprocess.rs"
+test = false
+doctest = false
+
+[dependencies]
+error-stack = { workspace = true }
+swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }

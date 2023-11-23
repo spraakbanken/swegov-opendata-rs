@@ -8,16 +8,9 @@ edition = "2021"
 name = "rd-preprocess"
 path = "src/rd_preprocess.rs"
 
-[[bin]]
-name = "sfs-preprocess"
-path = "src/sfs_preprocess.rs"
-
-[[bin]]
-name = "sfs-preprocess2"
-path = "src/bin/sfs_preprocess.rs"
 
 [dependencies]
-error-stack = "0.4.1"
+error-stack = { workspace = true }
 html5ever = "0.22.5"
 minidom-14 = "0.16.0"
 regex = "1.9.5"
