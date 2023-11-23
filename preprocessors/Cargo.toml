@@ -5,6 +5,12 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [[bin]]
+name = "rd-preprocess"
+path = "src/rd_preprocess.rs"
+test = false
+doctest = false
+
+[[bin]]
 name = "sfs-preprocess"
 path = "src/sfs_preprocess.rs"
 test = false
