@@ -12,8 +12,9 @@ use zip::ZipArchive;
 pub mod html;
 pub mod sfs;
 pub mod xml;
+use sparv_extension::make_corpus_config;
 
-use crate::{corpusinfo, preprocess::xml::preprocess_xml, sparv_config::make_corpus_config};
+use crate::{corpusinfo, preprocess::xml::preprocess_xml};
 
 const RAWDIR: &str = "data/rd/rawdata";
 const PROCESSED_JSON: &str = "processed.json";

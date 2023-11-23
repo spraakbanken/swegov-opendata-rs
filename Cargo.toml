@@ -23,11 +23,12 @@ opendata-spiders = { version = "0.1.0", path = "opendata-spiders" }
 [workspace]
 members = [
     "minidom-extension",
-    "swegov-opendata",
-    "webcrawler",
     "opendata-spiders",
     "preprocessors",
+    "sparv-extension",
+    "swegov-opendata",
     "swegov-opendata-preprocess",
+    "webcrawler",
 ]
 
 [workspace.dependencies]

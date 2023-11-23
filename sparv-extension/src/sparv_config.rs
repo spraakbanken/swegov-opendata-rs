@@ -1,8 +1,10 @@
 use std::io::Write;
 use std::path::PathBuf;
-use std::{fmt, fs, io};
+use std::{fs, io};
 
-use error_stack::{Context, ResultExt};
+use error_stack::ResultExt;
+
+use crate::SparvConfigError;
 
 /// Write Sparv corpus config file for sub corpus.
 pub fn make_corpus_config(
@@ -49,14 +51,3 @@ pub fn make_corpus_config(
     eprintln!("  Config {} written", path.display());
     Ok(())
 }
-
-#[derive(Debug)]
-pub struct SparvConfigError;
-
-impl fmt::Display for SparvConfigError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str("Sparv Config error")
-    }
-}
-
-impl Context for SparvConfigError {}

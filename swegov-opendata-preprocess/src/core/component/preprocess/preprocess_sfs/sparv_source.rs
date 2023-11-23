@@ -4,13 +4,10 @@ use std::{
     path::Path,
 };
 
+use crate::{core::component::preprocess::preprocess_sfs::sfs_json, PreprocessError};
 use error_stack::ResultExt;
 use flate2::read::GzDecoder;
-
-use crate::{
-    core::component::{preprocess::preprocess_sfs::sfs_json, sparv::XmlSourceWriter},
-    PreprocessError,
-};
+use sparv_extension::XmlSourceWriter;
 
 pub fn build_sparv_source(
     path: &Path,
