@@ -40,6 +40,7 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     for (attr, value_opt) in [
         ("dokument_url_text", &dokument.dokument_url_text),
         ("dokument_url_html", &dokument.dokument_url_html),
+        ("dokumentstatus_url_xml", &dokument.dokumentstatus_url_xml),
     ] {
         if let Some(value) = value_opt {
             docelem.set_attr(attr, value);
@@ -96,7 +97,16 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     } else {
         process_html(&dokument.html, &mut textelem)?;
     }
+    if !(textelem.has_child("p", "") || textelem.has_child("page", "")) {
+        tracing::error!(docelem = ?docelem, textelem = ?textelem, "no p or page");
+        todo!("handle no p/page");
+    }
+    tracing::debug!(textelem = ?textelem, "before cleaning");
     let textelem = clean_element(&textelem); //.expect("Cleaning should work");
+    if !(textelem.has_child("p", "") || textelem.has_child("page", "")) {
+        tracing::warn!(docelem = ?docelem, textelem = ?textelem, "document contains no text");
+        // todo!("handle no p/page after cleaning");
+    }
 
     // Add text as child to dokument
     docelem.append_child(textelem);
@@ -117,13 +127,22 @@ fn process_html(
 ) -> error_stack::Result<(), SfsPreprocessError> {
     static DOUBLE_ANGLES: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"<<([\w\s]+)>>").expect("regex failed"));
+    static NON_TAG: Lazy<Regex> = Lazy::new(|| Regex::new(r"<(gr|t)?>").expect("regex failed"));
     static DOUBLE_LEFT_ANGLES: Lazy<Regex> =
-        Lazy::new(|| Regex::new(r"<([\w\s]?<[/\w]+)").expect("regex failed"));
+        Lazy::new(|| Regex::new(r"<([\w\s]?<[/\w, \(:]+)").expect("regex failed"));
 
     static LEFT_ANGLE_NON_TAG: Lazy<Regex> = Lazy::new(|| {
-        Regex::new(r"<([\d\\: £\^•\*»{_'■,-]|[btrji] |er|ig|rn|[a-z/]?[A-Z;\.]|if )")
-            .expect("regex failed")
+        Regex::new(
+            r#"<([jö:[:^alpha:]--/]|[bijlnrt] |be|ck|er|hl|i[iglt\("]|ln|nc|r[ijlnt]|s[s\d]|ui|[a-z/]?[A-Z»;,\.'-]|if )"#,
+        )
+        .expect("regex failed")
     });
+    // static LEFT_ANGLE_NON_TAG: Lazy<Regex> = Lazy::new(|| {
+    //     Regex::new(
+    //         r"<([\dö\\: £?=\^’•\*«{_'■\)-]|[btrjil] |be|ck|er|i[gl]|nc|r[lnt]|s[s\d]|[a-z/]?[A-Z»;,\.]|if )",
+    //     )
+    //     .expect("regex failed")
+    // });
     static ASTERIX_RIGHT_ANGLE: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"\*>").expect("regex failed"));
     static UNEXPECTED_BANG: Lazy<Regex> =
@@ -133,6 +152,7 @@ fn process_html(
     let contents = contents.replace("\r\n", " ");
     let contents = contents.replace('&', "&amp;");
 
+    let contents = NON_TAG.replace_all(&contents, "&lt;${1}&gt;");
     let contents = ASTERIX_RIGHT_ANGLE.replace_all(&contents, "*&gt;");
     let contents = DOUBLE_ANGLES.replace_all(&contents, "« $1 »");
     let contents = DOUBLE_LEFT_ANGLES.replace_all(&contents, "&lt;${1}");

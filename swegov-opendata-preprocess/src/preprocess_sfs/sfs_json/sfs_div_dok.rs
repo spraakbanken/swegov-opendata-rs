@@ -132,6 +132,11 @@ pub fn extract_page(
                         curr = Some(Element::bare("p", ""));
                         state = ExtractPageState::InParagraph;
                     }
+                    b"i" => {
+                        if let Some(p) = &mut curr {
+                            p.append_text_node("<i>");
+                        }
+                    }
                     b"span" => continue,
                     b"table" => {
                         if let Some(p) = curr.take() {
@@ -164,8 +169,9 @@ pub fn extract_page(
                         raw_text.extend(e.attributes_raw());
                         let mut text = String::from_utf8_lossy(&raw_text).to_string();
                         dbg!(&text);
-                        text = text.replace("</span", " ");
+                        // text = text.replace("</span", " ");
                         tracing::warn!(text, ?state, "text from unknown tag");
+                        panic!("bad xml");
                         if let Some(curr_elem) = &mut curr {
                             curr_elem.append_text_node(text);
                         } else {

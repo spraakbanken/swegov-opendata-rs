@@ -63,7 +63,12 @@ pub fn process_html_sfs_standard(
                         ParseHtmlState::Paragraph => {
                             continue;
                         }
-                        _ => todo!(),
+                        _ => todo!(
+                            "handle start a e={:?} state={:?} pos={}",
+                            e,
+                            state,
+                            reader.buffer_position()
+                        ),
                     },
                     b"div" => match state {
                         ParseHtmlState::ExtractMetadata | ParseHtmlState::Start => {
