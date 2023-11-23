@@ -9,6 +9,7 @@ use minidom::{
     },
     Element,
 };
+use minidom_extension::minidom;
 use once_cell::sync::Lazy;
 use regex::Regex;
 use swegov_opendata::{DokumentStatus, DokumentStatusPage};
@@ -117,9 +118,11 @@ fn process_html(
     static DOUBLE_ANGLES: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"<<([\w\s]+)>>").expect("regex failed"));
     static DOUBLE_LEFT_ANGLES: Lazy<Regex> =
-        Lazy::new(|| Regex::new(r"<(\w<[\w]+)").expect("regex failed"));
-    static LEFT_ANGLE_NON_TAG: Lazy<Regex> =
-        Lazy::new(|| Regex::new(r"<(\d|\.)").expect("regex failed"));
+        Lazy::new(|| Regex::new(r"<([\w\s]?<[/\w]+)").expect("regex failed"));
+
+    static LEFT_ANGLE_NON_TAG: Lazy<Regex> = Lazy::new(|| {
+        Regex::new(r"<([\d\\\.: £\^•\*»-]|[btrj] |er|[a-z]?[A-Z;]|if )").expect("regex failed")
+    });
     static ASTERIX_RIGHT_ANGLE: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"\*>").expect("regex failed"));
     static UNEXPECTED_BANG: Lazy<Regex> =

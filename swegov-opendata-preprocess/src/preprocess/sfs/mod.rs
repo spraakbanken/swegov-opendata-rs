@@ -4,6 +4,7 @@ use chrono::NaiveDate;
 use error_stack::ResultExt;
 use html5ever::rcdom::{self, NodeData};
 use minidom::{quick_xml::Writer, Element, Node};
+use minidom_extension::minidom;
 
 use soup::prelude::*;
 use swegov_opendata::{Dokument, DokumentStatus, DokumentStatusPage};
@@ -421,7 +422,7 @@ fn allowed_elem_name(name: &str) -> bool {
 #[cfg(test)]
 mod tests {
 
-    use crate::nodeinfo::minidom::asserts::assert_elem_equal;
+    use minidom_extension::asserts::assert_elem_equal;
     use pretty_assertions::assert_eq;
 
     use super::*;

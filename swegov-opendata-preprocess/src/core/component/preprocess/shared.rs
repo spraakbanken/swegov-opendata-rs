@@ -1,6 +1,5 @@
 use minidom::{Element, ElementBuilder, Node};
-
-use crate::nodeinfo::minidom::elem_is_empty;
+use minidom_extension::{elem_is_empty, minidom};
 
 pub fn clean_element(elem: &Element) -> Element {
     // let new_elem = elem.clone();

@@ -5,11 +5,12 @@ use std::{fs, io::Read};
 use error_stack::ResultExt;
 use minidom::quick_xml::reader::Reader;
 use minidom::Element;
+use minidom_extension::{asserts::assert_elem_equal_with_cleaning, minidom};
 use swegov_opendata_preprocess::core::component::preprocess::clean_element;
 use swegov_opendata_preprocess::core::component::preprocess::preprocess_sfs::{
     build_sparv_source, sfs_json,
 };
-use swegov_opendata_preprocess::nodeinfo::minidom::asserts::assert_elem_equal;
+use swegov_opendata_preprocess::preprocess::xml::clean_text;
 use swegov_opendata_preprocess::{PreprocessError, PreprocessResult};
 
 #[test]
@@ -88,7 +89,7 @@ fn test_build_sparv_source_sfs_1976() -> PreprocessResult<()> {
         .change_context(PreprocessError)
         .attach_printable("failed to read expected")?;
 
-    assert_elem_equal(&actual, &expected);
+    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
     Ok(())
 }
 
@@ -125,6 +126,6 @@ fn test_build_sparv_source_cks6riksg() -> PreprocessResult<()> {
         .change_context(PreprocessError)
         .attach_printable("failed to read expected")?;
     let expected = clean_element(&expected);
-    assert_elem_equal(&actual, &expected);
+    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
     Ok(())
 }

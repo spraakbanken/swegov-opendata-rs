@@ -2,11 +2,12 @@ use std::borrow::Cow;
 
 use html5ever::rcdom::{self, NodeData};
 use minidom::Element;
+use minidom_extension::{minidom, minidom_text_len};
 use once_cell::sync::Lazy;
 use regex::Regex;
 use soup::prelude::*;
 
-use crate::nodeinfo::{dbg_rcdom_node, minidom_text_len, rcdom_text_len};
+use crate::nodeinfo::{dbg_rcdom_node, rcdom_text_len};
 
 /// Process the actual text content of the document.
 pub fn process_html(elem: &str, textelem: &mut Element, filename: &Cow<'_, str>) {

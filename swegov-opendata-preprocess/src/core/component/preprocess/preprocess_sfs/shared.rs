@@ -1,4 +1,5 @@
 use minidom::quick_xml::events::BytesStart;
+use minidom_extension::minidom;
 
 pub fn attrib_equals(elem: &BytesStart<'_>, name: &[u8], value: &[u8]) -> bool {
     for attr in elem.attributes() {

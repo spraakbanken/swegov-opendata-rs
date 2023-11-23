@@ -7,8 +7,7 @@ use minidom::quick_xml::events::Event;
 use minidom::quick_xml::Reader;
 use minidom::quick_xml::Writer;
 use minidom::Element;
-
-use crate::nodeinfo::minidom_collect_texts;
+use minidom_extension::{minidom, minidom_collect_texts};
 
 use super::html::process_html;
 
@@ -274,7 +273,7 @@ mod tests {
     use super::*;
 
     mod clean {
-        use crate::nodeinfo::minidom::asserts::assert_elem_equal;
+        use minidom_extension::asserts::assert_elem_equal;
 
         use super::*;
         use minidom::Element;

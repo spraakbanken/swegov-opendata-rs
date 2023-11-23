@@ -1,3 +1,5 @@
+pub use minidom;
+
 use minidom::Node;
 
 pub fn minidom_collect_texts(elem: &minidom::Element) -> String {
@@ -56,15 +58,16 @@ pub mod asserts {
     use minidom::{Element, Node};
     use pretty_assertions::assert_eq;
 
-    use crate::preprocess::xml::clean_text;
-
-    pub fn assert_node_equal(left: &Node, right: &Node) {
+    fn assert_node_equal_impl(left: &Node, right: &Node, clean_text: Option<&dyn Fn(&mut String)>) {
         match (left, right) {
             (Node::Text(left_text), Node::Text(right_text)) => {
                 let mut left_text = left_text.replace('\n', " ");
-                clean_text(&mut left_text);
+
                 let mut right_text = right_text.replace('\n', " ");
-                clean_text(&mut right_text);
+                if let Some(clean_text) = clean_text {
+                    clean_text(&mut left_text);
+                    clean_text(&mut right_text);
+                }
                 assert_eq!(&left_text, &right_text);
             }
             (Node::Element(left_elem), Node::Element(right_elem)) => {
@@ -80,7 +83,11 @@ pub mod asserts {
             }
         }
     }
-    pub fn assert_elem_equal(left: &Element, right: &Element) {
+    fn assert_elem_equal_impl(
+        left: &Element,
+        right: &Element,
+        clean_text: Option<&dyn Fn(&mut String)>,
+    ) {
         dbg!(left, right);
 
         assert_eq!(
@@ -128,8 +135,18 @@ pub mod asserts {
                 EitherOrBoth::Right(r1) => {
                     panic!("Right contains more nodes: among them node[{i}]= {:#?}, left={:#?}, right={:#?}", r1, left, right)
                 }
-                EitherOrBoth::Both(l1, r1) => assert_node_equal(l1, r1),
+                EitherOrBoth::Both(l1, r1) => assert_node_equal_impl(l1, r1, clean_text),
             }
         }
+    }
+    pub fn assert_elem_equal(left: &Element, right: &Element) {
+        assert_elem_equal_impl(left, right, None)
+    }
+    pub fn assert_elem_equal_with_cleaning(
+        left: &Element,
+        right: &Element,
+        clean_text: &dyn Fn(&mut String),
+    ) {
+        assert_elem_equal_impl(left, right, Some(clean_text))
     }
 }

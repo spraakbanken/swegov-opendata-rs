@@ -5,11 +5,9 @@ use minidom::{
     quick_xml::{events::Event, Reader},
     Element, Node,
 };
+use minidom_extension::{elem_is_empty, minidom};
 
-use crate::{
-    core::component::preprocess::preprocess_sfs::SfsPreprocessError,
-    nodeinfo::minidom::elem_is_empty,
-};
+use crate::core::component::preprocess::preprocess_sfs::SfsPreprocessError;
 
 #[tracing::instrument(skip(reader, textelem))]
 pub fn process_html_sfs_standard(

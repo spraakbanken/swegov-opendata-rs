@@ -1,3 +1,4 @@
+use minidom_extension::minidom;
 use std::{fmt, string::FromUtf8Error};
 
 use minidom::quick_xml;

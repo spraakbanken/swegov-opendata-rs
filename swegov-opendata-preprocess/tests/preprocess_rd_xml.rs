@@ -5,8 +5,8 @@ use std::{fs, io::Read};
 use error_stack::ResultExt;
 use minidom::quick_xml::reader::Reader;
 use minidom::Element;
-use swegov_opendata_preprocess::nodeinfo::minidom::asserts::assert_elem_equal;
-use swegov_opendata_preprocess::preprocess::xml::preprocess_xml;
+use minidom_extension::{asserts::assert_elem_equal_with_cleaning, minidom};
+use swegov_opendata_preprocess::preprocess::xml::{clean_text, preprocess_xml};
 use swegov_opendata_preprocess::{PreprocessError, PreprocessResult};
 
 #[test]
@@ -40,6 +40,6 @@ fn test_preprocess_xml() -> PreprocessResult<()> {
         .change_context(PreprocessError)
         .attach_printable("failed to read expected")?;
 
-    assert_elem_equal(&actual, &expected);
+    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
     Ok(())
 }

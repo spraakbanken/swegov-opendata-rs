@@ -1,6 +1,7 @@
 use std::fmt;
 
 use minidom::quick_xml;
+use minidom_extension::minidom;
 
 #[derive(Debug)]
 pub enum SfsPreprocessError {

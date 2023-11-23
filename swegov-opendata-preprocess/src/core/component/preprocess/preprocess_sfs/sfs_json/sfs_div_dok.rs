@@ -5,10 +5,10 @@ use minidom::{
     quick_xml::{events::Event, Reader},
     Element,
 };
+use minidom_extension::{elem_is_empty, minidom};
 
-use crate::{
-    core::component::preprocess::preprocess_sfs::{shared::attrib_equals, SfsPreprocessError},
-    nodeinfo::minidom::elem_is_empty,
+use crate::core::component::preprocess::preprocess_sfs::{
+    shared::attrib_equals, SfsPreprocessError,
 };
 
 #[tracing::instrument(skip(reader, textelem))]
