@@ -4,7 +4,9 @@ use std::{
     path::Path,
 };
 
-use crate::{core::component::preprocess::preprocess_sfs::sfs_json, PreprocessError};
+use crate::PreprocessError;
+
+use super::sfs_json;
 use error_stack::ResultExt;
 use flate2::read::GzDecoder;
 use sparv_extension::XmlSourceWriter;

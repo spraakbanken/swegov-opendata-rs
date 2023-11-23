@@ -15,7 +15,7 @@ use regex::Regex;
 use swegov_opendata::{DokumentStatus, DokumentStatusPage};
 
 use super::shared::attrib_equals;
-use crate::core::component::preprocess::shared::clean_element;
+use crate::shared::clean_element;
 
 use super::SfsPreprocessError;
 
@@ -121,7 +121,8 @@ fn process_html(
         Lazy::new(|| Regex::new(r"<([\w\s]?<[/\w]+)").expect("regex failed"));
 
     static LEFT_ANGLE_NON_TAG: Lazy<Regex> = Lazy::new(|| {
-        Regex::new(r"<([\d\\\.: £\^•\*»-]|[btrj] |er|[a-z]?[A-Z;]|if )").expect("regex failed")
+        Regex::new(r"<([\d\\: £\^•\*»{_'■,-]|[btrji] |er|ig|rn|[a-z/]?[A-Z;\.]|if )")
+            .expect("regex failed")
     });
     static ASTERIX_RIGHT_ANGLE: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"\*>").expect("regex failed"));

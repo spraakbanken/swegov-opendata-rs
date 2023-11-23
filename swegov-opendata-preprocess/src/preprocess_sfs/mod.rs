@@ -1,7 +1,10 @@
 mod error;
+mod sfs_corpura;
 pub mod sfs_json;
 mod shared;
 mod sparv_source;
+
+pub use self::sfs_corpura::{preprocess_sfs_corpus, PreprocessSfsCorpuraOptions};
 
 pub use self::error::SfsPreprocessError;
 

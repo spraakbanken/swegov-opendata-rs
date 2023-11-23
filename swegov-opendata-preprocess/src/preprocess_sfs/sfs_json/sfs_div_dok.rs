@@ -7,9 +7,8 @@ use minidom::{
 };
 use minidom_extension::{elem_is_empty, minidom};
 
-use crate::core::component::preprocess::preprocess_sfs::{
-    shared::attrib_equals, SfsPreprocessError,
-};
+use super::SfsPreprocessError;
+use crate::preprocess_sfs::shared::attrib_equals;
 
 #[tracing::instrument(skip(reader, textelem))]
 pub fn process_html_sfs_div_dok(

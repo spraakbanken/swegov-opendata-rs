@@ -49,7 +49,6 @@ fn clean_nodes(new_elem: &mut Element, elem: &Element) {
         }
     }
 }
-const SPACES: [char; 2] = [' ', '\u{00A0}'];
 pub fn clean_text(text: &mut String) {
     text.truncate(text.trim_end().len());
     // dbg!(&text);

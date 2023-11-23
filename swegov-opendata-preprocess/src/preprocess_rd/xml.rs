@@ -9,6 +9,8 @@ use minidom::quick_xml::Writer;
 use minidom::Element;
 use minidom_extension::{minidom, minidom_collect_texts};
 
+use crate::shared::clean_text;
+
 use super::html::process_html;
 
 /// Extract meta data and html from f.
@@ -239,24 +241,6 @@ pub fn clean_node(node: &minidom::Node) -> Option<minidom::Node> {
     }
 }
 
-pub fn clean_text(text: &mut String) {
-    text.truncate(text.trim_end().len());
-    // dbg!(&text);
-
-    let mut prev = ' ';
-    text.retain(|ch| {
-        if ['\n', '\u{00AD}'].contains(&ch) {
-            return false;
-        }
-        let consecutive_space = ch == ' ' && prev == ' ';
-        prev = ch;
-        !consecutive_space
-    });
-    // if text.is_empty() && orig_len > 0 {
-    //     *text = " ".into();
-    // }
-}
-
 pub fn node_is_empty(node: &minidom::Node) -> bool {
     // dbg!(&node);
     match &node {
@@ -274,6 +258,8 @@ mod tests {
 
     mod clean {
         use minidom_extension::asserts::assert_elem_equal;
+
+        use crate::shared::clean_text;
 
         use super::*;
         use minidom::Element;

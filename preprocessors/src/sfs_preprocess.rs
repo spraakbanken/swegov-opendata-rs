@@ -1,7 +1,7 @@
 use std::{path::Path, time::Instant};
 
 use swegov_opendata_preprocess::{
-    core::component::preprocess::{preprocess_sfs_corpus, PreprocessCorpuraOptions},
+    preprocess_sfs::{preprocess_sfs_corpus, PreprocessSfsCorpuraOptions},
     PreprocessError,
 };
 use tracing_subscriber::EnvFilter;
@@ -44,7 +44,7 @@ fn try_main() -> error_stack::Result<(), PreprocessError> {
     let mut args = args.skip(1);
     let input: String = args.next().expect("`INPUT` required");
     let output = args.next().expect("`OUTPUT` required");
-    preprocess_sfs_corpus(PreprocessCorpuraOptions {
+    preprocess_sfs_corpus(PreprocessSfsCorpuraOptions {
         input: Path::new(&input),
         output: Path::new(&output),
     })?;

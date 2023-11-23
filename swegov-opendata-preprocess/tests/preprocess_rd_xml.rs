@@ -6,7 +6,8 @@ use error_stack::ResultExt;
 use minidom::quick_xml::reader::Reader;
 use minidom::Element;
 use minidom_extension::{asserts::assert_elem_equal_with_cleaning, minidom};
-use swegov_opendata_preprocess::preprocess::xml::{clean_text, preprocess_xml};
+use swegov_opendata_preprocess::preprocess_rd::preprocess_xml;
+use swegov_opendata_preprocess::shared::clean_text;
 use swegov_opendata_preprocess::{PreprocessError, PreprocessResult};
 
 #[test]

@@ -8,13 +8,10 @@ use std::{
 
 use error_stack::{Context, ResultExt};
 use regex::Regex;
-use zip::ZipArchive;
-pub mod html;
-pub mod sfs;
-pub mod xml;
 use sparv_extension::make_corpus_config;
+use zip::ZipArchive;
 
-use crate::{corpusinfo, preprocess::xml::preprocess_xml};
+use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, PreprocessError};
 
 const RAWDIR: &str = "data/rd/rawdata";
 const PROCESSED_JSON: &str = "processed.json";
@@ -25,7 +22,7 @@ const MAX_SIZE: usize = 10 * 1024 * 1024;
 /// corpora: List that specifies which corpora (corpus-IDs) to process (default: all)
 /// skip_files: Zip files which should not be processed.
 /// testfile: Parse only 'testfile' and output result to 'test.xml'.
-pub fn preprocess_corpura(
+pub fn preprocess_rd_corpura(
     corpura: &[&str],
     skip_files: &[&str],
 ) -> error_stack::Result<(), PreprocessError> {
@@ -178,17 +175,6 @@ pub fn preprocess_corpura(
     }
     Ok(())
 }
-
-#[derive(Debug)]
-pub struct PreprocessError;
-
-impl fmt::Display for PreprocessError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str("preprocess error")
-    }
-}
-
-impl Context for PreprocessError {}
 
 fn write_xml(texts: &[Vec<u8>], xmlpath: &Path) -> error_stack::Result<(), PreprocessError> {
     use std::io::Write;

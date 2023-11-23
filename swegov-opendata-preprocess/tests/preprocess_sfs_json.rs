@@ -6,11 +6,8 @@ use error_stack::ResultExt;
 use minidom::quick_xml::reader::Reader;
 use minidom::Element;
 use minidom_extension::{asserts::assert_elem_equal_with_cleaning, minidom};
-use swegov_opendata_preprocess::core::component::preprocess::clean_element;
-use swegov_opendata_preprocess::core::component::preprocess::preprocess_sfs::{
-    build_sparv_source, sfs_json,
-};
-use swegov_opendata_preprocess::preprocess::xml::clean_text;
+use swegov_opendata_preprocess::preprocess_sfs::{build_sparv_source, sfs_json};
+use swegov_opendata_preprocess::shared::{clean_element, clean_text};
 use swegov_opendata_preprocess::{PreprocessError, PreprocessResult};
 
 #[test]
