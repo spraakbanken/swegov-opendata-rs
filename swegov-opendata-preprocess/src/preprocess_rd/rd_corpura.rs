@@ -13,9 +13,16 @@ use zip::ZipArchive;
 
 use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, PreprocessError};
 
-const RAWDIR: &str = "data/rd/rawdata";
-const PROCESSED_JSON: &str = "processed.json";
 const MAX_SIZE: usize = 10 * 1024 * 1024;
+
+#[derive(Debug, Clone)]
+pub struct PreprocessRdCorpuraOptions<'a> {
+    pub input: &'a Path,
+    pub output: &'a Path,
+    pub corpura: &'a [&'a str],
+    pub skip_files: &'a [&'a str],
+    pub processed_json_path: &'a Path,
+}
 
 /// Preprocess corpora.
 ///
@@ -23,13 +30,18 @@ const MAX_SIZE: usize = 10 * 1024 * 1024;
 /// skip_files: Zip files which should not be processed.
 /// testfile: Parse only 'testfile' and output result to 'test.xml'.
 pub fn preprocess_rd_corpura(
-    corpura: &[&str],
-    skip_files: &[&str],
+    PreprocessRdCorpuraOptions {
+        input,
+        output,
+        corpura,
+        skip_files,
+        processed_json_path,
+    }: PreprocessRdCorpuraOptions<'_>,
 ) -> error_stack::Result<(), PreprocessError> {
-    let path = RAWDIR;
+    // let path = RAWDIR;
     let verbose = true;
-    let output = "data/material";
-    let processed_json_path = PROCESSED_JSON;
+    // let output = "data/material";
+    // let processed_json_path = PROCESSED_JSON;
     eprintln!("preprocess_corpora");
     // Get previously processed data
     let mut processed_json: HashMap<String, HashMap<String, String>> =
@@ -38,16 +50,18 @@ pub fn preprocess_rd_corpura(
                 let reader = io::BufReader::new(file);
                 serde_json::from_reader(reader)
                     .change_context(PreprocessError)
-                    .attach_printable_lazy(|| format!("can't read {processed_json_path}"))?
+                    .attach_printable_lazy(|| {
+                        format!("can't read {}", processed_json_path.display())
+                    })?
             }
 
             Err(_) => HashMap::new(),
         };
 
     let corpus_re = Regex::new(r"(\S+)-\d{4}-.+").expect("valid regex");
-    for zippath in fs::read_dir(RAWDIR)
+    for zippath in fs::read_dir(input)
         .change_context(PreprocessError)
-        .attach_printable_lazy(|| format!("could not read dir {path:?}"))?
+        .attach_printable_lazy(|| format!("could not read dir {}", input.display()))?
     {
         let zippath = zippath.change_context(PreprocessError)?;
         if zippath.path().is_file() {
@@ -101,17 +115,12 @@ pub fn preprocess_rd_corpura(
                 .unwrap()
                 .to_str()
                 .unwrap();
-            let mut corpus_source_dir = Path::new(output)
+            let corpus_source_dir = Path::new(output)
                 .join(corpus_id)
                 .join("source")
                 .join(&corpus_source_base);
-            make_corpus_config(
-                corpus_id,
-                name,
-                descr,
-                Path::new("material").join(corpus_id),
-            )
-            .change_context(PreprocessError)?;
+            make_corpus_config(corpus_id, name, descr, &output.join(corpus_id))
+                .change_context(PreprocessError)?;
 
             let mut total_size = 0;
             let mut result: Vec<Vec<u8>> = vec![];

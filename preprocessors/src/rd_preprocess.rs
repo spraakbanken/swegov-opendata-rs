@@ -1,4 +1,9 @@
-use swegov_opendata_preprocess::{preprocess_corpura, PreprocessError};
+use std::path::Path;
+
+use swegov_opendata_preprocess::{
+    preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions},
+    PreprocessError,
+};
 use tracing_subscriber::EnvFilter;
 
 fn main() -> error_stack::Result<(), PreprocessError> {
@@ -11,6 +16,13 @@ fn main() -> error_stack::Result<(), PreprocessError> {
         )
         .finish();
     tracing::subscriber::set_global_default(subscriber).expect("telemetry: setting subscriber");
-    preprocess_corpura(&["rd-bet"], &[])?;
+
+    preprocess_rd_corpura(PreprocessRdCorpuraOptions {
+        input: Path::new("data/rd/rawdata"),
+        output: Path::new("data/material"),
+        corpura: &["rd-bet"],
+        skip_files: &[],
+        processed_json_path: Path::new("processed.json"),
+    })?;
     Ok(())
 }
