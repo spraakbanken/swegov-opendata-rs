@@ -17,7 +17,13 @@ test = false
 doctest = false
 
 [dependencies]
+clap = { version = "4.4.11", features = ["derive", "cargo"] }
 error-stack = { workspace = true }
+prodash = { workspace = true, features = [
+    "render-line",
+    "render-line-crossterm",
+] }
 swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
 tracing = { workspace = true }
+tracing-forest = "0.1.6"
 tracing-subscriber = { workspace = true }

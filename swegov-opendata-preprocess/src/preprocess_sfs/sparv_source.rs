@@ -11,16 +11,16 @@ use error_stack::ResultExt;
 use flate2::read::GzDecoder;
 use sparv_extension::XmlSourceWriter;
 
+#[tracing::instrument()]
 pub fn build_sparv_source(
     path: &Path,
     corpus_source_dir: &Path,
 ) -> error_stack::Result<(), PreprocessError> {
-    tracing::debug!("creating '{}'", corpus_source_dir.display());
+    tracing::info!("creating '{}'", corpus_source_dir.display());
     fs::create_dir_all(corpus_source_dir).change_context(PreprocessError)?;
     let mut source_writer = XmlSourceWriter::new(corpus_source_dir);
     for file_path in fs::read_dir(path).change_context(PreprocessError)? {
         let file_path = file_path.change_context(PreprocessError)?.path();
-        tracing::info!(file_path = ?file_path, "reading a file");
         let file_span = tracing::info_span!("reading file", file_path = ?file_path);
         let _enter = file_span.enter();
         let filecontents = read_text(&file_path).change_context(PreprocessError)?;
@@ -35,7 +35,6 @@ pub fn build_sparv_source(
     Ok(())
 }
 
-#[tracing::instrument()]
 pub fn read_text(path: &Path) -> io::Result<String> {
     let mut file = fs::File::open(path)?;
     let mut text = String::new();

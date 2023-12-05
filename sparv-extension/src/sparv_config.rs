@@ -1,4 +1,4 @@
-use std::io::Write;
+use std::collections::HashMap;
 use std::path::Path;
 use std::{fs, io};
 
@@ -29,18 +29,12 @@ impl SparvConfig {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct SparvConfigRef<'a> {
-    parent: Option<&'a str>,
-    metadata: &'a SparvMetadataRef<'a>,
-}
-
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
 pub struct SparvMetadata {
     id: String,
-    name: Vec<LangAndValue>,
-    description: Vec<LangAndValue>,
-    short_description: Vec<LangAndValue>,
+    name: HashMap<String, String>,
+    description: HashMap<String, String>,
+    short_description: HashMap<String, String>,
 }
 
 impl SparvMetadata {
@@ -53,45 +47,21 @@ impl SparvMetadata {
         }
     }
     pub fn name<S: Into<String>>(mut self, lang: &str, name: S) -> Self {
-        self.name.push(LangAndValue {
-            lang: lang.to_string(),
-            value: name.into(),
-        });
+        self.name.insert(lang.to_string(), name.into());
         self
     }
     pub fn description<S: Into<String>>(mut self, lang: &str, description: S) -> Self {
-        self.description.push(LangAndValue {
-            lang: lang.to_string(),
-            value: description.into(),
-        });
+        self.description
+            .insert(lang.to_string(), description.into());
         self
     }
     pub fn short_description<S: Into<String>>(mut self, lang: &str, description: S) -> Self {
-        self.short_description.push(LangAndValue {
-            lang: lang.to_string(),
-            value: description.into(),
-        });
+        self.short_description
+            .insert(lang.to_string(), description.into());
         self
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct SparvMetadataRef<'a> {
-    id: &'a str,
-    name: &'a [LangAndValueRef<'a>],
-    description: &'a [LangAndValueRef<'a>],
-}
-
-#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
-pub struct LangAndValue {
-    lang: String,
-    value: String,
-}
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub struct LangAndValueRef<'a> {
-    lang: &'a str,
-    value: &'a str,
-}
 /// Write Sparv corpus config file for sub corpus.
 pub fn make_corpus_config(
     sparv_config: &SparvConfig,
@@ -109,6 +79,6 @@ pub fn make_corpus_config(
     serde_yaml::to_writer(writer, &sparv_config)
         .change_context(SparvConfigError)
         .attach_printable_lazy(|| format!("failed writing to '{}'", path.display()))?;
-    eprintln!("  Config {} written", path.display());
+    tracing::info!(path = ?path, "  Config written",);
     Ok(())
 }

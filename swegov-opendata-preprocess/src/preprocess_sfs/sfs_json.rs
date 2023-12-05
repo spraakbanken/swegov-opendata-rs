@@ -3,10 +3,7 @@ use std::{fs, io::Write};
 use chrono::NaiveDate;
 use error_stack::{Report, ResultExt};
 use minidom::{
-    quick_xml::{
-        events::{BytesStart, Event},
-        Reader, Writer,
-    },
+    quick_xml::{events::Event, Reader, Writer},
     Element,
 };
 use minidom_extension::minidom;
@@ -22,7 +19,6 @@ use super::SfsPreprocessError;
 mod sfs_div_dok;
 mod sfs_standard;
 
-#[tracing::instrument(skip(source))]
 pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreprocessError> {
     let DokumentStatusPage {
         dokumentstatus:
@@ -101,11 +97,9 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
         tracing::error!(docelem = ?docelem, textelem = ?textelem, "no p or page");
         todo!("handle no p/page");
     }
-    tracing::debug!(textelem = ?textelem, "before cleaning");
     let textelem = clean_element(&textelem); //.expect("Cleaning should work");
     if !(textelem.has_child("p", "") || textelem.has_child("page", "")) {
         tracing::warn!(docelem = ?docelem, textelem = ?textelem, "document contains no text");
-        // todo!("handle no p/page after cleaning");
     }
 
     // Add text as child to dokument
@@ -120,7 +114,6 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     Ok(result)
 }
 
-#[tracing::instrument(skip(contents, textelem))]
 fn process_html(
     contents: &str,
     textelem: &mut Element,
@@ -168,9 +161,7 @@ fn process_html(
         .write_all(contents.as_bytes())
         .unwrap();
     let mut reader = Reader::from_str(&contents);
-    // let mut state = ParseHtmlState::Start;
     loop {
-        // tracing::trace!(state = ?state);
         match reader.read_event() {
             Err(e) => {
                 return Err(Report::new(SfsPreprocessError::XmlParsingError {
@@ -179,108 +170,12 @@ fn process_html(
                 }))
             }
             Ok(Event::Eof) => break,
-            Ok(Event::Start(e)) => {
-                tracing::trace!(start = ?e);
-                // dbg!(&e);
-                match e.name().as_ref() {
-                    b"div" if attrib_equals(&e, b"class", b"dok") => {
-                        // if e.attributes()
-                        //     .find(|attr| {
-                        //         attr.as_ref()
-                        //             .map(|attr| {
-                        //                 attr.key.local_name().as_ref() == b"class"
-                        //                     && attr.value.as_ref() == b"dok"
-                        //             })
-                        //             .is_ok()
-                        //     })
-                        //     .is_some()
-                        // if attrib_equals(e, b"class", b"dok") {
-                        sfs_div_dok::process_html_sfs_div_dok(&mut reader, textelem)?;
-                        // } else {
-                        // sfs_standard::process_html_sfs_standard(&mut reader, textelem)?;
-                        // }
-                    }
-                    _ => sfs_standard::process_html_sfs_standard(&mut reader, textelem)?,
+            Ok(Event::Start(e)) => match e.name().as_ref() {
+                b"div" if attrib_equals(&e, b"class", b"dok") => {
+                    sfs_div_dok::process_html_sfs_div_dok(&mut reader, textelem)?;
                 }
-                // state = match e.name().as_ref() {
-                //     b"style" => ParseHtmlState::Skip { tag: b"style" },
-                //     b"b" => {
-                //         if let ParseHtmlState::Start = state {
-                //             ParseHtmlState::ExtractMetadata
-                //         } else {
-                //             state
-                //         }
-                //     }
-                //     b"a" => match state {
-                //         ParseHtmlState::ExtractMetadataFoundKey { key } => {
-                //             let mut new_state = None;
-                //             for attr in e.attributes() {
-                //                 let attr =
-                //                     attr.map_err(|err| SfsPreprocessError::XmlParsingAttrError {
-                //                         pos: reader.buffer_position(),
-                //                         err: err,
-                //                     })?;
-                //                 if attr.key.local_name().as_ref() == b"href" {
-                //                     textelem.set_attr(
-                //                         key.as_ref().to_lowercase(),
-                //                         attr.unescape_value().unwrap().as_ref(),
-                //                     );
-                //                     new_state = Some(ParseHtmlState::ExtractMetadata);
-                //                 }
-                //             }
-                //             new_state
-                //                 .unwrap_or_else(|| ParseHtmlState::ExtractMetadataFoundKey { key })
-                //         }
-                //         _ => todo!(),
-                //     },
-                //     _ => todo!(),
-                // }
-            }
-            // Ok(Event::Text(content)) => {
-            //     match state {
-            //         ParseHtmlState::Start | ParseHtmlState::Skip { tag: _ } => continue,
-            //         _ => (),
-            //     }
-            //     let content_text =
-            //         content
-            //             .unescape()
-            //             .map_err(|err| SfsPreprocessError::XmlParsingError {
-            //                 pos: reader.buffer_position(),
-            //                 err,
-            //             })?;
-            //     // .change_context_lazy(|| SfsPreprocessError::Xml())?;
-            //     tracing::trace!(text = ?content_text);
-            //     match state {
-            //         ParseHtmlState::ExtractMetadata => {
-            //             if ["Ändringsregister", "Källa"].contains(&content_text.as_ref()) {
-            //                 state = ParseHtmlState::ExtractMetadataFoundKey { key: content_text };
-            //             }
-            //         }
-            //         ParseHtmlState::ExtractMetadataFoundKey { key: _ } => continue,
-            //         _ => todo!("handle content_text='{}'", content_text),
-            //     }
-            //     // todo!("handle content_text='{}'", content_text);
-            // }
-            // Ok(Event::End(e)) => {
-            //     tracing::trace!(end = ?e);
-            //     // if let ParseHtmlState::Skip { tag: _ } = state {
-            //     //     continue;
-            //     // }
-            //     match e.name().as_ref() {
-            //         b"style" => state = ParseHtmlState::Start,
-            //         b"a" => match state {
-            //             ParseHtmlState::ExtractMetadata => continue,
-            //             _ => todo!(),
-            //         },
-            //         b"b" => match state {
-            //             ParseHtmlState::ExtractMetadata
-            //             | ParseHtmlState::ExtractMetadataFoundKey { key: _ } => continue,
-            //             _ => todo!(),
-            //         },
-            //         _ => todo!(),
-            //     }
-            // }
-            // Ok(Event::Empty(e)) => tracing::trace!(empty = ?e),
+                _ => sfs_standard::process_html_sfs_standard(&mut reader, textelem)?,
+            },
             Ok(e) => todo!("handle {:?}", e),
         }
     }

@@ -23,6 +23,10 @@ once_cell = "1.18.0"
 itertools = "0.11.0"
 minidom-extension = { version = "0.1.0", path = "../minidom-extension" }
 sparv-extension = { version = "0.1.0", path = "../sparv-extension" }
+prodash = { workspace = true, features = [
+    "render-line",
+    "render-line-crossterm",
+] }
 
 [dev-dependencies]
 itertools = "0.11.0"

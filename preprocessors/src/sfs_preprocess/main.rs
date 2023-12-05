@@ -1,20 +1,35 @@
-use std::path::Path;
-
-use preprocessors::shared::prepare_and_run;
+use clap::Parser;
+use preprocessors::shared::pretty::prepare_and_run;
 use swegov_opendata_preprocess::{
     preprocess_sfs::{preprocess_sfs_corpus, PreprocessSfsCorpuraOptions},
     PreprocessError,
 };
 
+use crate::sfs_preprocess::options::Args;
+
 pub fn main() -> error_stack::Result<(), PreprocessError> {
-    let args = std::env::args();
-    let mut args = args.skip(1);
-    let input: String = args.next().expect("`INPUT` required");
-    let output = args.next().expect("`OUTPUT` required");
-    prepare_and_run("preprocess-sfs", || {
-        preprocess_sfs_corpus(PreprocessSfsCorpuraOptions {
-            input: Path::new(&input),
-            output: Path::new(&output),
-        })
-    })
+    let args = Args::parse();
+    let trace = args.trace;
+    let verbose = args.verbose;
+    let input = args.input;
+    let output = args.output;
+    prepare_and_run(
+        "preprocess-sfs",
+        trace,
+        verbose,
+        None,
+        |progress, out, err| {
+            preprocess_sfs_corpus(
+                &input,
+                &output,
+                out,
+                err,
+                progress,
+                PreprocessSfsCorpuraOptions {
+                    input: &input,
+                    output: &output,
+                },
+            )
+        },
+    )
 }
