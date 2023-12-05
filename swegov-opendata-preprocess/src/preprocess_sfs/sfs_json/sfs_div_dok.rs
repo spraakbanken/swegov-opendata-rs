@@ -167,11 +167,11 @@ pub fn extract_page(
                         let mut raw_text = vec![b'<'];
                         raw_text.extend(should_be_text);
                         raw_text.extend(e.attributes_raw());
-                        let mut text = String::from_utf8_lossy(&raw_text).to_string();
-                        dbg!(&text);
+                        let text = String::from_utf8_lossy(&raw_text).to_string();
+                        // dbg!(&text);
                         // text = text.replace("</span", " ");
                         tracing::warn!(text, ?state, "text from unknown tag");
-                        panic!("bad xml");
+                        // panic!("bad xml");
                         if let Some(curr_elem) = &mut curr {
                             curr_elem.append_text_node(text);
                         } else {

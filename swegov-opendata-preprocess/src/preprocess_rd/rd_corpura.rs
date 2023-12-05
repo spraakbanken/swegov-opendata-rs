@@ -8,7 +8,7 @@ use std::{
 
 use error_stack::{Context, ResultExt};
 use regex::Regex;
-use sparv_extension::make_corpus_config;
+use sparv_extension::{make_corpus_config, SparvConfig, SparvMetadata};
 use zip::ZipArchive;
 
 use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, PreprocessError};
@@ -119,7 +119,14 @@ pub fn preprocess_rd_corpura(
                 .join(corpus_id)
                 .join("source")
                 .join(&corpus_source_base);
-            make_corpus_config(corpus_id, name, descr, &output.join(corpus_id))
+            let sparv_config = SparvConfig::with_parent_and_metadata(
+                "../config.yaml",
+                SparvMetadata::new(corpus_id)
+                    .name("swe", format!("Riksdagens öppna data: {}", name))
+                    .description("swe", descr)
+                    .short_description("swe", ""),
+            );
+            make_corpus_config(&sparv_config, &output.join(corpus_id))
                 .change_context(PreprocessError)?;
 
             let mut total_size = 0;

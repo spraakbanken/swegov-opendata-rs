@@ -26,7 +26,6 @@ pub fn minidom_text_len(node: &minidom::Node) -> usize {
             // eprintln!("Element <{}>", elem.name());
             elem.nodes().map(|node| minidom_text_len(node)).sum()
         }
-        _ => 0,
     }
 }
 
