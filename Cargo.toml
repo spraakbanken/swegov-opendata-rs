@@ -5,14 +5,16 @@ edition = "2021"
 
 [[bin]]
 name = "fetch-sfs"
-path = "src/fetch_sfs.rs"
+path = "src/fetch-sfs.rs"
 test = false
 doctest = false
 
 
 [dependencies]
 anyhow = "1.0.71"
+clap = { workspace = true, features = ["derive", "cargo"] }
 config = "0.13.3"
+# error-stack = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 tokio = { version = "1.28.0", features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
@@ -38,3 +40,4 @@ minidom = "0.15.2"
 error-stack = "0.4.1"
 serde = { version = "1.0.160" }
 prodash = { version = "26.2.2" }
+clap = { version = "4.4.11" }

@@ -133,8 +133,7 @@ impl webcrawler::Spider for SfsSpider {
         // println!("{}", text);
         let item: Item = match quick_xml_de::from_str(&text) {
             Err(err) if url.contains("dokument/") => {
-                tracing::error!("Failed parsing XML: {}", err);
-                tracing::error!("Failing xml: {}", text);
+                tracing::error!(error=?err,text=text,"Failed parsing XML");
                 let new_url = url.replace("dokument", "dokumentstatus");
                 tracing::info!("Trying {} instead", new_url);
                 new_urls.push(new_url);
@@ -145,8 +144,7 @@ impl webcrawler::Spider for SfsSpider {
                 return Ok((items, new_urls));
             }
             Err(err) => {
-                tracing::error!("Failed parsing XML: {}", err);
-                tracing::error!("Failing xml: {}", text);
+                tracing::error!(error=?err,text=text,"Failed parsing XML");
                 return Err(err.into());
             }
             Ok(item) => item,
@@ -224,14 +222,14 @@ impl webcrawler::Spider for SfsSpider {
         path.set_extension("json.gz");
         let span = tracing::info_span!("writing output", "{}", path.display());
         let _enter = span.enter();
-        tracing::debug!("creating file");
+        tracing::info!("creating file");
         let file = std::fs::File::create(&path).map_err(|err| {
             tracing::error!("failed creating file, url={}", url);
             err
         })?;
         let compress_writer = flate2::write::GzEncoder::new(file, Compression::default());
         let writer = std::io::BufWriter::new(compress_writer);
-        tracing::debug!("writing JSON");
+        tracing::info!("writing JSON");
         serde_json::to_writer(writer, &item).map_err(|err| {
             tracing::error!("failed writing JSON, url={}", url);
             err

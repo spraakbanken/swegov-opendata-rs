@@ -17,7 +17,7 @@ test = false
 doctest = false
 
 [dependencies]
-clap = { version = "4.4.11", features = ["derive", "cargo"] }
+clap = { workspace = true, features = ["derive", "cargo"] }
 error-stack = { workspace = true }
 prodash = { workspace = true, features = [
     "render-line",

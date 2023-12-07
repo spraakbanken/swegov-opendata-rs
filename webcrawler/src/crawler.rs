@@ -1,4 +1,5 @@
 use crate::Spider;
+use chrono::{DateTime, Utc};
 use futures::stream::StreamExt;
 use serde::de::Deserialize;
 use std::error::Error as StdError;
@@ -27,12 +28,21 @@ pub struct Crawler {
     saved_state_path: Option<PathBuf>,
 }
 
+#[derive(Debug, Clone)]
+pub struct CrawlerOptions {
+    pub delay: Duration,
+    pub crawling_concurrency: usize,
+    pub processing_concurrency: usize,
+}
+
 impl Crawler {
     pub fn new(
-        delay: Duration,
-        crawling_concurrency: usize,
-        processing_concurrency: usize,
         saved_state_path: Option<PathBuf>,
+        CrawlerOptions {
+            delay,
+            crawling_concurrency,
+            processing_concurrency,
+        }: CrawlerOptions,
     ) -> Self {
         Self {
             delay,
@@ -71,7 +81,7 @@ impl Crawler {
             visited_urls
                 .write()
                 .await
-                .insert(url.clone(), CrawledState::Queued);
+                .insert(url.clone(), CrawledState::queued());
             let _ = urls_to_visit_tx.send(url).await;
         }
 
@@ -104,14 +114,20 @@ impl Crawler {
                 visited_urls
                     .write()
                     .await
-                    .insert(visited_url, CrawledState::Queued);
+                    .entry(visited_url)
+                    .and_modify(|state| state.scraped_ok())
+                    .or_insert_with(|| {
+                        let mut state = CrawledState::default();
+                        state.scraped_ok();
+                        state
+                    });
 
                 for url in new_urls {
                     if !visited_urls.read().await.contains_key(&url) {
                         visited_urls
                             .write()
                             .await
-                            .insert(url.clone(), CrawledState::Queued);
+                            .insert(url.clone(), CrawledState::queued());
                         tracing::debug!("queueing: {}", url);
                         let _ = urls_to_visit_tx.send(url).await;
                     }
@@ -225,7 +241,7 @@ impl Crawler {
                         }
                         Err(err) => {
                             tracing::error!(
-                                "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
+                                "Failed to read file '{}' Error: '{:?}'. Ignoring",
                                 saved_state_path.display(),
                                 err
                             );
@@ -234,7 +250,7 @@ impl Crawler {
                     }
                 }
                 Err(err) => {
-                    tracing::error!(
+                    tracing::warn!(
                         "Failed to open file from '{}' Error: '{:?}'. Ignoring",
                         saved_state_path.display(),
                         err
@@ -271,13 +287,25 @@ impl Crawler {
                                 visited_urls
                                     .write()
                                     .await
-                                    .insert(url, CrawledState::ProcessError(err.to_string()));
+                                    .entry(url)
+                                    .and_modify(|state| state.process_error(err.to_string()))
+                                    .or_insert_with(|| {
+                                        let mut state = CrawledState::default();
+                                        state.process_error(err.to_string());
+                                        state
+                                    });
                             }
                             Ok(output) => {
                                 visited_urls
                                     .write()
                                     .await
-                                    .insert(url, CrawledState::Ok(output));
+                                    .entry(url)
+                                    .and_modify(|state| state.processed_ok(&output))
+                                    .or_insert_with(|| {
+                                        let mut state = CrawledState::default();
+                                        state.processed_ok(&output);
+                                        state
+                                    });
                             }
                         }
                     }
@@ -314,17 +342,29 @@ impl Crawler {
                         let res = match spider.scrape(queued_url.clone()).await {
                             Err(err) => {
                                 num_scrape_errors.fetch_add(1, Ordering::SeqCst);
-                                visited_urls.write().await.insert(
-                                    queued_url.clone(),
-                                    CrawledState::ScrapeError(err.to_string()),
-                                );
+                                visited_urls
+                                    .write()
+                                    .await
+                                    .entry(queued_url.clone())
+                                    .and_modify(|state| state.scrape_error(err.to_string()))
+                                    .or_insert_with(|| {
+                                        let mut state = CrawledState::default();
+                                        state.scrape_error(err.to_string());
+                                        state
+                                    });
                                 None
                             }
                             Ok((items, new_urls)) => {
                                 visited_urls
                                     .write()
                                     .await
-                                    .insert(queued_url.clone(), CrawledState::ScrapedOk);
+                                    .entry(queued_url.clone())
+                                    .and_modify(|state| state.scraped_ok())
+                                    .or_insert_with(|| {
+                                        let mut state = CrawledState::default();
+                                        state.scraped_ok();
+                                        state
+                                    });
                                 Some((items, new_urls))
                             }
                         };
@@ -350,10 +390,51 @@ impl Crawler {
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-pub enum CrawledState {
-    Queued,
+pub struct CrawledState {
+    queued: DateTime<Utc>,
+    scraped_at: Option<DateTime<Utc>>,
+    scrape_result: Option<StateOutcome>,
+    processed_at: Option<DateTime<Utc>>,
+    process_result: Option<StateOutcome>,
+}
+
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[serde(tag = "status", content = "outcome")]
+pub enum StateOutcome {
     Ok(String),
-    ScrapedOk,
-    ProcessError(String),
-    ScrapeError(String),
+    Error(String),
+}
+
+impl Default for CrawledState {
+    fn default() -> Self {
+        Self {
+            queued: Utc::now(),
+            scraped_at: None,
+            scrape_result: None,
+            processed_at: None,
+            process_result: None,
+        }
+    }
+}
+
+impl CrawledState {
+    pub fn queued() -> CrawledState {
+        Self::default()
+    }
+    pub fn processed_ok<S: Into<String>>(&mut self, path: S) {
+        self.processed_at = Some(Utc::now());
+        self.process_result = Some(StateOutcome::Ok(path.into()));
+    }
+    pub fn scraped_ok(&mut self) {
+        self.scraped_at = Some(Utc::now());
+        self.scrape_result = Some(StateOutcome::Ok("".into()))
+    }
+    pub fn process_error<S: Into<String>>(&mut self, error: S) {
+        self.processed_at = Some(Utc::now());
+        self.process_result = Some(StateOutcome::Error(error.into()));
+    }
+    pub fn scrape_error<S: Into<String>>(&mut self, error: S) {
+        self.scraped_at = Some(Utc::now());
+        self.scrape_result = Some(StateOutcome::Error(error.into()))
+    }
 }
