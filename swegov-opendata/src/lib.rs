@@ -306,10 +306,12 @@ pub struct SokData {
     parti_website_namn: String,
     parti_epost: String,
     parti_telefon: String,
+    parti_telefontider: String,
     parti_logotyp_img_id: String,
     parti_logotyp_img_url: String,
     parti_logotyp_img_alt: String,
     parti_mandat: String,
+    kalenderprio: String,
 }
 // #[cfg(test)]
 // mod tests {

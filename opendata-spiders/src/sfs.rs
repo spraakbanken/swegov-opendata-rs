@@ -109,7 +109,7 @@ impl webcrawler::Spider for SfsSpider {
         let mut items = Vec::new();
 
         let dokument_url = "https://data.riksdagen.se/dokument";
-        tracing::debug!("calling {}", url);
+        tracing::info!("calling {}", url);
         let response = self.http_client.get(&url).send().await.map_err(|err| {
             tracing::error!("Failed fetching: {:?}", err);
             err
