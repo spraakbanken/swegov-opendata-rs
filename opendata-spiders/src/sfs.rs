@@ -70,7 +70,7 @@ impl Default for SfsSpiderOptions {
 }
 #[async_trait]
 impl webcrawler::Spider for SfsSpider {
-    type Item = (String, Item);
+    type Item = Item;
     type Error = Error;
 
     fn name(&self) -> String {
@@ -139,7 +139,8 @@ impl webcrawler::Spider for SfsSpider {
                 tracing::info!("Trying {} instead", new_url);
                 new_urls.push(new_url);
                 if text.starts_with("<div") {
-                    items.push((format!("{url}_text"), Item::Div(text)));
+                    // items.push((format!("{url}_text"), Item::Div(text)));
+                    items.push(Item::Div(text));
                 }
                 return Ok((items, new_urls));
             }
@@ -167,13 +168,13 @@ impl webcrawler::Spider for SfsSpider {
             _ => {}
         }
 
-        items.push((url, item));
+        items.push(item);
         Ok((items, new_urls))
     }
 
     #[tracing::instrument(skip(item))]
-    async fn process(&self, item: Self::Item) -> Result<(), Error> {
-        let (url, item) = item;
+    async fn process(&self, mut url: String, item: Self::Item) -> Result<String, Error> {
+        // let (url, item) = item;
         let mut path = self.output_path.clone();
         let file_name;
         tracing::info!("analyzing url={}", url);
@@ -200,6 +201,7 @@ impl webcrawler::Spider for SfsSpider {
             }
             _ => {
                 file_name = String::new();
+                url = format!("{url}_text");
                 path.push("unknown");
             }
         }
@@ -223,7 +225,7 @@ impl webcrawler::Spider for SfsSpider {
         let span = tracing::info_span!("writing output", "{}", path.display());
         let _enter = span.enter();
         tracing::debug!("creating file");
-        let file = std::fs::File::create(path).map_err(|err| {
+        let file = std::fs::File::create(&path).map_err(|err| {
             tracing::error!("failed creating file, url={}", url);
             err
         })?;
@@ -234,6 +236,6 @@ impl webcrawler::Spider for SfsSpider {
             tracing::error!("failed writing JSON, url={}", url);
             err
         })?;
-        Ok(())
+        Ok(path.display().to_string())
     }
 }

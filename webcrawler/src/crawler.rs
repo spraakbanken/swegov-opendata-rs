@@ -1,8 +1,9 @@
 use crate::Spider;
 use futures::stream::StreamExt;
 use serde::de::Deserialize;
+use std::error::Error as StdError;
 use std::{
-    collections::HashSet,
+    collections::HashMap,
     fs,
     io::{self, Write},
     path::PathBuf,
@@ -13,10 +14,12 @@ use std::{
     time::Duration,
 };
 use tokio::{
-    sync::{mpsc, Barrier},
+    sync::{mpsc, Barrier, RwLock},
     time::{sleep, Instant},
 };
 
+type ProcessingState = HashMap<String, CrawledState>;
+type SharedProcessingState = Arc<RwLock<ProcessingState>>;
 pub struct Crawler {
     delay: Duration,
     crawling_concurrency: usize,
@@ -39,60 +42,13 @@ impl Crawler {
         }
     }
 
-    pub async fn run<T: Send + 'static, E: 'static>(
+    pub async fn run<T: Send + 'static, E: StdError + Send + 'static>(
         &self,
         spider: Arc<dyn Spider<Item = T, Error = E>>,
     ) {
         tracing::info!("running spider '{}'", spider.name());
         let starting_time = Instant::now();
-        let mut visited_urls = if let Some(saved_state_path) = &self.saved_state_path {
-            match fs::File::open(saved_state_path) {
-                Ok(file) => {
-                    let reader = io::BufReader::new(file);
-                    match serde_json::from_reader::<io::BufReader<fs::File>, serde_json::Value>(
-                        reader,
-                    ) {
-                        Ok(mut json) => {
-                            match HashSet::<String>::deserialize(json["visited_urls"].take()) {
-                                Ok(visited_urls) => {
-                                    tracing::info!(
-                                        "read saved state from '{}'",
-                                        saved_state_path.display()
-                                    );
-                                    visited_urls
-                                }
-                                Err(err) => {
-                                    tracing::error!(
-                                        "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
-                                        saved_state_path.display(),
-                                        err
-                                    );
-                                    HashSet::<String>::new()
-                                }
-                            }
-                        }
-                        Err(err) => {
-                            tracing::error!(
-                                "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
-                                saved_state_path.display(),
-                                err
-                            );
-                            HashSet::<String>::new()
-                        }
-                    }
-                }
-                Err(err) => {
-                    tracing::error!(
-                        "Failed to open file from '{}' Error: '{:?}'. Ignoring",
-                        saved_state_path.display(),
-                        err
-                    );
-                    HashSet::<String>::new()
-                }
-            }
-        } else {
-            HashSet::<String>::new()
-        };
+        let visited_urls = self.read_state();
         let crawling_concurrency = self.crawling_concurrency;
         let crawling_queue_capacity = crawling_concurrency * 400;
         let processing_concurrency = self.processing_concurrency;
@@ -112,7 +68,10 @@ impl Crawler {
 
         for url in spider.start_urls() {
             tracing::info!(start_url = url);
-            visited_urls.insert(url.clone());
+            visited_urls
+                .write()
+                .await
+                .insert(url.clone(), CrawledState::Queued);
             let _ = urls_to_visit_tx.send(url).await;
         }
 
@@ -120,6 +79,7 @@ impl Crawler {
             processing_concurrency,
             num_processings.clone(),
             num_process_errors.clone(),
+            visited_urls.clone(),
             spider.clone(),
             items_rx,
             barrier.clone(),
@@ -129,6 +89,7 @@ impl Crawler {
             crawling_concurrency,
             num_scrapings.clone(),
             num_scrape_errors.clone(),
+            visited_urls.clone(),
             spider.clone(),
             urls_to_visit_rx,
             new_urls_tx.clone(),
@@ -140,11 +101,17 @@ impl Crawler {
 
         loop {
             if let Ok((visited_url, new_urls)) = new_urls_rx.try_recv() {
-                visited_urls.insert(visited_url);
+                visited_urls
+                    .write()
+                    .await
+                    .insert(visited_url, CrawledState::Queued);
 
                 for url in new_urls {
-                    if !visited_urls.contains(&url) {
-                        visited_urls.insert(url.clone());
+                    if !visited_urls.read().await.contains_key(&url) {
+                        visited_urls
+                            .write()
+                            .await
+                            .insert(url.clone(), CrawledState::Queued);
                         tracing::debug!("queueing: {}", url);
                         let _ = urls_to_visit_tx.send(url).await;
                     }
@@ -170,7 +137,25 @@ impl Crawler {
         // and then we wait for the streams to complete
         barrier.wait().await;
 
-        let json = serde_json::json!({ "visited_urls": visited_urls });
+        self.write_state(visited_urls).await;
+
+        let num_procs = num_processings.load(Ordering::Relaxed);
+        let num_proc_errors = num_process_errors.load(Ordering::Relaxed);
+        let num_scrapes = num_scrapings.load(Ordering::Relaxed);
+        let num_scrap_errors = num_scrape_errors.load(Ordering::Relaxed);
+        let total_running_time = format!("{:?}", starting_time.elapsed());
+        tracing::info!(
+            num_processings = num_procs,
+            num_process_errors = num_proc_errors,
+            num_scrapings = num_scrapes,
+            num_scrape_errors = num_scrap_errors,
+            running_time = total_running_time,
+            "statistics"
+        );
+    }
+
+    async fn write_state(&self, visited_urls: SharedProcessingState) {
+        let json = serde_json::json!({ "visited_urls": &*visited_urls.read().await });
         match serde_json::to_string(&json) {
             Ok(json_string) => {
                 if let Some(state_path) = &self.saved_state_path {
@@ -209,40 +194,93 @@ impl Crawler {
                 tracing::error!("visited_urls={:?}", json);
             }
         }
-
-        let num_procs = num_processings.load(Ordering::Relaxed);
-        let num_proc_errors = num_process_errors.load(Ordering::Relaxed);
-        let num_scrapes = num_scrapings.load(Ordering::Relaxed);
-        let num_scrap_errors = num_scrape_errors.load(Ordering::Relaxed);
-        let total_running_time = format!("{:?}", starting_time.elapsed());
-        tracing::info!(
-            num_processings = num_procs,
-            num_process_errors = num_proc_errors,
-            num_scrapings = num_scrapes,
-            num_scrape_errors = num_scrap_errors,
-            running_time = total_running_time,
-            "statistics"
-        );
     }
 
-    fn launch_processors<T: Send + 'static, E: 'static>(
+    fn read_state(&self) -> SharedProcessingState {
+        let processing_state = if let Some(saved_state_path) = &self.saved_state_path {
+            match fs::File::open(saved_state_path) {
+                Ok(file) => {
+                    let reader = io::BufReader::new(file);
+                    match serde_json::from_reader::<io::BufReader<fs::File>, serde_json::Value>(
+                        reader,
+                    ) {
+                        Ok(mut json) => {
+                            match ProcessingState::deserialize(json["visited_urls"].take()) {
+                                Ok(visited_urls) => {
+                                    tracing::info!(
+                                        "read saved state from '{}'",
+                                        saved_state_path.display()
+                                    );
+                                    visited_urls
+                                }
+                                Err(err) => {
+                                    tracing::error!(
+                                        "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
+                                        saved_state_path.display(),
+                                        err
+                                    );
+                                    ProcessingState::new()
+                                }
+                            }
+                        }
+                        Err(err) => {
+                            tracing::error!(
+                                "Failed to read saved state from '{}' Error: '{:?}'. Ignoring",
+                                saved_state_path.display(),
+                                err
+                            );
+                            ProcessingState::new()
+                        }
+                    }
+                }
+                Err(err) => {
+                    tracing::error!(
+                        "Failed to open file from '{}' Error: '{:?}'. Ignoring",
+                        saved_state_path.display(),
+                        err
+                    );
+                    ProcessingState::new()
+                }
+            }
+        } else {
+            ProcessingState::new()
+        };
+        Arc::new(RwLock::new(processing_state))
+    }
+
+    fn launch_processors<T: Send + 'static, E: StdError + Send + 'static>(
         &self,
         concurrency: usize,
         num_processings: Arc<AtomicUsize>,
         num_process_errors: Arc<AtomicUsize>,
+        visited_urls: SharedProcessingState,
         spider: Arc<dyn Spider<Item = T, Error = E>>,
-        items: mpsc::Receiver<T>,
+        items: mpsc::Receiver<(String, T)>,
         barrier: Arc<Barrier>,
     ) {
         tokio::spawn(async move {
             tokio_stream::wrappers::ReceiverStream::new(items)
-                .for_each_concurrent(concurrency, |item| async {
-                    num_processings.fetch_add(1, Ordering::SeqCst);
-                    let _ = spider.process(item).await.map_err(|err| {
-                        num_process_errors.fetch_add(1, Ordering::SeqCst);
-                        // tracing::error!("Processing error: {:?}", err);
-                        err
-                    });
+                .for_each_concurrent(concurrency, |(url, item)| {
+                    let url = url;
+                    async {
+                        num_processings.fetch_add(1, Ordering::SeqCst);
+                        match spider.process(url.clone(), item).await {
+                            Err(err) => {
+                                num_process_errors.fetch_add(1, Ordering::SeqCst);
+                                // tracing::error!("Processing error: {:?}", err);
+                                visited_urls
+                                    .write()
+                                    .await
+                                    .insert(url, CrawledState::ProcessError(err.to_string()));
+                            }
+                            Ok(output) => {
+                                visited_urls
+                                    .write()
+                                    .await
+                                    .insert(url, CrawledState::Ok(output));
+                            }
+                        }
+                    }
                 })
                 .await;
 
@@ -251,15 +289,16 @@ impl Crawler {
     }
 
     #[allow(clippy::too_many_arguments)]
-    fn launch_scrapers<T: Send + 'static, E: 'static>(
+    fn launch_scrapers<T: Send + 'static, E: StdError + Send + 'static>(
         &self,
         concurrency: usize,
         num_scrapings: Arc<AtomicUsize>,
         num_scrape_errors: Arc<AtomicUsize>,
+        visited_urls: SharedProcessingState,
         spider: Arc<dyn Spider<Item = T, Error = E>>,
         urls_to_visit: mpsc::Receiver<String>,
         new_urls_tx: mpsc::Sender<(String, Vec<String>)>,
-        items_tx: mpsc::Sender<T>,
+        items_tx: mpsc::Sender<(String, T)>,
         active_spiders: Arc<AtomicUsize>,
         delay: Duration,
         barrier: Arc<Barrier>,
@@ -272,18 +311,27 @@ impl Crawler {
                         active_spiders.fetch_add(1, Ordering::SeqCst);
                         let mut urls = Vec::new();
                         num_scrapings.fetch_add(1, Ordering::SeqCst);
-                        let res = spider
-                            .scrape(queued_url.clone())
-                            .await
-                            .map_err(|err| {
+                        let res = match spider.scrape(queued_url.clone()).await {
+                            Err(err) => {
                                 num_scrape_errors.fetch_add(1, Ordering::SeqCst);
-                                err
-                            })
-                            .ok();
+                                visited_urls.write().await.insert(
+                                    queued_url.clone(),
+                                    CrawledState::ScrapeError(err.to_string()),
+                                );
+                                None
+                            }
+                            Ok((items, new_urls)) => {
+                                visited_urls
+                                    .write()
+                                    .await
+                                    .insert(queued_url.clone(), CrawledState::ScrapedOk);
+                                Some((items, new_urls))
+                            }
+                        };
 
                         if let Some((items, new_urls)) = res {
                             for item in items {
-                                let _ = items_tx.send(item).await;
+                                let _ = items_tx.send((queued_url.clone(), item)).await;
                             }
                             urls = new_urls;
                         }
@@ -299,4 +347,13 @@ impl Crawler {
             barrier.wait().await;
         });
     }
+}
+
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+pub enum CrawledState {
+    Queued,
+    Ok(String),
+    ScrapedOk,
+    ProcessError(String),
+    ScrapeError(String),
 }
