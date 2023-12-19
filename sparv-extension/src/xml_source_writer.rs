@@ -23,6 +23,15 @@ impl<'a> XmlSourceWriter<'a> {
         }
     }
 
+    pub fn with_target_and_counter(target_dir: &'a Path, counter: usize) -> Self {
+        Self {
+            target_dir,
+            counter,
+            result: Vec::default(),
+            total_size: 0,
+        }
+    }
+
     pub fn write(&mut self, xmlstring: Vec<u8>) -> error_stack::Result<(), SparvError> {
         if xmlstring.is_empty() {
             return Ok(());
