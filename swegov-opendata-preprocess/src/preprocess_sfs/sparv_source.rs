@@ -23,7 +23,9 @@ pub fn build_sparv_source(
         let file_path = file_path.change_context(PreprocessError)?.path();
         let file_span = tracing::info_span!("reading file", file_path = ?file_path);
         let _enter = file_span.enter();
-        let filecontents = read_text(&file_path).change_context(PreprocessError)?;
+        let filecontents = read_text(&file_path)
+            .change_context(PreprocessError)
+            .attach_printable_lazy(|| format!("reading file '{}'", file_path.display()))?;
         let xmlstring = sfs_json::preprocess_json(&filecontents)
             .change_context(PreprocessError)
             .attach_printable_lazy(|| format!("reading file {}", file_path.display()))?;
