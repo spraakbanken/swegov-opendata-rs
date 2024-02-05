@@ -27,6 +27,7 @@ prodash = { workspace = true, features = [
     "render-line",
     "render-line-crossterm",
 ] }
+workspace-hack = { version = "0.1", path = "../workspace-hack" }
 
 [dev-dependencies]
 itertools = "0.11.0"

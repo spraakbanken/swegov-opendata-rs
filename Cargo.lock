@@ -1195,6 +1195,7 @@ dependencies = [
  "itertools",
  "minidom-14",
  "pretty_assertions",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -1301,6 +1302,7 @@ dependencies = [
  "tracing",
  "ulid",
  "webcrawler",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -1501,6 +1503,7 @@ dependencies = [
  "tracing",
  "tracing-forest",
  "tracing-subscriber",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -2206,6 +2209,7 @@ dependencies = [
  "serde",
  "serde_yaml",
  "tracing",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -2272,6 +2276,7 @@ dependencies = [
  "serde-aux",
  "serde_json",
  "serde_with",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -2287,6 +2292,7 @@ dependencies = [
  "tracing",
  "tracing-subscriber",
  "webcrawler",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -2310,6 +2316,7 @@ dependencies = [
  "swegov-opendata",
  "tracing",
  "tracing-subscriber",
+ "workspace-hack",
  "zip",
 ]
 
@@ -2822,6 +2829,7 @@ dependencies = [
  "tokio",
  "tokio-stream",
  "tracing",
+ "workspace-hack",
 ]
 
 [[package]]
@@ -3010,6 +3018,23 @@ checksum = "524e57b2c537c0f9b1e69f1965311ec12182b4122e45035b1508cd24d2adadb1"
 dependencies = [
  "cfg-if",
  "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "workspace-hack"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "futures-core",
+ "quick-xml",
+ "rand_core 0.6.4",
+ "regex",
+ "regex-automata 0.3.8",
+ "regex-syntax 0.7.5",
+ "serde",
+ "smallvec",
+ "syn 2.0.37",
+ "tracing-core",
 ]
 
 [[package]]

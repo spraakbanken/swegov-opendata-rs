@@ -27,3 +27,4 @@ swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-pre
 tracing = { workspace = true }
 tracing-forest = "0.1.6"
 tracing-subscriber = { workspace = true }
+workspace-hack = { version = "0.1", path = "../workspace-hack" }
