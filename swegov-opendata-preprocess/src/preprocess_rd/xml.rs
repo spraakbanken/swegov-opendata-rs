@@ -156,7 +156,7 @@ pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
     }
     if elem.name() == "p" {
         let mut text = minidom_collect_texts(elem);
-        clean_text(&mut text);
+        text = clean_text(&text);
         if text.is_empty() {
             return None;
         } else {

@@ -42,7 +42,7 @@ fn test_preprocess_sfs_json() -> PreprocessResult<()> {
     let example1_expected_path = "assets/sfs-1976-257.expected.xml";
     let example1_expected_file = fs::File::open(example1_expected_path)
         .change_context(PreprocessError)
-        .attach_printable_lazy(|| format!("{}", example1_expected_path))?;
+        .attach_printable_lazy(|| example1_expected_path.to_string())?;
     let reader = BufReader::new(example1_expected_file);
     let mut reader = Reader::from_reader(reader);
     let expected = Element::from_reader(&mut reader)
@@ -79,7 +79,44 @@ fn test_build_sparv_source_sfs_1976() -> PreprocessResult<()> {
     let example1_expected_path = "assets/sfs-1976-257.expected.xml";
     let example1_expected_file = fs::File::open(example1_expected_path)
         .change_context(PreprocessError)
-        .attach_printable_lazy(|| format!("{}", example1_expected_path))?;
+        .attach_printable_lazy(|| example1_expected_path.to_string())?;
+    let reader = BufReader::new(example1_expected_file);
+    let mut reader = Reader::from_reader(reader);
+    let expected = Element::from_reader(&mut reader)
+        .change_context(PreprocessError)
+        .attach_printable("failed to read expected")?;
+
+    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
+    Ok(())
+}
+
+#[test]
+fn test_build_sparv_source_sfs_1994() -> PreprocessResult<()> {
+    // Arrange
+    let assets_path = [env!("CARGO_MANIFEST_DIR"), "assets"]
+        .iter()
+        .collect::<PathBuf>();
+    let example1_source_path = assets_path.join("sfs-1994");
+    let corpus_source_dir = assets_path.join("gen").join("sfs-1994");
+
+    // Act
+    build_sparv_source(&example1_source_path, &corpus_source_dir)?;
+
+    // Assert
+    let actual_path = "assets/gen/sfs-1994/sfs-1994-1.xml";
+    let actual_file = fs::File::open(actual_path)
+        .change_context(PreprocessError)
+        .attach_printable_lazy(|| format!("failed to read actual from '{}'", actual_path))?;
+    let reader = BufReader::new(actual_file);
+    let mut reader = Reader::from_reader(reader);
+    let actual = Element::from_reader(&mut reader)
+        .change_context(PreprocessError)
+        .attach_printable("failed to read actual")?;
+
+    let example1_expected_path = "assets/sfs-1994-448.expected.xml";
+    let example1_expected_file = fs::File::open(example1_expected_path)
+        .change_context(PreprocessError)
+        .attach_printable_lazy(|| example1_expected_path.to_string())?;
     let reader = BufReader::new(example1_expected_file);
     let mut reader = Reader::from_reader(reader);
     let expected = Element::from_reader(&mut reader)
@@ -116,7 +153,7 @@ fn test_build_sparv_source_cks6riksg() -> PreprocessResult<()> {
     let example1_expected_path = "assets/cks6riksg.expected.xml";
     let example1_expected_file = fs::File::open(example1_expected_path)
         .change_context(PreprocessError)
-        .attach_printable_lazy(|| format!("{}", example1_expected_path))?;
+        .attach_printable_lazy(|| example1_expected_path.to_string())?;
     let reader = BufReader::new(example1_expected_file);
     let mut reader = Reader::from_reader(reader);
     let expected = Element::from_reader(&mut reader)

@@ -3,7 +3,7 @@ use std::borrow::Cow;
 use error_stack::Report;
 use minidom::{
     quick_xml::{events::Event, Reader},
-    Element, Node,
+    Element,
 };
 use minidom_extension::{elem_is_empty, minidom};
 
@@ -45,7 +45,7 @@ pub fn process_html_sfs_standard(
                                 let attr =
                                     attr.map_err(|err| SfsPreprocessError::XmlParsingAttrError {
                                         pos: reader.buffer_position(),
-                                        err: err,
+                                        err,
                                     })?;
                                 if attr.key.local_name().as_ref() == b"href" {
                                     textelem.set_attr(
@@ -55,8 +55,7 @@ pub fn process_html_sfs_standard(
                                     new_state = Some(ParseHtmlState::ExtractMetadata);
                                 }
                             }
-                            new_state
-                                .unwrap_or_else(|| ParseHtmlState::ExtractMetadataFoundKey { key })
+                            new_state.unwrap_or(ParseHtmlState::ExtractMetadataFoundKey { key })
                         }
                         ParseHtmlState::Paragraph => {
                             continue;
@@ -118,8 +117,8 @@ pub fn process_html_sfs_standard(
                 }
             }
             Ok(Event::End(e)) => {
-                if let ParseHtmlState::Skip { ref tag } = state {
-                    if e.name().as_ref() == *tag {
+                if let ParseHtmlState::Skip { tag } = state {
+                    if e.name().as_ref() == tag {
                         state = ParseHtmlState::Start;
                     }
                     continue;

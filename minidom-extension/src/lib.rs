@@ -10,8 +10,9 @@ pub fn minidom_collect_texts(elem: &minidom::Element) -> String {
                 let c_text = minidom_collect_texts(c_elem);
                 text.push_str(&c_text);
             }
-            Node::Text(contents) => text.push_str(&contents),
+            Node::Text(contents) => text.push_str(contents),
         }
+        text.push(' ');
     }
     text
 }
@@ -24,7 +25,7 @@ pub fn minidom_text_len(node: &minidom::Node) -> usize {
         }
         minidom::Node::Element(elem) => {
             // eprintln!("Element <{}>", elem.name());
-            elem.nodes().map(|node| minidom_text_len(node)).sum()
+            elem.nodes().map(minidom_text_len).sum()
         }
     }
 }
@@ -57,20 +58,24 @@ pub mod asserts {
     use minidom::{Element, Node};
     use pretty_assertions::assert_eq;
 
-    fn assert_node_equal_impl(left: &Node, right: &Node, clean_text: Option<&dyn Fn(&mut String)>) {
+    fn assert_node_equal_impl(
+        left: &Node,
+        right: &Node,
+        clean_text: Option<&dyn Fn(&str) -> String>,
+    ) {
         match (left, right) {
             (Node::Text(left_text), Node::Text(right_text)) => {
                 let mut left_text = left_text.replace('\n', " ");
 
                 let mut right_text = right_text.replace('\n', " ");
                 if let Some(clean_text) = clean_text {
-                    clean_text(&mut left_text);
-                    clean_text(&mut right_text);
+                    left_text = clean_text(&left_text);
+                    right_text = clean_text(&right_text);
                 }
                 assert_eq!(&left_text, &right_text);
             }
             (Node::Element(left_elem), Node::Element(right_elem)) => {
-                assert_elem_equal(left_elem, right_elem)
+                assert_elem_equal_impl(left_elem, right_elem, clean_text)
             }
             (Node::Text(left_text), Node::Element(right_elem)) => {
                 dbg!(right_elem);
@@ -85,9 +90,10 @@ pub mod asserts {
     fn assert_elem_equal_impl(
         left: &Element,
         right: &Element,
-        clean_text: Option<&dyn Fn(&mut String)>,
+        clean_text: Option<&dyn Fn(&str) -> String>,
     ) {
         dbg!(left, right);
+        dbg!(clean_text.is_some());
 
         assert_eq!(
             left.name(),
@@ -144,7 +150,7 @@ pub mod asserts {
     pub fn assert_elem_equal_with_cleaning(
         left: &Element,
         right: &Element,
-        clean_text: &dyn Fn(&mut String),
+        clean_text: &dyn Fn(&str) -> String,
     ) {
         assert_elem_equal_impl(left, right, Some(clean_text))
     }

@@ -1,3 +1,4 @@
+use itertools::Itertools;
 use minidom::{Element, ElementBuilder, Node};
 use minidom_extension::{elem_is_empty, minidom};
 
@@ -29,8 +30,11 @@ fn clean_nodes(new_elem: &mut Element, elem: &Element) {
         match node {
             Node::Text(contents) => {
                 let mut text = contents.clone();
-                clean_text(&mut text);
+                text = clean_text(&text);
                 if !text.is_empty() {
+                    if new_elem.nodes().len() > 0 {
+                        new_elem.append_text_node(" ".to_string());
+                    }
                     new_elem.append_text_node(text);
                 }
                 // dbg!(&new_elem);
@@ -49,23 +53,14 @@ fn clean_nodes(new_elem: &mut Element, elem: &Element) {
         }
     }
 }
-pub fn clean_text(text: &mut String) {
-    text.truncate(text.trim_end().len());
-    // dbg!(&text);
-    *text = text.replace('\u{00A0}', " ");
-    let mut prev = 'x';
-    text.retain(|ch| {
-        if ['\n', '\u{00AD}'].contains(&ch) {
-            return false;
-        }
-        let consecutive_space = ch == ' ' && prev == ' ';
-        prev = ch;
-        !consecutive_space
-    });
-    // dbg!(&text);
-    // if text.is_empty() && orig_len > 0 {
-    //     *text = " ".into();
-    // }
+
+pub fn clean_text(text: &str) -> String {
+    let text = text.replace('\u{AD}', "");
+    text.split_whitespace()
+        // .split(char::is_whitespace)
+        .intersperse(" ")
+        // .filter(|part| !part.trim().is_empty())
+        .collect()
 }
 
 #[cfg(test)]

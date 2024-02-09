@@ -1,11 +1,12 @@
 <file xmlns="">
     <dokument dok_id="cks6riksg" dokument_url_html="http://data.riksdagen.se/dokument/cks6riksg"
-        dokument_url_text="http://data.riksdagen.se/dokument/cks6riksg/text">
+        dokument_url_text="http://data.riksdagen.se/dokument/cks6riksg/text"
+        dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/cks6riksg">
         <text datatyp="huvuddokument" hangar_id="4966433" rm="1887" beteckning=""
             dokumentnamn="Svensk författningssamling" typ="sfs" subtyp="regl-riksg" organ="riksg"
-            nummer="0" slutnummer="0" titel="utfärda (It vid slutet af 1887 års riksdag"
+            nummer="0" slutnummer="0" title="utfärda (It vid slutet af 1887 års riksdag"
             status="ocr" publicerad="2018-03-08 00:00:00" systemdatum="2018-03-08 10:26:36"
-            datum="1887-07-09 00:00:00" tempbeteckning="674" subtitel="- majjul">
+            datum="1887-07-09 00:00:00" tempbeteckning="674" subtitle="- majjul">
 
             <page id="1">
 

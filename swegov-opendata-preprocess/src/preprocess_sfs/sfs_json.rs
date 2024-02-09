@@ -81,7 +81,7 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     }
     if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
         let (upphavd_at, _remaining) =
-            NaiveDate::parse_and_remainder(&upphavd_str, "%Y-%m-%d").unwrap();
+            NaiveDate::parse_and_remainder(upphavd_str, "%Y-%m-%d").unwrap();
         textelem.set_attr("upphavd", upphavd_at.to_string());
     }
     if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
@@ -97,6 +97,7 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
         tracing::error!(docelem = ?docelem, textelem = ?textelem, "no p or page");
         todo!("handle no p/page");
     }
+    dbg!(&textelem);
     let textelem = clean_element(&textelem); //.expect("Cleaning should work");
     if !(textelem.has_child("p", "") || textelem.has_child("page", "")) {
         tracing::warn!(docelem = ?docelem, textelem = ?textelem, "document contains no text");
