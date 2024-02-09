@@ -6,6 +6,7 @@ edition = "2021"
 [[bin]]
 name = "fetch-sfs"
 path = "src/fetch-sfs.rs"
+doc = false
 test = false
 doctest = false
 

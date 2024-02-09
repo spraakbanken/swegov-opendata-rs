@@ -16,6 +16,9 @@ path = "src/sfs-preprocess.rs"
 test = false
 doctest = false
 
+[lib]
+doctest = false
+
 [dependencies]
 clap = { workspace = true, features = ["derive", "cargo"] }
 error-stack = { workspace = true }
