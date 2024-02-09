@@ -141,26 +141,26 @@ fn process_html(
     static UNEXPECTED_BANG: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"<!([^-])").expect("regex failed"));
 
-    let contents = contents.replace("\"", r#"""#);
-    let contents = contents.replace("\r\n", " ");
-    let contents = contents.replace('&', "&amp;");
+    let contents_processed = contents.replace('\"', r#"""#);
+    let contents_processed = contents_processed.replace("\r\n", " ");
+    let contents_processed = contents_processed.replace('&', "&amp;");
 
-    let contents = NON_TAG.replace_all(&contents, "&lt;${1}&gt;");
-    let contents = ASTERIX_RIGHT_ANGLE.replace_all(&contents, "*&gt;");
-    let contents = DOUBLE_ANGLES.replace_all(&contents, "« $1 »");
-    let contents = DOUBLE_LEFT_ANGLES.replace_all(&contents, "&lt;${1}");
-    let contents = LEFT_ANGLE_NON_TAG.replace_all(&contents, "&lt;${1}");
-    let contents = UNEXPECTED_BANG.replace_all(&contents, "&lt;!${1}");
+    let contents_processed = NON_TAG.replace_all(&contents_processed, "&lt;${1}&gt;");
+    let contents_processed = ASTERIX_RIGHT_ANGLE.replace_all(&contents_processed, "*&gt;");
+    let contents_processed = DOUBLE_ANGLES.replace_all(&contents_processed, "« $1 »");
+    let contents_processed = DOUBLE_LEFT_ANGLES.replace_all(&contents_processed, "&lt;${1}");
+    let contents_processed = LEFT_ANGLE_NON_TAG.replace_all(&contents_processed, "&lt;${1}");
+    let contents_processed = UNEXPECTED_BANG.replace_all(&contents_processed, "&lt;!${1}");
     // let contents = contents.replace("<<", "«");
     // let contents = contents.replace(">>", "»");
-    let contents = contents.replace("<t>", " ");
+    let contents_processed = contents_processed.replace("<t>", " ");
     // let contents = contents.replace("-<", "-&lt;");
 
-    let _ = fs::File::create("assets/contents.html")
+    fs::File::create("assets/contents.html")
         .unwrap()
-        .write_all(contents.as_bytes())
+        .write_all(contents_processed.as_bytes())
         .unwrap();
-    let mut reader = Reader::from_str(&contents);
+    let mut reader = Reader::from_str(&contents_processed);
     loop {
         match reader.read_event() {
             Err(e) => {

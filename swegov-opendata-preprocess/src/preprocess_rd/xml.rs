@@ -173,11 +173,9 @@ pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
                             if let Some(c_node) = curr_node.take() {
                                 elem_builder = elem_builder.append(c_node);
                             }
-                            if elem.name() == child_elem.name() && elem.ns() == child_elem.ns() {
-                                for child_node in child_elem.nodes() {
-                                    elem_builder = elem_builder.append(child_node.clone());
-                                }
-                            } else if child_elem.name() == "div" {
+                            if elem.name() == child_elem.name() && elem.ns() == child_elem.ns()
+                                || child_elem.name() == "div"
+                            {
                                 for child_node in child_elem.nodes() {
                                     elem_builder = elem_builder.append(child_node.clone());
                                 }
@@ -231,13 +229,7 @@ pub fn clean_node(node: &minidom::Node) -> Option<minidom::Node> {
             // clean_text(&mut text);
             Some(minidom::Node::Text(text))
         }
-        minidom::Node::Element(elem) => {
-            if let Some(c_elem) = clean_element(elem) {
-                Some(minidom::Node::Element(c_elem))
-            } else {
-                None
-            }
-        }
+        minidom::Node::Element(elem) => clean_element(elem).map(minidom::Node::Element),
     }
 }
 
