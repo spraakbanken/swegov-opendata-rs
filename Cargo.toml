@@ -1,40 +1,23 @@
-[package]
-name = "swegov-opendata-crawler"
-version = "0.1.1"
-edition = "2021"
-
-[[bin]]
-name = "fetch-sfs"
-path = "src/fetch-sfs.rs"
-doc = false
-test = false
-doctest = false
-
-
-[dependencies]
-anyhow = "1.0.71"
-clap = { workspace = true, features = ["derive", "cargo"] }
-config = "0.13.3"
-# error-stack = { workspace = true }
-serde = { workspace = true, features = ["derive"] }
-tokio = { version = "1.28.0", features = ["macros", "rt-multi-thread", "fs"] }
-tracing = { workspace = true }
-tracing-subscriber = { workspace = true }
-webcrawler = { version = "0.1.0", path = "webcrawler" }
-opendata-spiders = { version = "0.1.0", path = "opendata-spiders" }
-workspace-hack = { version = "0.1", path = "workspace-hack" }
 
 [workspace]
+resolver = "2"
 members = [
-    "minidom-extension",
-    "opendata-spiders",
-    "preprocessors",
-    "sparv-extension",
-    "swegov-opendata",
-    "swegov-opendata-preprocess",
-    "webcrawler",
-    "workspace-hack",
+    "crates/fetch-sfs",
+    "crates/sfs-preprocess",
+    "crates/minidom-extension",
+    "crates/opendata-spiders",
+    "crates/preprocessors",
+    "crates/sparv-extension",
+    "crates/swegov-opendata",
+    "crates/swegov-opendata-preprocess",
+    "crates/webcrawler",
+    "crates/workspace-hack",
 ]
+[workspace.package]
+rust-version = "1.64"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Kristoffer Andersson <kristoffer.andersson@gu.se>"]
 
 [workspace.dependencies]
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
