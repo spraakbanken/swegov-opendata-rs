@@ -27,3 +27,6 @@ error-stack = "0.4.1"
 serde = { version = "1.0.160" }
 prodash = { version = "26.2.2" }
 clap = { version = "4.4.11" }
+
+[workspace.metadata.cargo-machete]
+ignored = ["workspace-hack"]

@@ -12,3 +12,6 @@ minidom-14 = "0.16.0"
 pretty_assertions = "1.4.0"
 itertools = "0.11.0"
 workspace-hack = { version = "0.1", path = "../workspace-hack" }
+
+[package.metadata.cargo-machete]
+ignored = ["minidom-14"]
