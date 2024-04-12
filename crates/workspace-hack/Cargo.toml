@@ -14,25 +14,25 @@ publish = false
 
 ### BEGIN HAKARI SECTION
 [dependencies]
-futures-core = { version = "0.3" }
-memchr = { version = "2" }
-quick-xml = { version = "0.28", features = ["serialize"] }
-rand_core = { version = "0.6", default-features = false, features = ["std"] }
-regex = { version = "1" }
-regex-automata = { version = "0.4", default-features = false, features = ["dfa-onepass", "hybrid", "meta", "nfa-backtrack", "perf-inline", "perf-literal", "unicode"] }
-regex-syntax = { version = "0.8" }
-serde = { version = "1", features = ["alloc", "derive"] }
-smallvec = { version = "1", default-features = false, features = ["write"] }
-tracing-core = { version = "0.1" }
+futures-core = { workspace = true }
+memchr = { workspace = true }
+quick-xml = { workspace = true, features = ["serialize"] }
+rand_core = { workspace = true, features = ["std"] }
+regex = { workspace = true }
+regex-automata = { workspace = true, features = ["dfa-onepass", "hybrid", "meta", "nfa-backtrack", "perf-inline", "perf-literal", "unicode"] }
+regex-syntax = { workspace = true }
+serde = { workspace = true, features = ["alloc", "derive"] }
+smallvec = { workspace = true, features = ["write"] }
+tracing-core = { workspace = true }
 
 [build-dependencies]
-memchr = { version = "2" }
-proc-macro2 = { version = "1" }
-quote = { version = "1" }
-regex = { version = "1" }
-regex-automata = { version = "0.4", default-features = false, features = ["dfa-onepass", "hybrid", "meta", "nfa-backtrack", "perf-inline", "perf-literal", "unicode"] }
-regex-syntax = { version = "0.8" }
-serde = { version = "1", features = ["alloc", "derive"] }
-syn = { version = "2", features = ["extra-traits", "full", "visit", "visit-mut"] }
+memchr = { workspace = true }
+proc-macro2 = { workspace = true }
+quote = { workspace = true }
+regex = { workspace = true }
+regex-automata = { workspace = true, features = ["dfa-onepass", "hybrid", "meta", "nfa-backtrack", "perf-inline", "perf-literal", "unicode"] }
+regex-syntax = { workspace = true }
+serde = { workspace = true, features = ["alloc", "derive"] }
+syn = { workspace = true, features = ["extra-traits", "full", "visit", "visit-mut"] }
 
 ### END HAKARI SECTION

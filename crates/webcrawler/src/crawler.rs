@@ -277,7 +277,6 @@ impl Crawler {
         tokio::spawn(async move {
             tokio_stream::wrappers::ReceiverStream::new(items)
                 .for_each_concurrent(concurrency, |(url, item)| {
-                    let url = url;
                     async {
                         num_processings.fetch_add(1, Ordering::SeqCst);
                         match spider.process(url.clone(), item).await {
@@ -334,7 +333,6 @@ impl Crawler {
         tokio::spawn(async move {
             tokio_stream::wrappers::ReceiverStream::new(urls_to_visit)
                 .for_each_concurrent(concurrency, |queued_url| {
-                    let queued_url = queued_url;
                     async {
                         active_spiders.fetch_add(1, Ordering::SeqCst);
                         let mut urls = Vec::new();

@@ -670,6 +670,7 @@ dependencies = [
  "clap",
  "config",
  "opendata-spiders",
+ "preprocessors",
  "serde",
  "tokio",
  "tracing",
@@ -2142,6 +2143,7 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "error-stack",
+ "preprocessors",
  "prodash",
  "swegov-opendata-preprocess",
  "tracing",

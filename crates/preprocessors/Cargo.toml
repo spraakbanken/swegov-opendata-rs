@@ -22,6 +22,6 @@ prodash = { workspace = true, features = [
 ] }
 swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
 tracing = { workspace = true }
-tracing-forest = "0.1.6"
+tracing-forest = { workspace = true }
 tracing-subscriber = { workspace = true }
 workspace-hack = { version = "0.1", path = "../workspace-hack" }

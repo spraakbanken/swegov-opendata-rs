@@ -8,7 +8,7 @@ use tracing_subscriber::EnvFilter;
 
 use webcrawler::{Crawler, CrawlerOptions};
 
-use crate::{configuration, options::Args};
+use crate::{ options::Args};
 
 // pub use crate::error::Error;
 const PROCESSED_STATE: &str = "visited.json";

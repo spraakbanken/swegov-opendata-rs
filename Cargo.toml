@@ -20,6 +20,10 @@ license = "MIT OR Apache-2.0"
 authors = ["Kristoffer Andersson <kristoffer.andersson@gu.se>"]
 
 [workspace.dependencies]
+# local crates
+preprocessors = { path = "./crates/preprocessors" }
+
+# external crates
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
 tracing = "0.1.37"
 minidom = "0.15.2"
@@ -27,6 +31,42 @@ error-stack = "0.4.1"
 serde = { version = "1.0.160" }
 prodash = { version = "26.2.2" }
 clap = { version = "4.4.11" }
+anyhow = "1.0.71"
+async-trait = "0.1.68"
+chrono = "0.4.31"
+config = "0.13.3"
+deserx = { git = "https://github.com/kod-kristoff/deserx" }
+flate2 = "1.0.27"
+futures = "0.3.28"
+futures-core = "0.3"
+html5ever = "0.22.5"
+itertools = "0.11.0"
+memchr = "2"
+minidom-14 = "0.16.0"
+once_cell = "1.18.0"
+pretty_assertions = "1.4.0"
+proc-macro2 = "1"
+quick-xml = "0.28.2"
+quote = "1"
+rand_core = { version = "0.6", default-features = false }
+regex = "1.9.5"
+regex-automata = { version = "0.4", default-features = false }
+regex-syntax = "0.8"
+reqwest = { version = "0.11.17", default-features = false }
+rstest = "0.18.2"
+serde-aux = "4.2.0"
+serde_json = "1.0.107"
+serde_with = "3.0.0"
+serde_yaml = "0.9.27"
+smallvec = { version = "1", default-features = false }
+soup = "0.5.1"
+syn = "2"
+tokio = "1.28.0"
+tokio-stream = "0.1.14"
+tracing-core = "0.1"
+tracing-forest = "0.1.6"
+ulid = "1.0.0"
+zip = "0.6.6"
 
 [workspace.metadata.cargo-machete]
 ignored = ["workspace-hack"]
