@@ -9,17 +9,23 @@ doctest = false
 
 [dependencies]
 # anyhow = "1.0.71"
+anyhow = { workspace = true }
 async-trait = { workspace = true }
+deserx = { workspace = true }
 flate2 = { workspace = true }
 quick-xml = { workspace = true, features = ["serde", "serialize"] }
-reqwest = { workspace = true, features = ["rustls", "json", "rustls-tls", "brotli", "gzip"] }
+reqwest = { workspace = true, features = [
+    "rustls",
+    "json",
+    "rustls-tls",
+    "brotli",
+    "gzip",
+] }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
-tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
-ulid = { workspace = true }
-webcrawler = { version = "0.1.0", path = "../webcrawler" }
 swegov-opendata = { version = "0.2.0", path = "../swegov-opendata" }
-deserx = { workspace = true }
-anyhow = { workspace = true }
+tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
+ulid = { workspace = true }
+webcrawler = { workspace = true }
 workspace-hack = { version = "0.1", path = "../workspace-hack" }
