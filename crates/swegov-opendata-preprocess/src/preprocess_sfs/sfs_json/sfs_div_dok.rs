@@ -1,5 +1,3 @@
-use std::borrow::Cow;
-
 use error_stack::Report;
 use minidom::{
     quick_xml::{events::Event, Reader},
@@ -227,7 +225,7 @@ pub fn extract_page(
                     _ => todo!("handle End {:?} state={:?}", e, state),
                 }
             }
-            Ok(Event::Comment(e)) => {
+            Ok(Event::Comment(_e)) => {
                 continue;
             }
             Ok(e) => todo!("handle {:?} state={:?}", e, state),

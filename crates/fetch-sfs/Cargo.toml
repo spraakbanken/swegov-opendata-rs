@@ -1,7 +1,10 @@
 [package]
 name = "fetch-sfs"
 version = "0.1.0"
-edition = "2021"
+edition = { workspace = true }
+authors = { workspace = true }
+rust-version = { workspace = true }
+license = { workspace = true }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -15,14 +18,12 @@ doctest = false
 anyhow = { workspace = true }
 clap = { workspace = true, features = ["derive", "cargo"] }
 config = { workspace = true }
-# error-stack = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 webcrawler = { workspace = true }
 # local deps
-opendata-spiders = { version = "0.1.0", path = "../opendata-spiders" }
-workspace-hack = { version = "0.1", path = "../workspace-hack" }
+opendata-spiders = { workspace = true }
 
 preprocessors.workspace = true

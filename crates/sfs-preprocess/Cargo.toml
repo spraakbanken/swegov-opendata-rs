@@ -1,7 +1,10 @@
 [package]
 name = "sfs-preprocess"
 version = "0.1.0"
-edition = "2021"
+edition = { workspace = true }
+authors = { workspace = true }
+rust-version = { workspace = true }
+license = { workspace = true }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [[bin]]
@@ -21,6 +24,5 @@ tracing-forest = { workspace = true }
 tracing-subscriber = { workspace = true }
 
 # local deps
-preprocessors.workspace = true
-swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
-workspace-hack = { version = "0.1", path = "../workspace-hack" }
+preprocessors = {workspace = true}
+swegov-opendata-preprocess = { workspace = true }

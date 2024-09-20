@@ -1,5 +1,5 @@
 use itertools::Itertools;
-use minidom::{Element, ElementBuilder, Node};
+use minidom::{Element, Node};
 use minidom_extension::{elem_is_empty, minidom};
 
 pub fn clean_element(elem: &Element) -> Element {
@@ -23,7 +23,7 @@ pub fn clean_element(elem: &Element) -> Element {
     new_elem
 }
 
-pub fn clean_texts(elem: &mut Element) {}
+pub fn clean_texts(_elem: &mut Element) {}
 
 fn clean_nodes(new_elem: &mut Element, elem: &Element) {
     for node in elem.nodes() {
@@ -56,11 +56,12 @@ fn clean_nodes(new_elem: &mut Element, elem: &Element) {
 
 pub fn clean_text(text: &str) -> String {
     let text = text.replace('\u{AD}', "");
-    text.split_whitespace()
-        // .split(char::is_whitespace)
-        .intersperse(" ")
-        // .filter(|part| !part.trim().is_empty())
-        .collect()
+    Itertools::intersperse(text.split_whitespace(), " ").collect()
+    // text.split_whitespace()
+    //     // .split(char::is_whitespace)
+    //     .intersperse(" ")
+    //     // .filter(|part| !part.trim().is_empty())
+    //     .collect()
 }
 
 #[cfg(test)]

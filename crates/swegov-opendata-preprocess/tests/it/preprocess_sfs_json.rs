@@ -35,7 +35,7 @@ fn test_preprocess_sfs_json() -> PreprocessResult<()> {
 
     // Assert
     let mut reader = Reader::from_reader(actual.as_slice());
-    let actual = Element::from_reader(&mut reader)
+    let _actual = Element::from_reader(&mut reader)
         .change_context(PreprocessError)
         .attach_printable("failed to read actual")?;
 
@@ -45,7 +45,7 @@ fn test_preprocess_sfs_json() -> PreprocessResult<()> {
         .attach_printable_lazy(|| example1_expected_path.to_string())?;
     let reader = BufReader::new(example1_expected_file);
     let mut reader = Reader::from_reader(reader);
-    let expected = Element::from_reader(&mut reader)
+    let _expected = Element::from_reader(&mut reader)
         .change_context(PreprocessError)
         .attach_printable("failed to read expected")?;
 
