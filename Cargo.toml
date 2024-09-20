@@ -12,10 +12,13 @@ members = [
     "crates/swegov-opendata-preprocess",
 ]
 [workspace.package]
-rust-version = "1.64"
+rust-version = "1.70"
 edition = "2021"
 license = "MIT OR Apache-2.0"
-authors = ["Kristoffer Andersson <kristoffer.andersson@gu.se>"]
+authors = [
+    "Språkbanken Text <sb-info@svenska.gu.se>",
+    "Kristoffer Andersson <kristoffer.andersson@gu.se>",
+]
 
 [workspace.dependencies]
 # local crates
