@@ -22,7 +22,12 @@ authors = [
 
 [workspace.dependencies]
 # local crates
+minidom-extension = { path = "./crates/minidom-extension"}
+opendata-spiders = { path = "./crates/opendata-spiders"}
 preprocessors = { path = "./crates/preprocessors" }
+sparv-extension = { path = "./crates/sparv-extension"}
+swegov-opendata = { path = "./crates/swegov-opendata"}
+swegov-opendata-preprocess = { path = "./crates/swegov-opendata-preprocess"}
 
 # external crates
 anyhow = "1.0.73"

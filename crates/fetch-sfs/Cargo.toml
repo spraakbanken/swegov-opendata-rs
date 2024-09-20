@@ -18,13 +18,12 @@ doctest = false
 anyhow = { workspace = true }
 clap = { workspace = true, features = ["derive", "cargo"] }
 config = { workspace = true }
-# error-stack = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 webcrawler = { workspace = true }
 # local deps
-opendata-spiders = { version = "0.1.0", path = "../opendata-spiders" }
+opendata-spiders = { workspace = true }
 
 preprocessors.workspace = true

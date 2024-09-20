@@ -23,7 +23,7 @@ prodash = { workspace = true, features = [
     "render-line",
     "render-line-crossterm",
 ] }
-swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
+swegov-opendata-preprocess = { workspace = true}
 tracing = { workspace = true }
 tracing-forest = { workspace = true }
 tracing-subscriber = { workspace = true }

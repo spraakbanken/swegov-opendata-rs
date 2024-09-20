@@ -24,5 +24,5 @@ tracing-forest = { workspace = true }
 tracing-subscriber = { workspace = true }
 
 # local deps
-preprocessors.workspace = true
-swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
+preprocessors = {workspace = true}
+swegov-opendata-preprocess = { workspace = true }

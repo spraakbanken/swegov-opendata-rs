@@ -19,14 +19,14 @@ soup = { workspace = true }
 zip = { workspace = true }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
-swegov-opendata = { version = "0.2.0", path = "../swegov-opendata" }
+swegov-opendata = { workspace = true }
 chrono = { workspace = true }
 flate2 = { workspace = true }
 pretty_assertions = { workspace = true }
 once_cell = { workspace = true }
 itertools = { workspace = true }
-minidom-extension = { version = "0.1.0", path = "../minidom-extension" }
-sparv-extension = { version = "0.1.0", path = "../sparv-extension" }
+minidom-extension = { workspace = true }
+sparv-extension = { workspace = true }
 prodash = { workspace = true, features = [
     "render-line",
     "render-line-crossterm",
