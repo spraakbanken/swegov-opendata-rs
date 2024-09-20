@@ -208,7 +208,7 @@ fn process_node(node: &rcdom::Handle) -> ProcessNodeOutput {
             for child in node.children() {
                 let ProcessNodeOutput {
                     nodes: child_nodes,
-                    attrs,
+                    attrs: _,
                 } = process_node(&child);
                 for child_node in child_nodes {
                     match child_node {

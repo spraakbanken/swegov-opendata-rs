@@ -37,10 +37,8 @@ pub fn preprocess_xml(
     let mut in_dokument = false;
     let mut in_html = false;
     let mut found_html = false;
-    let mut collect_doc_attr = false;
     let mut doc_attr = None;
     let mut text_attr = None;
-    let mut collect_text_attr = false;
     let mut reader = Reader::from_str(xml_string);
     loop {
         match reader.read_event() {
@@ -60,7 +58,6 @@ pub fn preprocess_xml(
                 | b"dokumentstatus_url_xml"
                 | b"dokument_url_text"
                 | b"dokument_url_html" => {
-                    collect_doc_attr = true;
                     doc_attr = Some(String::from_utf8(e.name().as_ref().to_vec()).unwrap());
 
                     tracing::trace!("found doc attr '{:?}'", doc_attr);

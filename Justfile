@@ -1,8 +1,8 @@
 opendata-quick-dev:
-    cargo watch -q -c -w swegov-opendata -x 'run -p swegov-opendata --example quick_dev'
+    cargo watch -q -c -w swegov-opendata -x 'run -p swegov-opendata --example quick_dev_swegov_opendata'
 
 spiders-quick-dev:
-    cargo watch -q -c -w opendata-spiders -x 'run -p opendata-spiders --example quick_dev'
+    cargo watch -q -c -w opendata-spiders -x 'run -p opendata-spiders --example quick_dev_opendata_spiders'
 
 quick-dev:
     cargo watch -q -c -w src -w sfs-corpus-core -x 'run -- generate xml data/sfs/output/sfs'
