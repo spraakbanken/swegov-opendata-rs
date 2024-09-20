@@ -10,7 +10,6 @@ members = [
     "crates/sparv-extension",
     "crates/swegov-opendata",
     "crates/swegov-opendata-preprocess",
-    "crates/workspace-hack",
 ]
 [workspace.package]
 rust-version = "1.64"
@@ -67,6 +66,3 @@ tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
 ulid = "1.0.0"
 webcrawler = { git = "https://github.com/spraakbanken/webcrawler-rs" }
 zip = "0.6.6"
-
-[workspace.metadata.cargo-machete]
-ignored = ["workspace-hack"]

@@ -23,4 +23,3 @@ tracing-subscriber = { workspace = true }
 # local deps
 preprocessors.workspace = true
 swegov-opendata-preprocess = { version = "0.1.0", path = "../swegov-opendata-preprocess" }
-workspace-hack = { version = "0.1", path = "../workspace-hack" }

@@ -28,4 +28,3 @@ tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
 ulid = { workspace = true }
 webcrawler = { workspace = true }
-workspace-hack = { version = "0.1", path = "../workspace-hack" }
