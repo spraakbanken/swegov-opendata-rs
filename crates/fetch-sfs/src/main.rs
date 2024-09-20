@@ -1,4 +1,3 @@
-mod configuration;
 mod options;
 
 use std::{io, path::PathBuf, sync::Arc, time::Duration};
@@ -9,9 +8,6 @@ use tracing_subscriber::EnvFilter;
 use webcrawler::{crawler, CrawlerOptions};
 
 use crate::options::Args;
-
-// pub use crate::error::Error;
-const PROCESSED_STATE: &str = "visited.json";
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -24,8 +20,6 @@ async fn main() -> anyhow::Result<()> {
     let output = args.output;
 
     init_tracing()?;
-
-    let config = configuration::get_configuration()?;
 
     let spider = Arc::new(opendata_spiders::sfs::SfsSpider::new(
         opendata_spiders::sfs::SfsSpiderOptions {
