@@ -90,7 +90,7 @@ from 1.0 to 1.1 allows us to increase the MSRV. Users unable to increase their
 Rust version can use an older minor version instead. Below is a list of swegov-opendata-rs versions
 and their MSRV:
 
- * v0.1: Rust 1.70.
+ * v0.1: Rust 1.74.
 
 Note however that swegov-opendata-rs also has dependencies, which might have different MSRV
 policies. We try to stick to the above policy when updating dependencies, but
