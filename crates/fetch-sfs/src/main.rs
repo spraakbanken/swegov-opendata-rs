@@ -4,11 +4,11 @@ mod options;
 use std::{io, path::PathBuf, sync::Arc, time::Duration};
 
 use clap::Parser;
+use tokio::signal;
 use tracing_subscriber::EnvFilter;
+use webcrawler::{crawler, CrawlerOptions};
 
-use webcrawler::{Crawler, CrawlerOptions};
-
-use crate::{ options::Args};
+use crate::options::Args;
 
 // pub use crate::error::Error;
 const PROCESSED_STATE: &str = "visited.json";
@@ -27,22 +27,23 @@ async fn main() -> anyhow::Result<()> {
 
     let config = configuration::get_configuration()?;
 
-    let crawler = Crawler::new(
-        Some(state_path),
-        CrawlerOptions {
-            delay: Duration::from_millis(delay_ms),
-            crawling_concurrency,
-            processing_concurrency,
-        },
-    );
-
     let spider = Arc::new(opendata_spiders::sfs::SfsSpider::new(
         opendata_spiders::sfs::SfsSpiderOptions {
             user_agent: Some(APP_USER_AGENT.into()),
             output_path: output.unwrap_or_else(|| PathBuf::from("./output")),
         },
     ));
-    crawler.run(spider).await;
+    crawler::run_with_options(
+        spider,
+        signal::ctrl_c(),
+        CrawlerOptions {
+            saved_state_path: Some(state_path),
+            delay: Duration::from_millis(delay_ms),
+            crawling_concurrency,
+            processing_concurrency,
+        },
+    )
+    .await;
     Ok(())
 }
 
