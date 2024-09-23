@@ -1,23 +1,33 @@
-use core::fmt;
+use std::io;
 
-#[derive(Debug)]
-pub struct SparvError;
-
-impl fmt::Display for SparvError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str("sparv error")
-    }
+#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+pub enum SparvError {
+    #[diagnostic(code(SparvErrorCode::CouldNotCreateFile))]
+    #[error("Could not create file '{path}'.")]
+    CouldNotCreateFile {
+        path: String,
+        #[source]
+        source: io::Error,
+    },
+    #[diagnostic(code(SparvErrorCode::CouldNotCreateFolder))]
+    #[error("Could not create folder '{path}'.")]
+    CouldNotCreateFolder {
+        path: String,
+        #[source]
+        source: io::Error,
+    },
+    #[diagnostic(code(SparvErrorCode::CouldNotWriteToFile))]
+    #[error("Could not write to file '{path}'.")]
+    CouldNotWriteToFile {
+        path: String,
+        #[source]
+        source: io::Error,
+    },
+    #[diagnostic(code(SparvErrorCode::CouldNotWriteYaml))]
+    #[error("Could not write yaml to file '{path}'.")]
+    CouldNotWriteYaml {
+        path: String,
+        #[source]
+        source: serde_yaml::Error,
+    },
 }
-
-impl error_stack::Context for SparvError {}
-
-#[derive(Debug)]
-pub struct SparvConfigError;
-
-impl fmt::Display for SparvConfigError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str("Sparv Config error")
-    }
-}
-
-impl error_stack::Context for SparvConfigError {}

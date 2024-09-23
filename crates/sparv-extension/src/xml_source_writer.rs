@@ -1,7 +1,5 @@
 use std::{fs, io, path::Path};
 
-use error_stack::ResultExt;
-
 use super::error::SparvError;
 
 pub struct XmlSourceWriter<'a> {
@@ -32,7 +30,7 @@ impl<'a> XmlSourceWriter<'a> {
         }
     }
 
-    pub fn write(&mut self, xmlstring: Vec<u8>) -> error_stack::Result<(), SparvError> {
+    pub fn write(&mut self, xmlstring: Vec<u8>) -> Result<(), SparvError> {
         if xmlstring.is_empty() {
             return Ok(());
         }
@@ -50,7 +48,7 @@ impl<'a> XmlSourceWriter<'a> {
         Ok(())
     }
 
-    pub fn flush(&mut self) -> error_stack::Result<(), SparvError> {
+    pub fn flush(&mut self) -> Result<(), SparvError> {
         if !self.result.is_empty() {
             self.write_xml(&self.result, &self.target_dir.join(self.current_filename()))?;
             self.result.clear();
@@ -70,20 +68,47 @@ impl<'a> XmlSourceWriter<'a> {
             .flatten()
             .unwrap_or("no-stub")
     }
-    fn write_xml(&self, texts: &[Vec<u8>], xmlpath: &Path) -> error_stack::Result<(), SparvError> {
+    fn write_xml(&self, texts: &[Vec<u8>], xmlpath: &Path) -> Result<(), SparvError> {
         use std::io::Write;
         let corpus_source_dir = xmlpath.parent().unwrap();
-        fs::create_dir_all(corpus_source_dir).change_context(SparvError)?;
-        let xmlfile = fs::File::create(xmlpath).change_context(SparvError)?;
+        fs::create_dir_all(corpus_source_dir).map_err(|source| {
+            SparvError::CouldNotCreateFolder {
+                path: xmlpath.display().to_string(),
+                source,
+            }
+        })?;
+        let xmlfile =
+            fs::File::create(xmlpath).map_err(|source| SparvError::CouldNotCreateFile {
+                path: xmlpath.display().to_string(),
+                source,
+            })?;
         let mut writer = io::BufWriter::new(xmlfile);
         writer
             .write(b"<file xmlns=\"\">\n")
-            .change_context(SparvError)?;
+            .map_err(|source| SparvError::CouldNotWriteToFile {
+                path: xmlpath.display().to_string(),
+                source,
+            })?;
         for text in texts {
-            writer.write(text).change_context(SparvError)?;
-            writer.write(b"\n").change_context(SparvError)?;
+            writer
+                .write(text)
+                .map_err(|source| SparvError::CouldNotWriteToFile {
+                    path: xmlpath.display().to_string(),
+                    source,
+                })?;
+            writer
+                .write(b"\n")
+                .map_err(|source| SparvError::CouldNotWriteToFile {
+                    path: xmlpath.display().to_string(),
+                    source,
+                })?;
         }
-        writer.write(b"\n</file>").change_context(SparvError)?;
+        writer
+            .write(b"\n</file>")
+            .map_err(|source| SparvError::CouldNotWriteToFile {
+                path: xmlpath.display().to_string(),
+                source,
+            })?;
         Ok(())
     }
 }

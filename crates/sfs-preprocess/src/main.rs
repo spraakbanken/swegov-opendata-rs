@@ -19,7 +19,7 @@ pub fn main() -> error_stack::Result<(), PreprocessError> {
         "preprocess-sfs",
         trace,
         verbose,
-        None,
+        preprocessors::shared::STANDARD_RANGE,
         |progress, out, err| {
             preprocess_sfs_corpus(
                 &input,

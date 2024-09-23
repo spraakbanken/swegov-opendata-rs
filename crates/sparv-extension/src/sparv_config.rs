@@ -2,9 +2,7 @@ use std::collections::HashMap;
 use std::path::Path;
 use std::{fs, io};
 
-use error_stack::ResultExt;
-
-use crate::SparvConfigError;
+use crate::SparvError;
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
 pub struct SparvConfig {
@@ -63,22 +61,26 @@ impl SparvMetadata {
 }
 
 /// Write Sparv corpus config file for sub corpus.
-pub fn make_corpus_config(
-    sparv_config: &SparvConfig,
-    path: &Path,
-) -> error_stack::Result<(), SparvConfigError> {
-    fs::create_dir_all(&path).change_context(SparvConfigError)?;
+pub fn make_corpus_config(sparv_config: &SparvConfig, path: &Path) -> Result<(), SparvError> {
+    fs::create_dir_all(&path).map_err(|source| SparvError::CouldNotCreateFolder {
+        path: path.display().to_string(),
+        source,
+    })?;
     let path = path.join("config.yaml");
     //     if config_file.is_file():
     //         return
     //     path.mkdir(parents=True, exist_ok=True)
-    let file = fs::File::create(&path)
-        .change_context(SparvConfigError)
-        .attach_printable_lazy(|| format!("failed creating '{}'", path.display()))?;
+    let file = fs::File::create(&path).map_err(|source| SparvError::CouldNotCreateFile {
+        path: path.display().to_string(),
+        source,
+    })?;
     let writer = io::BufWriter::new(file);
-    serde_yaml::to_writer(writer, &sparv_config)
-        .change_context(SparvConfigError)
-        .attach_printable_lazy(|| format!("failed writing to '{}'", path.display()))?;
+    serde_yaml::to_writer(writer, &sparv_config).map_err(|source| {
+        SparvError::CouldNotWriteYaml {
+            path: path.display().to_string(),
+            source,
+        }
+    })?;
     tracing::info!(path = ?path, "  Config written",);
     Ok(())
 }
