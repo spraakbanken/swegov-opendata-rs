@@ -17,3 +17,4 @@ target/
 /logs/
 swegov-opendata-preprocess/assets/gen/
 swegov-opendata-preprocess/assets/*.html
+visited.json
