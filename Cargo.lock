@@ -603,8 +603,8 @@ dependencies = [
 
 [[package]]
 name = "deserx"
-version = "0.1.0"
-source = "git+https://github.com/kod-kristoff/deserx#8a825d03ad7ce1254a17c8072097c9388f5765e5"
+version = "0.2.0"
+source = "git+https://github.com/kod-kristoff/deserx#587d59c2b71bf8244663091d0f55e3d883b87cd6"
 dependencies = [
  "deserx_derive",
  "quick-xml",
@@ -612,8 +612,8 @@ dependencies = [
 
 [[package]]
 name = "deserx_derive"
-version = "0.1.0"
-source = "git+https://github.com/kod-kristoff/deserx#8a825d03ad7ce1254a17c8072097c9388f5765e5"
+version = "0.2.0"
+source = "git+https://github.com/kod-kristoff/deserx#587d59c2b71bf8244663091d0f55e3d883b87cd6"
 dependencies = [
  "deluxe",
  "proc-macro-error",
