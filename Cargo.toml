@@ -10,6 +10,8 @@ members = [
     "crates/sparv-extension",
     "crates/swegov-opendata",
     "crates/swegov-opendata-preprocess",
+    "crates/fetch-rd",
+    "crates/opendata-rd-spider",
 ]
 [workspace.package]
 rust-version = "1.74"
@@ -23,6 +25,7 @@ authors = [
 [workspace.dependencies]
 # local crates
 minidom-extension = { path = "./crates/minidom-extension" }
+opendata-rd-spider = { path = "./crates/opendata-rd-spider" }
 opendata-spiders = { path = "./crates/opendata-spiders" }
 preprocessors = { path = "./crates/preprocessors" }
 sparv-extension = { path = "./crates/sparv-extension" }
@@ -50,7 +53,7 @@ once_cell = "1.18.0"
 pretty_assertions = "1.4.0"
 proc-macro2 = "1"
 prodash = { version = "26.2.2" }
-quick-xml = "0.28.2"
+quick-xml = "0.36"
 quote = "1"
 rand_core = { version = "0.6", default-features = false }
 regex = "1.9.5"
@@ -63,6 +66,7 @@ serde-aux = "4.2.0"
 serde_json = "1.0.128"
 serde_with = "3.0.0"
 serde_yaml = "0.9.27"
+similar-asserts = "1.6.0"
 smallvec = { version = "1", default-features = false }
 soup = "0.5.1"
 syn = "2"
