@@ -3,7 +3,7 @@
 resolver = "2"
 members = [
     "crates/fetch-sfs",
-    "crates/sfs-preprocess",
+    "crates/preprocess-sfs",
     "crates/minidom-extension",
     "crates/opendata-spiders",
     "crates/preprocessors",

@@ -1,5 +1,5 @@
 [package]
-name = "sfs-preprocess"
+name = "preprocess-sfs"
 version = "0.1.0"
 edition = { workspace = true }
 authors = { workspace = true }
@@ -8,7 +8,7 @@ license = { workspace = true }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [[bin]]
-name = "sfs-preprocess"
+name = "preprocess-sfs"
 test = false
 doctest = false
 
