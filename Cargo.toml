@@ -2,16 +2,18 @@
 [workspace]
 resolver = "2"
 members = [
+    "crates/fetch-rd",
     "crates/fetch-sfs",
-    "crates/preprocess-sfs",
     "crates/minidom-extension",
+    "crates/opendata-rd-spider",
     "crates/opendata-spiders",
+    "crates/preprocess-progress",
+    "crates/preprocess-sfs",
+    "crates/preprocess-ui",
     "crates/preprocessors",
     "crates/sparv-extension",
     "crates/swegov-opendata",
     "crates/swegov-opendata-preprocess",
-    "crates/fetch-rd",
-    "crates/opendata-rd-spider",
 ]
 [workspace.package]
 rust-version = "1.74"
@@ -27,6 +29,8 @@ authors = [
 minidom-extension = { path = "./crates/minidom-extension" }
 opendata-rd-spider = { path = "./crates/opendata-rd-spider" }
 opendata-spiders = { path = "./crates/opendata-spiders" }
+preprocess-progress = { path = "./crates/preprocess-progress" }
+preprocess-ui = { path = "./crates/preprocess-ui" }
 preprocessors = { path = "./crates/preprocessors" }
 sparv-extension = { path = "./crates/sparv-extension" }
 swegov-opendata = { path = "./crates/swegov-opendata" }

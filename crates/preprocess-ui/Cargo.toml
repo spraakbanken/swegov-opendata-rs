@@ -1,0 +1,18 @@
+[package]
+name = "preprocess-ui"
+version = "0.1.0"
+rust-version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+miette = { workspace = true }
+preprocess-progress = { workspace = true }
+prodash = { workspace = true, features = [
+    "render-line",
+    "render-line-crossterm",
+] }
+tracing = { workspace = true }
+tracing-forest = { workspace = true }
+tracing-subscriber = { workspace = true }

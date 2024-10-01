@@ -14,15 +14,10 @@ doctest = false
 
 [dependencies]
 clap = { workspace = true, features = ["derive", "cargo"] }
-error-stack = { workspace = true }
-prodash = { workspace = true, features = [
-    "render-line",
-    "render-line-crossterm",
-] }
-tracing = { workspace = true }
-tracing-forest = { workspace = true }
-tracing-subscriber = { workspace = true }
+miette = { workspace = true, features = ["fancy"] }
+
 
 # local deps
-preprocessors = {workspace = true}
+preprocess-ui = { workspace = true }
+preprocessors = { workspace = true }
 swegov-opendata-preprocess = { workspace = true }
