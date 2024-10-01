@@ -11,7 +11,7 @@ use crate::date_formats;
 #[cfg(test)]
 mod tests;
 
-#[derive(Default, Debug, Clone, PartialEq)] //, serde::Deserialize, serde::Serialize)]
+#[derive(Default, Debug, Clone, PartialEq, serde::Serialize)] //, serde::Deserialize, serde::Serialize)]
 pub struct DatasetLista {
     pub dataset: Vec<DataSet>,
 }
@@ -94,20 +94,20 @@ impl deserx::DeXml for DatasetLista {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)] //, serde::Deserialize, serde::Serialize)]
-                                   // #[serde(deny_unknown_fields, rename = "dataset")]
+#[derive(Debug, Clone, PartialEq, serde::Serialize)] //, serde::Deserialize, serde::Serialize)]
+#[serde(deny_unknown_fields, rename = "dataset")]
 pub struct DataSet {
     pub namn: String,
     pub typ: String,
     pub samling: String,
     pub rm: String,
     pub filnamn: String,
-    // #[serde(rename = "storlek")]
+    #[serde(rename = "storlek")]
     pub storlek_bytes: usize,
     // #[serde(with = "quick_xml::serde_helpers::text_content")]
     pub format: DataFormat,
     pub filformat: FilFormat,
-    // #[serde(with = "date_formats::swe_date_format")]
+    #[serde(with = "date_formats::swe_date_format")]
     pub uppdaterad: NaiveDateTime,
     pub url: String,
     pub description: String,
@@ -276,7 +276,8 @@ impl deserx::SerXml for DataSet {
     }
 }
 
-#[derive(Debug, Default, Clone, PartialEq)]
+#[derive(Debug, Default, Clone, PartialEq, serde::Serialize)]
+#[serde(rename = "upplysning")]
 pub struct Upplysning {
     upplysning: String,
     year_comment: BTreeMap<String, String>,
@@ -417,7 +418,8 @@ impl deserx::DeXml for Upplysning {
     }
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum DataFormat {
     Csv,
     CsvT,
@@ -510,43 +512,44 @@ impl deserx::DeXml for DataFormat {
         Self::deserialize_xml_from_text(reader)
     }
 }
-impl serde::Serialize for DataFormat {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        serializer.serialize_str(self.as_str())
-    }
-}
-impl<'de> serde::Deserialize<'de> for DataFormat {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: serde::Deserializer<'de>,
-    {
-        struct DataFormatVisitor;
+// impl serde::Serialize for DataFormat {
+//     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+//     where
+//         S: serde::Serializer,
+//     {
+//         serializer.serialize_str(self.as_str())
+//     }
+// }
+// impl<'de> serde::Deserialize<'de> for DataFormat {
+//     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+//     where
+//         D: serde::Deserializer<'de>,
+//     {
+//         struct DataFormatVisitor;
 
-        impl<'de> Visitor<'de> for DataFormatVisitor {
-            type Value = DataFormat;
+//         impl<'de> Visitor<'de> for DataFormatVisitor {
+//             type Value = DataFormat;
 
-            fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
-                formatter.write_str("one of 'csv', 'csvt', 'html', 'json', 'sql', 'text' or 'xml'")
-            }
+//             fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+//                 formatter.write_str("one of 'csv', 'csvt', 'html', 'json', 'sql', 'text' or 'xml'")
+//             }
 
-            fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
-            where
-                E: serde::de::Error,
-            {
-                match DataFormat::from_str_opt(v) {
-                    Some(format) => Ok(format),
-                    None => Err(E::custom(format!("unknown format: {}", v))),
-                }
-            }
-        }
-        deserializer.deserialize_str(DataFormatVisitor)
-    }
-}
+//             fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
+//             where
+//                 E: serde::de::Error,
+//             {
+//                 match DataFormat::from_str_opt(v) {
+//                     Some(format) => Ok(format),
+//                     None => Err(E::custom(format!("unknown format: {}", v))),
+//                 }
+//             }
+//         }
+//         deserializer.deserialize_str(DataFormatVisitor)
+//     }
+// }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum FilFormat {
     Zip,
 }
@@ -619,38 +622,38 @@ impl deserx::DeXml for FilFormat {
         Self::deserialize_xml_from_text(reader)
     }
 }
-impl serde::Serialize for FilFormat {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer,
-    {
-        serializer.serialize_str(self.as_str())
-    }
-}
-impl<'de> serde::Deserialize<'de> for FilFormat {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: serde::Deserializer<'de>,
-    {
-        struct FilFormatVisitor;
+// impl serde::Serialize for FilFormat {
+//     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+//     where
+//         S: serde::Serializer,
+//     {
+//         serializer.serialize_str(self.as_str())
+//     }
+// }
+// impl<'de> serde::Deserialize<'de> for FilFormat {
+//     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+//     where
+//         D: serde::Deserializer<'de>,
+//     {
+//         struct FilFormatVisitor;
 
-        impl<'de> Visitor<'de> for FilFormatVisitor {
-            type Value = FilFormat;
+//         impl<'de> Visitor<'de> for FilFormatVisitor {
+//             type Value = FilFormat;
 
-            fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
-                formatter.write_str("one of 'zip'")
-            }
+//             fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+//                 formatter.write_str("one of 'zip'")
+//             }
 
-            fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
-            where
-                E: serde::de::Error,
-            {
-                match FilFormat::from_str_opt(v) {
-                    Some(format) => Ok(format),
-                    None => return Err(E::custom(format!("unknown filformat: {}", v))),
-                }
-            }
-        }
-        deserializer.deserialize_str(FilFormatVisitor)
-    }
-}
+//             fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
+//             where
+//                 E: serde::de::Error,
+//             {
+//                 match FilFormat::from_str_opt(v) {
+//                     Some(format) => Ok(format),
+//                     None => return Err(E::custom(format!("unknown filformat: {}", v))),
+//                 }
+//             }
+//         }
+//         deserializer.deserialize_str(FilFormatVisitor)
+//     }
+// }

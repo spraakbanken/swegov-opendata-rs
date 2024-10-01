@@ -80,3 +80,9 @@ tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
 ulid = "1.0.0"
 webcrawler = { git = "https://github.com/spraakbanken/webcrawler-rs" }
 zip = "0.6.6"
+
+[profile.dev.package.insta]
+opt-level = 3
+
+[profile.dev.package.similar]
+opt-level = 3

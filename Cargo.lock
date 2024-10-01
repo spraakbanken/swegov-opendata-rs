@@ -1160,6 +1160,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "insta"
+version = "1.40.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6593a41c7a73841868772495db7dc1e8ecab43bb5c0b6da2059246c4b506ab60"
+dependencies = [
+ "console",
+ "lazy_static",
+ "linked-hash-map",
+ "serde",
+ "similar",
+]
+
+[[package]]
 name = "ipnet"
 version = "2.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1457,6 +1470,7 @@ version = "0.1.0"
 dependencies = [
  "async-trait",
  "chrono",
+ "deserx",
  "miette",
  "quick-xml 0.36.2",
  "reqwest",
@@ -2564,6 +2578,7 @@ dependencies = [
  "anyhow",
  "chrono",
  "deserx",
+ "insta",
  "miette",
  "quick-xml 0.36.2",
  "serde",
