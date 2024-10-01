@@ -132,10 +132,29 @@ fn datalista_de_ser_xml() -> anyhow::Result<()> {
     value.serialize_xml(&mut writer)?;
     let buffer = String::from_utf8(buffer)?;
 
-    insta::assert_snapshot!("datalist_ser_xml", buffer.as_str());
+    insta::assert_snapshot!("datalista_ser_xml", buffer.as_str());
 
     let mut reader = quick_xml::NsReader::from_str(&buffer);
     let actual = DatasetLista::deserialize_xml(&mut reader)?;
+    similar_asserts::assert_eq!(actual, value);
+    Ok(())
+}
+
+#[test]
+fn datalista_de_ser_json() -> anyhow::Result<()> {
+    let value = DatasetLista {
+        dataset: vec![
+            dataset_anforande_202324(),
+            dataset_anforande_202223(),
+            dataset_bet_1971_1979(),
+        ],
+    };
+
+    let buffer = serde_json::to_string(&value)?;
+
+    insta::assert_snapshot!("datalista_ser_json", buffer.as_str());
+
+    let actual: DatasetLista = serde_json::from_str(&buffer)?;
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }

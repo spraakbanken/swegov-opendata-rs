@@ -11,7 +11,8 @@ use crate::date_formats;
 #[cfg(test)]
 mod tests;
 
-#[derive(Default, Debug, Clone, PartialEq, serde::Serialize)] //, serde::Deserialize, serde::Serialize)]
+#[derive(Default, Debug, Clone, PartialEq, serde::Deserialize, serde::Serialize)]
+#[serde(rename = "datasetlista")]
 pub struct DatasetLista {
     pub dataset: Vec<DataSet>,
 }
@@ -94,7 +95,7 @@ impl deserx::DeXml for DatasetLista {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, serde::Serialize)] //, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, PartialEq, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields, rename = "dataset")]
 pub struct DataSet {
     pub namn: String,
@@ -276,7 +277,7 @@ impl deserx::SerXml for DataSet {
     }
 }
 
-#[derive(Debug, Default, Clone, PartialEq, serde::Serialize)]
+#[derive(Debug, Default, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[serde(rename = "upplysning")]
 pub struct Upplysning {
     upplysning: String,
