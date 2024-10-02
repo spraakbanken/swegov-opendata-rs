@@ -11,26 +11,24 @@ license = { workspace = true }
 doctest = false
 
 [dependencies]
-error-stack = { workspace = true }
+chrono = { workspace = true }
+flate2 = { workspace = true }
 html5ever = { workspace = true }
+itertools = { workspace = true }
+miette = { workspace = true }
+minidom-extension = { workspace = true }
+once_cell = { workspace = true }
+preprocess-progress = { workspace = true }
+pretty_assertions = { workspace = true }
 regex = { workspace = true }
 serde_json = { workspace = true }
 soup = { workspace = true }
-zip = { workspace = true }
+sparv-extension = { workspace = true }
+swegov-opendata = { workspace = true }
+thiserror = { workspace = true }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
-swegov-opendata = { workspace = true }
-chrono = { workspace = true }
-flate2 = { workspace = true }
-pretty_assertions = { workspace = true }
-once_cell = { workspace = true }
-itertools = { workspace = true }
-minidom-extension = { workspace = true }
-sparv-extension = { workspace = true }
-prodash = { workspace = true, features = [
-    "render-line",
-    "render-line-crossterm",
-] }
+zip = { workspace = true }
 
 [dev-dependencies]
 itertools = { workspace = true }

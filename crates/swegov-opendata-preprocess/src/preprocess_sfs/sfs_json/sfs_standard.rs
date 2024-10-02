@@ -1,6 +1,5 @@
 use std::borrow::Cow;
 
-use error_stack::Report;
 use minidom::{
     quick_xml::{events::Event, Reader},
     Element,
@@ -14,15 +13,15 @@ use super::SfsPreprocessError;
 pub fn process_html_sfs_standard(
     reader: &mut Reader<&[u8]>,
     textelem: &mut Element,
-) -> error_stack::Result<(), SfsPreprocessError> {
+) -> Result<(), SfsPreprocessError> {
     let mut state = ParseHtmlState::Start;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(Report::new(SfsPreprocessError::XmlParsingError {
+                return Err(SfsPreprocessError::XmlParsingError {
                     pos: reader.buffer_position(),
                     err: e,
-                }))
+                })
             }
             Ok(Event::Eof) => break,
             Ok(Event::Start(e)) => {
@@ -166,9 +165,7 @@ enum ParseHtmlState<'a> {
     Skip { tag: &'static [u8] },
 }
 
-pub fn extract_paragraphs(
-    reader: &mut Reader<&[u8]>,
-) -> error_stack::Result<Vec<Element>, SfsPreprocessError> {
+pub fn extract_paragraphs(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, SfsPreprocessError> {
     let mut paragraphs = Vec::new();
     let mut curr = Some(Element::bare("p", ""));
     loop {
@@ -221,10 +218,10 @@ pub fn extract_paragraphs(
                         match String::from_utf8(err_content.to_vec()) {
                             Ok(text) => text,
                             Err(err) => {
-                                return Err(Report::new(SfsPreprocessError::XmlFromUtf8Error {
+                                return Err(SfsPreprocessError::XmlFromUtf8Error {
                                     pos: reader.buffer_position(),
                                     err,
-                                }));
+                                });
                             }
                         }
                     }

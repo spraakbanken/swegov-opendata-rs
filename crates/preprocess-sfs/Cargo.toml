@@ -19,5 +19,4 @@ miette = { workspace = true, features = ["fancy"] }
 
 # local deps
 preprocess-ui = { workspace = true }
-preprocessors = { workspace = true }
 swegov-opendata-preprocess = { workspace = true }

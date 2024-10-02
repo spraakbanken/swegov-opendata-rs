@@ -1,7 +1,6 @@
 use std::{fs, io::Write};
 
 use chrono::NaiveDate;
-use error_stack::{Report, ResultExt};
 use minidom::{
     quick_xml::{events::Event, Reader, Writer},
     Element,
@@ -19,7 +18,7 @@ use super::SfsPreprocessError;
 mod sfs_div_dok;
 mod sfs_standard;
 
-pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreprocessError> {
+pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     let DokumentStatusPage {
         dokumentstatus:
             DokumentStatus {
@@ -27,7 +26,7 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
                 dokbilaga: _,
                 dokuppgift,
             },
-    } = serde_json::from_str(source).change_context(SfsPreprocessError::Json)?;
+    } = serde_json::from_str(source)?;
 
     // Build dokument
     let mut docelem = Element::builder("dokument", "")
@@ -89,7 +88,7 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     }
 
     if dokument.html.is_empty() {
-        return Err(Report::new(SfsPreprocessError::HtmlFieldIsEmpty));
+        return Err(SfsPreprocessError::HtmlFieldIsEmpty);
     } else {
         process_html(&dokument.html, &mut textelem)?;
     }
@@ -109,16 +108,11 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     // Serialize dokument
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
-    docelem
-        .to_writer(&mut writer)
-        .change_context(SfsPreprocessError::Write)?;
+    docelem.to_writer(&mut writer)?;
     Ok(result)
 }
 
-fn process_html(
-    contents: &str,
-    textelem: &mut Element,
-) -> error_stack::Result<(), SfsPreprocessError> {
+fn process_html(contents: &str, textelem: &mut Element) -> Result<(), SfsPreprocessError> {
     static DOUBLE_ANGLES: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"<<([\w\s]+)>>").expect("regex failed"));
     static NON_TAG: Lazy<Regex> = Lazy::new(|| Regex::new(r"<(gr|t)?>").expect("regex failed"));
@@ -165,10 +159,10 @@ fn process_html(
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(Report::new(SfsPreprocessError::XmlParsingError {
+                return Err(SfsPreprocessError::XmlParsingError {
                     pos: reader.buffer_position(),
                     err: e,
-                }))
+                })
             }
             Ok(Event::Eof) => break,
             Ok(Event::Start(e)) => match e.name().as_ref() {

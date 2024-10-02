@@ -1,15 +1,16 @@
 use std::path::{Path, PathBuf};
 
 use clap::Parser;
-use preprocessors::shared::pretty::prepare_and_run;
-use swegov_opendata_preprocess::{
-    preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions},
-    PreprocessError,
+use preprocess_ui::ui::pretty::prepare_and_run;
+use swegov_opendata_preprocess::preprocess_rd::{
+    preprocess_rd_corpura, PreprocessRdCorpuraOptions,
 };
 
-use crate::rd_preprocess::options::Args;
+use crate::options::Args;
 
-pub fn main() -> error_stack::Result<(), PreprocessError> {
+mod options;
+
+fn main() -> miette::Result<()> {
     let args = Args::parse();
 
     let trace = args.trace;
@@ -24,7 +25,7 @@ pub fn main() -> error_stack::Result<(), PreprocessError> {
         "preprocess-rd",
         trace,
         verbose,
-        None,
+        preprocess_ui::ui::STANDARD_RANGE,
         |progress, out, err| {
             preprocess_rd_corpura(
                 &input,

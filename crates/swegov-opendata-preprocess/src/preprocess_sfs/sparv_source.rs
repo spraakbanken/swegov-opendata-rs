@@ -7,33 +7,38 @@ use std::{
 use crate::PreprocessError;
 
 use super::sfs_json;
-use error_stack::ResultExt;
 use flate2::read::GzDecoder;
 use sparv_extension::XmlSourceWriter;
 
 #[tracing::instrument()]
-pub fn build_sparv_source(
-    path: &Path,
-    corpus_source_dir: &Path,
-) -> error_stack::Result<(), PreprocessError> {
+pub fn build_sparv_source(path: &Path, corpus_source_dir: &Path) -> Result<(), PreprocessError> {
     tracing::info!("creating '{}'", corpus_source_dir.display());
-    fs::create_dir_all(corpus_source_dir).change_context(PreprocessError)?;
+    fs::create_dir_all(corpus_source_dir).map_err(|error| PreprocessError::CouldNotCreateDir {
+        path: corpus_source_dir.to_path_buf(),
+        error,
+    })?;
     let mut source_writer = XmlSourceWriter::new(corpus_source_dir);
-    for file_path in fs::read_dir(path).change_context(PreprocessError)? {
-        let file_path = file_path.change_context(PreprocessError)?.path();
+    for file_path in fs::read_dir(path).map_err(|error| PreprocessError::CouldNotReadDir {
+        path: path.to_path_buf(),
+        error,
+    })? {
+        let file_path = file_path?.path();
         let file_span = tracing::info_span!("reading file", file_path = ?file_path);
         let _enter = file_span.enter();
-        let filecontents = read_text(&file_path)
-            .change_context(PreprocessError)
-            .attach_printable_lazy(|| format!("reading file '{}'", file_path.display()))?;
-        let xmlstring = sfs_json::preprocess_json(&filecontents)
-            .change_context(PreprocessError)
-            .attach_printable_lazy(|| format!("reading file {}", file_path.display()))?;
-        source_writer
-            .write(xmlstring)
-            .change_context(PreprocessError)?;
+        let filecontents =
+            read_text(&file_path).map_err(|error| PreprocessError::CouldNotReadFile {
+                path: file_path.clone(),
+                error,
+            })?;
+        let xmlstring = sfs_json::preprocess_json(&filecontents).map_err(|error| {
+            PreprocessError::SfsPreprocessError {
+                path: file_path.clone(),
+                error,
+            }
+        })?;
+        source_writer.write(xmlstring)?;
     }
-    source_writer.flush().change_context(PreprocessError)?;
+    source_writer.flush()?;
     Ok(())
 }
 

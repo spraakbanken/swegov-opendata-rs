@@ -715,16 +715,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "error-stack"
-version = "0.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "27a72baa257b5e0e2de241967bc5ee8f855d6072351042688621081d66b2a76b"
-dependencies = [
- "anyhow",
- "rustc_version",
-]
-
-[[package]]
 name = "fetch-rd"
 version = "0.1.0"
 dependencies = [
@@ -741,11 +731,10 @@ dependencies = [
 name = "fetch-sfs"
 version = "0.1.0"
 dependencies = [
- "anyhow",
  "clap",
  "config",
+ "miette",
  "opendata-spiders",
- "preprocessors",
  "serde",
  "tokio",
  "tracing",
@@ -1719,13 +1708,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "preprocess-rd"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "miette",
+ "preprocess-ui",
+ "swegov-opendata-preprocess",
+]
+
+[[package]]
+name = "preprocess-rd-segreg"
+version = "0.1.0"
+
+[[package]]
 name = "preprocess-sfs"
 version = "0.1.0"
 dependencies = [
  "clap",
  "miette",
  "preprocess-ui",
- "preprocessors",
  "swegov-opendata-preprocess",
 ]
 
@@ -1736,19 +1738,6 @@ dependencies = [
  "miette",
  "preprocess-progress",
  "prodash",
- "tracing",
- "tracing-forest",
- "tracing-subscriber",
-]
-
-[[package]]
-name = "preprocessors"
-version = "0.1.0"
-dependencies = [
- "clap",
- "error-stack",
- "prodash",
- "swegov-opendata-preprocess",
  "tracing",
  "tracing-forest",
  "tracing-subscriber",
@@ -2611,20 +2600,21 @@ name = "swegov-opendata-preprocess"
 version = "0.1.0"
 dependencies = [
  "chrono",
- "error-stack",
  "flate2",
  "html5ever",
  "itertools",
+ "miette",
  "minidom-extension",
  "once_cell",
+ "preprocess-progress",
  "pretty_assertions",
- "prodash",
  "regex",
  "rstest",
  "serde_json",
  "soup",
  "sparv-extension",
  "swegov-opendata",
+ "thiserror",
  "tracing",
  "tracing-subscriber",
  "zip",

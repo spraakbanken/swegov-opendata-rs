@@ -8,9 +8,11 @@ members = [
     "crates/opendata-rd-spider",
     "crates/opendata-spiders",
     "crates/preprocess-progress",
+    "crates/preprocess-progress",
+    "crates/preprocess-rd",
+    "crates/preprocess-rd-segreg",
     "crates/preprocess-sfs",
     "crates/preprocess-ui",
-    "crates/preprocessors",
     "crates/sparv-extension",
     "crates/swegov-opendata",
     "crates/swegov-opendata-preprocess",
@@ -31,7 +33,6 @@ opendata-rd-spider = { path = "./crates/opendata-rd-spider" }
 opendata-spiders = { path = "./crates/opendata-spiders" }
 preprocess-progress = { path = "./crates/preprocess-progress" }
 preprocess-ui = { path = "./crates/preprocess-ui" }
-preprocessors = { path = "./crates/preprocessors" }
 sparv-extension = { path = "./crates/sparv-extension" }
 swegov-opendata = { path = "./crates/swegov-opendata" }
 swegov-opendata-preprocess = { path = "./crates/swegov-opendata-preprocess" }
@@ -43,7 +44,6 @@ chrono = "0.4.37"
 clap = { version = "4.4.11" }
 config = "0.13.3"
 deserx = { git = "https://github.com/kod-kristoff/deserx" }
-error-stack = "0.4.1"
 flate2 = "1.0.27"
 futures = "0.3.28"
 futures-core = "0.3"

@@ -7,8 +7,7 @@ use std::{
     sync::atomic::Ordering,
 };
 
-use error_stack::ResultExt;
-use prodash::{Count, NestedProgress, Progress};
+use preprocess_progress::prodash::{Count, NestedProgress, Progress};
 use regex::Regex;
 use sparv_extension::{make_corpus_config, SparvConfig, SparvMetadata, XmlSourceWriter};
 use zip::ZipArchive;
@@ -33,28 +32,29 @@ pub fn preprocess_rd_corpura(
     output: &Path,
     mut out: impl std::io::Write,
     _err: impl std::io::Write,
-    mut progress: impl crate::progress::NestedProgress,
+    mut progress: impl preprocess_progress::NestedProgress,
     PreprocessRdCorpuraOptions {
         corpura,
         skip_files,
         processed_json_path,
         verbose,
     }: PreprocessRdCorpuraOptions<'_>,
-) -> error_stack::Result<(), PreprocessError> {
+) -> Result<(), PreprocessError> {
     // let path = RAWDIR;
     // let output = "data/material";
     // let processed_json_path = PROCESSED_JSON;
-    writeln!(out, "preprocess_corpora").change_context(PreprocessError)?;
+    writeln!(out, "preprocess_corpora")?;
     // Get previously processed data
     let mut processed_json: HashMap<String, HashMap<String, String>> =
         match fs::File::open(processed_json_path) {
             Ok(file) => {
                 let reader = io::BufReader::new(file);
-                serde_json::from_reader(reader)
-                    .change_context(PreprocessError)
-                    .attach_printable_lazy(|| {
-                        format!("can't read {}", processed_json_path.display())
-                    })?
+                serde_json::from_reader(reader).map_err(|error| {
+                    PreprocessError::CouldNotReadJson {
+                        path: processed_json_path.to_path_buf(),
+                        error,
+                    }
+                })?
             }
 
             Err(_) => HashMap::new(),
@@ -63,11 +63,11 @@ pub fn preprocess_rd_corpura(
     let corpus_re = Regex::new(r"(\S+)-\d{4}-.+").expect("valid regex");
 
     let mut zippaths = Vec::new();
-    for zippath in fs::read_dir(input)
-        .change_context(PreprocessError)
-        .attach_printable_lazy(|| format!("could not read dir {}", input.display()))?
-    {
-        let zippath = zippath.change_context(PreprocessError)?;
+    for zippath in fs::read_dir(input).map_err(|error| PreprocessError::CouldNotReadDir {
+        path: input.to_path_buf(),
+        error,
+    })? {
+        let zippath = zippath?;
         let zippath = zippath.path();
         if zippath.is_file() {
             let zippath_name = zippath
@@ -92,7 +92,10 @@ pub fn preprocess_rd_corpura(
         }
     }
     let mut progress = progress.add_child("traverse input path");
-    progress.init(zippaths.len().into(), crate::progress::count("zip files"));
+    progress.init(
+        zippaths.len().into(),
+        preprocess_progress::count("zip files"),
+    );
     let count = progress.counter();
 
     for zippath in zippaths {
@@ -106,14 +109,14 @@ pub fn preprocess_rd_corpura(
             if let Some(prefix) = matches.get(1) {
                 prefix.as_str()
             } else {
-                return Err(PreprocessError.into());
+                return Err(PreprocessError::custom("No prefix"));
             }
         } else {
-            return Err(PreprocessError.into());
+            return Err(PreprocessError::custom("No prefix"));
         };
 
-        writeln!(out, "prefix={prefix}").change_context(PreprocessError)?;
-        let (corpus_id, name, descr) = corpusinfo(prefix).change_context(PreprocessError)?;
+        writeln!(out, "prefix={prefix}")?;
+        let (corpus_id, name, descr) = corpusinfo(prefix)?;
         // Process only if in 'corpora'
         if !corpura.is_empty() && !corpura.contains(&corpus_id) {
             if verbose {
@@ -122,7 +125,7 @@ pub fn preprocess_rd_corpura(
             continue;
         }
 
-        writeln!(out, "Processing {} ...", zippath.display()).change_context(PreprocessError)?;
+        writeln!(out, "Processing {} ...", zippath.display())?;
         let corpus_source_base = Path::new(zippath.file_stem().unwrap())
             .file_stem()
             .unwrap()
@@ -138,8 +141,7 @@ pub fn preprocess_rd_corpura(
                 .name("swe", format!("Riksdagens öppna data: {}", name))
                 .description("swe", descr),
         );
-        make_corpus_config(&sparv_config, &output.join(corpus_id))
-            .change_context(PreprocessError)?;
+        make_corpus_config(&sparv_config, &output.join(corpus_id))?;
         let mut processed_zip_dict = processed_json.remove(zippath_name).unwrap_or_default();
 
         let child_progress = progress.add_child("Building sparv source");
@@ -166,26 +168,30 @@ fn build_sparv_source(
     zippath: &std::path::PathBuf,
     verbose: bool,
     out: &mut impl std::io::Write,
-    mut progress: impl crate::progress::NestedProgress,
+    mut progress: impl preprocess_progress::NestedProgress,
     corpus_source_dir: std::path::PathBuf,
     corpus_source_base: &str,
-) -> Result<(), error_stack::Report<PreprocessError>> {
+) -> Result<(), PreprocessError> {
     let counter = processed_zip_dict.len() + 1;
     let mut source_writer = XmlSourceWriter::with_target_and_counter(&corpus_source_dir, counter);
-    let zip_file = fs::File::open(&zippath)
-        .change_context(PreprocessError)
-        .attach_printable_lazy(|| format!("Failed to open {}", zippath.display()))?;
-    let mut zipf = ZipArchive::new(zip_file)
-        .change_context(PreprocessError)
-        .attach_printable_lazy(|| {
-            format!("Could not read the zip archive {}", zippath.display())
+    let zip_file = fs::File::open(&zippath).map_err(|error| PreprocessError::CouldNotReadFile {
+        path: zippath.to_owned(),
+        error,
+    })?;
+    let mut zipf =
+        ZipArchive::new(zip_file).map_err(|error| PreprocessError::CouldNotReadZipArchive {
+            path: zippath.to_path_buf(),
+            error,
         })?;
-    progress.init(zipf.len().into(), crate::progress::count("files"));
+
+    progress.init(zipf.len().into(), preprocess_progress::count("files"));
     let count = progress.counter();
     for i in 0..zipf.len() {
-        let mut zipobj = zipf.by_index(i).change_context(PreprocessError)?;
+        let mut zipobj = zipf
+            .by_index(i)
+            .map_err(|error| PreprocessError::CouldNotGetZipObjByIndex { index: i, error })?;
         if verbose {
-            writeln!(out, "  {}: {}", i, zipobj.name()).change_context(PreprocessError)?;
+            writeln!(out, "  {}: {}", i, zipobj.name())?;
         }
 
         // Skip if already processed
@@ -201,22 +207,28 @@ fn build_sparv_source(
         }
 
         let mut filecontents = String::new();
-        zipobj
-            .read_to_string(&mut filecontents)
-            .change_context(PreprocessError)
-            .attach_printable_lazy(|| format!("failed to read zip file {}", zipobj.name()))?;
+        zipobj.read_to_string(&mut filecontents).map_err(|error| {
+            PreprocessError::CouldNotReadZipFile {
+                archive: zippath.to_path_buf(),
+                path: zipobj.name().into(),
+                error,
+            }
+        })?;
 
-        let xmlstring = preprocess_xml(&filecontents, Cow::from(zipobj.name()))
-            .change_context(PreprocessError)?;
+        let xmlstring =
+            preprocess_xml(&filecontents, Cow::from(zipobj.name())).map_err(|error| {
+                PreprocessError::XmlError {
+                    path: zipobj.name().into(),
+                    error,
+                }
+            })?;
         if xmlstring.is_empty() {
             tracing::warn!("'{}' generated empty xml", zipobj.name());
             continue;
         }
-        source_writer
-            .write(xmlstring)
-            .change_context(PreprocessError)?;
+        source_writer.write(xmlstring)?;
         count.fetch_add(1, Ordering::Relaxed);
     }
-    source_writer.flush().change_context(PreprocessError)?;
+    source_writer.flush()?;
     Ok(())
 }

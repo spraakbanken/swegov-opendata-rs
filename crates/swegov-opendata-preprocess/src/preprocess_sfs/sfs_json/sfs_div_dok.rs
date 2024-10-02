@@ -1,4 +1,3 @@
-use error_stack::Report;
 use minidom::{
     quick_xml::{events::Event, Reader},
     Element,
@@ -11,16 +10,16 @@ use crate::preprocess_sfs::shared::attrib_equals;
 pub fn process_html_sfs_div_dok(
     reader: &mut Reader<&[u8]>,
     textelem: &mut Element,
-) -> error_stack::Result<(), SfsPreprocessError> {
+) -> Result<(), SfsPreprocessError> {
     let mut state = ParseHtmlState::Start;
     let mut page_nr = 1;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(Report::new(SfsPreprocessError::XmlParsingError {
+                return Err(SfsPreprocessError::XmlParsingError {
                     pos: reader.buffer_position(),
                     err: e,
-                }))
+                })
             }
             Ok(Event::Eof) => break,
             Ok(Event::Start(e)) => match e.name().as_ref() {
@@ -66,9 +65,7 @@ enum ParseHtmlState {
     Skip { tag: &'static [u8] },
 }
 
-pub fn extract_page(
-    reader: &mut Reader<&[u8]>,
-) -> error_stack::Result<Element, SfsPreprocessError> {
+pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocessError> {
     reader.check_end_names(false);
     let mut elem = Element::bare("page", "");
     let mut curr: Option<Element> = Some(Element::bare("p", ""));
@@ -184,10 +181,10 @@ pub fn extract_page(
                         match String::from_utf8(err_content.to_vec()) {
                             Ok(text) => text,
                             Err(err) => {
-                                return Err(Report::new(SfsPreprocessError::XmlFromUtf8Error {
+                                return Err(SfsPreprocessError::XmlFromUtf8Error {
                                     pos: reader.buffer_position(),
                                     err,
-                                }));
+                                });
                             }
                         }
                     }

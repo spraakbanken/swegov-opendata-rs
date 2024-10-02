@@ -1,26 +1,15 @@
-use std::fmt;
-
-use error_stack::Context;
-
-pub fn corpusinfo(prefix: &str) -> error_stack::Result<(&str, &str, &str), UnknownCorpus> {
+pub fn corpusinfo(prefix: &str) -> Result<(&str, &str, &str), UnknownCorpus> {
     for (corpus_prefix, corpus_info) in CORPUSINFO {
         if corpus_prefix == prefix {
             return Ok(corpus_info);
         }
     }
-    Err(UnknownCorpus(prefix.to_string()).into())
+    Err(UnknownCorpus(prefix.to_string()))
 }
 
-#[derive(Debug)]
+#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[error("Unknown corpus '{0}'")]
 pub struct UnknownCorpus(String);
-
-impl fmt::Display for UnknownCorpus {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "Unknown corpus '{}'", self.0)
-    }
-}
-
-impl Context for UnknownCorpus {}
 
 const CORPUSINFO: [(&str, (&str, &str, &str));21] = [
     ("bet", (

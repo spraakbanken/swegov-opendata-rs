@@ -18,7 +18,7 @@ pub fn main() -> miette::Result<()> {
         "preprocess-sfs",
         trace,
         verbose,
-        preprocessors::shared::STANDARD_RANGE,
+        preprocess_ui::ui::STANDARD_RANGE,
         |progress, out, err| {
             preprocess_sfs_corpus(
                 &input,
