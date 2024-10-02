@@ -4,7 +4,6 @@ use chrono::NaiveDateTime;
 use deserx::DeXmlError;
 use quick_xml::events::{BytesEnd, BytesStart, BytesText, Event};
 use quick_xml::NsReader;
-use serde::de::Visitor;
 
 use crate::date_formats;
 
@@ -35,7 +34,7 @@ impl deserx::SerXml for DatasetLista {
 
 impl deserx::DeXml for DatasetLista {
     fn deserialize_xml<R: BufRead>(reader: &mut NsReader<R>) -> Result<Self, deserx::DeXmlError> {
-        Ok(Self::deserialize_xml_from_tag(reader, "datasetlista").unwrap())
+        Self::deserialize_xml_from_tag(reader, "datasetlista")
     }
 
     fn deserialize_xml_from_body<R: BufRead>(
@@ -64,7 +63,20 @@ impl deserx::DeXml for DatasetLista {
                     }
                     _ => todo!("handle {:?}", e),
                 },
-                e => todo!("handle {:?}", e),
+                // e => todo!("handle {:?}", e),
+                Event::Text(e) => {
+                    if e.unescape()?.trim().is_empty() {
+                        continue;
+                    } else {
+                        return Err(DeXmlError::custom(format!("Unexpected text '{:?}'", e)));
+                    }
+                }
+                e => {
+                    return Err(DeXmlError::custom(format!(
+                        "dataset.rs:67:22: handle {:?}",
+                        e
+                    )))
+                }
             }
         }
 
@@ -80,8 +92,8 @@ impl deserx::DeXml for DatasetLista {
         let self_: Self = match reader.read_event_into(&mut buf)? {
             Event::Empty(evt) if evt.name().as_ref() == tag.as_bytes() => Self::default(),
             Event::Start(evt) if evt.name().as_ref() == tag.as_bytes() => {
-                Self::deserialize_xml_from_body(reader, &evt)?
-                // Self::deserialize_xml_from_body_with_end(reader, &evt, evt.to_end())?
+                Self::deserialize_xml_from_body(reader, &evt).unwrap() //?
+                                                                       // Self::deserialize_xml_from_body_with_end(reader, &evt, evt.to_end())?
             }
             evt => {
                 return Err(DeXmlError::UnexpectedTag {
@@ -218,24 +230,37 @@ impl deserx::DeXml for DataSet {
     ) -> Result<Self, deserx::DeXmlError> {
         let mut builder = DatasetBuilder::default();
         builder.namn(String::deserialize_xml_from_tag(reader, "namn")?);
+        // dbg!(&builder);
         builder.typ(String::deserialize_xml_from_tag(reader, "typ")?);
+        // dbg!(&builder);
         builder.samling(String::deserialize_xml_from_tag(reader, "samling")?);
+        // dbg!(&builder);
         builder.rm(String::deserialize_xml_from_tag(reader, "rm")?);
+        // dbg!(&builder);
         builder.filnamn(String::deserialize_xml_from_tag(reader, "filnamn")?);
+        // dbg!(&builder);
         let s = String::deserialize_xml_from_tag(reader, "storlek")?;
         builder.storlek(s.parse::<usize>().map_err(DeXmlError::custom)?);
+        // dbg!(&builder);
         builder.format(DataFormat::deserialize_xml_from_tag(reader, "format")?);
+        // dbg!(&builder);
         builder.filformat(FilFormat::deserialize_xml_from_tag(reader, "filformat")?);
+        // dbg!(&builder);
         let s = String::deserialize_xml_from_tag(reader, "uppdaterad")?;
         builder.uppdaterad(
             date_formats::swe_date_format::parse_from_str(&s).map_err(DeXmlError::custom)?,
         );
+        // dbg!(&builder);
         builder.url(String::deserialize_xml_from_tag(reader, "url")?);
+        // dbg!(&builder);
         builder.description(String::deserialize_xml_from_tag(reader, "description")?);
-        builder.beskrivning(Option::<String>::deserialize_xml_from_tag(
-            reader,
-            "beskrivning",
-        )?);
+        dbg!(&builder);
+        let beskrivning = String::deserialize_xml_from_tag(reader, "beskrivning").unwrap(); //?;
+        dbg!(&beskrivning);
+        if !beskrivning.is_empty() {
+            builder.beskrivning(Some(beskrivning));
+        }
+        dbg!(&builder);
         let upplysning = Upplysning::deserialize_xml_from_tag(reader, "upplysning").unwrap(); //?;
         if upplysning.upplysning.is_empty() && upplysning.year_comment.is_empty() {
             builder.upplysning(None);
@@ -367,7 +392,8 @@ impl deserx::DeXml for Upplysning {
     ) -> Result<Self, deserx::DeXmlError> {
         dbg!(start);
         dbg!(&end);
-        let upplysning = String::deserialize_xml_from_text(reader).unwrap(); //?;
+        let mut upplysning = String::default(); //?;
+        let mut found_br = false;
         let mut year_comment = BTreeMap::default();
         let mut buf = Vec::new();
         loop {
@@ -375,15 +401,20 @@ impl deserx::DeXml for Upplysning {
                 Event::Empty(e) => match e.name().as_ref() {
                     b"br" => {
                         dbg!(e);
+                        found_br = true;
                     }
                     _ => todo!(),
                 },
                 Event::Text(e) => {
                     let raw_text = e.unescape()?;
-                    let mut parts = raw_text.split(':');
-                    let year = parts.next().unwrap().to_string();
-                    let comment = parts.next().unwrap().trim_start().to_string();
-                    year_comment.insert(year, comment);
+                    if found_br {
+                        let mut parts = raw_text.split(':');
+                        let year = parts.next().unwrap().to_string();
+                        let comment = parts.next().unwrap().trim_start().to_string();
+                        year_comment.insert(year, comment);
+                    } else {
+                        upplysning.push_str(raw_text.as_ref());
+                    }
                 }
                 Event::End(e) if e == end => break,
                 Event::Eof => break,

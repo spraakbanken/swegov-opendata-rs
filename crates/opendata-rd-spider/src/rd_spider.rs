@@ -1,6 +1,6 @@
 use std::{
     collections::HashMap,
-    fmt, fs, io,
+    fmt,
     path::{Path, PathBuf},
     sync::Arc,
 };
@@ -8,7 +8,7 @@ use std::{
 use async_trait::async_trait;
 use chrono::{NaiveDateTime, Utc};
 use deserx::DeXml;
-use reqwest::{Client, Response, Url};
+use reqwest::{Client, Url};
 use swegov_opendata::{date_formats, DataFormat, DatasetLista};
 use tokio::{io::AsyncWriteExt, sync::RwLock};
 
@@ -205,7 +205,13 @@ impl webcrawler::Spider for RdSpider {
         if url == Self::START_URL {
             let text = response.text().await?;
 
+            let text = text.replace("\r\n", "");
+            dbg!(&text);
             let mut reader = quick_xml::NsReader::from_str(&text);
+            // let config = reader.config_mut();
+            // config.trim_text_start = true;
+            // config.trim_text_end = true;
+            // config.expand_empty_elements = true;
             let DatasetLista { dataset } = DatasetLista::deserialize_xml(&mut reader)
                 .map_err(|source| Error::CouldNotParseXml { src: text, source })?;
             for dataset in dataset {
@@ -235,7 +241,13 @@ impl webcrawler::Spider for RdSpider {
         let (data, path) = match item {
             Item::Metadata(dataset) => {
                 let mut path = self.output_path.join(&dataset.url[1..]);
-                path.set_extension("json");
+                if path.extension().is_some() {
+                    path.set_extension("");
+                }
+                if path.extension().is_some() {
+                    path.set_extension("");
+                }
+                path.set_extension("metadata.json");
                 (
                     serde_json::to_vec(&dataset).map_err(|source| {
                         Error::CouldNotSerializeJson {

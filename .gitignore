@@ -18,3 +18,5 @@ target/
 swegov-opendata-preprocess/assets/gen/
 swegov-opendata-preprocess/assets/*.html
 visited.json
+stdout.txt
+stderr.jsonl
