@@ -41,7 +41,7 @@ impl deserx::DeXml for DatasetLista {
         reader: &mut NsReader<R>,
         start: &BytesStart,
     ) -> Result<Self, deserx::DeXmlError> {
-        dbg!(start);
+        // dbg!(start);
         let mut buf = Vec::new();
         let mut dataset = Vec::new();
         loop {
@@ -86,7 +86,7 @@ impl deserx::DeXml for DatasetLista {
         reader: &mut NsReader<R>,
         tag: &str,
     ) -> Result<Self, DeXmlError> {
-        dbg!(tag);
+        // dbg!(tag);
         use quick_xml::events::Event;
         let mut buf = Vec::new();
         let self_: Self = match reader.read_event_into(&mut buf)? {
@@ -254,13 +254,13 @@ impl deserx::DeXml for DataSet {
         builder.url(String::deserialize_xml_from_tag(reader, "url")?);
         // dbg!(&builder);
         builder.description(String::deserialize_xml_from_tag(reader, "description")?);
-        dbg!(&builder);
+        // dbg!(&builder);
         let beskrivning = String::deserialize_xml_from_tag(reader, "beskrivning").unwrap(); //?;
-        dbg!(&beskrivning);
+                                                                                            // dbg!(&beskrivning);
         if !beskrivning.is_empty() {
             builder.beskrivning(Some(beskrivning));
         }
-        dbg!(&builder);
+        // dbg!(&builder);
         let upplysning = Upplysning::deserialize_xml_from_tag(reader, "upplysning").unwrap(); //?;
         if upplysning.upplysning.is_empty() && upplysning.year_comment.is_empty() {
             builder.upplysning(None);
@@ -360,7 +360,7 @@ impl deserx::DeXml for Upplysning {
             match reader.read_event_into(&mut buf)? {
                 Event::Empty(e) => match e.name().as_ref() {
                     b"br" => {
-                        dbg!(e);
+                        // dbg!(e);
                     }
                     _ => todo!(),
                 },
@@ -390,8 +390,8 @@ impl deserx::DeXml for Upplysning {
         start: &BytesStart,
         end: BytesEnd,
     ) -> Result<Self, deserx::DeXmlError> {
-        dbg!(start);
-        dbg!(&end);
+        // dbg!(start);
+        // dbg!(&end);
         let mut upplysning = String::default(); //?;
         let mut found_br = false;
         let mut year_comment = BTreeMap::default();
@@ -400,7 +400,7 @@ impl deserx::DeXml for Upplysning {
             match reader.read_event_into(&mut buf)? {
                 Event::Empty(e) => match e.name().as_ref() {
                     b"br" => {
-                        dbg!(e);
+                        // dbg!(e);
                         found_br = true;
                     }
                     _ => todo!(),
@@ -430,7 +430,7 @@ impl deserx::DeXml for Upplysning {
         reader: &mut NsReader<R>,
         tag: &str,
     ) -> Result<Self, DeXmlError> {
-        dbg!(tag);
+        // dbg!(tag);
         use quick_xml::events::Event;
         let mut buf = Vec::new();
         let self_: Self = match reader.read_event_into(&mut buf)? {

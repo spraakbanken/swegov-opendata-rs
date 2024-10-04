@@ -1,8 +1,11 @@
 use chrono::{NaiveDate, NaiveDateTime};
 use serde_with::serde_as;
 use serde_with::DisplayFromStr;
+use serde_with::{formats::PreferOne, OneOrMany};
 
 use crate::date_formats;
+use crate::one_or_many;
+use crate::one_or_many::string_or_seq_or_none_to_opt_string;
 use crate::try_parse::TryParse;
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
@@ -14,11 +17,12 @@ pub struct DokumentStatusPage {
 #[serde(rename = "dokumentstatus")]
 pub struct DokumentStatus {
     pub dokument: Dokument,
-    pub dokuppgift: DokUppgift,
+    pub dokuppgift: Option<DokUppgift>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dokbilaga: Option<DokBilaga>,
 }
 
+// #[serde_as]
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct Dokument {
@@ -27,16 +31,22 @@ pub struct Dokument {
     pub rm: String,
     pub beteckning: String,
     pub typ: String,
-    pub subtyp: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    pub subtyp: Option<String>,
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        deserialize_with = "one_or_many::string_or_seq_or_none_to_opt_string"
+    )]
+    // #[serde_as(as = "OneOrMany<_, PreferOne>")]
     pub doktyp: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub typrubrik: Option<String>,
+    #[serde(default)]
     pub dokumentnamn: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub debattnamn: Option<String>,
-    pub tempbeteckning: String,
-    pub organ: String,
+    pub tempbeteckning: Option<String>,
+    pub organ: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub mottagare: Option<String>,
     // #[serde(deserialize_with = "deserialize_tryparse_from_string")]
@@ -51,8 +61,8 @@ pub struct Dokument {
     #[serde(with = "date_formats::swe_date_format")]
     pub systemdatum: NaiveDateTime,
     pub titel: String,
-    pub subtitel: String,
-    pub status: String,
+    pub subtitel: Option<String>,
+    pub status: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub htmlformat: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -88,9 +98,9 @@ impl Dokument {
     pub fn titel(&self) -> &str {
         &self.titel
     }
-    pub fn organ(&self) -> &str {
-        &self.organ
-    }
+    // pub fn organ(&self) -> &str {
+    //     &self.organ
+    // }
     // pub fn html(&self) -> Option<&str> {
     //     self.html.as_ref().map(|s| s.as_str())
     // }
@@ -116,10 +126,13 @@ impl DokUppgift {
     }
 }
 
+#[serde_as]
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
 pub struct DokBilaga {
+    #[serde_as(as = "OneOrMany<_, PreferOne>")]
     pub bilaga: Vec<Bilaga>,
+    // pub bilaga: Bilaga,
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
@@ -130,7 +143,7 @@ pub struct Bilaga {
     pub filnamn: String,
     pub filstorlek: String,
     pub filtyp: String,
-    pub subtitel: String,
+    pub subtitel: Option<String>,
     pub titel: String,
 }
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
