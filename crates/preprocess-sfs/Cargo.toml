@@ -16,7 +16,6 @@ doctest = false
 clap = { workspace = true, features = ["derive", "cargo"] }
 miette = { workspace = true, features = ["fancy"] }
 
-
 # local deps
 preprocess-ui = { workspace = true }
 swegov-opendata-preprocess = { workspace = true }
