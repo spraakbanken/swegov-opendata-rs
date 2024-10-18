@@ -63,3 +63,34 @@ pub mod option_swe_date_format {
         }
     }
 }
+
+pub mod swe_date_format_or_empty_to_option {
+    use chrono::NaiveDateTime;
+    use serde::{self, Deserialize, Deserializer, Serializer};
+
+    use super::swe_date_format;
+    pub fn serialize<S>(opt_date: &Option<NaiveDateTime>, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        match opt_date {
+            None => serializer.serialize_none(),
+            Some(date) => serializer.serialize_str(&swe_date_format::to_string(date)),
+        }
+    }
+
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<Option<NaiveDateTime>, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let option_s = Option::<String>::deserialize(deserializer)?;
+        match option_s {
+            None => Ok(None),
+            Some(s) if s.is_empty() => Ok(None),
+            Some(s) => {
+                let date = swe_date_format::parse_from_str(&s).map_err(serde::de::Error::custom)?;
+                Ok(Some(date))
+            }
+        }
+    }
+}

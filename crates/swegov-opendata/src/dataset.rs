@@ -387,7 +387,7 @@ impl deserx::DeXml for Upplysning {
 
     fn deserialize_xml_from_body_with_end<R: BufRead>(
         reader: &mut quick_xml::NsReader<R>,
-        start: &BytesStart,
+        _start: &BytesStart,
         end: BytesEnd,
     ) -> Result<Self, deserx::DeXmlError> {
         // dbg!(start);

@@ -1,0 +1,277 @@
+{
+  "dokumentstatus": {
+    "dokument": {
+      "hangar_id": "2321661",
+      "dok_id": "GU10379",
+      "rm": "2006/07",
+      "beteckning": "379",
+      "doktyp": "ip",
+      "typ": "ip",
+      "subtyp": null,
+      "tempbeteckning": "s",
+      "organ": "s",
+      "mottagare": "Lars Leijonborg (fp), utbildningsminister",
+      "nummer": "379",
+      "slutnummer": "0",
+      "datum": "2007-03-05 00:00:00",
+      "systemdatum": "2009-03-31 13:44:27",
+      "publicerad": "2007-03-05 00:00:00",
+      "titel": "Genusforskningens framtid",
+      "subtitel": "Malmström, Louise (s)",
+      "status": "korrekturläst",
+      "htmlformat": null,
+      "relaterat_id": null,
+      "source": null,
+      "sourceid": null,
+      "dokument_url_text": "http://data.riksdagen.se/dokument/GU10379/text",
+      "dokument_url_html": "http://data.riksdagen.se/dokument/GU10379",
+      "dokumentstatus_url_xml": "http://data.riksdagen.se/dokumentstatus/GU10379",
+      "html": " \r\n \r\n<div class=Section1> \r\n \r\n<p class=FrgeSvarDatum style='margin-top:0cm'><a name=PassTempLäge></a><i \r\nstyle='mso-bidi-font-style:normal'><font size=2 face=Verdana><span lang=SV \r\nstyle='font-size:10.0pt;font-family:Verdana'>den 5 mars<o:p></o:p></span></font></i></p> \r\n \r\n<p class=IPFRej align=left style='text-align:left'><b style='mso-bidi-font-weight: \r\nnormal'><font size=2 face=Verdana><span lang=SV style='font-size:10.0pt; \r\nfont-family:Verdana'>Interpellation <o:p></o:p></span></font></b></p> \r\n \r\n<p class=IPFR align=left style='text-align:left'><b style='mso-bidi-font-weight: \r\nnormal'><font size=2 face=Verdana><span lang=SV style='font-size:10.0pt; \r\nfont-family:Verdana'>2006/07:379 Genusforskningens framtid<o:p></o:p></span></font></b></p> \r\n \r\n<p class=Av align=left style='text-align:left'><font size=2 face=Verdana><span \r\nlang=SV style='font-size:10.0pt;font-family:Verdana;mso-ansi-language:SV'>av <i \r\nstyle='mso-bidi-font-style:normal'><span style='font-style:italic'>Louise \r\nMalmström (s)<o:p></o:p></span></i></span></font></p> \r\n \r\n<p class=Till align=left style='text-align:left'><font size=2 face=Verdana><span \r\nlang=SV style='font-size:10.0pt;font-family:Verdana;mso-ansi-language:SV'>till \r\nutbildningsminister Lars Leijonborg (fp)<o:p></o:p></span></font></p> \r\n \r\n<p class=MsoNormalIndent align=left style='text-align:left'><a name=Temp></a><font \r\nsize=2 face=Verdana><span lang=SV style='font-size:10.0pt;font-family:Verdana'>Genusforskningen \r\nundersöker betydelsen av kön inom exempelvis områden som arbetsliv, familjeliv, \r\nvård och omsorg, rättsväsende, utbildning, kultur- och fritidsvanor. I dag \r\nbedrivs forskning inom området både inom särskilda centrumbildningar, \r\ninstitutioner för genusforskning och inom ramen för de traditionella \r\nämnesdisciplinerna. Som socialdemokrat tycker jag att genusforskningen är \r\nmycket viktig eftersom de strukturer som är kopplade till kön behöver \r\ntydliggöras. <o:p></o:p></span></font></p> \r\n \r\n<p class=MsoNormalIndent align=left style='text-align:left'><font size=2 \r\nface=Verdana><span lang=SV style='font-size:10.0pt;font-family:Verdana'>Något \r\nsom kommer att påverka genusforskningens framtid är beslutet om nedläggningen \r\nav Arbetslivsinstitutet. Det är fortfarande oklart vad som kommer att hända med \r\nden genusforskning som i dag bedrivs där. Eftersom genusforskningen är spridd \r\növer ALI:s verksamhetsorter och integrerad inom alla forskningsfält riskerar \r\nden att slås i spillror. <o:p></o:p></span></font></p> \r\n \r\n<p class=MsoNormalIndent align=left style='text-align:left'><font size=2 \r\nface=Verdana><span lang=SV style='font-size:10.0pt;font-family:Verdana'>Även \r\nmed anledning av regeringsförklaringen finns det skäl att känna oro inför \r\ngenusforskningens framtid. I regeringsförklaringen förtydligas att en ökad \r\nandel av forskningsresurserna ska fördelas genom fakultetsanslag till \r\nframstående forskningsmiljöer. När konkurrensen om forskningsmedlen ökar och \r\nolika discipliner ställs mot varandra är det ofta de så kallade mjuka ämnena \r\nsom står som förlorare. <o:p></o:p></span></font></p> \r\n \r\n<p class=MsoNormalIndent align=left style='text-align:left'><font size=2 \r\nface=Verdana><span lang=SV style='font-size:10.0pt;font-family:Verdana'>Med \r\nanledning av ovanstående vill jag fråga utbildningsministern hur han ser på \r\ngenusforskningens framtid, om han avser att slå vakt om genusforskningen och \r\nhur han vill bemöta de hot den nu står inför.<o:p></o:p></span></font></p> \r\n \r\n</div> \r\n \r\n"
+    },
+    "dokaktivitet": {
+      "aktivitet": [
+        {
+          "kod": "INL",
+          "namn": "Inlämnad",
+          "datum": "2007-03-05 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "ANM",
+          "namn": "Anmäld",
+          "datum": "2007-03-12 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "ANM",
+          "namn": "Anmäld",
+          "datum": "2007-03-12 00:00:00",
+          "status": "planerad",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "SISVA",
+          "namn": "Sista svarsdatum",
+          "datum": "2007-03-26 00:00:00",
+          "status": "planerad",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "FD",
+          "namn": "Fördröjd",
+          "datum": "2007-03-19 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Besvarad",
+          "datum": "2007-03-30 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "SFA",
+          "namn": "Svar fördröjt anmält",
+          "datum": "2007-03-22 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Besvarad",
+          "datum": "2007-03-30 00:00:00",
+          "status": "planerad",
+          "ordning": "0",
+          "process": "behandling"
+        }
+      ]
+    },
+    "dokintressent": {
+      "intressent": [
+        {
+          "intressent_id": "0203334943718",
+          "namn": "Louise Malmström",
+          "partibet": "S",
+          "ordning": "1",
+          "roll": "undertecknare"
+        },
+        {
+          "intressent_id": "0980725315516",
+          "namn": "Lars Leijonborg",
+          "partibet": "FP",
+          "ordning": "1",
+          "roll": "stalldtill"
+        },
+        {
+          "intressent_id": "0980725315516",
+          "namn": "Lars Leijonborg",
+          "partibet": "FP",
+          "ordning": "1",
+          "roll": "besvaradav"
+        }
+      ]
+    },
+    "dokforslag": null,
+    "dokuppgift": null,
+    "dokbilaga": null,
+    "dokreferens": {
+      "referens": {
+        "referenstyp": "ipsvarid",
+        "uppgift": "{01CD05D8-15FE-472A-96FF-0C81E0C9B349}",
+        "ref_dok_id": "GU0985",
+        "ref_dok_typ": "prot",
+        "ref_dok_rm": "2006/07",
+        "ref_dok_bet": "85",
+        "ref_dok_titel": "Riksdagens protokoll 2006/07:85 Fredagen den 30 mars",
+        "ref_dok_subtitel": "2 § Svar på interpellation 2006/07:379 om genusforskningens framtid"
+      }
+    },
+    "debatt": {
+      "anforande": [
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=0",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214996822",
+          "anf_hangar_id": "2502283",
+          "anf_sekunder": "235",
+          "anf_klockslag": "09:01",
+          "datumtid": "2007-03-30 09:01:09",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Louise Malmström har frågat mig hur jag ser på genusforskningens framtid och om jag avser att slå vakt om genusforskningen och hur jag vill bemöta de hot som genusforskningen nu står inför.\r\nEn grundläggande princip för svensk forskningspolitik är att forskningsmedel ska sökas i konkurrens och beslut om medelstilldelning fattas av de forskningsfinansierande myndigheterna. Öronmärkning ska i största mån undvikas. \r\nUnder de kommande åren ökar regeringen anslagen till svensk forskning, detta främst genom att lärosätena tillförs betydande resurser. Efter regeringens förslag i den senaste budgetpropositionen ökar anslagen till universiteten med ytterligare 200 miljoner kronor för 2007. Ytterligare 700 miljoner kronor, jämfört med 2005 års forskningspolitiska proposition, kommer att tillföras under 2008 och 2009 som permanent förstärkning till forskning. Lärosätena fattar självständiga beslut om hur de vill disponera befintliga och framtida resurser.\r\nGenusforskning bidrar till att ge kunskaper för att nå ett jämställt samhälle. En genusinriktad kunskapsbas ger möjligheter för analys av de genomslag som jämställdhetsperspektiven har gjort inom olika arenor.\r\nPrecis som Louise Malmström beskriver bedrivs genusforskning både inom särskilda centrumbildningar, vid institutioner för genusforskning och inom ramen för de traditionella ämnesdisciplinerna.\r\nGenusforskningen är ett relativt ungt forskningsfält som utvecklats både inom- och tvärvetenskapligt under ett 30-tal år. Den svenska genusforskningen håller hög kvalitet, och Sverige har duktiga forskare inom området.\r\nJag håller därför inte med Louise Malmström om att genusforskningen står inför något hot. Tvärtom - jag är väldigt glad över att genusforskningen har kunnat växa till ett forskningsområde med kvalitet, där forskningsansökningar inom området i konkurrens med andra ämnen och discipliner vinner framgång.\r\n",
+          "anf_beteckning": "2006/07:85-1",
+          "anf_nummer": "1",
+          "talare": "Lars Leijonborg (Fp)",
+          "intressent_id": "0980725315516",
+          "parti": "Fp",
+          "anf_rm": "2006/07"
+        },
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=146",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214996922",
+          "anf_hangar_id": "2502314",
+          "anf_sekunder": "300",
+          "anf_klockslag": "09:03",
+          "datumtid": "2007-03-30 09:03:35",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Den genusforskning som har bedrivits hos oss är nu slagen i spillror och kommer aldrig att resa sig igen. Så säger Hans Robertsson, som är forskare i psykologi och har specialiserat sig på könssegregerande processer på arbetsmarknaden och är knuten till Arbetslivsinstitutet, i det senaste numret av Genus.\r\nHan är inte den enda som är orolig för genusforskningens framtid. Det är därför jag har ställt den här interpellationen till Lars Leijonborg.\r\nFörst vill jag naturligtvis tacka utbildningsministern för svaret på min interpellation. Men sedan tvingas jag genast konstatera att utbildningsministern varken verkar ta de här hoten mot genusforskningen på allvar eller lyssna till den oro som finns runt om i landet. Hans svar kring hur han ser på genusforskningens framtid förpliktar till ingenting.\r\nUtbildningsministern säger att den grundläggande principen är att forskningsmedel ska sökas i konkurrens och att genusforskningen har hög kvalitet och därför kommer att stå sig väl i den här konkurrensen. Och det har vi hört förut i debatten kring Arbetslivsinstitutets verksamhet. Men när man säger så och sedan drar undan resurser så att 350 miljoner blir 34 miljoner har man samtidigt talat om att en stor del av ALI:s forskning inte håller måttet, alternativt att den kommer att slå ut en massa annan forskning som får anslag i dag.\r\nAv erfarenhet vet vi att det när konkurrensen om forskningsmedlen hårdnar nästan alltid är den mjuka sidan som får stryka på foten. När det gäller genusforskningen, som är ett rätt så ungt forskningsfält, saknas det också ofta kunskaper bland dem som ska bedöma vart de här forskningsanslagen ska gå och hur de ska fördelas. Det har Vetenskapsrådet till exempel konstaterat när man har följt hur väl genusforskningen står sig i dag i konkurrensen.\r\nGenusperspektivet efterfrågas alltmer från olika håll, men det är mest inom områden där det finns väldigt lite egna resurser till forskning, om några alls, och behovet av den statliga finansieringen är stort.\r\nOm det nu inte finns några skäl att känna oro inför genusforskningens framtid, som Lars Leijonborg säger, undrar jag om utbildningsministern kan försöka gissa sig till varför många ändå känner en oro. Kan det vara för att de signaler som sänds ut på andra håll är helt annorlunda? Eller kan det vara för att svar, som det utbildningsministern levererar i dag, inte pekar ut någon riktning eller framförs med någon särskild emfas? Eller är det för att genusforskare som har varit knutna till ALI tidigare nu hänger i luften med löften om halv finansiering och inte vet hur resten ska finansieras och inte vet hur framtiden ska se ut och hur man ska kunna ta till vara den samlade kompetens som har funnits inom Arbetslivsinstitutet? Eller är det för att andra projekt som syftar till att öka genusmedvetenheten i vårt samhälle på andra arenor plötsligt stoppas upp - det gäller till exempel de långt gångna planerna på att etablera en resursenhet för genusfrågor på landets museer som man inte har hört någonting mer om sedan regeringsskiftet? Eller är det för att det är svårt att se någon annan röd tråd i alliansens generella politik än den som leder till ökade skillnader och ökad ojämställdhet mellan kvinnor och män? Vad tror utbildningsministern?\r\n",
+          "anf_beteckning": "2006/07:85-2",
+          "anf_nummer": "2",
+          "talare": "Louise Malmström (S)",
+          "intressent_id": "0203334943718",
+          "parti": "S",
+          "anf_rm": "2006/07"
+        },
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=357",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214997022",
+          "anf_hangar_id": "2502408",
+          "anf_sekunder": "328",
+          "anf_klockslag": "09:07",
+          "datumtid": "2007-03-30 09:07:06",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Louise Malmström vill att jag ska framföra någon teori om varför det finns så stor oro för genusforskningens framtid. Jag som är ansvarig för det här området delar inte själva grundanalysen i Louise Malmströms resonemang, att det finns en stor oro på detta område.\r\nJag vill påminna om att den nya regeringen har behållit det specialdestinerade anslag som tidigare fanns till genusforskning. Det finns också fortfarande ett generellt direktiv för all forskning om att genusperspektivet måste finnas med. Båda de här sakerna är föremål för diskussion, ska jag säga, för det finns också från vetenskapssamhället och till och med från genusforskare ett ifrågasättande av om den här specialbehandlingen egentligen på lång sikt gynnar detta forskningsområde.\r\nMen bakgrunden här är ju att Vetenskapsrådet, som får de här pengarna, självt har konstaterat att man inte har lyckats tillräckligt bra när det gäller att nå fram beträffande jämställdhet i forskningen. Därför tyckte jag att det var helt fel tillfälle att nu, 2007, avstå från de här specialmedlen och det här generella direktivet.\r\nDen fråga som infinner sig när man läser Louise Malmströms interpellation och när man hör henne tala här är: Är det framför allt omsorgen om det nedlagda Arbetslivsinstitutet eller är det omsorgen om genusforskning som driver Louise Malmström? Frågan om ALI:s nedläggning har ju varit föremål för oändligt många interpellationsdebatter i denna kammare. Och vi har från regeringens och majoritetens sida försökt, så gott vi har kunnat, redogöra för de argument som har styrt oss. Men det återkommer ständigt nya frågor om detta.\r\nDen specialvariant som Louise Malmström har just i dag handlar om att ALI också hade en viss genusforskning. Men då får svaret bli detsamma som i alla andra interpellationsdebatter om ALI - det var också den argumentationen jag förde i mitt ursprungliga svar. Parallellt med nedläggningen av ALI har fakultetsanslagen ökat i en utsträckning som gör att en stor del av ALI:s forskning kommer att kunna leva kvar.\r\nJag har lite svårt att förstå det ursprungliga uttalande som Louise Malmström refererar till, varför en person ska vara övertygad om att hans forskningsprojekt inte kan leva vidare bara för att den specialfinansiering som hittills har funnits faller bort. Varför är man så övertygad om att det man gör inte håller måttet i en konkurrens som man har tilltro till när det gäller det man själv sysslar med?\r\nJag upprepar det vi från regeringens sida har sagt många gånger. Vi är övertygade om att de forskningsprojekt som har bedrivits med ALI-finansiering och som håller hög kvalitet kommer att kunna leva vidare. Det gäller genusforskning, och det gäller annat.\r\nSom jag sade i mitt svar är jag optimistisk när det gäller svensk genusforskning. Det finns duktiga forskare, och den har också ett starkt stöd i forskarsamhället.\r\n",
+          "anf_beteckning": "2006/07:85-3",
+          "anf_nummer": "3",
+          "talare": "Lars Leijonborg (Fp)",
+          "intressent_id": "0980725315516",
+          "parti": "Fp",
+          "anf_rm": "2006/07"
+        },
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=596",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214997122",
+          "anf_hangar_id": "2502439",
+          "anf_sekunder": "227",
+          "anf_klockslag": "09:11",
+          "datumtid": "2007-03-30 09:11:05",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Det som var unikt med ALI var just det tvärvetenskapliga, anknytningen till det omgivande samhället och det regionala, att det var utspritt i landet och att man kunde anpassa forskningen till verkligheten.\r\nDet är naturligtvis alltid tråkigt när man tvingas känna sig konspiratorisk. Men när jag häromdagen läste ett inlägg av Katarina Pettersson som är kulturgeograf och verksam vid Centrum för genusvetenskap vid Uppsala universitet fick jag lite av en aha-upplevelse. Under rubriken \"Regeringen ökar ojämställdheten\" skriver hon om några av de förslag som alliansregeringen har lagt fram som kommer att drabba kvinnor negativt och motverka ekonomisk jämlikhet i vårt land: skattelättnader för hushållsnära tjänster, öppningen för vårdnadsbidrag och den försämrade a-kassan. Hon ställer frågan vad regeringen gör för att höja kvinnors löner och jämna ut fördelningen mellan kvinnors och mäns obetalda arbete i hemmet och när det gäller omsorgen om barnen. Hon avslutar med att konstatera att vi behöver en politik som leder till rimliga löner för kvinnor och ekonomisk jämställdhet, inte en politik som leder till ekonomiskt beroende fruar och mammor, det vill säga inte en alliansstyrd politik.\r\nNär jag läste det tänkte jag att det kanske inte är så konstigt att den nya regeringen är en smula avogt inställd till forskning som kan komma fram till så obekväma sanningar som att kampen för jämställdhet på arbetsmarknaden, i hemmet och i de sociala trygghetssystemen försvåras med den politik som Leijonborg och hans kamrater för. Kanske vore det bättre för alliansregeringen om de kritiska rösterna tystades, självklart med argumentet att det är själva principen om att forskningsmedel ska sökas i konkurrens som är det centrala. Det råkade visst bli så att genusforskningen inte stod sig i den konkurrensen.\r\nJag förstår att man tycker att det här är smidigt. Men jag tycker inte att det är smidigt. Jag tycker att det är lite fegt att inte våga peka ut prioriterade områden. Jag undrar varför utbildningsministern inte vågar ta lite tydligare ställning i den här frågan. Din kollega Barbro Westerholm törs ju det.\r\n",
+          "anf_beteckning": "2006/07:85-4",
+          "anf_nummer": "4",
+          "talare": "Louise Malmström (S)",
+          "intressent_id": "0203334943718",
+          "parti": "S",
+          "anf_rm": "2006/07"
+        },
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=730",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214997222",
+          "anf_hangar_id": "2502535",
+          "anf_sekunder": "342",
+          "anf_klockslag": "09:13",
+          "datumtid": "2007-03-30 09:13:19",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Jag kanske kan tänka mig att det finns några som har jobbat på ALI som tycker att det är bra att Louise Malmström för den här argumentationen, men jag tror att det är rätt många genusforskare i Sverige som blir provocerade när Louise Malmström säger att den genusforskning som bedrevs på ALI var unik för att den var tvärvetenskaplig, spridd över landet och verklighetsanknuten. Det hävdar naturligtvis ett antal andra genusforskare att också deras verksamhet är. Att höja just den forskning som bedrevs med ALI-medel så till skyarna tror jag, som sagt, kan vara rätt provocerande för andra.\r\nFör att en konspirationsteori ska hålla måste själva ursprungskonspirationen vara korrekt. Louise Malmströms teori är att eftersom alliansregeringen vill försämra för kvinnorna så måste man skära ned på genusforskningen så att detta inte avslöjas. Men eftersom själva utgångspunkten är felaktig, att alliansregeringen vill försämra för kvinnorna, har vi ingen anledning att dra ned på genusforskningen. Just för att vi vet att vi för en så bra politik både för kvinnor och män vill vi att genusforskningen ska fortsätta så att detta också vetenskapligt kan bevisas. Den teorin är precis lika rimlig som den som Louise Malmström framför.\r\nOm vi på något sätt skulle vara negativt inställda till genusforskning skulle vi väl ha använt de politiska instrument som i så fall finns för att försöka stoppa den forskningen. Sanningen är ju att det generella direktivet om genusperspektiv ligger kvar. De öronmärkta medlen ligger kvar. Vi ökar det totala forskningsanslaget där också genusforskning kan finansieras, och vi har varit mycket tydliga i våra uttalanden, som till exempel i mitt svar här att jag tycker att genusforskning är ett oerhört viktigt forskningsfält.\r\nLouise Malmström sade något om att det inte var tillräcklig inlevelse i det svar som jag avgav. Det kan väl i så fall bero på att det fortfarande är på morgonkvisten, men jag försäkrar att det finns ett starkt engagemang i både mitt och regeringens försvar för detta viktiga forskningsfält.\r\n",
+          "anf_beteckning": "2006/07:85-5",
+          "anf_nummer": "5",
+          "talare": "Lars Leijonborg (Fp)",
+          "intressent_id": "0980725315516",
+          "parti": "Fp",
+          "anf_rm": "2006/07"
+        },
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=903",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214997322",
+          "anf_hangar_id": "2502566",
+          "anf_sekunder": "169",
+          "anf_klockslag": "09:16",
+          "datumtid": "2007-03-30 09:16:12",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Jag tycker naturligtvis att all genusforskning är lika betydelsefull, men den används ju på olika vis, i kortare och längre perspektiv. Det ligger ingen värdering i var den bedrivs, att den skulle vara av bättre eller sämre kvalitet. Den måste finnas på alla områden och användas olika.\r\nFru talman! Vi får hoppas att jag har fel när jag är så konspiratorisk. Jag hoppas att utbildningsministern verkligen tycker att genusforskning ger oss värdefulla kunskaper för att vi ska fortsätta att utveckla vårt samhälle, utbildningsväsendet, familjelivet, arbetslivet, fritiden, sjukvård och hälsa. Låt oss också hoppas att utbildningsministern som ju själv tillhör ett parti som har hållit fanan skapligt högt när det gäller de här frågorna lyckas förklara för sina kamrater i regeringen hur viktigt det är och att han tar med sig vetskapen om att det krävs bredare kunskaper i de här frågorna hos dem som ska välja ut de viktiga forskningsfälten i den hårdnande konkurrensen. Om inte annat hoppas jag att utbildningsministern med anledning av den här interpellationsdebatten har varit tvungen att sätta sig in lite mer i de här frågorna och att han känner av att det är lite av en blåslampa som jag och andra kommer att förfölja honom med när vi kan se vilka konsekvenser alliansregeringens beslut får för genusforskningen de närmaste åren.\r\nTack för svaret! som sagt. Och tack för möjligheten att debattera den här viktiga frågan!\r\n",
+          "anf_beteckning": "2006/07:85-6",
+          "anf_nummer": "6",
+          "talare": "Louise Malmström (S)",
+          "intressent_id": "0203334943718",
+          "parti": "S",
+          "anf_rm": "2006/07"
+        },
+        {
+          "video_id": "1100120705214998922",
+          "video_url": "1100120705214998922#pos=983",
+          "tumnagel": null,
+          "anf_video_id": "1100120705214997422",
+          "anf_hangar_id": "2502666",
+          "anf_sekunder": "208",
+          "anf_klockslag": "09:17",
+          "datumtid": "2007-03-30 09:17:32",
+          "anf_datum": "2007-03-30 00:00:00",
+          "anf_typ": "ip",
+          "anf_text": "\r\nFru talman! Jag får tacka Louise Malmström för interpellationen. Jag tycker att det är viktigt att vi resonerar om genusforskningens betydelse och framtid. Frågan är aktuell på det sättet att det finns både bland genusforskare och i forskarsamhället i stort en diskussion om de bästa vägarna att säkra en stark genusforskning.\r\nNär jag argumenterar emot ALI och för generella forskningsmedel ska man komma ihåg att just genusforskning har specialdestinerade medel för närvarande. Det diskuteras om det är en bra väg att gå, men så mycket kan jag försäkra att om vi skulle sluta med det kommer vi att se till att den totala forskningsramen är sådan att genusforskningen har mycket goda möjligheter att hävda sig.\r\nDet är alldeles klart att Sverige behöver en intensiv jämställdhetsdebatt och tydliga steg i riktning mot ökad jämställdhet. Den debatten och de stegen bör i största möjliga utsträckning vila på en bra kunskapsbas. Genusforskningen bidrar till den kunskapsbasen.\r\nSå genusforskning är viktig. Alliansregeringen för en offensiv jämställdhetspolitik. Genusforskningen är en del av denna offensiva jämställdhetspolitik. Jag hoppas att Louise Malmström är något lugnad av de svar hon har fått här i dag.\r\n",
+          "anf_beteckning": "2006/07:85-7",
+          "anf_nummer": "7",
+          "talare": "Lars Leijonborg (Fp)",
+          "intressent_id": "0980725315516",
+          "parti": "Fp",
+          "anf_rm": "2006/07"
+        }
+      ]
+    }
+  }
+}

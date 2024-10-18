@@ -1,0 +1,175 @@
+{
+  "dokumentstatus": {
+    "dokument": {
+      "hangar_id": "3786073",
+      "dok_id": "H210566",
+      "rm": "2014/15",
+      "beteckning": "566",
+      "typ": "ip",
+      "subtyp": "",
+      "doktyp": "ip",
+      "typrubrik": "Interpellation 2014/15:566 av Markus Wiechel (SD)",
+      "dokumentnamn": "Interpellation",
+      "debattnamn": "Interpellationsdebatt",
+      "tempbeteckning": "SD",
+      "organ": "SD",
+      "mottagare": "Statsrådet Mehmet Kaplan (MP)",
+      "nummer": "566",
+      "slutnummer": "0",
+      "datum": "2015-04-29 00:00:00",
+      "systemdatum": "2015-08-27 13:46:33",
+      "publicerad": "2015-05-04 00:00:00",
+      "titel": "En ohållbar bostadssituation",
+      "subtitel": "Markus Wiechel (SD)",
+      "status": "Besvarad",
+      "htmlformat": "html",
+      "relaterat_id": "",
+      "source": "Frips",
+      "sourceid": "4eef346d-223a-4355-8957-720868d32891",
+      "metadata": "",
+      "dokument_url_text": "http://data.riksdagen.se/dokument/H210566/text",
+      "dokument_url_html": "http://data.riksdagen.se/dokument/H210566",
+      "dokumentstatus_url_xml": "http://data.riksdagen.se/dokumentstatus/H210566",
+      "html": "<h2>Interpellation 2014/15:566 En ohållbar bostadssituation</h2>\r\n<p class=\"Av\">av <i>Markus Wiechel (SD)</i></p>\r\n<p class=\"Till\">till Statsrådet Mehmet Kaplan (MP)</p>\r\n<p> </p>\r\n<p>En fråga som inte debatteras tillräckligt är frågan om bostadsbristen som främst råder i våra storstäder. Det är en allvarlig situation som inte bara innebär konsekvenser för boendet utan även är relaterat till val av studier eller arbete. En bra bostadsmarknad krävs för att samhället ska fungera och tillgängligheten till bostäder måste öka då det redan i dag sägs saknas nära 230 000 lägenheter.</p><p>Från vänsterhåll talar man om att subventionera byggandet av nya bostäder för att lösa bostadsbristen. Alliansen har motsatt sig detta med hänvisning till att subventioner snedvrider konkurrensen. I stället hänvisar man till förslag om att underlätta för bostadsbyggandet genom regeländringar. Vem som helst förstår att inget av dessa förslag är hållbara i längden. Vad såväl den övriga oppositionen som regeringspartierna inte vill ta på, är ett av de viktigaste skälen till att vi över huvud taget har en så allvarlig och akut bostadsbrist i dag. Det jag tänker på är den ansvarslösa och ohållbara massinvandringen till Sverige. </p><p>Det finns även ett annat stort problem kopplat till dagens bostadssituation. I år kan runt 100 000 personer väntas söka asyl i Sverige. Alla dessa behöver ett boende och tvingas konkurrera med befintliga invånare. I extrema fall händer det dessutom att Migrationsverkets behov av bostäder går före det behov som finns för befintliga invånare som länge köat för att få en hyresrätt. Det finns en risk att konflikter skapas och segregationen kan bli värre då många nyanlända mer eller mindre frivilligt tvingas in i områden som redan är socialt och ekonomiskt utsatta. Områden som till och med ibland jämförs med deras forna hemland.</p><p>Med anledning av detta önskar jag att statsrådet Mehmet Kaplan svarar på följande frågor:</p><ol><li>Kan statsrådet bekräfta att det massiva mottagandet av migranter också är ett stort skäl till den rådande bostadsbristen?</li><li>Hur avser statsrådet att åtgärda detta och skapa en hållbar bostadspolitik?</li></ol>"
+    },
+    "dokaktivitet": {
+      "aktivitet": [
+        {
+          "kod": "FD",
+          "namn": "Fördröjd",
+          "datum": "1899-01-01 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "INL",
+          "namn": "Inlämnad",
+          "datum": "2015-04-29 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "Överlämnad",
+          "namn": "Överlämnad",
+          "datum": "2015-05-04 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "ANM",
+          "namn": "Anmäld",
+          "datum": "2015-05-05 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "SISVA",
+          "namn": "Sista svarsdatum",
+          "datum": "2015-05-26 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Svarsdatum",
+          "datum": "2015-06-09 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Besvarad",
+          "datum": "2015-06-09 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        }
+      ]
+    },
+    "dokintressent": {
+      "intressent": [
+        {
+          "intressent_id": "0116084827614",
+          "namn": "Statsrådet Mehmet Kaplan",
+          "partibet": "MP",
+          "ordning": "1",
+          "roll": "besvaradav"
+        },
+        {
+          "intressent_id": "0116084827614",
+          "namn": "Statsrådet Mehmet Kaplan",
+          "partibet": "MP",
+          "ordning": "1",
+          "roll": "stalldtill"
+        },
+        {
+          "intressent_id": "0204240926023",
+          "namn": "Markus Wiechel",
+          "partibet": "SD",
+          "ordning": "1",
+          "roll": "undertecknare"
+        }
+      ]
+    },
+    "dokuppgift": {
+      "uppgift": {
+        "kod": "statustext",
+        "namn": "statustext",
+        "text": "Interpellationen är besvarad",
+        "dok_id": "H210566",
+        "systemdatum": "2017-09-05 13:36:49"
+      }
+    },
+    "dokbilaga": {
+      "bilaga": {
+        "dok_id": "H210566",
+        "titel": "En ohållbar bostadssituation",
+        "subtitel": "Markus Wiechel (SD)",
+        "filnamn": "ip_201415__566.pdf",
+        "filstorlek": "81025",
+        "filtyp": "pdf",
+        "fil_url": "http://data.riksdagen.se/fil/3519248D-7BF2-43F5-A97F-51F0DF583A05"
+      }
+    },
+    "dokreferens": {
+      "referens": {
+        "referenstyp": "ipsvarid",
+        "uppgift": "{a217e727-b14c-e511-9427-00262d0d0c40}",
+        "ref_dok_id": "H209112",
+        "ref_dok_typ": "prot",
+        "ref_dok_rm": "2014/15",
+        "ref_dok_bet": "112",
+        "ref_dok_titel": "Protokoll 2014/15:112 Tisdagen den 9 juni",
+        "ref_dok_subtitel": "Svar på interpellation 2014/15:566 om en ohållbar bostadssituation",
+        "ref_dok_subtyp": null,
+        "ref_dok_dokumentnamn": "Protokoll"
+      }
+    },
+    "webbmedia": {
+      "media": {
+        "url": "VOD1/PAL169/2442206140016087721",
+        "videofileurl": "https://mamstream.riksdagen.se/VOD1/_definst_/smil:PAL169/2442206140016087721.smil/playlist.m3u8",
+        "audiofileurl": "https://mhdownload.riksdagen.se/VOD1/PAL169/2442206140016087721_aud.mp3",
+        "downloadurl": "https://mhdownload.riksdagen.se/VOD1/PAL169/2442206140016087721_480p.mp4",
+        "thumbnailurl": "https://mhdownload.riksdagen.se/posterframe/2442206140016087721.jpg",
+        "debateurl": "/sv/webb-tv/video/interpellationsdebatt/en-ohallbar-bostadssituation_H210566",
+        "debattsekunder": "1630",
+        "debatt_rm": "2014/15",
+        "debatt_typ": "Interpellationssvar",
+        "dok_beteckning": "566",
+        "datum": "2015-06-09 12:46:35",
+        "dok_id": "H210566",
+        "videostatus": "2",
+        "source": "Rim",
+        "inspelningstyp": "Kammarsystemet",
+        "systemdatum": "2022-06-14 06:54:11"
+      }
+    }
+  }
+}

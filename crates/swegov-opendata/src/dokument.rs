@@ -1,12 +1,31 @@
+use std::borrow::Cow;
+
 use chrono::{NaiveDate, NaiveDateTime};
-use serde_with::serde_as;
-use serde_with::DisplayFromStr;
-use serde_with::{formats::PreferOne, OneOrMany};
 
 use crate::date_formats;
 use crate::one_or_many;
-use crate::one_or_many::string_or_seq_or_none_to_opt_string;
-use crate::try_parse::TryParse;
+use crate::shared::optionals;
+
+pub use self::aktivitet::{Aktivitet, DokAktivitet, DokAktivitetRef};
+pub use self::bilaga::{Bilaga, DokBilaga, DokBilagaRef};
+pub use self::debatt::Debatt;
+pub use self::forslag::{
+    DokForslag, DokMotForslag, DokMotForslagRef, DokUtskottsForslag, DokUtskottsForslagRef, Forslag,
+};
+pub use self::intressent::{DokIntressent, DokIntressentRef, Intressent, IntressentRef};
+pub use self::media::{WebbMedia, WebbMediaRef};
+pub use self::referens::{DokReferens, DokReferensRef, Referens};
+pub use self::uppgift::{DokUppgift, DokUppgiftRef, Uppgift};
+pub use self::{debatt::DebattRef, forslag::DokForslagRef};
+
+mod aktivitet;
+mod bilaga;
+mod debatt;
+mod forslag;
+mod intressent;
+mod media;
+mod referens;
+mod uppgift;
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
@@ -14,12 +33,50 @@ pub struct DokumentStatusPage {
     pub dokumentstatus: DokumentStatus,
 }
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(rename = "dokumentstatus")]
+#[serde(deny_unknown_fields, bound(deserialize = "'de: 'a"))]
+pub struct DokumentStatusPageRef<'a> {
+    pub dokumentstatus: DokumentStatusRef<'a>,
+}
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[serde(rename = "dokumentstatus", deny_unknown_fields)]
 pub struct DokumentStatus {
     pub dokument: Dokument,
     pub dokuppgift: Option<DokUppgift>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dokbilaga: Option<DokBilaga>,
+    pub dokintressent: Option<DokIntressent>,
+    pub debatt: Option<Debatt>,
+    pub dokaktivitet: Option<DokAktivitet>,
+    pub dokforslag: Option<DokForslag>,
+    pub dokreferens: Option<DokReferens>,
+    pub webbmedia: Option<WebbMedia>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokutskottsforslag: Option<DokUtskottsForslag>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokmotforslag: Option<DokMotForslag>,
+}
+
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[serde(
+    rename = "dokumentstatus",
+    deny_unknown_fields,
+    bound(deserialize = "'de: 'a")
+)]
+pub struct DokumentStatusRef<'a> {
+    pub dokument: DokumentRef<'a>,
+    pub dokuppgift: Option<DokUppgiftRef<'a>>,
+    pub dokintressent: Option<DokIntressentRef<'a>>,
+    pub debatt: Option<DebattRef<'a>>,
+    pub dokaktivitet: Option<DokAktivitetRef<'a>>,
+    pub dokforslag: Option<DokForslagRef<'a>>,
+    pub dokreferens: Option<DokReferensRef<'a>>,
+    pub webbmedia: Option<WebbMediaRef<'a>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokbilaga: Option<DokBilagaRef<'a>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokutskottsforslag: Option<DokUtskottsForslagRef<'a>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokmotforslag: Option<DokMotForslagRef<'a>>,
 }
 
 // #[serde_as]
@@ -27,9 +84,10 @@ pub struct DokumentStatus {
 #[serde(deny_unknown_fields)]
 pub struct Dokument {
     pub dok_id: String,
+    // #[serde(deserialize_with = "deserialize_number_from_string")]
     pub hangar_id: String,
     pub rm: String,
-    pub beteckning: String,
+    pub beteckning: Option<String>,
     pub typ: String,
     pub subtyp: Option<String>,
     #[serde(
@@ -56,10 +114,11 @@ pub struct Dokument {
     pub slutnummer: String,
     #[serde(with = "date_formats::swe_date_format")]
     pub datum: NaiveDateTime,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub publicerad: NaiveDateTime,
+    #[serde(with = "date_formats::swe_date_format_or_empty_to_option")]
+    pub publicerad: Option<NaiveDateTime>,
     #[serde(with = "date_formats::swe_date_format")]
     pub systemdatum: NaiveDateTime,
+    #[serde(deserialize_with = "optionals::deserialize_null_default")]
     pub titel: String,
     pub subtitel: Option<String>,
     pub status: Option<String>,
@@ -82,7 +141,15 @@ pub struct Dokument {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text: Option<String>,
     // #[serde(skip_serializing_if = "Option::is_none")]
-    pub html: String,
+    pub html: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub pretext: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub rubriker: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub images: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub metadata: Option<String>,
 }
 
 impl Dokument {
@@ -104,225 +171,104 @@ impl Dokument {
     // pub fn html(&self) -> Option<&str> {
     //     self.html.as_ref().map(|s| s.as_str())
     // }
-    pub fn html(&self) -> &str {
-        self.html.as_str()
+    pub fn html(&self) -> Option<&str> {
+        self.html.as_deref()
     }
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct DokUppgift {
-    pub uppgift: Vec<Uppgift>,
-}
-
-impl DokUppgift {
-    pub fn get_by_kod(&self, kod: &str) -> Option<&String> {
-        for uppgift in &self.uppgift {
-            if uppgift.kod.as_str() == kod {
-                return uppgift.text.as_ref();
-            }
-        }
-        None
-    }
-}
-
-#[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct DokBilaga {
-    #[serde_as(as = "OneOrMany<_, PreferOne>")]
-    pub bilaga: Vec<Bilaga>,
-    // pub bilaga: Bilaga,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct Bilaga {
-    pub dok_id: String,
-    pub fil_url: String,
-    pub filnamn: String,
-    pub filstorlek: String,
-    pub filtyp: String,
-    pub subtitel: Option<String>,
-    pub titel: String,
-}
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct Uppgift {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub dok_id: Option<String>,
-    pub kod: String,
-    pub namn: String,
+#[serde(deny_unknown_fields, bound(deserialize = "'de: 'a"))]
+pub struct DokumentRef<'a> {
+    pub dok_id: &'a str,
+    // #[serde(deserialize_with = "deserialize_number_from_string")]
+    pub hangar_id: &'a str,
+    pub rm: &'a str,
+    pub beteckning: Option<&'a str>,
+    pub typ: &'a str,
+    pub subtyp: Option<&'a str>,
     #[serde(
+        default,
         skip_serializing_if = "Option::is_none",
-        with = "date_formats::option_swe_date_format",
-        default
+        deserialize_with = "one_or_many::string_or_seq_or_none_to_opt_string"
     )]
-    pub systemdatum: Option<NaiveDateTime>,
-    pub text: Option<String>,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct DokumentListaPage {
-    dokumentlista: DokumentLista,
-}
-
-#[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields, rename = "dokumentlista")]
-pub struct DokumentLista {
-    #[serde(rename = "@dDt")]
-    d_dt: String,
-    #[serde(rename = "@dPre")]
-    d_pre: String,
-    #[serde(rename = "@dR")]
-    d_r: String,
-    #[serde(rename = "@dSol")]
-    d_sol: String,
-    #[serde(rename = "@datum", with = "date_formats::swe_date_format")]
-    datum: NaiveDateTime,
-    #[serde(rename = "@ms")]
-    ms: String,
-    #[serde(rename = "@nasta_sida")]
-    pub nasta_sida: Option<String>,
-    #[serde(rename = "@q")]
-    pub q: String,
-    #[serde(rename = "@sida")]
-    #[serde_as(as = "DisplayFromStr")]
-    sida: u64,
-    #[serde(rename = "@sidor")]
-    #[serde_as(as = "DisplayFromStr")]
-    sidor: u64,
-    #[serde(rename = "@traff_fran")]
-    #[serde_as(as = "DisplayFromStr")]
-    traff_fran: u64,
-    #[serde(rename = "@traff_till")]
-    #[serde_as(as = "DisplayFromStr")]
-    traff_till: u64,
-    #[serde(rename = "@traffar")]
-    #[serde_as(as = "DisplayFromStr")]
-    traffar: u64,
-    #[serde(rename = "@varning")]
-    varning: Option<String>,
-    #[serde(rename = "@version")]
-    version: String,
-    facettlista: Option<String>,
-    pub dokument: Vec<DokumentListaDokument>,
-}
-
-#[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-// #[serde(deny_unknown_fields)]
-pub struct DokumentListaDokument {
-    #[serde_as(as = "DisplayFromStr")]
-    traff: u64,
-    domain: String,
-    database: String,
-    datum: NaiveDate,
-    id: String,
-    rdrest: Option<String>,
-    slutdatum: String,
-    rddata: Option<String>,
-    plats: String,
-    klockslag: String,
-    // // #[serde(with = "date_formats::option_swe_date_format")]
-    // TODO this field can contain date (2018-03-07) and datetime (2016-02-11 15:28:15)
-    publicerad: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    systemdatum: NaiveDateTime,
-    undertitel: String,
-    kalla: String,
-    kall_id: String,
-    pub dok_id: String,
-    dokumentformat: String,
-    dokument_url_html: String,
-    dokument_url_text: String,
-    inlamnad: String,
-    motionstid: String,
-    tilldelat: String,
-    lang: String,
-    url: String,
-    relurl: String,
-    titel: String,
-    rm: String,
-    organ: String,
-    relaterat_id: String,
-    doktyp: String,
-    typ: String,
-    subtyp: String,
-    beteckning: String,
-    tempbeteckning: String,
-    nummer: TryParse<u64>,
-    status: String,
-    score: String,
-    sokdata: SokData,
-    summary: String,
-    notisrubrik: String,
-    notis: String,
-    dokintressent: Option<String>,
-    #[serde(deserialize_with = "deserialize_null_default")]
-    filbilaga: FilBilaga,
-    avdelning: String,
-    struktur: String,
-    audio: String,
-    video: String,
-    debattgrupp: String,
-    debattdag: String,
-    beslutsdag: String,
-    beredningsdag: String,
-    justeringsdag: String,
-    beslutad: String,
-    debattsekunder: String,
-    ardometyp: String,
-    reservationer: String,
-    debatt: Option<String>,
-    debattnamn: String,
-
-    dokumentnamn: String,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct FilBilaga {
+    pub doktyp: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    fil: Option<Fil>,
+    pub typrubrik: Option<&'a str>,
+    #[serde(default)]
+    pub dokumentnamn: &'a str,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub debattnamn: Option<&'a str>,
+    pub tempbeteckning: Option<&'a str>,
+    pub organ: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub mottagare: Option<&'a str>,
+    // #[serde(deserialize_with = "deserialize_tryparse_from_string")]
+    // nummer: TryParse<u64>,
+    pub nummer: &'a str,
+    // #[serde(deserialize_with = "deserialize_number_from_string")]
+    pub slutnummer: &'a str,
+    #[serde(with = "date_formats::swe_date_format")]
+    pub datum: NaiveDateTime,
+    #[serde(with = "date_formats::swe_date_format_or_empty_to_option")]
+    pub publicerad: Option<NaiveDateTime>,
+    #[serde(with = "date_formats::swe_date_format")]
+    pub systemdatum: NaiveDateTime,
+    #[serde(deserialize_with = "optionals::deserialize_null_default")]
+    pub titel: &'a str,
+    pub subtitel: Option<&'a str>,
+    pub status: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub htmlformat: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub relaterat_id: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub source: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub sourceid: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokument_url_text: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokument_url_html: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub dokumentstatus_url_xml: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub utskottsforslag_url_xml: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub text: Option<String>,
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    pub html: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub pretext: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub rubriker: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub images: Option<&'a str>,
+    #[serde(skip_serializing_if = "Option::is_none", borrow)]
+    pub metadata: Option<Cow<'a, str>>,
 }
 
-impl Default for FilBilaga {
-    fn default() -> Self {
-        Self { fil: None }
+impl<'a> DokumentRef<'a> {
+    pub fn dok_id(&self) -> &str {
+        &self.dok_id
     }
-}
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct Fil {
-    typ: String,
-    namn: String,
-    storlek: u64,
-    url: String,
-}
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct SokData {
-    titel: String,
-    undertitel: String,
-    soktyp: String,
-    statusrad: String,
-    // statusrad: NaiveDate,
-    brodsmula: String,
-    parti_kod: String,
-    parti_namn: String,
-    parti_website_url: String,
-    parti_website_namn: String,
-    parti_epost: String,
-    parti_telefon: String,
-    parti_telefontider: String,
-    parti_logotyp_img_id: String,
-    parti_logotyp_img_url: String,
-    parti_logotyp_img_alt: String,
-    parti_mandat: String,
-    kalenderprio: String,
+    pub fn rm(&self) -> &str {
+        &self.rm
+    }
+    pub fn datum(&self) -> NaiveDate {
+        self.datum.date()
+    }
+    pub fn titel(&self) -> &str {
+        &self.titel
+    }
+    // pub fn organ(&self) -> &str {
+    //     &self.organ
+    // }
+    // pub fn html(&self) -> Option<&str> {
+    //     self.html.as_ref().map(|s| s.as_str())
+    // }
+    pub fn html(&self) -> Option<&str> {
+        self.html.as_deref()
+    }
 }
 // #[cfg(test)]
 // mod tests {
@@ -334,13 +280,3 @@ pub struct SokData {
 //         assert_eq!(result, 4);
 //     }
 // }
-
-fn deserialize_null_default<'de, D, T>(deserializer: D) -> Result<T, D::Error>
-where
-    T: Default + serde::Deserialize<'de>,
-    D: serde::Deserializer<'de>,
-{
-    use serde::Deserialize;
-    let opt = Option::deserialize(deserializer)?;
-    Ok(opt.unwrap_or_default())
-}
