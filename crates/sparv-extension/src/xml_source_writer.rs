@@ -7,6 +7,7 @@ pub struct XmlSourceWriter<'a> {
     counter: usize,
     result: Vec<Vec<u8>>,
     total_size: usize,
+    stub: Option<&'a str>,
 }
 
 impl<'a> XmlSourceWriter<'a> {
@@ -18,6 +19,7 @@ impl<'a> XmlSourceWriter<'a> {
             counter: 1,
             result: Vec::new(),
             total_size: 0,
+            stub: None,
         }
     }
 
@@ -27,7 +29,12 @@ impl<'a> XmlSourceWriter<'a> {
             counter,
             result: Vec::default(),
             total_size: 0,
+            stub: None,
         }
+    }
+
+    pub fn set_stub(&mut self, stub: Option<&'a str>) {
+        self.stub = stub;
     }
 
     pub fn write(&mut self, xmlstring: Vec<u8>) -> Result<(), SparvError> {
@@ -62,14 +69,20 @@ impl<'a> XmlSourceWriter<'a> {
     }
 
     fn output_stub(&self) -> &str {
-        self.target_dir
-            .file_name()
-            .map(|s| s.to_str())
-            .flatten()
-            .unwrap_or("no-stub")
+        self.stub.unwrap_or_else(|| {
+            self.target_dir
+                .file_name()
+                .map(|s| s.to_str())
+                .flatten()
+                .unwrap_or("no-stub")
+        })
     }
     fn write_xml(&self, texts: &[Vec<u8>], xmlpath: &Path) -> Result<(), SparvError> {
         use std::io::Write;
+        if texts.is_empty() {
+            tracing::debug!("no texts to writer, skipping the write");
+            return Ok(());
+        }
         let corpus_source_dir = xmlpath.parent().unwrap();
         fs::create_dir_all(corpus_source_dir).map_err(|source| {
             SparvError::CouldNotCreateFolder {
