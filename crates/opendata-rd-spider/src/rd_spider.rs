@@ -6,9 +6,9 @@ use std::{
 };
 
 use async_trait::async_trait;
-use chrono::{NaiveDateTime, Utc};
+use chrono::{DateTime, NaiveDateTime, Utc};
 use deserx::DeXml;
-use reqwest::{Client, Url};
+use reqwest::Client;
 use swegov_opendata::{date_formats, DataFormat, DatasetLista};
 use tokio::{io::AsyncWriteExt, sync::RwLock};
 
@@ -65,7 +65,10 @@ impl Metadata {
                 tracing::warn!(cause = ?err, "Error reading Metadata from '{}'", path.display());
                 Err(err)
             }
-            Ok(metadata) => Ok(metadata),
+            Ok(metadata) => {
+                tracing::info!("Read Metadata from {}", path.display());
+                Ok(metadata)
+            }
         }
     }
     pub fn write(&self, path: &Path) -> Result<(), Error> {
@@ -80,6 +83,8 @@ impl Metadata {
                 source,
             }
         })?;
+        tracing::info!("Wrote Metadata to {}", path.display());
+
         Ok(())
     }
 
@@ -87,7 +92,7 @@ impl Metadata {
         match self.metadata.get(url) {
             None => true,
             Some(meta) => {
-                if meta.uppdated < uppdaterad {
+                if meta.uppdated.naive_local() < uppdaterad {
                     true
                 } else {
                     false
@@ -101,7 +106,7 @@ impl Metadata {
             url.to_string(),
             MetadataField {
                 file_name: file_name.display().to_string(),
-                uppdated: Utc::now().naive_local(),
+                uppdated: Utc::now(),
             },
         );
     }
@@ -110,8 +115,7 @@ impl Metadata {
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 pub struct MetadataField {
     file_name: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    uppdated: NaiveDateTime,
+    uppdated: DateTime<Utc>,
 }
 
 impl RdSpider {
@@ -206,7 +210,6 @@ impl webcrawler::Spider for RdSpider {
             let text = response.text().await?;
 
             let text = text.replace("\r\n", "");
-            dbg!(&text);
             let mut reader = quick_xml::NsReader::from_str(&text);
             // let config = reader.config_mut();
             // config.trim_text_start = true;
@@ -259,11 +262,15 @@ impl webcrawler::Spider for RdSpider {
                 )
             }
             Item::Raw(data) => {
-                let url = Url::parse(&url).map_err(|source| Error::UrlParseError {
-                    url: url.clone(),
-                    source,
-                })?;
-                let path = self.output_path.join(&url.path()[1..]);
+                // let url = Url::parse(&url).map_err(|source| Error::UrlParseError {
+                //     url: url.clone(),
+                //     source,
+                // })?;
+                let url_path = match url.strip_prefix(Self::BASE_URL) {
+                    Some(url_path) => url_path,
+                    None => todo!("Handle download from url={}", url),
+                };
+                let path = self.output_path.join(&url_path[1..]);
                 update_metadata = true;
                 (data, path)
             }
@@ -279,6 +286,7 @@ impl webcrawler::Spider for RdSpider {
                 })?;
             }
         }
+        tracing::info!("writing to path {}", path.display());
         let mut file =
             tokio::fs::File::create(&path)
                 .await
