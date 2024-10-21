@@ -6,6 +6,9 @@ use minidom_extension::minidom::{
     Element, Node,
 };
 
+#[cfg(test)]
+mod tests;
+
 pub fn process_html(contents: &str, textelem: &mut Element) {
     let contents_processed = contents.replace("\r\n", " ");
     let contents_processed = contents_processed.replace("\u{a0}", "");
@@ -14,6 +17,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
     let mut state = ParseHtmlState::Start;
 
     loop {
+        println!("state = {:?}", state);
         match reader.read_event() {
             Err(e) => todo!("handle err {:?}", e),
             Ok(Event::Empty(e)) => {
@@ -49,11 +53,20 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                             textelem.append_child(p);
                         }
                     }
-                    _ => todo!("handle {:?}", e),
+                    b"br" | b"BR" => {
+                        if let ParseHtmlState::Paragraph(elem) = &mut state {
+                            elem.append_child(Element::bare("br", ""));
+                        }
+                    }
+                    _ => todo!("handle Start({:?})", e),
                 }
             }
-            Ok(Event::Text(text)) => match state {
+            Ok(Event::Text(text)) => match &mut state {
                 ParseHtmlState::Skip { tag: _ } => (),
+                ParseHtmlState::Paragraph(p) => {
+                    let text = text.unescape().unwrap();
+                    p.append_text_node(text);
+                }
                 _ => {
                     let text = text.unescape().unwrap();
                     if text.trim().is_empty() {
@@ -61,7 +74,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                     }
                     let mut p = Element::bare("p", "");
                     p.append_text_node(text);
-                    textelem.append_child(p);
+                    state = ParseHtmlState::Paragraph(p);
                 }
             },
             Ok(Event::End(e)) => {
@@ -83,6 +96,9 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
             Ok(Event::Comment(_)) => (),
             Ok(e) => todo!("handle {:?}", e),
         }
+    }
+    if let ParseHtmlState::Paragraph(elem) = state {
+        textelem.append_child(elem);
     }
 }
 
@@ -169,7 +185,7 @@ enum ParseHtmlState {
     // ExtractPage,
     // ExtractMetadataFoundKey { key: Cow<'a, str> },
     // Dokument,
-    // Paragraph,
+    Paragraph(Element),
     Skip { tag: Vec<u8> },
 }
 

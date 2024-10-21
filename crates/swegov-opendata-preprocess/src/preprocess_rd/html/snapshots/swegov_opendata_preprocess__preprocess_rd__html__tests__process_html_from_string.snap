@@ -1,0 +1,66 @@
+---
+source: crates/swegov-opendata-preprocess/src/preprocess_rd/html/tests.rs
+expression: textelem
+---
+Element {
+    name: "text",
+    namespace: "",
+    prefix: None,
+    prefixes: Prefixes(),
+    attributes: {},
+    children: [
+        Element(
+            Element {
+                name: "p",
+                namespace: "",
+                prefix: None,
+                prefixes: Prefixes(),
+                attributes: {},
+                children: [
+                    Text(
+                        "Riksdagen",
+                    ),
+                    Element(
+                        Element {
+                            name: "br",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [],
+                        },
+                    ),
+                    Text(
+                        "a) antar lag om sprängämnesprekursorer",
+                    ),
+                    Element(
+                        Element {
+                            name: "br",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [],
+                        },
+                    ),
+                    Text(
+                        "b) antar lag om ändring i lagen (1996:701) om Tullverkets befogenheter vid Sveriges gräns mot ett annat land inom Europeiska unionen.",
+                    ),
+                    Element(
+                        Element {
+                            name: "br",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [],
+                        },
+                    ),
+                    Text(
+                        " ",
+                    ),
+                ],
+            },
+        ),
+    ],
+}
