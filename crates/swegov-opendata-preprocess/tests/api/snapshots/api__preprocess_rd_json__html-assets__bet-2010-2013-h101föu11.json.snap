@@ -1,5 +1,5 @@
 ---
-source: crates/swegov-opendata-preprocess/tests/it/preprocess_rd_json.rs
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: textelem
 ---
 Element {
@@ -175,6 +175,20 @@ Element {
                             children: [
                                 Text(
                                     "I betänkandet finns 16 reservationer (S, MP, SD och V).",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "1",
                                 ),
                             ],
                         },
@@ -1522,6 +1536,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "2",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -1951,6 +1979,20 @@ Element {
                             children: [
                                 Text(
                                     "2011/12:Fö228 av Peter Hultqvist m.fl. (S) yrkande 5,",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "3",
                                 ),
                             ],
                         },
@@ -2425,6 +2467,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "4",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -2668,6 +2724,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "5",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -2872,6 +2942,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "6",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -3021,6 +3105,20 @@ Element {
                             children: [
                                 Text(
                                     "37 motionsyrkanden om vissa krisberedskapsfrågor som väcktes under de allmänna motionstiderna 2011, 2012 och 2013, samt 9 yrkanden från ovan nämnda följdmotion behandlas inom ramen för denna redovisning.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "7",
                                 ),
                             ],
                         },
@@ -3288,6 +3386,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "8",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -3409,6 +3521,20 @@ Element {
                             children: [
                                 Text(
                                     "Lagen om sprängämnesprekursorer innehåller ett antal sanktionsbestämmelser, t.ex. att den som uppsåtligen bryter mot förbudet i artikel 4.1 i EU- förordningen om sprängämnesprekursorer genom att tillhandahålla, förvärva, inneha eller använda kaliumklorat, kaliumperklorat, natriumklorat och natriumperklorat över de koncentrationsgränser som anges i bilaga I till EU- förordningen om sprängämnesprekursorer ska dömas till böter eller fängelse i högst ett år. Dessa ämnen återfinns inte i tillräckliga (enligt bilagan) koncentrationer i några kända konsumenttillgängliga kemiska produkter i Sverige i dagsläget. Samma straffsats gäller den som utan tillstånd förvärvar, innehar eller använder väteperoxid, nitrometan och salpetersyra liksom den som tillhandahåller dessa ämnen över angivna koncentrationsgränser till enskilda personer som inte har tillstånd. Den som inte rapporterar misstänkta transaktioner eller försök till sådana, betydande försvinnanden eller betydande stölder ska dömas till böter eller fängelse i högst sex månader. Sprängämnesprekursorer som har varit föremål för brott enligt lagen om sprängämnesprekursorer ska förklaras förverkade, om det inte är uppenbart oskäligt.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "9",
                                 ),
                             ],
                         },
@@ -4306,6 +4432,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "10",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -4497,6 +4637,20 @@ Element {
                             children: [
                                 Text(
                                     "Företag som lagrar vissa mängder av särskilt farliga kemikalier (t.ex. mycket giftiga, miljöfarliga eller explosiva) omfattas av lagen (1999:381) om åtgärder för att förebygga och begränsa följderna av allvarliga kemikalieolyckor, även kallad Sevesolagen. Det finns två kravnivåer, en lägre och en",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "11",
                                 ),
                             ],
                         },
@@ -5802,6 +5956,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "12",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -5957,6 +6125,20 @@ Element {
                                 ),
                                 Text(
                                     " samt lämna de övriga förslag till ändringar av regleringen av Sevesoverksamheter som kan behövas. Detta betänkande, liksom det tidigare nämnda, bereds för närvarande i Regeringskansliet.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "13",
                                 ),
                             ],
                         },
@@ -6142,6 +6324,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "14",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -6294,6 +6490,20 @@ Element {
                             children: [
                                 Text(
                                     "Den norska regeringen gav Direktoratet for samfunnssikkerhet og beredskap (DSB) i uppdrag att leda arbetet och i samverkan med övriga nordiska länder genomföra den nordiska samverkansanalysen. Analysen presenterades i maj 2014 (Fö2014/819/SSK) och förslår bl.a. ett närmare nordiskt samarbete i fråga om insatser, och på forsknings- och övningsområdet. Arbetet ska ske inom befintliga strukturer. Detta arbete utgör ett underlag till nästa nordiska Hagaministermöte för ett planerat beslut om samarbetsområden och målsättningen för dessa. Ett planeringssystem samt en handlingsplan för en nordisk krisberedskapssamverkan bör finnas på plats senast 2015. Under samma tidsperiod bör även de praktiska förutsättningarna för bistånd i enlighet med solidaritetsförklaringen och europeiska riktlinjer för värdlandsstöd analyseras.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "15",
                                 ),
                             ],
                         },
@@ -7616,6 +7826,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "16",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -7788,6 +8012,20 @@ Element {
                             children: [
                                 Text(
                                     "MSB:s nyligen redovisade uppdrag att analysera och redovisa hur de praktiska förutsättningarna för stöd mellan de nordiska staterna vid kriser och allvarliga händelser i fredstid kan utvecklas på grundval av den nordiska solidaritetsförklaringen och nationella åtgärder till följd av europeiska riktlinjer för värdlandsstöd visar också på det närmande mellan de nordiska länderna som",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "17",
                                 ),
                             ],
                         },
@@ -8099,6 +8337,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "18",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -8313,6 +8565,20 @@ Element {
                                 ),
                                 Text(
                                     " vilar på alla: den enskilda människan och näringslivet såväl som den offentliga sektorn. Flera myndigheter har uppgifter och ansvar inom sina respektive områden och sektorer i frågor som rör informationssäkerhet. Det är viktigt att det finns former för samverkan mellan privata och offentliga aktörer. I den utsträckning som privata aktörer bedriver samhällsviktig verksamhet bör berörda ansvariga aktörer inom ramen för ansvarsprincipen se till att verksamheten kan upprätthållas vid allvarliga händelser och kriser.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "19",
                                 ),
                             ],
                         },
@@ -9723,6 +9989,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "20",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -9920,6 +10200,20 @@ Element {
                             children: [
                                 Text(
                                     "Bodil Ceballos m.fl. (MP) betonar i motion 2011/12:Fö214 yrkandena 1 och 2 behovet av att göra en sårbarhetsgranskning av dricksvattenförsörjningen som täcker hela landet samt att vatten bör innefattas som potentiellt mål för terrorhandlingar i denna granskning. Motionen tar sin utgångspunkt i den granskning som Riksrevisionen gjorde 2008 av den svenska beredskapen för skydd av svenskt dricksvatten. Granskningen visade att Sverige inte har möjlighet att hantera allvarliga kriser som kräver nödvattenförsörjning eller evakuering av utsatta grupper inom väsentliga delar av storstadsområdena. Granskningen begränsade sig dock till större städer och stora försörjningssystem, vilket innebär att sårbarheten i stora delar av landets vattenförsörjning är outforskad.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "21",
                                 ),
                             ],
                         },
@@ -10707,6 +11001,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "22",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -10845,6 +11153,20 @@ Element {
                             children: [
                                 Text(
                                     "Livsmedels- och dricksvattenförsörjningens leveranssäkerhet och förmåga att motstå och hantera störningar har under de senaste åren stärkts genom flera åtgärder. Säkerhetsgenomgångar hos livsmedelsföretag, etablering av ett resurslaboratorium för beredskapsdiagnostik, övningar och utbildningar riktade till kommuner och länsstyrelser är exempel på åtgärder inom området. Utrustning för nödvattenförsörjning har också anskaffats av Livsmedelsverket för att komplettera kommunernas vattenförsörjning i händelse av problem eller avbrott.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "23",
                                 ),
                             ],
                         },
@@ -12164,6 +12486,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "24",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -12271,6 +12607,20 @@ Element {
                             children: [
                                 Text(
                                     "Utskottet välkomnar de goda exempel på arbeten av relevans för området som bedrivs i dag, t.ex. en lång rad genomförda aktiviteter från Livsmedelsverkets sida när det gäller försörjning av livsmedel och dricksvatten, en kommande utredning om det sistnämnda, den fortsatta behandlingen inom Regeringskansliet av betänkandet En ny ransonerings- och prisregleringslag (SOU 2009:69) och Försvarsberedningens försvarspolitiska rapport. Inte minst den samverkan som idag sker mellan relevanta aktörer på bägge områden noteras. Utskottet anser också att de resultatmål som MSB har tagit fram, med hjälp av Livsmedelsverket och Jordbruksverket, för att upprätthålla viktiga samhällsfunktioner för bl.a. dricksvatten- och livsmedelsförsörjning är av stor vikt för att kunna förebygga och hantera framtida kriser. Samtliga motionsyrkanden avstyrks då utskottet konstaterar att en lång rad arbeten pågår på området. För närvarande finns det alltså inte skäl för riksdagen att vidta ytterligare åtgärder.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "25",
                                 ),
                             ],
                         },
@@ -12456,6 +12806,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "26",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -12577,6 +12941,20 @@ Element {
                             children: [
                                 Text(
                                     "Den enskilda människans roll inom krisberedskapen kan också vara att bidra till att skapa ett säkrare samhälle för andra, menar regeringen i propositionen. Krisberedskapen bygger på ett helhetsperspektiv, och det är angeläget att alla aktörer bidrar till arbetet med att förbättra denna beredskap. Av detta följer att det bör skapas förutsättningar och utrymme för att både etablerade",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "27",
                                 ),
                             ],
                         },
@@ -13493,6 +13871,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "28",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -13704,6 +14096,20 @@ Element {
                             children: [
                                 Text(
                                     "Motionären anför att Sverige tidigare hade ett mycket omfattande system för krisberedskap i civilförsvaret som var en tvilling till det militära försvaret. Hela folket var indelat och knutet till resurser avsedda att skydda och försörja. Tyvärr är civilförsvaret avvecklat. Särskilda beredskapspolisen är också avvecklad. Ledning av krishantering är viktigt, menar motionären. Personligt ansvar är då avgörande lika väl som utbildning och återkommande fullskaliga",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "29",
                                 ),
                             ],
                         },
@@ -14058,6 +14464,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "30",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -14196,6 +14616,20 @@ Element {
                             children: [
                                 Text(
                                     "I proposition 2013/14:144 understryker regeringen att varje myndighet enligt ansvarsprincipen har ett grundläggande ansvar att skaffa de resurser som krävs för att inom ramen för myndighetens uppgifter möta målen för Sveriges säkerhet. Utifrån detta och de principer för Försvarsmaktens stöd till andra verksamheter som regeringen angav i propositionen Ett användbart försvar, bör utvecklingen av Försvarsmaktens förutsättningar att kunna ge stöd till andra verksamheter inriktas på att undanröja eventuella hinder för ett effektivt",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "31",
                                 ),
                             ],
                         },
@@ -15473,6 +15907,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "32",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -15608,6 +16056,20 @@ Element {
                             children: [
                                 Text(
                                     "Utskottet anser, likt regeringen och Försvarsberedningen, att samverkan inför och under en krissituation behövs mellan alla berörda aktörer och då även med",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "33",
                                 ),
                             ],
                         },
@@ -16857,6 +17319,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "34",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -17034,6 +17510,20 @@ Element {
                             children: [
                                 Text(
                                     "I fråga om deltidsbrandmän har försvarsutskottet vid en rad tillfällen under tidigare riksmöten behandlat frågan om rekrytering av deltidsbrandmän, senast i betänkande 2010/11:FöU2. Utskottet konstaterade då att regeringen i propositionen Stärkt krisberedskap – för säkerhets skull (prop. 2007/08: 92) gör bedömningen att räddningsstyrkor som är organiserade med deltidsanställd per-",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "35",
                                 ),
                             ],
                         },
@@ -18297,6 +18787,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "36",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -18432,6 +18936,20 @@ Element {
                             children: [
                                 Text(
                                     "I nämnda proposition konstaterar regeringen att antalet kvinnor och antalet män med annan bakgrund än nordisk, och särskilt med utomeuropeisk bakgrund, är få inom den kommunala räddningstjänsten. Detta stärker bilden av",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "37",
                                 ),
                             ],
                         },
@@ -18743,6 +19261,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "38",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -18909,6 +19441,20 @@ Element {
                             children: [
                                 Text(
                                     "Utskottet anser sammanfattningsvis att den vidare behandlingen av nyligen genomförda regeringsuppdrag och pågående utredning inte bör föregripas och att det därmed inte finns behov för närvarande av ytterligare åtgärder från riksdagens sida. Motionsyrkandena avstyrks därmed.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "39",
                                 ),
                             ],
                         },
@@ -19080,6 +19626,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "40",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -19201,6 +19761,20 @@ Element {
                             children: [
                                 Text(
                                     "Enligt lagen (2003:778) om skydd mot olyckor (LSO) ska ägare eller nyttjanderättshavare till byggnader eller andra anläggningar i skälig omfattning",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "41",
                                 ),
                             ],
                         },
@@ -20506,6 +21080,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "42",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -20613,6 +21201,20 @@ Element {
                             children: [
                                 Text(
                                     "MSB beskriver hur det i arbetet med att utveckla arbetet med handlingsprogram finns ett antal utmaningar. Ett problem är att handlingsprogrammen inte alltid är de styrande dokument som var avsikten. Kommunerna behöver utveckla handlingsprogrammen genom att tydligare beskriva kopplingen mellan risker och mål, hur den förebyggande verksamheten är ordnad och planeras, vilken förmåga till räddningsinsats kommunen har och avser att skaffa samt hur uppföljning och utvärdering ska ske. Redovisningen konstaterar att MSB:s",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "43",
                                 ),
                             ],
                         },
@@ -21918,6 +22520,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "44",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -22088,6 +22704,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "45",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -22251,6 +22881,20 @@ Element {
                             children: [
                                 Text(
                                     "Utskottet har erfarit att det bland berörda parter finns en medvetenhet om det problem som anförs i motionen men att frågan inte drivits vidare mot bakgrund av att de styrningsproblem, säkerhetsproblem och administrationskostnader som skulle följa av ett nationellt låssystem för vägbommar sannolikt skulle vara större än det problem som låsta vägbommar i dag utgör. Vid de sällsynta tillfällen när behov uppstår förefaller det finnas förmåga att öppna/forcera låsta vägbommar med hjälp av den utrustning som finns på respektive fordon, eller med hjälp av räddningstjänsten. Vikten av samråd med och information till räddningstjänst och ambulanssjukvård vid upprättandet av olika typer av väghinder i samhället betonas än en gång. Utskottet finner, på grundval av ovanstående, inte skäl för riksdagen att för närvarande föreslå ytterligare åtgärder på området. Motionen avstyrks i linje med utskottets tidigare uppfattning i frågan.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "46",
                                 ),
                             ],
                         },
@@ -22432,6 +23076,20 @@ Element {
                             children: [
                                 Text(
                                     "I fråga om vattensäkerhet konstaterade försvarsutskottet i betänkande 2009/10:FöU9 att kommuner enligt lagen om skydd mot olyckor ska verka för skydd även mot andra olyckor än bränder. MSB ger stöd till kommunerna om hur ökad vattensäkerhet kan formuleras som mål i kommunala handlingsplaner (t.ex. minskade konsekvenser av olyckor, färre händelser och ökat skydd mot drunkningsolyckor). Vad gäller riskgruppen äldre och deras förmåga att simma, deras fysiska kapacitet och vilka risker de tar ansåg utskottet, i likhet",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "47",
                                 ),
                             ],
                         },
@@ -23642,6 +24300,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "48",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -23819,6 +24491,20 @@ Element {
                             children: [
                                 Text(
                                     "Frågan om räddningsinsatserna på sjön Hjälmaren bör likställas med räddningstjänsten för sjöarna Vänern, Vättern och Mälaren har tidigare behandlats av försvarsutskottet i betänkande 2012/13:FöU8 och i betänkande 2006/07:FöU4. Utskottet avstyrkte i båda fallen motionsyrkandena. Vid det senaste tillfället konstaterades det att berörda statliga, regionala och kommunala myndigheter har tagit initiativ för att åstadkomma en bättre sjösäkerhet på Hjälmaren och att man funnit att den rådande ordningen vad gäller larmning",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "49",
                                 ),
                             ],
                         },
@@ -24704,6 +25390,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "50",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -24898,6 +25598,20 @@ Element {
                                 ),
                                 Text(
                                     " års försvarsbeslut (prop. 2001/02:10) anförde utskottet att det sedan riksmötet 1996/97 framhållit betydelsen av en robust och flexibel infrastruktur främst inom bl.a. områdena elförsörjning, telekommunikationer och informationsteknologi och att utskottet vid flera tillfällen framhållit att förmågan inom dessa områden är gränssättande för hela det civila försvarets förmåga. Regeringens satsning på åtgärder",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "51",
                                 ),
                             ],
                         },
@@ -26147,6 +26861,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "52",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -26268,6 +26996,20 @@ Element {
                             children: [
                                 Text(
                                     "På myndighets- och företagsnivå har en rad åtgärder vidtagits, bl.a. gemensamma övningar, utbildning, säkring av reservplatser för krisledning, införande av Rakel och anskaffning av utrustning i form av beredskapsstolpar, mobila transformator- och ställverksanläggningar samt mobila lednings- och sambandssystem. Nätföretagen har påskyndat utbyggnadstakten av isolerad luftledning och jordkabel. Ett stort antal bandvagnar och reservkraftsaggregat har placerats ut hos elföretagen. Så kallade ödriftsåtgärder har vidtagits för att Göteborg, Malmö och Stockholm ska klara sin elförsörjning vid långvarigt elavbrott. Sedan några år pågår utveckling av ett nationellt webbaserat verktyg, SUSIE (Samverkan Under Störning Inom Elförsörjningen) som används för att underlätta samverkan mellan elnätsföretag.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "53",
                                 ),
                             ],
                         },
@@ -26467,6 +27209,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "54",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -26646,6 +27402,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "55",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -26725,6 +27495,20 @@ Element {
                             children: [
                                 Text(
                                     "Vid beredningen av förslaget om lagen (2012:806) om beredskapslagring av olja anförde utskottet att det delade regeringens bedömning att vad som ska framgå i den angivna beredskapsplanen bör framgå på lägre nivå än lag. Ut- skottet vidhåller denna uppfattning. Motionsyrkandet om att framtagandet av ett prioriterings- och ransoneringssystem för petroleumprodukter ska lagstadgas avstyrks därmed.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "56",
                                 ),
                             ],
                         },
@@ -27014,6 +27798,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "57",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -27197,6 +27995,20 @@ Element {
                             children: [
                                 Text(
                                     "Våra nordiska grannländers krisberedskap har stora likheter med hur den svenska krisberedskapen är organiserad. Samarbeten med dessa länder är ett sätt att lära oss av andra och därigenom stärka den svenska förmågan att stå emot kriser och påfrestningar på vårt eget samhälle. Det nordiska räddningstjänstsamarbetet – Nordred – är ett bra exempel på praktisk och fungerande samverkan. Om de förnyade ansträngningarna i fråga om den mer övergripande Hagaöverenskommelsen från 2009 kommer att ge resultat återstår att se. Därför vill vi redan nu bygga vidare på ett förstärkt samarbete inom området krisberedskap där Sverige också kopplar förebyggande åtgärder starkare till de operativa insatserna. Vi vill fortsatt gå vidare med det konkreta målet att forma ett permanent nordiskt krisberedskapscentrum där utbildning, övning, forskningssamordning och innovationssamordning kan hanteras gemensamt på ett kostnadseffektivt sätt. På sikt bör en gemensam insatsstyrka skapas. Att utreda möjligheten att inrätta ett nordiskt krisberedskapscentrum bör riksdagen ge regeringen till känna som sin mening .",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "58",
                                 ),
                             ],
                         },
@@ -27515,6 +28327,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "59",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -27738,6 +28564,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "60",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -27876,6 +28716,20 @@ Element {
                                 ),
                                 Text(
                                     " lägsta självförsörjningsgrad, kring 50 procent. Den svenska primärproduktionen måste således öka signifikant. Försvarsberedningen lyfter bl.a. fram vikten av en tillförlitlig försörjnings- och flödessäkerhet vad gäller livsmedel, en syn jag delar. Mycket görs inom området i dag, men enligt min mening saknas det ett helhetsgrepp. Av det skälet anser jag att riksdagen ska tillkännage för regeringen som sin mening att en parlamentarisk utredning bör tillsättas för en långsiktig livsmedelsstrategi i syfte att fastställa mål för en successivt ökad självförsörjningsgrad.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "61",
                                 ),
                             ],
                         },
@@ -28077,6 +28931,20 @@ Element {
                             children: [
                                 Text(
                                     "Vi instämmer i Försvarsberedningens slutsats att de frivilliga försvarsorganisationerna har en viktig roll i att skapa en folkförankring. Folkförankringen bygger bl.a. på kunskap och förståelse för samhällets behov vid kriser. De frivilliga försvarsorganisationerna arbetar för ett engagemang med tonvikten på ett rustat samhälle med väl fungerande civil beredskap. Deras bidrag är utbildade och övade frivilliga ungdomar, kvinnor och män med stor bredd och mångfald. Den enskilda individen har förvisso ett ansvar för sin egen hälsa och säkerhet, men det är först tillsammans, som engagerade medborgare, som vi kan skapa ett robust samhälle. Här är vikten av att nå barn och ungdomar tidigt genom skolan central. Detta anser vi att riksdagen bör ge regeringen till känna som sin mening.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "62",
                                 ),
                             ],
                         },
@@ -28386,6 +29254,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "63",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -28594,6 +29476,20 @@ Element {
                             children: [
                                 Text(
                                     "Sverige hade tidigare ett mycket omfattande system för krisberedskap i civilförsvaret som var en tvilling till det militära försvaret. Hela folket var indelat och knutet till resurser avsedda att skydda och försörja. Tyvärr är civilförsvaret nu avvecklat, vilket Sverigedemokraterna beklagar. Dock välkomnas Försvarsberedningens tydliga ställningstagande att planeringen för det civila försvaret ska återupptas. Av detta följer ett behov av att skapa en central instans för samordningen mellan olika myndigheters planer för ett",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "64",
                                 ),
                             ],
                         },
@@ -28855,6 +29751,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "65",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -29018,6 +29928,20 @@ Element {
                             children: [
                                 Text(
                                     "Att ta hänsyn till jämställdhets- och mångfaldsaspekter vid rekrytering till brandkåren, liksom till polisen, är inget självändamål. Det viktiga är att vi i",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "66",
                                 ),
                             ],
                         },
@@ -29233,6 +30157,20 @@ Element {
                             children: [
                                 Text(
                                     "Statistik visar att det i majoriteten av dödsbränder i flerbostadshus och i småhus helt och hållet saknas brandvarnare. I det förebyggande arbetet är fungerande brandvarnare i varje bostad och andra tekniska hjälpmedel, t.ex. spisvakt för automatisk övervakning av spisen, mycket viktiga. Vi anser dock att det är av största vikt att alla även vet hur man ska agera om en brand skulle uppstå. Det finns människor som av olika anledningar är begränsade i sina möjligheter att agera på egen hand och för vilka det kan krävas särskilt stöd genom tydligare regler. En bestämmelse om att i alla kommuner individanpassa brandskydd för personer med nedsatt förmåga att släcka eller utrymma skulle kunna vara ett exempel på åtgärd att vidta. Ett annat exempel skulle kunna vara ett krav på elanslutna brandvarnare i nybyggen. Vi välkomnar alla de informationsinsatser som genomförs och planeras men tror",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "67",
                                 ),
                             ],
                         },
@@ -29480,6 +30418,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "68",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -29717,6 +30669,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "69",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -29782,6 +30748,20 @@ Element {
                             children: [
                                 Text(
                                     "Jag tror också att det endast är genom lag som vi kan säkerställa ett fullgott prioriterings- och ransoneringssystem för petroleumprodukter om en brist skulle uppstå. Jag vill därför att riksdagen tillkännager för regeringen som sin mening att ett svenskt beredskapslager för olja bör skapas och att framtagandet av ett prioriterings- och ransoneringssystem för petroleumprodukter lagstadgas.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "70",
                                 ),
                             ],
                         },
@@ -30145,6 +31125,20 @@ Element {
                             children: [
                                 Text(
                                     "i motionen om att utreda att återta driftvärnet.",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "71",
                                 ),
                             ],
                         },
@@ -30737,6 +31731,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "72",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -31106,6 +32114,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "73",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -31465,6 +32487,20 @@ Element {
                             children: [
                                 Text(
                                     "Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om att utreda möjligheten att ge länsstyrelserna i uppdrag att",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "74",
                                 ),
                             ],
                         },
@@ -31832,6 +32868,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "75",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -31887,6 +32937,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "76",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -31924,6 +32988,20 @@ Element {
                             children: [
                                 Text(
                                     "2013/14:FöU11 ",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "77",
                                 ),
                             ],
                         },
@@ -31969,6 +33047,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "78",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -32006,6 +33098,20 @@ Element {
                             children: [
                                 Text(
                                     "2013/14:FöU11 ",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "79",
                                 ),
                             ],
                         },
@@ -32051,6 +33157,20 @@ Element {
                             ],
                         },
                     ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "80",
+                                ),
+                            ],
+                        },
+                    ),
                 ],
             },
         ),
@@ -32088,6 +33208,20 @@ Element {
                             children: [
                                 Text(
                                     "2013/14:FöU11 ",
+                                ),
+                            ],
+                        },
+                    ),
+                    Element(
+                        Element {
+                            name: "p",
+                            namespace: "",
+                            prefix: None,
+                            prefixes: Prefixes(),
+                            attributes: {},
+                            children: [
+                                Text(
+                                    "81",
                                 ),
                             ],
                         },

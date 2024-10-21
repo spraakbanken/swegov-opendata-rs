@@ -316,11 +316,11 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
             Ok(Event::Start(e)) => match e.name().as_ref() {
                 b"div" | b"DIV" => {
                     div_count += 1;
-                    state = ParsePageState::Skip {
-                        tag: e.name().as_ref().to_vec(),
-                    }
+                    // state = ParsePageState::Skip {
+                    //     tag: e.name().as_ref().to_vec(),
+                    // }
                 }
-                b"img" | b"IMG" => (),
+                b"img" | b"IMG" | b"ingenbild" | b"INGENBILD" => (),
                 b"table" | b"TABLE" => {
                     let paragraphs = extract_table(reader);
                     if let Some(child) = curr_child.take() {
@@ -335,7 +335,7 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
                         elem.append_child(child);
                     }
                     curr_child = Some(extract_paragraph(reader, e.name().as_ref()));
-                    state = ParsePageState::Paragraph;
+                    // state = ParsePageState::Paragraph;
                 }
                 // b"nobr" | b"NOBR" => match state {
                 //     ParsePageState::Paragraph => {
@@ -348,7 +348,7 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
                 //     ParsePageState::Paragraph => (),
                 //     _ => todo!("handle span in state={:?}", state),
                 // },
-                _ => todo!("handle {:?}", e),
+                _ => todo!("handle Start({:?})", e),
             },
             // Ok(Event::Text(text)) => match state {
             //     ParsePageState::Paragraph => {
@@ -361,6 +361,9 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
             Ok(Event::Text(_text)) => (),
             Ok(e) => todo!("handle {:?}", e),
         }
+    }
+    if let Some(child) = curr_child.take() {
+        elem.append_child(child);
     }
     elem
 }
@@ -389,7 +392,16 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
             Ok(Event::Text(text)) => elem.append_text_node(text.unescape().unwrap()),
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
-                _ => todo!("handle {:?}", e),
+                b"a" | b"A" | b"span" | b"SPAN" => (),
+                _ => todo!("handle End({:?})", e),
+            },
+            Ok(Event::Start(e)) => match e.name().as_ref() {
+                b"a" | b"A" | b"span" | b"SPAN" => (),
+                _ => todo!(
+                    "handle Start({:?}), tag={}",
+                    e,
+                    String::from_utf8_lossy(tag)
+                ),
             },
             Ok(e) => todo!("handle {:?}", e),
         }
