@@ -21,7 +21,9 @@ once_cell = { workspace = true }
 preprocess-progress = { workspace = true }
 pretty_assertions = { workspace = true }
 regex = { workspace = true }
+serde = { workspace = true }
 serde_json = { workspace = true }
+serde_with = { workspace = true }
 soup = { workspace = true }
 sparv-extension = { workspace = true }
 swegov-opendata = { workspace = true }
@@ -31,6 +33,9 @@ tracing-subscriber = { workspace = true }
 zip = { workspace = true }
 
 [dev-dependencies]
+anyhow = { workspace = true }
+insta = { workspace = true }
 itertools = { workspace = true }
 pretty_assertions = { workspace = true }
 rstest = { workspace = true }
+test-log = { workspace = true, features = ["trace", "color"] }

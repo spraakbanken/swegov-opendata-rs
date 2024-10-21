@@ -14,6 +14,8 @@ use zip::ZipArchive;
 
 use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, PreprocessError};
 
+use super::shared::read_json_or_default;
+
 #[derive(Debug, Clone)]
 pub struct PreprocessRdCorpuraOptions<'a> {
     pub corpura: &'a [&'a str],
@@ -22,7 +24,7 @@ pub struct PreprocessRdCorpuraOptions<'a> {
     pub verbose: bool,
 }
 
-/// Preprocess corpora.
+/// Preprocess RD corpora.
 ///
 /// corpora: List that specifies which corpora (corpus-IDs) to process (default: all)
 /// skip_files: Zip files which should not be processed.
@@ -46,24 +48,12 @@ pub fn preprocess_rd_corpura(
     writeln!(out, "preprocess_corpora")?;
     // Get previously processed data
     let mut processed_json: HashMap<String, HashMap<String, String>> =
-        match fs::File::open(processed_json_path) {
-            Ok(file) => {
-                let reader = io::BufReader::new(file);
-                serde_json::from_reader(reader).map_err(|error| {
-                    PreprocessError::CouldNotReadJson {
-                        path: processed_json_path.to_path_buf(),
-                        error,
-                    }
-                })?
-            }
-
-            Err(_) => HashMap::new(),
-        };
+        read_json_or_default(processed_json_path)?;
 
     let corpus_re = Regex::new(r"(\S+)-\d{4}-.+").expect("valid regex");
 
     let mut zippaths = Vec::new();
-    for zippath in fs::read_dir(input).map_err(|error| PreprocessError::CouldNotReadDir {
+    for zippath in fs::read_dir(input).map_err(|error| PreprocessError::CouldNotReadFolder {
         path: input.to_path_buf(),
         error,
     })? {

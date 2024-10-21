@@ -38,7 +38,7 @@ pub fn preprocess_sfs_corpus(
     make_corpus_config(&sparv_config, &output_path.join(corpus_id))?;
     let mut progress = progress.add_child("traverse input path");
     let mut years: Vec<PathBuf> = Vec::default();
-    for year in fs::read_dir(input_path).map_err(|error| PreprocessError::CouldNotReadDir {
+    for year in fs::read_dir(input_path).map_err(|error| PreprocessError::CouldNotReadFolder {
         path: input_path.to_path_buf(),
         error,
     })? {

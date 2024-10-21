@@ -1,33 +1,51 @@
 use core::fmt;
 use std::{io, path::PathBuf};
 
-use crate::{corpusinfo::UnknownCorpus, preprocess_rd, preprocess_sfs::SfsPreprocessError};
+use crate::{
+    corpusinfo::UnknownCorpus,
+    preprocess_rd::{self, PreprocessJsonError},
+    preprocess_sfs::SfsPreprocessError,
+};
 
 #[derive(Debug, thiserror::Error, miette::Diagnostic)]
 pub enum PreprocessError {
     #[error("{0}")]
     Custom(String),
+    #[error("Filename '{0}' contains no valid prefix")]
+    NoValidPrefix(String),
     #[error(transparent)]
     Io(#[from] io::Error),
-    #[error("Could not read JSON from '{path:?}'")]
+    #[error("Could not read JSON from '{path}'")]
     CouldNotReadJson {
         path: PathBuf,
         #[source]
         error: serde_json::Error,
     },
-    #[error("Could not create directory '{path:?}'")]
-    CouldNotCreateDir {
+    #[error("Could not write JSON to '{path}'")]
+    CouldNotWriteJson {
+        path: PathBuf,
+        #[source]
+        error: serde_json::Error,
+    },
+    #[error("Could not create folder '{path}'")]
+    CouldNotCreateFolder {
         path: PathBuf,
         #[source]
         error: io::Error,
     },
-    #[error("Could not read directory '{path:?}'")]
-    CouldNotReadDir {
+    #[error("Could not read folder '{path}'")]
+    CouldNotReadFolder {
         path: PathBuf,
         #[source]
         error: io::Error,
     },
-    #[error("Could not read file '{path:?}'")]
+    #[error("Could not access DirEntry in folder '{path}'")]
+    CouldNotAccessDirEntry {
+        path: PathBuf,
+        #[source]
+        error: io::Error,
+    },
+    #[error("Could not read file '{path}'")]
     CouldNotReadFile {
         path: PathBuf,
         #[source]
@@ -64,11 +82,17 @@ pub enum PreprocessError {
         #[source]
         error: SfsPreprocessError,
     },
-    #[error("Xml error when processing {path}: {error:?}")]
+    #[error("Xml error when processing {path}")]
     XmlError {
         path: String,
         #[source]
         error: preprocess_rd::XmlError,
+    },
+    #[error("Error when preprocessing rd-json from path '{path}'")]
+    RdPreprocessJsonError {
+        path: String,
+        #[source]
+        error: PreprocessJsonError,
     },
 }
 

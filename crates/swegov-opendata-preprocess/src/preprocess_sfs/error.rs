@@ -8,7 +8,7 @@ pub enum SfsPreprocessError {
     #[error("Internal error: {0}")]
     Internal(String),
     // XmlDe(quick_xml::DeError, Option<usize>),
-    #[error("Xml deserialization error")]
+    #[error("Xml error")]
     Xml(#[from] minidom::quick_xml::Error),
     #[error("Json deserialization error")]
     Json(#[from] serde_json::Error),

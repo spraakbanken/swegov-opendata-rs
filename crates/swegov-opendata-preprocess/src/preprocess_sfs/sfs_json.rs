@@ -23,8 +23,8 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
         dokumentstatus:
             DokumentStatus {
                 dokument,
-                dokbilaga: _,
                 dokuppgift,
+                ..
             },
     } = serde_json::from_str(source)?;
 
@@ -51,46 +51,81 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     for (name, value) in [
         ("hangar_id", &dokument.hangar_id),
         ("rm", &dokument.rm),
-        ("beteckning", &dokument.beteckning),
+        // ("beteckning", &dokument.beteckning),
         ("dokumentnamn", &dokument.dokumentnamn),
         ("typ", &dokument.typ),
-        ("subtyp", &dokument.subtyp),
-        ("organ", &dokument.organ),
+        // ("subtyp", &dokument.subtyp),
+        // ("organ", &dokument.organ),
         ("nummer", &dokument.nummer),
         ("slutnummer", &dokument.slutnummer),
         ("title", &dokument.titel),
-        ("status", &dokument.status),
+        // ("status", &dokument.status),
     ] {
         textelem.set_attr(name, value.replace("\r\n", " "));
     }
-    for (name, value) in [
+    for (name, value_opt) in [
+        // ("hangar_id", &dokument.hangar_id),
+        // ("rm", &dokument.rm),
+        ("beteckning", &dokument.beteckning),
+        // ("dokumentnamn", &dokument.dokumentnamn),
+        // ("typ", &dokument.typ),
+        ("subtyp", &dokument.subtyp),
+        ("organ", &dokument.organ),
+        // ("nummer", &dokument.nummer),
+        // ("slutnummer", &dokument.slutnummer),
+        // ("title", &dokument.titel),
+        ("status", &dokument.status),
+    ] {
+        textelem.set_attr(
+            name,
+            value_opt
+                .as_ref()
+                .map(|s| s.replace("\r\n", " "))
+                .as_deref()
+                .unwrap_or(""),
+        );
+    }
+    for (name, value_opt) in [
         ("subtitle", &dokument.subtitel),
         ("tempbeteckning", &dokument.tempbeteckning),
     ] {
-        if !value.is_empty() {
-            textelem.set_attr(name, value.replace("\r\n", " "));
+        if let Some(value) = value_opt {
+            if !value.is_empty() {
+                textelem.set_attr(name, &value.replace("\r\n", " "));
+            }
+        }
+    }
+    for (name, value_opt) in [
+        ("publicerad", &dokument.publicerad),
+        // ("systemdatum", &dokument.systemdatum),
+        // ("datum", &dokument.datum),
+    ] {
+        if let Some(value) = value_opt {
+            textelem.set_attr(name, value.to_string());
         }
     }
     for (name, value) in [
-        ("publicerad", &dokument.publicerad),
+        // ("publicerad", &dokument.publicerad),
         ("systemdatum", &dokument.systemdatum),
         ("datum", &dokument.datum),
     ] {
         textelem.set_attr(name, value.to_string());
     }
-    if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
-        let (upphavd_at, _remaining) =
-            NaiveDate::parse_and_remainder(upphavd_str, "%Y-%m-%d").unwrap();
-        textelem.set_attr("upphavd", upphavd_at.to_string());
-    }
-    if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
-        textelem.set_attr("upphnr", upphnr);
+    if let Some(dokuppgift) = &dokuppgift {
+        if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
+            let (upphavd_at, _remaining) =
+                NaiveDate::parse_and_remainder(upphavd_str, "%Y-%m-%d").unwrap();
+            textelem.set_attr("upphavd", upphavd_at.to_string());
+        }
+        if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
+            textelem.set_attr("upphnr", upphnr);
+        }
     }
 
-    if dokument.html.is_empty() {
-        return Err(SfsPreprocessError::HtmlFieldIsEmpty);
+    if let Some(html) = dokument.html() {
+        process_html(html, &mut textelem)?;
     } else {
-        process_html(&dokument.html, &mut textelem)?;
+        return Err(SfsPreprocessError::HtmlFieldIsEmpty);
     }
     if !(textelem.has_child("p", "") || textelem.has_child("page", "")) {
         tracing::error!(docelem = ?docelem, textelem = ?textelem, "no p or page");

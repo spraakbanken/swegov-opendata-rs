@@ -2,6 +2,8 @@ use itertools::Itertools;
 use minidom::{Element, Node};
 use minidom_extension::{elem_is_empty, minidom};
 
+pub mod io_ext;
+
 pub fn clean_element(elem: &Element) -> Element {
     // let new_elem = elem.clone();
     let mut elem_builder = Element::builder(elem.name(), elem.ns());
