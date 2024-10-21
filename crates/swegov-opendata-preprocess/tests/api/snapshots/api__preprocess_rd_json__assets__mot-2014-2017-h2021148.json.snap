@@ -1,0 +1,29 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="H2021148" dokument_url_html="http://data.riksdagen.se/dokument/H2021148" dokument_url_text="http://data.riksdagen.se/dokument/H2021148/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H2021148">
+  <text beteckning="1148" datatyp="huvuddokument" datum="2014-11-07 00:00:00" dokumentnamn="Motion" hangar_id="3111345" intressent_id="|0760500234712|0284192765516|" intressent_namn="|Monica Haider|Tomas Eneroth|" intressent_namn_parti="|Monica Haider (S)|Tomas Eneroth (S)|" intressent_namn_parti_id_roll="|Monica Haider (S), 0760500234712, undertecknare|Tomas Eneroth (S), 0284192765516, undertecknare|" intressent_parti="|S|" nummer="1148" organ="CU" publicerad="2014-11-07 00:00:00" rm="2014/15" slutnummer="0" status="Klar" subtyp="Enskild motion" systemdatum="2016-04-27 10:37:56" title="Bostadsbyggande" typ="mot">
+    <p>Bostadsbyggande</p>
+    <p>Förslag till riksdagsbeslut</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om behovet av ökat bostadsbyggande.</p>
+    <p>Motivering</p>
+    <p>Ett allt för lågt byggande har lett till en mycket besvärlig bostadssituation på många orter i Sverige. Det har lett till att bostadspriserna på villor och bosta dsrätter är mycket höga och försvårar för många att köpa sig en bostad. De som har drabbats hårdast är unga som inte kan flytta till sin studieort, äldre som får svårt att hitta en bra bostadslösning och för de nyanlända som tvingas flytta till redan segregerade bostadsområden. Även hyresrätter är det mycket stor brist på, dels på grund av det ringa byggandet, dels på grund av att kommunala hyreslägenheter ombildas till bostadsrätter. I Kronobergs län råder det bostadsbrist i alla k ommuners största tätorter. Det är framför allt brist på mindre hyreslägenheter och bristen på bostäder drabbar ungdomarna hårdast.</p>
+    <p>En stor ökning av byggandet av bostäder och främst hyresrätter är nödvändig för att få tillväxt i många kommuner runt om i landet och speciellt för kommunerna i Kronobergs län. Det är av stor vikt att regeringen vidtar kraftfulla åtgärder för att öka byggandet av bostäder.</p>
+    <p>.</p>
+    <p>Monica Haider (S)</p>
+    <p>Tomas Eneroth (S)</p>
+  </text>
+  <text andringsforfattning="" avsnitt="" behandlas_i="2014/15:CU7" behandlas_i_punkt="" beteckning="" datatyp="forslag" grundforfattning="" hangar_id="" intressent="CU" kammarbeslutstyp="" kammaren="Avslag" nummer="1" utskottet="Avslag">
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om behovet av ökat bostadsbyggande.</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H2021148" kod="motkat" namn="Motionskategori" systemdatum="2016-04-27 10:36:55">
+    <p>Fristående motion</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H2021148" kod="tilldelat" namn="Tilldelat" systemdatum="2016-04-27 10:36:55">
+    <p>Civilutskottet</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H2021148" kod="statustext" namn="statustext" systemdatum="2017-10-18 12:52:38">
+    <p>Ärendet är avslutat</p>
+  </text>
+</dokument>

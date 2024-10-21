@@ -22,9 +22,17 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
     let contents_processed = contents_processed.replace("STYLEREF Kantrubrik \\* MERGEFORMAT", "");
     let contents_processed = contents_processed.replace("\u{a0}", "");
     let contents_processed = contents_processed.replace("&nbsp;", " ");
+    let contents_processed = contents_processed.replace("&amp;ouml;", "ö");
+    let contents_processed = contents_processed.replace("&amp;auml;", "ä");
+    let contents_processed = contents_processed.replace("&amp;aring;", "å");
+    let contents_processed = contents_processed.replace("&aring;", "å");
+    let contents_processed = contents_processed.replace("&auml;", "ä");
+    let contents_processed = contents_processed.replace("&ouml;", "ö");
     let contents_processed = remove_cdata(&contents_processed);
 
     let mut reader = Reader::from_str(&contents_processed);
+    reader.check_end_names(false);
+
     let mut state = ParseHtmlState::Start;
 
     loop {
@@ -37,7 +45,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"br" | b"BR" => (),
+                    b"br" | b"BR" | b"hr" => (),
                     _ => todo!("handle Empty({:?}), state={:?}", e, state),
                 }
             }
@@ -47,9 +55,9 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"body" | b"BODY" => (),
+                    b"body" | b"BODY" | b"html" => (),
                     b"div" => process_div(&mut reader, textelem),
-                    b"hr" => (),
+                    b"hr" | b"link" | b"LINK" | b"label" => (),
                     b"h1" | b"pre" | b"p" | b"h2" | b"h3" | b"h4" => {
                         textelem.append_child(extract_paragraph(&mut reader, e.name().as_ref()));
                     }
@@ -105,7 +113,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"style" => (),
+                    b"style" | b"label" => (),
                     _ => todo!("handle {:?}", e),
                 }
             }
@@ -121,7 +129,6 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
 
 fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
     let mut state = ParseHtmlState::Start;
-    reader.check_end_names(false);
     let mut div_count = 1;
     loop {
         match reader.read_event() {
@@ -142,11 +149,17 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                         div_count += 1;
                     }
                 }
-                b"p" | b"P" | b"h2" | b"H2" | b"h4" => {
+                b"p" | b"P" | b"h1" | b"h2" | b"H2" | b"h3" | b"h4" => {
                     textelem.append_child(extract_paragraph(reader, e.name().as_ref()));
                 }
                 b"table" | b"TABLE" => {
                     let paragraphs = extract_table(reader);
+                    for p in paragraphs {
+                        textelem.append_child(p);
+                    }
+                }
+                b"ol" | b"ul" => {
+                    let paragraphs = extract_list(reader, e.name().as_ref());
                     for p in paragraphs {
                         textelem.append_child(p);
                     }
@@ -156,6 +169,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                 | b"textovervagande"
                 | b"rubriksarskiltyttrande"
                 | b"yttrandebilaga" => (),
+                b"span" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Text(_t)) => match state {
@@ -186,6 +200,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                     | b"textovervagande"
                     | b"rubriksarskiltyttrande"
                     | b"yttrandebilaga" => (),
+                    b"span" => (),
                     _ => todo!("handle End({:?})", e),
                 }
             }
@@ -193,7 +208,6 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
             Ok(e) => todo!("handle {:?}", e),
         }
     }
-    reader.check_end_names(true);
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -248,7 +262,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
                 b"a" | b"A" | b"p" | b"P" | b"notreferens" | b"hanvisning" | b"kant" | b"h4"
-                | b"font" | b"o:p" => just_seen_span = false,
+                | b"font" | b"o:p" | b"div" | b"pre" => just_seen_span = false,
                 b"span" | b"SPAN" => just_seen_span = true,
 
                 _ => todo!("handle End({:?})", e),
@@ -272,7 +286,8 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                         });
                     }
                 }
-                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" | b"." => (),
+                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" | b"."
+                | b"div" | b"pre" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Empty(e)) => match e.name().as_ref() {
@@ -309,6 +324,12 @@ fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Vec<Element> {
                 e_tag if e_tag == tag => break,
                 _ => todo!("handle End({:?})", e),
             },
+            Ok(Event::Text(text)) => {
+                let text = text.unescape().unwrap();
+                if !text.trim().is_empty() {
+                    todo!("handle text outside of li");
+                }
+            }
             Ok(e) => todo!("handle {:?}", e),
         }
     }
@@ -518,6 +539,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
                 //     ParseTableState::Paragraph => state = ParsePageState::Start,
                 //     _ => (),
                 // },
+                b"colgroup" => (),
                 _ => todo!("handle End({:?})", e),
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
@@ -557,6 +579,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
                 //     state = ParsePageState::Paragraph;
                 // }
                 // b"nobr" | b"NOBR" => (),
+                b"colgroup" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Text(text)) => match state {

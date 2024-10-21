@@ -25,13 +25,13 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/kammakt-2018-2021-h9c120220419bu.json")]
 #[case("assets/kom-2010-2014-h2b643.json")]
 #[case("assets/kom-2020--h8b6447.json")]
-// #[case("assets/mot-1971-1979-g3021833.json")]
-// #[case("assets/mot-1998-2001-gm02bo208.json")]
-// #[case("assets/mot-2010-2013-gy02a1.json")]
-// #[case("assets/mot-2010-2013-gy02a245.json")]
-// #[case("assets/mot-2010-2013-gy02x-s68106.json")]
-// #[case("assets/mot-2010-2013-h102xs24006.json")]
-// #[case("assets/mot-2014-2017-h2021148.json")]
+#[case("assets/mot-1971-1979-g3021833.json")]
+#[case("assets/mot-1998-2001-gm02bo208.json")]
+#[case("assets/mot-2010-2013-gy02a1.json")]
+#[case("assets/mot-2010-2013-gy02a245.json")]
+#[case("assets/mot-2010-2013-gy02x-s68106.json")]
+#[case("assets/mot-2010-2013-h102xs24006.json")]
+#[case("assets/mot-2014-2017-h2021148.json")]
 // #[case("assets/prop-2014-2017-h203100.json")]
 // #[case("assets/prop-2018-2021-h603100.json")]
 // #[case("assets/prot-1990-1997-ge091.json")]
@@ -42,7 +42,18 @@ fn preprocess_rd_json(#[case] filename: &str) -> anyhow::Result<()> {
     println!("reading test data from '{}'", filename);
     let file_data = fs::read_to_string(filename)?;
     println!("reading metadata from '{}'", metadata_path);
-    let metadata_data = fs::read_to_string(metadata_path)?;
+    let metadata_data = match fs::read_to_string(&metadata_path) {
+        Ok(data) => data,
+        Err(err) => {
+            println!("Error reading from '{}': {:?}", metadata_path, err);
+            let new_metadata_path = format!(
+                "{}.metadata.json",
+                metadata_path.rsplit_once('-').unwrap().0
+            );
+            println!("reading metadata from '{}'", new_metadata_path);
+            fs::read_to_string(new_metadata_path)?
+        }
+    };
     let metadata: DataSet = serde_json::from_str(&metadata_data)?;
 
     let xmlstring = preprocess_rd::preprocess_json(&file_data, &metadata)?;
