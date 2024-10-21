@@ -1,19 +1,28 @@
+use std::borrow::Cow;
+
 use minidom_extension::minidom::{
     quick_xml::{
-        events::{attributes::Attributes, Event},
+        events::{attributes::Attributes, BytesText, Event},
         Reader,
     },
     Element, Node,
 };
+use once_cell::sync::Lazy;
+use regex::Regex;
 
 #[cfg(test)]
 mod tests;
 
+fn remove_cdata<'a>(text: &'a str) -> Cow<'a, str> {
+    static CDATA: Lazy<Regex> = Lazy::new(|| Regex::new(r"<!.+?>").unwrap());
+    CDATA.replace_all(text, "")
+}
 pub fn process_html(contents: &str, textelem: &mut Element) {
     let contents_processed = contents.replace("\r\n", " ");
     let contents_processed = contents_processed.replace("STYLEREF Kantrubrik \\* MERGEFORMAT", "");
     let contents_processed = contents_processed.replace("\u{a0}", "");
     let contents_processed = contents_processed.replace("&nbsp;", " ");
+    let contents_processed = remove_cdata(&contents_processed);
 
     let mut reader = Reader::from_str(&contents_processed);
     let mut state = ParseHtmlState::Start;
@@ -224,7 +233,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
         match reader.read_event() {
             Err(e) => todo!("handle error {:?}", e),
             Ok(Event::Text(text)) => {
-                let text = text.unescape().unwrap().to_string();
+                let text = unescape(&text).to_string();
                 match curr_node {
                     None => curr_node = Some(Node::Text(text)),
                     Some(Node::Element(e)) => {
@@ -263,7 +272,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                         });
                     }
                 }
-                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" => (),
+                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" | b"." => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Empty(e)) => match e.name().as_ref() {
@@ -277,6 +286,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                 b"p" | b"P" | b"a" | b"A" => (),
                 _ => todo!("handle Empty({:?})", e),
             },
+            Ok(Event::Comment(_)) => (),
             Ok(e) => todo!("handle {:?}", e),
         }
     }
@@ -412,7 +422,9 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
     loop {
         match reader.read_event() {
             Err(e) => todo!("handle err {:?}", e),
-            Ok(Event::Text(text)) => elem.append_text_node(text.unescape().unwrap()),
+            Ok(Event::Text(text)) => {
+                elem.append_text_node(unescape(&text));
+            }
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
                 b"a" | b"A" | b"span" | b"SPAN" | b"o:p" | b"font" | b"FONT" => (),
@@ -432,6 +444,16 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
     elem
 }
 
+fn unescape<'a>(text: &'a BytesText) -> Cow<'a, str> {
+    match text.unescape() {
+        Ok(text) => text,
+        Err(e) => {
+            let bad_text = String::from_utf8_lossy(text.as_ref());
+            tracing::error!("Error handling '{}': {:?}", bad_text, e);
+            bad_text
+        }
+    }
+}
 fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
     for attr in attrs {
         let attr = attr.expect("a valid attribute");

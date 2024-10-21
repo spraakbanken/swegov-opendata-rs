@@ -1,0 +1,1116 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="H8B6447" dokument_url_html="http://data.riksdagen.se/dokument/H8B6447" dokument_url_text="http://data.riksdagen.se/dokument/H8B6447/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H8B6447">
+  <text beteckning="447" datatyp="huvuddokument" datum="2020-05-28 00:00:00" dokumentnamn="EU-dokument" hangar_id="5165683" nummer="447" organ="Europeiska kommissionen" rm="2020" slutnummer="0" status="" subtyp="COM" systemdatum="2023-02-07 11:34:52" title="Ändrat förslag till Europaparlamentets och rådets förordning om Europeiska socialfonden+ (ESF+) " typ="eu-dokument">
+    <page id="1">
+      <p>EUROPEISKA</p>
+      <p>KOMMISSIONEN</p>
+      <p>Bryssel den 28.5.2020</p>
+      <p>COM(2020) 447 final</p>
+      <p>2018/0206 (COD)</p>
+      <p>Ändrat förslag till</p>
+      <p>EUROPAPARLAMENTETS OCH RÅDETS FÖRORDNING</p>
+      <p>om Europeiska socialfonden+ (ESF+)</p>
+      <p>SV</p>
+      <p>SV</p>
+    </page>
+    <page id="2">
+      <p>MOTIVERING</p>
+      <p>1. BAKGRUND TILL FÖRSLAGET</p>
+      <p>• Motiv och syfte med förslaget</p>
+      <p>Den 30 maj 2018 antog kommissionen sitt förslag till förordning om Europeiska socialfonden+ (ESF+)1. Sedan dess har den europeiska ekonomin ställts inför en omfattande och exempellös exogen och symmetrisk chock i och med<nobr>covid-19-pandemin,</nobr> vilket har lett till allvarliga påfrestningar för medlemsstaternas ekonomi, arbetsmarknad, sociala system samt hälso- och sjukvårdssystem. Inför denna utmaning bör unionen vidta lämpliga åtgärder för att återhämta sig från den hälsomässiga, sociala och ekonomiska chock som<nobr>covid-19-</nobr> pandemin orsakat.</p>
+      <p>Den 27 maj 2020 antog kommissionen ett reviderat förslag om nästa fleråriga budgetram för perioden<nobr>2021–2027 2 .</nobr> Förslaget återspeglar EU:s reaktion på<nobr>covid-19-pandemins</nobr> sociala och ekonomiska konsekvenser.</p>
+      <p>Både de direkta och indirekta effekterna av<nobr>covid-19-pandemin</nobr> kommer att fortsätta att få betydande och skadliga konsekvenser för alla medlemsstater på medellång till lång sikt, vilket innebär allt större sociala skillnader, fattigdom och ungdomsarbetslöshet. Kommissionen anser därför att det är nödvändigt att ändra sitt förslag till Europeiska socialfonden plus med syfte att anpassa det till det nya återhämtningspaketet och samtidigt möjliggöra strategiska investeringar när det gäller politiken och systemen på sysselsättningsområdet och det sociala området.</p>
+      <p>För att dessa investeringar ska bli inkluderande och hållbara inslag i en förstärkt tillväxtmodell, och ske i överensstämmelse med unionens åtaganden att genomföra FN:s Agenda 2030 för hållbar utveckling och Parisavtalet, inriktas ändringarna av förordningen om Europeiska socialfonden plus i enlighet med ordförande Ursula von der Leyens politiska riktlinjer på följande:</p>
+      <p>• Öka kraven på tematisk koncentration när det gäller ungdomssysselsättningen. Såsom tidigare recessioner visat är ungdomssysselsättningen mer känslig för konjunkturcykler än sysselsättningen när det gäller vuxna, och den ekonomiska recession som orsakats av covid-<nobr>19-pandemin</nobr> kommer sannolikt att leda till en dramatisk ökning av ungdomsarbetslösheten och andelen unga som varken arbetar eller studerar. För att ytterligare stödja en inkluderande ekonomisk återhämtning och övergång från skola till arbete i det föränderliga arbetslivet och för att säkerställa att unga människor på bästa sätt utnyttjar de möjligheter som följer av den digitala, motståndskraftiga och gröna omställningen, bör medlemsstater som har en andel unga som varken arbetar eller studerar (i åldersgruppen<nobr>15–29</nobr> år) över<nobr>EU-genomsnittet</nobr> avsätta minst 15 % av sina<nobr>ESF+-medel</nobr> inom ramen för delad förvaltning till riktade insatser och strukturreformer för att stödja unga (en ökning från 10 %).</p>
+      <p>• Ta itu med barnfattigdomen. I samband med återhämtningen kommer kampen mot barnfattigdomen att bli ännu viktigare under de kommande åren för att säkerställa att inget barn hamnar på efterkälken när<nobr>covid-19-krisen</nobr> är över. Det föreslås att ett skäl och en artikel införs om att medlemsstaterna ska avsätta minst 5 % av<nobr>ESF+-medlen</nobr> inom ramen för delad förvaltning för att ta hand om barn som lever i fattigdom.</p>
+      <p>1</p>
+      <p>2</p>
+      <p>COM(2018) 382. COM(2020) 443.</p>
+      <p>SV</p>
+      <p>1</p>
+      <p>SV</p>
+    </page>
+    <page id="3">
+      <p>• Främja den gröna och digitala omställningen i överensstämmelse med EU:s industristrategi 3, vilket kommer att kräva nya färdigheter för nya typer av arbetstillfällen. I det ”nya normala” till följd av<nobr>covid-19-pandemin</nobr> kommer det att behövas olika färdigheter och nya ekonomiska modeller och affärsmodeller kommer att uppstå i de europeiska industriekosystemen, inklusive nya lokala värdekedjor, som bör stödjas av Europeiska socialfonden.</p>
+      <p>
+        <nobr>Covid-19-pandemin</nobr> har en oproportionerlig socioekonomisk inverkan på kvinnor. Medlemsstaterna bör därför i möjligaste mån ta hänsyn till att insatserna strikt följer den övergripande jämställdhetsprincipen som fastställs i artikel 6 i<nobr>ESF+-förordningen.</nobr>
+      </p>
+      <p>Kommissionen föreslår också att man inrättar ett mycket förstärkt hälsoprogram4 som bör vara ett fristående program med tanke på dess storlek och omfattning. Hälsoprogrammet är därför inte längre en del av Europeiska socialfonden+. Därför är det nödvändigt att ändra förslaget till Europeiska socialfonden+ och ta bort alla hänvisningar till delen för hälsa. Med tanke på att man behöver samordna de två programmen inbegriper det ändrade ESF+- förslaget bestämmelser som syftar till att säkerställa synergieffekter och komplementaritet mellan åtgärderna när det gäller ESF+ och EU:s nya hälsoprogram.</p>
+      <p>För att dra lärdom av den nuvarande krisen är det absolut nödvändigt att den rättsliga ramen för sammanhållningspolitiken tillhandahåller system som snabbt kan åberopas om exceptionella omständigheter skulle uppstå under nästa decennium. Därför föreslås tillfälliga åtgärder för användning av ESF+ som reaktion på exceptionella och ovanliga omständigheter för att säkerställa att undantag från vissa regler får göras under begränsade och särskilda omständigheter för att underlätta hanteringen av sådana omständigheter.</p>
+      <p>Detta inbegriper möjligheten att utvidga tillämpningsområdet för ESF+ så att det omfattar exempelvis stöd till system för korttidsarbete som inte kombineras med aktiva åtgärder och tillgång till hälso- och sjukvård, även för människor som inte är omedelbart socioekonomiskt utsatta, samt att lätta på kraven på tematisk koncentration om det är nödvändigt som en tillfällig åtgärd för att reagera effektivt på sådana exceptionella och ovanliga omständigheter.</p>
+      <p>• Förenlighet med befintliga bestämmelser inom området</p>
+      <p>Detta förslag är förenligt med befintliga bestämmelser inom området och är begränsat till en riktad ändring av kommissionens förslag till Europeiska socialfonden+ (COM (2018) 382) för att möjliggöra ett mer effektivt bidrag från ESF+ till ekonomins återhämtning efter<nobr>covid-19-</nobr> pandemins inverkan på den ekonomiska och sociala situationen i medlemsstaterna. Syftet med ESF+ är att uppnå höga sysselsättningsnivåer, rättvist socialt skydd samt kvalificerad och motståndskraftig arbetskraft som är relevant för arbetsmarknadens behov och som är redo för framtidens arbetsliv i enlighet med principerna i den europeiska pelaren för sociala rättigheter och därigenom bidra till genomförandet av den europeiska gröna given och den nya industristrategin.</p>
+      <p>• Förenlighet med unionens politik inom andra områden</p>
+      <p>Förslaget är begränsat till riktade ändringar av förslaget till förordning om Europeiska socialfonden+ (COM (2018) 382) och är förenlig med unionens politik inom andra områden. Det är framför allt förenligt med ändringsförslagen till förslaget till förordningen om gemensamma bestämmelser5 och Europeiska regionala utvecklingsfonden 6 [och främjar i</p>
+      <p>3</p>
+      <p>4</p>
+      <p>5</p>
+      <p>COM(2020) 102. COM(2020) 405. COM(2020) 450.</p>
+      <p>SV</p>
+      <p>2</p>
+      <p>SV</p>
+    </page>
+    <page id="4">
+      <p>synnerhet komplementaritet och synergieffekter när det gäller det nya hälsoprogrammet7.] Det är också förenligt med kommissionens ändringsförslag till förordningen om gemensamma bestämmelser 8 för programperioden<nobr>2014–2020</nobr> för att främja återställande efter krisen i och med<nobr>covid-19-pandemin</nobr> och förbereda den ekonomiska återhämtningen.</p>
+      <p>2. RÄTTSLIG GRUND, SUBSIDIARITETSPRINCIPEN OCH PROPORTIONALITETSPRINCIPEN</p>
+      <p>• Rättslig grund</p>
+      <p>Det föreslås att kommissionens förslag till Europeiska socialfonden+ (COM (2018) 382) ändras i syfte att ta itu med de aktuella specifika utmaningarna.</p>
+      <p>I avdelningarna IX (Sysselsättning), X (Socialpolitik) i fördraget om Europeiska unionens funktionssätt (nedan kallat<nobr>EUF-fördraget ),</nobr> särskilt artiklarna 46, 149, 153,<nobr>162–166,</nobr> 174, 175 och 349 i<nobr>EUF-fördraget,</nobr> fastställs den rättsliga ramen för de åtgärder som omfattas av detta förslag.</p>
+      <p>ESF+ har två delar. Den första delen som genomförs inom ramen för delad förvaltning omfattar (den f.d.) ESF, som grundar sig på artiklarna 162 och 164 i<nobr>EUF-fördraget,</nobr> och grundläggande materiellt bistånd till de personer som har det sämst ställt i enlighet med artikel 175.3 i<nobr>EUF-fördraget.</nobr> Den andra delen som genomförs inom ramen för direkt och indirekt förvaltning omfattar åtgärder för att främja sysselsättning och social innovation (EaSI), som grundar sig på artiklarna 46 d, 149 och artikel 153.2 a i<nobr>EUF-fördraget.</nobr>
+      </p>
+      <p>Artikel 349 lades till för att täcka de yttersta randområdenas särdrag när det gäller den första delen.</p>
+      <p>• Subsidiaritetsprincipen (för<nobr>icke-exklusiv</nobr> befogenhet)</p>
+      <p>Det ändrade förslaget är förenligt med subsidiaritetsprincipen. Genom förslaget införs ett krishanteringssystem inom ramen för de delade förvaltningsbestämmelserna i form av genomförandebefogenheter till kommissionen för att säkerställa att tillfälliga undantag kan beviljas under exceptionella omständigheter. Tilldelningen av genomförandebefogenheter är till för att göra det möjligt för kommissionen att agera omedelbart utan att behöva ändra primärrätten.</p>
+      <p>• Proportionalitetsprincipen</p>
+      <p>Förslaget är en riktad ändring som inte går utöver vad som är nödvändigt för att uppnå målet att justera förslaget till kommissionens ändrade förslag till den fleråriga budgetramen.</p>
+      <p>Den föreslagna befogenheten gör det möjligt för kommissionen att i händelse av en framtida kris vidta ett begränsat antal omedelbara åtgärder under en begränsad tid och under rådets och parlamentets kontroll, som kan motsätta sig de föreslagna ändringarna. Förslaget är därför förenligt med proportionalitetsprincipen.</p>
+      <p>• Val av instrument</p>
+      <p>Det föreslagna instrumentet: ändring av kommissionens förslag till förordning.</p>
+      <p>6</p>
+      <p>7</p>
+      <p>8</p>
+      <p>COM(2020) 452. COM(2020) 405. COM(2020) 451.</p>
+      <p>SV</p>
+      <p>3</p>
+      <p>SV</p>
+    </page>
+    <page id="5">
+      <p>Kommissionen har undersökt det handlingsutrymme som regelverket medger och anser att det är nödvändigt att ändra förslaget till förordning om Europeiska socialfonden+ (COM (2018) 382) för att ta bort hälsoprogrammet och införa en befogenhet i händelse av en framtida kris.</p>
+      <p>3. RESULTAT AV EFTERHANDSUTVÄRDERINGAR, SAMRÅD MED BERÖRDA PARTER OCH KONSEKVENSBEDÖMNINGAR</p>
+      <p>• Efterhandsutvärderingar/kontroller av ändamålsenligheten med befintlig lagstiftning</p>
+      <p>Ej tillämpligt.</p>
+      <p>• Samråd med berörda parter</p>
+      <p>Det hölls inte något samråd med externa berörda parter, eftersom situationen var synnerligen brådskande. Förslaget har dock föregåtts av omfattande samråd med medlemsstaterna och Europaparlamentet under de senaste veckorna med anledning av de ekonomiska konsekvenserna av den kris som orsakats av<nobr>covid-19-pandemin.</nobr>
+      </p>
+      <p>• Insamling och användning av sakkunnigutlåtanden Ej tillämpligt.</p>
+      <p>• Konsekvensbedömning</p>
+      <p>En konsekvensbedömning har genomförts för att utarbeta förslaget till förordning COM (2018) 382 av den 30 maj 2018. De begränsade och riktade förändringar som nu föreslås kräver inte någon separat konsekvensbedömning.</p>
+      <p>• Lagstiftningens ändamålsenlighet och förenkling Ej tillämpligt.</p>
+      <p>• Grundläggande rättigheter</p>
+      <p>Ej tillämpligt.</p>
+      <p>4. BUDGETKONSEKVENSER Budgetanslagen som rör delen för hälsa har tagits bort.</p>
+      <p>5. ÖVRIGA INSLAG</p>
+      <p>• Genomförandeplaner samt åtgärder för övervakning, utvärdering och rapportering</p>
+      <p>Genomförandet av åtgärderna kommer att övervakas och rapporteras inom ramen för de rapporteringsförfaranden som föreskrivs i förslaget till förordning COM (2018) 375 av den 29 maj 2018 och förslaget till förordning COM (2018) 382 av den 30 maj 2018.</p>
+      <p>• Förklarande dokument (för direktiv) Ej tillämpligt.</p>
+      <p>• Ingående redogörelse för de specifika bestämmelserna i förslaget</p>
+      <p>Det föreslås att förslaget till förordning om Europeiska socialfonden+ av den 30 maj 2018 ändras på följande sätt:</p>
+      <p>SV</p>
+      <p>4</p>
+      <p>SV</p>
+    </page>
+    <page id="6">
+      <p>– Ändring av den rättsliga grunden genom strykning av artikel 168 i<nobr>EUF-fördraget</nobr> som rör borttagande av delen för hälsa.</p>
+      <p>– Ändringar av skälen 5, 14, 15, 16 och 23 som rör ekonomins återhämtning.</p>
+      <p>– Införande av ett nytt skäl 22a som handlar om att man ska ta itu med barnfattigdomen.</p>
+      <p>– Ändringar av skälen 9, 10, 11, 12, 21,<nobr>35–45,</nobr> 47 och 51 som rör borttagande av delen för hälsa.</p>
+      <p>– Införande av ett nytt skäl (20a) som rör synergieffekter med det nya hälsoprogrammet.</p>
+      <p>– Ändringar av artikel 2.1.2 och 2.1.9. Artikel 3 andra stycket och led b i tredje stycket. Artikel 4.1, första meningen och 4.3. Artikel 5.1, 5.3, 5.4 och 5.5. Artikel 6.1. Artikel</p>
+      <p>7.1 andra stycket. Artiklarna<nobr>26–29.</nobr> Rubriken på artikel 30.1, första meningen och</p>
+      <p>30.2. Artikel 31.1, 31.2, 31.4 och 31.5. Artikel 32. Artikel 33.1 och 33.3. Artikel 37.2. Artikel 38.2, 38.3 och 38.6. Rubriken på artikel 42.1 och 42.2 som rör strykningen av delen för hälsa.</p>
+      <p>– Ändring av artikel 2.1.10 för enhetlighet med andra unionsrättsakter.</p>
+      <p>– Ändring av artikel 5.2, eftersom budgeten för ESF+ inom ramen för delad förvaltning har minskat.</p>
+      <p>– Ändringar av artikel 7 genom införande av en ny punkt 3a som rör krav på tematisk koncentration för att stödja barn som lever i fattigdom och ändring av punkt 5 avseende kravet på ökad tematisk koncentration för ungdomssysselsättning.</p>
+      <p>– Införande av ett nytt skäl 54 och en ny artikel 37a som handlar om tillfälliga åtgärder för användning av ESF+ som reaktion på exceptionella och ovanliga omständigheter.</p>
+      <p>– Strykning av bilaga III som rör delen för hälsa.</p>
+      <p>Finansieringsöversikten för rättsakt har också uppdaterats.</p>
+      <p>SV</p>
+      <p>5</p>
+      <p>SV</p>
+    </page>
+    <page id="7">
+      <p>2018/0206 (COD)</p>
+      <p>Ändrat förslag till</p>
+      <p>EUROPAPARLAMENTETS OCH RÅDETS FÖRORDNING</p>
+      <p>om Europeiska socialfonden+ (ESF+)</p>
+      <p>Kommissionens förslag COM(2018) 382 ska ändras på följande sätt:</p>
+      <p>(1) Den rättsliga grunden ska ändras på följande sätt:</p>
+      <p>”med beaktande av fördraget om Europeiska unionens funktionssätt, särskilt artiklarna 46 d, 149, 153.2a, 164, 175.3 och 349,”</p>
+      <p>(2) Skäl 5 ska ersättas med följande:</p>
+      <p>”5) Den senaste och pågående utvecklingen har förvärrat de strukturella utmaningar som hänger samman med globaliseringen av ekonomin, hanteringen av migrationsströmmar och det ökade säkerhetshotet, omställningen till ren energi, den tekniska utvecklingen och en allt äldre arbetskraft samt de växande skillnaderna mellan efterfrågan och tillgång på kompetens och arbetskraft inom vissa sektorer och regioner, något som särskilt små och medelstora företag har fått erfara. Den gröna och digitala omställningen och omvandlingen av de europeiska industriekosystemen kommer att medföra många nya möjligheter, om de åtföljs av den rätta uppsättningen färdigheter, sysselsättnings- och socialpolitik samt sysselsättningsåtgärder och sociala åtgärder. Med tanke på förändringarna i arbetslivet bör unionen vara beredd att hantera nuvarande och framtida utmaningar genom att investera i relevant kompetens, se till att tillväxten gynnar alla och förbättra sysselsättnings- och socialpolitiken, samtidigt som man tar hänsyn till ekonomisk och industriell hållbarhet samt arbetskraftens rörlighet och strävar efter en jämn könsfördelning på arbetsmarknaden.”</p>
+      <p>(3) Skälen 9 och 10 ska ersättas med följande:</p>
+      <p>”9) För att rationalisera och förenkla finansieringen och skapa ytterligare möjligheter till synergieffekter med hjälp av integrerade finansieringsstrategier bör de åtgärder som fått stöd från fonden för europeiskt bistånd till dem som har det sämst ställt (nedan kallad Fead) samt Europeiska unionens program för sysselsättning och social innovation integreras i ESF+. Därför bör ESF+ omfatta följande två delar:<nobr>ESF+-delen</nobr> inom ramen för delad förvaltning samt delen för sysselsättning och social innovation som genomförs inom ramen för direkt och indirekt förvaltning. Detta bör bidra till att minska den administrativa bördan i samband med förvaltningen av olika fonder, särskilt för medlemsstaterna, samtidigt som man behåller enklade regler för enklare insatser, såsom utdelningen av livsmedelsbistånd och/eller grundläggande materiellt bistånd.</p>
+      <p>10) Mot bakgrund av detta bredare tillämpningsområde för ESF+ är det lämpligt att föreskriva att målen att effektivisera arbetsmarknaderna, främja tillgången till sysselsättning av god kvalitet, förbättra tillgången till och kvaliteten på utbildning, främja social inkludering och tillgång till hälso- och sjukvård för utsatta personer och minska fattigdomen inte bara ska genomföras inom ramen för delad förvaltning, utan</p>
+      <p>SV</p>
+      <p>6</p>
+      <p>SV</p>
+    </page>
+    <page id="8">
+      <p>också genom direkt och indirekt förvaltning inom ramen för delen för sysselsättning och social innovation när det gäller åtgärder på unionsnivå.”</p>
+      <p>(4) Skäl 11 ska utgå.</p>
+      <p>(5) Skäl 12 ska ersättas med följande:</p>
+      <p>”12) I denna förordning fastställs en finansieringsram för ESF+. Delar av denna finansieringsram bör användas för åtgärder som ska genomföras genom direkt och indirekt förvaltning inom ramen för delen för sysselsättning och social innovation.”.</p>
+      <p>(6) Skälen<nobr>14–16</nobr> ska ersättas med följande:</p>
+      <p>9</p>
+      <p>10</p>
+      <p>11</p>
+      <p>”14) ESF+ bör tillhandahålla stöd för att förbättra utbildningssystemens kvalitet, effektivitet och arbetsmarknadsrelevans, inbegripet genom att främja digitalt lärande samt fortbildning för lärare i syfte att underlätta tillägnandet av nyckelkompetenser, särskilt när det gäller grundläggande färdigheter, inklusive hälsokunskap, mediekunskap, digitala färdigheter och kompetenser för hållbar utveckling som behövs för personlig utveckling och självförverkligande, sysselsättning, social delaktighet samt aktivt medborgarskap. ESF+ bör bidra till framsteg inom utbildning och övergången till arbete, stödja livslångt lärande och anställbarhet och bidra till konkurrenskraften, bland annat genom uppföljning av utexaminerade, och till samhällsinnovation och ekonomisk innovation genom att stödja anpassningsbara och hållbara initiativ på dessa områden som är anpassade till olika målgrupper, såsom personer med funktionsnedsättning. Detta skulle exempelvis kunna uppnås genom nätbaserat lärande, arbetsplatsförlagd utbildning, praktik och lärlingsutbildning,9 livslång vägledning, planering av kompetensbehov i nära samarbete med industrin, aktuellt utbildningsmaterial och genomförandemetoder, prognoser och uppföljning av utexaminerade, utbildning av lärare, validering av läranderesultat samt erkännande av kvalifikationer och näringslivscertifieringar.</p>
+      <p>15) Stöd genom ESF+ bör användas för att främja lika tillgång för alla, särskilt för missgynnade grupper, till<nobr>icke-segregerad</nobr> och inkluderande utbildning av god kvalitet, från förskola och barnomsorg via allmän utbildning och yrkesutbildning till högre utbildning samt vuxenutbildning. ESF+ bör tillhandahålla riktat stöd till behövande studerande och minska ojämlikhet i fråga om utbildning, inbegripet den digitala klyftan, förhindra att elever lämnar skolan med högst grundskoleutbildning, främja övergångsmöjligheter mellan olika utbildningssektorer, stärka kopplingarna till ickeformellt och informellt lärande och underlätta rörlighet i utbildningssyfte för alla. I detta sammanhang bör synergieffekter med Erasmusprogrammet stödjas, särskilt för att främja rörlighet i utbildningssyfte för missgynnade studerande.</p>
+      <p>16) ESF+ bör främja flexibla möjligheter för alla att fortbilda sig och förvärva nya och olika färdigheter, i synnerhet digitala färdigheter och färdigheter för viktig</p>
+      <p>möjliggörande teknik samt färdigheter för grön ekonomi och industriekosystem i enlighet med strategin för EU:s industripolitik10. I linje med kompetensagendan för Europa och rekommendationen om kompetenshöjningsvägar 11 bör ESF+ stödja flexibla vägar, inklusive tillgänglig kort riktad modulbaserad utbildning som leder till</p>
+      <p>Enligt definitionen i rådets rekommendation av den 15 mars 2018 om en europeisk ram för ändamålsenliga lärlingsutbildningar av god kvalitet.</p>
+      <p>COM(2020) 102.</p>
+      <p>Rådets rekommendation av den 19 december 2016 om kompetenshöjningsvägar: nya möjligheter för vuxna.</p>
+      <p>SV</p>
+      <p>7</p>
+      <p>SV</p>
+    </page>
+    <page id="9">
+      <p>behörighet, i syfte att förse människor med färdigheter som är anpassade till arbetsmarknadens och industriekosystemens behov, den gröna och digitala omställningen, innovation samt sociala och ekonomiska förändringar och som underlättar omskolning och kompetenshöjning och anställbarhet, karriärövergångar samt geografisk och sektoriell rörlighet och stödjer särskilt lågutbildade och/eller lågkvalificerade vuxna. ESF+ bör också underlätta tillhandahållandet av integrerat kompetensstöd till enskilda personer, oavsett om de är anställda, arbetslösa eller egenföretagare, genom instrument såsom individuellt kompetenssparande.” .</p>
+      <p>(7) Följande skäl ska införas som skäl 20a:</p>
+      <p>”20a) På grund av vikten av tillgång till hälso- och sjukvård bör ESF+ säkerställa synergieffekter och komplementaritet med hälsoprogrammet, och tillämpningsområdet för ESF+ bör inbegripa tillgång till hälso- och sjukvård för personer i utsatta situationer.”.</p>
+      <p>(8) Skäl 21 ska ersättas med följande:</p>
+      <p>”21) ESF+ bör stödja politiska reformer och reformer av systemen inom områdena för sysselsättning, social inkludering, tillgång till hälso- och sjukvård för utsatta personer, långvarig vård och omsorg samt utbildning. För att bättre anpassa sig till den europeiska planeringsterminen ska medlemsstaterna avsätta en lämplig andel av sina resurser från<nobr>ESF+-delen</nobr> inom ramen för delad förvaltning till att genomföra de relevanta landsspecifika rekommendationer som avser de strukturella utmaningar som bör hanteras genom fleråriga investeringar som faller inom tillämpningsområdet för ESF+. Kommissionen och medlemsstaterna bör säkerställa samstämmighet, samordning och komplementaritet mellan delen för delad förvaltning i ESF+, [faciliteten för återhämtning och resiliens och instrumentet för tekniskt stöd]. Särskilt kommissionen och medlemsstaterna bör, i alla skeden av processen, säkerställa effektiv samordning för att garantera konsekvens, samstämmighet, komplementaritet och synergieffekter mellan olika finansieringskällor, inbegripet tekniskt bistånd från dessa.”.</p>
+      <p>(9) Följande skäl ska införas som skäl 22 a:</p>
+      <p>”22a) För att komma till rätta med den fortsatt höga graden av barnfattigdom i unionen och i linje med princip 11 i den europeiska pelaren för sociala rättigheter, där det fastställs att barn har rätt till skydd mot fattigdom, och barn från missgynnade miljöer har rätt till särskilda åtgärder för att främja lika möjligheter, bör ambitionen vara att medlemsstaterna ska anslå minst 5 % av<nobr>ESF+-medlen</nobr> inom ramen för delad förvaltning för att stödja åtgärder för att bekämpa barnfattigdom i enlighet med de särskilda målen för ESF+ som gör det möjligt att programplanera resurser till åtgärder som direkt stöder barn när det gäller tidig barnomsorg, utbildning, hälso- och sjukvård, anständiga bostadsförhållanden och tillräcklig näring.”.</p>
+      <p>(10) Skäl 23 ska ersättas med följande:</p>
+      <p>”23) För att underlätta en inkluderande ekonomisk återhämtning efter en allvarlig kris och för att stödja ungdomssysselsättningen i ett föränderligt arbetsliv och med tanke på den fortsatt höga andelen unga som är arbetslösa eller står utanför arbetskraften i ett antal medlemsstater och regioner, är det nödvändigt att medlemsstaterna fortsätter att investera tillräckliga<nobr>ESF+-medel</nobr> i åtgärder som stöder ungdomssysselsättningen och ungas färdigheter, inbegripet genom att genomföra ungdomsgarantin. Med utgångspunkt i de åtgärder som stöds genom ungdomssysselsättningsinitiativet under programperioden<nobr>2014–2020</nobr> och som inriktar sig på enskilda personer och</p>
+      <p>SV</p>
+      <p>8</p>
+      <p>SV</p>
+    </page>
+    <page id="10">
+      <p>erfarenheter, bör medlemsstaterna ytterligare främja sysselsättning samt utbildnings- och återintegreringsstrategier och investera i tidigt förebyggande och insatser för att nå ut genom att vid behov prioritera långtidsarbetslösa, personer utanför arbetskraften och missgynnade unga, inbegripet genom ungdomsarbete. Medlemsstaterna bör också investera i åtgärder som syftar till att underlätta övergången från skola till arbetsliv och tillräcklig kapacitet för arbetsförmedlingarna, så att de tillhandahåller skräddarsytt och övergripande stöd och bättre riktade erbjudanden till unga.</p>
+      <p>Kompetenshöjning och nya och olika färdigheter ska hjälpa unga att ta tillvara möjligheterna i växande sektorer och förbereda sig inför arbetslivets föränderliga natur, samtidigt som man tar till vara de möjligheter som uppstår genom den digitala och gröna omställningen och omvandlingen av de europeiska industriekosystemen.</p>
+      <p>Därför bör medlemsstater, där andelen unga i åldern<nobr>15–29</nobr> år som varken arbetar eller studerar enligt uppgifter från Eurostat var högre än<nobr>EU-genomsnittet</nobr> under 2019, avsätta minst 15 % av sina<nobr>ESF+-medel</nobr> inom ramen för delad förvaltning till dessa åtgärder.”.</p>
+      <p>(11) Skälen 35 och 45 ska utgå.</p>
+      <p>(12) Skäl 47 ska ersättas med följande:</p>
+      <p>”47) I enlighet med artikel [94 i rådets beslut 2013/755/EU12] ska personer och enheter i utomeuropeiska länder och territorier (ULT) vara berättigade till finansiering, med förbehåll för programmets regler och mål för delen för sysselsättning och social innovation och eventuella ordningar som gäller för den medlemsstat till vilken det berörda utomeuropeiska landet eller territoriet är knutet.”.</p>
+      <p>(13) Skäl 51 ska ersättas med följande:</p>
+      <p>”51) Eftersom målet för denna förordning, nämligen att förbättra effektiviteten på arbetsmarknaden och främja tillträde till sysselsättning av god kvalitet, förbättra tillgången till och kvaliteten på utbildning, främja social inkludering och minska fattigdomen samt åtgärderna inom delen för sysselsättning och social innovation, inte i tillräcklig utsträckning kan uppnås av medlemsstaterna, utan snarare kan uppnås bättre på unionsnivå, får unionen vidta åtgärder i enlighet med subsidiaritetsprincipen i artikel 5 i fördraget om Europeiska unionen. I enlighet med proportionalitetsprincipen i samma artikel går denna förordning inte utöver vad som är nödvändigt för att uppnå detta mål.”.</p>
+      <p>(14) Följande skäl ska införas som skäl 54:</p>
+      <p>”54) För att man ska kunna reagera snabbt på exceptionella och ovanliga omständigheter, såsom anges i stabilitets- och tillväxtpakten, som kan inträffa under programperioden bör tillfälliga åtgärder vidtas för att underlätta användningen av stödet från ESF+ som reaktion på sådana omständigheter. Vidare bör genomförandebefogenheter med avseende på tillfälliga åtgärder för användning av medel i samband med exceptionella och ovanliga omständigheter antas utan kommittéförfaranden, eftersom tillämpningsområdet bestäms av stabilitets- och tillväxtpakten, och begränsas till de åtgärder som anges i denna förordning.”.</p>
+      <p>(15) Artikel 2.1 ska ändras på följande sätt:</p>
+      <p>12 Rådets beslut 2013/755/EU av den 25 november 2013 om associering av de utomeuropeiska länderna och territorierna med Europeiska unionen<nobr>(ULT-beslutet),</nobr> EUT L 344, 19.12.2013, s. 1.</p>
+      <p>SV</p>
+      <p>9</p>
+      <p>SV</p>
+    </page>
+    <page id="11">
+      <p>(a) Punkt 2 ska ersättas med följande:</p>
+      <p>”2) ett land utanför EU (tredjeland) som är part i ett avtal med unionen, vilket gör det möjligt för landet att delta i<nobr>ESF+-delen</nobr> för sysselsättning och social innovation i enlighet med artikel 30.”,</p>
+      <p>(b) Punkt 9 ska utgå.</p>
+      <p>(c) Punkt 10 ska ersättas med följande:</p>
+      <p>”10) varje fysisk eller juridisk person som inrättats och erkänts som sådan enligt nationell rätt, unionsrätt eller internationell rätt, som har rättskapacitet och som för egen räkning får utöva rättigheter och ha skyldigheter, eller en enhet som saknar rättskapacitet i enlighet med artikel 197.2 c i budgetförordningen.”.</p>
+      <p>(16) Artikel 3 ska ändras på följande sätt:</p>
+      <p>(a) Andra stycket ska ersättas med följande:</p>
+      <p>”ESF+ ska stödja, komplettera och ge medlemsstaternas politik ett mervärde i syfte att säkerställa lika möjligheter, tillgång till arbetsmarknaden, rättvisa arbetsvillkor, socialt skydd och social inkludering.”.</p>
+      <p>(b) I tredje stycket ska led b ersättas med följande:</p>
+      <p>”b) Inom ramen för direkt och indirekt förvaltning för den del av biståndet som motsvarar de mål som anges i artiklarna 4.1 och 23 (”Delen för sysselsättning och social innovation”).”.</p>
+      <p>(17) Artikel 4 ska ändras på följande sätt:</p>
+      <p>(a) I punkt 1 ska den inledande meningen ersättas med följande:</p>
+      <p>”1. ESF+ ska stödja följande särskilda mål inom politikområdena sysselsättning, utbildning och social inkludering och därmed också bidra till det politiska målet för ”Ett mer socialt Europa genom den europeiska pelaren för sociala rättigheter” som anges i artikel [4] i [den framtida förordningen om gemensamma bestämmelser]”.</p>
+      <p>(b) Punkt 3 ska utgå.</p>
+      <p>(18) Artikel 5 ska ändras på följande sätt:</p>
+      <p>(a) Punkterna<nobr>1–3</nobr> ska ersättas med följande:</p>
+      <p>”1. Den totala finansieringsramen för ESF+ för perioden<nobr>2021–2027</nobr> ska vara 97 332 282 000 euro i löpande priser.</p>
+      <p>2. Den del av finansieringsramen som avser<nobr>ESF+-delen</nobr> inom ramen för delad förvaltning i enlighet med målet Investering för sysselsättning och tillväxt ska uppgå till 96 571 282 000 euro i löpande priser, varav 200 000 000 euro i löpande priser ska avsättas för transnationellt samarbete till stöd för de innovativa lösningar som avses i artikel 23 och 400 000 000 euro i löpande priser som tilläggsfinansiering för de yttersta randområden som fastställs i artikel 349 i<nobr>EUF-fördraget</nobr> och för de Nuts 2- regioner som uppfyller de kriterier som anges i artikel 2 i protokoll nr 6 till 1994 års anslutningsakt.</p>
+      <p>3. Finansieringsramen för delen för sysselsättning och social innovation för perioden<nobr>2021–2027</nobr> ska vara 761 000 000 euro i löpande priser.”.</p>
+      <p>SV</p>
+      <p>10</p>
+      <p>SV</p>
+    </page>
+    <page id="12">
+      <p>(b) Punkt 4 ska utgå.</p>
+      <p>(c) Punkt 5 ska ändras på följande sätt:</p>
+      <p>”5. Det belopp som avses i punkt 3 får också användas för tekniskt och administrativt bistånd för genomförandet av programmet, såsom förberedelser, övervakning, kontroll, revision och utvärdering, inklusive gemensamma<nobr>it-system.”.</nobr>
+      </p>
+      <p>(19) Artikel 6.1 ska ersättas med följande:</p>
+      <p>”1. Alla program som genomförs genom<nobr>ESF+-delen</nobr> inom ramen för delad förvaltning samt insatser som stöds av delen för sysselsättning och social innovation ska säkerställa jämställdhet under hela utarbetandet, genomförandet, övervakningen och utvärderingen av dem. De ska också främja lika möjligheter för alla utan diskriminering på grund av kön, ras eller etniskt ursprung, religion eller övertygelse, funktionsnedsättning, ålder eller sexuell läggning under hela utarbetandet, genomförandet, övervakningen och utvärderingen.”.</p>
+      <p>(20) Artikel 7 ska ändras på följande sätt:</p>
+      <p>(a) I punkt 1 ska andra stycket ersättas med följande:</p>
+      <p>”Medlemsstaterna, och i tillämpliga fall kommissionen, ska främja synergieffekter och säkerställa samordning, komplementaritet och samstämmighet mellan ESF+ och unionens övriga fonder, program och instrument, såsom Erasmus, hälsoprogrammet, asyl- och migrationsfonden, faciliteten för återhämtning och resiliens och instrumentet för tekniskt stöd, både vid planeringen och under genomförandet. Medlemsstaterna, och i tillämpliga fall kommissionen, ska optimera användningen av samordningssystem för att undvika dubbelarbete och säkerställa ett nära samarbete mellan dem som ansvarar för genomförandet, så att stödinsatserna blir samstämmiga och enhetliga.”.</p>
+      <p>(b) Följande punkt ska införas som punkt 3a:</p>
+      <p>”3a Medlemsstaterna ska avsätta minst 5 % av sina<nobr>ESF+-medel</nobr> inom ramen för delad förvaltning för att stödja riktade åtgärder och strukturreformer för att bekämpa barnfattigdomen i enlighet med de särskilda mål som anges i artikel 4.1 v och<nobr>vii–x.”.</nobr>
+      </p>
+      <p>(c) Punkt 5 ska ersättas med följande:</p>
+      <p>”5. Medlemsstater, där andelen unga i åldern<nobr>15–29</nobr> år som varken arbetar eller studerar enligt de senast tillgängliga uppgifterna från Eurostat var högre än EU- genomsnittet under 2019, ska avsätta minst 15 % av sina<nobr>ESF+-medel</nobr> inom ramen för delad förvaltning för åren<nobr>2021–2025</nobr> till riktade åtgärder och strukturreformer för att stödja ungdomssysselsättningen, yrkesutbildning, särskilt lärlingsutbildning, och övergången från skola till arbetsliv samt möjligheter att återintegreras i utbildning och få en andra chans till utbildning, särskilt i samband med genomförandet av ungdomsgarantin.</p>
+      <p>Vid översynen efter halva tiden av<nobr>ESF+-programmen</nobr> i enlighet med artikel [14] i [den framtida förordningen om gemensamma bestämmelser], ska de medlemsstater där andelen unga i åldern<nobr>15–29</nobr> år som varken arbetar eller studerar enligt uppgifter från Eurostat är högre än<nobr>EU-genomsnittet</nobr> under 2024 avsätta minst 15 % av sina<nobr>ESF+-medel</nobr> inom ramen för delad förvaltning för åren<nobr>2026–2027</nobr> för dessa åtgärder.</p>
+      <p>De yttersta randområden som uppfyller de villkor som fastställs i första och andra stycket ska avsätta minst 15 % av<nobr>ESF+-medlen</nobr> inom ramen för delad förvaltning i sina program till de riktade åtgärder som fastställs i första stycket. Denna tilldelning</p>
+      <p>SV</p>
+      <p>11</p>
+      <p>SV</p>
+    </page>
+    <page id="13">
+      <p>ska beaktas för att kontrollera efterlevnaden av den lägsta procentandel på nationell nivå som fastställs i första och andra stycket.</p>
+      <p>Vid genomförandet av sådana åtgärder ska medlemsstaterna prioritera de unga som står utanför arbetskraften eller är långtidsarbetslösa och införa riktade uppsökande åtgärder.”.</p>
+      <p>(21) I del III – Genomförande inom ramen för direkt och indirekt förvaltning, ska rubriken ”Kapitel I – Särskilda bestämmelser för delen för sysselsättning och social innovation” utgå.</p>
+      <p>(22) Rubriken ”Avsnitt I: Allmänna bestämmelser” ska ersättas med ”Kapitel I – Operativa mål”.</p>
+      <p>(23) Rubriken ”Avsnitt II: Stödberättigande” ska ersättas med ”Kapitel II – Stödberättigande”.</p>
+      <p>(24) Kapitel II och artiklarna<nobr>26–29</nobr> ska utgå.</p>
+      <p>(25) Rubriken ”Kapitel III – Gemensamma regler för delarna för sysselsättning och social innovation samt för hälsa” ska utgå.</p>
+      <p>(26) Artikel 30 ska ändras på följande sätt:</p>
+      <p>(a) Rubriken till artikel 30 ska ersättas med följande:</p>
+      <p>”Deltagande av tredjeländer”.</p>
+      <p>(b) I punkt 1 ska den inledande meningen ersättas med följande:</p>
+      <p>”Delen för sysselsättning och social innovation ska vara öppen för följande associerade länder:”.</p>
+      <p>(c) Punkt 2 ska utgå.</p>
+      <p>(27) Rubriken ”Kapitel III – Allmänna bestämmelser” ska införas före artikel 31.</p>
+      <p>(28) Artikel 31 ska ändras på följande sätt:</p>
+      <p>(a) Punkt 1 ska ersättas med följande:</p>
+      <p>”1. Delen för sysselsättning och social innovation får tillhandahålla finansiering i alla de former som anges i budgetförordningen, särskilt bidrag, priser, upphandling och frivilliga bidrag till internationella organisationer i vilka unionen är medlem eller i vars verksamhet unionen deltar.”.</p>
+      <p>(b) I punkt 2 ska första stycket ersättas med följande:</p>
+      <p>”2. Delen för sysselsättning och social innovation ska genomföras direkt såsom föreskrivs i budgetförordningen eller indirekt med organ som avses i artikel [62.1 c] i budgetförordningen.”.</p>
+      <p>(c) Punkterna 4 och 5 ska utgå.</p>
+      <p>(29) Artikel 32 ska ersättas med följande:</p>
+      <p>”Artikel 32</p>
+      <p>Arbetsprogram</p>
+      <p>Delen för sysselsättning och social innovation ska genomföras med hjälp av sådana arbetsprogram som avses i artikel [110] i budgetförordningen. I tillämpliga fall ska det totala belopp som reserveras för blandfinansieringsinsatser fastställas i arbetsprogrammen.”.</p>
+      <p>SV</p>
+      <p>12</p>
+      <p>SV</p>
+    </page>
+    <page id="14">
+      <p>(30) Artikel 33 ska ändras på följande sätt:</p>
+      <p>(a) Punkt 1 ska ersättas med följande:</p>
+      <p>”1. Indikatorer för att övervaka genomförandet av delen och framstegen när det gäller att nå de särskilda mål som anges i artikel 4 och de operativa mål som anges i artikel 23 ska fastställas.”.</p>
+      <p>(b) Punkt 3 ska utgå.</p>
+      <p>(31) I artikel 37 ska punkt 2 ersättas med följande:</p>
+      <p>”2. Kommissionen ska vidta informations- och kommunikationsåtgärder avseende delen för sysselsättning och social innovation och deras åtgärder och resultat. Medel som tilldelats delen för sysselsättning och social innovation ska också bidra till den övergripande kommunikationen av unionens politiska prioriteringar, i den mån de har anknytning till de mål som avses i artiklarna 4 och 23.”.</p>
+      <p>(32) Följande artikel ska införas som artikel 37a i del IV – Slutbestämmelser:</p>
+      <p>”Artikel 37a</p>
+      <p>Tillfälliga åtgärder för användning av ESF under exceptionella och ovanliga</p>
+      <p>omständigheter</p>
+      <p>Om rådet efter [den dag då denna förordning träder i kraft] har konstaterat att det inträffat en ovanlig händelse som ligger utanför en eller flera medlemsstaters kontroll och som har en betydande inverkan på den offentliga sektorns finansiella situation eller en allvarlig konjunkturnedgång inom euroområdet eller inom unionen som helhet, enligt vad som avses i artikel 5.1 tionde stycket, artikel 6.3 fjärde stycket, artikel 9.1 tionde stycket och artikel 10.3 fjärde stycket i förordning (EG) nr 1466/97(*), eller att det inträffat oväntade negativa ekonomiska händelser med stora negativa effekter för de offentliga finanserna, enligt vad som avses i artiklarna 3.5 och</p>
+      <p>5.2 i förordning (EG) nr 1467/97(**), får kommissionen genom genomförandebeslut och för den period som fastställs i det beslutet vidta följande åtgärder:</p>
+      <p>a) Utvidga tillämpningsområdet för stödet från ESF+, genom undantag från artikel 4.1, genom att tillåta att stöd ges till åtgärder som är strikt nödvändiga för att hantera sådana exceptionella eller ovanliga omständigheter, särskilt för att möjliggöra finansiering av system för korttidsarbete utan krav på att de bör kombineras med aktiva åtgärder och av tillgång till hälso- och sjukvård, även för personer som inte är omedelbart socioekonomiskt utsatta.</p>
+      <p>b) Minska kraven på tematisk koncentration genom undantag från artikel 7.</p>
+      <p>____________</p>
+      <p>(*) Rådets förordning (EG) nr 1466/97 av den 7 juli 1997 om förstärkning av övervakningen av de offentliga finanserna samt övervakningen och samordningen av den ekonomiska politiken (EGT L 209, 2.8.1997, s. 1).</p>
+      <p>(**) Rådets förordning (EG) nr 1467/97 av den 7 juli 1997 om påskyndande och förtydligande av tillämpningen av förfarandet vid alltför stora underskott (EGT L 209,</p>
+      <p>2.8.1997, s. 6).”.</p>
+      <p>(33) Artikel 38 ska ändras på följande sätt:</p>
+      <p>(a) Punkterna 2 och 3 ska ersättas med följande:</p>
+      <p>SV</p>
+      <p>13</p>
+      <p>SV</p>
+    </page>
+    <page id="15">
+      <p>”2. Den befogenhet att anta delegerade akter som avses i artikel 15.6 och artikel 21.5 ska ges till kommissionen tills vidare från och med den dag då denna förordning träder i kraft.</p>
+      <p>3. Den delegering av befogenhet som avses i artikel 15.6 och artikel 21.5 får när som helst återkallas av Europaparlamentet eller rådet. Ett beslut om återkallelse innebär att delegeringen av den befogenhet som anges i beslutet upphör att gälla. Beslutet får verkan dagen efter det att det offentliggörs i Europeiska unionens officiella tidning, eller vid ett senare i beslutet angivet datum. Det påverkar inte giltigheten av delegerade akter som redan har trätt i kraft.”.</p>
+      <p>(b) Punkt 6 ska ersättas med följande:</p>
+      <p>”6. En delegerad akt som antas enligt artikel 15.6 och artikel 21.5 ska träda i kraft endast om varken Europaparlamentet eller rådet har gjort invändningar mot den delegerade akten inom en period på två månader från den dag då akten delgavs Europaparlamentet och rådet, eller om både Europaparlamentet och rådet, före utgången av den perioden, har underrättat kommissionen om att de inte kommer att invända. Denna period ska förlängas med två månader på Europaparlamentets eller rådets initiativ.”.</p>
+      <p>(34) Artikel 42 ska ändras på följande sätt:</p>
+      <p>(a) Rubriken ska ersättas med följande:</p>
+      <p>”Övergångsbestämmelser för delen för sysselsättning och social innovation”.</p>
+      <p>(b) Punkterna 1 och 2 ska ersättas med följande:</p>
+      <p>”1. Europaparlamentets och rådets förordning (EU) nr 1296/201313 ska upphöra att gälla med verkan från och med den 1 januari 2021.</p>
+      <p>2. Finansieringsramen för delen för sysselsättning och social innovation får också omfatta de utgifter för tekniskt och administrativt stöd som är nödvändiga för att säkerställa övergången mellan ESF+ och de åtgärder som antagits inom ramen för dess föregångare: Programmet för sysselsättning och social innovation.”.</p>
+      <p>(35) Bilaga III ska utgå.</p>
+      <p>Utfärdad i Bryssel den</p>
+      <p>På Europaparlamentets vägnar</p>
+      <p>På rådets vägnar</p>
+      <p>Ordförande</p>
+      <p>13 Europaparlamentets och rådets förordning (EU) nr 1296/2013 av den 11 december 2013 om Europeiska unionens program för sysselsättning och social innovation (EaSI) och om ändring av beslut nr 283/2010/EU om inrättande av ett europeiskt instrument Progress för mikrokrediter för sysselsättning och social delaktighet (EUT L 347, 20.12.2013, s. 238).</p>
+      <p>SV</p>
+      <p>14</p>
+      <p>SV</p>
+    </page>
+    <page id="16">
+      <p>FINANSIERINGSÖVERSIKT FÖR RÄTTSAKT</p>
+      <p>1. GRUNDLÄGGANDE UPPGIFTER OM FÖRSLAGET ELLER INITIATIVET</p>
+      <p>1.1 Förslagets eller initiativets titel</p>
+      <p>Ändrat förslag till Europaparlamentets och rådets förordning om Europeiska socialfonden+ (ESF+) och om upphävande av förordning (EU) nr 1296/2013]</p>
+      <p>1.2 Berörda politikområden programkluster</p>
+      <p>Investera i människor, social sammanhållning och värden Avdelning 07</p>
+      <p>Avdelning 07 02 – ESF+</p>
+      <p>1.3 Förslaget eller initiativet avser  en ny åtgärd</p>
+      <p> en ny åtgärd som bygger på ett pilotprojekt eller en förberedande åtgärd 14</p>
+      <p> en förlängning av en befintlig åtgärd</p>
+      <p> en sammanslagning eller omdirigering av en eller flera åtgärder mot en annan/en ny åtgärd</p>
+      <p>1.4 Motivering till förslaget eller initiativet</p>
+      <p>1.4.1 Krav som ska uppfyllas på kort eller lång sikt, inbegripet en detaljerad tidsplan för genomförandet av initiativet</p>
+      <p>ESF+ är EU:s viktigaste instrument för att investera i människor och utgör ett betydande bidrag till ett mer socialt Europa, föra EU närmare medborgarna och ger varje dag resultat för de personer som är mest behövande i vårt samhälle. ESF+ bidrar till att öka den socioekonomiska konvergensen mellan medlemsstaterna, vilket är en förutsättning för en korrekt funktion av EU som en stabil och livskraftig ekonomisk och politisk union.</p>
+      <p>Efter antagandet av ESF + förordning kommer medlemsstaterna att planera sina budgetanslag i linje med vägledningen som erhållits inom ramen för den europeiska planeringsterminen under det föregående året. Den nya programperioden börjar den 1 januari 2021 och kommissionen har vidtagit åtgärder för att påskynda genomförandet av fonden så mycket som möjligt, till exempel genom att släppa kravet på att anmäla utseendet av förvaltande myndigheter till kommissionen, så att man alltså undviker dröjsmål under perioden<nobr>2014–2020.</nobr>
+      </p>
+      <p>Genomförandet vid direkt förvaltning kommer också att inledas omedelbart efter det att programmet trätt i kraft.</p>
+      <p>1.4.2 Mervärdet i unionens intervention (som kan följa av flera faktorer, t.ex. samordningsfördelar, rättssäkerhet, ökad effektivitet eller komplementaritet). Med</p>
+      <p>”mervärdet i unionens intervention” i denna punkt avses det värde en åtgärd från</p>
+      <p>14 I den mening som avses i artikel 58.2 a eller b i budgetförordningen.</p>
+      <p>SV</p>
+      <p>15</p>
+      <p>SV</p>
+    </page>
+    <page id="17">
+      <p>unionens sida tillför utöver det värde som annars skulle ha skapats av enbart medlemsstaterna.</p>
+      <p>Skäl för åtgärder på europeisk nivå (ex ante): Mervärde för EU skapas genom investeringar inom områden och målgrupper som inte skulle äga rum på annat sätt, genom en utvidgning av befintliga åtgärder, att stödja integreringen av innovationer och genom att stärka kapaciteten hos medlemsstaternas förvaltningar. Omfattande belägg visar att EU:s politik för att främja social sammanhållning och sociala rättigheter skulle inte ha genomförts utan EU:s kompletterande investeringar. Tack vare<nobr>EU-finansiering</nobr> har medlemsstaterna investerat i områden, målgrupper och reformer på ett sätt som skulle ha varit omöjligt med endast nationell finansiering. Samtidigt som behörigheten att hantera sysselsättningsfrågor och sociala frågor ligger främst på nationell nivå, med tanke på omfattningen och effekten av utmaningarna, har åtgärden visat sig vara mer ändamålsenlig och effektiv om EU stöder medlemsstaternas ansträngningar och bidrar till att främja reformer som är till nytta för de enskilda länderna och för EU som helhet.</p>
+      <p>Förväntat mervärde för unionen (ex post): De utmaningar som Europas ekonomier och samhällen står inför, särskilt när det gäller sysselsättning, utbildning, färdigheter och sociala frågor, kräver fortsatta investeringar i dessa områden. Initiativet förväntas bidra till att genomföra EU:s politik och prioriteringar på dessa områden (t.ex. riktlinjerna för sysselsättningspolitiken och den europeiska pelaren för sociala rättigheter), främja bästa praxis och samarbete för att förbättra kapaciteten, underlätta utformningen och genomförandet av transnationella samarbetet) och främja EU:s värden (såsom jämställdhet och social rättvisa). På lång sikt förväntas initiativet bidra till den socioekonomiska konvergensen mellan medlemsstaterna och göra den europeiska ekonomin och samhället mer motståndskraftiga.</p>
+      <p>1.4.3 Erfarenheter från tidigare liknande åtgärder</p>
+      <p>Utvärdering av nuvarande och föregående programperiod och relaterade studier bekräftar effektivitet, verkan, relevans, europeiskt mervärde och samstämmighet mellan de fonder som omfattas av den här förordningen. Medlemsstaterna har investerat i politikområden, målgrupper och reformer på ett sätt som inte skulle ha varit möjligt med nationell finansiering. Det skulle särskilt leda till följande:</p>
+      <p>• I efterhandsutvärderingen av ESF för perioderna<nobr>2000–2006</nobr> och<nobr>2007–2013</nobr> konstaterar man att<nobr>ESF-investeringar</nobr> varit relevanta, effektiva och ändamålsenliga. ESF:s anpassning till EU:s politik och prioriteringar inom ramen för Lissabonstrategin och Europa<nobr>2020-strategin</nobr> för smart och hållbar tillväxt för alla har stärkts med tiden. Eftersom ESF är en av strukturfonderna bidrar den samtidigt till målen i fördraget om ekonomisk, social och territoriell sammanhållning genom ökad koncentration av resurser. ESF (med tillhörande nationell finansiering) står till exempel för 70 % av aktiva åtgärder i elva medlemsstater.</p>
+      <p>• Genom sitt stöd till ungdomar som varken arbetar eller studerar (NEET) i vissa</p>
+      <p>
+        <nobr>EU-regioner</nobr> har ungdomssysselsättningsinitiativet gjort ungdomssysselsättningspolitiken mer synlig, men det har också medfört en förändring av politiken i ett antal medlemsstater genom sitt stöd till inrättandet och genomförandet av ungdomsgarantisystemen.</p>
+      <p>• Preliminära resultat av Feads halvtidsutvärdering, inklusive feedback från berörda parter visar att mat, materiellt stöd och social inkludering som det har stött</p>
+      <p>SV</p>
+      <p>16</p>
+      <p>SV</p>
+    </page>
+    <page id="18">
+      <p>gör skillnad för dem som har det sämst ställt, inklusive dem som annars riskerar att stängas ute från det allmänna sociala biståndet eller som behöver omedelbart stöd.</p>
+      <p>• Halvtidsutvärderingen av EaSI visar att dess mål fortfarande är relevanta, särskilt i ett svårt socioekonomiskt sammanhang, som kännetecknas av följderna av den finansiella och ekonomiska krisen och att det var ett effektivt sätt att nå relevanta aktörer, ge resultat och uppnå dess mål.</p>
+      <p>Utvärderingar och studier innebär dock också ett antal utmaningar, framför allt när det gäller behovet av större samstämmighet och synergi, flexibilitet och anpassning, prestanda och resultatinriktning och förenkling. I synnerhet finansieringen och, i större eller mindre grad, genomförandet av fonderna måste förenklas. De områden som ska undersökas sammanfattas i den konsekvensbedömning som åtföljer lagstiftningsförslaget.</p>
+      <p>1.4.4 Förenlighet och eventuella synergieffekter med andra relevanta instrument</p>
+      <p>Initiativet syftar till att förbättra synergier och samstämmighet mellan ESF+ och andra fonder som investerar i utvecklingen av humankapital.</p>
+      <p>ESF+ delar i synnerhet målet om ekonomisk och social sammanhållning med Eruf. Samordning säkerställs genom gemensamma regler för delad förvaltning på områden som programplanering och finansiella förvaltning. Flerfondsprogram kommer även i fortsättningen att vara möjliga för att tillåta integrerade strategier i programplanering och genomförande. Gemensamma regler kommer också att säkerställa förenlighet mellan programmen inom Eruf, ESF+ och Ejflu och EHFF.</p>
+      <p>Samarbetet mellan ESF+ och Erasmus+ samt samarbetet med hälsoprogrammet kommer att stödjas mer aktivt genom att man inkluderar lämpliga bestämmelser i de förordningar som ska utarbetas i detalj i arbetsprogram och programhandledningar.</p>
+      <p>ESF+ kommer att fortsätta att stödja den långsiktiga integrationen av migranter samtidigt som Amif kommer att täcka kortsiktiga behov. Som EU:s viktigaste instrument för investeringar i humankapital och kompetens kommer ESF+ att fortsätta att ge ett betydande bidrag till utvecklingen av humankapitalet inom forskning och innovation i samverkan med Horisont Europa.</p>
+      <p>SV</p>
+      <p>17</p>
+      <p>SV</p>
+    </page>
+    <page id="19">
+      <p>1.5 Varaktighet och budgetkonsekvenser</p>
+      <p> Begränsad varaktighet</p>
+      <p>–  Med verkan från och med den 1.1.2021 till och med den 31.12.2027.</p>
+      <p>–  Budgetkonsekvenser från och med 2021 till och med 2027 för åtagandebemyndiganden och från och med 2021 till och med 2030 för betalningsbemyndiganden.</p>
+      <p> Obegränsad varaktighet</p>
+      <p>– Efter en inledande period<nobr>ÅÅÅÅ–ÅÅÅÅ</nobr> beräknas genomförandetakten nå en stabil nivå.</p>
+      <p>1.6 Planerad metod för genomförandet 15</p>
+      <p> Direkt förvaltning som sköts av kommissionen</p>
+      <p>–  av dess avdelningar, vilket också inbegriper personalen vid unionens delegationer;</p>
+      <p>– av genomförandeorgan</p>
+      <p> Delad förvaltning med medlemsstaterna</p>
+      <p> Indirekt förvaltning genom att uppgifter som ingår i budgetgenomförandet anförtros</p>
+      <p>–  tredjeländer eller organ som de har utsett</p>
+      <p>–  internationella organisationer och organ kopplade till dem (ange vilka)</p>
+      <p>– EIB och Europeiska investeringsfonden</p>
+      <p>–  organ som avses i artiklarna 70 och 71 i budgetförordningen</p>
+      <p>–  offentligrättsliga organ</p>
+      <p>–  privaträttsliga organ som har anförtrotts offentliga förvaltningsuppgifter i den utsträckning som de lämnar tillräckliga ekonomiska garantier</p>
+      <p>–  organ som omfattas av privaträtten i en medlemsstat, som anförtrotts genomförandeuppgifter inom ramen för ett<nobr>offentlig-privat</nobr> partnerskap och som lämnar tillräckliga ekonomiska garantier</p>
+      <p>–  personer som anförtrotts genomförandet av särskilda åtgärder inom Gusp enligt avdelning V i fördraget om Europeiska unionen och som fastställs i den relevanta grundläggande rättsakten</p>
+      <p>– Vid fler än en metod, ange kompletterande uppgifter under ”Anmärkningar”.</p>
+      <p>Anmärkningar</p>
+      <p>ESF + kommer att delas upp i två huvuddelar, en del inom ramen för delad förvaltning som omfattar det föregående ESF, Fead och ungdomssysselsättningsinitiativet, och en del inom ramen för direkt och indirekt förvaltning, som omgrupperar verksamheter från det tidigare programmet för sysselsättning och social innovation (EaSI).</p>
+      <p>15 Närmare förklaringar av de olika metoderna för genomförande med hänvisningar till respektive bestämmelser i budgetförordningen återfinns på BudgWeb: https://myintracomm.ec.europa.eu/budgweb/EN/man/budgmanag/Pages/budgmanag.aspx</p>
+      <p>SV</p>
+      <p>18</p>
+      <p>SV</p>
+    </page>
+    <page id="20">
+      <p>För genomförandet av ESF+ kommer den pågående verksamheten tillsammans med internationella organisationer, såsom FN:s organ, eller OECD och ILO att fortsätta.</p>
+      <p>Dessutom skulle det nya gränsöverskridande planerade samarbetet kunna genomföras inom ramen för den indirekta förvaltning som bygger på ESF:s förvaltningsmyndigheter.</p>
+      <p>SV</p>
+      <p>19</p>
+      <p>SV</p>
+    </page>
+    <page id="21">
+      <p>2. FÖRVALTNING</p>
+      <p>2.1 Regler om uppföljning och rapportering</p>
+      <p>Ange intervall och andra villkor för sådana åtgärder</p>
+      <p>Delad förvaltning, gemensamma utfalls- och resultatindikatorer kommer att definieras på programnivå. Uppgifter om gemensamma utfalls- och resultatindikatorer kommer att översändas elektroniskt av medlemsstaternas myndigheter till kommissionen sex gånger per år. Deras inbördes överensstämmelse kommer att kontrolleras. Tillförlitligheten hos systemet för insamling, registrering och lagring av uppgifter för övervakning, utvärdering, ekonomisk förvaltning och kontroll kommer att granskas.</p>
+      <p>Inom ramen för direkt och indirekt förvaltning kommer resultatramar att utarbetas som bygger på relevanta metoder för tidigare ramar för EaSI för att säkerställa att insamlingen av uppgifter sker effektivt, ändamålsenligt och i rätt tid.</p>
+      <p>2.2 Förvaltnings- och kontrollsystem</p>
+      <p>2.2.1 Motivering av den genomförandemetod, de finansieringsmekanismer, de betalningsvillkor och den kontrollstrategi som föreslås</p>
+      <p>Förslaget till förordning om gemensamma bestämmelser omfattar betalningar från kommissionen i form av förfinansiering, mellanliggande betalningar och slutbetalningar efter räkenskapsavslutning. Förfinansiering betalas ut årligen enligt de procentsatser som planerats i förordningen om gemensamma bestämmelser.</p>
+      <p>Mellanliggande betalningar beräknas efter de överenskomna medfinansieringsnivåerna per överenskommen prioritering i det operativa programmet. Till skillnad från den nuvarande programperioden är antalet ansökningar om mellanliggande betalning begränsad till fyra per år lämnas in en gång per kvartal.</p>
+      <p>I förslaget till förordning om gemensamma bestämmelser föreskrivs olika former för offentliggörande av mellanliggande utbetalningar beroende på om genomförandet av programmet baseras antingen på de faktiska kostnader som deklarerats av medlemsstaten eller på ”förenklade kostnader” eller på uppfyllandet av villkor.</p>
+      <p>Förslaget till förordning om gemensamma bestämmelser (delad förvaltning) bygger på den för programperioden<nobr>2014–2020.</nobr> Det finns dock vissa föreslagna åtgärder som syftar till att förenkla genomförandet och till att minska revisionsbördan på medlemsstaterna och deras stödmottagare. Dessa åtgärder är kopplade till förvaltningen av fonderna av förvaltningsmyndigheten som, såsom föreslagits, ska grunda förvaltningskontroller på en riskanalys. Under vissa villkor kan förvaltningsmyndigheten besluta att tillämpa skärpta kontrollåtgärder i enlighet med nationella förfaranden utan föregående tillstånd från kommissionen. Dessutom har utnämningsförfarandet strukits, något som bör påskynda genomförandet av programmen.</p>
+      <p>Förslaget till förordning om gemensamma bestämmelser föreskriver inte en attesterande myndighet, utan snarare en redovisningsfunktion. Tanken bakom detta är att det skulle leda till mindre administration på nationell nivå.</p>
+      <p>När det gäller revision av deklarerade utgifter innehåller förslaget till förordning om gemensamma bestämmelser vissa inslag som syftar till att undvika flera revisioner av samma verksamhet eller utgift.</p>
+      <p>SV</p>
+      <p>20</p>
+      <p>SV</p>
+    </page>
+    <page id="22">
+      <p>Enligt förslaget till förordningen om gemensamma bestämmelser kommer mellanliggande betalningar att godkännas av kommissionen efter det att förvaltningskontroller – på ett riskbaserat urval av utgifter från stödmottagare – har gjorts, men ofta innan de grundligare förvaltningskontrollerna på plats eller efterföljande revisioner ägde rum.</p>
+      <p>För att minska risken för att ersätta icke stödberättigande utgifter till följd av detta föreskrivs ett antal åtgärder i förslagen.</p>
+      <p>1) Taket för kommissionens mellanliggande betalningar fortsätter att ligga på</p>
+      <p>90 % av det belopp som ska betalas ut till medlemsstaterna, eftersom bara vissa nationella kontroller har gjorts vid denna tidpunkt. Det återstående beloppet kommer att betalas ut efter den årliga räkenskapsavslutningen när väl bevis från revisionen och en rimlig säkerhet har getts av förvaltningsmyndigheten och revisionsmyndigheten. Eventuella oriktigheter som kommissionen eller</p>
+      <p>revisionsrättenupptäcker efter det att förvaltningsmyndigheten/attesteringsmyndigheten har överlämnat den attesterade årsredovisningen kan leda till en nettokorrigering.</p>
+      <p>2) Fortsatt årlig räkenskapsavslutning och årligt avslutande av genomförda verksamheter eller utgifter som kommer att skapa ytterligare incitament för de nationella och regionala myndigheterna att i god tid utföra kvalitetskontroller inför den årliga attesteringen av räkenskaperna för kommissionen.</p>
+      <p>Delen för sysselsättning och social innovation kommer att genomföras inom ramen för direkt och indirekt förvaltning med hjälp av de genomförandemetoder som erbjuds i budgetförordningen, som i huvudsak är bidrag och upphandling. Direkt förvaltning gör det möjligt att etablera direkta kontakter med stödmottagare/entreprenörer som deltar i verksamheter som tjänar unionens politikområden. Kommissionen säkerställer direkt övervakning av resultaten av de finansierade åtgärderna. Betalningsvillkoren när det gäller de finansierade åtgärderna kommer att anpassas till de risker som är förknippade med de finansiella transaktionerna. I syfte att säkerställa ändamålsenlighet, effektivitet och ekonomi när det gäller kommissionens kontroller kommer strategin att inriktas på att skapa en balans mellan förhands- och efterhandskontroller.</p>
+      <p>När det gäller direkt och indirekt förvaltning kommer efterhandsrevisioner att göras på plats av externa revisorer för ett urval av transaktionerna. Vid urvalet av dessa transaktioner kommer man att kombinera riskbedömning och slumpmässigt urval.</p>
+      <p>2.2.2 Uppgifter om identifierade risker och om det eller de interna kontrollsystem som inrättats för att begränsa riskerna</p>
+      <p>Den reducerade kontrollmiljön kan leda till en ökning av antalet fel. Det förväntas att denna risk mildras genom begränsning av ersättningar och det årliga avslutandet av räkenskaperna. Det är dock troligt att korrigeringar på nationell nivå kommer att bli fler och således leda till en viss grad av frustration på medlemsstatsnivå. Denna frustration kan också öka, eftersom det nuvarande förslaget till förordningen faktiskt ålägger förvaltningsmyndigheterna att genomföra kontroller med en riskbaserad metod snarare än till 100 % som tidigare. Detta krav kan också stå i strid med gällande nationell lagstiftning som kräver en uttömmande kontroll av redovisade kostnader (även för nationell medfinansiering). Detta kan vara en faktor som inte har beaktats tillräckligt i förslaget.</p>
+      <p>SV</p>
+      <p>21</p>
+      <p>SV</p>
+    </page>
+    <page id="23">
+      <p>Avskaffandet av den attesterande myndigheten minskar ett extra filter i förvaltning och kontroll av de utgifter som uppstått. Under de två senaste programperioderna spelade attesterande myndigheter en viktig roll när det gällde att filtrera bort icke stödberättigande utgifter och göra ytterligare finansiella korrigeringar när så krävdes. Dagens förslag till förordning om gemensamma bestämmelser minskar inte denna risk.</p>
+      <p>Det reducerade revisionsarbetet kan leda till insolventa kvarstående fel och därmed underminera kvalitetssäkringen av kommissionen. Vi anser att denna risk inte minskar, särskilt eftersom de proportionerliga kontrollstrategierna också begränsar kommissionens befogenheter i fråga om revision. Vi anser därför att denna risk har godkänts av lagstiftaren.</p>
+      <p>När det gäller den budget som genomförs inom ramen för direkt och indirekt förvaltning är genomförandet inriktat på tilldelningen av upphandlingskontrakt, samtidigt som ett antal bidrag för specifika verksamheter och organisationer planeras.</p>
+      <p>Offentliga upphandlingskontrakt kommer huvudsakligen att ingås inom områden såsom undersökningar, uppgiftsinsamling, utvärderingskontrakt, utbildning, informationskampanjer, it och kommunikationstjänster, resurshantering osv. Uppdragstagarna är främst konsultföretag och andra privata företag, av vilka många är små och medelstora företag.</p>
+      <p>Bidrag kommer i första hand att beviljas för stöd till verksamhet inom<nobr>icke-statliga</nobr> organisationer, nationella myndigheter, universitet osv. Utförandeperioden för projekt och verksamheter som får stöd är vanligen mellan ett och tre år.</p>
+      <p>De största riskerna är följande:</p>
+      <p>• Risk för att de medel som beviljats inte används effektivt eller på ett ekonomiskt sätt, både när det gäller bidrag (finansieringsreglernas komplexitet, särskilt för små aktörer) och när det gäller upphandling (svårt att jämföra prisanbud inom vissa sektorer i de fall där det bara finns ett begränsat antal ekonomiska aktörer som har de specialistkunskaper som krävs).</p>
+      <p>• Risk för att kommissionens rykte skadas om bedrägeri eller kriminell verksamhet upptäcks. Att tredje parter har ett internt kontrollsystem ger bara en partiell garanti på grund av det tämligen stora antalet heterogena entreprenörer och stödmottagare som alla har ett eget, ofta ganska litet, kontrollsystem.</p>
+      <p>Kommissionen har infört interna förfaranden som ska täcka de risker som fastställs ovan. De interna förfarandena överensstämmer till fullo med budgetförordningen och inkluderar åtgärder för bedrägeribekämpning och beräkningar av kostnad och nytta. Inom denna ram fortsätter kommissionen att utforska möjligheterna att förbättra förvaltningen och uppnå effektivitetsvinster. Kontrollsystemet viktigaste egenskaper är följande:</p>
+      <p>Kontroller före och under genomförandet av projekten:</p>
+      <p>• Mallar för bidragsavtal och tjänstekontrakt som har utarbetats av kommissionen används. De innehåller en rad kontrollbestämmelser, exempelvis när det gäller revisionsintyg, finansiella garantier, revisioner på plats och inspektioner som utförs av Olaf. Reglerna om stödberättigande kostnader kommer att förenklas, till exempel genom att använda enhetskostnader, klumpsummor, bidrag som inte är kopplade till kostnader och andra möjligheter som erbjuds genom budgetförordningen. Detta</p>
+      <p>SV</p>
+      <p>22</p>
+      <p>SV</p>
+    </page>
+    <page id="24">
+      <p>kommer att minska kostnaderna för kontroller och sätta fokus på verifieringar och kontroller inom högriskområden.</p>
+      <p>• All personal åtar sig att följa en kodex för god förvaltningssed. Personal som deltar i urvalsprocessen eller i förvaltningen av bidragsöverenskommelserna eller kontrakten undertecknar dessutom en försäkran om att inga intressekonflikter föreligger. Personalen får regelbunden fortbildning och använder nätverk utbyte av bästa praxis.</p>
+      <p>• Det tekniska genomförandet av projekten följs upp med jämna mellanrum med hjälp av tekniska lägesrapporter som lämnas in av uppdragstagare och bidragsmottagare. Dessutom kommer möten med uppdragstagare/bidragsmottagare och besök på plats att anordnas från fall till fall.</p>
+      <p>Kontroller vid projektets slut: Efterhandsrevisioner genomförs för att på plats kontrollera att ersättningskraven gäller stödberättigande kostnader. Syftet med dessa kontroller är att förebygga, spåra och korrigera väsentliga felaktigheter som rör de ekonomiska transaktionernas laglighet och korrekthet. I syfte att uppnå en god effekt på kontrollen görs urvalet av bidragsmottagare som ska kontrolleras genom att ett riskbaserat urval kombineras med ett stickprov, och operativa aspekter uppmärksammas när så är möjligt vid revisionen på plats.</p>
+      <p>2.2.3 Beräkning och motivering av kontrollernas kostnadseffektivitet (dvs. förhållandet mellan kostnaden för kontrollerna och värdet av de medel som förvaltas) och en bedömning av den förväntade risken för fel (vid betalning och vid avslutande)</p>
+      <p>Möjligheten att låta en redovisningsfunktion, som skulle göra det möjligt för medlemsstaten att spara en betydande del av de 4 % av de nuvarande kostnaderna som avser attestering tack vare en minskning av funktioner för förvaltnings- och kontrollsystemen.</p>
+      <p>– Användningen av förenklade kostnader och förenklade kostnadsalternativ som inte är kopplade till kostnader, vilket minskar administrativa kostnader och minskad administrativ börda för både myndigheter och stödmottagare.</p>
+      <p>– Proportionerliga kontrollstrategier för (riskbaserade) förvaltningskontroller och revisioner.</p>
+      <p>– Årligt avslutande, som kommer att leda till minskade kostnader för arkivering av handlingar för kontrolländamål för myndigheter och stödmottagare.</p>
+      <p>Sammantaget väntas därför förslagen leda till en omfördelning av kontrollkostnaderna (som ligger kvar på ca 2 % av de samlade förvaltade medlen) snarare än en ökning eller minskning.</p>
+      <p>Mot bakgrund av de erfarenheter som gjorts i samband med genomförandet av tidigare (delar av) programmet inom ramen för direkt förvaltning och utformningen av det nya programmet, bedöms riskerna för genomförandet av programmet vara relativt stabila. Tack vare kombinationen av bidrag och upphandling, förhands- och efterhandskontroller samt skrivbordstester och kontroller på platsen förväntas den mätbara genomsnittliga kvarstående felfrekvensen ligga kvar under 2 %.</p>
+      <p>När det gäller direkt och indirekt förvaltning motsvarar den årliga kostnaden för den föreslagna kontrollnivån omkring<nobr>3–7</nobr> % av årsbudgeten för driftsutgifter. Detta motiveras av det stora antalet transaktioner som ska kontrolleras. På området sysselsättning och sociala frågor samt hälsa innebär direkt förvaltning tilldelning av ett stort antal kontrakt och bidrag till åtgärder och utbetalning av ett stort antal</p>
+      <p>SV</p>
+      <p>23</p>
+      <p>SV</p>
+    </page>
+    <page id="25">
+      <p>driftbidrag till<nobr>icke-statliga</nobr> organisationer och fackföreningar. Risken i samband med dessa aktiviteter gäller kapaciteten hos (framför allt) mindre organisationer att kontrollera utgifterna på ett effektivt sätt.</p>
+      <p>På femårsbasis var felprocenten vid kontroller på plats av bidrag som omfattades av direkt förvaltning 1,8 % och totalt med hänsyn tagen till den låga risknivån för upphandling under 1 %. Denna felprocent anses vara acceptabel, eftersom den understiger väsentlighetsnivån på 2 %.</p>
+      <p>De ändringar som föreslås av programmet kommer inte att ändra det nuvarande sättet att förvalta anslagen. Det befintliga kontrollsystemet har visat sig vara adekvat för att förebygga och/eller upptäcka fel och/eller oriktigheter, och i förekommande fall korrigera dessa. Felfrekvensen förväntas därför ligga kvar på samma nivåer som tidigare.</p>
+      <p>2.3 Åtgärder för att förebygga bedrägeri och oriktigheter</p>
+      <p>Beskriv förebyggande åtgärder (befintliga eller planerade), t.ex. från strategi för bedrägeribekämpning.</p>
+      <p>Kommissionen ska säkerställa att unionens ekonomiska intressen skyddas när det gäller verksamheter inom ramen för direkt, indirekt och delad förvaltning. Detta ska ske med hjälp av förebyggande åtgärder mot bedrägeri, korruption och annan olaglig verksamhet, med hjälp av effektiva kontroller och, om oriktigheter upptäcks, återkrav av felaktigt utbetalda belopp samt vid behov med hjälp av ändamålsenliga, proportionella och avskräckande sanktioner.</p>
+      <p>Kommissionen eller dess företrädare och revisionsrätten ska ha befogenhet att utföra revisioner, av dokument och på plats, hos alla stödmottagare, uppdragstagare och underleverantörer som erhållit unionsfinansiering. Europeiska byrån för bedrägeribekämpning (Olaf) ska ha rätt att utföra kontroller på plats och inspektioner hos ekonomiska aktörer som direkt eller indirekt berörs av sådan finansiering.</p>
+      <p>Kommissionen genomför även en rad åtgärder, såsom följande åtgärder:</p>
+      <p>– Beslut, avtal och kontrakt som är en följd av genomförandet av programmet kommer att ge kommissionen, inklusive Olaf, och revisionsrätten rätt att utföra revisioner, kontroller på plats och inspektioner.</p>
+      <p>– I samband med utvärderingen av förslag eller anbud kommer det att kontrolleras att förslagslämnarna respektive anbudsgivarna inte omfattas av de uteslutningskriterier som meddelats. Kontrollen sker på grundval av deklarationer och systemet för tidig upptäckt och uteslutning.</p>
+      <p>– Reglerna för stödberättigande kostnader kommer att förenklas i enlighet med bestämmelserna i budgetförordningen.</p>
+      <p>– All personal som sysslar med avtalsförvaltning samt revisorer och kontrollanter som kontrollerar stödmottagarnas deklarationer på plats ska få regelbunden utbildning i frågor som rör bedrägeri och oriktigheter.</p>
+      <p>GD Sysselsättning, socialpolitik och inkludering innehåller åtgärder inom ramen för kommissionens strategi mot bedrägerier.</p>
+      <p>När det gäller direkt förvaltning uppdaterades bedrägeri- och riskbedömningen 2019. Förfarandet för beviljande av bidrag har flera inslag som syftar till att avslöja bedrägeri, såsom den utbredda användningen av två<nobr>persons-principen</nobr>
+        <nobr>(4-eyes</nobr>
+      </p>
+      <p>SV</p>
+      <p>24</p>
+      <p>SV</p>
+    </page>
+    <page id="26">
+      <p>principle), kontroller av att tilldelningsförfaranden korrekthet och insyn, detaljerade förfaranden för att undvika intressekonflikter, kontroller av huruvida de sökande har varit svartlistade i enlighet med förordning 1605/2002, användning av<nobr>it-verktyg</nobr> såsom Edes och Arachne samt uppmärksamhet på andra varningssignaler (bedrägeriindikatorer).</p>
+      <p>För strukturfonder som är föremål för delad förvaltning gäller den gemensamma strategin mot bedrägerier<nobr>2015–2020</nobr> som har antagits av generaldirektoratet för regional- och stadspolitik, generaldirektoratet för sysselsättning, socialpolitik och inkludering samt generaldirektoratet för havsfrågor och fiske. För strukturfonderna finns det ett särskilt regelverk för bedrägeribekämpning för<nobr>2014–2020</nobr> i artikel</p>
+      <p>125.4 c i förordningen om gemensamma bestämmelser. Generaldirektoratet för sysselsättning, socialpolitik och inkludering kontrollerar via sina kontroll- och revisionsskyldigheter att medlemsstaterna har inrättat och effektivt driver de förvaltnings- och kontrollsystem som säkerställer att medlen används effektivt och korrekt för att garantera utgifternas laglighet och korrekthet. Medlemsstaterna är skyldiga att anmäla problem genom systemet för hantering av oriktigheter (IMS). Generaldirektoratet för sysselsättning, socialpolitik och inkludering övervakar nationella åtgärder för att bekämpa bedrägerier och bifaller i förekommande fall en brist på åtgärder från beslut om finansiella korrigeringar när det gäller<nobr>ESF-stöd</nobr> som ges till det berörda programmet, t.ex. inom ramen för uppföljningen av Olafs rapporter och rekommendationer. Generaldirektoratet för sysselsättning, socialpolitik och inkludering ger också vägledning till förvaltningsmyndigheter, inbegripet ett verktyg för bedömning av bedrägerier och risker. Generaldirektoratet för sysselsättning, socialpolitik och inkludering sprider på ett aktivt sätt riskbedömningsverktyget Arachne i medlemsstaterna.</p>
+      <p>Efter en studie av en extern uppdragstagare som ska vara klar i mitten av 2018 kommer den gemensamma strategin mot bedrägerier att ses över och GD Sysselsättnings bidrag till kommissionens strategi mot bedrägerier uppdateras.</p>
+      <p>Slutligen avrundar övergripande åtgärder, såsom intern utbildning som rör medvetenhet om bedrägerier (röda flaggor) och förebyggande av bedrägerier, de åtgärder som vidtagits av generaldirektoratet för sysselsättning, socialpolitik och inkludering.</p>
+      <p>SV</p>
+      <p>25</p>
+      <p>SV</p>
+    </page>
+    <page id="27">
+      <p>3. BERÄKNADE BUDGETKONSEKVENSER AV FÖRSLAGET ELLER INITIATIVET</p>
+      <p>3.1 Berörda rubriker i den fleråriga budgetramen och nya budgetrubriker i den årliga budgetens utgiftsdel</p>
+      <p>Budgetrubrik</p>
+      <p>Typ av</p>
+      <p>Bidrag</p>
+      <p>Rubrik i</p>
+      <p>anslag</p>
+      <p>den</p>
+      <p>från</p>
+      <p>fleråriga</p>
+      <p>Investera i människor, social sammanhållning</p>
+      <p>från Efta-</p>
+      <p>från</p>
+      <p>enligt artikel</p>
+      <p>budgetrame</p>
+      <p>Diff./Icke-</p>
+      <p>kandidat-</p>
+      <p>[21.2 b] i</p>
+      <p>16</p>
+      <p>tredje-</p>
+      <p>n</p>
+      <p>och värden</p>
+      <p>diff.</p>
+      <p>länder</p>
+      <p>länder17</p>
+      <p>budgetförordninge</p>
+      <p>länder</p>
+      <p>n</p>
+      <p>2</p>
+      <p>07 01 01 01 – ESF+ delad förvaltning</p>
+      <p>Icke-</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>– Stödutgifter</p>
+      <p>diff.</p>
+      <p>2</p>
+      <p>07 01 01 02 – delen för sysselsättning</p>
+      <p>Icke-</p>
+      <p>Ja</p>
+      <p>Ja</p>
+      <p>Ja</p>
+      <p>Nej</p>
+      <p>och social innovation – Stödutgifter</p>
+      <p>diff.</p>
+      <p>2</p>
+      <p>07</p>
+      <p>02</p>
+      <p>01 –</p>
+      <p>ESF+ delen</p>
+      <p>för</p>
+      <p>delad</p>
+      <p>Diff.</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>förvaltning – Driftsutgifter</p>
+      <p>2</p>
+      <p>07</p>
+      <p>02</p>
+      <p>02 –</p>
+      <p>ESF+ delen</p>
+      <p>för</p>
+      <p>delad</p>
+      <p>Diff.</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>Nej</p>
+      <p>förvaltning – Operativt tekniskt stöd</p>
+      <p>2</p>
+      <p>07</p>
+      <p>02</p>
+      <p>04</p>
+      <p>– ESF+</p>
+      <p>delen</p>
+      <p>för</p>
+      <p>Diff.</p>
+      <p>Ja</p>
+      <p>Ja</p>
+      <p>Ja</p>
+      <p>Nej</p>
+      <p>sysselsättning och social innovation</p>
+      <p>16</p>
+      <p>17</p>
+      <p>Efta: Europeiska frihandelssammanslutningen.</p>
+      <p>Kandidatländer och i förekommande fall potentiella kandidatländer i västra Balkan.</p>
+      <p>SV</p>
+      <p>26</p>
+      <p>SV</p>
+    </page>
+    <page id="28">
+      <p>3.2 Beräknad inverkan på utgifterna</p>
+      <p>3.2.1 Sammanfattning av beräknad inverkan på utgifterna</p>
+      <p>Miljoner euro (avrundat till tre decimaler)</p>
+      <p>Rubrik i den fleråriga</p>
+      <p>2</p>
+      <p>Investera i människor, social sammanhållning och värden</p>
+      <p>budgetramen</p>
+      <p>TOTALT</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>Efter</p>
+      <p>TOTALT</p>
+      <p>2027</p>
+      <p>07 02 01 – ESF+ delen för delad</p>
+      <p>Åtaganden</p>
+      <p>(1)</p>
+      <p>förvaltning – Driftsutgifter</p>
+      <p>Betalningar</p>
+      <p>(2)</p>
+      <p>07 02 02 –</p>
+      <p>ESF+ delen</p>
+      <p>för</p>
+      <p>delad</p>
+      <p>Åtaganden</p>
+      <p>(1)</p>
+      <p>Täcks i förslaget till förordning COM (2018) 375</p>
+      <p>förvaltning – Operativt tekniskt stöd</p>
+      <p>Betalningar</p>
+      <p>(2)</p>
+      <p>07 01 01 01 – ESF+ delad förvaltning –</p>
+      <p>Åtaganden =</p>
+      <p>(3)</p>
+      <p>Stödutgifter</p>
+      <p>Betalningar</p>
+      <p>07 02 04</p>
+      <p>– ESF+</p>
+      <p>delen</p>
+      <p>för</p>
+      <p>Åtaganden</p>
+      <p>(1)</p>
+      <p>99,944</p>
+      <p>101,993</p>
+      <p>104,083</p>
+      <p>106,214</p>
+      <p>108,389</p>
+      <p>110,606</p>
+      <p>112,271</p>
+      <p>743,500</p>
+      <p>sysselsättning och social innovation</p>
+      <p>Betalningar</p>
+      <p>(2)</p>
+      <p>28,093</p>
+      <p>59,077</p>
+      <p>76,826</p>
+      <p>81,534</p>
+      <p>83,939</p>
+      <p>85,782</p>
+      <p>87,369</p>
+      <p>240,880</p>
+      <p>743,500</p>
+      <p>07 01 01 02 – Delen för sysselsättning</p>
+      <p>Åtaganden =</p>
+      <p>(3)</p>
+      <p>2 500</p>
+      <p>2 500</p>
+      <p>2 500</p>
+      <p>2 500</p>
+      <p>2 500</p>
+      <p>2 500</p>
+      <p>2 500</p>
+      <p>17 500</p>
+      <p>och social innovation – Stödutgifter 18</p>
+      <p>Betalningar</p>
+      <p>18 Detta avser tekniskt och/eller administrativt stöd och utgifter för genomförandet av vissa av EU:s program och/eller åtgärder (tidigare s.k.<nobr>BA-poster)</nobr> samt indirekta och direkta forskningsåtgärder.</p>
+      <p>SV</p>
+      <p>27</p>
+      <p>SV</p>
+    </page>
+    <page id="29">
+      <p>Totala anslag för ramanslagen för</p>
+      <p>Åtaganden</p>
+      <p>= 1+3</p>
+      <p>102 444</p>
+      <p>104 493</p>
+      <p>106 583</p>
+      <p>108 714</p>
+      <p>110 889</p>
+      <p>113 106</p>
+      <p>114 771</p>
+      <p>0 000</p>
+      <p>761 000</p>
+      <p>programmet</p>
+      <p>Betalningar</p>
+      <p>= 2+3</p>
+      <p>30,593</p>
+      <p>61,577</p>
+      <p>79,326</p>
+      <p>84,034</p>
+      <p>86,439</p>
+      <p>88,282</p>
+      <p>89,869</p>
+      <p>240,880</p>
+      <p>761,000</p>
+      <p>Anslagen för delen för den delade förvaltningen av ESF+ beskrivs i finansieringsöversikt för förordningen om gemensamma bestämmelser COM(2018)375.</p>
+      <p>Rubrik i den fleråriga</p>
+      <p>7</p>
+      <p>”Administrativa utgifter”</p>
+      <p>budgetramen</p>
+      <p>Miljoner euro (avrundat till tre decimaler)</p>
+      <p>TOTALT</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>Efter</p>
+      <p>TOTALT</p>
+      <p>2027</p>
+      <p>Personalresurser</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>638,448</p>
+      <p>Övriga administrativa utgifter</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>35,514</p>
+      <p>TOTALA anslag för RUBRIK 7 GD</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>673,962</p>
+      <p>Sysselsättning</p>
+      <p>Miljoner euro (avrundat till tre decimaler)</p>
+      <p>SV</p>
+      <p>28</p>
+      <p>SV</p>
+    </page>
+    <page id="30">
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>Efter</p>
+      <p>TOTALT</p>
+      <p>2027</p>
+      <p>TOTALA anslag</p>
+      <p>Åtaganden</p>
+      <p>198,724</p>
+      <p>200,773</p>
+      <p>202,863</p>
+      <p>204,994</p>
+      <p>207,169</p>
+      <p>209,386</p>
+      <p>211,051</p>
+      <p>1 434,963</p>
+      <p>samtliga RUBRIKER</p>
+      <p>126,873</p>
+      <p>157,857</p>
+      <p>175,606</p>
+      <p>180,314</p>
+      <p>182,719</p>
+      <p>184,562</p>
+      <p>186,149</p>
+      <p>240,880</p>
+      <p>i den fleråriga budgetramen</p>
+      <p>Betalningar</p>
+      <p>1 434,963</p>
+      <p>SV</p>
+      <p>29</p>
+      <p>SV</p>
+    </page>
+    <page id="31">
+      <p>3.2.2 Sammanfattning av beräknad inverkan på de administrativa anslagen</p>
+      <p>–  Förslaget/initiativet kräver inte att anslag av administrativ natur tas i anspråk</p>
+      <p>– Förslaget/initiativet kräver att anslag av administrativ natur tas i anspråk enligt följande:</p>
+      <p>Miljoner euro (avrundat till tre decimaler)</p>
+      <p>År</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>TOTALT</p>
+      <p>När det gäller personalresurser bygger de siffror som presenteras nedan på den tilldelning som beviljats GD Sysselsättning under 2018 (SEC(2017)528), från vilken dras av den personal som avsatts för Europeiska globaliseringsfonden, som är föremål för ett separat förslag COM(2018)380.</p>
+      <p>För övriga administrativa utgifter uppges den sammanlagda finansieringsramen nedan, inklusive utgifterna förknippade med globaliseringsfonden.</p>
+      <p>RUBRIK 7</p>
+      <p>i den fleråriga</p>
+      <p>budgetramen</p>
+      <p>Personalresurser</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>91,207</p>
+      <p>638,448</p>
+      <p>Övriga administrativa</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>5,073</p>
+      <p>35,514</p>
+      <p>utgifter</p>
+      <p>Delsumma RUBRIK 7</p>
+      <p>i den fleråriga</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>96,280</p>
+      <p>673,962</p>
+      <p>budgetramen</p>
+      <p>År</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>TOTALT</p>
+      <p>TOTALT</p>
+      <p>Utanför RUBRIK 719</p>
+      <p>i den fleråriga</p>
+      <p>budgetramen</p>
+      <p>Personalresurser</p>
+      <p>Övriga utgifter</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>17,500</p>
+      <p>av administrativ natur</p>
+      <p>Delsumma</p>
+      <p>utanför RUBRIK 7</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>2,500</p>
+      <p>17,500</p>
+      <p>i den fleråriga</p>
+      <p>budgetramen</p>
+      <p>TOTALT</p>
+      <p>98,780</p>
+      <p>98,780</p>
+      <p>98,780</p>
+      <p>98,780</p>
+      <p>98,780</p>
+      <p>98,780</p>
+      <p>98,780</p>
+      <p>691,460</p>
+      <p>Personalbehov och andra administrativa kostnader ska täckas genom anslag inom generaldirektoratet, vilka redan har avdelats för förvaltningen av åtgärden i fråga, eller genom en omfördelning av anslag inom generaldirektoratet, om så krävs</p>
+      <p>19 Detta avser tekniskt och/eller administrativt stöd och utgifter för genomförandet av vissa av EU:s program och/eller åtgärder (tidigare s.k.<nobr>BA-poster)</nobr> samt indirekta och direkta forskningsåtgärder.</p>
+      <p>SV</p>
+      <p>30</p>
+      <p>SV</p>
+    </page>
+    <page id="32">
+      <p>kompletterad med ytterligare resurser som kan tilldelas det förvaltande generaldirektoratet som ett led i det årliga förfarandet för tilldelning av anslag och med hänsyn tagen till begränsningar i fråga om budgetmedel.</p>
+      <p>Anslagen för delen för den delade förvaltningen av ESF+ beskrivs i finansieringsöversikt för förordningen om gemensamma bestämmelser COM(2018)375.</p>
+      <p>SV</p>
+      <p>31</p>
+      <p>SV</p>
+    </page>
+    <page id="33">
+      <p>3.2.2.1 Beräknat personalbehov</p>
+      <p>–  Förslaget/initiativet kräver inte att personalresurser tas i anspråk.</p>
+      <p>–  Förslaget/initiativet kräver att personalresurser tas i anspråk enligt följande:</p>
+      <p>Beräkningarna ska anges i heltidsekvivalenter</p>
+      <p>År</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p> Tjänster som tas upp i tjänsteförteckningen (tjänstemän och tillfälligt anställda)</p>
+      <p>TOTALA antalet tjänster som tas upp i tjänsteförteckningen (tjänstemän och tillfälligt anställda)</p>
+      <p>Vid huvudkontoret eller vid</p>
+      <p>599</p>
+      <p>599</p>
+      <p>599</p>
+      <p>599</p>
+      <p>599</p>
+      <p>599</p>
+      <p>599</p>
+      <p>kommissionens kontor i medlemsstaterna</p>
+      <p>Vid delegationer</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>För forskning</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p>0</p>
+      <p> Extern personal (i heltidsekvivalenter): kontraktsanställda, lokalanställda, nationella experter,</p>
+      <p>vikarier och unga experter som tjänstgör vid delegationerna 20</p>
+      <p>Rubrik 7</p>
+      <p>GD Sysselsättning</p>
+      <p>Som finansieras</p>
+      <p>– Vid</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>huvudkontoret</p>
+      <p>genom RUBRIK 7</p>
+      <p>i den fleråriga</p>
+      <p>– Vid delegationer</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>budgetramen</p>
+      <p>tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>Som finansieras</p>
+      <p>– Vid</p>
+      <p>huvudkontoret</p>
+      <p>genom</p>
+      <p>ramanslagen för</p>
+      <p>– Vid delegationer</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>programmet 21</p>
+      <p>tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>Annat (specificera)</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej tillämpligt</p>
+      <p>Ej</p>
+      <p>Ej tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>tillämpligt</p>
+      <p>TOTALT Extern personal</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>71</p>
+      <p>(heltidsekvivalenter)</p>
+      <p>TOTALSUMMA</p>
+      <p>670</p>
+      <p>670</p>
+      <p>670</p>
+      <p>670</p>
+      <p>670</p>
+      <p>670</p>
+      <p>670</p>
+      <p>Personalbehoven ska täckas med personal inom generaldirektoratet vilka redan har avdelats för förvaltningen av åtgärden i fråga, eller genom en omfördelning av personal inom generaldirektoratet, om så krävs kompletterad med ytterligare resurser som kan tilldelas det förvaltande generaldirektoratet som ett led i det årliga förfarandet för tilldelning av anslag och med hänsyn tagen till begränsningar i fråga om budgetmedel.</p>
+      <p>Beskrivning av arbetsuppgifter:</p>
+      <p>Tjänstemän och tillfälligt anställda</p>
+      <p>Programförvaltning, ekonomi och revision</p>
+      <p>Extern personal</p>
+      <p>Programförvaltning, ekonomi och revision</p>
+      <p>20</p>
+      <p>21</p>
+      <p>AC = kontraktsanställda. AL = lokalanställda. END = nationella experter. INT = vikarier. JDP = unga experter som tjänstgör vid delegationerna.</p>
+      <p>Särskilt tak för finansiering av extern personal genom driftsanslag (tidigare s.k.<nobr>BA-poster).</nobr>
+      </p>
+      <p>SV</p>
+      <p>32</p>
+      <p>SV</p>
+    </page>
+    <page id="34">
+      <p>3.2.3 Bidrag från tredje part Förslaget/initiativet:</p>
+      <p>–  Innehåller inga bestämmelser om samfinansiering från tredje parter.</p>
+      <p>–  Innehåller bestämmelser om samfinansiering från tredje parter enligt följande uppskattning:</p>
+      <p>Anslag i miljoner euro (avrundat till tre decimaler)</p>
+      <p>År</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>TOTALT</p>
+      <p>EEA/EFTA</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>Kandidatländer</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>Tredjeländer</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>TOTALA anslag som</p>
+      <p>tillförs genom</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>p.m.</p>
+      <p>samfinansiering</p>
+      <p>3.3 Beräknad inverkan på inkomsterna</p>
+      <p>–  Förslaget/initiativet påverkar inte budgetens inkomstsida.</p>
+      <p>–  Förslaget/initiativet påverkar inkomsterna på följande sätt:</p>
+      <p>–  Påverkan på egna medel.</p>
+      <p>–  Påverkan på andra inkomster.</p>
+      <p>Ange om inkomsterna har avsatts för utgiftsposter </p>
+      <p>Miljoner euro (avrundat till tre decimaler)</p>
+      <p>Budgetrubrik i den årliga</p>
+      <p>Förslagets/initiativets inverkan på inkomsterna22</p>
+      <p>budgetens inkomstdel:</p>
+      <p>2021</p>
+      <p>2022</p>
+      <p>2023</p>
+      <p>2024</p>
+      <p>2025</p>
+      <p>2026</p>
+      <p>2027</p>
+      <p>Artikel ………….</p>
+      <p>För inkomster avsatta för särskilda ändamål, ange vilka budgetrubriker i utgiftsdelen som berörs.</p>
+      <p>[…]</p>
+      <p>Övriga anmärkningar (t.ex. vilken metod/formel som har använts för att beräkna inverkan på inkomsterna eller andra relevanta uppgifter).</p>
+      <p>[…]</p>
+      <p>22 När det gäller traditionella egna medel (tullar, sockeravgifter) ska nettobeloppen anges, dvs. bruttobeloppen minus 20 % avdrag för uppbördskostnader.</p>
+      <p>SV</p>
+      <p>33</p>
+      <p>SV</p>
+    </page>
+  </text>
+  <text datatyp="uppgift" dok_id="H8B6447" kod="DossierNummer" namn="Ärende i EU" systemdatum="2023-02-07 09:57:06">
+    <p>2018/0206(COD)</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H8B6447" kod="avsändare" namn="Avsändare" systemdatum="2023-02-07 09:57:06">
+    <p>Europeiska kommissionen</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H8B6447" kod="mottagare" namn="Mottagare" systemdatum="2023-02-07 09:57:06">
+    <p>Arbetsmarknadsutskottet</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H8B6447" kod="ärendetyp" namn="Ärendetyp" systemdatum="2023-02-07 09:57:06">
+    <p>Subsidiaritetskontroll</p>
+  </text>
+</dokument>

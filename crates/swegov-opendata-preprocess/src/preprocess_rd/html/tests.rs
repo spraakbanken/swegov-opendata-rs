@@ -1,6 +1,6 @@
 use minidom_extension::minidom::Element;
 
-use super::process_html;
+use super::{process_html, remove_cdata};
 
 #[test]
 fn test_process_html_from_string() {
@@ -10,4 +10,11 @@ fn test_process_html_from_string() {
     process_html(&html, &mut textelem);
 
     insta::assert_debug_snapshot!(textelem);
+}
+
+#[test]
+fn test_remove_cdata() {
+    let text = "<P style=\"margin-left:1px;margin-top:12px;margin-right:-25px;margin-bottom:12px;\" class=\"p410 ft90\"><![endif]>No</P></TD>";
+
+    assert_eq!(remove_cdata(text), "<P style=\"margin-left:1px;margin-top:12px;margin-right:-25px;margin-bottom:12px;\" class=\"p410 ft90\">No</P></TD>");
 }
