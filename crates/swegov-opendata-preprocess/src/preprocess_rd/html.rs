@@ -60,6 +60,12 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                             elem.append_child(Element::bare("br", ""));
                         }
                     }
+                    b"ol" | b"ul" => {
+                        let paragraphs = extract_list(&mut reader, e.name().as_ref());
+                        for p in paragraphs {
+                            textelem.append_child(p);
+                        }
+                    }
                     _ => todo!("handle Start({:?})", e),
                 }
             }
@@ -232,16 +238,15 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
             }
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
-                b"a" | b"A" | b"p" | b"P" | b"notreferens" | b"hanvisning" | b"kant" | b"h4" => {
-                    just_seen_span = false
-                }
+                b"a" | b"A" | b"p" | b"P" | b"notreferens" | b"hanvisning" | b"kant" | b"h4"
+                | b"font" | b"o:p" => just_seen_span = false,
                 b"span" | b"SPAN" => just_seen_span = true,
 
                 _ => todo!("handle End({:?})", e),
             },
 
             Ok(Event::Start(e)) => match e.name().as_ref() {
-                b"nobr" | b"NOBR" | b"em" | b"EM" | b"sup" => {
+                b"nobr" | b"NOBR" | b"em" | b"EM" | b"sup" | b"i" | b"b" => {
                     just_seen_span = false;
                     if let Some(node) = curr_node.take() {
                         elem.append_node(node);
@@ -258,7 +263,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                         });
                     }
                 }
-                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" => (),
+                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Empty(e)) => match e.name().as_ref() {
@@ -281,6 +286,24 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
     elem
 }
 
+fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Vec<Element> {
+    let mut list = Vec::new();
+    loop {
+        match reader.read_event() {
+            Err(e) => todo!("handle error={:?}", e),
+            Ok(Event::Start(e)) => match e.name().as_ref() {
+                b"li" => list.push(extract_paragraph(reader, e.name().as_ref())),
+                _ => todo!("handle Start({:?})", e),
+            },
+            Ok(Event::End(e)) => match e.name().as_ref() {
+                e_tag if e_tag == tag => break,
+                _ => todo!("handle End({:?})", e),
+            },
+            Ok(e) => todo!("handle {:?}", e),
+        }
+    }
+    list
+}
 fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
     let mut elem = Element::bare("page", "");
     let mut curr_child: Option<Element> = None;
@@ -392,11 +415,11 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
             Ok(Event::Text(text)) => elem.append_text_node(text.unescape().unwrap()),
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
-                b"a" | b"A" | b"span" | b"SPAN" => (),
+                b"a" | b"A" | b"span" | b"SPAN" | b"o:p" | b"font" | b"FONT" => (),
                 _ => todo!("handle End({:?})", e),
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
-                b"a" | b"A" | b"span" | b"SPAN" => (),
+                b"a" | b"A" | b"span" | b"SPAN" | b"font" | b"FONT" | b"o:p" => (),
                 _ => todo!(
                     "handle Start({:?}), tag={}",
                     e,
