@@ -11,7 +11,9 @@ mod tests;
 
 pub fn process_html(contents: &str, textelem: &mut Element) {
     let contents_processed = contents.replace("\r\n", " ");
+    let contents_processed = contents_processed.replace("STYLEREF Kantrubrik \\* MERGEFORMAT", "");
     let contents_processed = contents_processed.replace("\u{a0}", "");
+    let contents_processed = contents_processed.replace("&nbsp;", " ");
 
     let mut reader = Reader::from_str(&contents_processed);
     let mut state = ParseHtmlState::Start;
@@ -454,11 +456,12 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
                     _ => todo!("handle bad state"),
                 },
                 b"tr" | b"TR" => (),
+                b"thead" => (),
                 // b"p" | b"P" => match state {
                 //     ParseTableState::Paragraph => state = ParsePageState::Start,
                 //     _ => (),
                 // },
-                _ => todo!("handle {:?}", e),
+                _ => todo!("handle End({:?})", e),
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
                 b"a" | b"A" => {
@@ -474,6 +477,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
                     // state = ParseTableState::Paragraph;
                 }
                 b"tbody" | b"TBODY" => (),
+                b"thead" => (),
                 b"tr" | b"TR" => (),
                 b"td" | b"TD" | b"th" | b"TH" => {
                     // if let Some(elem) = curr_elem.take() {
@@ -496,7 +500,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
                 //     state = ParsePageState::Paragraph;
                 // }
                 // b"nobr" | b"NOBR" => (),
-                _ => todo!("handle {:?}", e),
+                _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Text(text)) => match state {
                 ParseTableState::Paragraph => {

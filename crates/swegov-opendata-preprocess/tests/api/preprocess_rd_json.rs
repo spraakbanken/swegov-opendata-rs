@@ -12,7 +12,7 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/bet-2006-2009-gw01fiu3.json")]
 #[case("assets/bet-2010-2013-gy01au1.json")]
 #[case("assets/bet-2010-2013-h101föu11.json")]
-// #[case("assets/bet-2018-2021-h601au1.json")]
+#[case("assets/bet-2018-2021-h601au1.json")]
 #[case("assets/bet-2018-2021-h601au6.json")]
 // #[case("assets/bet-2022-2025-ha01au6.json")]
 // #[case("assets/frsrdg-2018-2021-h604nr1.json")]
