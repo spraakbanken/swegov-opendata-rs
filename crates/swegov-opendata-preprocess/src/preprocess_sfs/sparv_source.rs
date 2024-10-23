@@ -1,13 +1,11 @@
 use std::{
     fs,
-    io::{self, Read},
     path::Path,
 };
 
 use crate::{shared::io_ext, PreprocessError};
 
 use super::sfs_json;
-use flate2::read::GzDecoder;
 use sparv_extension::XmlSourceWriter;
 
 #[tracing::instrument()]

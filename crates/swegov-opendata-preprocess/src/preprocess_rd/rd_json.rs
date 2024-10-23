@@ -1,8 +1,8 @@
-use std::{borrow::Cow, collections::BTreeSet, fmt::Display, iter::Peekable};
+use std::{collections::BTreeSet, fmt::Display, iter::Peekable};
 
 use itertools::Itertools;
 use minidom_extension::minidom::{quick_xml::Writer, Element, Error as MinidomError};
-use swegov_opendata::{DataSet, DokIntressentRef, DokumentStatusPageRef, DokumentStatusRef};
+use swegov_opendata::{DataSet, DokumentStatusPageRef, DokumentStatusRef};
 
 use crate::shared::{clean_element, io_ext};
 

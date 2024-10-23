@@ -439,7 +439,7 @@ fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
 
 fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
     let mut table = Vec::new();
-    let mut curr_elem: Option<Element> = None;
+    let curr_elem: Option<Element> = None;
     loop {
         match reader.read_event() {
             Err(e) => todo!("handle err {:?}", e),

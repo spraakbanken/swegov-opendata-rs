@@ -2,7 +2,7 @@ use std::{
     borrow::Cow,
     collections::HashMap,
     fs,
-    io::{self, Read},
+    io::{Read},
     path::Path,
     sync::atomic::Ordering,
 };

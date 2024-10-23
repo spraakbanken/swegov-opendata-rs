@@ -3,7 +3,7 @@ use std::{
     collections::HashMap,
     fs,
     io::Read,
-    path::{Path, PathBuf},
+    path::Path,
     sync::atomic::Ordering,
     time::Duration,
 };
@@ -34,7 +34,7 @@ const CORPUS_ID: &'static str = "segreg";
 pub fn preprocess_rd_segreg_corpus(
     input: &Path,
     output: &Path,
-    mut out: impl std::io::Write,
+    out: impl std::io::Write,
     err: impl std::io::Write,
     mut progress: impl preprocess_progress::NestedProgress + 'static,
     PreprocessRdSegregCorpusOptions {
