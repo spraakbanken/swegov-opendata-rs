@@ -5,12 +5,11 @@ use minidom::{
     quick_xml::{events::Event, Reader, Writer},
     Element,
 };
-use minidom_extension::minidom;
+use minidom_extension::{attrib_query::attrib_equals, minidom};
 use once_cell::sync::Lazy;
 use regex::Regex;
 use swegov_opendata::{DokumentStatus, DokumentStatusPage};
 
-use super::shared::attrib_equals;
 use crate::shared::clean_element;
 
 use super::SfsPreprocessError;

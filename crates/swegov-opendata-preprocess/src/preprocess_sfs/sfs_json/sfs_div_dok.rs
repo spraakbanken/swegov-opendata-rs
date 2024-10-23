@@ -2,10 +2,9 @@ use minidom::{
     quick_xml::{events::Event, Reader},
     Element,
 };
-use minidom_extension::{elem_is_empty, minidom};
+use minidom_extension::{attrib_query::attrib_equals, elem_is_empty, minidom};
 
 use super::SfsPreprocessError;
-use crate::preprocess_sfs::shared::attrib_equals;
 
 pub fn process_html_sfs_div_dok(
     reader: &mut Reader<&[u8]>,

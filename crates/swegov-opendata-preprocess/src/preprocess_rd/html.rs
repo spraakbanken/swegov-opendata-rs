@@ -1,11 +1,14 @@
 use std::borrow::Cow;
 
-use minidom_extension::minidom::{
-    quick_xml::{
-        events::{attributes::Attributes, BytesText, Event},
-        Reader,
+use minidom_extension::{
+    attrib_query::attrib_equals,
+    minidom::{
+        quick_xml::{
+            events::{attributes::Attributes, BytesText, Event},
+            Reader,
+        },
+        Element, Node,
     },
-    Element, Node,
 };
 use once_cell::sync::Lazy;
 use regex::Regex;
@@ -17,7 +20,7 @@ fn remove_cdata<'a>(text: &'a str) -> Cow<'a, str> {
     static CDATA: Lazy<Regex> = Lazy::new(|| Regex::new(r"<!.+?>").unwrap());
     CDATA.replace_all(text, "")
 }
-pub fn process_html(contents: &str, textelem: &mut Element) {
+pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
     let contents_processed = contents.replace("\r\n", " ");
     let contents_processed = contents_processed.replace("STYLEREF Kantrubrik \\* MERGEFORMAT", "");
     let contents_processed = contents_processed.replace("\u{a0}", "");
@@ -93,7 +96,20 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                             textelem.append_child(p);
                         }
                     }
-                    _ => todo!("handle Start({:?})", e),
+                    // _ => todo!("handle Start({:?})", e),
+                    b"span" if attrib_equals(&e, b"class", b"rd_lista") => {
+                        process_rd_lista(&mut reader, textelem)?;
+                    }
+                    b"span" if attrib_equals(&e, b"class", b"DatumRad") => {
+                        let elem = extract_paragraph(&mut reader, e.name().as_ref());
+                        textelem.append_child(elem);
+                    }
+                    _ => {
+                        return Err(ProcessHtmlError::UnexpectedStartTag {
+                            pos: reader.buffer_position(),
+                            tag: String::from_utf8_lossy(e.name().as_ref()).to_string(),
+                        });
+                    }
                 }
             }
             Ok(Event::Text(text)) => match &mut state {
@@ -135,6 +151,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
     if let ParseHtmlState::Paragraph(elem) = state {
         textelem.append_child(elem);
     }
+    Ok(())
 }
 
 fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
@@ -259,6 +276,13 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                     let e = extract_elem(reader, e.name().as_ref());
                     elem.append_child(e);
                 }
+                b"br" | b"BR" => {
+                    just_seen_span = false;
+                    if let Some(node) = curr_node.take() {
+                        elem.append_node(node);
+                    }
+                    elem.append_child(Element::bare("br", ""));
+                }
                 b"a" | b"A" | b"notreferens" => (),
                 b"span" | b"SPAN" => {
                     if just_seen_span {
@@ -293,6 +317,53 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
     elem
 }
 
+fn process_rd_lista(
+    reader: &mut Reader<&[u8]>,
+    textelem: &mut Element,
+) -> Result<(), ProcessHtmlError> {
+    let mut curr_elem = Some(Element::bare("p", ""));
+    let mut span_count = 1;
+    loop {
+        match reader.read_event() {
+            Err(e) => todo!("handle error={:?}", e),
+            Ok(Event::Start(e)) => match e.name().as_ref() {
+                b"br" => {
+                    if let Some(elem) = curr_elem.as_mut() {
+                        elem.append_child(Element::bare("br", ""));
+                    } else {
+                        todo!("handle curr_elem={:?} start={:?}", curr_elem, e);
+                    }
+                }
+                b"a" | b"div" => {
+                    if let Some(elem) = curr_elem.take() {
+                        textelem.append_child(elem);
+                    }
+                    curr_elem = Some(extract_paragraph(reader, e.name().as_ref()));
+                }
+                b"span" => span_count += 1,
+                _ => todo!("handle Start={:?}", e),
+            },
+            Ok(Event::Text(text)) => {
+                if let Some(elem) = curr_elem.as_mut() {
+                    elem.append_text_node(unescape(&text));
+                } else {
+                    todo!("handle curr_elem={:?} text={:?}", curr_elem, text);
+                }
+            }
+            Ok(Event::End(e)) => match e.name().as_ref() {
+                b"span" | b"SPAN" => {
+                    span_count -= 1;
+                    if span_count == 0 {
+                        break;
+                    }
+                }
+                _ => todo!("handle End={:?}", e),
+            },
+            Ok(e) => todo!("handle {:?}", e),
+        }
+    }
+    Ok(())
+}
 fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Vec<Element> {
     let mut list = Vec::new();
     loop {
@@ -422,7 +493,7 @@ fn unescape<'a>(text: &'a BytesText) -> Cow<'a, str> {
         Ok(text) => text,
         Err(e) => {
             let bad_text = String::from_utf8_lossy(text.as_ref());
-            tracing::error!("Error handling '{}': {:?}", bad_text, e);
+            tracing::warn!("Unescape error for '{}': {:?}; Using as is...", bad_text, e);
             bad_text
         }
     }
@@ -475,4 +546,16 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
         }
     }
     table
+}
+
+#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+pub enum ProcessHtmlError {
+    #[error("Unexpected <{tag}> at {pos}")]
+    UnexpectedStartTag { pos: usize, tag: String }, // #[error("Error reading JSON")]
+                                                    // JsonError(#[from] serde_json::Error),
+                                                    // #[error("Failed write XML")]
+                                                    // XmlWrite(#[source] MinidomError),
+                                                    // #[error("Document contains no html")]
+                                                    // #[diagnostic(severity(Warning))]
+                                                    // HtmlFieldIsEmpty,
 }

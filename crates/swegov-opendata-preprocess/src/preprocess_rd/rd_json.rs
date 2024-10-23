@@ -6,7 +6,7 @@ use swegov_opendata::{DataSet, DokumentStatusPageRef, DokumentStatusRef};
 
 use crate::shared::{clean_element, io_ext};
 
-use super::html::process_html;
+use super::html::{process_html, ProcessHtmlError};
 
 #[tracing::instrument(skip(source, metadata))]
 pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, PreprocessJsonError> {
@@ -102,6 +102,9 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
     ] {
         textelem.set_attr(name, value.to_string());
     }
+    if let Some(upplysning) = &metadata.upplysning {
+        todo!("Handle upplysning={:?}", upplysning);
+    }
     if let Some(dokintressent) = dokintressent {
         let mut intressenter = BTreeSet::new();
         for dok_int in dokintressent.intressent {
@@ -155,7 +158,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
         );
     }
     if let Some(html) = dokument.html() {
-        process_html(html, &mut textelem);
+        process_html(html, &mut textelem)?;
     } else {
         tracing::warn!("The html field is empty");
     }
@@ -216,7 +219,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
                 textelem.set_attr(name, value.to_string());
             }
             if let Some(text) = &anforande.anf_text {
-                process_html(text, &mut textelem);
+                process_html(text, &mut textelem)?;
             } else {
                 tracing::warn!(anforande.anf_id, "The field 'anf_text' is empty");
             }
@@ -250,9 +253,9 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
             ] {
                 textelem.set_attr(name, value_opt.map(|s| s.trim()).unwrap_or(""));
             }
-            process_html(forslag.lydelse, &mut textelem);
+            process_html(forslag.lydelse, &mut textelem)?;
             if let Some(text) = forslag.lydelse2 {
-                process_html(&text, &mut textelem);
+                process_html(&text, &mut textelem)?;
             }
             let textelem = clean_element(&textelem);
             // Add textelem as child to docelem
@@ -273,7 +276,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
                 textelem.set_attr("systemdatum", systemdatum.to_string());
             }
             if let Some(text) = uppgift.text {
-                process_html(&text, &mut textelem);
+                process_html(&text, &mut textelem)?;
             }
             let textelem = clean_element(&textelem);
             // Add textelem as child to docelem
@@ -329,13 +332,13 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
                 );
             }
             if let Some(text) = utskottsforslag.forslag {
-                process_html(&text, &mut textelem);
+                process_html(&text, &mut textelem)?;
             }
             if let Some(text) = utskottsforslag.forslag_del2 {
-                process_html(&text, &mut textelem);
+                process_html(&text, &mut textelem)?;
             }
             if let Some(value) = &utskottsforslag.votering_sammanfattning_html {
-                process_json_value(value, &mut textelem);
+                process_json_value(value, &mut textelem)?;
             }
             let textelem = clean_element(&textelem);
             // Add textelem as child to docelem
@@ -365,10 +368,10 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
                 split_and_format_parties(motforslag.partier.as_ref()),
             );
             if let Some(text) = motforslag.rubrik {
-                process_html(&text, &mut textelem);
+                process_html(&text, &mut textelem)?;
             }
             if let Some(text) = motforslag.forslag {
-                process_html(text, &mut textelem);
+                process_html(text, &mut textelem)?;
             }
             let textelem = clean_element(&textelem);
             // Add textelem as child to docelem
@@ -379,9 +382,10 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
     // Serialize dokument
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
-    docelem
-        .to_writer(&mut writer)
-        .map_err(|error| PreprocessJsonError::XmlWrite(error))?;
+    docelem.to_writer(&mut writer).map_err(|error| {
+        tracing::error!("Error writing xml: {:?}", error);
+        PreprocessJsonError::XmlWrite(error)
+    })?;
     Ok(result)
 }
 
@@ -422,9 +426,14 @@ pub enum PreprocessJsonError {
     #[error("Document contains no html")]
     #[diagnostic(severity(Warning))]
     HtmlFieldIsEmpty,
+    #[error("Error processing HTML")]
+    HtmlError(#[from] ProcessHtmlError),
 }
 
-fn process_json_value(value: &serde_json::Value, textelem: &mut Element) {
+fn process_json_value(
+    value: &serde_json::Value,
+    textelem: &mut Element,
+) -> Result<(), ProcessHtmlError> {
     use serde_json::Value;
     // if let serde_json::Value::String(html) = value {
     //     process_html(html, textelem, &Cow::Borrowed(""));
@@ -432,7 +441,7 @@ fn process_json_value(value: &serde_json::Value, textelem: &mut Element) {
     // }
     // todo!("handle {:?}", value)
     match value {
-        Value::String(html) => process_html(html, textelem),
+        Value::String(html) => process_html(html, textelem)?,
         Value::Object(obj) => {
             if let Some(table) = obj.get("table") {
                 if let Some(table) = table.as_array() {
@@ -518,6 +527,7 @@ fn process_json_value(value: &serde_json::Value, textelem: &mut Element) {
         }
         x => todo!("handle {:?}", x),
     }
+    Ok(())
 }
 
 fn elem_p(text: &str) -> Element {
