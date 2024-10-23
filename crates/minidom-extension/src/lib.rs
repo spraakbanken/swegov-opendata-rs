@@ -2,6 +2,8 @@ pub use minidom;
 
 use minidom::Node;
 
+pub mod attrib_query;
+
 pub fn minidom_collect_texts(elem: &minidom::Element) -> String {
     let mut text = String::new();
     for child in elem.nodes() {
