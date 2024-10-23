@@ -32,11 +32,11 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/mot-2010-2013-gy02x-s68106.json")]
 #[case("assets/mot-2010-2013-h102xs24006.json")]
 #[case("assets/mot-2014-2017-h2021148.json")]
-// #[case("assets/prop-2014-2017-h203100.json")]
-// #[case("assets/prop-2018-2021-h603100.json")]
-// #[case("assets/prot-1990-1997-ge091.json")]
-// #[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]
-// #[case("assets/yttr-2018-2021-h605au1y.json")]
+#[case("assets/prop-2014-2017-h203100.json")]
+#[case("assets/prop-2018-2021-h603100.json")]
+#[case("assets/prot-1990-1997-ge091.json")]
+#[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]
+#[case("assets/yttr-2018-2021-h605au1y.json")]
 fn preprocess_rd_json(#[case] filename: &str) -> anyhow::Result<()> {
     let metadata_path = format!("{}.metadata.json", filename.rsplit_once('-').unwrap().0);
     println!("reading test data from '{}'", filename);

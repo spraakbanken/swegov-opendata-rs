@@ -28,6 +28,9 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
     let contents_processed = contents_processed.replace("&aring;", "å");
     let contents_processed = contents_processed.replace("&auml;", "ä");
     let contents_processed = contents_processed.replace("&ouml;", "ö");
+    let contents_processed = contents_processed.replace("&Aring;", "Å");
+    let contents_processed = contents_processed.replace("&Auml;", "Ä");
+    let contents_processed = contents_processed.replace("&Ouml;", "Ö");
     let contents_processed = remove_cdata(&contents_processed);
 
     let mut reader = Reader::from_str(&contents_processed);
@@ -36,7 +39,6 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
     let mut state = ParseHtmlState::Start;
 
     loop {
-        println!("state = {:?}", state);
         match reader.read_event() {
             Err(e) => todo!("handle err {:?}", e),
             Ok(Event::Empty(e)) => {
@@ -55,8 +57,16 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"body" | b"BODY" | b"html" => (),
-                    b"div" => process_div(&mut reader, textelem),
+                    b"body" | b"BODY" | b"html" | b"HTML" => (),
+                    b"div" | b"DIV" => {
+                        if let Some(id) = extract_page_id_from_attributes(e.attributes()) {
+                            let page = extract_page(&mut reader, id);
+                            textelem.append_child(page);
+                            state = ParseHtmlState::Start;
+                        } else {
+                            process_div(&mut reader, textelem);
+                        }
+                    }
                     b"hr" | b"link" | b"LINK" | b"label" => (),
                     b"h1" | b"pre" | b"p" | b"h2" | b"h3" | b"h4" => {
                         textelem.append_child(extract_paragraph(&mut reader, e.name().as_ref()));
@@ -113,7 +123,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) {
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"style" | b"label" => (),
+                    b"style" | b"label" | b"body" | b"BODY" | b"html" | b"HTML" => (),
                     _ => todo!("handle {:?}", e),
                 }
             }
@@ -141,8 +151,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                 }
                 b"div" | b"DIV" => {
                     if let Some(id) = extract_page_id_from_attributes(e.attributes()) {
-                        let mut page = extract_page(reader);
-                        page.set_attr("id", id);
+                        let page = extract_page(reader, id);
                         textelem.append_child(page);
                         state = ParseHtmlState::Start;
                     } else {
@@ -174,12 +183,6 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
             },
             Ok(Event::Text(_t)) => match state {
                 ParseHtmlState::Skip { tag: _ } => continue,
-                // _ => {
-                //     if t.as_ref() == b"\r\n" {
-                //         continue;
-                //     }
-                //     todo!("handle text '{:?}'", t);
-                // }
                 _ => (),
             },
             Ok(Event::End(e)) => {
@@ -213,30 +216,8 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
 #[derive(Debug, Clone, PartialEq)]
 enum ParseHtmlState {
     Start,
-    // ExtractPage,
-    // ExtractMetadataFoundKey { key: Cow<'a, str> },
-    // Dokument,
     Paragraph(Element),
     Skip { tag: Vec<u8> },
-}
-
-#[derive(Debug, Clone, PartialEq)]
-enum ParsePageState {
-    Start,
-    // ExtractPage,
-    // ExtractMetadataFoundKey { key: Cow<'a, str> },
-    // Dokument,
-    Paragraph,
-    Skip { tag: Vec<u8> },
-}
-
-fn process_h1(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
-    loop {
-        match reader.read_event() {
-            Err(e) => todo!("handle err {:?}", e),
-            Ok(e) => todo!("handle {:?}", e),
-        }
-    }
 }
 
 fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
@@ -264,7 +245,8 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                 b"a" | b"A" | b"p" | b"P" | b"notreferens" | b"hanvisning" | b"kant" | b"h4"
                 | b"font" | b"o:p" | b"div" | b"pre" => just_seen_span = false,
                 b"span" | b"SPAN" => just_seen_span = true,
-
+                // Handle errornous </NOBR> in at least one document
+                b"nobr" | b"NOBR" => just_seen_span = false,
                 _ => todo!("handle End({:?})", e),
             },
 
@@ -287,7 +269,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                     }
                 }
                 b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" | b"."
-                | b"div" | b"pre" => (),
+                | b"div" | b"pre" | b"INGENBILD" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Empty(e)) => match e.name().as_ref() {
@@ -298,7 +280,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                     }
                     elem.append_child(Element::bare("br", ""));
                 }
-                b"p" | b"P" | b"a" | b"A" => (),
+                b"p" | b"P" | b"a" | b"A" | b"img" | b"IMG" => (),
                 _ => todo!("handle Empty({:?})", e),
             },
             Ok(Event::Comment(_)) => (),
@@ -335,16 +317,12 @@ fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Vec<Element> {
     }
     list
 }
-fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
+fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Element {
     let mut elem = Element::bare("page", "");
+    elem.set_attr("id", &id);
     let mut curr_child: Option<Element> = None;
-    let mut state = ParsePageState::Start;
     let mut div_count = 1;
     loop {
-        println!(
-            "extract_page: state = {:?}, elem = {:?}, curr_child={:?}",
-            state, elem, curr_child
-        );
         match reader.read_event() {
             Err(e) => todo!("handle err {:?}", e),
             Ok(Event::End(e)) => match e.name().as_ref() {
@@ -355,25 +333,11 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
                     }
                 }
                 b"img" | b"IMG" => (),
-                // b"nobr" | b"NOBR" => (),
                 b"table" | b"TABLE" => (),
-                // b"p" | b"P" => match state {
-                //     ParsePageState::Paragraph => state = ParsePageState::Start,
-                //     _ => (),
-                // },
-                // b"span" | b"SPAN" => match state {
-                //     ParsePageState::Paragraph => (),
-                //     _ => todo!("handle span in state={:?}", state),
-                // },
                 _ => todo!("handle {:?}", e),
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
-                b"div" | b"DIV" => {
-                    div_count += 1;
-                    // state = ParsePageState::Skip {
-                    //     tag: e.name().as_ref().to_vec(),
-                    // }
-                }
+                b"div" | b"DIV" => div_count += 1,
                 b"img" | b"IMG" | b"ingenbild" | b"INGENBILD" => (),
                 b"table" | b"TABLE" => {
                     let paragraphs = extract_table(reader);
@@ -384,34 +348,20 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
                         elem.append_child(p);
                     }
                 }
-                b"p" | b"P" => {
+                b"p" | b"P" | b"span" | b"SPAN" | b"a" | b"A" => {
                     if let Some(child) = curr_child.take() {
                         elem.append_child(child);
                     }
                     curr_child = Some(extract_paragraph(reader, e.name().as_ref()));
-                    // state = ParsePageState::Paragraph;
                 }
-                // b"nobr" | b"NOBR" => match state {
-                //     ParsePageState::Paragraph => {
-                //         let e = extract_elem(reader, e.name().as_ref());
-                //         curr_child.as_mut().map(|c| c.append_child(e));
-                //     }
-                //     _ => (),
-                // },
-                // b"span" | b"SPAN" => match state {
-                //     ParsePageState::Paragraph => (),
-                //     _ => todo!("handle span in state={:?}", state),
-                // },
+                b"nobr" | b"NOBR" => {
+                    if let Some(child) = curr_child.as_mut() {
+                        let e = extract_elem(reader, e.name().as_ref());
+                        child.append_child(e);
+                    }
+                }
                 _ => todo!("handle Start({:?})", e),
             },
-            // Ok(Event::Text(text)) => match state {
-            //     ParsePageState::Paragraph => {
-            //         curr_child.as_mut().map(|c| {
-            //             c.append_text_node(text.unescape().expect("valid utf8").to_string())
-            //         });
-            //     }
-            //     _ => (),
-            // },
             Ok(Event::Text(_text)) => (),
             Ok(e) => todo!("handle {:?}", e),
         }
@@ -424,7 +374,13 @@ fn extract_page(reader: &mut Reader<&[u8]>) -> Element {
 
 fn extract_page_id_from_attributes(attrs: Attributes) -> Option<String> {
     for attr in attrs {
-        let attr = attr.expect("a valid attribute");
+        let attr = match attr {
+            Ok(attr) => attr,
+            Err(err) => {
+                tracing::error!("Error reading attribute: {:?}", err);
+                return None;
+            }
+        };
         if attr.key.as_ref() == b"id" {
             if let Some(id) = attr.value.strip_prefix(b"page_") {
                 return Some(String::from_utf8(id.to_vec()).expect("valid utf8"));
@@ -432,10 +388,6 @@ fn extract_page_id_from_attributes(attrs: Attributes) -> Option<String> {
         }
     }
     None
-    // if e.attributes().any(|attr| {
-    //     let attr = attr.expect("valid attribute");
-    //     attr.key.as_ref() == b"id" && attr.value.starts_with(b"page_")
-    // })
 }
 
 fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
@@ -485,116 +437,39 @@ fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
     None
 }
 
-#[derive(Debug, Clone, PartialEq)]
-enum ParseTableState {
-    Start,
-    // ExtractPage,
-    // ExtractMetadataFoundKey { key: Cow<'a, str> },
-    // Dokument,
-    Paragraph,
-    Skip { tag: Vec<u8> },
-}
-
 fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
     let mut table = Vec::new();
-    let mut elem = Element::bare("page", "");
     let mut curr_elem: Option<Element> = None;
-    let mut state = ParseTableState::Start;
     loop {
-        println!(
-            "extract_table: state={:?}, table={:?},curr_elem={:?}",
-            state, table, curr_elem
-        );
         match reader.read_event() {
             Err(e) => todo!("handle err {:?}", e),
             Ok(Event::End(e)) => match e.name().as_ref() {
-                b"a" | b"A" => match state {
-                    ParseTableState::Paragraph => {
-                        if let Some(elem) = curr_elem.take() {
-                            table.push(elem);
-                        }
-                        state = ParseTableState::Start;
-                    }
-                    _ => todo!("handle bad state"),
-                },
-                // b"div" | b"DIV" => (),
-                // b"img" | b"IMG" => (),
-                // b"nobr" | b"NOBR" => (),
-                b"span" | b"SPAN" => (),
                 b"table" | b"TABLE" => break,
                 b"tbody" | b"TBODY" => (),
-                b"td" | b"TD" => match state {
-                    ParseTableState::Paragraph => {
-                        if let Some(elem) = curr_elem.take() {
-                            table.push(elem);
-                        }
-                        state = ParseTableState::Start;
-                    }
-                    ParseTableState::Start => (),
-                    _ => todo!("handle bad state"),
-                },
                 b"tr" | b"TR" => (),
                 b"thead" => (),
-                // b"p" | b"P" => match state {
-                //     ParseTableState::Paragraph => state = ParsePageState::Start,
-                //     _ => (),
-                // },
                 b"colgroup" => (),
                 _ => todo!("handle End({:?})", e),
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
                 b"a" | b"A" => {
-                    // if let Some(elem) = curr_elem.take() {
-                    //     table.push(elem);
-                    // }
                     let mut p = extract_paragraph(reader, e.name().as_ref());
                     if let Some(href) = extract_href_from_attributes(e.attributes()) {
                         p.set_attr("link", href);
                     }
                     table.push(p);
-                    // curr_elem = Some(p);
-                    // state = ParseTableState::Paragraph;
                 }
                 b"tbody" | b"TBODY" => (),
                 b"thead" => (),
                 b"tr" | b"TR" => (),
                 b"td" | b"TD" | b"th" | b"TH" => {
-                    // if let Some(elem) = curr_elem.take() {
-                    //     table.push(elem);
-                    // }
-                    // curr_elem = Some(Element::bare("p", ""));
                     table.push(extract_paragraph(reader, e.name().as_ref()));
-                    // state = ParseTableState::Paragraph;
                 }
                 b"span" | b"SPAN" => (),
-                // b"img" | b"IMG" => (),
-                // b"table" | b"TABLE" => {
-                //     let paragraphs = extract_table(reader);
-                // }
-                // b"p" | b"P" => {
-                //     if let Some(child) = curr_child.take() {
-                //         elem.append_child(child);
-                //     }
-                //     curr_child = Some(Element::bare("p", ""));
-                //     state = ParsePageState::Paragraph;
-                // }
-                // b"nobr" | b"NOBR" => (),
                 b"colgroup" => (),
                 _ => todo!("handle Start({:?})", e),
             },
-            Ok(Event::Text(text)) => match state {
-                ParseTableState::Paragraph => {
-                    curr_elem
-                        .as_mut()
-                        .map(|e| e.append_text_node(text.unescape().unwrap()));
-                }
-                ParseTableState::Start => (),
-                _ => todo!(
-                    "handle text='{}' state={:?}",
-                    text.unescape().unwrap().as_ref(),
-                    state
-                ),
-            },
+            Ok(Event::Text(_text)) => (),
             Ok(Event::Empty(_e)) => (),
             Ok(e) => todo!("handle {:?}", e),
         }
