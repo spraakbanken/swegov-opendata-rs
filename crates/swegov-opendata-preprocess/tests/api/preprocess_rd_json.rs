@@ -6,7 +6,6 @@ use swegov_opendata::{DataSet, DokumentStatusPageRef, DokumentStatusRef};
 use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 
 #[rstest]
-#[case("assets/Riksdagens diarium-2014-2017-h5d2467.json")]
 #[case("assets/bet-1998-2001-gp01bou1.json")]
 #[case("assets/bet-2006-2009-gu01au1.json")]
 #[case("assets/bet-2006-2009-gw01fiu3.json")]
@@ -35,8 +34,11 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/prop-2014-2017-h203100.json")]
 #[case("assets/prop-2018-2021-h603100.json")]
 #[case("assets/prot-1990-1997-ge091.json")]
-#[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]
+#[case("assets/Riksdagens diarium-2014-2017-h5d2467.json")]
+#[case("assets/Skriftliga frågor-1990-1997-gl11103.json")]
+#[case("assets/Skriftliga frågor-1990-1997-gl12229.json")]
 #[case("assets/utskottsdokument-1998-2001-gma1cc3.json")]
+#[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]
 #[case("assets/yttr-2018-2021-h605au1y.json")]
 #[case("assets/Övrigt-2014-2017-h4d1amt.json")]
 #[case("assets/Övrigt-2014-2017-h50n48f9da.json")]

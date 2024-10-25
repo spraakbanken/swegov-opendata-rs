@@ -214,7 +214,7 @@ pub struct DokumentRef<'a> {
     #[serde(with = "date_formats::swe_date_format")]
     pub systemdatum: NaiveDateTime,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
-    pub titel: &'a str,
+    pub titel: String,
     pub subtitel: Option<&'a str>,
     pub status: Option<&'a str>,
     #[serde(skip_serializing_if = "Option::is_none")]

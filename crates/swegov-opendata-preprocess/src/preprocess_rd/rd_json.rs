@@ -50,16 +50,16 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
 
     // text attributes
     for (name, value) in [
-        ("hangar_id", &dokument.hangar_id),
-        ("rm", &dokument.rm),
+        ("hangar_id", dokument.hangar_id),
+        ("rm", dokument.rm),
         // ("beteckning", &dokument.beteckning),
-        ("dokumentnamn", &dokument.dokumentnamn),
-        ("typ", &dokument.typ),
+        ("dokumentnamn", dokument.dokumentnamn),
+        ("typ", dokument.typ),
         // ("subtyp", &dokument.subtyp),
         // ("organ", &dokument.organ),
-        ("nummer", &dokument.nummer),
-        ("slutnummer", &dokument.slutnummer),
-        ("title", &dokument.titel),
+        ("nummer", dokument.nummer),
+        ("slutnummer", dokument.slutnummer),
+        ("title", dokument.titel.as_str()),
         // ("status", &dokument.status),
     ] {
         textelem.set_attr(name, value.replace("\r\n", " "));

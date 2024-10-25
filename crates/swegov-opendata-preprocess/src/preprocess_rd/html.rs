@@ -84,8 +84,12 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                             process_div(&mut reader, textelem)?;
                         }
                     }
-                    b"hr" | b"link" | b"LINK" | b"label" => (),
-                    b"h1" | b"pre" | b"p" | b"h2" | b"h3" | b"h4" => {
+                    b"hr" | b"link" | b"LINK" | b"label" | b"font" | b"FONT" => (),
+                    b"h1" | b"pre" | b"p" | b"P" | b"h2" | b"h3" | b"h4" => {
+                        if let ParseHtmlState::Paragraph(elem) = state {
+                            textelem.append_child(elem);
+                            state = ParseHtmlState::Start;
+                        }
                         textelem.append_child(extract_paragraph(&mut reader, e.name().as_ref())?);
                     }
                     b"head" | b"HEAD" | b"style" | b"STYLE" => {
@@ -117,6 +121,24 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                     b"span" if attrib_equals(&e, b"class", b"DatumRad") => {
                         let elem = extract_paragraph(&mut reader, e.name().as_ref())?;
                         textelem.append_child(elem);
+                    }
+                    b"UL" => {
+                        if let ParseHtmlState::Paragraph(elem) = state {
+                            textelem.append_child(elem);
+                            state = ParseHtmlState::Start;
+                        }
+                        textelem.append_child(extract_paragraph(&mut reader, e.name().as_ref())?);
+                    }
+                    b"b" | b"B" | b"i" | b"I" => {
+                        if let ParseHtmlState::Paragraph(ref mut elem) = &mut state {
+                            elem.append_child(extract_elem(&mut reader, e.name().as_ref()));
+                            continue;
+                        }
+                        if let ParseHtmlState::Start = state {
+                            let mut p = Element::bare("p", "");
+                            p.append_child(extract_elem(&mut reader, e.name().as_ref()));
+                            state = ParseHtmlState::Paragraph(p);
+                        }
                     }
                     _ => {
                         return Err(ProcessHtmlError::unexpected_start_tag(
@@ -154,7 +176,14 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"style" | b"label" | b"body" | b"BODY" | b"html" | b"HTML" => (),
+                    b"style" | b"label" | b"body" | b"BODY" | b"html" | b"HTML" | b"font"
+                    | b"FONT" => (),
+                    b"b" | b"B" | b"i" | b"I" => {
+                        if let ParseHtmlState::Paragraph(p) = &state {
+                            dbg!(&p);
+                        }
+                        todo!("handle End={:?}", e);
+                    }
                     _ => todo!("handle {:?}", e),
                 }
             }
