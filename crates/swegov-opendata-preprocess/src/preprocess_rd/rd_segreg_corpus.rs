@@ -1,10 +1,5 @@
 use std::{
-    borrow::Cow,
-    collections::HashMap,
-    fs,
-    io::Read,
-    path::Path,
-    sync::atomic::Ordering,
+    borrow::Cow, collections::HashMap, fs, io::Read, path::Path, sync::atomic::Ordering,
     time::Duration,
 };
 
@@ -249,7 +244,7 @@ fn build_sparv_source(
         let mut zipobj = zipf
             .by_index(i)
             .map_err(|error| PreprocessError::CouldNotGetZipObjByIndex { index: i, error })?;
-        tracing::debug!(zip_archive = ?path,"Processing file {}: {}",i,zipobj.name());
+        tracing::trace!(zip_archive = ?path,"Processing file {}: {}",i,zipobj.name());
         let mut filecontents = String::new();
         zipobj.read_to_string(&mut filecontents).map_err(|error| {
             PreprocessError::CouldNotReadZipFile {
@@ -275,6 +270,5 @@ fn build_sparv_source(
     }
 
     source_writer.flush()?;
-    todo!();
     Ok(())
 }

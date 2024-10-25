@@ -1,10 +1,14 @@
+use core::fmt;
 use std::borrow::Cow;
 
 use minidom_extension::{
     attrib_query::attrib_equals,
     minidom::{
         quick_xml::{
-            events::{attributes::Attributes, BytesText, Event},
+            events::{
+                attributes::{AttrError, Attributes},
+                BytesText, Event,
+            },
             Reader,
         },
         Element, Node,
@@ -21,6 +25,7 @@ fn remove_cdata<'a>(text: &'a str) -> Cow<'a, str> {
     CDATA.replace_all(text, "")
 }
 pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
+    println!("process_html");
     let contents_processed = contents.replace("\r\n", " ");
     let contents_processed = contents_processed.replace("STYLEREF Kantrubrik \\* MERGEFORMAT", "");
     let contents_processed = contents_processed.replace("\u{a0}", "");
@@ -50,8 +55,14 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                     _ => (),
                 }
                 match e.name().as_ref() {
-                    b"br" | b"BR" | b"hr" => (),
-                    _ => todo!("handle Empty({:?}), state={:?}", e, state),
+                    b"br" | b"BR" | b"hr" | b"v" => (),
+                    _ => {
+                        return Err(ProcessHtmlError::unexpected_empty_tag(
+                            reader.buffer_position(),
+                            e.name().as_ref(),
+                            "process_html",
+                        ))
+                    }
                 }
             }
             Ok(Event::Start(e)) => {
@@ -62,17 +73,20 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                 match e.name().as_ref() {
                     b"body" | b"BODY" | b"html" | b"HTML" => (),
                     b"div" | b"DIV" => {
-                        if let Some(id) = extract_page_id_from_attributes(e.attributes()) {
-                            let page = extract_page(&mut reader, id);
+                        if unquoted_qttribute(e.attributes()) {
+                            process_div_bad(&mut reader, textelem)?;
+                            dbg!(&textelem);
+                        } else if let Some(id) = extract_page_id_from_attributes(e.attributes()) {
+                            let page = extract_page(&mut reader, id)?;
                             textelem.append_child(page);
                             state = ParseHtmlState::Start;
                         } else {
-                            process_div(&mut reader, textelem);
+                            process_div(&mut reader, textelem)?;
                         }
                     }
                     b"hr" | b"link" | b"LINK" | b"label" => (),
                     b"h1" | b"pre" | b"p" | b"h2" | b"h3" | b"h4" => {
-                        textelem.append_child(extract_paragraph(&mut reader, e.name().as_ref()));
+                        textelem.append_child(extract_paragraph(&mut reader, e.name().as_ref())?);
                     }
                     b"head" | b"HEAD" | b"style" | b"STYLE" => {
                         state = ParseHtmlState::Skip {
@@ -80,7 +94,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         }
                     }
                     b"table" | b"TABLE" => {
-                        let paragraphs = extract_table(&mut reader);
+                        let paragraphs = extract_table(&mut reader)?;
                         for p in paragraphs {
                             textelem.append_child(p);
                         }
@@ -91,7 +105,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         }
                     }
                     b"ol" | b"ul" => {
-                        let paragraphs = extract_list(&mut reader, e.name().as_ref());
+                        let paragraphs = extract_list(&mut reader, e.name().as_ref())?;
                         for p in paragraphs {
                             textelem.append_child(p);
                         }
@@ -101,14 +115,15 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         process_rd_lista(&mut reader, textelem)?;
                     }
                     b"span" if attrib_equals(&e, b"class", b"DatumRad") => {
-                        let elem = extract_paragraph(&mut reader, e.name().as_ref());
+                        let elem = extract_paragraph(&mut reader, e.name().as_ref())?;
                         textelem.append_child(elem);
                     }
                     _ => {
-                        return Err(ProcessHtmlError::UnexpectedStartTag {
-                            pos: reader.buffer_position(),
-                            tag: String::from_utf8_lossy(e.name().as_ref()).to_string(),
-                        });
+                        return Err(ProcessHtmlError::unexpected_start_tag(
+                            reader.buffer_position(),
+                            e.name().as_ref(),
+                            "process_html",
+                        ));
                     }
                 }
             }
@@ -145,6 +160,15 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
             }
             Ok(Event::Eof) => break,
             Ok(Event::Comment(_)) => (),
+            Ok(Event::DocType(e)) => {
+                // let text = e.unescape().unwrap();
+                // if text.contains("html1") {
+                //     process_html1(&mut reader, textelem)?;
+                // } else if text.contains("html4") {
+                //     process_html4(&mut reader, textelem)?;
+                // }
+                todo!("handle DocType={:?}", e);
+            }
             Ok(e) => todo!("handle {:?}", e),
         }
     }
@@ -153,8 +177,118 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
     }
     Ok(())
 }
-
-fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
+const IGNORED_TAG_PREFIXES: &[&'static [u8]] = &[b"v:", b"w:", b"o:"];
+fn process_div_bad(
+    reader: &mut Reader<&[u8]>,
+    textelem: &mut Element,
+) -> Result<(), ProcessHtmlError> {
+    println!("process_div_bad");
+    let mut div_count = 1;
+    let mut p_count = 0;
+    let mut curr_p: Option<Element> = None;
+    let mut stack: Vec<Element> = Vec::new();
+    loop {
+        match reader.read_event() {
+            Err(e) => todo!("handle err {:?}", e),
+            Ok(Event::Text(text)) => {
+                dbg!(&text);
+                let text = unescape(&text);
+                if !text.trim().is_empty() {
+                    // if let Some(p) = curr_p.as_mut() {
+                    //     p.append_text_node(text.clone());
+                    // } else {
+                    //     todo!("handle non-empty text");
+                    // }
+                    if let Some(e) = stack.last_mut() {
+                        e.append_text_node(text);
+                    } else {
+                        todo!("handle non-empty text");
+                    }
+                }
+            }
+            Ok(Event::Start(e)) => {
+                dbg!(&e);
+                match e.name().as_ref() {
+                    b"div" => div_count += 1,
+                    b"table" | b"tr" | b"td" | b"font" | b"img" | b"xml" => (),
+                    b"span" => (),
+                    b"p" | b"h1" | b"h2" | b"h3" | b"h4" => {
+                        if p_count == 0 {
+                            // if let Some(p) = curr_p.take() {
+                            //     textelem.append_child(p);
+                            // }
+                            // curr_p = Some(Element::bare("p", ""));
+                            stack.push(Element::bare("p", ""));
+                        }
+                        p_count += 1;
+                    }
+                    b"a" => (),
+                    b"b" | b"i" => stack.push(Element::bare(
+                        String::from_utf8_lossy(e.name().as_ref()).to_lowercase(),
+                        "",
+                    )),
+                    b"br" => {
+                        if let Some(p) = stack.last_mut() {
+                            p.append_child(Element::bare("br", ""));
+                        }
+                    }
+                    tag if IGNORED_TAG_PREFIXES.contains(&&tag[0..2]) => (),
+                    _ => todo!("handle Start={:?}", e),
+                }
+            }
+            Ok(Event::End(e)) => match dbg!(&e).name().as_ref() {
+                b"div" => {
+                    div_count -= 1;
+                    if div_count == 0 {
+                        break;
+                    }
+                }
+                b"table" | b"tr" | b"td" | b"font" | b"img" | b"xml" => (),
+                b"span" => (),
+                b"a" => (),
+                b"p" | b"h1" | b"h2" | b"h3" | b"h4" => {
+                    p_count -= 1;
+                    // if p_count == 0 {
+                    //     if let Some(p) = curr_p.take() {
+                    //         textelem.append_child(p);
+                    //     }
+                    // }
+                }
+                b"b" | b"i" => {
+                    if let Some(b) = stack.pop() {
+                        if let Some(p) = stack.last_mut() {
+                            p.append_child(b);
+                        }
+                    }
+                }
+                tag if IGNORED_TAG_PREFIXES.contains(&&tag[0..2]) => (),
+                _ => todo!("handle End={:?}", e),
+            },
+            Ok(Event::Empty(e)) => match dbg!(&e).name().as_ref() {
+                tag if IGNORED_TAG_PREFIXES.contains(&&tag[0..2]) => (),
+                _ => todo!("handle Empty={:?}", e),
+            },
+            Ok(e) => todo!("handle {:?}", e),
+        }
+    }
+    for elem in stack {
+        textelem.append_child(elem);
+    }
+    Ok(())
+}
+fn process_html4(
+    reader: &mut Reader<&[u8]>,
+    textelem: &mut Element,
+) -> Result<(), ProcessHtmlError> {
+    loop {
+        match reader.read_event() {
+            Err(e) => todo!("handle err {:?}", e),
+            Ok(e) => todo!("handle {:?}", e),
+        }
+    }
+    Ok(())
+}
+fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
     let mut state = ParseHtmlState::Start;
     let mut div_count = 1;
     loop {
@@ -168,7 +302,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                 }
                 b"div" | b"DIV" => {
                     if let Some(id) = extract_page_id_from_attributes(e.attributes()) {
-                        let page = extract_page(reader, id);
+                        let page = extract_page(reader, id)?;
                         textelem.append_child(page);
                         state = ParseHtmlState::Start;
                     } else {
@@ -176,16 +310,17 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                     }
                 }
                 b"p" | b"P" | b"h1" | b"h2" | b"H2" | b"h3" | b"h4" => {
-                    textelem.append_child(extract_paragraph(reader, e.name().as_ref()));
+                    textelem.append_child(extract_paragraph(reader, e.name().as_ref())?);
                 }
                 b"table" | b"TABLE" => {
-                    let paragraphs = extract_table(reader);
+                    let paragraphs = extract_table(reader)?;
+                    println!("process_div: extract_table: {paragraphs:?}");
                     for p in paragraphs {
                         textelem.append_child(p);
                     }
                 }
                 b"ol" | b"ul" => {
-                    let paragraphs = extract_list(reader, e.name().as_ref());
+                    let paragraphs = extract_list(reader, e.name().as_ref())?;
                     for p in paragraphs {
                         textelem.append_child(p);
                     }
@@ -195,8 +330,15 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                 | b"textovervagande"
                 | b"rubriksarskiltyttrande"
                 | b"yttrandebilaga" => (),
-                b"span" => (),
-                _ => todo!("handle Start({:?})", e),
+                b"o:p" => (),
+                b"span" | b"a" | b"font" | b"td" | b"tr" => (),
+                _ => {
+                    return Err(ProcessHtmlError::unexpected_start_tag(
+                        reader.buffer_position(),
+                        e.name().as_ref(),
+                        "process_div",
+                    ))
+                }
             },
             Ok(Event::Text(_t)) => match state {
                 ParseHtmlState::Skip { tag: _ } => continue,
@@ -219,15 +361,26 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) {
                     b"noter"
                     | b"textovervagande"
                     | b"rubriksarskiltyttrande"
-                    | b"yttrandebilaga" => (),
-                    b"span" => (),
-                    _ => todo!("handle End({:?})", e),
+                    | b"yttrandebilaga"
+                    | b"td"
+                    | b"tr"
+                    | b"table" => (),
+                    b"o:p" => (),
+                    b"span" | b"a" | b"font" | b"p" => (),
+                    _ => {
+                        return Err(ProcessHtmlError::unexpected_end_tag(
+                            reader.buffer_position(),
+                            e.name().as_ref(),
+                            "process_div",
+                        ))
+                    }
                 }
             }
             Ok(Event::Empty(_e)) => (),
             Ok(e) => todo!("handle {:?}", e),
         }
     }
+    Ok(())
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -237,7 +390,7 @@ enum ParseHtmlState {
     Skip { tag: Vec<u8> },
 }
 
-fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
+fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, ProcessHtmlError> {
     let mut elem = Element::bare("p", "");
     let mut curr_node: Option<Node> = None;
     let mut just_seen_span = false;
@@ -260,11 +413,19 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
                 b"a" | b"A" | b"p" | b"P" | b"notreferens" | b"hanvisning" | b"kant" | b"h4"
-                | b"font" | b"o:p" | b"div" | b"pre" => just_seen_span = false,
+                | b"font" | b"div" | b"pre" | b"xml" => just_seen_span = false,
                 b"span" | b"SPAN" => just_seen_span = true,
                 // Handle errornous </NOBR> in at least one document
                 b"nobr" | b"NOBR" => just_seen_span = false,
-                _ => todo!("handle End({:?})", e),
+                tag if &tag[0..2] == b"o:" => just_seen_span = false,
+                tag if &tag[0..2] == b"v:" => just_seen_span = false,
+                _ => {
+                    return Err(ProcessHtmlError::unexpected_end_tag(
+                        reader.buffer_position(),
+                        e.name().as_ref(),
+                        "extract_paragraph",
+                    ))
+                }
             },
 
             Ok(Event::Start(e)) => match e.name().as_ref() {
@@ -292,9 +453,18 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                         });
                     }
                 }
-                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"o:p" | b"."
-                | b"div" | b"pre" | b"INGENBILD" => (),
-                _ => todo!("handle Start({:?})", e),
+                b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"." | b"div"
+                | b"pre" | b"INGENBILD" | b"img" => (),
+                b"table" | b"tr" | b"td" | b"xml" => (),
+                tag if &tag[0..2] == b"o:" => (),
+                tag if &tag[0..2] == b"v:" => (),
+                _ => {
+                    return Err(ProcessHtmlError::unexpected_start_tag(
+                        reader.buffer_position(),
+                        e.name().as_ref(),
+                        "extract_paragraph",
+                    ));
+                }
             },
             Ok(Event::Empty(e)) => match e.name().as_ref() {
                 b"br" | b"BR" => {
@@ -305,7 +475,15 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
                     elem.append_child(Element::bare("br", ""));
                 }
                 b"p" | b"P" | b"a" | b"A" | b"img" | b"IMG" => (),
-                _ => todo!("handle Empty({:?})", e),
+                b"w:wrap" | b"o:lock" => (),
+                tag if &tag[0..2] == b"v:" => (),
+                _ => {
+                    return Err(ProcessHtmlError::unexpected_empty_tag(
+                        reader.buffer_position(),
+                        e.name().as_ref(),
+                        "extract_paragraph",
+                    ))
+                }
             },
             Ok(Event::Comment(_)) => (),
             Ok(e) => todo!("handle {:?}", e),
@@ -314,7 +492,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
     if let Some(node) = curr_node.take() {
         elem.append_node(node);
     }
-    elem
+    Ok(elem)
 }
 
 fn process_rd_lista(
@@ -338,7 +516,7 @@ fn process_rd_lista(
                     if let Some(elem) = curr_elem.take() {
                         textelem.append_child(elem);
                     }
-                    curr_elem = Some(extract_paragraph(reader, e.name().as_ref()));
+                    curr_elem = Some(extract_paragraph(reader, e.name().as_ref())?);
                 }
                 b"span" => span_count += 1,
                 _ => todo!("handle Start={:?}", e),
@@ -364,31 +542,61 @@ fn process_rd_lista(
     }
     Ok(())
 }
-fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Vec<Element> {
-    let mut list = Vec::new();
+fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Vec<Element>, ProcessHtmlError> {
+    let mut items = Vec::new();
+    let mut curr_item = None;
     loop {
         match reader.read_event() {
             Err(e) => todo!("handle error={:?}", e),
             Ok(Event::Start(e)) => match e.name().as_ref() {
-                b"li" => list.push(extract_paragraph(reader, e.name().as_ref())),
+                // b"li" => list.push(extract_paragraph(reader, e.name().as_ref())?),
+                b"li" => {
+                    if let Some(item) = curr_item.take() {
+                        items.push(item);
+                    }
+                    curr_item = Some(Element::bare("p", ""));
+                }
+                b"br" => {
+                    if let Some(item) = curr_item.as_mut() {
+                        item.append_child(Element::bare("br", ""));
+                    }
+                }
+                b"b" | b"i" => {
+                    if let Some(item) = curr_item.as_mut() {
+                        let e = extract_elem(reader, e.name().as_ref());
+                        item.append_child(e);
+                    }
+                }
+                b"span" | b"p" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::End(e)) => match e.name().as_ref() {
                 e_tag if e_tag == tag => break,
+                b"span" | b"p" => (),
+                b"li" => {
+                    if let Some(item) = curr_item.take() {
+                        items.push(item);
+                    }
+                }
                 _ => todo!("handle End({:?})", e),
             },
             Ok(Event::Text(text)) => {
                 let text = text.unescape().unwrap();
-                if !text.trim().is_empty() {
+                if let Some(item) = curr_item.as_mut() {
+                    item.append_text_node(text);
+                } else if !text.trim().is_empty() {
                     todo!("handle text outside of li");
                 }
             }
             Ok(e) => todo!("handle {:?}", e),
         }
     }
-    list
+    if let Some(item) = curr_item.take() {
+        items.push(item);
+    }
+    Ok(items)
 }
-fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Element {
+fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Result<Element, ProcessHtmlError> {
     let mut elem = Element::bare("page", "");
     elem.set_attr("id", &id);
     let mut curr_child: Option<Element> = None;
@@ -411,7 +619,7 @@ fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Element {
                 b"div" | b"DIV" => div_count += 1,
                 b"img" | b"IMG" | b"ingenbild" | b"INGENBILD" => (),
                 b"table" | b"TABLE" => {
-                    let paragraphs = extract_table(reader);
+                    let paragraphs = extract_table(reader)?;
                     if let Some(child) = curr_child.take() {
                         elem.append_child(child);
                     }
@@ -423,7 +631,7 @@ fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Element {
                     if let Some(child) = curr_child.take() {
                         elem.append_child(child);
                     }
-                    curr_child = Some(extract_paragraph(reader, e.name().as_ref()));
+                    curr_child = Some(extract_paragraph(reader, e.name().as_ref())?);
                 }
                 b"nobr" | b"NOBR" => {
                     if let Some(child) = curr_child.as_mut() {
@@ -440,16 +648,24 @@ fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Element {
     if let Some(child) = curr_child.take() {
         elem.append_child(child);
     }
-    elem
+    Ok(elem)
 }
 
+fn unquoted_qttribute(attrs: Attributes) -> bool {
+    for attr in attrs {
+        if let Err(AttrError::UnquotedValue(_)) = attr {
+            return true;
+        }
+    }
+    false
+}
 fn extract_page_id_from_attributes(attrs: Attributes) -> Option<String> {
     for attr in attrs {
         let attr = match attr {
             Ok(attr) => attr,
             Err(err) => {
-                tracing::error!("Error reading attribute: {:?}", err);
-                return None;
+                tracing::warn!("Error reading attribute: {:?}, skipping ..", err);
+                continue;
             }
         };
         if attr.key.as_ref() == b"id" {
@@ -476,6 +692,9 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Element {
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
                 b"a" | b"A" | b"span" | b"SPAN" | b"font" | b"FONT" | b"o:p" => (),
+                b"br" => {
+                    elem.append_child(Element::bare("br", ""));
+                }
                 _ => todo!(
                     "handle Start({:?}), tag={}",
                     e,
@@ -508,7 +727,7 @@ fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
     None
 }
 
-fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
+fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtmlError> {
     let mut table = Vec::new();
     let curr_elem: Option<Element> = None;
     loop {
@@ -524,7 +743,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
             },
             Ok(Event::Start(e)) => match e.name().as_ref() {
                 b"a" | b"A" => {
-                    let mut p = extract_paragraph(reader, e.name().as_ref());
+                    let mut p = extract_paragraph(reader, e.name().as_ref())?;
                     if let Some(href) = extract_href_from_attributes(e.attributes()) {
                         p.set_attr("link", href);
                     }
@@ -534,7 +753,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
                 b"thead" => (),
                 b"tr" | b"TR" => (),
                 b"td" | b"TD" | b"th" | b"TH" => {
-                    table.push(extract_paragraph(reader, e.name().as_ref()));
+                    table.push(extract_paragraph(reader, e.name().as_ref())?);
                 }
                 b"span" | b"SPAN" => (),
                 b"colgroup" => (),
@@ -545,17 +764,53 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Vec<Element> {
             Ok(e) => todo!("handle {:?}", e),
         }
     }
-    table
+    Ok(table)
 }
 
 #[derive(Debug, thiserror::Error, miette::Diagnostic)]
 pub enum ProcessHtmlError {
-    #[error("Unexpected <{tag}> at {pos}")]
-    UnexpectedStartTag { pos: usize, tag: String }, // #[error("Error reading JSON")]
-                                                    // JsonError(#[from] serde_json::Error),
-                                                    // #[error("Failed write XML")]
-                                                    // XmlWrite(#[source] MinidomError),
-                                                    // #[error("Document contains no html")]
-                                                    // #[diagnostic(severity(Warning))]
-                                                    // HtmlFieldIsEmpty,
+    #[error("Unexpected start {0}")]
+    UnexpectedStartTag(UnexpectedTag),
+    #[error("Unexpected empty {0}")]
+    UnexpectedEmptyTag(UnexpectedTag),
+    #[error("Unexpected end {0}")]
+    UnexpectedEndTag(UnexpectedTag),
+}
+
+impl ProcessHtmlError {
+    pub fn unexpected_start_tag(pos: usize, tag: &[u8], context: &str) -> Self {
+        Self::UnexpectedStartTag(UnexpectedTag::new(pos, tag, context))
+    }
+    pub fn unexpected_empty_tag(pos: usize, tag: &[u8], context: &str) -> Self {
+        Self::UnexpectedEmptyTag(UnexpectedTag::new(pos, tag, context))
+    }
+    pub fn unexpected_end_tag(pos: usize, tag: &[u8], context: &str) -> Self {
+        Self::UnexpectedEndTag(UnexpectedTag::new(pos, tag, context))
+    }
+}
+
+#[derive(Debug)]
+pub struct UnexpectedTag {
+    pos: usize,
+    tag: String,
+    context: String,
+}
+
+impl UnexpectedTag {
+    pub fn new(pos: usize, tag: &[u8], context: &str) -> Self {
+        Self {
+            pos,
+            tag: String::from_utf8_lossy(tag).to_string(),
+            context: context.to_string(),
+        }
+    }
+}
+
+impl fmt::Display for UnexpectedTag {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.write_fmt(format_args!(
+            "tag='{}' at pos={} in {}",
+            self.tag, self.pos, self.context
+        ))
+    }
 }
