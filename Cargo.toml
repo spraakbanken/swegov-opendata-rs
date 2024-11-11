@@ -66,7 +66,7 @@ serde_yaml = "0.9.27"
 smallvec = { version = "1", default-features = false }
 soup = "0.5.1"
 syn = "2"
-thiserror = "1.0.64"
+thiserror = "1.0.69"
 tokio = "1.40.0"
 tokio-stream = "0.1.14"
 tracing = "0.1.40"
