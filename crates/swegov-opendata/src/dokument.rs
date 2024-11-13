@@ -201,7 +201,7 @@ pub struct DokumentRef<'a> {
     pub tempbeteckning: Option<&'a str>,
     pub organ: Option<&'a str>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub mottagare: Option<&'a str>,
+    pub mottagare: Option<Cow<'a, str>>,
     // #[serde(deserialize_with = "deserialize_tryparse_from_string")]
     // nummer: TryParse<u64>,
     pub nummer: &'a str,
@@ -215,7 +215,7 @@ pub struct DokumentRef<'a> {
     pub systemdatum: NaiveDateTime,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
     pub titel: String,
-    pub subtitel: Option<&'a str>,
+    pub subtitel: Option<Cow<'a, str>>,
     pub status: Option<&'a str>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub htmlformat: Option<&'a str>,
@@ -242,7 +242,7 @@ pub struct DokumentRef<'a> {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rubriker: Option<&'a str>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub images: Option<&'a str>,
+    pub images: Option<Cow<'a, str>>,
     #[serde(skip_serializing_if = "Option::is_none", borrow)]
     pub metadata: Option<Cow<'a, str>>,
 }

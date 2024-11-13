@@ -1,0 +1,83 @@
+{
+  "dokumentstatus": {
+    "dokument": {
+      "hangar_id": "2391238",
+      "dok_id": "GO12264",
+      "rm": "2000/01",
+      "beteckning": "264",
+      "doktyp": "frs",
+      "typ": "frs",
+      "subtyp": null,
+      "tempbeteckning": null,
+      "organ": null,
+      "mottagare": "Statsrådet: Mona Sahlin \r\n",
+      "nummer": "264",
+      "slutnummer": "0",
+      "datum": "2000-11-30 00:00:00",
+      "systemdatum": "2006-09-20 15:05:07",
+      "publicerad": "2000-11-30 00:00:00",
+      "titel": "ekonomin i Stockholm",
+      "subtitel": null,
+      "status": null,
+      "htmlformat": null,
+      "relaterat_id": null,
+      "source": null,
+      "sourceid": null,
+      "dokument_url_text": "http://data.riksdagen.se/dokument/GO12264/text",
+      "dokument_url_html": "http://data.riksdagen.se/dokument/GO12264",
+      "dokumentstatus_url_xml": "http://data.riksdagen.se/dokumentstatus/GO12264",
+      "html": "<I><FONT FACE=\"Verdana,Tahoma\" SIZE=2><P><A NAME=\"PassTempLäge\"></A>den 30 november </P></I><B><P>Svar på fråga 2000/01:264 om ekonomin i Stockholm</P><DIR></B><P>Statsrådet Mona Sahlin </P></DIR><P><A NAME=\"Temp\"></A>Inger Strömbom har frågat mig om jag avser att föreslå åtgärder för att kyla ned ekonomin i Stockholmsregionen till förmån för andra delar av landet.</P><P>Bakgrunden till frågan är att Inger Strömbom befarar att regeringen ansluter sig till dem som menar att en nedkylning av tillväxten i Stockholm är en förutsättning för att andra delar av landet ska få del av tillväxten.</P><P>Inger Strömbom har tidigare riktat en interpellation till mig med ungefär samma innehåll. Av praktiska skäl kan interpellationen inte besvaras förrän den 16 januari.</P><P>Som svar på den aktuella frågan vill jag hänvisa till att regeringen under ett drygt år på förslag av Storstadsdelegationen och i dialog med kommuner i våra tre storstadsregioner börjat genomföra en storstadspolitik. Regeringens storstadspolitik utvecklas utifrån två övergripande mål. Målen är:</P><UL><LI>att ge storstadsregionerna goda förutsättningar för långsiktigt hållbar tillväxt och därmed kunna bidra till att nya jobb skapas såväl inom regionerna som i övriga delar av landet,</LI><LI>att bryta den sociala, etniska och diskriminerande segregationen i storstadsregionerna och att verka för jämlika och jämställda levnadsvillkor för storstädernas invånare.</LI></UL><P>Tillväxtmålet bygger på den grundläggande tanken om att tillväxt i storstäderna också skapar tillväxt i andra regioner.</P><P>Regeringen har hittills slutit lokala utvecklingsavtal, som är ett instrument i storstadspolitiken, med Stockholm och fem andra kommuner. </P><P>Regeringen har dessutom nyligen gett NUTEK i uppdrag att granska de lokala utvecklingsavtalen ur ett tillväxtperspektiv. Det är min förhoppning att de lokala utvecklingsavtalen kan utvecklas ytterligare som styrinstrument för att skapa förutsättningar för ökad tillväxt just i våra storstadsregioner.</P><P>Jag har alltså inte för avsikt att föreslå några åtgärder för att kyla ned ekonomin i Stockholmsregionen. Däremot är jag orolig för att bristen på bostäder i regionen kommer att innebära problem i den fortsatta utvecklingen. Enligt Merita Nordbankens regionala studie i november, liksom Länsarbetsnämndens höstprognos, har företagen i Stockholm stora svårigheter att rekrytera personal, på grund av att människor inte kan flytta till Stockholm. </P></FONT>"
+    },
+    "dokaktivitet": {
+      "aktivitet": [
+        {
+          "kod": "ANM",
+          "namn": "Anmäld",
+          "datum": "2000-11-28 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Besvarad",
+          "datum": "2000-11-30 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "INL",
+          "namn": "Inlämnad",
+          "datum": "2000-11-21 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        }
+      ]
+    },
+    "dokintressent": {
+      "intressent": [
+        {
+          "intressent_id": "0330714384902",
+          "namn": "Strömbom, Inger (kd) ",
+          "partibet": "KD",
+          "ordning": "1",
+          "roll": "fragestallare"
+        },
+        {
+          "intressent_id": "0806338394516",
+          "namn": "statsrådet Mona Sahlin ",
+          "partibet": "S",
+          "ordning": "1",
+          "roll": "besvarare"
+        }
+      ]
+    },
+    "dokforslag": null,
+    "dokuppgift": null,
+    "dokbilaga": null,
+    "dokreferens": null,
+    "debatt": null
+  }
+}

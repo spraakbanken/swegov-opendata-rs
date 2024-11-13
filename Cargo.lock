@@ -1380,6 +1380,7 @@ dependencies = [
  "itertools",
  "minidom-14",
  "pretty_assertions",
+ "tracing",
 ]
 
 [[package]]

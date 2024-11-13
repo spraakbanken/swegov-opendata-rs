@@ -1,0 +1,15 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GM11284" dokument_url_html="http://data.riksdagen.se/dokument/GM11284" dokument_url_text="http://data.riksdagen.se/dokument/GM11284/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GM11284">
+  <text beteckning="284" datatyp="huvuddokument" datum="1999-01-01 00:00:00" dokumentnamn="" hangar_id="2429132" nummer="284" organ="s" publicerad="1999-01-01 00:00:00" rm="1998/99" slutnummer="0" status="" subtyp="" systemdatum="2009-03-31 14:21:14" title="tillsättande av storstadsdelegation" typ="fr">
+    <p>
+      <b>Fråga 1998/99:284</b> av<i>Marie Granlund</i> (s) till statsrådet Ulrica Messing om tillsättande av storstadsdelegation</p>
+    <p>den 26 januari</p>
+    <p>Före juluppehållet beslutade riksdagen i enlighet med regeringens förslag att uppdra åt regeringen att tillsätta en storstadsdelegation. Delegationens uppgift skall vara att utveckla och samordna den nationella storstadspolitiken.</p>
+    <p>Bakgrunden är, som det redogörs för i propositionen<i>Utveckling och rättvisa - en politik för storstaden på 2000-talet</i> , att det behövs en nationell politik för storstadsregionerna. Storstadspolitiken skall syfta till att ge storstadsregionerna goda förutsättningar för en långsiktigt hållbar tillväxt för att därmed kunna bidra till att nya jobb skapas såväl inom regionerna som i övriga delar av landet samt till att bryta den sociala och etniska segregationen i storstadsregionerna och att verka för jämlika levnadsvillkor för storstädernas alla invånare, oavsett ursprung och kön.</p>
+    <p>Det är av yttersta vikt att omgående få till stånd en samlad storstadspolitik som tar hänsyn både till storstädernas tillväxtmöjligheter men också till de sociala klyftorna.</p>
+    <p>Min fråga till statsrådet Ulrica Messing är därför när den beslutade storstadsdelegationen kommer att tillsättas.</p>
+  </text>
+</dokument>

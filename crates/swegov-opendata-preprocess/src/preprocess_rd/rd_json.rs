@@ -103,7 +103,8 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
         textelem.set_attr(name, value.to_string());
     }
     if let Some(upplysning) = &metadata.upplysning {
-        todo!("Handle upplysning={:?}", upplysning);
+        textelem.set_attr("upplysning", upplysning.upplysning());
+        // todo!("Handle upplysning={:?}", upplysning);
     }
     if let Some(dokintressent) = dokintressent {
         let mut intressenter = BTreeSet::new();
@@ -253,7 +254,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
             ] {
                 textelem.set_attr(name, value_opt.map(|s| s.trim()).unwrap_or(""));
             }
-            process_html(forslag.lydelse, &mut textelem)?;
+            process_html(forslag.lydelse.as_ref(), &mut textelem)?;
             if let Some(text) = forslag.lydelse2 {
                 process_html(&text, &mut textelem)?;
             }
@@ -448,74 +449,100 @@ fn process_json_value(
                     dbg!(table);
                     for a in table {
                         match a {
-                            Value::Object(to) => match &to["tr"] {
-                                Value::Array(rows) => {
-                                    for row in rows {
-                                        match row {
-                                            Value::Object(r) => {
-                                                if let Some(td) = r.get("td") {
-                                                    match td {
-                                                        Value::Object(td_obj) => {
-                                                            dbg!(td_obj);
-                                                            match &td_obj["h4"] {
-                                                                Value::String(text) => {
-                                                                    textelem
-                                                                        .append_child(elem_p(text));
+                            Value::Object(to) => {
+                                if let Some(tr) = to.get("tr") {
+                                    match tr {
+                                        Value::Array(rows) => {
+                                            for row in rows {
+                                                match row {
+                                                    Value::Object(r) => {
+                                                        if let Some(td) = r.get("td") {
+                                                            match td {
+                                                                Value::Object(td_obj) => {
+                                                                    dbg!(td_obj);
+                                                                    match &td_obj["h4"] {
+                                                                        Value::String(text) => {
+                                                                            textelem.append_child(
+                                                                                elem_p(text),
+                                                                            );
+                                                                        }
+                                                                        Value::Null => (),
+                                                                        x => {
+                                                                            todo!("handle {:?}", x)
+                                                                        }
+                                                                    }
+                                                                    if let Some(td_obj_p) =
+                                                                        td_obj.get("p")
+                                                                    {
+                                                                        match td_obj_p {
+                                                                            Value::String(text) => {
+                                                                                textelem
+                                                                                    .append_child(
+                                                                                        elem_p(
+                                                                                            text,
+                                                                                        ),
+                                                                                    );
+                                                                            }
+                                                                            x => todo!(
+                                                                                "handle {:?}",
+                                                                                x
+                                                                            ),
+                                                                        }
+                                                                    }
                                                                 }
-                                                                Value::Null => (),
+                                                                Value::Array(td_arr) => {
+                                                                    for td_v in td_arr {
+                                                                        match td_v {
+                                                                            Value::String(text) => {
+                                                                                textelem
+                                                                                    .append_child(
+                                                                                        elem_p(
+                                                                                            text,
+                                                                                        ),
+                                                                                    );
+                                                                            }
+                                                                            x => todo!(
+                                                                                "handle {:?}",
+                                                                                x
+                                                                            ),
+                                                                        }
+                                                                    }
+                                                                }
                                                                 x => todo!("handle {:?}", x),
                                                             }
-                                                            if let Some(td_obj_p) = td_obj.get("p")
-                                                            {
-                                                                match td_obj_p {
-                                                                    Value::String(text) => {
-                                                                        textelem.append_child(
-                                                                            elem_p(text),
-                                                                        );
+                                                        }
+                                                        if let Some(th) = &r.get("th") {
+                                                            match th {
+                                                                Value::Array(th_arr) => {
+                                                                    for th_v in th_arr {
+                                                                        match th_v {
+                                                                            Value::String(text) => {
+                                                                                textelem
+                                                                                    .append_child(
+                                                                                        elem_p(
+                                                                                            text,
+                                                                                        ),
+                                                                                    );
+                                                                            }
+                                                                            x => todo!(
+                                                                                "handle {:?}",
+                                                                                x
+                                                                            ),
+                                                                        }
                                                                     }
-                                                                    x => todo!("handle {:?}", x),
                                                                 }
+                                                                x => todo!("handle {:?}", x),
                                                             }
                                                         }
-                                                        Value::Array(td_arr) => {
-                                                            for td_v in td_arr {
-                                                                match td_v {
-                                                                    Value::String(text) => {
-                                                                        textelem.append_child(
-                                                                            elem_p(text),
-                                                                        );
-                                                                    }
-                                                                    x => todo!("handle {:?}", x),
-                                                                }
-                                                            }
-                                                        }
-                                                        x => todo!("handle {:?}", x),
                                                     }
-                                                }
-                                                if let Some(th) = &r.get("th") {
-                                                    match th {
-                                                        Value::Array(th_arr) => {
-                                                            for th_v in th_arr {
-                                                                match th_v {
-                                                                    Value::String(text) => {
-                                                                        textelem.append_child(
-                                                                            elem_p(text),
-                                                                        );
-                                                                    }
-                                                                    x => todo!("handle {:?}", x),
-                                                                }
-                                                            }
-                                                        }
-                                                        x => todo!("handle {:?}", x),
-                                                    }
+                                                    x => todo!("handle {:?}", x),
                                                 }
                                             }
-                                            x => todo!("handle {:?}", x),
                                         }
+                                        x => todo!("handle {:?}", x),
                                     }
                                 }
-                                x => todo!("handle {:?}", x),
-                            },
+                            }
                             x => todo!("handle {:?}", x),
                         }
                     }

@@ -71,7 +71,7 @@ pub fn preprocess_xml(xml_string: &str, filename: Cow<'_, str>) -> Result<Vec<u8
                         Ok(s) => s,
                         Err(err) => panic!("unescape failed: {:?}", err),
                     };
-                    process_html(&html_string, &mut textelem);
+                    process_html(&html_string, &mut textelem).expect("valid html");
                     // tracing::trace!("textelem = {:?}", textelem);
                 } else if doc_attr.is_some() {
                     let name = doc_attr.take().unwrap();

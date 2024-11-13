@@ -1,10 +1,11 @@
 ---
-source: crates/swegov-opendata-preprocess/tests/it/preprocess_rd_json.rs
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GY01AU1" dokument_url_html="http://data.riksdagen.se/dokument/GY01AU1" dokument_url_text="http://data.riksdagen.se/dokument/GY01AU1/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GY01AU1">
   <text beteckning="AU1" datatyp="huvuddokument" datum="2010-12-03 00:00:00" dokumentnamn="Betänkande" hangar_id="2370715" nummer="1" organ="AU" publicerad="2010-12-06 09:18:22" rm="2010/11" slutnummer="0" status="" subtyp="bet" systemdatum="2010-12-06 09:18:22" title="Utgiftsområde 13 Integration och jämställdhet" typ="bet">
-    <p>Arbetsmarknadsutskottets betänkande2010/11:AU1</p>
+    <p>Arbetsmarknadsutskottets betänkande</p>
+    <p>2010/11:AU1</p>
     <p>Utgiftsområde 13 Integration och jämställdhet</p>
     <p>Sammanfattning</p>
     <p>I detta betänkande behandlar arbetsmarknadsutskottet regeringens budgetproposition för 2011 med förslag till anslag på utgiftsområde 13 Integration och jämställdhet. I ärendet behandlas även 13 motionsyrkanden som har väckts under den allmänna motionstiden hösten 2010.</p>
@@ -18,21 +19,33 @@ expression: xmlstring
     <p>Utskottets förslag till riksdagsbeslut</p>
     <p>1.</p>
     <p>Regeringens skrivelse om integration</p>
-    <p>Riksdagen avslår motion2010/11:A1 av Ylva Johansson m.fl. (S) yrkandena 1–4 ochlägger skrivelse 2009/10:233 till handlingarna.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2010/11:A1 av Ylva Johansson m.fl. (S) yrkandena 1–4 och</p>
+    <p>lägger skrivelse 2009/10:233 till handlingarna.</p>
     <p>Reservation 1 (S, V)</p>
     <p>2.</p>
     <p>Invandrares kommunbosättningar, mentorer m.m.</p>
-    <p>Riksdagen avslår motionerna2010/11:Sf379 av Marie Granlund m.fl. (S) yrkande 1,2010/11:A245 av Roger Haddad (FP) och2010/11:A419 av Shadiye Heydari (S) yrkandena 1 och 2.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2010/11:Sf379 av Marie Granlund m.fl. (S) yrkande 1,</p>
+    <p>2010/11:A245 av Roger Haddad (FP) och</p>
+    <p>2010/11:A419 av Shadiye Heydari (S) yrkandena 1 och 2.</p>
     <p>3.</p>
     <p>Företagande för utlandsfödda</p>
-    <p>Riksdagen avslår motionerna2010/11:A309 av Désirée Pethrus Engström (KD) yrkande 1 och2010/11:A335 av Roza Güclü Hedin och Shadiye Heydari (båda S).</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2010/11:A309 av Désirée Pethrus Engström (KD) yrkande 1 och</p>
+    <p>2010/11:A335 av Roza Güclü Hedin och Shadiye Heydari (båda S).</p>
     <p>Reservation 2 (S)</p>
     <p>4.</p>
     <p>Övriga frågor om integration</p>
-    <p>Riksdagen avslår motionerna2010/11:A271 av Amir Adan (M),2010/11:A302 av Eliza Roszkowska Öberg (M),2010/11:A353 av Hillevi Larsson (S) och2010/11:A388 av Jonas Gunnarsson m.fl. (S).</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2010/11:A271 av Amir Adan (M),</p>
+    <p>2010/11:A302 av Eliza Roszkowska Öberg (M),</p>
+    <p>2010/11:A353 av Hillevi Larsson (S) och</p>
+    <p>2010/11:A388 av Jonas Gunnarsson m.fl. (S).</p>
     <p>5.</p>
     <p>Åtgärder mot diskriminering och rasism</p>
-    <p>Riksdagen avslår motion2010/11:A265 av Carina Hägg (S).</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2010/11:A265 av Carina Hägg (S).</p>
     <p>6.</p>
     <p>Regeringens skrivelse om jämställdhet</p>
     <p>Riksdagen lägger skrivelse 2009/10:234 till handlingarna.</p>
@@ -52,7 +65,9 @@ expression: xmlstring
     <p>Riksdagen bemyndigar regeringen att under 2011 för ramanslaget 3:1 Särskilda jämställdhetsåtgärder ingå ekonomiska åtaganden som inklusive tidigare gjorda åtaganden medför behov av framtida anslag på högst 240 000 000 kr under 2012, högst 240 000 000 kr under 2013 och högst 240 000 000 kr under 2014. Därmed bifaller riksdagen proposition 2010/11:1 utgiftsområde 13 punkt 4.</p>
     <p>e)</p>
     <p>Anvisning av anslag under utgiftsområde 13</p>
-    <p>Riksdagen anvisar för budgetåret 2011 anslagen under utgiftsområde 13 Integration och jämställdhet enligt vad som framgår av bilaga 2. Därmed bifaller riksdagen proposition 2010/11:1 utgiftsområde 13 punkt 5 och avslår motionerna2010/11:A292 av Johnny Skalin och Björn Söder (båda SD) och2010/11:A374 av Ylva Johansson m.fl. (S, MP, V).</p>
+    <p>Riksdagen anvisar för budgetåret 2011 anslagen under utgiftsområde 13 Integration och jämställdhet enligt vad som framgår av bilaga 2. Därmed bifaller riksdagen proposition 2010/11:1 utgiftsområde 13 punkt 5 och avslår motionerna</p>
+    <p>2010/11:A292 av Johnny Skalin och Björn Söder (båda SD) och</p>
+    <p>2010/11:A374 av Ylva Johansson m.fl. (S, MP, V).</p>
     <p>Reservation 3 (SD)</p>
     <p>Stockholm den 30 november 2010</p>
     <p>På arbetsmarknadsutskottets vägnar</p>
@@ -541,7 +556,10 @@ expression: xmlstring
     <p>=Utskottet.</p>
     <p>e)</p>
     <p>Anvisning av anslag under utgiftsområde 13</p>
-    <p>Anslaget anvisas enligt tabell under Ställningstagande nedan. Därmed bifaller riksdagen delvis motionerna2010/11:A292 av Johnny Skalin och Björn Söder (båda SD) och2010/11:A374 av Ylva Johansson m.fl. (S, MP, V) samtavslår proposition 2010/11:1 utgiftsområde 13 punkt 5.</p>
+    <p>Anslaget anvisas enligt tabell under Ställningstagande nedan. Därmed bifaller riksdagen delvis motionerna</p>
+    <p>2010/11:A292 av Johnny Skalin och Björn Söder (båda SD) och</p>
+    <p>2010/11:A374 av Ylva Johansson m.fl. (S, MP, V) samt</p>
+    <p>avslår proposition 2010/11:1 utgiftsområde 13 punkt 5.</p>
     <p>Ställningstagande</p>
     <p>Liksom Socialdemokraterna, Miljöpartiet och Vänsterpartiet anser jag att sfi-bonusen ska avskaffas och att regeringens system för etableringslotsar för nyanlända ska avvisas. Jag anser att anslagen inom utgiftsområde 13 borde minskas med totalt 544000000 kr i förhållande till regeringens förslag på det sätt som föreslås i motion A374 (S, MP, V) och som framgår av tabellen nedan.</p>
     <p>Belopp i 1 000-tal kronor</p>

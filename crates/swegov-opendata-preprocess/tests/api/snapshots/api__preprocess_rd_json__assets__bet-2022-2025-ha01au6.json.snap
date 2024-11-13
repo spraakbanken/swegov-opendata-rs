@@ -4,7 +4,8 @@ expression: xmlstring
 ---
 <dokument xmlns="" dok_id="HA01AU6" dokument_url_html="http://data.riksdagen.se/dokument/HA01AU6" dokument_url_text="http://data.riksdagen.se/dokument/HA01AU6/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/HA01AU6">
   <text beteckning="AU6" datatyp="huvuddokument" datum="2023-02-17 00:00:00" dokumentnamn="Betänkande" hangar_id="5155498" nummer="6" organ="AU" publicerad="2022-11-21 15:59:18" rm="2022/23" slutnummer="0" status="Webbpublicering" subtyp="bet" systemdatum="2023-03-20 17:09:31" title="Integration" typ="bet">
-    <p>Arbetsmarknadsutskottet s betänkande 2022/23 :AU6</p>
+    <p>Arbetsmarknadsutskottet s betänkande</p>
+    <p>2022/23 :AU6</p>
     <p>Integration</p>
     <p>Sammanfattning</p>
     <p>Utskottet föreslår att riksdagen avslår samtliga motionsyrkanden , bl.a. med hänvisning till pågående arbete. Yrkandena gäller bl.a. bosättnings lagen, målgruppen för etableringsprogrammet , etableringsinsatserna och nyanlända kvinnors etablering.</p>

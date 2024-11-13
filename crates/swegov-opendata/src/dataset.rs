@@ -309,6 +309,12 @@ pub struct Upplysning {
     year_comment: BTreeMap<String, String>,
 }
 
+impl Upplysning {
+    pub fn upplysning(&self) -> &str {
+        self.upplysning.as_str()
+    }
+}
+
 impl deserx::SerXml for Upplysning {
     fn serialize_xml<W: std::io::Write>(
         &self,

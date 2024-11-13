@@ -154,7 +154,7 @@ pub struct ForslagRef<'a> {
     pub nummer: usize,
     pub beteckning: Option<&'a str>,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
-    pub lydelse: &'a str,
+    pub lydelse: Cow<'a, str>,
     pub lydelse2: Option<&'a str>,
     pub utskottet: Option<&'a str>,
     pub kammaren: Option<&'a str>,

@@ -42,7 +42,7 @@ pub struct BilagaRef<'a> {
     pub filnamn: &'a str,
     pub filstorlek: &'a str,
     pub filtyp: &'a str,
-    pub subtitel: Option<&'a str>,
+    pub subtitel: Option<Cow<'a, str>>,
     #[serde(deserialize_with = "optionals::deserialize_null_default", borrow)]
     pub titel: Cow<'a, str>,
 }

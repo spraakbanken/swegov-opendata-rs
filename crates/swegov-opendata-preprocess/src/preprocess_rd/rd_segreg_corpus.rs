@@ -9,11 +9,11 @@ use preprocess_progress::{
     NestedProgress,
 };
 use regex::Regex;
-use sparv_extension::{SparvConfig, SparvMetadata, XmlSourceWriter};
+use sparv_extension::{make_corpus_config, SparvConfig, SparvMetadata, XmlSourceWriter};
 use swegov_opendata::DataSet;
 use zip::ZipArchive;
 
-use crate::{preprocess_rd::shared::write_json, shared::io_ext, PreprocessError};
+use crate::{corpusinfo, preprocess_rd::shared::write_json, shared::io_ext, PreprocessError};
 
 use super::{rd_json::preprocess_json, shared::read_json_or_default};
 
@@ -23,7 +23,7 @@ pub struct PreprocessRdSegregCorpusOptions<'a> {
     pub processed_json_path: &'a Path,
 }
 
-const CORPUS_ID: &'static str = "segreg";
+const CORPUS_ID: &'static str = "rd-segreg";
 /// Preprocess RD-SEGREG corpus.
 ///
 pub fn preprocess_rd_segreg_corpus(
@@ -47,28 +47,27 @@ pub fn preprocess_rd_segreg_corpus(
     );
     let mut processed_json: HashMap<String, HashMap<String, String>> =
         read_json_or_default(processed_json_path)?;
-    let corpus_dir = output.join(CORPUS_ID);
-    {
-        let _config_progress = progress.add_child("creating config");
-        let sparv_config = SparvConfig::with_metadata(
-            SparvMetadata::new(CORPUS_ID)
-                .name("swe", "Segregationens språk")
-                .description("swe", "Texter som handlar om segregation")
-                .description("eng", "Texts that treat segregation"),
-        );
-        sparv_extension::make_corpus_config(&sparv_config, &corpus_dir)?;
-    }
+    let output_dir = output.join(CORPUS_ID);
+    // {
+    //     let _config_progress = progress.add_child("creating config");
+    //     let sparv_config = SparvConfig::with_metadata(
+    //         SparvMetadata::new(CORPUS_ID)
+    //             .name("swe", "Segregationens språk")
+    //             .description("swe", "Texter som handlar om segregation")
+    //             .description("eng", "Texts that treat segregation"),
+    //     );
+    //     sparv_extension::make_corpus_config(&sparv_config, &output_dir)?;
+    // }
     let folder_progress = progress.add_child("traverse folders");
 
-    let corpus_source_dir = corpus_dir.join("source");
     let mut ctx = Context {
         base_output: output,
-        corpus_source_dir: &corpus_source_dir,
+        corpus_source_dir: &output_dir,
         processed_json: &mut processed_json,
     };
     let res = process_folders(
         input,
-        &corpus_source_dir,
+        &output_dir,
         &out,
         &err,
         &mut preprocess_progress::BoxedDynNestedProgress::new(folder_progress),
@@ -180,7 +179,7 @@ fn preprocess_file(path: &Path) -> Result<(), PreprocessError> {
 #[tracing::instrument(skip(progress, ctx))]
 fn build_sparv_source(
     path: &Path,
-    corpus_source_dir: &Path,
+    output: &Path,
     progress: &mut preprocess_progress::BoxedDynNestedProgress,
     processed_zip_dict: &mut HashMap<String, String>,
     ctx: &Context,
@@ -188,7 +187,7 @@ fn build_sparv_source(
     tracing::debug!("building sparv source from {}", path.display());
     static SEGREG: Lazy<Regex> = Lazy::new(|| Regex::new(r"[Ss][Ee][Gg][Rr][Ee][Gg]").unwrap());
     static CORPUS_RE: Lazy<Regex> =
-        Lazy::new(|| Regex::new(r"(\S+)-\d{4}-.+").expect("valid regex"));
+        Lazy::new(|| Regex::new(r"(\S+(\s\S+)?)\s?-\d{4}-.+").expect("valid regex"));
 
     let mut progress = progress.add_child("traverse zip archive");
     let mut metadata_path = path.to_path_buf();
@@ -217,16 +216,47 @@ fn build_sparv_source(
         .expect("valid utf8");
     let prefix = if let Some(matches) = CORPUS_RE.captures(zippath_name) {
         if let Some(prefix) = matches.get(1) {
-            prefix.as_str()
+            prefix.as_str().replace(' ', "+")
         } else {
             return Err(PreprocessError::NoValidPrefix(zippath_name.to_string()));
         }
     } else {
-        return Err(PreprocessError::NoValidPrefix(zippath_name.to_string()));
+        tracing::warn!(
+            "Filename '{}' contains no valid corpus prefix: skipping ...",
+            path.display()
+        );
+        return Ok(());
+        // return Err(PreprocessError::NoValidPrefix(zippath_name.to_string()));
     };
+    let (corpus_id, name, descr) = match corpusinfo(&prefix) {
+        Ok(corpus_info) => corpus_info,
+        Err(err) => {
+            tracing::error!(
+                "Failed to get corpusinfo for prefix='{}' for file='{}': error={}: skipping ...",
+                prefix,
+                path.display(),
+                err,
+            );
+            return Ok(());
+        }
+    };
+    let corpus_id = format!("segreg-{corpus_id}");
     let corpus_source_base = Path::new(path.file_stem().unwrap()).file_stem().unwrap();
     // todo!("handle {:?} from {:?}", corpus_source_base, path);
-    let corpus_source_dir = corpus_source_dir.join(corpus_source_base);
+    let corpus_source_dir = output
+        .join(&corpus_id)
+        .join("source")
+        .join(corpus_source_base);
+    let sparv_config = SparvConfig::with_parent_and_metadata(
+        "../config.yaml",
+        SparvMetadata::new(&corpus_id)
+            .name(
+                "swe",
+                format!("Segregations språk: Riksdagens öppna data: {}", name),
+            )
+            .description("swe", descr),
+    );
+    make_corpus_config(&sparv_config, &output.join(corpus_id))?;
     let counter = processed_zip_dict.len() + 1;
     let mut source_writer = XmlSourceWriter::with_target_and_counter(&corpus_source_dir, counter);
     let zip_file = fs::File::open(path).map_err(|error| PreprocessError::CouldNotReadFile {
@@ -255,12 +285,25 @@ fn build_sparv_source(
         })?;
         if SEGREG.is_match(&filecontents) {
             let filecontents = filecontents.replace("{/* RESERVATIONSTEXT */}", r#""""#);
-            let xmlstring = preprocess_json(&filecontents, &metadata).map_err(|error| {
-                PreprocessError::RdPreprocessJsonError {
-                    path: format!("{}:{}", path.display(), zipobj.name()),
-                    error,
+            // let xmlstring = preprocess_json(&filecontents, &metadata).map_err(|error| {
+            //     PreprocessError::RdPreprocessJsonError {
+            //         path: format!("{}:{}", path.display(), zipobj.name()),
+            //         error,
+            //     }
+            // })?;
+            let xmlstring = match preprocess_json(&filecontents, &metadata) {
+                Ok(xmlstring) => xmlstring,
+                Err(err) => {
+                    tracing::error!(
+                        "Failed to convert document '{}:{}'. Error: {:?}",
+                        path.display(),
+                        zipobj.name(),
+                        err
+                    );
+                    count.fetch_add(1, Ordering::Relaxed);
+                    continue;
                 }
-            })?;
+            };
             source_writer.write(xmlstring)?;
         } else {
             // tracing::trace!("didn't find SEGREG regex in {}", zipobj.name());

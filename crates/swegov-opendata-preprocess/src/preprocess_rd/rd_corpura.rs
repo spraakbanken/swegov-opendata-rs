@@ -1,11 +1,4 @@
-use std::{
-    borrow::Cow,
-    collections::HashMap,
-    fs,
-    io::{Read},
-    path::Path,
-    sync::atomic::Ordering,
-};
+use std::{borrow::Cow, collections::HashMap, fs, io::Read, path::Path, sync::atomic::Ordering};
 
 use preprocess_progress::prodash::{Count, NestedProgress, Progress};
 use regex::Regex;
@@ -50,7 +43,7 @@ pub fn preprocess_rd_corpura(
     let mut processed_json: HashMap<String, HashMap<String, String>> =
         read_json_or_default(processed_json_path)?;
 
-    let corpus_re = Regex::new(r"(\S+)-\d{4}-.+").expect("valid regex");
+    let corpus_re = Regex::new(r"(\S+)\s?-\d{4}-.+").expect("valid regex");
 
     let mut zippaths = Vec::new();
     for zippath in fs::read_dir(input).map_err(|error| PreprocessError::CouldNotReadFolder {

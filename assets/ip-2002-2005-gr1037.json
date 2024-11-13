@@ -1,0 +1,141 @@
+{
+  "dokumentstatus": {
+    "dokument": {
+      "hangar_id": "2329461",
+      "dok_id": "GR1037",
+      "rm": "2003/04",
+      "beteckning": "37",
+      "doktyp": "ip",
+      "typ": "ip",
+      "subtyp": null,
+      "tempbeteckning": "m",
+      "organ": "m",
+      "mottagare": "finansminister Bosse Ringholm",
+      "nummer": "37",
+      "slutnummer": "0",
+      "datum": "2003-10-16 00:00:00",
+      "systemdatum": "2009-03-31 13:44:27",
+      "publicerad": "2003-10-16 00:00:00",
+      "titel": "skatteutjämningens effekter på Stockholmsregionen",
+      "subtitel": "Ask, Beatrice (m)",
+      "status": null,
+      "htmlformat": null,
+      "relaterat_id": null,
+      "source": null,
+      "sourceid": null,
+      "dokument_url_text": "http://data.riksdagen.se/dokument/GR1037/text",
+      "dokument_url_html": "http://data.riksdagen.se/dokument/GR1037",
+      "dokumentstatus_url_xml": "http://data.riksdagen.se/dokumentstatus/GR1037",
+      "html": "<I><FONT FACE=\"Verdana,Tahoma\" SIZE=2><P>den 16 oktober</P></I><B><P>Interpellation 2003/04:37</B> av <I>Beatrice Ask</I> (m) till finansminister Bosse Ringholm om skatteutjämningens effekter på Stockholmsregionen</P><P><A NAME=\"Temp\"></A>Stockholm har rasat från tredje till 69:e plats i Affärsvärldens lista över Sveriges tillväxtregioner. Detta är allvarligt och innebär att Stockholm inte längre kan fungera som en tillväxtmotor för hela Sverige. Även regeringen borde @ mot bakgrund av regeringsförklaringens myckna tal om tillväxt @ inse situationens allvar.</P><P>Invånarna i Stockholmsregionen utgör en femtedel av den svenska befolkningen men svarar för en dryg fjärdedel av statens samlade skatteintäkter. Därutöver bidrar regionens invånare till övriga landet med totalt nära 17 miljarder kronor via den kommunala skatteutjämningen. Samtliga invånare i Stockholms län betalar till det interkommunala utjämningssystemet, oavsett ålder eller inkomst. </P><P>Utjämningskommittén överlämnade sitt förslag till regeringen den 30 september. Effekterna av de föreslagna förändringarna drabbar såväl kommunerna som landstinget i Stockholms län mycket hårt. Enligt kommitténs beräkningar kommer Stockholms stad och landstinget att få betala än mer till systemet om förändringarna genomförs. Faktum är att de flesta av de kommuner som i framtiden ska betala till systemet ligger i Stockholmsregionen.</P><P>Ingen har väl kunnat undgå att uppmärksamma de ekonomiska problem som finns i Stockholms läns landsting. I år beräknas underskottet bli över 2 miljarder kronor. Trots att Stockholmslandstinget redan har landets högsta landstingsskatt @ och så sent som i år höjde skatten med ytterligare 1,30 kr @ varnas det nu för ytterligare skattehöjningar, avgiftshöjningar och nedläggningar i sjukvården. Samtidigt tvingas Stockholms läns landsting att betala 5,5 miljarder kronor till utjämningssystemet i år.</P><P>Under perioden 2003 till 2006 beräknas Stockholmslandstinget som enda nettobetalare att få betala mer än 22 miljarder(!) kronor till utjämningssystemet. Utjämningskommitténs förslag ändrar inte på detta. I praktiken kommer man att få betala mer till andra landsting än man gör i dag. </P><P>Om Stockholms läns landsting skulle välja att ytterligare höja skatten, för att komma till rätta med de ekonomiska problem som i grunden beror på skatteutjämningen, skulle U<A NAME=\"PassTempLäge\"></A>tjämningskommitténs förslag innebära att samtliga Sveriges landsting tjänar på detta. Då får nämligen de andra landstingen rätt till en viss andel av de ökade skatteintäkter som landstingsskattehöjningen i Stockholm genererar. Att komma till rätta med de egna ekonomiska problemen av egen kraft blir således för Stockholms läns landsting mer eller mindre omöjligt.</P><P>I år betalar varje stockholmare i snitt 9 315 kr till verksamhet i andra kommuner och denna beskattning beräknas öka de närmaste åren. Kostnadsutjämningssystemet tar allt mindre hänsyn till de särskilda problem och kostnader som finns i en storstad i form av bland annat segregation och befolkningsökning samt höga kostnader för personal, lokaler och bostäder. Samtidigt tas särskild hänsyn till de speciella faktorer som kan ge ökade kostnader i landsbygdskommuner och glesbygd.</P><P>Med anledning av ovanstående vill jag ställa följande fråga till finansministern. </P><DIR><P>1.Vilka åtgärder avser finansministern att verka för i syfte att skatteutjämningen inte ska motverka möjligheterna till ekonomisk tillväxt i Stockholmsregionen?</P><P>2.Avser finansministern att vidta några åtgärder i syfte att förhindra att sjukvården i Stockholms län bryter samman till följd av landstingets stora betalningar till skatteutjämningssystemet?</P></DIR></FONT>"
+    },
+    "dokaktivitet": {
+      "aktivitet": [
+        {
+          "kod": "INL",
+          "namn": "Inlämnad",
+          "datum": "2003-10-16 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "ANM",
+          "namn": "Anmäld",
+          "datum": "2003-10-16 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "FD",
+          "namn": "Fördröjd",
+          "datum": "2003-10-20 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "SFA",
+          "namn": "Svar fördröjt anmält",
+          "datum": "2003-10-31 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Besvarad",
+          "datum": "2003-11-11 00:00:00",
+          "status": "inträffat",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "ANM",
+          "namn": "Anmäld",
+          "datum": "2003-10-16 00:00:00",
+          "status": "planerad",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "SISVA",
+          "namn": "Sista svarsdatum",
+          "datum": "2003-10-30 00:00:00",
+          "status": "planerad",
+          "ordning": "0",
+          "process": "behandling"
+        },
+        {
+          "kod": "BESV",
+          "namn": "Besvarad",
+          "datum": "2003-11-11 00:00:00",
+          "status": "planerad",
+          "ordning": "0",
+          "process": "behandling"
+        }
+      ]
+    },
+    "dokintressent": {
+      "intressent": [
+        {
+          "intressent_id": "0262017901513",
+          "namn": "Beatrice Ask",
+          "partibet": "M",
+          "ordning": "1",
+          "roll": "undertecknare"
+        },
+        {
+          "intressent_id": "0552112259207",
+          "namn": "Bosse Ringholm",
+          "partibet": "S",
+          "ordning": "1",
+          "roll": "stalldtill"
+        },
+        {
+          "intressent_id": "0815435847817",
+          "namn": "Lars-Erik Lövdén",
+          "partibet": "S",
+          "ordning": "1",
+          "roll": "besvaradav"
+        }
+      ]
+    },
+    "dokforslag": null,
+    "dokuppgift": null,
+    "dokbilaga": null,
+    "dokreferens": {
+      "referens": {
+        "referenstyp": "ipsvarid",
+        "uppgift": "{688D89B7-B58B-44C8-86C1-8C54BF4C30BA}",
+        "ref_dok_id": "GR0925",
+        "ref_dok_typ": "prot",
+        "ref_dok_rm": "2003/04",
+        "ref_dok_bet": "25",
+        "ref_dok_titel": "Riksdagens protokoll 2003/04:25 Tisdagen den 11 november",
+        "ref_dok_subtitel": "6 § Svar på interpellation 2003/04:37 om skatteutjämningens effekter på Stockholmsregionen"
+      }
+    },
+    "debatt": null
+  }
+}

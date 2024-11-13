@@ -1,10 +1,11 @@
 ---
-source: crates/swegov-opendata-preprocess/tests/it/preprocess_rd_json.rs
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GW01FiU3" dokument_url_html="http://data.riksdagen.se/dokument/GW01FiU3" dokument_url_text="http://data.riksdagen.se/dokument/GW01FiU3/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GW01FiU3">
   <text beteckning="FiU3" datatyp="huvuddokument" datum="2008-12-12 00:00:00" dokumentnamn="" hangar_id="2222289" nummer="3" organ="FiU" publicerad="2008-12-12 09:26:34" rm="2008/09" slutnummer="0" status="" subtyp="bet" systemdatum="2008-12-12 09:26:54" title="Utgiftsområde 25 Allmänna bidrag till kommuner" typ="bet">
-    <p>Finansutskottets betänkande2008/09:FiU3</p>
+    <p>Finansutskottets betänkande</p>
+    <p>2008/09:FiU3</p>
     <p>Utgiftsområde 25 Allmänna bidrag till kommuner</p>
     <p>Sammanfattning</p>
     <p>Utskottet tillstyrker regeringens förslag till anslagsnivåer för 2009 inom utgiftsområde 25 Allmänna bidrag till kommuner. Den största delen av utgiftsområdet utgörs av ett anslag för kommunalekonomisk utjämning. Även bidrag för utjämning av LSS-kostnader respektive finansiering av två ideella föreningar på det kommunalekonomiska området återfinns inom utgiftsområdet. Anslagen uppgår 2009 till drygt 67 miljarder kronor.</p>
@@ -18,14 +19,23 @@ expression: xmlstring
     <p>Riksdagen godkänner det mål för utgiftsområdet Allmänna bidrag till kommuner som regeringen föreslår samt att nuvarande mål för politikområdet Allmänna bidrag till kommuner upphör att gälla. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 1.</p>
     <p>2.</p>
     <p>Anslag för 2009 inom utgiftsområde 25</p>
-    <p>Riksdagen anvisar anslagen för 2009 under utgiftsområde 25 Allmänna bidrag till kommuner enligt utskottets förslag i bilaga 2. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 2 och avslår motionerna2008/09:Fi285 av Peter Pedersen m.fl. (v) yrkandena 3 och 4,2008/09:Fi291 av Mona Sahlin m.fl. (s) yrkandena 7 och 12,2008/09:Fi294 av Thomas Östros m.fl. (s),2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 1,2008/09:Fi298 av Mikaela Valtersson m.fl. (mp) yrkande 2 och2008/09:Fi302 av Lars Ohly m.fl. (v) yrkande 29.</p>
+    <p>Riksdagen anvisar anslagen för 2009 under utgiftsområde 25 Allmänna bidrag till kommuner enligt utskottets förslag i bilaga 2. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 2 och avslår motionerna</p>
+    <p>2008/09:Fi285 av Peter Pedersen m.fl. (v) yrkandena 3 och 4,</p>
+    <p>2008/09:Fi291 av Mona Sahlin m.fl. (s) yrkandena 7 och 12,</p>
+    <p>2008/09:Fi294 av Thomas Östros m.fl. (s),</p>
+    <p>2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 1,</p>
+    <p>2008/09:Fi298 av Mikaela Valtersson m.fl. (mp) yrkande 2 och</p>
+    <p>2008/09:Fi302 av Lars Ohly m.fl. (v) yrkande 29.</p>
     <p>3.</p>
     <p>Redogörelser för kommunernas ekonomi</p>
-    <p>Riksdagen avslår motionerna2008/09:Fi270 av Mona Sahlin m.fl. (s) yrkande 95 och2008/09:Fi276 av Håkan Juholt (s).</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2008/09:Fi270 av Mona Sahlin m.fl. (s) yrkande 95 och</p>
+    <p>2008/09:Fi276 av Håkan Juholt (s).</p>
     <p>Reservation 1 (s, v)</p>
     <p>4.</p>
     <p>Jämställda löner i kommunsektorn</p>
-    <p>Riksdagen avslår motion2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 2.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 2.</p>
     <p>Reservation 2 (v)</p>
     <p>Reservation 3 (s) motiveringen</p>
     <p>Stockholm den 2 december 2008</p>
@@ -156,9 +166,12 @@ expression: xmlstring
     <p>Regeringens förslag i tusental kronor, oppositionspartiernas förslag i förhållande till regeringen i miljoner kronor</p>
     <p>Anslag</p>
     <p>Regeringens förslag</p>
-    <p>Fi294s</p>
-    <p>Fi295v</p>
-    <p>Fi298mp</p>
+    <p>Fi294</p>
+    <p>s</p>
+    <p>Fi295</p>
+    <p>v</p>
+    <p>Fi298</p>
+    <p>mp</p>
     <p>1:1 Kommunalekonomisk utjämning</p>
     <p>64771 941</p>
     <p>+10 595</p>
@@ -387,7 +400,8 @@ expression: xmlstring
     <p>2008/09:Fi298 av Mikaela Valtersson m.fl. (mp):</p>
     <p>2.</p>
     <p>Riksdagen beslutar med följande ändringar i förhållande till regeringens förslag anslagen under utgiftsområde 25 Allmänna statsbidrag till kommuner enligt uppställning:</p>
-    <p>Anslagsförändring(miljoner kronor)</p>
+    <p>Anslagsförändring</p>
+    <p>(miljoner kronor)</p>
     <p>2009</p>
     <p>2010</p>
     <p>2011</p>
@@ -485,7 +499,8 @@ expression: xmlstring
   </text>
   <text beslut="" beslutsregelkvot="" beslutsregelparagraf="" beslutstyp="röstning" bet="FiU3" beteckning="3" datatyp="utskottforslag" motforslag_nummer="1" motforslag_partier="|S|V|" punkt="3" punkttyp="" rm="2008/09" rubrik="Redogörelser för kommunernas ekonomi" vinnare="utskottet" votering_ledamot_url_xml="http://data.riksdagen.se/votering/D70A4D24-59D0-45DE-8CD4-352A8E1B97E8" votering_url_xml="" voteringskrav="">
     <p>Riksdagen avslår motionerna 2008/09:Fi270 av Mona Sahlin m.fl. (s) yrkande 95 och 2008/09:Fi276 av Håkan Juholt (s).</p>
-    <p>Omröstning i sakfrågan Utskottets förslag mot reservation 1 (s, v)</p>
+    <p>Omröstning i sakfrågan</p>
+    <p>Utskottets förslag mot reservation 1 (s, v)</p>
     <p>Parti</p>
     <p>Ja</p>
     <p>Nej</p>
@@ -535,7 +550,8 @@ expression: xmlstring
   </text>
   <text beslut="" beslutsregelkvot="" beslutsregelparagraf="" beslutstyp="röstning" bet="FiU3" beteckning="4" datatyp="utskottforslag" motforslag_nummer="2" motforslag_partier="|V|" punkt="4" punkttyp="" rm="2008/09" rubrik="Jämställda löner i kommunsektorn" vinnare="utskottet" votering_ledamot_url_xml="http://data.riksdagen.se/votering/DF6121B6-F784-49DF-91C1-5F0E0048A1B3" votering_url_xml="" voteringskrav="">
     <p>Riksdagen avslår motion 2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 2.</p>
-    <p>Omröstning i motivfrågan Utskottets förslag mot reservation 3 (s)</p>
+    <p>Omröstning i motivfrågan</p>
+    <p>Utskottets förslag mot reservation 3 (s)</p>
     <p>Parti</p>
     <p>Ja</p>
     <p>Nej</p>
@@ -582,7 +598,8 @@ expression: xmlstring
     <p>20</p>
     <p>64</p>
     <p>Beslut: Kammaren biföll utskottets förslag</p>
-    <p>Omröstning i sakfrågan Utskottets förslag mot reservation 2 (v)</p>
+    <p>Omröstning i sakfrågan</p>
+    <p>Utskottets förslag mot reservation 2 (v)</p>
     <p>Parti</p>
     <p>Ja</p>
     <p>Nej</p>

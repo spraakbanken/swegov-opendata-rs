@@ -1,0 +1,36 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GQ10128" dokument_url_html="http://data.riksdagen.se/dokument/GQ10128" dokument_url_text="http://data.riksdagen.se/dokument/GQ10128/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GQ10128">
+  <text beteckning="128" datatyp="huvuddokument" datum="2003-01-16 00:00:00" dokumentnamn="" hangar_id="2330754" intressent_id="|0185498861416|0185498861416|0457308547314|" intressent_namn="|Lena Sommestad|Lena Sommestad|Karin Svensson Smith|" intressent_namn_parti="|Lena Sommestad (S)|Lena Sommestad (S)|Karin Svensson Smith (V)|" intressent_namn_parti_id_roll="|Lena Sommestad (S), 0185498861416, besvaradav|Lena Sommestad (S), 0185498861416, stalldtill|Karin Svensson Smith (V), 0457308547314, undertecknare|" intressent_parti="|S|V|" nummer="128" organ="v" publicerad="2003-01-16 00:00:00" rm="2002/03" slutnummer="0" status="" subtyp="" systemdatum="2009-03-31 13:44:27" title="etablering av externa köpcentrum" typ="ip">
+    <p>
+      <i>den 16 januari</i>
+    </p>
+    <p>
+      <b>Interpellation 2002/03:128</b> av<i>Karin Svensson Smith</i> (v) till miljöminister Lena Sommestad om etablering av externa köpcentrum</p>
+    <p>
+      <i>Externa köpcentrum motverkar miljömålen</i>
+    </p>
+    <p>Den fysiska planeringen är avgörande för att skapa förutsättningar för en hållbar konsumtion och en hållbar livsstil. Inte minst vid valet av transportsätt spelar den fysiska planeringen stor roll. I<i>Miljömålspropositionen</i> (SOU 2000/01:130) fastslås under målet God bebyggd miljö att &quot;senast år 2010 skall fysisk planering och samhällsbyggnad grundas på program och strategier för hur ett varierat utbud av bostäder, arbetsplatser, service och kultur kan åstadkommas så att bilanvändningen kan minska och förutsättningarna för miljöanpassade och resurssnåla transporter förbättras&quot;.</p>
+    <p>Problemet är att den fria etablering av externa köpcentrum som i dag råder i Sverige motverkar detta. Externa köpcentrum bidrar till ökad biltrafik och därmed ökad belastning på miljön och hälsan. Det ökar även segregeringen eftersom människor utan tillgång till bil får sämre service.</p>
+    <p>
+      <i>Konsekvenser av externa köpcentrum</i>
+    </p>
+    <p>Stormarknader och köpcentrum utanför städerna blir alltfler. En konsekvens av externa köpcentrum är att stadskärnorna utarmas vad gäller service och dagligvaruhandel. Vanliga butiker i stadskärnorna slås ut, liksom butiker i förorter och butiker som ligger i storstäders ytterområden. I storstäders ytterområden bor ofta människor som har en sämre ekonomisk situation jämfört med de som bor mer centralt. Till dem som får det ytterligare svårare av etableringen av externa köpcentrum hör hushåll som av olika anledningar saknar bil, vilket ofta är de hushåll som redan har det sämst ställt.</p>
+    <p>De som inte har råd eller möjlighet att ha bil får därmed dyrare inköp. En ytterligare aspekt av etableringen av köpcentrum är de effekter som fås genom etablering inom tätorter, särskilt i utpräglat bilorienterade lägen, exempelvis i Örebro där en ny stormarknad har etablerats invid den stora trafikleden E 18/20 relativt centralt i staden. Dessa har i princip samma strukturomvandlande effekt som rena externetableringar.</p>
+    <p>I regeringens proposition<i>En politik för tillväxt och livskraft i hela Sverige</i> (2001/02:4) konstateras att för att motverka ytterligare försämring av tillgång till service i särskilt utsatta områden, bör på kort sikt 20 miljoner kronor avsättas för år 2002. Om den utveckling som vi ser i dag, med etablering av externa köpcentrum, fortsätter kommer förmodligen kravet på fortsatt stöd till service i särskilt utsatta områden att öka.</p>
+    <p>Kvinnor, speciellt äldre, tillhör den grupp som drabbas mest av &quot;butiksdöden&quot; eftersom de generellt har mindre tillgång till bil än män. Men utvecklingen drabbar även gles- och landsbygd där kundunderlaget för lokala butiker minskar.</p>
+    <p>
+      <i>Exempel från Skåne</i>
+    </p>
+    <p>Redan befintliga externa köpcentrum samt hotet om nyetablering, är ett av de största hinder som identifierats i Skåne läns arbete för att nå de regionala miljömålen vad gäller klimat, luftkvalitet och så vidare.</p>
+    <p>Det finns en mycket klar koppling mellan ett stort affärsutbud i tätortcentrum och en restriktiv hållning till externa köpcentrum. Lund är den kommun i Sverige som har högst index för centrumhandel, vilket sannolikt till stor del beror på en medveten ambition om att bevara en god stadsmiljö och ett avvisande av externhandel som en av strategierna för att uppnå detta. Lund är också den kommun i landet som har högst andel cykel- och gångtrafik av den totala persontrafiken, vilket bland annat beror på denna medvetna strategi.</p>
+    <p>
+      <i>Moratorium för utbyggnaden av externa köpcentrum</i>
+    </p>
+    <p>I flera europeiska länder finns starka restriktioner mot köpcentrum utanför stadskärnorna medan dagens svenska lagstiftning inte fungerar för att begränsa etableringen av externa köpcentrum. Vänsterpartiet vill införa ett tillfälligt stopp för utbyggnaden av externa köpcentrum. Det är uppenbart så att lagstiftningen i dag är otillräcklig för att garantera att tillräcklig miljö-, hälso- och social hänsyn tas vid etableringen av externa köpcentrum. En kommitté har tillsatts för att se över plan- och bygglagstiftningen. I väntan på att kommittén presenterar förslag på förändringar behövs ett tillfälligt stopp av utbyggnaden av externa köpcentrum.</p>
+    <p>Jag anser sammanfattningsvis att etableringen av externa köpcentrum missgynnar grupper som saknar tillgång till bil och att etableringen av externa köpcentrum motverkar regeringens och vår ambition att minska bilanvändningen.</p>
+    <p>Mot bakgrund av det anförda vill jag fråga om ministern är beredd att ta initiativ till att införa ett tillfälligt stopp för utbyggnaden av externa köpcentrum?</p>
+  </text>
+</dokument>

@@ -1,11 +1,13 @@
 ---
-source: crates/swegov-opendata-preprocess/tests/it/preprocess_rd_json.rs
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GU01AU1" dokument_url_html="http://data.riksdagen.se/dokument/GU01AU1" dokument_url_text="http://data.riksdagen.se/dokument/GU01AU1/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GU01AU1">
   <text beteckning="AU1" datatyp="huvuddokument" datum="2006-12-15 00:00:00" dokumentnamn="" hangar_id="2293950" nummer="1" organ="AU" publicerad="2006-12-15 09:35:36" rm="2006/07" slutnummer="0" status="" subtyp="" systemdatum="2007-09-04 11:16:21" title="Utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv" typ="bet">
-    <p>Arbetsmarknadsutskottets betänkande2006/07:AU1</p>
-    <p>v.794 TB:22RixEdit 3.4.0.6</p>
+    <p>Arbetsmarknadsutskottets betänkande</p>
+    <p>2006/07:AU1</p>
+    <p>v.794 TB:22</p>
+    <p>RixEdit 3.4.0.6</p>
     <p>Utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv</p>
     <p>Sammanfattning</p>
     <p>I detta betänkande behandlar utskottet regeringens budgetproposition för år 2007 med förslag till anslag på utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv. I ärendet behandlas även ett sextiotal motionsyrkanden som väckts under den allmänna motionstiden hösten 2006.</p>
@@ -17,87 +19,133 @@ expression: xmlstring
     <p>Utskottets förslag till riksdagsbeslut</p>
     <p>1.</p>
     <p>Allmänna frågor om arbetsmarknadspolitiken</p>
-    <p>Riksdagen avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 23 i denna del,2006/07:A347 av Lars Ohly m.fl. (v) yrkande 6 i denna del och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 1 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 23 i denna del,</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 6 i denna del och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 1 i denna del.</p>
     <p>Reservation 1 (s)</p>
     <p>Reservation 2 (v)</p>
     <p>Reservation 3 (mp)</p>
     <p>2.</p>
     <p>Arbetsmarknadspolitikens mål</p>
-    <p>Riksdagen avslår motion2006/07:A244 av Gunilla Wahlén m.fl. (v).</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2006/07:A244 av Gunilla Wahlén m.fl. (v).</p>
     <p>Reservation 4 (v)</p>
     <p>3.</p>
     <p>Ett reformerat arbetsmarknadsverk</p>
-    <p>Riksdagen avslår motion2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 21 i denna del.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 21 i denna del.</p>
     <p>Reservation 5 (s)</p>
     <p>4.</p>
     <p>Integrationsfrågor</p>
-    <p>Riksdagen avslår motionerna2006/07:Sf223 av Peter Eriksson m.fl. (mp) yrkande 4 i denna del,2006/07:Sf251 av Kalle Larsson m.fl. (v) yrkande 8 i denna del,2006/07:A239 av Luciano Astudillo m.fl. (s) i denna del och2006/07:A270 av Lars Ohly m.fl. (v) yrkande 6 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Sf223 av Peter Eriksson m.fl. (mp) yrkande 4 i denna del,</p>
+    <p>2006/07:Sf251 av Kalle Larsson m.fl. (v) yrkande 8 i denna del,</p>
+    <p>2006/07:A239 av Luciano Astudillo m.fl. (s) i denna del och</p>
+    <p>2006/07:A270 av Lars Ohly m.fl. (v) yrkande 6 i denna del.</p>
     <p>Reservation 6 (v)</p>
     <p>Reservation 7 (mp)</p>
     <p>5.</p>
     <p>Aktörer på arbetsförmedlingsområdet</p>
-    <p>Riksdagen avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 21 i denna del,2006/07:Ub255 av Maria Wetterstrand m.fl. (mp) yrkande 17,2006/07:A247 av Karl Sigfrid och Oskar Öholm (båda m),2006/07:A259 av Lars Hjälmered och Göran Lindblad (båda m),2006/07:A309 av Mikaela Valtersson (mp) yrkandena 1 och 2,2006/07:A347 av Lars Ohly m.fl. (v) yrkande 6 i denna del och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 12 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 21 i denna del,</p>
+    <p>2006/07:Ub255 av Maria Wetterstrand m.fl. (mp) yrkande 17,</p>
+    <p>2006/07:A247 av Karl Sigfrid och Oskar Öholm (båda m),</p>
+    <p>2006/07:A259 av Lars Hjälmered och Göran Lindblad (båda m),</p>
+    <p>2006/07:A309 av Mikaela Valtersson (mp) yrkandena 1 och 2,</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 6 i denna del och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 12 i denna del.</p>
     <p>Reservation 8 (s)</p>
     <p>Reservation 9 (v)</p>
     <p>Reservation 10 (mp)</p>
     <p>6.</p>
     <p>Stöd till start av näringsverksamhet</p>
-    <p>Riksdagen avslår motionerna2006/07:A243 av Christer Adelsbo och Göran Persson i Simrishamn (båda s) och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 11 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:A243 av Christer Adelsbo och Göran Persson i Simrishamn (båda s) och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 11 i denna del.</p>
     <p>Reservation 11 (mp)</p>
     <p>7.</p>
     <p>Övriga arbetsmarknadspolitiska program</p>
-    <p>Riksdagen avslår motionerna2006/07:A271 av Veronica Palm m.fl. (s) yrkande 5,2006/07:A332 av Monica Green (s),2006/07:A347 av Lars Ohly m.fl. (v) yrkande 4 och2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 8 och 9.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:A271 av Veronica Palm m.fl. (s) yrkande 5,</p>
+    <p>2006/07:A332 av Monica Green (s),</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 4 och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 8 och 9.</p>
     <p>Reservation 12 (v)</p>
     <p>Reservation 13 (mp)</p>
     <p>8.</p>
     <p>Lönebidrag och Samhall</p>
-    <p>Riksdagen avslår motionerna2006/07:A294 av Jasenko Omanovic och Eva Sonidsson (båda s) och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 10.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:A294 av Jasenko Omanovic och Eva Sonidsson (båda s) och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 10.</p>
     <p>Reservation 14 (mp)</p>
     <p>9.</p>
     <p>Integrations- och antidiskrimineringsarbete</p>
-    <p>Riksdagen avslår motionerna2006/07:A270 av Lars Ohly m.fl. (v) yrkande 2 och2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 3 och 5, båda i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:A270 av Lars Ohly m.fl. (v) yrkande 2 och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 3 och 5, båda i denna del.</p>
     <p>Reservation 15 (v)</p>
     <p>Reservation 16 (mp)</p>
     <p>10.</p>
     <p>Kommunernas ansvar för flyktingmottagande</p>
-    <p>Riksdagen avslår motionerna2006/07:Sf251 av Kalle Larsson m.fl. (v) yrkande 8 i denna del,2006/07:A239 av Luciano Astudillo m.fl. (s) i denna del och2006/07:A270 av Lars Ohly m.fl. (v) yrkande 6 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Sf251 av Kalle Larsson m.fl. (v) yrkande 8 i denna del,</p>
+    <p>2006/07:A239 av Luciano Astudillo m.fl. (s) i denna del och</p>
+    <p>2006/07:A270 av Lars Ohly m.fl. (v) yrkande 6 i denna del.</p>
     <p>Reservation 17 (v)</p>
     <p>11.</p>
     <p>Höjda ersättningar för flyktingmottagandet</p>
-    <p>Riksdagen avslår motion2006/07:Sf251 av Kalle Larsson m.fl. (v) yrkande 9.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2006/07:Sf251 av Kalle Larsson m.fl. (v) yrkande 9.</p>
     <p>Reservation 18 (v)</p>
     <p>12.</p>
     <p>Kommunal introduktionsverksamhet</p>
-    <p>Riksdagen avslår motion2006/07:Sf223 av Peter Eriksson m.fl. (mp) yrkande 4 i denna del.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2006/07:Sf223 av Peter Eriksson m.fl. (mp) yrkande 4 i denna del.</p>
     <p>Reservation 19 (mp)</p>
     <p>13.</p>
     <p>Allmänna frågor om arbetslivspolitiken</p>
-    <p>Riksdagen avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 27 i denna del,2006/07:A302 av Lars Ohly m.fl. (v) yrkande 2 i denna del,2006/07:A319 av Phia Andersson m.fl. (s) yrkande 4 i denna del och2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 13 och 14, båda i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 27 i denna del,</p>
+    <p>2006/07:A302 av Lars Ohly m.fl. (v) yrkande 2 i denna del,</p>
+    <p>2006/07:A319 av Phia Andersson m.fl. (s) yrkande 4 i denna del och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 13 och 14, båda i denna del.</p>
     <p>Reservation 20 (s)</p>
     <p>Reservation 21 (v)</p>
     <p>Reservation 22 (mp)</p>
     <p>14.</p>
     <p>Arbetsdomstolens sammansättning m.m.</p>
-    <p>Riksdagen avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 28,2006/07:Ju372 av Mehmet Kaplan m.fl. (mp) yrkande 12 i denna del och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 13 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 28,</p>
+    <p>2006/07:Ju372 av Mehmet Kaplan m.fl. (mp) yrkande 12 i denna del och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 13 i denna del.</p>
     <p>Reservation 23 (s)</p>
     <p>Reservation 24 (mp)</p>
     <p>15.</p>
     <p>HomO:s uppgifter m.m.</p>
-    <p>Riksdagen avslår motion2006/07:So463 av Maria Wetterstrand m.fl. (mp) yrkandena 7 och 13, båda i denna del.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2006/07:So463 av Maria Wetterstrand m.fl. (mp) yrkandena 7 och 13, båda i denna del.</p>
     <p>Reservation 25 (mp)</p>
     <p>16.</p>
     <p>En ny jämställdhetsmyndighet</p>
-    <p>Riksdagen avslår motionerna2006/07:A229 av Carina Hägg m.fl. (s) och2006/07:A238 av Lars Ohly m.fl. (v) yrkande 3.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:A229 av Carina Hägg m.fl. (s) och</p>
+    <p>2006/07:A238 av Lars Ohly m.fl. (v) yrkande 3.</p>
     <p>Reservation 26 (v)</p>
     <p>17.</p>
     <p>Delegation för hälsa och heltid</p>
-    <p>Riksdagen avslår motion2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 15.</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 15.</p>
     <p>Reservation 27 (mp)</p>
     <p>18.</p>
     <p>Anslag på utgiftsområde 13 för 2007</p>
     <p>a)</p>
     <p>Integrationsverkets avveckling</p>
-    <p>Riksdagen godkänner att Integrationsverket avvecklas per den 1 juli 2007. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 1 och avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 60,2006/07:A270 av Lars Ohly m.fl. (v) yrkande 1,2006/07:A347 av Lars Ohly m.fl. (v) yrkande 1 och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 2.</p>
+    <p>Riksdagen godkänner att Integrationsverket avvecklas per den 1 juli 2007. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 1 och avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 60,</p>
+    <p>2006/07:A270 av Lars Ohly m.fl. (v) yrkande 1,</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 1 och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 2.</p>
     <p>b)</p>
     <p>Hemutrustningslån</p>
     <p>Riksdagen godkänner att under 2007 lån får tas upp i Riksgäldskontoret för det samlade behovet av hemutrustningslån intill ett belopp av 1 400 000 000 kr. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 2.</p>
@@ -118,25 +166,34 @@ expression: xmlstring
     <p>Riksdagen bemyndigar regeringen att under 2007 för ramanslag 22:8 Institutet för arbetsmarknadspolitisk utvärdering åta sig ekonomiska förpliktelser som inklusive tidigare gjorda åtaganden medför behov av framtida anslag på högst 7 000 000 kr under 20082010. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 7.</p>
     <p>h)</p>
     <p>Avskaffande av anställningsstöd</p>
-    <p>Riksdagen godkänner regeringens förslag att avskaffa anställningsstöden, dock ej det särskilda anställningsstödet och anställningsstödet för långtidssjukskrivna med stödnivån 750 kr per dag. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 8 och avslår motion2006/07:A347 av Lars Ohly m.fl. (v) yrkande 3.</p>
+    <p>Riksdagen godkänner regeringens förslag att avskaffa anställningsstöden, dock ej det särskilda anställningsstödet och anställningsstödet för långtidssjukskrivna med stödnivån 750 kr per dag. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 8 och avslår motion</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 3.</p>
     <p>i)</p>
     <p>Avskaffande av datortek</p>
     <p>Riksdagen godkänner regeringens förslag att avskaffa datortek. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 9.</p>
     <p>j)</p>
     <p>Arbetsmarknadsutbildning</p>
-    <p>Riksdagen godkänner regeringens förslag att icke-upphandlad arbetsmarknadsutbildning inte ska få förekomma inom det reguljära utbildningsväsendet. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 10 och avslår motion2006/07:A347 av Lars Ohly m.fl. (v) yrkande 5.</p>
+    <p>Riksdagen godkänner regeringens förslag att icke-upphandlad arbetsmarknadsutbildning inte ska få förekomma inom det reguljära utbildningsväsendet. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 10 och avslår motion</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 5.</p>
     <p>k)</p>
     <p>Avskaffande av interpraktikstipendier</p>
-    <p>Riksdagen godkänner regeringens förslag att avskaffa interpraktikstipendier. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 11 och avslår motion2006/07:A271 av Veronica Palm m.fl. (s) yrkande 8.</p>
+    <p>Riksdagen godkänner regeringens förslag att avskaffa interpraktikstipendier. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 11 och avslår motion</p>
+    <p>2006/07:A271 av Veronica Palm m.fl. (s) yrkande 8.</p>
     <p>l)</p>
     <p>Avskaffande av friår</p>
-    <p>Riksdagen godkänner regeringens förslag att avskaffa friåret. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 12 och avslår motion2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 6 i denna del.</p>
+    <p>Riksdagen godkänner regeringens förslag att avskaffa friåret. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 13 punkt 12 och avslår motion</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 6 i denna del.</p>
     <p>m)</p>
     <p>Anvisning av anslag under utgiftsområde 13</p>
-    <p>Riksdagen anvisar för budgetåret 2007 anslagen under utgiftsområde 13 Arbetsmarknad enligt vad som framgår av bilaga 2. Därmed bifaller riksdagen delvis proposition 2006/07:1 utgiftsområde 13 punkt 13 och avslår motionerna2006/07:A347 av Lars Ohly m.fl. (v) yrkande 6 i denna del och2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 1, 3, båda i denna del, 4, 5, 6, 11 och 12, de fyra senare i denna del.</p>
+    <p>Riksdagen anvisar för budgetåret 2007 anslagen under utgiftsområde 13 Arbetsmarknad enligt vad som framgår av bilaga 2. Därmed bifaller riksdagen delvis proposition 2006/07:1 utgiftsområde 13 punkt 13 och avslår motionerna</p>
+    <p>2006/07:A347 av Lars Ohly m.fl. (v) yrkande 6 i denna del och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 1, 3, båda i denna del, 4, 5, 6, 11 och 12, de fyra senare i denna del.</p>
     <p>n)</p>
     <p>Övriga motioner</p>
-    <p>Riksdagen avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkandena 21 och 23, båda i denna del,2006/07:A270 av Lars Ohly m.fl. (v) yrkande 22 och2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 1 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkandena 21 och 23, båda i denna del,</p>
+    <p>2006/07:A270 av Lars Ohly m.fl. (v) yrkande 22 och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkande 1 i denna del.</p>
     <p>19.</p>
     <p>Anslag på utgiftsområde 14 för 2007</p>
     <p>a)</p>
@@ -144,13 +201,29 @@ expression: xmlstring
     <p>Riksdagen bemyndigar regeringen att under 2007 för ramanslag 23:1 Arbetsmiljöverket besluta om bidrag som inklusive tidigare gjorda åtaganden medför behov av framtida anslag på högst 18 550 000 kr under 2008. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 14 punkt 1.</p>
     <p>b)</p>
     <p>Arbetslivsinstitutets avveckling</p>
-    <p>Riksdagen godkänner att Arbetslivsinstitutet avvecklas per den 1 juli 2007. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 14 punkt 2 och avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 36,2006/07:A254 av Louise Malmström (s),2006/07:A266 av Björn von Sydow (s),2006/07:A271 av Veronica Palm m.fl. (s) yrkande 13,2006/07:A293 av Gunnar Sandberg m.fl. (s),2006/07:A302 av Lars Ohly m.fl. (v) yrkande 1,2006/07:A317 av Louise Malmström (s),2006/07:A336 av Claes-Göran Brandin och Gunilla Carlsson i Hisings Backa (båda s) och2006/07:A341 av Ibrahim Baylan m.fl. (s).</p>
+    <p>Riksdagen godkänner att Arbetslivsinstitutet avvecklas per den 1 juli 2007. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 14 punkt 2 och avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 36,</p>
+    <p>2006/07:A254 av Louise Malmström (s),</p>
+    <p>2006/07:A266 av Björn von Sydow (s),</p>
+    <p>2006/07:A271 av Veronica Palm m.fl. (s) yrkande 13,</p>
+    <p>2006/07:A293 av Gunnar Sandberg m.fl. (s),</p>
+    <p>2006/07:A302 av Lars Ohly m.fl. (v) yrkande 1,</p>
+    <p>2006/07:A317 av Louise Malmström (s),</p>
+    <p>2006/07:A336 av Claes-Göran Brandin och Gunilla Carlsson i Hisings Backa (båda s) och</p>
+    <p>2006/07:A341 av Ibrahim Baylan m.fl. (s).</p>
     <p>c)</p>
     <p>Anvisning av anslag under utgiftsområde 14</p>
-    <p>Riksdagen anvisar för budgetåret 2007 anslagen under utgiftsområde 14 Arbetsliv enligt vad som framgår av bilaga 2. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 14 punkt 3 och avslår motionerna2006/07:Ju372 av Mehmet Kaplan m.fl. (mp) yrkande 12 i denna del,2006/07:So463 av Maria Wetterstrand m.fl. (mp) yrkandena 7 och 13, båda i denna del,2006/07:A302 av Lars Ohly m.fl. (v) yrkande 2 i denna del och2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 13 och 14, båda i denna del.</p>
+    <p>Riksdagen anvisar för budgetåret 2007 anslagen under utgiftsområde 14 Arbetsliv enligt vad som framgår av bilaga 2. Därmed bifaller riksdagen proposition 2006/07:1 utgiftsområde 14 punkt 3 och avslår motionerna</p>
+    <p>2006/07:Ju372 av Mehmet Kaplan m.fl. (mp) yrkande 12 i denna del,</p>
+    <p>2006/07:So463 av Maria Wetterstrand m.fl. (mp) yrkandena 7 och 13, båda i denna del,</p>
+    <p>2006/07:A302 av Lars Ohly m.fl. (v) yrkande 2 i denna del och</p>
+    <p>2006/07:A348 av Ulf Holm m.fl. (mp) yrkandena 13 och 14, båda i denna del.</p>
     <p>d)</p>
     <p>Övriga motioner</p>
-    <p>Riksdagen avslår motionerna2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 27 i denna del,2006/07:A271 av Veronica Palm m.fl. (s) yrkande 12 och2006/07:A319 av Phia Andersson m.fl. (s) yrkande 4 i denna del.</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2006/07:Fi244 av Göran Persson i Stjärnhov m.fl. (s) yrkande 27 i denna del,</p>
+    <p>2006/07:A271 av Veronica Palm m.fl. (s) yrkande 12 och</p>
+    <p>2006/07:A319 av Phia Andersson m.fl. (s) yrkande 4 i denna del.</p>
     <p>Stockholm den 14 december 2006</p>
     <p>På arbetsmarknadsutskottets vägnar</p>
     <p>Catharina Elmsäter-Svärd</p>
@@ -1739,9 +1812,12 @@ expression: xmlstring
     <p>Riksdagen anvisar med följande ändringar i förhållande till regeringens förslag anslagen under utgiftsområde 13 Arbetsmarknad enligt uppställningen: Miljöpartiets förslag, avvikelse från regeringens förslag, miljoner kronor</p>
     <p>13</p>
     <p>Arbetsmarknad</p>
-    <p>Förslag2007</p>
-    <p>Beräknat2008</p>
-    <p>Beräknat2009</p>
+    <p>Förslag</p>
+    <p>2007</p>
+    <p>Beräknat</p>
+    <p>2008</p>
+    <p>Beräknat</p>
+    <p>2009</p>
     <p>Totalt utgiftsområdet</p>
     <p>7427</p>
     <p>8287</p>
@@ -1801,9 +1877,12 @@ expression: xmlstring
     <p>Riksdagen anvisar med följande ändringar i förhållande till regeringens förslag anslagen under utgiftsområde 14 Arbetsliv enligt uppställningen:Miljöpartiets förslag, avvikelse från regeringens förslag, miljoner kronor</p>
     <p>14</p>
     <p>Arbetsliv</p>
-    <p>Förslag2007</p>
-    <p>Beräknat2008</p>
-    <p>Beräknat2009</p>
+    <p>Förslag</p>
+    <p>2007</p>
+    <p>Beräknat</p>
+    <p>2008</p>
+    <p>Beräknat</p>
+    <p>2009</p>
     <p>Totalt utgiftsområdet</p>
     <p>51</p>
     <p>101</p>

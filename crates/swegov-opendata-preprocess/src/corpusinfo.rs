@@ -15,7 +15,7 @@ const CORPUSINFO: [(&str, (&str, &str, &str));21] = [
     ("bet", (
         "rd-bet",
         "Betänkande",
-        "Utskottens betänkanden och utlåtanden, inklusive rksdagens beslut, en sammanfattning av voteringsresultaten och Beslut i korthet")),
+        "Utskottens betänkanden och utlåtanden, inklusive riksdagens beslut, en sammanfattning av voteringsresultaten och Beslut i korthet")),
     ("ds", (
         "rd-ds",
         "Departementsserien",
