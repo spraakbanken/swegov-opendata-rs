@@ -1,5 +1,3 @@
-
-
 // #[test]
 // fn test_preprocess_xml() -> PreprocessResult<()> {
 //     let example1_source_path = [env!("CARGO_MANIFEST_DIR"), "assets", "example1.xml"]

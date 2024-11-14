@@ -16,16 +16,16 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
         dokumentstatus:
             DokumentStatusRef {
                 dokument,
-                dokbilaga,
+                dokbilaga: _,
                 dokuppgift,
                 dokintressent,
                 debatt,
                 dokforslag,
-                dokreferens,
-                dokaktivitet,
+                dokreferens: _,
+                dokaktivitet: _,
                 dokmotforslag,
                 dokutskottsforslag,
-                webbmedia,
+                webbmedia: _,
             },
     } = serde_json::from_str(source)?;
 
@@ -546,7 +546,7 @@ fn process_json_value(
                             x => todo!("handle {:?}", x),
                         }
                     }
-                } else if let Some(table) = table.as_object() {
+                } else if let Some(_table) = table.as_object() {
                 } else {
                     todo!("handle table={:?}", table);
                 }

@@ -230,7 +230,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                     b"style" | b"label" | b"body" | b"BODY" | b"html" | b"HTML" | b"font"
                     | b"FONT" => (),
                     b"b" | b"B" | b"i" => {
-                        if let ParseHtmlState::Paragraph(p) = &state {
+                        if let ParseHtmlState::Paragraph(_p) = &state {
                             // dbg!(&p);
                         }
                         return Err(ProcessHtmlError::unexpected_end_tag(
@@ -406,23 +406,7 @@ fn process_div_bad(
     }
     Ok(())
 }
-fn process_html4(
-    reader: &mut Reader<&[u8]>,
-    textelem: &mut Element,
-) -> Result<(), ProcessHtmlError> {
-    loop {
-        match reader.read_event() {
-            Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
-                    pos: reader.buffer_position(),
-                    err: e,
-                })
-            }
-            Ok(e) => todo!("handle {:?}", e),
-        }
-    }
-    Ok(())
-}
+
 fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
     let mut state = ParseHtmlState::Start;
     let mut div_count = 1;
@@ -535,7 +519,6 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
     let mut elem = Element::bare("p", "");
     let mut curr_node: Option<Node> = None;
     let mut just_seen_span = false;
-    let mut tag_count = 1;
     loop {
         match reader.read_event() {
             Err(e) => {
@@ -1173,7 +1156,6 @@ fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
 
 fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtmlError> {
     let mut table = Vec::new();
-    let curr_elem: Option<Element> = None;
     loop {
         match reader.read_event() {
             Err(e) => {

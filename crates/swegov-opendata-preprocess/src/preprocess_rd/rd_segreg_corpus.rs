@@ -33,7 +33,7 @@ pub fn preprocess_rd_segreg_corpus(
     err: impl std::io::Write,
     mut progress: impl preprocess_progress::NestedProgress + 'static,
     PreprocessRdSegregCorpusOptions {
-        skip_files,
+        skip_files: _,
         processed_json_path,
     }: PreprocessRdSegregCorpusOptions<'_>,
 ) -> Result<(), PreprocessError>

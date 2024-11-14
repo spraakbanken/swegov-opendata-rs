@@ -9,7 +9,7 @@ use async_trait::async_trait;
 use chrono::{DateTime, NaiveDateTime, Utc};
 use deserx::DeXml;
 use reqwest::Client;
-use swegov_opendata::{date_formats, DataFormat, DatasetLista};
+use swegov_opendata::{DataFormat, DatasetLista};
 use tokio::{io::AsyncWriteExt, sync::RwLock};
 
 use crate::{Error, Item};
