@@ -6,6 +6,7 @@ use crate::SparvError;
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
 pub struct SparvConfig {
+    #[serde(skip_serializing_if = "Option::is_none")]
     parent: Option<String>,
     metadata: SparvMetadata,
 }
@@ -31,7 +32,9 @@ impl SparvConfig {
 pub struct SparvMetadata {
     id: String,
     name: HashMap<String, String>,
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
     description: HashMap<String, String>,
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
     short_description: HashMap<String, String>,
 }
 
