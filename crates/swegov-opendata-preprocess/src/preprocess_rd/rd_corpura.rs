@@ -99,7 +99,7 @@ pub fn preprocess_rd_corpura(
         };
 
         writeln!(out, "prefix={prefix}")?;
-        let (corpus_id, name, descr) = corpusinfo(prefix)?;
+        let (corpus_id, names, descrs) = corpusinfo(prefix)?;
         // Process only if in 'corpora'
         if !corpura.is_empty() && !corpura.contains(&corpus_id) {
             if verbose {
@@ -121,8 +121,8 @@ pub fn preprocess_rd_corpura(
         let sparv_config = SparvConfig::with_parent_and_metadata(
             "../config.yaml",
             SparvMetadata::new(corpus_id)
-                .name("swe", format!("Riksdagens öppna data: {}", name))
-                .description("swe", descr),
+                .names(names)
+                .short_descriptions(descrs),
         );
         make_corpus_config(&sparv_config, &output.join(corpus_id))?;
         let mut processed_zip_dict = processed_json.remove(zippath_name).unwrap_or_default();

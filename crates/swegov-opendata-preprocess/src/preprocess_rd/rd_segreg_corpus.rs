@@ -228,7 +228,7 @@ fn build_sparv_source(
         return Ok(());
         // return Err(PreprocessError::NoValidPrefix(zippath_name.to_string()));
     };
-    let (corpus_id, name, descr) = match corpusinfo(&prefix) {
+    let (corpus_id, names, short_descrs) = match corpusinfo(&prefix) {
         Ok(corpus_info) => corpus_info,
         Err(err) => {
             tracing::error!(
@@ -250,11 +250,8 @@ fn build_sparv_source(
     let sparv_config = SparvConfig::with_parent_and_metadata(
         "../config.yaml",
         SparvMetadata::new(&corpus_id)
-            .name(
-                "swe",
-                format!("Segregations språk: Riksdagens öppna data: {}", name),
-            )
-            .description("swe", descr),
+            .names(names)
+            .short_descriptions(short_descrs),
     );
     make_corpus_config(&sparv_config, &output.join(corpus_id))?;
     let counter = processed_zip_dict.len() + 1;
