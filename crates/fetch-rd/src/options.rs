@@ -27,6 +27,10 @@ pub struct Args {
     #[clap(long, short = 'p', default_value = "50")]
     pub processing_concurrency: usize,
 
+    /// load saldo from this file
+    #[clap(long)]
+    pub saldo: Option<PathBuf>,
+
     /// load and save state to this path
     #[clap(long, short = 's', default_value = "visited.json")]
     pub state: PathBuf,
