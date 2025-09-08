@@ -13,7 +13,6 @@ doctest = false
 [dependencies]
 anyhow = { workspace = true }
 async-trait = { workspace = true }
-deserx = { workspace = true }
 flate2 = { workspace = true }
 quick-xml = { workspace = true, features = ["serde", "serialize"] }
 reqwest = { workspace = true, features = [

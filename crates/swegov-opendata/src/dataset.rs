@@ -1,9 +1,6 @@
 use std::{collections::BTreeMap, io::BufRead};
 
 use chrono::NaiveDateTime;
-use deserx::DeXmlError;
-use quick_xml::events::{BytesEnd, BytesStart, BytesText, Event};
-use quick_xml::NsReader;
 
 use crate::date_formats;
 
@@ -16,94 +13,6 @@ pub struct DatasetLista {
     pub dataset: Vec<DataSet>,
 }
 
-impl deserx::SerXml for DatasetLista {
-    fn serialize_xml<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        self.ser_as_element(serializer, "datasetlista")
-    }
-
-    fn ser_elem_body<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        self.dataset.ser_elem_body(serializer)
-    }
-}
-
-impl deserx::DeXml for DatasetLista {
-    fn deserialize_xml<R: BufRead>(reader: &mut NsReader<R>) -> Result<Self, deserx::DeXmlError> {
-        Self::deserialize_xml_from_tag(reader, "datasetlista")
-    }
-
-    fn deserialize_xml_from_body<R: BufRead>(
-        reader: &mut NsReader<R>,
-        start: &BytesStart,
-    ) -> Result<Self, deserx::DeXmlError> {
-        // dbg!(start);
-        let mut buf = Vec::new();
-        let mut dataset = Vec::new();
-        loop {
-            match reader.read_event_into(&mut buf)? {
-                Event::End(e) => {
-                    if e == start.to_end() {
-                        break;
-                    }
-                    match e.name().as_ref() {
-                        b"dataset" => (),
-                        _ => todo!("handle {:?}", e),
-                    }
-                }
-
-                Event::Start(e) => match e.name().as_ref() {
-                    b"dataset" => {
-                        let d = DataSet::deserialize_xml_from_body(reader, &e).unwrap(); //?;
-                        dataset.push(d);
-                    }
-                    _ => todo!("handle {:?}", e),
-                },
-                // e => todo!("handle {:?}", e),
-                Event::Text(e) => {
-                    if e.unescape()?.trim().is_empty() {
-                        continue;
-                    } else {
-                        return Err(DeXmlError::custom(format!("Unexpected text '{:?}'", e)));
-                    }
-                }
-                e => {
-                    return Err(DeXmlError::custom(format!(
-                        "dataset.rs:67:22: handle {:?}",
-                        e
-                    )))
-                }
-            }
-        }
-
-        Ok(Self { dataset })
-    }
-    fn deserialize_xml_from_tag<R: BufRead>(
-        reader: &mut NsReader<R>,
-        tag: &str,
-    ) -> Result<Self, DeXmlError> {
-        // dbg!(tag);
-        use quick_xml::events::Event;
-        let mut buf = Vec::new();
-        let self_: Self = match reader.read_event_into(&mut buf)? {
-            Event::Empty(evt) if evt.name().as_ref() == tag.as_bytes() => Self::default(),
-            Event::Start(evt) if evt.name().as_ref() == tag.as_bytes() => {
-                Self::deserialize_xml_from_body(reader, &evt).unwrap() //?
-                                                                       // Self::deserialize_xml_from_body_with_end(reader, &evt, evt.to_end())?
-            }
-            evt => {
-                return Err(DeXmlError::UnexpectedTag {
-                    tag: tag.to_string(),
-                    event: format!("{:?}", evt),
-                })
-            }
-        };
-
-        Ok(self_)
     }
 }
 
@@ -220,87 +129,6 @@ impl DatasetBuilder {
     }
 }
 
-impl deserx::DeXml for DataSet {
-    fn deserialize_xml<R: BufRead>(reader: &mut NsReader<R>) -> Result<Self, deserx::DeXmlError> {
-        Self::deserialize_xml_from_tag(reader, "dataset")
-    }
-    fn deserialize_xml_from_body<R: BufRead>(
-        reader: &mut NsReader<R>,
-        _start: &BytesStart,
-    ) -> Result<Self, deserx::DeXmlError> {
-        let mut builder = DatasetBuilder::default();
-        builder.namn(String::deserialize_xml_from_tag(reader, "namn")?);
-        // dbg!(&builder);
-        builder.typ(String::deserialize_xml_from_tag(reader, "typ")?);
-        // dbg!(&builder);
-        builder.samling(String::deserialize_xml_from_tag(reader, "samling")?);
-        // dbg!(&builder);
-        builder.rm(String::deserialize_xml_from_tag(reader, "rm")?);
-        // dbg!(&builder);
-        builder.filnamn(String::deserialize_xml_from_tag(reader, "filnamn")?);
-        // dbg!(&builder);
-        let s = String::deserialize_xml_from_tag(reader, "storlek")?;
-        builder.storlek(s.parse::<usize>().map_err(DeXmlError::custom)?);
-        // dbg!(&builder);
-        builder.format(DataFormat::deserialize_xml_from_tag(reader, "format")?);
-        // dbg!(&builder);
-        builder.filformat(FilFormat::deserialize_xml_from_tag(reader, "filformat")?);
-        // dbg!(&builder);
-        let s = String::deserialize_xml_from_tag(reader, "uppdaterad")?;
-        builder.uppdaterad(
-            date_formats::swe_date_format::parse_from_str(&s).map_err(DeXmlError::custom)?,
-        );
-        // dbg!(&builder);
-        builder.url(String::deserialize_xml_from_tag(reader, "url")?);
-        // dbg!(&builder);
-        builder.description(String::deserialize_xml_from_tag(reader, "description")?);
-        // dbg!(&builder);
-        let beskrivning = String::deserialize_xml_from_tag(reader, "beskrivning").unwrap(); //?;
-                                                                                            // dbg!(&beskrivning);
-        if !beskrivning.is_empty() {
-            builder.beskrivning(Some(beskrivning));
-        }
-        // dbg!(&builder);
-        let upplysning = Upplysning::deserialize_xml_from_tag(reader, "upplysning").unwrap(); //?;
-        if upplysning.upplysning.is_empty() && upplysning.year_comment.is_empty() {
-            builder.upplysning(None);
-        } else {
-            builder.upplysning(Some(upplysning));
-        }
-
-        builder.build().map_err(DeXmlError::custom)
-    }
-}
-
-impl deserx::SerXml for DataSet {
-    fn serialize_xml<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        self.ser_as_element(serializer, "dataset")
-    }
-
-    fn ser_elem_body<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        self.namn.ser_as_element(serializer, "namn")?;
-        self.typ.ser_as_element(serializer, "typ")?;
-        self.samling.ser_as_element(serializer, "samling")?;
-        self.rm.ser_as_element(serializer, "rm")?;
-        self.filnamn.ser_as_element(serializer, "filnamn")?;
-        self.storlek_bytes.ser_as_element(serializer, "storlek")?;
-        self.format.ser_as_element(serializer, "format")?;
-        self.filformat.ser_as_element(serializer, "filformat")?;
-        date_formats::swe_date_format::to_string(&self.uppdaterad)
-            .ser_as_element(serializer, "uppdaterad")?;
-        self.url.ser_as_element(serializer, "url")?;
-        self.description.ser_as_element(serializer, "description")?;
-        self.beskrivning.ser_as_element(serializer, "beskrivning")?;
-        self.upplysning.ser_as_element(serializer, "upplysning")?;
-        Ok(())
-    }
-}
 
 #[derive(Debug, Default, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[serde(rename = "upplysning")]
@@ -315,145 +143,11 @@ impl Upplysning {
     }
 }
 
-impl deserx::SerXml for Upplysning {
-    fn serialize_xml<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        if self.upplysning.is_empty() && self.year_comment.is_empty() {
-            self.ser_as_element_empty(serializer, "upplysning")
-        } else {
-            self.ser_as_element(serializer, "upplysning")
-        }
-    }
-
-    fn ser_elem_body<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        if !self.upplysning.is_empty() {
-            self.upplysning.ser_as_text(serializer)?;
-        }
-        for (year, comment) in self.year_comment.iter() {
-            serializer.write_event(Event::Empty(BytesStart::new("br")))?;
-            serializer.write_event(Event::Text(BytesText::new(&format!(
-                "{}: {}",
-                year, comment
-            ))))?;
-        }
-        Ok(())
-    }
 }
-impl deserx::DeXml for Upplysning {
-    fn deserialize_xml<R: BufRead>(
-        reader: &mut quick_xml::NsReader<R>,
-    ) -> Result<Self, deserx::DeXmlError> {
-        let mut buf = Vec::new();
-        match reader.read_event_into(&mut buf)? {
-            Event::Start(evt) => Self::deserialize_xml_from_body(reader, &evt),
-            _ => todo!(),
+
         }
     }
 
-    fn deserialize_xml_from_body<R: BufRead>(
-        reader: &mut quick_xml::NsReader<R>,
-        start: &BytesStart,
-    ) -> Result<Self, deserx::DeXmlError> {
-        let upplysning = String::deserialize_xml_from_text(reader)?;
-        let mut year_comment = BTreeMap::default();
-        let mut buf = Vec::new();
-        loop {
-            match reader.read_event_into(&mut buf)? {
-                Event::Empty(e) => match e.name().as_ref() {
-                    b"br" => {
-                        // dbg!(e);
-                    }
-                    _ => todo!(),
-                },
-                Event::Text(e) => {
-                    let raw_text = e.unescape()?;
-                    let mut parts = raw_text.split(':');
-                    let year = parts.next().unwrap().to_string();
-                    let comment = parts.next().unwrap().trim_start().to_string();
-                    year_comment.insert(year, comment);
-                }
-                Event::End(e) => match e.name().as_ref() {
-                    tag if tag == start.name().as_ref() => break,
-                    _ => todo!(),
-                },
-                Event::Eof => break,
-                e => todo!("handle {:?}", e),
-            }
-        }
-        Ok(Self {
-            upplysning,
-            year_comment,
-        })
-    }
-
-    fn deserialize_xml_from_body_with_end<R: BufRead>(
-        reader: &mut quick_xml::NsReader<R>,
-        _start: &BytesStart,
-        end: BytesEnd,
-    ) -> Result<Self, deserx::DeXmlError> {
-        // dbg!(start);
-        // dbg!(&end);
-        let mut upplysning = String::default(); //?;
-        let mut found_br = false;
-        let mut year_comment = BTreeMap::default();
-        let mut buf = Vec::new();
-        loop {
-            match reader.read_event_into(&mut buf)? {
-                Event::Empty(e) => match e.name().as_ref() {
-                    b"br" => {
-                        // dbg!(e);
-                        found_br = true;
-                    }
-                    _ => todo!(),
-                },
-                Event::Text(e) => {
-                    let raw_text = e.unescape()?;
-                    if found_br {
-                        let mut parts = raw_text.split(':');
-                        let year = parts.next().unwrap().to_string();
-                        let comment = parts.next().unwrap().trim_start().to_string();
-                        year_comment.insert(year, comment);
-                    } else {
-                        upplysning.push_str(raw_text.as_ref());
-                    }
-                }
-                Event::End(e) if e == end => break,
-                Event::Eof => break,
-                e => todo!("handle {:?}", e),
-            }
-        }
-        Ok(Self {
-            upplysning,
-            year_comment,
-        })
-    }
-    fn deserialize_xml_from_tag<R: BufRead>(
-        reader: &mut NsReader<R>,
-        tag: &str,
-    ) -> Result<Self, DeXmlError> {
-        // dbg!(tag);
-        use quick_xml::events::Event;
-        let mut buf = Vec::new();
-        let self_: Self = match reader.read_event_into(&mut buf)? {
-            Event::Empty(evt) if evt.name().as_ref() == tag.as_bytes() => Self::default(),
-            Event::Start(evt) if evt.name().as_ref() == tag.as_bytes() => {
-                Self::deserialize_xml_from_body_with_end(reader, &evt, evt.to_end())?
-            }
-            evt => {
-                return Err(DeXmlError::UnexpectedTag {
-                    tag: tag.to_string(),
-                    event: format!("{:?}", evt),
-                })
-            }
-        };
-
-        Ok(self_)
-    }
 }
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
@@ -496,60 +190,6 @@ impl DataFormat {
     }
 }
 
-impl deserx::SerXml for DataFormat {
-    fn serialize_xml<W: std::io::Write>(
-        &self,
-        _serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        todo!()
-    }
-
-    fn ser_elem_body<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        self.ser_as_text(serializer)
-    }
-
-    fn ser_as_text<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        serializer.write_event(Event::Text(BytesText::new(self.as_str())))
-    }
-}
-impl deserx::DeXml for DataFormat {
-    fn deserialize_xml<R: BufRead>(_reader: &mut NsReader<R>) -> Result<Self, deserx::DeXmlError> {
-        todo!()
-    }
-
-    fn deserialize_xml_from_text<R: BufRead>(
-        reader: &mut NsReader<R>,
-    ) -> Result<Self, deserx::DeXmlError> {
-        let mut buf = Vec::new();
-        match reader.read_event_into(&mut buf)? {
-            Event::Text(text) => {
-                let s = text.unescape()?;
-                match Self::from_str_opt(s.as_ref()) {
-                    Some(res) => Ok(res),
-                    None => Err(DeXmlError::custom(format!("Unknown format '{}'", s))),
-                }
-            }
-            evt => {
-                return Err(DeXmlError::UnexpectedEvent {
-                    event: format!("{:?}", evt),
-                })
-            }
-        }
-    }
-
-    fn deserialize_xml_from_body<R: BufRead>(
-        reader: &mut NsReader<R>,
-        _start: &BytesStart,
-    ) -> Result<Self, deserx::DeXmlError> {
-        Self::deserialize_xml_from_text(reader)
-    }
-}
 // impl serde::Serialize for DataFormat {
 //     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
 //     where
@@ -607,59 +247,6 @@ impl FilFormat {
     }
 }
 
-impl deserx::SerXml for FilFormat {
-    fn serialize_xml<W: std::io::Write>(
-        &self,
-        _serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        todo!()
-    }
-
-    fn ser_elem_body<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        self.ser_as_text(serializer)
-    }
-
-    fn ser_as_text<W: std::io::Write>(
-        &self,
-        serializer: &mut quick_xml::Writer<W>,
-    ) -> Result<(), quick_xml::Error> {
-        serializer.write_event(Event::Text(BytesText::new(self.as_str())))
-    }
-}
-impl deserx::DeXml for FilFormat {
-    fn deserialize_xml<R: BufRead>(_reader: &mut NsReader<R>) -> Result<Self, deserx::DeXmlError> {
-        todo!()
-    }
-
-    fn deserialize_xml_from_text<R: BufRead>(
-        reader: &mut NsReader<R>,
-    ) -> Result<Self, deserx::DeXmlError> {
-        let mut buf = Vec::new();
-        match reader.read_event_into(&mut buf)? {
-            Event::Text(text) => {
-                let s = text.unescape()?;
-                match Self::from_str_opt(s.as_ref()) {
-                    Some(res) => Ok(res),
-                    None => Err(DeXmlError::custom(format!("Unknown format '{}'", s))),
-                }
-            }
-            evt => {
-                return Err(DeXmlError::UnexpectedEvent {
-                    event: format!("{:?}", evt),
-                })
-            }
-        }
-    }
-    fn deserialize_xml_from_body<R: BufRead>(
-        reader: &mut NsReader<R>,
-        _start: &BytesStart,
-    ) -> Result<Self, deserx::DeXmlError> {
-        Self::deserialize_xml_from_text(reader)
-    }
-}
 // impl serde::Serialize for FilFormat {
 //     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
 //     where

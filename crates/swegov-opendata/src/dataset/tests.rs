@@ -1,5 +1,4 @@
 use chrono::NaiveDate;
-use deserx::{DeXml, SerXml};
 
 use super::*;
 
@@ -88,15 +87,9 @@ fn upplysning_anforande_202334() -> Upplysning {
 fn dataset_serialize_deserialize_xml() -> anyhow::Result<()> {
     let value = dataset_bet_1971_1979();
 
-    let mut buffer = Vec::new();
-    let mut writer = quick_xml::Writer::new(&mut buffer);
-    value.serialize_xml(&mut writer)?;
-    let buffer = String::from_utf8(buffer)?;
 
     insta::assert_snapshot!("dataset_ser_xml", buffer.as_str());
 
-    let mut reader = quick_xml::NsReader::from_str(&buffer);
-    let actual = DataSet::deserialize_xml(&mut reader)?;
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }
@@ -104,15 +97,9 @@ fn dataset_serialize_deserialize_xml() -> anyhow::Result<()> {
 #[test]
 fn upplysning_ser_de_xml() -> anyhow::Result<()> {
     let value = upplysning_bet_1971_1979();
-    let mut buffer = Vec::new();
-    let mut writer = quick_xml::Writer::new(&mut buffer);
-    value.serialize_xml(&mut writer)?;
-    let buffer = String::from_utf8(buffer)?;
 
     insta::assert_snapshot!("upplysning_ser_xml", buffer.as_str());
 
-    let mut reader = quick_xml::NsReader::from_str(&buffer);
-    let actual = Upplysning::deserialize_xml(&mut reader)?;
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }
@@ -127,15 +114,9 @@ fn datalista_de_ser_xml() -> anyhow::Result<()> {
         ],
     };
 
-    let mut buffer = Vec::new();
-    let mut writer = quick_xml::Writer::new(&mut buffer);
-    value.serialize_xml(&mut writer)?;
-    let buffer = String::from_utf8(buffer)?;
 
     insta::assert_snapshot!("datalista_ser_xml", buffer.as_str());
 
-    let mut reader = quick_xml::NsReader::from_str(&buffer);
-    let actual = DatasetLista::deserialize_xml(&mut reader)?;
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }

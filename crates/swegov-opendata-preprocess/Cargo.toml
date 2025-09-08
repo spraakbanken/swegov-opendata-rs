@@ -24,7 +24,6 @@ regex = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 serde_with = { workspace = true }
-soup = { workspace = true }
 sparv-extension = { workspace = true }
 swegov-opendata = { workspace = true }
 thiserror = { workspace = true }

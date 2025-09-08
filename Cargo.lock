@@ -1507,7 +1507,6 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
- "deserx",
  "flate2",
  "quick-xml 0.36.2",
  "reqwest",
@@ -2511,16 +2510,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "soup"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa5a5d21523f4b7a17ad04eaf534360fc908879f53f3341918cbec2fee9cfe14"
-dependencies = [
- "html5ever",
- "regex",
-]
-
-[[package]]
 name = "sparv-extension"
 version = "0.2.0"
 dependencies = [
@@ -2616,7 +2605,6 @@ version = "0.2.1"
 dependencies = [
  "anyhow",
  "chrono",
- "deserx",
  "insta",
  "miette",
  "quick-xml 0.36.2",
@@ -2651,7 +2639,6 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_with",
- "soup",
  "sparv-extension",
  "swegov-opendata",
  "test-log",

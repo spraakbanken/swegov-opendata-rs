@@ -43,7 +43,6 @@ async-trait = "0.1.82"
 chrono = "0.4.37"
 clap = { version = "4.4.11" }
 config = "0.13.3"
-deserx = { git = "https://github.com/kod-kristoff/deserx" }
 flate2 = "1.0.27"
 futures = "0.3.28"
 futures-core = "0.3"
@@ -73,7 +72,6 @@ serde_with = "3.10.0"
 serde_yaml = "0.9.27"
 similar-asserts = "1.6.0"
 smallvec = { version = "1", default-features = false }
-soup = "0.5.1"
 syn = "2"
 thiserror = "1.0.64"
 test-log = { version = "0.2.16" }
