@@ -24,12 +24,11 @@ pub enum Error {
         source: serde_json::Error,
     },
     #[diagnostic(code(opendata_rd_spider::CouldNotParseXml))]
-    #[error("Could not parse XML from src.")]
+    #[error("Could not parse XML from src: '{msg}'")]
     CouldNotParseXml {
         #[source_code]
         src: String,
-        #[source]
-        source: deserx::DeXmlError,
+        msg: String,
     },
 
     #[diagnostic(code(opendata_rd_spider::CouldNotReadFile))]

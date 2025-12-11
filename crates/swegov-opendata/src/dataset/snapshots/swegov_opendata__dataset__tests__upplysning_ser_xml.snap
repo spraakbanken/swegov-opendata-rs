@@ -2,4 +2,4 @@
 source: crates/swegov-opendata/src/dataset/tests.rs
 expression: buffer.as_str()
 ---
-<upplysning>Saknade dokument: <br/>1975/76: alla<br/>1976/77: FiU,NU</upplysning>
+<?xml version="1.0" encoding="UTF-8"?><upplysning>Saknade dokument: <br />1975/76: alla<br />1976/77: FiU,NU</upplysning>

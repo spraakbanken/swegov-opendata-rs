@@ -1,4 +1,8 @@
 use chrono::NaiveDate;
+use xml::{EventReader, ParserConfig};
+use yaserde::YaDeserialize;
+
+use crate::date_formats::SweDateTime;
 
 use super::*;
 
@@ -12,10 +16,12 @@ fn dataset_anforande_202324() -> DataSet {
         storlek_bytes: 213476,
         format: DataFormat::Csv,
         filformat: FilFormat::Zip,
-        uppdaterad: NaiveDate::from_ymd_opt(2024, 09, 26)
-            .unwrap()
-            .and_hms_opt(02, 01, 45)
-            .unwrap(),
+        uppdaterad: SweDateTime::from(
+            NaiveDate::from_ymd_opt(2024, 9, 26)
+                .unwrap()
+                .and_hms_opt(2, 1, 45)
+                .unwrap(),
+        ),
         url: "/dataset/anforande/anforande-202324.csv.zip".into(),
         description: "Anföranden som ledamöter hållit i kammaren.".into(),
         beskrivning: Some("Anföranden för riksmöte 2023/24".into()),
@@ -32,10 +38,12 @@ fn dataset_anforande_202223() -> DataSet {
         storlek_bytes: 9428358,
         format: DataFormat::CsvT,
         filformat: FilFormat::Zip,
-        uppdaterad: NaiveDate::from_ymd_opt(2024, 09, 26)
-            .unwrap()
-            .and_hms_opt(02, 00, 27)
-            .unwrap(),
+        uppdaterad: SweDateTime::from(
+            NaiveDate::from_ymd_opt(2024, 09, 26)
+                .unwrap()
+                .and_hms_opt(02, 00, 27)
+                .unwrap(),
+        ),
         url: "/dataset/anforande/anforande-202223.csvt.zip".into(),
         description: "Anföranden som ledamöter hållit i kammaren.".into(),
         beskrivning: None,
@@ -52,10 +60,11 @@ fn dataset_bet_1971_1979() -> DataSet {
         storlek_bytes: 43958334,
         format: DataFormat::Xml,
         filformat: FilFormat::Zip,
-        uppdaterad: NaiveDate::from_ymd_opt(2015, 04, 27)
+        uppdaterad:  SweDateTime::from(
+                          NaiveDate::from_ymd_opt(2015, 04, 27)
             .unwrap()
             .and_hms_opt(03, 59, 11)
-            .unwrap(),
+            .unwrap()),
         url: "/dataset/dokument/bet-1971-1979.xml.zip".into(),
         description:
         "Utskottens betänkanden och utlåtanden, inklusive rksdagens beslut, en sammanfattning av voteringsresultaten och Beslut i korthet. I vissa årgångar finns även debatten med i formaten JSON, SQL och XML.".into(),
@@ -67,11 +76,16 @@ fn dataset_bet_1971_1979() -> DataSet {
 fn upplysning_bet_1971_1979() -> Upplysning {
     Upplysning {
         upplysning: "Saknade dokument: ".into(),
-        year_comment: [
-            ("1975/76".into(), "alla".into()),
-            ("1976/77".into(), "FiU,NU".into()),
-        ]
-        .into(),
+        year_comment: YearCommentMap::new(vec![
+            YearComment {
+                year: "1975/76".into(),
+                comment: "alla".into(),
+            },
+            YearComment {
+                year: "1976/77".into(),
+                comment: "FiU,NU".into(),
+            },
+        ]),
     }
 }
 
@@ -87,9 +101,16 @@ fn upplysning_anforande_202334() -> Upplysning {
 fn dataset_serialize_deserialize_xml() -> anyhow::Result<()> {
     let value = dataset_bet_1971_1979();
 
+    let buffer = yaserde::ser::to_string(&value).unwrap();
 
     insta::assert_snapshot!("dataset_ser_xml", buffer.as_str());
 
+    let mut xml_reader = yaserde::de::Deserializer::new(EventReader::new_with_config(
+        buffer.as_bytes(),
+        ParserConfig::new().trim_whitespace(false),
+    ));
+    let actual = DataSet::deserialize(&mut xml_reader).unwrap();
+    // let actual: DataSet = yaserde::de::from_str(&buffer).unwrap();
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }
@@ -97,9 +118,15 @@ fn dataset_serialize_deserialize_xml() -> anyhow::Result<()> {
 #[test]
 fn upplysning_ser_de_xml() -> anyhow::Result<()> {
     let value = upplysning_bet_1971_1979();
+    let buffer = yaserde::ser::to_string(&value).unwrap();
 
     insta::assert_snapshot!("upplysning_ser_xml", buffer.as_str());
 
+    let mut xml_reader = yaserde::de::Deserializer::new(EventReader::new_with_config(
+        buffer.as_bytes(),
+        ParserConfig::new().trim_whitespace(false),
+    ));
+    let actual = Upplysning::deserialize(&mut xml_reader).unwrap();
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }
@@ -114,9 +141,15 @@ fn datalista_de_ser_xml() -> anyhow::Result<()> {
         ],
     };
 
+    let buffer = yaserde::ser::to_string(&value).unwrap();
 
     insta::assert_snapshot!("datalista_ser_xml", buffer.as_str());
 
+    let mut xml_reader = yaserde::de::Deserializer::new(EventReader::new_with_config(
+        buffer.as_bytes(),
+        ParserConfig::new().trim_whitespace(false),
+    ));
+    let actual = DatasetLista::deserialize(&mut xml_reader).unwrap();
     similar_asserts::assert_eq!(actual, value);
     Ok(())
 }

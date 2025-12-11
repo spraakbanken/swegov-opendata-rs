@@ -7,7 +7,6 @@ use std::{
 
 use async_trait::async_trait;
 use chrono::{DateTime, NaiveDateTime, Utc};
-use deserx::DeXml;
 use reqwest::Client;
 use swegov_opendata::{DataFormat, DatasetLista};
 use tokio::{io::AsyncWriteExt, sync::RwLock};
@@ -91,13 +90,7 @@ impl Metadata {
     pub fn should_be_updated(&self, url: &str, uppdaterad: NaiveDateTime) -> bool {
         match self.metadata.get(url) {
             None => true,
-            Some(meta) => {
-                if meta.uppdated.naive_local() < uppdaterad {
-                    true
-                } else {
-                    false
-                }
-            }
+            Some(meta) => meta.uppdated.naive_local() < uppdaterad,
         }
     }
 
@@ -210,24 +203,18 @@ impl webcrawler::Spider for RdSpider {
             let text = response.text().await?;
 
             let text = text.replace("\r\n", "");
-            let mut reader = quick_xml::NsReader::from_str(&text);
-            // let config = reader.config_mut();
-            // config.trim_text_start = true;
-            // config.trim_text_end = true;
-            // config.expand_empty_elements = true;
-            let DatasetLista { dataset } = DatasetLista::deserialize_xml(&mut reader)
-                .map_err(|source| Error::CouldNotParseXml { src: text, source })?;
+            let DatasetLista { dataset } = yaserde::de::from_str(&text)
+                .map_err(|msg| Error::CouldNotParseXml { src: text, msg })?;
             for dataset in dataset {
-                if dataset.format == DataFormat::Json {
-                    if self
+                if dataset.format == DataFormat::Json
+                    && self
                         .metadata
                         .read()
                         .await
-                        .should_be_updated(&dataset.url, dataset.uppdaterad)
-                    {
-                        new_urls.push(format!("{}{}", Self::BASE_URL, dataset.url));
-                        items.push(Item::Metadata(dataset));
-                    }
+                        .should_be_updated(&dataset.url, dataset.uppdaterad.as_inner())
+                {
+                    new_urls.push(format!("{}{}", Self::BASE_URL, dataset.url));
+                    items.push(Item::Metadata(dataset));
                 }
             }
         } else {
