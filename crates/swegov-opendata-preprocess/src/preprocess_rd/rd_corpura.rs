@@ -117,7 +117,7 @@ pub fn preprocess_rd_corpura(
         let corpus_source_dir = Path::new(output)
             .join(corpus_id)
             .join("source")
-            .join(&corpus_source_base);
+            .join(corpus_source_base);
         let sparv_config = SparvConfig::with_parent_and_metadata(
             "../config.yaml",
             SparvMetadata::new(corpus_id)
@@ -145,6 +145,7 @@ pub fn preprocess_rd_corpura(
 }
 
 #[tracing::instrument(skip(out, progress))]
+#[allow(clippy::too_many_arguments)]
 fn build_sparv_source(
     processed_zip_dict: &mut HashMap<String, String>,
     zippath_name: &str,
@@ -157,7 +158,7 @@ fn build_sparv_source(
 ) -> Result<(), PreprocessError> {
     let counter = processed_zip_dict.len() + 1;
     let mut source_writer = XmlSourceWriter::with_target_and_counter(&corpus_source_dir, counter);
-    let zip_file = fs::File::open(&zippath).map_err(|error| PreprocessError::CouldNotReadFile {
+    let zip_file = fs::File::open(zippath).map_err(|error| PreprocessError::CouldNotReadFile {
         path: zippath.to_owned(),
         error,
     })?;

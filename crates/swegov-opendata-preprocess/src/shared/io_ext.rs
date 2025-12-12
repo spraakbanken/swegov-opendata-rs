@@ -23,6 +23,6 @@ pub fn without_bom(s: &str) -> &str {
     if &s[0..3] == "\u{feff}" {
         &s[3..]
     } else {
-        &s[..]
+        s
     }
 }

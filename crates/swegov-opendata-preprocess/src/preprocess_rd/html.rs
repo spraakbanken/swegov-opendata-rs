@@ -92,9 +92,8 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                 })
             }
             Ok(Event::Empty(e)) => {
-                match state {
-                    ParseHtmlState::Skip { tag: _ } => continue,
-                    _ => (),
+                if let ParseHtmlState::Skip { tag: _ } = state {
+                    continue;
                 }
                 match e.name().as_ref() {
                     b"br" | b"BR" | b"hr" | b"v" => (),
@@ -108,9 +107,8 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                 }
             }
             Ok(Event::Start(e)) => {
-                match state {
-                    ParseHtmlState::Skip { tag: _ } => continue,
-                    _ => (),
+                if let ParseHtmlState::Skip { tag: _ } = state {
+                    continue;
                 }
                 match e.name().as_ref() {
                     b"body" | b"BODY" | b"html" | b"HTML" => (),
@@ -217,14 +215,11 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                 }
             },
             Ok(Event::End(e)) => {
-                match state {
-                    ParseHtmlState::Skip { ref tag } => {
-                        if e.name().as_ref() == tag {
-                            state = ParseHtmlState::Start;
-                        }
-                        continue;
+                if let ParseHtmlState::Skip { ref tag } = state {
+                    if e.name().as_ref() == tag {
+                        state = ParseHtmlState::Start;
                     }
-                    _ => (),
+                    continue;
                 }
                 match e.name().as_ref() {
                     b"style" | b"label" | b"body" | b"BODY" | b"html" | b"HTML" | b"font"
@@ -464,10 +459,11 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(),
                     ))
                 }
             },
-            Ok(Event::Text(_t)) => match state {
-                ParseHtmlState::Skip { tag: _ } => continue,
-                _ => (),
-            },
+            Ok(Event::Text(_t)) => {
+                if let ParseHtmlState::Skip { tag: _ } = state {
+                    continue;
+                }
+            }
             Ok(Event::End(e)) => {
                 if let ParseHtmlState::Skip { ref tag } = state {
                     if e.name().as_ref() == tag {
@@ -589,10 +585,9 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
                 b"a" | b"A" | b"notreferens" => (),
                 b"span" | b"SPAN" => {
                     if just_seen_span {
-                        curr_node.as_mut().map(|node| match node {
-                            Node::Text(t) => t.push_str(" "),
-                            _ => (),
-                        });
+                        if let Some(Node::Text(t)) = curr_node.as_mut() {
+                            t.push(' ');
+                        }
                     }
                 }
                 b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"." | b"div"
@@ -753,10 +748,9 @@ fn extract_paragraph_or_list(
                 b"a" | b"A" => (),
                 b"span" | b"SPAN" => {
                     if just_seen_span {
-                        curr_node.as_mut().map(|node| match node {
-                            Node::Text(t) => t.push_str(" "),
-                            _ => (),
-                        });
+                        if let Some(Node::Text(t)) = curr_node.as_mut() {
+                            t.push(' ');
+                        }
                     }
                 }
                 b"nobr" | b"NOBR" | b"em" | b"EM" | b"sup" | b"i" | b"I" | b"b" | b"B" | b"sub" => {

@@ -127,9 +127,7 @@ pub fn preprocess_xml(xml_string: &str, filename: Cow<'_, str>) -> Result<Vec<u8
     docelem.append_child(textelem);
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
-    docelem
-        .to_writer(&mut writer)
-        .map_err(|error| XmlError::Write(error))?;
+    docelem.to_writer(&mut writer).map_err(XmlError::Write)?;
     Ok(result)
 }
 

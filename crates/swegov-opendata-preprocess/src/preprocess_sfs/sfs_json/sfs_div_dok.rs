@@ -35,13 +35,14 @@ pub fn process_html_sfs_div_dok(
                 }
                 _ => todo!("handle {:?} state={:?}", e, state),
             },
-            Ok(Event::Text(_content)) => match state {
-                ParseHtmlState::Skip { tag: _ } => continue,
-                _ => (),
-            },
+            Ok(Event::Text(_content)) => {
+                if let ParseHtmlState::Skip { tag: _ } = state {
+                    continue;
+                }
+            }
             Ok(Event::End(e)) => {
-                if let ParseHtmlState::Skip { ref tag } = state {
-                    if e.name().as_ref() == *tag {
+                if let ParseHtmlState::Skip { tag } = state {
+                    if e.name().as_ref() == tag {
                         state = ParseHtmlState::Start;
                     }
                     continue;
@@ -146,9 +147,8 @@ pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocess
                 }
             }
             Ok(Event::Empty(e)) => {
-                match state {
-                    ExtractPageState::Skip { tag: _ } => continue,
-                    _ => (),
+                if let ExtractPageState::Skip { tag: _ } = state {
+                    continue;
                 }
                 match e.name().as_ref() {
                     b"br" => {
@@ -166,11 +166,8 @@ pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocess
                 }
             }
             Ok(Event::Text(content)) => {
-                match state {
-                    ExtractPageState::Skip { tag: _ } => {
-                        continue;
-                    }
-                    _ => (),
+                if let ExtractPageState::Skip { tag: _ } = state {
+                    continue;
                 }
                 let text = match content.unescape() {
                     Ok(text) => text.to_string(),
@@ -196,8 +193,8 @@ pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocess
                 }
             }
             Ok(Event::End(e)) => {
-                if let ExtractPageState::Skip { ref tag } = state {
-                    if e.name().as_ref() == *tag {
+                if let ExtractPageState::Skip { tag } = state {
+                    if e.name().as_ref() == tag {
                         state = ExtractPageState::InBlock;
                     }
                     continue;

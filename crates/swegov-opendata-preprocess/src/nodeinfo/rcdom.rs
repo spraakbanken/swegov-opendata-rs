@@ -8,7 +8,7 @@ pub fn dbg_rcdom_node(node: &rcdom::Handle) -> String {
             template_contents: _,
             mathml_annotation_xml_integration_point: _,
         } => {
-            let attrs_str: Vec<String> = if attrs.borrow().len() > 0 {
+            let attrs_str: Vec<String> = if !attrs.borrow().is_empty() {
                 attrs
                     .borrow()
                     .iter()
@@ -40,14 +40,11 @@ pub fn rcdom_collect_texts(
     let mut text_contents = String::new();
 
     for child in node_iter {
-        match &child.data {
-            NodeData::Text { contents } => {
-                if !text_contents.is_empty() {
-                    text_contents.push_str(separator);
-                }
-                text_contents.push_str(contents.borrow().as_ref());
+        if let NodeData::Text { contents } = &child.data {
+            if !text_contents.is_empty() {
+                text_contents.push_str(separator);
             }
-            _ => (),
+            text_contents.push_str(contents.borrow().as_ref());
         }
     }
     text_contents
@@ -65,11 +62,7 @@ pub fn rcdom_text_len(node: &rcdom::Handle) -> usize {
             mathml_annotation_xml_integration_point: _,
         } => {
             // eprintln!("Element <{}>", name.local);
-            node.children
-                .borrow()
-                .iter()
-                .map(|node| rcdom_text_len(node))
-                .sum()
+            node.children.borrow().iter().map(rcdom_text_len).sum()
         }
         _ => 0,
     }

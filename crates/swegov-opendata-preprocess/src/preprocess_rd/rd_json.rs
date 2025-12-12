@@ -236,7 +236,8 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
             let mut textelem = Element::builder("text", "")
                 .attr("datatyp", "forslag")
                 .build();
-            for (name, value) in [("nummer", forslag.nummer)] {
+            {
+                let (name, value) = ("nummer", forslag.nummer);
                 textelem.set_attr(name, value.to_string());
             }
             for (name, value_opt) in [
@@ -256,7 +257,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
             }
             process_html(forslag.lydelse.as_ref(), &mut textelem)?;
             if let Some(text) = forslag.lydelse2 {
-                process_html(&text, &mut textelem)?;
+                process_html(text, &mut textelem)?;
             }
             let textelem = clean_element(&textelem);
             // Add textelem as child to docelem
@@ -358,10 +359,12 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
             ] {
                 textelem.set_attr(name, value.to_string());
             }
-            for (name, value) in [("typ", motforslag.typ)] {
+            {
+                let (name, value) = ("typ", motforslag.typ);
                 textelem.set_attr(name, value.trim());
             }
-            for (name, value_opt) in [("id", motforslag.id)] {
+            {
+                let (name, value_opt) = ("id", motforslag.id);
                 textelem.set_attr(name, value_opt.map(|s| s.trim()).unwrap_or(""));
             }
             textelem.set_attr(
@@ -369,7 +372,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
                 split_and_format_parties(motforslag.partier.as_ref()),
             );
             if let Some(text) = motforslag.rubrik {
-                process_html(&text, &mut textelem)?;
+                process_html(text, &mut textelem)?;
             }
             if let Some(text) = motforslag.forslag {
                 process_html(text, &mut textelem)?;

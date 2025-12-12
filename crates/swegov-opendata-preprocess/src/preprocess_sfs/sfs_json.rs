@@ -90,7 +90,7 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     ] {
         if let Some(value) = value_opt {
             if !value.is_empty() {
-                textelem.set_attr(name, &value.replace("\r\n", " "));
+                textelem.set_attr(name, value.replace("\r\n", " "));
             }
         }
     }

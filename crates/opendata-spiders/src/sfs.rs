@@ -152,18 +152,15 @@ impl webcrawler::Spider for SfsSpider {
         // println!("item={:#?}", item);
         // println!("url={url}");
 
-        match &item {
-            Item::DokumentLista(dokumentlista) => {
-                if let Some(nasta_sida) = &dokumentlista.nasta_sida {
-                    new_urls.push(nasta_sida.clone());
-                }
-                for dokument in &dokumentlista.dokument {
-                    let dok_id = dokument.dok_id.as_str();
-                    let new_url = format!("{dokument_url}/{dok_id}");
-                    new_urls.push(new_url);
-                }
+        if let Item::DokumentLista(dokumentlista) = &item {
+            if let Some(nasta_sida) = &dokumentlista.nasta_sida {
+                new_urls.push(nasta_sida.clone());
             }
-            _ => {}
+            for dokument in &dokumentlista.dokument {
+                let dok_id = dokument.dok_id.as_str();
+                let new_url = format!("{dokument_url}/{dok_id}");
+                new_urls.push(new_url);
+            }
         }
 
         items.push(item);
@@ -194,8 +191,7 @@ impl webcrawler::Spider for SfsSpider {
                     .dokument
                     .dok_id
                     .as_str()
-                    .replace(' ', "_")
-                    .replace('.', "_");
+                    .replace([' ', '.'], "_");
             }
             _ => {
                 file_name = String::new();
@@ -203,17 +199,14 @@ impl webcrawler::Spider for SfsSpider {
                 path.push("unknown");
             }
         }
-        tokio::fs::create_dir_all(&path).await.map_err(|err| {
+        tokio::fs::create_dir_all(&path).await.inspect_err(|_err| {
             tracing::error!("failed creating path='{}', url={}", path.display(), url);
-            err
         })?;
         if file_name.is_empty() {
             path.push(
                 format!("unknown-{}-{}", url, Ulid::new())
-                    .replace('/', "_")
                     .replace(':', "")
-                    .replace(' ', "_")
-                    .replace('.', "_"),
+                    .replace([' ', '.', '/'], "_"),
             );
         } else {
             path.push(&file_name);
@@ -223,16 +216,14 @@ impl webcrawler::Spider for SfsSpider {
         let span = tracing::info_span!("writing output", "{}", path.display());
         let _enter = span.enter();
         tracing::info!("creating file");
-        let file = std::fs::File::create(&path).map_err(|err| {
+        let file = std::fs::File::create(&path).inspect_err(|_err| {
             tracing::error!("failed creating file, url={}", url);
-            err
         })?;
         let compress_writer = flate2::write::GzEncoder::new(file, Compression::default());
         let writer = std::io::BufWriter::new(compress_writer);
         tracing::info!("writing JSON");
-        serde_json::to_writer(writer, &item).map_err(|err| {
+        serde_json::to_writer(writer, &item).inspect_err(|_err| {
             tracing::error!("failed writing JSON, url={}", url);
-            err
         })?;
         Ok(path.display().to_string())
     }
