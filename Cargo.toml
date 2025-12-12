@@ -75,7 +75,7 @@ smallvec = { version = "1", default-features = false }
 syn = "2"
 thiserror = "1.0.64"
 test-log = { version = "0.2.16" }
-tokio = "1.40.0"
+tokio = "1.48.0"
 tokio-stream = "0.1.14"
 tracing = "0.1.40"
 tracing-core = "0.1"
