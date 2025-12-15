@@ -6,6 +6,7 @@ use crate::SparvError;
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
 pub struct SparvConfig {
+    #[serde(skip_serializing_if = "Option::is_none")]
     parent: Option<String>,
     metadata: SparvMetadata,
 }
@@ -31,7 +32,9 @@ impl SparvConfig {
 pub struct SparvMetadata {
     id: String,
     name: HashMap<String, String>,
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
     description: HashMap<String, String>,
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
     short_description: HashMap<String, String>,
 }
 
@@ -48,14 +51,38 @@ impl SparvMetadata {
         self.name.insert(lang.to_string(), name.into());
         self
     }
+    pub fn names(mut self, lang_names: &[(&str, &str)]) -> Self {
+        self.name.extend(
+            lang_names
+                .iter()
+                .map(|(l, d)| (l.to_string(), d.to_string())),
+        );
+        self
+    }
     pub fn description<S: Into<String>>(mut self, lang: &str, description: S) -> Self {
         self.description
             .insert(lang.to_string(), description.into());
         self
     }
+    pub fn descriptions(mut self, lang_descriptions: &[(&str, &str)]) -> Self {
+        self.description.extend(
+            lang_descriptions
+                .iter()
+                .map(|(l, d)| (l.to_string(), d.to_string())),
+        );
+        self
+    }
     pub fn short_description<S: Into<String>>(mut self, lang: &str, description: S) -> Self {
         self.short_description
             .insert(lang.to_string(), description.into());
+        self
+    }
+    pub fn short_descriptions(mut self, lang_descriptions: &[(&str, &str)]) -> Self {
+        self.short_description.extend(
+            lang_descriptions
+                .iter()
+                .map(|(l, d)| (l.to_string(), d.to_string())),
+        );
         self
     }
 }

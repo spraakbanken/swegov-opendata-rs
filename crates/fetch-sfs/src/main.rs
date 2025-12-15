@@ -3,6 +3,7 @@ mod options;
 use std::{io, path::PathBuf, sync::Arc, time::Duration};
 
 use clap::Parser;
+use miette::IntoDiagnostic;
 use tokio::signal;
 use tracing_subscriber::EnvFilter;
 use webcrawler::{crawler, CrawlerOptions};
@@ -10,7 +11,7 @@ use webcrawler::{crawler, CrawlerOptions};
 use crate::options::Args;
 
 #[tokio::main]
-async fn main() -> anyhow::Result<()> {
+async fn main() -> miette::Result<()> {
     let args = Args::parse();
 
     let delay_ms = args.delay_ms;
@@ -42,7 +43,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 /// construct a subscriber that prints formatted traces to stdout
-fn init_tracing() -> Result<(), anyhow::Error> {
+fn init_tracing() -> miette::Result<()> {
     let subscriber = tracing_subscriber::fmt()
         .json()
         .with_env_filter(
@@ -52,7 +53,7 @@ fn init_tracing() -> Result<(), anyhow::Error> {
         )
         .with_writer(io::stderr)
         .finish();
-    tracing::subscriber::set_global_default(subscriber)?;
+    tracing::subscriber::set_global_default(subscriber).into_diagnostic()?;
     Ok(())
 }
 

@@ -1,0 +1,29 @@
+[package]
+name = "opendata-rd-spider"
+version = "0.1.0"
+rust-version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+
+[dependencies]
+async-trait = { workspace = true }
+chrono = { workspace = true, features = ["serde"] }
+miette = { workspace = true }
+quick-xml = { workspace = true, features = ["serde", "serialize"] }
+reqwest = { workspace = true, features = [
+    "rustls",
+    # "json",
+    "rustls-tls",
+    "brotli",
+    "gzip",
+] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+swegov-opendata = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["fs"] }
+tracing = { workspace = true }
+url = "2.5.2"
+webcrawler = { workspace = true }
+yaserde.workspace = true

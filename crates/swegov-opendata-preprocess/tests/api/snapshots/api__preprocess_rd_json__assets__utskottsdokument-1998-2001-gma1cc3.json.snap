@@ -1,0 +1,145 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GMA1CC3" dokument_url_html="http://data.riksdagen.se/dokument/GMA1CC3" dokument_url_text="http://data.riksdagen.se/dokument/GMA1CC3/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GMA1CC3">
+  <text beteckning="CC3" datatyp="huvuddokument" datum="1999-09-23 00:00:00" dokumentnamn="" hangar_id="2409167" nummer="0" organ="AU" publicerad="2007-09-28 11:51:09" rm="1998/99" slutnummer="0" status="" subtyp="Verksamhetsberättelser" systemdatum="2007-09-28 11:44:48" title="Arbetsmarknadsutskottets verksamhet riksmötet 1998/99" typ="utskottsdokument">
+    <p>Arbetsmarknadsutskottets verksamhet riksmötet 1998/99</p>
+    <p>1998/99</p>
+    <p>AU</p>
+    <p>
+      <b>Arbetsområde m.m.</b>
+    </p>
+    <p>Arbetsmarknadsutskottets beredningsområde omfattar arbetsmarknadspolitik, arbetsrätt, arbetstid, semester, arbetsmiljö, statlig personalpolitik samt jämställdhet mellan kvinnor och män i arbetslivet.</p>
+    <p>Till beredningsområdet hör ärenden om anslag inom utgiftsområdena 13 Ekonomisk trygghet vid arbetslöshet och 14 Arbetsmarknad och arbetsliv.</p>
+    <p>Från och med detta riksmöte har näringsutskottet övertagit ansvaret för beredningen av ärenden om regionalpolitik och anslag inom utgiftsområde 19 Regional utjämning och utveckling.</p>
+    <p>
+      <b>Sammansättning m.m.</b>
+    </p>
+    <p>Antalet ordinarie ledamöter i utskottet var 17 och antalet suppleanter 20. Utskottet hade följande sammansättning.</p>
+    <p>
+      <b>Ledamöter</b>
+    </p>
+    <p>Johnny Ahlqvist (s)</p>
+    <p>Hans Andersson (v)</p>
+    <p>Margareta Andersson (c)</p>
+    <p>Mikael Odenberg (m)</p>
+    <p>Björn Kaaling (s) - fr.o.m. 98-12-18</p>
+    <p>Martin Nilsson (s)</p>
+    <p>Stefan Attefall (kd)</p>
+    <p>Kent Olsson (m)</p>
+    <p>Laila Bjurling (s)</p>
+    <p>Patrik Norinder (m)</p>
+    <p>Sonja Fransson (s)</p>
+    <p>Kristina Zakrisson (s)</p>
+    <p>Camilla Sköld (v)</p>
+    <p>Maria Larsson (kd)</p>
+    <p>Christel Anderberg (m)</p>
+    <p>Barbro Johansson (mp)</p>
+    <p>Elver Jonsson (fp)</p>
+    <p>
+      <b>Suppleanter</b>
+    </p>
+    <p>Anders Karlsson (s)</p>
+    <p>Henrik Westman (m)</p>
+    <p>Cinnika Beiming (s)</p>
+    <p>Bengt-Ola Ryttar (s)</p>
+    <p>Sven-Erik Sjöstrand (v)</p>
+    <p>Rosita Runegrund (kd)</p>
+    <p>Ewa Thalén Finné (m)</p>
+    <p>Christer Skoog (s)</p>
+    <p>Anna Åkerhielm (m)</p>
+    <p>Sylvia Lindgren (s)</p>
+    <p>Ann-Marie Fagerström (s)</p>
+    <p>Carlinge Wisberg (v)</p>
+    <p>Magnus Jacobsson (kd)</p>
+    <p>Rolf Gunnarsson (m)</p>
+    <p>Ewa Larsson (mp)</p>
+    <p>Agne Hansson (c)</p>
+    <p>Runar Patriksson (fp)</p>
+    <p>Helena Bargholtz (fp)</p>
+    <p>Birger Schlaug (mp)</p>
+    <p>Sofia Jonsson (c)</p>
+    <p>Ordförande i utskottet var Johnny Ahlqvist (s), förste vice ordförande Hans Andersson (v) och andre vice ordförande Margareta Andersson (c). Samtliga riksdagspartier hade ordinarie företrädare i utskottet. Som framgår av förteckningen företrädde 6 av ledamöterna Socialdemokraterna, 4 Moderata samlingspartiet, 2 Vänsterpartiet och 2 Kristdemokraterna. Centerpartiet, Folkpartiet liberalerna och Miljöpartiet de gröna hade 1 ledamot vartdera.</p>
+    <p>Björn Kaaling (s) ersatte Ingvar Johnsson (s).</p>
+    <p>
+      <b>Kansliet</b>
+    </p>
+    <p>Utskottet biträddes av ett kansli bestående av</p>
+    <p>Gunilla Upmark, kanslichef</p>
+    <p>Claes-Göran Sundberg, föredragande</p>
+    <p>Eva Kvarfordt, föredragande</p>
+    <p>Åsa Bokström, föredragande</p>
+    <p>Lillemor Stålnacke, byråassistent (tjänstledig från 1999-08-01)</p>
+    <p>Gina Borg, byråassistent</p>
+    <p>Under en kortare period hösten 1998 tjänstgjorde som föredragande även Marianne Bjernbäck, Riksdagens utredningstjänst.</p>
+    <p>
+      <b>Verksamhetens omfattning m.m.</b>
+    </p>
+    <p>
+      <b>Sammanträden</b>
+    </p>
+    <p>Riksmötet sträckte sig från den 6 oktober 1998 till den 13 september 1999. Höstens första sammanträde hölls den 13 oktober 1998 och vårens sista den 3 juni 1999. Totalt hölls under den tiden 25 sammanträden. Den totala sammanträdestiden omfattade 35 timmar och 45 minuter.</p>
+    <p>
+      <b>Betänkanden</b>
+    </p>
+    <p>Utskottet avlämnade 9 betänkanden till kammaren enligt följande.</p>
+    <p>-<i>AU1 Budgetpropositionen för år 1999, utgiftsområdena 13 Ekonomisk trygghet vid arbetslöshet och 14 Arbetsmarknad och arbetsliv</i> (prop. 1998/99:1, 82 motioner, 221 yrkanden, 35 reservationer och 8 särskilda yttranden),</p>
+    <p>-<i>AU2 Utveckling och rättvisa – en politik för storstaden på 2000-talet</i> (prop. 1998/99:165, 12 motioner, 68 yrkanden och 27 reservationer och 1 särskilt yttrande),</p>
+    <p>-<i>AU3 Akt om ändring i ILO:s stadga samt ILO:s konvention och rekommendation om hemarbete</i> (prop. 1998/99:185),</p>
+    <p>-<i>AU4 Ny lagstiftning mot diskriminering i arbetslivet</i> (prop. 1997/98:177, prop. 1997/98:179, prop. 1997/98:180, 23 motioner, 85 yrkanden, 17 reservationer och 5 särskilda yttranden),</p>
+    <p>-<i>AU5 Vissa frågor om arbetstid</i> (10 motioner, 12 yrkanden, 1 reservation och 1 särskilt yttrande),</p>
+    <p>-<i>AU6 Vissa frågor om jämställdhet</i> (13 motioner, 40 yrkanden, 22 reservationer och 5 särskilda yttranden),</p>
+    <p>-<i>AU7 Vissa frågor rörande arbetslöshetsförsäkringen</i> (22 motioner, 38 yrkanden, 20 reservationer och 2 särskilda yttranden),</p>
+    <p>-<i>AU8 Vissa arbetsrättsliga frågor</i> (35 motioner, 52 yrkanden, 25 reservationer och 2 särskilda yttranden),</p>
+    <p>-<i>AU9 Utstationering av arbetstagare</i> (prop. 1998/99:90, 1 motion, 1 yrkande, 1 särskilt yttrande).</p>
+    <p>
+      <b>Yttranden till andra utskott</b>
+    </p>
+    <p>Utskottet avlämnade tre yttranden till andra utskott enligt följande.</p>
+    <p>-<i>AU1y Berättelse om verksamheten i Europeiska unionen under 1998</i> (skr. 1998/99:60, 3 motioner, 5 yrkanden och 3 avvikande meningar),</p>
+    <p>-<i>AU2y 1999 års ekonomiska vårproposition – Den ekonomiska politiken, utgiftstak m.m. – Utgiftsområdena 13 och 14</i> (prop.1998/99:100, 5 motioner, 18 yrkanden och 7 avvikande meningar),</p>
+    <p>-<i>AU3y Tilläggsbudget för 1999 – Utgiftsområdena 13 och 14</i> (prop. 1998/99:100, 4 motioner, 6 yrkanden, 4 avvikande meningar och 3 särskilda yttranden).</p>
+    <p>I form av protokollsutdrag framförde utskottet dessutom vissa synpunkter till finansutskottet med anledning av förslaget i budgetpropositionen om ett mål för sysselsättningen.</p>
+    <p>Jämfört med föregående riksmöte var antalet betänkanden och yttranden mindre, 9 jämfört med 14 resp. 3 jämfört med 9. Den totala sammanträdestiden var ungefär två timmar kortare.</p>
+    <p>Det totala sidoomfånget av betänkanden och yttranden under riksmötet 1998/99 var 672, jämfört med 1 049 föregående riksmöte.</p>
+    <p>Bland betänkandena kan följande nämnas särskilt.</p>
+    <p>- I<i>budgetbetänkandet</i> AU1 tillstyrktes regeringens förslag till anslag på utgiftsområdena 13 och 14 med totalt 33,8 respektive 48,3 miljarder kronor. De arbetsmarknadspolitiska åtgärderna arbetsplatsintroduktion (API) och Arbetslivsutveckling (ALU) ersattes av en ny åtgärd, arbetspraktik, som syftar till att deltagaren skall få kontakt med arbetslivet och ökad kompetens. Utskottet föreslog vissa ändringar vad gäller det finansieringsbidrag som anordnaren av praktiken skall betala till staten. Åtgärden offentliga tillfälliga arbeten för äldre arbetslösa (OTA) skall fasas ut.</p>
+    <p>- Betänkandet AU2 behandlade regeringens förslag till<i>storstadspolitik</i> för 2000-talet. Målen för politiken skall vara dels att ge storstadsregionerna goda förutsättningar för långsiktigt hållbar tillväxt, dels att bryta den sociala, etniska och diskriminerande segregationen i storstadsregionerna och att verka för jämlika och jämställda levnadsvillkor för storstädernas invånare. En storstadsdelegation skall inrättas med uppgift att utveckla och samordna den nationella storstadspolitiken. Tanken är att lokala utvecklingsavtal skall tecknas mellan stat och kommun för de mest utsatta bostadsområdena.</p>
+    <p>- Med riksdagens behandling av AU3 godkändes en akt om vissa ändringar i<i>Internationella arbetsorganisationens (ILO)</i> stadga. Ändringarna innebär en möjlighet till modernisering av ILO:s regelverk. I fråga om ILO-konventionen om hemarbete anslöt sig utskottet till regeringens bedömning att Sverige inte för närvarande bör tillträda konventionen.</p>
+    <p>- Tre nya lagar mot<i>diskriminering</i> på arbetsmarknaden behandlades av utskottet i AU4. Lagarna, som avser etnisk diskriminering, diskriminering av funktionshindrade och diskriminering på grund av sexuell läggning har till stora delar likartad utformning. De förbjuder direkt och indirekt diskriminering vid rekrytering och anställning och i bestående anställningsförhållanden. Genom den nya lagen mot etnisk diskriminering blir arbetsgivare skyldiga att bedriva ett aktivt arbete för att främja etnisk mångfald i arbetslivet. Ombudsmannen mot etnisk diskriminering (DO), Handikappombudsmannen och en ny myndighet, Ombudsmannen mot diskriminering på grund av sexuell läggning, skall se till att respektive lag efterföljs. De nya lagarna trädde i kraft den 1 maj 1999.</p>
+    <p>- I AU9 behandlades regeringens förslag till lag om<i>utstationering</i> av arbetstagare. Med utstationering avses vissa gränsöverskridande anställningsförhållanden. Genom lagen, som skall träda i kraft den 16 december 1999, genomförs EU:s s.k. utstationeringsdirektiv.</p>
+    <p>Betänkandena i övrigt avsåg motioner som väckts under riksmötet.</p>
+    <p>Inalles behandlade utskottet 7 propositioner, 24 motioner som väckts med anledning av dessa propositioner samt 205 motioner som väckts under den allmänna motionstiden 1998. Det totala antalet motionsyrkanden uppgick till ca 520. Antalet tillkännagivanden till regeringen uppgick till fem.</p>
+    <p>
+      <b>Utfrågningar m.m.</b>
+    </p>
+    <p>Utskottet erhöll information från företrädare från Näringsdepartementet (genom en omorganisation inom Regeringskansliet fördes Arbetsmarknadsdepartementet, Närings- och handelsdepartementet och Kommunikationsdepartementet från årsskiftet 1998/99 samman till ett nytt Näringsdepartement) vid ett antal tillfällen under riksmötet. Särskild information lämnades dessutom beträffande vissa EU-frågor, vilket redovisas nedan.</p>
+    <p>Vid flera tillfällen uppvaktades utskottet av myndigheter eller organisationer. Som brukligt informerade<i>AMS</i> dåvarande generaldirektör,<i>Bosse Ringholm</i> , om arbetsmarknadsläget m.m. i samband med behandlingen av budgetpropositionen. På utskottets begäran informerade företrädare för<i>AMS</i> även i anslutning till behandlingen av vårpropositionen. I övrigt kan nämnas uppvaktningar av<i>RFSL</i> ,<i>Stiftelsen IM-IEKF</i> och<i>Företagarnas riksorganisation</i> i anslutning till behandlingen av den nya lagstiftningen mot diskriminering i arbetslivet,<i>Rune Åberg,</i> professor vid sociologiska institutionen vid<i>Umeå universitet,</i> som informerade om sin forskning om långtidsarbetslöshet, verkställande direktören<i>Gerhard Larsson, Samhall AB,</i> som lämnade en verksamhetsrapport och generaldirektören<i>Susanne Ackum-Agell</i> vid<i>IFAU</i> (Institutet för arbetsmarknadspolitisk utvärdering) som informerade om den forskning som bedrivs vid institutet.</p>
+    <p>
+      <b>EU-frågor</b>
+    </p>
+    <p>Flera av de under riksmöte behandlade ärendena hade anknytning till EU. Som framgått avsåg betänkandet AU9 genomförandet av EU:s direktiv om utstationering av arbetstagare. Yttrandet AU1y till utrikesutskottet avsåg regeringens berättelse om verksamheten i EU under 1998.</p>
+    <p>Liksom föregående år följde utskottet även i övrigt EU:s arbete i frågor som rör utskottets beredningsområde. En stor mängd handlingar kommer in till utskottet. Vissa slag av dokument distribueras kontinuerligt till ledamöterna. En utskottsföredragande lämnar information under en stående punkt på dagordningen vid utskottets sammanträden. Ett dokument med en redovisning av aktuella EU-frågor har utarbetats inom kansliet. Avsikten är att redovisningen skall uppdateras halvårsvis i anslutning till skifte av ordförandeskap inom unionen.</p>
+    <p>Därutöver kan nämnas att utskottet vid ett tillfälle under hösten fick information av arbetsmarknadsrådet Siw Warstedt vid den ständiga representationen vid EU.</p>
+    <p>Statssekreteraren Anna Ekström, Näringsdepartementet, informerade om den Nationella handlingsplanen för sysselsättning (NAP) inför överlämnandet av planen till EU. Andra företrädare för departementet lämnade allmän EU-information i början av juni.</p>
+    <p>Inför nästa riksmöte har det träffats en underhandsöverenskommelse med Näringsdepartementet om att företrädare för departementet löpande skall lämna muntlig information om EU-frågorna i anslutning till utskottssammanträdena.</p>
+    <p>Som framgår nedan under avsnittet ”Resor” har företrädare för utskottet deltagit i två olika konferenser med EU-anknytning.</p>
+    <p>
+      <b>Studiebesök m.m.</b>
+    </p>
+    <p>Under våren gjorde utskottet studiebesök på Arbetsmarknadsstyrelsen och på Arbetarskyddsstyrelsen, liksom på Arbetslöshetskassornas samorganisation (SO). Likaså under våren deltog utskottet i ett informationsutbyte hos SAF med efterföljande middag.</p>
+    <p>Under senvåren var utskottet inbjudet till ett seminarium med efterföljande middag på Näringsdepartementet med näringsminister Björn Rosengren som värd.</p>
+    <p>
+      <b>Resor m.m.</b>
+    </p>
+    <p>Den 22-23 mars gjorde utskottet en länsresa till Skåne. Utskottet träffade företrädare för länsstyrelsen som bl.a. informerade om försöksverksamheten med ändrad regional ansvarsfördelning, om det s.k. frilänsförsöket inom arbetsmarknadspolitiken och om arbetsförmedlingssamarbetet inom Öresundsregionen. Ett besök gjordes vid ett samverkansprojekt mellan arbetsförmedlingen och Malmö stad. I besöket ingick även en båttur för att bese Öresundsbrobygget.</p>
+    <p>I oktober deltog ledamoten Martin Nilsson (s) vid en konferens i Lissabon, arrangerad av CCEO, ett interparlamentariskt forum inom EU för samarbete och diskussion om jämställdhet och kvinnors rättigheter.</p>
+    <p>I slutet av mars deltog utskottets ordförande i en rundabordskonferens i EU-parlamentet på temat ”Kvinnor i beslutsprocessen”.</p>
+    <p>
+      <b>Utvärderingar m.m.</b>
+    </p>
+    <p>Genom utskottskansliets försorg (föredraganden Eva Kvarfordt) genomfördes en studie, Hur påverkas arbetsförmedlingen av 1999 års verksamhetsmål för Arbetsmarknadsverket? Fallstudier vid fyra arbetsförmedlingar.</p>
+    <p>Elanders Gotab, Stockholm 1999</p>
+  </text>
+</dokument>

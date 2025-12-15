@@ -1,0 +1,132 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GIB472" dokument_url_html="http://data.riksdagen.se/dokument/GIB472" dokument_url_text="http://data.riksdagen.se/dokument/GIB472/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GIB472">
+  <text beteckning="72" datatyp="huvuddokument" datum="1995-01-01 00:00:00" dokumentnamn="" hangar_id="2421625" nummer="72" organ="" publicerad="1995-01-01 00:00:00" rm="1994" slutnummer="0" status="hämtad" subtyp="" systemdatum="2015-09-09 16:10:36" title="ds 1994 72 " typ="ds">
+    <page id="1">
+      <p>33</p>
+      <p>5 Sammanfattning och slutsatser</p>
+      <p>Syftet med dennastudie är att försöka konkretiseravad som är moti- ven bakom strävandenaefter ökad valfrihet på skolans område, och attjämföra dessamotiv med effekterna av ett antal åtgärder som syf- tar till ökad valfrihet.</p>
+      <p>t Motiven för ökad valfrihet på skolans område är flera. Ett av de grundläggandeär attgöra föräldrar och barnuppmärksammapå attde har ett val, och att de genom att utöva sin rättighet kan påverka sina</p>
+      <p>., och andras framtidsutsikter. Utövandet av denna rättighet kan ta sig</p>
+      <p>; flera uttryck. Det leder till att föräldrar mer aktivt söker och efterfrå- gar alternativt<nobr>undervisningsinnehåll,pedagogiskmetod,grundläggan-:..,</nobr>
+      </p>
+      <p>de värderingar och socialagrupper, sombättre passarderas,och<nobr>bar- &apos;i&quot; \&quot;:.,</nobr> nets önskemål och behov.</p>
+      <p>Både förespråkare och motståndaretill valfrihet är övertygade omI att utövandet av valmöjligheter leder till att våra skolor förändras. V almöjlighetentvingar t.ex. skolledningaroch personalatttänka mera på vad som gör enskola attraktiv och hur de skall kunna förmedla sin syn på vad de vi1\ och kan erbjuda sina elever. Det kommer också att leda till nya krav på befogenheteratt förändra arbetsformeri skolan, för att på det sättetkunna göra skolor mer attraktiva.</p>
+      <p>Här har inte gjorts någon allmän analys av målen för den svenskaI skolan. I stället fokuserasde specifika målen för valfrihetsreformerna och andra mål sompåverkasav de åtgärder somvidtas för att öka val-</p>
+      <p>möjligheterna.</p>
+      <p>Vi har redan konstateratatt valfriheten syftar till att åstadkomma högre kvalitet och ökad variation. Dessaförutsätts dock uppnås utan att resultatenförsämras beträffande gemensammareferensramarbåde beträffande kunskaps- och fårdighetsmål, men också utan att grund- läggande värderingar som fastslås i de av riksdagenantagnaläropla- nerna rubbas. Det förutsätts också att skolan inte bidrar till att öka segregation.Slutligen utgår man ifrån att alla dessamål kan nås utan att det ökar skolans kostnader.</p>
+      <p>Det som skiljer förespråkare och motståndareär föreställningarna om vilka effekterna blir av sammansattaåtgärdspaketoch vilka av</p>
+      <p>I</p>
+    </page>
+    <page id="2">
+      <p>34</p>
+      <p>dessakonsekvensersomär önskvärda. Därför sammanfattasvad vi vetI</p>
+      <p>&apos; om effekterna av valfrihet i Sverige och andra länder.</p>
+      <p>För att bedömaeffekterna behövervi enprecisering av de förutsätt- ningar som råder i Sverige nu, och vilka kommunala variationer som</p>
+      <p>kan komma ifråga:</p>
+      <p>&quot;J;</p>
+      <p>
+        <nobr>-Den</nobr>
+      </p>
+      <p>grundläggandeförutsättningen för valfrihet på skolansom-</p>
+      <p>råde är rätten att, med ett minimum av kontroll, etablera nya</p>
+      <p>skolor, och att få 85 procent av kommunens kostnaderför en</p>
+      <p>elev. Ett systemmed ersättning per elevtillämpas numera även</p>
+      <p>internt inom ett stort antal kommuner.</p>
+      <p>I</p>
+      <p>
+        <nobr>-En</nobr>
+      </p>
+      <p>förutsättning för att fritt kunna utforma nya bättre skoltjäns-</p>
+      <p>ter är att skolledare,både i kommunala och fristående skolor,</p>
+      <p>I;i!!~</p>
+      <p>har tillräckliga befogenheteroch rättigheter att utforma egnaal-</p>
+      <p>cC/&quot;,</p>
+      <p>&apos;</p>
+      <p>.</p>
+      <p>;&quot;,&quot;,</p>
+      <p>ternatlv.</p>
+      <p>
+        <nobr>-En</nobr>
+      </p>
+      <p>förutsättning för att välja är att föräldrar har information om</p>
+      <p>lokalt tillgängliga alternativ och systemför att underlätta valet.</p>
+      <p>Den sakliga informationen om skolors verksamheterär i<nobr>dagre- I</nobr>
+      </p>
+      <p>lativt torftig. I framtiden skulle man kunna tänka sig bättre re-</p>
+      <p>dovisning av vilka individuella och kollektiv mål en skola når</p>
+      <p>(t.ex. studieprestationer,tillförda kunskaperochfärdigheter,för-</p>
+      <p>&quot;&quot;&apos;</p>
+      <p>måga att hjälpa barn med särskilda behov, förmåga att stävja</p>
+      <p>\1..1</p>
+      <p>mobbning etc.)</p>
+      <p>
+        <nobr>-I</nobr>
+      </p>
+      <p>dag är rätten att själv sätta avgifter för en skola begränsad.I</p>
+      <p>en framtid skulle dock en friare avgiftssättning kunna bli ak-</p>
+      <p>tuell.</p>
+      <p>De åtgärder som vi studerarär såledesökningar av:</p>
+      <p>*</p>
+      <p>Eleversättning.</p>
+      <p>.,.-</p>
+      <p>*</p>
+      <p>Befogenheterför skolledare.</p>
+      <p>gäl.</p>
+      <p>*</p>
+      <p>Åtgärder för att underlätta val.</p>
+      <p>~..r~</p>
+      <p>*</p>
+      <p>Information om skolans kvalitet (prestationer).</p>
+      <p>~&quot;.:</p>
+      <p>*</p>
+      <p>Befogenheteratt användaavgifter.</p>
+      <p>~&apos;J~jJ!:.</p>
+      <p>&quot;..</p>
+      <p>., ,i</p>
+      <p>,.&gt;-</p>
+      <p>J r,ji!:/ &apos;~&apos;.I</p>
+    </page>
+    <page id="3">
+      <p>35</p>
+      <p>För samtliga dessaåtgärder diskuterasom det finns erfarenheterav, eller teorier, om hur åtgärden påverkar sexolika mål.</p>
+      <p>.Kostnader</p>
+      <p>.Variation i utbudet</p>
+      <p>.Gemensamma referensramaroch värderingar</p>
+      <p>.Kvalitetsnivå</p>
+      <p>.Spridning i prestationsnivå</p>
+      <p>.Segregation i olika dimensioner.</p>
+      <p>Här foljer de viktigaste iakttagelsernaoch slutsatserna.</p>
+      <p>Ökade friskolebidrag ökar kostnaderna for kommunerna. Främst därför att kommunernavarkenpå kort eller lång sikt kan sparain hela kostnaden for elever som lämnar kommunensskolor. Ett skäl är att kommunen blir ståendemed kostnaderfor outnyttjade platser. En yt- terligare källa till ökade kostnaderär att ett antal skolor, somtidigare ej var berättigade till det, nu erhåller bidrag. Dessa effekter skulle motverkas aven sänkning av bidragsnivån.</p>
+      <p>Åtgärder for att underlättaval mellankommunala skolor behöverin- te öka kostnadernai skolorna. Då har kommunernafrihet att sättabi- dragsnivåernasjälva menockså attundvika att skolor ståroutnyttjade. Däremot kan information om och administration av valmöjligheterna kosta mera än ett centraldirigeratsystem.</p>
+      <p>Den viktigaste åtgärdenfor att öka valfrihet är friskolebidraget. Fri- skolebidragethar helt klart lett till en ökning av variationen i utbudet. Hälften av de under 1992 startadefriskolorna har inriktning på sär- skild pedagogikeller konfessionellinriktning. Men ävenbland de öv- riga kan det forekomma mindre variationer som t.ex. inriktning mot miljö eller teaterverksamhetutan att det inkräktar på ordinarie läro-</p>
+      <p>planer.</p>
+      <p>Ökade befogenheterför skolledare är en åtgärd som kan öka kvali- teten och variationen i utbudet av skolverksamhetutan att nödvän- digtvis öka kommunernaskostnader.De positiva effekternapå kvalitet och variation kan forstärkas av ökade valmöjligheter och forbättrad kvalitetsinformation.</p>
+      <p>I dag saknaspraktiskt taget möjligheter att bedömade genomforda åtgärdernas effekter på kvalitet vare sig i bemärkelsenindividuella</p>
+    </page>
+    <page id="4">
+      <p>36</p>
+      <p>prestationer eller i dimensioner som är mer gemensammasom t.ex. förmåga att fostra till samarbetsandaeller att stävja mobbning.</p>
+      <p>En operationaliseringav I ikvärdighetsmåletkan medge enökad va- riation i skolors profiler. Däremot torde likvärdighet vara svårare att förena med kraftigt ökad spridning i kvalitet eller uppnåddaresultat. I denna studie refererasflera studier som tyder på att svenskaelever har enjämnare kunskapsnivå än elever i andra länder, samtidigt som de 5 % bästa eleverna presterarbättre än motsvarandeelever i andra europeiskaländer. De jämnare resultateninnebär att färre eleverslås ut och att elever med genomsnittliga resultat är fler. Dessa resultat torde bero på enjämnare social rekrytering.</p>
+      <p>En ökad spridning kanske accepterasförutsatt att alla elever ges möjlighet att uppnå åtminstonevissa fastställdaminimiresultat. Samt- liga de studeradeåtgärderna kan tänkas bidra till en ökad spridning i kvalitet och uppnådda resultat. Denna effekt kan dock i någon mån motverkas av förbättrad kvalitetsinformation och genom att krav på en viss miniminivå upprätthålls genom lämplig tillsyn.</p>
+      <p>Utvecklingen av krav på kvalitetsinformation och kvalitetssäkring är en samhällsuppgift. Denna utveckling ör ske i samarbetemed sko- lor, elever och föräldrar. Det är först när tydliga och relevantaresul- tatredovisningarsprids ochjämförs somväljare, brukare ochskolleda- re får tydliga signaler om vilka skolor som är bra och bör efterliknas. Då kan skolornas strävandenefter att bli bättre och brukarnaspåver- kan för, eller sökandeefter, bättre alternativ underlättas.</p>
+      <p>Effekterna av ökade valmöjligheter på segregationär inte entydiga. I USA har man i vissa städer konstateratatt ökade valmöjligheter i kombination med ökade profilering av skolor, lett till minskandeseg- regation med avseendepå socialt ursprung och ras.</p>
+      <p>Ökade valmöjligheter kan väntas leda till ökad prestationssegrega- tion. Erfarenheterfrån Skottland visar att föräldrar med högre utbild- ning och inkomst i större utsträckning än föräldrar med lägre ut- bildning och inkomst valde en annanskola än den närmaste.Denna iakttagelsebekräftadeSkolverketsutredning (1993). Vidare valde för- äldrar i genomsnitt från en skola med lägre genomsnittliga prestatio- ner till en med högre.</p>
+      <p>Möjligheten att byta skola leder dock sällan till långa skolresor. I Skottland valde 1988, sju år efter reformen, ca<nobr>20-25</nobr> % av eleverna</p>
+      <p>. en annanskola än dennärmaste.De flesta eleverna,84 %, somvalde</p>
+    </page>
+    <page id="5">
+      <p>37</p>
+      <p>en annanskola än dennärmastevalde den nästnärmaste.Såledesval- de mindre än 4 % en skola som låg längre bort än den nästnärmaste.</p>
+      <p>De tydligaste svenskaexemplenpå segregationstendenservikänner kommer från större orter där svenska barn &quot;flytt&quot; från skolor där många barn har invandrarföräldrar.</p>
+      <p>Mot bakgrund av erfarenheternafrån Skottland verkar det inte tro- ligt att vi skulle få en stor omflyttning av barn mellan skolor. Där- emot finns risken att det uppstårsvårlösta problemmed lågstatussko- lor som överges av elever med goda studieförutsättningaroch enga- geradeföräldrar som annarsskulle kunna medverka i enförändrings-</p>
+      <p>process.</p>
+      <p>Vad kan en kommun göra för att motverka att detta leder till ur- holkning av likvärdighetsmålet? Vi kan tänka oss två typer av lös- ningar. Den första innebär att olika åtgärder tas för att höja statusen på en lågstatusskola.Man kan t.ex. satsapå en erkänt skicklig skolle- dare eller ge extra resurserför att attraheraen lärarelit. Man kan ock- så göra skolan till kommunensmusikskola,teaterskolaeller liknande, och ge motsvaranderesursförstärkning. Den andra lösningen är att problemskolanläggs ned.</p>
+      <p>Kan vi lita på attkommunernaklarar att i tid upptäckasegregations- tendenseroch har tillräcklig handlingskraft för att i tid sätta in åtgär- der för att motverka dem? Erfarenheternaav kommunernasförmåga att positivt särbehandlaskolor med särskilda behov är tyvärr inte så uppmuntrande.Flera utvärderingarav dettidigare statsbidragssystemet för skolor har konstateratatt statsbidragensom delats ut med detta syfte &quot;smetadesut&quot; jämnt över skolor. En tänkbar förklaring till detta är att adekvat beslutsunderlagför att motivera positiv särbehandling saknades.</p>
+      <p>Ökad frihet att använda avgifter som finansiering kan naturligtvis öka kvaliteten i skolor för välbärgade. Däremot motverkasflera andra mål för skolpolitiken. De viktigaste är att likvärdighet urholkas främst genom att prestationssegregationenökar.</p>
+      <p>I</p>
+    </page>
+  </text>
+</dokument>

@@ -1,0 +1,21 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="H210566" dokument_url_html="http://data.riksdagen.se/dokument/H210566" dokument_url_text="http://data.riksdagen.se/dokument/H210566/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H210566">
+  <text beteckning="566" datatyp="huvuddokument" datum="2015-04-29 00:00:00" dokumentnamn="Interpellation" hangar_id="3786073" intressent_id="|0116084827614|0116084827614|0204240926023|" intressent_namn="|Statsrådet Mehmet Kaplan|Statsrådet Mehmet Kaplan|Markus Wiechel|" intressent_namn_parti="|Statsrådet Mehmet Kaplan (MP)|Statsrådet Mehmet Kaplan (MP)|Markus Wiechel (SD)|" intressent_namn_parti_id_roll="|Statsrådet Mehmet Kaplan (MP), 0116084827614, besvaradav|Statsrådet Mehmet Kaplan (MP), 0116084827614, stalldtill|Markus Wiechel (SD), 0204240926023, undertecknare|" intressent_parti="|MP|SD|" nummer="566" organ="SD" publicerad="2015-05-04 00:00:00" rm="2014/15" slutnummer="0" status="Besvarad" subtyp="" systemdatum="2015-08-27 13:46:33" title="En ohållbar bostadssituation" typ="ip">
+    <p>Interpellation 2014/15:566 En ohållbar bostadssituation</p>
+    <p>av<i>Markus Wiechel (SD)</i>
+    </p>
+    <p>till Statsrådet Mehmet Kaplan (MP)</p>
+    <p>En fråga som inte debatteras tillräckligt är frågan om bostadsbristen som främst råder i våra storstäder. Det är en allvarlig situation som inte bara innebär konsekvenser för boendet utan även är relaterat till val av studier eller arbete. En bra bostadsmarknad krävs för att samhället ska fungera och tillgängligheten till bostäder måste öka då det redan i dag sägs saknas nära 230000 lägenheter.</p>
+    <p>Från vänsterhåll talar man om att subventionera byggandet av nya bostäder för att lösa bostadsbristen. Alliansen har motsatt sig detta med hänvisning till att subventioner snedvrider konkurrensen. I stället hänvisar man till förslag om att underlätta för bostadsbyggandet genom regeländringar. Vem som helst förstår att inget av dessa förslag är hållbara i längden. Vad såväl den övriga oppositionen som regeringspartierna inte vill ta på, är ett av de viktigaste skälen till att vi över huvud taget har en så allvarlig och akut bostadsbristi dag. Det jag tänker på är den ansvarslösa och ohållbara massinvandringen till Sverige.</p>
+    <p>Det finns även ett annat stort problem kopplat till dagens bostadssituation. I år kan runt 100000 personer väntas söka asyl i Sverige. Alla dessa behöver ett boende och tvingas konkurrera med befintliga invånare. I extrema fall händer det dessutom att Migrationsverkets behov av bostäder går före det behov som finns för befintliga invånare som länge köat för att få en hyresrätt. Det finns en risk att konflikter skapas och segregationen kan bli värre då många nyanlända mer eller mindre frivilligt tvingas in i områden som redan är socialt och ekonomiskt utsatta. Områden som till och med ibland jämförs med deras forna hemland.</p>
+    <p>Med anledning av detta önskar jag att statsrådet Mehmet Kaplan svarar på följande frågor:</p>
+    <p>Kanstatsrådet bekräfta att det massiva mottagandet av migranter också är ett stort skäl till den rådande bostadsbristen?</p>
+    <p>Hur avserstatsrådet attåtgärda detta och skapa en hållbar bostadspolitik?</p>
+  </text>
+  <text datatyp="uppgift" dok_id="H210566" kod="statustext" namn="statustext" systemdatum="2017-09-05 13:36:49">
+    <p>Interpellationen är besvarad</p>
+  </text>
+</dokument>

@@ -1,0 +1,22 @@
+[package]
+name = "fetch-rd"
+version = "0.1.0"
+rust-version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "fetch-rd"
+doc = false
+test = false
+doctest = false
+
+[dependencies]
+clap = { workspace = true, features = ["derive", "cargo"] }
+miette = { workspace = true, features = ["fancy"] }
+opendata-rd-spider = { workspace = true }
+tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+webcrawler = { workspace = true }

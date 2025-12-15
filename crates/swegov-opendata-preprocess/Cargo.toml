@@ -11,28 +11,29 @@ license = { workspace = true }
 doctest = false
 
 [dependencies]
-error-stack = { workspace = true }
-html5ever = { workspace = true }
-regex = { workspace = true }
-serde_json = { workspace = true }
-soup = { workspace = true }
-zip = { workspace = true }
-tracing = { workspace = true }
-tracing-subscriber = { workspace = true }
-swegov-opendata = { workspace = true }
 chrono = { workspace = true }
 flate2 = { workspace = true }
-pretty_assertions = { workspace = true }
-once_cell = { workspace = true }
+html5ever = { workspace = true }
 itertools = { workspace = true }
+miette = { workspace = true }
 minidom-extension = { workspace = true }
+once_cell = { workspace = true }
+preprocess-progress = { workspace = true }
+pretty_assertions = { workspace = true }
+regex = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_with = { workspace = true }
 sparv-extension = { workspace = true }
-prodash = { workspace = true, features = [
-    "render-line",
-    "render-line-crossterm",
-] }
+swegov-opendata = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+zip = { workspace = true }
 
 [dev-dependencies]
+anyhow = { workspace = true }
+insta = { workspace = true }
 itertools = { workspace = true }
 pretty_assertions = { workspace = true }
 rstest = { workspace = true }
+test-log = { workspace = true, features = ["trace", "color"] }

@@ -1,0 +1,35 @@
+{
+  "dokumentstatus": {
+    "dokument": {
+      "hangar_id": "0",
+      "dok_id": "H5D2467",
+      "rm": "2017/18",
+      "beteckning": null,
+      "typ": "diarie",
+      "subtyp": null,
+      "doktyp": "diarie",
+      "typrubrik": "diarie 2017/18",
+      "dokumentnamn": "diarie",
+      "debattnamn": "diarie",
+      "tempbeteckning": null,
+      "organ": "Arbetsmarknadsutskottet",
+      "mottagare": null,
+      "nummer": "467",
+      "slutnummer": "0",
+      "datum": "2017-11-02 16:00:33",
+      "systemdatum": "2017-11-21 07:00:05",
+      "publicerad": null,
+      "titel": "Överläggningspromemoria om utkast till rådsslutsatser gällande könssegregering i utbildning och på arbetsmarknaden",
+      "subtitel": null,
+      "status": null,
+      "htmlformat": null,
+      "relaterat_id": null,
+      "source": "diarie",
+      "sourceid": "467-2017/18",
+      "dokument_url_text": "http://data.riksdagen.se/dokument/H5D2467/text",
+      "dokument_url_html": "http://data.riksdagen.se/dokument/H5D2467",
+      "dokumentstatus_url_xml": "http://data.riksdagen.se/dokumentstatus/H5D2467"
+    },
+    "debatt": null
+  }
+}

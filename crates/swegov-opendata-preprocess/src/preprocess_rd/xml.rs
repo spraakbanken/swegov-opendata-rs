@@ -1,8 +1,5 @@
 use std::borrow::Cow;
-use std::fmt;
 
-use error_stack::Context;
-use error_stack::ResultExt;
 use minidom::quick_xml::events::Event;
 use minidom::quick_xml::Reader;
 use minidom::quick_xml::Writer;
@@ -15,10 +12,7 @@ use super::html::process_html;
 
 /// Extract meta data and html from f.
 #[tracing::instrument(skip(xml_string))]
-pub fn preprocess_xml(
-    xml_string: &str,
-    filename: Cow<'_, str>,
-) -> error_stack::Result<Vec<u8>, XmlError> {
+pub fn preprocess_xml(xml_string: &str, filename: Cow<'_, str>) -> Result<Vec<u8>, XmlError> {
     // let tree = Soup::new(xml_string);
 
     // Create new element and build document
@@ -42,7 +36,12 @@ pub fn preprocess_xml(
     let mut reader = Reader::from_str(xml_string);
     loop {
         match reader.read_event() {
-            Err(e) => return Err(XmlError::Read(reader.buffer_position(), e).into()),
+            Err(e) => {
+                return Err(XmlError::Read {
+                    pos: reader.buffer_position(),
+                    error: e,
+                })
+            }
             Ok(Event::Eof) => break,
             Ok(Event::Start(e)) => match e.name().as_ref() {
                 b"html" => {
@@ -72,14 +71,17 @@ pub fn preprocess_xml(
                         Ok(s) => s,
                         Err(err) => panic!("unescape failed: {:?}", err),
                     };
-                    process_html(&html_string, &mut textelem, &filename);
+                    process_html(&html_string, &mut textelem).expect("valid html");
                     // tracing::trace!("textelem = {:?}", textelem);
                 } else if doc_attr.is_some() {
                     let name = doc_attr.take().unwrap();
                     let value = match e.unescape() {
                         Ok(s) => s,
                         Err(err) => {
-                            return Err(XmlError::Read(reader.buffer_position(), err).into())
+                            return Err(XmlError::Read {
+                                pos: reader.buffer_position(),
+                                error: err,
+                            })
                         }
                     };
                     let value = value.as_ref().trim();
@@ -92,7 +94,10 @@ pub fn preprocess_xml(
                     let value = match e.unescape() {
                         Ok(s) => s,
                         Err(err) => {
-                            return Err(XmlError::Read(reader.buffer_position(), err).into())
+                            return Err(XmlError::Read {
+                                pos: reader.buffer_position(),
+                                error: err,
+                            })
                         }
                     };
                     let value = value.as_ref().trim();
@@ -122,28 +127,21 @@ pub fn preprocess_xml(
     docelem.append_child(textelem);
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
-    docelem
-        .to_writer(&mut writer)
-        .change_context(XmlError::Write)?;
+    docelem.to_writer(&mut writer).map_err(XmlError::Write)?;
     Ok(result)
 }
 
-#[derive(Debug)]
+#[derive(Debug, thiserror::Error, miette::Diagnostic)]
 pub enum XmlError {
-    Read(usize, minidom::quick_xml::Error),
-    Write,
+    #[error("Error reading xml at position {pos}: {error:?}")]
+    Read {
+        pos: usize,
+        #[source]
+        error: minidom::quick_xml::Error,
+    },
+    #[error("Error writing xml")]
+    Write(#[source] minidom::Error),
 }
-
-impl fmt::Display for XmlError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            Self::Read(pos, err) => write!(f, "Error reading xml at position {}: {:?}", pos, err),
-            Self::Write => write!(f, "Error writing xml"),
-        }
-    }
-}
-
-impl Context for XmlError {}
 
 pub fn clean_element(elem: &minidom::Element) -> Option<minidom::Element> {
     dbg!(&elem);

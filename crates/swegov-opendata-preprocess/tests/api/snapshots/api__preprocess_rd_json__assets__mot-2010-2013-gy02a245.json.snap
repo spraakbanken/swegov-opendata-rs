@@ -1,0 +1,27 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GY02A245" dokument_url_html="http://data.riksdagen.se/dokument/GY02A245" dokument_url_text="http://data.riksdagen.se/dokument/GY02A245/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GY02A245">
+  <text beteckning="A245" datatyp="huvuddokument" datum="2010-10-19 00:00:00" dokumentnamn="" hangar_id="2412901" intressent_id="|0308306375022|" intressent_namn="|Roger Haddad|" intressent_namn_parti="|Roger Haddad (FP)|" intressent_namn_parti_id_roll="|Roger Haddad (FP), 0308306375022, undertecknare|" intressent_parti="|FP|" nummer="245" organ="AU" publicerad="2010-10-25 14:26:33" rm="2010/11" slutnummer="0" status="Ank T" subtyp="Enskild motion" systemdatum="2010-12-18 08:39:25" title="En solidarisk flyktingintroduktion" typ="mot">
+    <p>En solidarisk flyktingintroduktion</p>
+    <p>Förslag till riksdagsbeslut</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om en solidarisk flyktingintroduktion.</p>
+    <p>Motivering</p>
+    <p>Sverige har tagit ett stort ansvar för människor som flyr från krig och konflikter i världen. Det är positivt att Sverige både är öppet för arbetskraftsinvandring och också står upp för en human asyl- och flyktingpolitik. Den stora utmaningen för Sverige, och främst våra storstäder, är att förebygga bostadssegregation. Mycket av den praktiska integrationskedjan sker i kommunerna och när det gäller hälso- och sjukvårdsfrågor hos landstingen.</p>
+    <p>Staten fattar rambeslut och finansierar delar av introduktionen som kommunerna genomför de första åren. Riksdagen har på regeringens förslag också beslutat om en ny etableringslag som träder i kraft den 1 december. Det är en viktig reform och ändrar ansats från kommunens socialtjänst till Arbetsförmedlingen. Ett tidigt fokus på arbete och egen försörjning är basen för en lyckad integrationspolitik. Den nya etableringslagen är därför ett stort steg i rätt riktning, men mer kan göras.</p>
+    <p>Utöver dessa reformer på nationell nivå finns det nämligen fortsatta utmaningar för landets kommuner, exempelvis finns det risk för bekymmer med bostadssegregation. Detta får förstås effekt också på förskola och skola i närområdet. I vissa kommuner har man dock lyckats bättre än andra med att förebygga utanförskapet, speciellt i kommuner som prioriterat heldagsverksamhet inom sfi-undervisningen, språkpraktik och tät samverkan med det civila samhället och näringslivet.</p>
+    <p>Ska vi på sikt förebygga och klara av integrationen av nyanlända behöver vi därför se över regelverket kring hur nyanlända blir anvisade att bosätta sig i kommunerna. En ny lag bör arbetas fram där den enskilde det första året, eller de första två åren, anvisas via Migrationsverket till orter som har bättre förutsättningar än andra att kunna erbjuda en kvalitativ introduktion. Exempel kan vara tillgång till bostäder, arbetstillfällen, tillgång till praktik, heldagsverksamhet inom sfi etc. Ett sådant system skulle också bidra till en mer solidarisk flyktingintroduktion och initialt förebygga segregation redan från start.</p>
+    <p>Stockholm den 19 oktober 2010</p>
+    <p>Roger Haddad (FP)</p>
+  </text>
+  <text andringsforfattning="" avsnitt="" behandlas_i="2010/11:AU1" behandlas_i_punkt="" beteckning="0" datatyp="forslag" grundforfattning="" hangar_id="" intressent="" kammarbeslutstyp="Acklamation" kammaren="Avslag" nummer="0" utskottet="Avslag">
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om en solidarisk flyktingintroduktion.</p>
+  </text>
+  <text datatyp="uppgift" dok_id="" kod="motkat" namn="Motionskategori">
+    <p>Fristående motion</p>
+  </text>
+  <text datatyp="uppgift" dok_id="" kod="tilldelat" namn="Tilldelat">
+    <p>Arbetsmarknadsutskottet</p>
+  </text>
+</dokument>

@@ -1,26 +1,24 @@
-use error_stack::Report;
 use minidom::{
     quick_xml::{events::Event, Reader},
     Element,
 };
-use minidom_extension::{elem_is_empty, minidom};
+use minidom_extension::{attrib_query::attrib_equals, elem_is_empty, minidom};
 
 use super::SfsPreprocessError;
-use crate::preprocess_sfs::shared::attrib_equals;
 
 pub fn process_html_sfs_div_dok(
     reader: &mut Reader<&[u8]>,
     textelem: &mut Element,
-) -> error_stack::Result<(), SfsPreprocessError> {
+) -> Result<(), SfsPreprocessError> {
     let mut state = ParseHtmlState::Start;
     let mut page_nr = 1;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(Report::new(SfsPreprocessError::XmlParsingError {
+                return Err(SfsPreprocessError::XmlParsingError {
                     pos: reader.buffer_position(),
                     err: e,
-                }))
+                })
             }
             Ok(Event::Eof) => break,
             Ok(Event::Start(e)) => match e.name().as_ref() {
@@ -37,13 +35,14 @@ pub fn process_html_sfs_div_dok(
                 }
                 _ => todo!("handle {:?} state={:?}", e, state),
             },
-            Ok(Event::Text(_content)) => match state {
-                ParseHtmlState::Skip { tag: _ } => continue,
-                _ => (),
-            },
+            Ok(Event::Text(_content)) => {
+                if let ParseHtmlState::Skip { tag: _ } = state {
+                    continue;
+                }
+            }
             Ok(Event::End(e)) => {
-                if let ParseHtmlState::Skip { ref tag } = state {
-                    if e.name().as_ref() == *tag {
+                if let ParseHtmlState::Skip { tag } = state {
+                    if e.name().as_ref() == tag {
                         state = ParseHtmlState::Start;
                     }
                     continue;
@@ -66,9 +65,7 @@ enum ParseHtmlState {
     Skip { tag: &'static [u8] },
 }
 
-pub fn extract_page(
-    reader: &mut Reader<&[u8]>,
-) -> error_stack::Result<Element, SfsPreprocessError> {
+pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocessError> {
     reader.check_end_names(false);
     let mut elem = Element::bare("page", "");
     let mut curr: Option<Element> = Some(Element::bare("p", ""));
@@ -150,9 +147,8 @@ pub fn extract_page(
                 }
             }
             Ok(Event::Empty(e)) => {
-                match state {
-                    ExtractPageState::Skip { tag: _ } => continue,
-                    _ => (),
+                if let ExtractPageState::Skip { tag: _ } = state {
+                    continue;
                 }
                 match e.name().as_ref() {
                     b"br" => {
@@ -170,11 +166,8 @@ pub fn extract_page(
                 }
             }
             Ok(Event::Text(content)) => {
-                match state {
-                    ExtractPageState::Skip { tag: _ } => {
-                        continue;
-                    }
-                    _ => (),
+                if let ExtractPageState::Skip { tag: _ } = state {
+                    continue;
                 }
                 let text = match content.unescape() {
                     Ok(text) => text.to_string(),
@@ -184,10 +177,10 @@ pub fn extract_page(
                         match String::from_utf8(err_content.to_vec()) {
                             Ok(text) => text,
                             Err(err) => {
-                                return Err(Report::new(SfsPreprocessError::XmlFromUtf8Error {
+                                return Err(SfsPreprocessError::XmlFromUtf8Error {
                                     pos: reader.buffer_position(),
                                     err,
-                                }));
+                                });
                             }
                         }
                     }
@@ -200,8 +193,8 @@ pub fn extract_page(
                 }
             }
             Ok(Event::End(e)) => {
-                if let ExtractPageState::Skip { ref tag } = state {
-                    if e.name().as_ref() == *tag {
+                if let ExtractPageState::Skip { tag } = state {
+                    if e.name().as_ref() == tag {
                         state = ExtractPageState::InBlock;
                     }
                     continue;

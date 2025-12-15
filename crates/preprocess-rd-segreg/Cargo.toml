@@ -1,0 +1,20 @@
+[package]
+name = "preprocess-rd-segreg"
+version = "0.1.0"
+rust-version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "preprocess-rd-segreg"
+test = false
+doctest = false
+
+[dependencies]
+clap = { workspace = true, features = ["derive", "cargo"] }
+miette = { workspace = true, features = ["fancy"] }
+
+# local deps
+preprocess-ui = { workspace = true }
+swegov-opendata-preprocess = { workspace = true }

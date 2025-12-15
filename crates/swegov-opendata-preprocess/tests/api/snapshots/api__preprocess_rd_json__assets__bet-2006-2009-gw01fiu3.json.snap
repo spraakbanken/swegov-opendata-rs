@@ -1,0 +1,668 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GW01FiU3" dokument_url_html="http://data.riksdagen.se/dokument/GW01FiU3" dokument_url_text="http://data.riksdagen.se/dokument/GW01FiU3/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GW01FiU3">
+  <text beteckning="FiU3" datatyp="huvuddokument" datum="2008-12-12 00:00:00" dokumentnamn="" hangar_id="2222289" nummer="3" organ="FiU" publicerad="2008-12-12 09:26:34" rm="2008/09" slutnummer="0" status="" subtyp="bet" systemdatum="2008-12-12 09:26:54" title="Utgiftsområde 25 Allmänna bidrag till kommuner" typ="bet">
+    <p>Finansutskottets betänkande</p>
+    <p>2008/09:FiU3</p>
+    <p>Utgiftsområde 25 Allmänna bidrag till kommuner</p>
+    <p>Sammanfattning</p>
+    <p>Utskottet tillstyrker regeringens förslag till anslagsnivåer för 2009 inom utgiftsområde 25 Allmänna bidrag till kommuner. Den största delen av utgiftsområdet utgörs av ett anslag för kommunalekonomisk utjämning. Även bidrag för utjämning av LSS-kostnader respektive finansiering av två ideella föreningar på det kommunalekonomiska området återfinns inom utgiftsområdet. Anslagen uppgår 2009 till drygt 67 miljarder kronor.</p>
+    <p>Vidare tillstyrker utskottet regeringens förslag till mål för utgiftsområdet, att skapa goda och likvärdiga ekonomiska förutsättningar för kommuner och landsting som bidrar till en effektiv kommunal verksamhet med hög kvalitet.</p>
+    <p>Utskottet behandlar dessutom motioner från allmänna motionstiden om redogörelser för kommunernas ekonomi och om jämställda löner i kommunsektorn.</p>
+    <p>Samtliga motioner som behandlas i betänkandet avstyrks.</p>
+    <p>I betänkandet finns 3 reservationer (s, v) och 3 särskilda yttranden (s, v, mp).</p>
+    <p>Utskottets förslag till riksdagsbeslut</p>
+    <p>1.</p>
+    <p>Mål för utgiftsområdet</p>
+    <p>Riksdagen godkänner det mål för utgiftsområdet Allmänna bidrag till kommuner som regeringen föreslår samt att nuvarande mål för politikområdet Allmänna bidrag till kommuner upphör att gälla. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 1.</p>
+    <p>2.</p>
+    <p>Anslag för 2009 inom utgiftsområde 25</p>
+    <p>Riksdagen anvisar anslagen för 2009 under utgiftsområde 25 Allmänna bidrag till kommuner enligt utskottets förslag i bilaga 2. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 2 och avslår motionerna</p>
+    <p>2008/09:Fi285 av Peter Pedersen m.fl. (v) yrkandena 3 och 4,</p>
+    <p>2008/09:Fi291 av Mona Sahlin m.fl. (s) yrkandena 7 och 12,</p>
+    <p>2008/09:Fi294 av Thomas Östros m.fl. (s),</p>
+    <p>2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 1,</p>
+    <p>2008/09:Fi298 av Mikaela Valtersson m.fl. (mp) yrkande 2 och</p>
+    <p>2008/09:Fi302 av Lars Ohly m.fl. (v) yrkande 29.</p>
+    <p>3.</p>
+    <p>Redogörelser för kommunernas ekonomi</p>
+    <p>Riksdagen avslår motionerna</p>
+    <p>2008/09:Fi270 av Mona Sahlin m.fl. (s) yrkande 95 och</p>
+    <p>2008/09:Fi276 av Håkan Juholt (s).</p>
+    <p>Reservation 1 (s, v)</p>
+    <p>4.</p>
+    <p>Jämställda löner i kommunsektorn</p>
+    <p>Riksdagen avslår motion</p>
+    <p>2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 2.</p>
+    <p>Reservation 2 (v)</p>
+    <p>Reservation 3 (s) motiveringen</p>
+    <p>Stockholm den 2 december 2008</p>
+    <p>På finansutskottets vägnar</p>
+    <p>Stefan Attefall</p>
+    <p>Följande ledamöter har deltagit i beslutet: Stefan Attefall (kd), Bertil Kjellberg (m), Anna Lilliehöök (m), Sonia Karlsson (s), Lars Elinderson (m), Monica Green (s), Carl B Hamilton (fp), Hans Hoff (s), Peder Wachtmeister (m), Göran Pettersson (m), Ulla Andersson (v), Tommy Ternemar (s), Emma Henriksson (kd), Mikaela Valtersson (mp), Jörgen Hellman (s), Christina Zedell (s) och Per Åsling (c).</p>
+    <p>Redogörelse för ärendet</p>
+    <p>Ärendet och dess beredning</p>
+    <p>Riksdagen har på förslag av finansutskottet i betänkande 2008/09:FiU1 den 19 november 2008 beslutat om ramar för vart och ett av de 27 utgiftsområdena. I och med detta beslut har ramen för utgiftsområde 25 Allmänna bidrag till kommuner lagts fast till 67039055000 kronor. I detta betänkande tar utskottet ställning till hur anslagen på utgiftsområde 25 ska fördelas inom denna ram.</p>
+    <p>I budgetpropositionen för 2009 lämnar regeringen förslag för utgiftsområde 25 Allmänna bidrag till kommuner. Regeringen föreslår att riksdagen anvisar tre anslag under utgiftsområdet. Vidare föreslår regeringen att riksdagen godkänner ett mål för utgiftsområdet Allmänna bidrag till kommuner samtidigt som nuvarande mål för politikområdet Allmänna bidrag till kommuner upphör att gälla.</p>
+    <p>I anslutning till regeringens förslag behandlar utskottet motionsyrkanden med alternativa förslag till anslag inom utgiftsområdet. Utskottet behandlar också motionsyrkanden från allmänna motionstiden 2008 om redogörelser för kommunernas ekonomi och om jämställda löner i kommunsektorn.</p>
+    <p>Förslagen i propositionen och motionerna återges i bilaga 1 i betänkandet.</p>
+    <p>Samtliga anslag inom utgiftsområdet fastställs i enlighet med 5 kap. 12§ riksdagsordningen genom ett beslut. Utskottets förslag till anvisning av anslagen för 2009 under utgiftsområde 25 presenteras i bilaga 2 i betänkandet.</p>
+    <p>Betänkandet är disponerat så att utskottet inleder med att behandla regeringens förslag till mål för utgiftsområdet. Därefter behandlas budgetpropositionens förslag till anslag för 2009 jämte motförslagen i oppositionspartiernas motioner. I de två avslutande avsnitten behandlas övriga motionsyrkanden.</p>
+    <p>Utskottets överväganden</p>
+    <p>Mål för utgiftsområdet</p>
+    <p>Utskottets förslag i korthet</p>
+    <p>Riksdagen godkänner att målet för utgiftsområdet ska vara att skapa goda och likvärdiga ekonomiska förutsättningar för kommuner och landsting som bidrar till en effektiv kommunal verksamhet med hög kvalitet. Målet för politikområdet upphävs.</p>
+    <p>Budgetpropositionen</p>
+    <p>Som regeringen aviserade i 2008 års ekonomiska vårproposition och som närmare utvecklas i finansplanen (prop. 2008/09:1, avsnitt 10.4.1) utgår den enhetliga verksamhetsstrukturen. Det innebär att statsbudgeten inte kommer att indelas i politikområden och i förekommande fall inte heller i verksamhetsområden. Mot denna bakgrund bör målet för politikområdet Allmänna bidrag till kommuner upphävas. Det nuvarande målet för politikområdet är att skapa goda och likvärdiga förutsättningar för kommuner och landsting att uppnå de nationella målen inom olika verksamheter. I stället bör ett nytt mål införas för utgiftsområde 25 Allmänna bidrag till kommuner. Regeringen föreslår följande: målet för utgiftsområdet är att skapa goda och likvärdiga ekonomiska förutsättningar för kommuner och landsting som bidrar till en effektiv kommunal verksamhet med hög kvalitet.</p>
+    <p>Det föreslagna målet har formulerats mot bakgrund av att den kommunala sektorn utgör en betydande del av den svenska ekonomin och ansvarar för merparten av de skattefinansierade tjänster som produceras. Det är i huvudsak uppgifter som kommuner och landsting har ålagts i lag. Kraven på de kommunala verksamheterna kommer att öka framöver. De effektiviseringsmöjligheter och därmed tillfällen till att höja kvaliteten som finns bör därför så långt som möjligt tas till vara för att målen för de olika verksamheterna ska kunna uppnås. Den kommunala självstyrelsen innebär samtidigt att det direkta ansvaret ligger på de enskilda kommunerna och landstingen. Det är därför av stor vikt att kommuner och landsting ges likvärdiga ekonomiska förutsättningar. Anslaget och systemet för kommunalekonomisk utjämning utgör ett instrument för att åstadkomma detta.</p>
+    <p>Inga motioner har väckts med anledning av regeringens förslag om nytt mål för utgiftsområdet.</p>
+    <p>Finansutskottets ställningstagande</p>
+    <p>Finansutskottet har inga invändningar mot regeringens förslag till mål. Eftersom indelningen i politikområden försvinner bör det nuvarande målet upphävas.</p>
+    <p>Därmed tillstyrks propositionen i denna del.</p>
+    <p>Anslag för 2009 inom utgiftsområde 25</p>
+    <p>Utskottets förslag i korthet</p>
+    <p>Riksdagen bifaller regeringens förslag till fördelning av anslag inom utgiftsområde 25 Allmänna bidrag till kommuner. Därmed avslår riksdagen de alternativa motionsförslagen.</p>
+    <p>Jämför särskilda yttrandena 1 (s), 2 (v) och 3 (mp).</p>
+    <p>Bakgrund</p>
+    <p>Riksdagen har efter förslag av finansutskottet i betänkande 2008/09:FiU1 den 19 november 2009 beslutat om ramar för utgiftsområden och om beräkningen av statens inkomster för 2009. Ramen för utgiftsområde 25 har i enlighet med utskottets förslag fastställts till 67039055000 kronor.</p>
+    <p>Budgetpropositionen</p>
+    <p>Politikens allmänna inriktning</p>
+    <p>Regeringen anför i budgetpropositionen att den ekonomiska situationen för kommunsektorn som helhet har förbättrats avsevärt under de senaste åren. Under 20052007 har kommunerna och landstingen sammantaget redovisat ett resultat före extraordinära poster på mellan 13 och 15 miljarder kronor årligen. De kommunala konsumtionsutgifterna har under samma period i fasta priser ökat med omkring 1,5 procent per år, vilket är mer än vad som beräknas behövas för att möta effekterna av de demografiska förändringarna. Det har därmed varit möjligt att höja ambitionsnivån i de kommunala verksamheterna.</p>
+    <p>En viktig förklaring till den gynnsamma situationen är att fler personer har arbete. Ett ökat antal arbetade timmar i näringslivet kommer kommuner och landsting till godo genom att skatteunderlaget därmed växer.</p>
+    <p>Regeringen lämnar förslag i budgetpropositionen i syfte att skapa bättre långsiktiga villkor för tillväxt och sysselsättning, bl.a. om en sänkning av arbetsgivaravgiften med 1 procentenhet för alla arbetsgivare. För kommunsektorn motsvarar det en årlig kostnadsminskning med ca 3 miljarder kronor.</p>
+    <p>Även med bättre förutsättningar för den kommunala verksamheten är expansionsutrymmet begränsat. En bidragande orsak till detta är att produktivitetsutvecklingen inom den offentliga sektorn beräknas vara lägre än i näringslivet. Att produktiviteten inom tjänsteproducerande branscher är lägre än i branscher som producerar varor är rimligt. Det torde dock vara möjligt att höja produktiviteten i den skattefinansierade tjänsteproduktionen som kommuner och landsting till stor del ansvarar för.</p>
+    <p>Regeringen framhåller samtidigt att kommunerna och landstingen redan arbetar med att effektivisera resursutnyttjandet. Ett sätt att åstadkomma effektiviseringar är att stimulera jämförelser mellan kommuner och mellan landsting. Regeringen har t.ex. träffat en överenskommelse med Sveriges Kommuner och Landsting om ett nationellt jämförelseprojekt som pågår 20072009. Även effektivisering genom fortsatt utvecklingsarbete inom e-förvaltning är viktigt.</p>
+    <p>Strävan efter att öka medborgarnas frihet att välja utförare innebär inte bara ökat inflytande för den enskilde, utan även konkurrens mellan olika utförare. Detta har i sin tur en stor potential att bidra till utveckling av kvaliteten och effektiviteten i de kommunala verksamheterna. Ett annat exempel på ökad valfrihet är enligt regeringen införandet av vårdnadsbidraget, som innebär att de kommuner som önskar kan ge föräldrar möjlighet att vara hemma och vårda sina barn då barnet är mellan 1 och 3 år.</p>
+    <p>Även om de kommunala verksamheterna i huvudsak fungerar väl finns det områden inom vilka extra satsningar kan, anför regeringen, behöva göras. Regeringen föreslår i budgetpropositionen bl.a. följande vid sidan av utgiftsområde 25.</p>
+    <p>För att stimulera landstingen till att ge sjukskrivningsfrågorna högre prioritet i hälso- och sjukvården och utveckla sjukskrivningsprocessen, införde staten för 20062008 ekonomiska incitament genom den s.k. sjukvårdsmiljarden. Regeringen anser att det är angeläget med ekonomiska incitament som stimulerar hälso- och sjukvården att aktivt medverka till att utveckla sjukskrivningsprocessen. Mot den bakgrunden beräknar regeringen att 1 miljard kronor fr.o.m. 2010 årligen avsätts inom utgiftsområde 10 Ekonomisk trygghet vid sjukdom och handikapp.</p>
+    <p>Riksdagen har beslutat att avsätta 500 miljoner kronor per år 2007 och 2008 och 250 miljoner kronor fr.o.m. 2009 för att stödja huvudmännen i deras arbete med att förbättra vård och stöd till personer med psykisk sjukdom eller psykisk funktionsnedsättning. Regeringen föreslår nu mot bakgrund av SOU 2006:100 Ambition och ansvar Nationell strategi för utveckling av samhällets insatser till personer med psykiska sjukdomar och funktionshinder att sammantaget 900 miljoner kronor per år avsätts 20092011 inom utgiftsområde 9 Hälsovård, sjukvård och social omsorg för bidrag till psykiatri. Av dessa medel kommer merparten att gå till kommuner och landsting.</p>
+    <p>Regeringen avser att avsätta medel för en prestationsbaserad ersättningsmodell för landstingens uppfyllande av vårdgarantin. Från och med 2010 beräknas därför inom utgiftsområde 9 Hälsovård, sjukvård och social omsorg 1 miljard kronor per år avsättas för detta ändamål.</p>
+    <p>För att stärka det pedagogiska uppdraget inom förskolan avsätts 20092011 200 miljoner kronor årligen inom utgiftsområde 16 Utbildning och universitetsforskning.</p>
+    <p>Fler platser på yrkesutbildningar inom gymnasial vuxenutbildning ska skapas. Satsningarna till kommunerna inom utgiftsområde 16 Utbildning och universitetsforskning är fördelade på tre år. År 2009 föreslås 124 miljoner kronor och åren 2010 och 2011 beräknas 250 respektive 376 miljoner kronor avsättas.</p>
+    <p>Inom utgiftsområde 16 Utbildning och universitetsforskning avsattes drygt 1 miljard kronor för kvalificerad fortbildning för lärare under 2007 och 2008. Regeringen aviserar en förlängning av satsningen och beräknar för detta 1 miljard kronor per år 2010 och 2011. Utöver detta föreslås respektive beräknas anslaget ökas med 150 miljoner kronor per år 2009 och 2010, vilket tillsammans motsvarar det belopp om 300 miljoner kronor som inte nyttjades i inledningsskedet av denna satsning.</p>
+    <p>Därutöver föreslås även andra satsningar inom olika kommunala verksamheter. Totalt innebär regeringens förslag att kommunsektorn ges ett ökat utrymme motsvarande 4 miljarder kronor 2009, omkring 6,3 miljarder kronor 2010 och ca 7,4 miljarder kronor 2011 i form av sänkning av arbetsgivaravgiften och särskilda satsningar. Därtill kommer att den kommunala fastighetsavgiften beräknas öka med 1,7 miljarder kronor mellan 2008 och 2009. Mellan 2009 och 2010 ökar fastighetsavgiften ytterligare med drygt 400 miljoner kronor samt ca 170 miljoner kronor mellan 2010 och 2011.</p>
+    <p>Anslagsförslag</p>
+    <p>Regeringen föreslår att riksdagen anvisar tre ramanslag för budgetåret 2009 under utgiftsområde 25 enligt följande tabell.</p>
+    <p>Regeringens anslagsförslag inom utgiftsområde 25 Allmänna bidrag till kommuner</p>
+    <p>Tusental kronor</p>
+    <p>Anslag</p>
+    <p>1:1</p>
+    <p>Kommunalekonomisk utjämning</p>
+    <p>64771 941</p>
+    <p>1:2</p>
+    <p>Statligt utjämningsbidrag för LSS-kostnader</p>
+    <p>2259 064</p>
+    <p>1:3</p>
+    <p>Bidrag till organisationer inom det kommunalekonomiska området</p>
+    <p>8 050</p>
+    <p>Summa</p>
+    <p>67039 055</p>
+    <p>1:1 Kommunalekonomisk utjämning</p>
+    <p>Till anslaget 1:1 Kommunalekonomisk utjämning föreslår regeringen att riksdagen ska anvisa 64771941 kronor. Anslagets ändamål och utjämningssystemets syfte är att ge kommuner och landsting goda och likvärdiga ekonomiska förutsättningar som bidrar till en effektiv kommunal verksamhet med hög kvalitet. Anslaget används även som ett instrument för ekonomiska regleringar mellan staten och kommunsektorn.</p>
+    <p>Anslaget är uppdelat på två anslagsposter, en avseende bidrag till och avgifter från kommuner samt en avseende bidrag till och avgifter från landsting. De avgifter som betalas av kommuner och landsting till staten redovisas som inkomster under anslaget, som därmed är nettoberäknat.</p>
+    <p>Anslagsnivån för 2009 påverkas av ett antal regleringar enligt finansieringsprincipen. Den 1 juli 2008 trädde vissa ändringar i lagen (1993:387) om stöd och service till vissa funktionshindrade (LSS) i kraft. Dessa ändringar har gjorts i syfte att stärka rättssäkerheten för personer som beviljats insatser enligt LSS och innebär en rapporteringsskyldighet för kommunerna av ej verkställda gynnande beslut (prop. 2007/08:43, bet. 2007/08:SoU8, rskr. 2007/08:134). Merkostnaden för kommunerna beräknas uppgå till 15 miljoner kronor per år. År 2009 kompenseras kommunerna med 22,5 miljoner kronor, varav 7,5 miljoner kronor avser kostnader under andra halvåret 2008.</p>
+    <p>Merkostnaderna för kommunerna av ändringar avseende modersmålsundervisning i finska och jiddisch beräknas bli 16 miljoner kronor per år. År 2009 ökar anslaget med 24 miljoner kronor, varav 8 miljoner kronor avser kompensation för ökade kostnader under andra halvåret 2008.</p>
+    <p>Anslaget ökar med 135 miljoner kronor 2009 till följd av att regeringen avser att föreslå en barnomsorgspeng fr.o.m. den 1 juli 2009. Till följd av att regeringen avser att föreslå allmän förskola för treåringar fr.o.m. den 1 juli 2010 beräknas anslaget ökas med 220 miljoner kronor 2010. Från och med 2011 beräknas anslaget ökas med 440 miljoner kronor per år.</p>
+    <p>En höjning av förbehållsbeloppet enligt 8 kap. 7 § socialtjänstlagen (2001:453) kommer att medföra ett bortfall av avgiftsintäkter för kommunerna. Förslaget om ett förhöjt grundavdrag innebär samtidigt att kommunernas avgiftsbas ökar, och anslaget föreslås därför ökas med 100 miljoner kronor fr.o.m. 2009.</p>
+    <p>Regeringen avser att införa nationella prov i årskurs 3 samt göra frivilliga ämnesprov i årskurs 5 obligatoriska. Kommunerna kompenseras med sammantaget 56 miljoner kronor för genomförandet av den obligatoriska provomgången, vilket även omfattar nationella prov i ämnena biologi, kemi och fysik.</p>
+    <p>Landstingen kompenseras för ökande kostnader med anledning av att det nationella vaccinationsprogrammet för barn utvidgas till att omfatta även vaccination mot pneumokocker vid 3, 5 och 12 månaders ålder. Anslaget ökar med anledning av detta med 150 miljoner kronor 2009.</p>
+    <p>Regeringen avser att under 2009 återkomma till riksdagen med förslag om en tillsynsreform inom det sociala området. Regeringen kommer bl.a. att föreslå att staten övertar ansvaret för den löpande tillsynen av enskild verksamhet som bedrivs enligt socialtjänstlagen och lagen (1993:387) om stöd och service till vissa funktionshindrade (LSS) från kommunerna. Det innebär minskade kostnader för kommunerna. Någon reglering av anslaget föreslås inte nu, utan regeringen återkommer i denna fråga i budgetpropositionen för 2010.</p>
+    <p>Reglering av skillnaden mellan summan av bidragen och summan av avgifterna i utjämningssystemet för LSS-kostnader sker genom en motsvarande minskning av anslaget 1:1 Kommunalekonomisk utjämning. Regleringen görs med ett års eftersläpning. År 2007 var de sammanlagda bidragen 65,1 miljoner kronor högre än de sammanlagda avgifterna vilket har reglerats genom en tillfällig minskning av anslaget 2008 med motsvarande belopp. År 2009 återställs den reglering som engångsvis gjordes 2008. År 2008 beräknas bidragen överstiga avgifterna med 31,1 miljoner kronor och därför minskas anslaget 2009 med 31,1 miljoner kronor.</p>
+    <p>Övriga ekonomiska regleringar avser bl.a. neutraliseringar av effekter av statliga beslut som påverkar det kommunala skatteunderlaget. Till följd av särskilt förhöjt grundavdrag för de sämst ställda pensionärerna ökas anslaget med 1 950 miljoner kronor. Nya regler för reseavdrag införs vilket medför att anslaget minskas med 287 miljoner kronor. Ett skatteavtal mellan Sverige och Danmark medför att kommunsektorn tillförs 89 miljoner kronor över anslaget.</p>
+    <p>1:2 Statligt utjämningsbidrag för LSS-kostnader</p>
+    <p>Till anslaget 1:2 Statligt utjämningsbidrag för LSS-kostnader föreslår regeringen att riksdagen ska anvisa 2259064 kronor. Anslaget används för kostnadsutjämning mellan kommuner för verksamhet enligt lagen (1993:387) om stöd och service till vissa funktionshindrade (LSS). Bidraget finansieras med en utjämningsavgift för LSS-kostnader som betalas av kommuner till staten. Avgiften redovisas på statsbudgetens inkomstsida (inkomsttitel 7121 Utjämningsavgift för LSS-kostnader).</p>
+    <p>1:3 Bidrag till organisationer inom det kommunalekonomiska området</p>
+    <p>Till anslaget 1:3 Bidrag till organisationer inom det kommunalekonomiska området föreslår regeringen ett jämfört med 2008 oförändrat anslag om 8050000 kr. Medlen avses täcka ett bidrag till Rådet för kommunal redovisning på 1,05 miljoner kronor samt ett bidrag till Rådet för främjande av kommunala analyser på 3 miljoner kronor. Beloppen motsvarar respektive organisations ansökan om bidrag från staten. Dessutom ska 4 miljoner kronor utbetalas från anslaget i form av statens bidrag till ett nationellt jämförelseprojekt enligt en överenskommelse med Sveriges Kommuner och Landsting.</p>
+    <p>Motionerna</p>
+    <p>I det följande redovisas motionerna från oppositionspartierna. Inledningsvis redovisas vissa övergripande resonemang i motionerna och förslag till satsningar inom kommunsektorn som inte ligger under utgiftsområde 25. Därefter redovisas anslagsförslagen för utgiftsområde 25 för 2009.</p>
+    <p>Socialdemokraterna</p>
+    <p>Socialdemokraterna framhåller i sin motion Fi294 att kommunerna står inför en svagare ekonomisk utveckling än tidigare. De stora överskotten från 2006 och 2007 är på väg att minska kraftigt. Framtidsutsikterna är dystrare: De prognoser som regeringen gjorde i budgetpropositionen 2008 har reviderats ned. Samtidigt ökar socialbidragen. Regeringens egna prognoser visar att antalet personer som uppbär socialbidrag kommer att öka år för år fram till 2011.</p>
+    <p>Socialdemokraterna ser med stor oro på kommunernas ekonomiska utveckling. Kommunerna står för en central del av den svenska välfärden: skolan, sjukvården äldreomsorgen, barnomsorgen, biblioteken med mera. När kommunerna får dålig ekonomi går det därför ut över välfärdens kärna. Regeringen bär ett stort ansvar för kommunernas svaga ekonomi. Genom att prioritera skattesänkningar framför välfärd står välfärdsverksamheterna sämre rustade för konjunkturnedgången än vad de annars hade gjort. Dessutom har kostnadstrycket ökat på kommunsektorn genom regeringens övervältring av kostnader. Nedskärningarna i a-kassan innebär exempelvis att fler personer måste söka socialbidrag för att klara sin ekonomi, och det är en kostnad som hamnar på kommunerna. Detsamma gäller alla de som under 2010 och framåt kommer att utförsäkras från sjukpenningen och aktivitets- och sjukersättningen.</p>
+    <p>En bra välfärd är ett grundläggande mål. Socialdemokraterna anför i sin motion att man avsätter närmare 5 miljarder kronor i särskilda satsningar i kommunsektorn under 2009.</p>
+    <p>En del av satsningarna sker genom anslag på andra utgiftsområden än utgiftsområde 25. Socialdemokraterna vill satsa medel på bättre kvalitet och tillgänglighet i sjukvården. Medel bör anvisas i syfte att stärka personalens kompetens inom äldreomsorgen. Statsbidragen till kollektivtrafikinvesteringar bör höjas. Satsningar bör ske på lärlingsutbildning för arbetssökande ungdomar och sommarjobb. Medel avsätts för en solidaritetsbonus för alla kommuner som tagit emot flyktingar i eget boende de senaste tre åren. Ett kvalitetsprogram för grundskolan bör genomföras. Fler platser på komvux bör tillskapas. Klimatinvesteringsprogrammen bör fortsätta.</p>
+    <p>Inom utgiftsområde 25 Allmänna bidrag till kommuner lägger Socialdemokraterna fram förslag som innebär att utgiftsområdet 2009 ökar med 10595 miljoner kronor jämfört med regeringens förslag.</p>
+    <p>Förskolan är samhällets första instans i det organiserade livslånga lärandet, och Socialdemokraternas långsiktiga målsättning är att den ska vara avgiftsfri. Därför föreslås allmän förskola för alla 3-åringar, avgiftsfritt tre timmar per dag från och med 2009. För 2009 avsätts 440 miljoner kronor till detta ändamål.</p>
+    <p>Ju mer personal det finns i förskolan desto större blir stödet till det enskilda barnet, och förmågan att senare göra bra ifrån sig i grundskolan ökar. För att hjälpa barnen till en bättre skolstart föreslår Socialdemokraterna 200 miljoner kronor per år till mer personal i förskolan.</p>
+    <p>Den svenska förskolan är unik och ett internationellt föredöme. Men regeringen tar nu ytterligare ett steg som riskerar att urholka förskolans kvalitet; efter vårdnadsbidrag följer barnomsorgspeng. Barnomsorgspeng innebär att kommunerna tvingas använda resurser till verksamhet som inte har någon som helst pedagogisk inriktning eller utbildad personal. Socialdemokraterna motsätter sig barnomsorgspengen.</p>
+    <p>50 miljoner kronor föreslås i statsbidrag för särskilda insatser i kommuner och landsting vid t.ex. naturkatastrofer.</p>
+    <p>För 2011 aviserar Socialdemokraterna att sammanlagt 100 miljoner kronor ska investeras i miljonprogrammens ungdomar och äldre.</p>
+    <p>Medborgarna måste kunna få hjälp för att hitta rätt bland välfärdens stora utbud och för att hantera eventuella brister i den offentliga verksamhetens kvalitet. En försöksverksamhet bör påbörjas under 2009 i ett antal kommuner för att pröva kvalitetskontor. Här ska alla kunna få information om sina rättigheter, om sina möjligheter att välja såväl inriktning som utförare, kunna påverka och utöva inflytande samt få information om rättigheten att få delge sina synpunkter på verksamheterna. Här ska man få hjälp att rätta till brister och problem. Kvalitetskontoren kan vara en möjlighet att stärka medborgarens rätt till kvalitet och service utan omfattande rättighetslagstiftning. Dessa ska också medverka i uppbyggnaden av en gemensam webb, där övergripande nationella frågor tas upp men där varje lokalt kvalitetskontor har sina egna sidor. I många kommuner pågår olika former av kvalitetsarbete, och ambitiösa insatser görs för att stödja medborgarna i att utkräva kvalitet. På flera ställen finns s.k. medborgarkontor med delar av den nu föreslagna verksamheten. Erfarenheter från dessa är viktiga att ta med i det fortsatta utvecklingsarbetet. 50 miljoner kronor per år 20092011 bör avsättas för verksamheten. I motion Fi291 (s) yrkande 7 föreslås ett tillkännagivande om försöksverksamhet med kvalitetskontor.</p>
+    <p>Socialdemokraterna föreslår att kommuner och landsting ges möjlighet att prova att införa självförvaltande enheter i större skala. Statliga medel bör således anvisas för en försöksverksamhet med personalstyrda enheter, s.k. intraprenader, inom förskola, skola, äldreomsorg och primärvård. Det kan handla om olika verksamheter och om olika sätt att utforma dessa. Det viktiga är att enheterna får möjlighet att själva styra sina verksamheter, att man får ta ansvar för budgeten, att personal, brukare, föräldrar eller andra konstellationer av medborgare är med och tar ansvar för verksamheten samt att möjligheterna att utveckla olika incitament för att öka kvalitet och effektivitet i verksamheterna införs. I intraprenader prövas möjligheten för personalen i offentligt drivna verksamheter att få del av goda resultat i form av lönepåslag, extra kompetensutveckling eller gemensamma satsningar inom verksamheten. Detta kan innebära utveckling och förnyelse av själva verksamheten, inte bara av driftsformen. 50 miljoner kronor per år 20092011 avsätts för detta förslag. I motion Fi291 (s) yrkande 12 föreslås ett tillkännagivande om försöksverksamhet med intraprenader inom förskola, skola, vård och omsorg.</p>
+    <p>Socialdemokraterna föreslår vidare tekniska justeringar av det generella statsbidraget till kommunerna med anledning av förslaget om statlig fastighetsskatt m.m.</p>
+    <p>Vänsterpartiet</p>
+    <p>Vänsterpartiet framhåller i motion Fi295 att regeringen å ena sidan håller presskonferenser om s.k. välfärdssatsningar, och å andra sidan vägrar att räkna upp statsbidragen till kommunerna med den allmänna pris- och löneökningen. Vidare försämrar regeringen socialförsäkringssystemen, vilket dels minskar kommunernas skatteinkomster, dels ökar kommunernas kostnader för försörjningsstöd.</p>
+    <p>Vänsterpartiet menar att kommunsektorn måste ges rimliga villkor att planera sin verksamhet över tiden, så att de kan garantera den välfärd medborgarna efterfrågar. Det finns ett stort stöd för en politik som möjliggör ökad kvalitet i kommunsektorns verksamheter. Man avvisar därför frysningen av statsbidragen, liksom försämringarna av a-kassan och socialförsäkringarna.</p>
+    <p>Kommunsektorns konsumtion som andel av BNP beräknas i budgetpropositionen sjunka från 23,0 % 2009 till 22,3 % 2011. Det faktiska budskapet är tydligt: hur starka finanser det offentliga än har, vill de borgerliga partierna att de verksamheter kommuner och landsting har ansvar för kontinuerligt ska minska i omfattning.</p>
+    <p>Vänsterpartiet gör en mycket kraftfull jobbsatsning i den offentliga sektorn i syfte att förstärka välfärden. Den är utformad som ett riktat sysselsättningsstöd med full kompensation till kommuner och landsting, som själva väljer i vilka verksamheter anställningarna behövs mest. Eftersom stödet ligger på inkomstsidan syns den inte som en utgift under utgiftsområde 25, men förslaget är centralt i Vänsterpartiets politik gentemot kommunsektorn.</p>
+    <p>Den politiska ambitionsnivån måste stämma överens med de behov och de förväntningar människor har och ställer. Kvalitetshöjningar av välfärdstjänsterna inom förskola, skolbarnomsorg, skola och äldreomsorg har efterfrågats länge i Sverige, och det krävs fler anställda.</p>
+    <p>Inom utgiftsområde 25 Allmänna bidrag till kommuner lägger Vänsterpartiet fram förslag som innebär att utgiftsområdet 2009 ökar med 49264 miljoner kronor jämfört med regeringens förslag.</p>
+    <p>Vänsterpartiet anser att utgångspunkten bör vara en kontinuerlig uppräkning av statsbidragen för att täcka kommunsektorns kostnadsökningar. Baserat på en uppskattad kostnadsökningstakt på 4,5 % tillförs 2 915 miljoner kronor till anslag 1:1 Kommunalekonomisk utjämning för 2009.</p>
+    <p>Vänsterpartiet vill stimulera lönejämlikhet i offentlig sektor. En modell med viktade statsbidrag som ekonomiskt stimulerar offentliga arbetsgivare som aktivt arbetar för och har framgång i att systematiskt reducera osakliga löneskillnader mellan könen bör införas. Den kommande fyraårsperioden avsätts 10 miljarder kronor, varav 2 miljarder kronor 2009. Medlen anvisas på ett nytt anslag.</p>
+    <p>Vänsterpartiet vill återställa den besparing regeringen gjort på kommunernas möjligheter att erbjuda vuxenutbildning. Därför lägger partiet tillbaka 600 miljoner kronor i statsbidrag till kommunsektorn. Tillsammans med satsningen på fler anställda finansieras en utbyggnad av Komvux med 9000 platser.</p>
+    <p>En reform som ger asylsökande och papperslösa rätt till full sjukvård inom ramen för befintligt hälso- och sjukvårdssystem bör genomföras. 500 miljoner kronor avsätts från 2009.</p>
+    <p>Sedan 2006 tillförs kommunerna 50 miljoner kronor årligen inom ramen för det generella statsbidraget för att tillgodose behovet av att ordna skolgång för barn till papperslösa och till asylsökande som lever gömda. Detta gjordes i väntan på att en laglig reglering av gömda barns rätt till skolgång skyndsamt skulle färdigberedas. Regeringen föreslår, trots att någon reglering ännu inte kommit till stånd, att dessa medel slopas från 2010. Dessa medel bör finnas kvar och anslaget öka med 50 miljoner kronor 2010 och 2011.</p>
+    <p>Vänsterpartiet avvisar regeringens förslag om nationella prov i årskurs 3 och 5 och om en barnomsorgspeng. Därmed minskas anslagna medel med totalt 191 miljoner kronor 2009.</p>
+    <p>Flera av Vänsterpartiets förslag i budgetmotionen framför allt höjningen av grundavdraget påverkar kommunernas skatteinkomster, och effekterna gentemot kommunsektorn ska regleras. Vänsterpartiet avvisar omvandlingen av fastighetsskatten till en kommunalavgift och kompenserar kommunerna för den inkomst de förväntas få från den 2009.</p>
+    <p>Vänsterpartiet vill avsevärt öka utbudet av kollektivtrafik i glesbygd och vill avsätta 2,5 miljarder kronor under en treårsperiod för ändamålet (500 miljoner kronor 2009, 1000 miljoner kronor 2010, 1000 miljoner kronor 2011). Medlen tillfaller kommuner och landsting som vidarebefordrar medlen till respektive huvudman. Rikstrafiken bör få i uppdrag att utreda hur ett lämpligt system för kreditering av medel från stat till trafikhuvudmännen via kommuner och landsting kan se ut. Eftersom förslaget bör utredas mer, kan systemet inte vara möjligt att införa förrän den 1 juli 2009 (motion Fi285 (v) yrkandena 3 och 4, motion Fi302 (v) yrkande 29).</p>
+    <p>Miljöpartiet</p>
+    <p>Miljöpartiet framhåller att lokala och globala ekologiska system hänger ihop. När människan håller sig inom de ramar naturen ger, finns grunden för goda livsförutsättningar och en hållbar välfärd. Ett av många exempel på en åtgärd med anknytning till den kommunala nivån som Miljöpartiet föreslår i sitt ekonomisk-politiska alternativ är att avsätta medel för att uppnå delmålet om hållbart brukande av kust- och skärgårdslandskapet. Arbetet med kommunala översiktsplaner och regionala utvecklingsprogram för kust och skärgårdsområden är en grundförutsättning för att uppnå detta mål. Att regeringens miljömålsproposition sannolikt blir minst ett år försenad har redan orsakat osäkerhet i de myndigheter, regioner och kommuner som arbetar med miljömålen.</p>
+    <p>Enligt Miljöpartiet har regeringens politik inneburit kraftiga försämringar i det sociala skyddsnätet. Ersättningsnivån i arbetslöshetsförsäkringen har sänkts samtidigt som avgifterna höjts och regelverket har stramats åt. Resultatet har blivit en sämre, men dyrare, försäkring och som resultat av detta har drygt 500000 personer lämnat försäkringen. 1,4 miljoner människor saknar i dag en arbetslöshetsförsäkring och är hänvisade till kommunalt försörjningsstöd om de förlorar sitt arbete. Detta påverkar kommunernas ekonomi, vilket kommer att bli tydligt när arbetsmarknaden nu försämras.</p>
+    <p>Flera förslag i Miljöpartiets budgetalternativ innebär ökat stöd till verksamhet i kommunerna utan att det redovisas inom utgiftsområde 25. Till exempel får Kemikalieinspektionen och Naturvårdsverket ökade medel för att ge bättre stöd till kommunernas arbete med tillsyn av lagarna. Miljöpartiet anser vidare att jämställdhetsarbetet i skolan måste stärkas och föreslår därför en satsning på genuspedagoger. Det offentliga har ett ansvar för att alla har tillgång till kultur. Ett exempel är att staten har ett ansvar för åtgärder som kan öka incitamenten för kommunerna att bredda sin uppsökande verksamhet för att nå större grupper av barn på musik- och kulturskoleområdet. Vidare bör ökade medel satsas på kollektivtrafik.</p>
+    <p>Vidare anser Miljöpartiet att det är viktigt att fler kommuner solidariskt delar det nationella ansvaret för flyktingmottagande. För att öka drivkrafterna för fler kommuner att ta emot flyktingar föreslås att kommunersättningen vid flyktingmottagande höjs.</p>
+    <p>Inom utgiftsområde 25 Allmänna bidrag till kommuner lägger Miljöpartiet i motion Fi298 fram förslag som innebär att utgiftsområdet 2009 minskar med 230 miljoner kronor jämfört med regeringens förslag.</p>
+    <p>Barn har rätt till goda kunskaper såväl i svenska språket som i sitt modersmål, i de fall då det inte är svenska. Goda kunskaper i modersmålet ger dessutom bättre förutsättningar för att lära sig ett andra språk bra. I grundskoleförordningen finns en begränsning som säger att elever har rätt till modersmålsundervisning i som mest sju år. Det är en begränsning som bör tas bort. Förslaget innebär att statsbidragen till kommunerna bör öka med 170 miljoner kronor årligen.</p>
+    <p>Vuxenutbildning är en viktig möjlighet för människor att utbilda sig vidare och få en ny chans på arbetsmarknaden. Neddragningarna av den kommunala vuxenutbildningen har varit omfattande, och även om regeringen backar nu kommer antalet komvuxplatser att vara tillbaka på 2006 års nivå med nuvarande politik först 2012. Det är fullständigt otillräckligt, och Miljöpartiet föreslår 4 700 fler komvuxplatser än regeringen 2009 och 7 000 fler platser 2010 och 2011 varav 4 500 yrkesvuxplatser. För detta ändamål avsätts 400 miljoner kronor till kommunerna 2009. För 2010 och 2011 avsätts 600 miljoner kronor.</p>
+    <p>Miljöpartiet föreslår en rad reformer avseende arbetslöshetsersättningen som innebär ökade skatteintäkter för kommunerna. Dessa medel föreslås avräknas från statsbidragen. Minskningen innebär att anslag 48:1 minskar med 800 miljoner kronor årligen.</p>
+    <p>Sammanställning av anslagsförslagen</p>
+    <p>Regeringens och oppositionspartiernas alternativ har redovisats ovan. Som framgått har både regeringen och oppositionspartierna dels förslag på andra utgiftsområden som rör kommunerna, dels förslag som avser neutraliseringar av effekter av beslut på statlig nivå som påverkar det kommunala skatteunderlaget.</p>
+    <p>I Socialdemokraternas ekonomisk-politiska motion Fi270 finns en tabell över skatteförändringar i relation till regeringens förslag (avsnitt 21 Skatter och övriga inkomster). I en fotnot till tabellen anges följande:</p>
+    <p>Skatteintäkterna som anges i tabellen är nettosiffror för offentlig sektor. Inom ramen för varje förslag är effekterna för kommunsektorn neutraliserade. Kommunsektorn påverkas alltså varken negativt eller positivt av dessa förslag.</p>
+    <p>Med undantag för fastighetsskatten sker neutraliseringen inte över utgiftsområde 25. Socialdemokraterna har i utskottet meddelat att neutraliseringen i stället sker över statsbudgetens inkomstsida. Bland de förslag som redovisas i tabellen i den ekonomisk-politiska motionen återfinns att Socialdemokraterna säger nej till nedsatta socialavgifter för unga. Socialdemokraterna tillgodoräknar sig i sitt budgetalternativ 13,6 miljarder kronor med anledning av detta ställningstagande.</p>
+    <p>Under utskottets beredning av ärendet har dock Socialdemokraterna anmält att den uppgift de fått från riksdagens utredningstjänst om att nettosiffran för offentlig sektor för denna åtgärd är 13,6 miljarder kronor inte är korrekt utan ska vara lägre. Om Socialdemokraternas budgetalternativ korrigeras för denna felaktighet försvagas Socialdemokraternas alternativ för de offentliga finanserna med knappt 2 miljarder kronor.</p>
+    <p>I följande tabell har regeringens och oppositionspartiernas förslag till anslag ställts samman.</p>
+    <p>Anslagsförslagen inom utgiftsområde 25 Allmänna bidrag till kommuner</p>
+    <p>Regeringens förslag i tusental kronor, oppositionspartiernas förslag i förhållande till regeringen i miljoner kronor</p>
+    <p>Anslag</p>
+    <p>Regeringens förslag</p>
+    <p>Fi294</p>
+    <p>s</p>
+    <p>Fi295</p>
+    <p>v</p>
+    <p>Fi298</p>
+    <p>mp</p>
+    <p>1:1 Kommunalekonomisk utjämning</p>
+    <p>64771 941</p>
+    <p>+10 595</p>
+    <p>+ 47264</p>
+    <p>- 230</p>
+    <p>1:2 Statligt utjämningsbidrag för LSS-kostnader</p>
+    <p>2259 064</p>
+    <p>1:3 Bidrag till organisationer inom det kommunalekonomiska området</p>
+    <p>8 050</p>
+    <p>1:4 Viktat statsbidrag för höjning av kvinnors löner i offentlig sektor</p>
+    <p>+ 2000</p>
+    <p>Summa</p>
+    <p>67039 055</p>
+    <p>+10 595</p>
+    <p>+ 49264</p>
+    <p>- 230</p>
+    <p>Finansutskottets ställningstagande</p>
+    <p>Finansutskottet vill framhålla att den enskilt viktigaste faktorn för hur kommuners och landstings ekonomiska situation utvecklas är hur många människor som arbetar och därmed ges möjlighet att bidra till den gemensamma välfärden. Regeringens politik för fler jobb och minskat utanförskap ger resultat och bidrar därmed till en positiv utveckling i kommunernas och landstingens ekonomi. Som framgår av budgetpropositionen har Sverige tack vare den ansvarsfulla och arbetsstimulerande politiken råd att i den rådande konjunkturavmattningen genomföra viktiga välfärdssatsningar.</p>
+    <p>Regeringens sysselsättningspolitiska reformer har bidragit till en högre sysselsättning än vad som annars varit fallet och utgör en varaktig förstärkning av det kommunala skatteunderlaget. I budgetpropositionen föreslås att arbetsgivaravgiften sänks med 1 procentenhet för alla arbetsgivare, inklusive kommuner och landsting. Det motsvarar en årlig kostnadsminskning för kommunsektorn med ca 3 miljarder kronor. Sänkningen av arbetsgivaravgiften skapar även förutsättningar för en högre varaktig sysselsättning, vilket ger utrymme för kommuner och landsting att erbjuda bättre kommunal service och ett lägre skatteuttag än vad som annars varit fallet.</p>
+    <p>Kommunsektorn får ett ökat ekonomiskt utrymme med 20 miljarder kronor åren 20092011 genom satsningarna på centrala välfärdsområden såsom skolan, äldreomsorgen, sjukvården och psykiatrin samt sänkt arbetsgivaravgift. Till detta kommer inkomster från den kommunala fastighetsavgiften. När avgiften infördes gjordes detta neutralt för kommunerna men framtida ökningar skulle tillfalla kommunsektorn. De ökade inkomsterna från fastighetsavgiften beräknas nu till ca 2 miljarder kronor per år. Med dessa medel inräknade beräknas därmed kommunsektorn få ökade ekonomiska resurser med 26 miljarder kronor de kommande tre åren. Till detta kommer att kommunernas utgifter minskar med 2,5 miljarder kronor per år genom lägre socialavgifter för unga upp till 26 år.</p>
+    <p>Det är angeläget att kommunsektorn utnyttjar sina resurser så effektivt som möjligt. Som regeringen framhåller i budgetpropositionen torde det vara möjligt att höja produktiviteten i den skattefinansierade tjänsteproduktionen som kommuner och landsting till stor del ansvarar för, även om det är rimligt att produktiviteten inom tjänsteproducerande branscher är lägre än i branscher som producerar varor. Ett sätt att åstadkomma effektiviseringar kan vara att stimulera jämförelser mellan kommuner och mellan landsting. Utskottet noterar att regeringen har träffat en överenskommelse med Sveriges Kommuner och Landsting om ett nationellt jämförelseprojekt. Ett annat exempel på något som kan bidra till effektiviseringar är fortsatt utvecklingsarbete inom e-förvaltning.</p>
+    <p>I detta sammanhang finns det också skäl att uppmärksamma strävan att öka medborgarnas frihet att välja utförare, t.ex. genom att öka mångfalden av vårdgivare. Med en sådan utveckling ges patienterna möjlighet att välja vårdgivare efter behov och önskemål. Därmed uppnås inte bara ökat inflytande för den enskilde, utan även konkurrens mellan olika utförare. Detta har i sin tur en stor potential att bidra till utveckling av kvaliteten och effektiviteten i de kommunala verksamheterna.</p>
+    <p>Reformer på skatteområdet och inom transfereringssystemen ska utformas så att de stimulerar arbetsutbudet och bidrar till en högre sysselsättningsnivå än vad som annars hade varit fallet. Därmed stärks det kommunala skatteunderlaget. Det är inte minst i ljuset av detta faktum som oppositionspartiernas alternativ bör ses. Socialdemokraterna, Vänsterpartiet och Miljöpartiet förespråkar en politik som underminerar arbetslinjen och därmed minskar möjligheterna att säkra den gemensamma välfärden. Skiljelinjen mellan regeringens fokus på arbetslinjen och oppositionens fokus på åtgärder, a-kassa och bidragssystem är påtaglig. Mot regeringens förslag om kraftigt sänkta skatter på arbete står även om oppositionspartierna har en sinsemellan splittrad syn på hur höga skatterna ska vara en politik där skatterna på arbete är betydligt högre. Oppositionspartierna förordar också högre bidragsnivåer, vid sidan av högre skatter. Detta innebär sammantaget att det blir mindre lönsamt att arbeta, vilket i sin tur påverkar arbetsutbud och sysselsättning negativt. I stället bör regeringens linje att sänka trösklarna för att få fler i arbete fortsätta. En av många negativa effekter av oppositionspartiernas politik är att kommunernas skatteunderlag och ekonomi påverkas negativt.</p>
+    <p>Socialdemokraterna påpekar i sin motion att när kommunerna får dålig ekonomi går det ut över välfärden. Givet denna insikt framstår det som anmärkningsvärt att Socialdemokraterna förespråkar en politik som leder till att drivkrafterna för arbete försvagas och att sysselsättningen utvecklas sämre än med regeringens politik. Kommunsektorns finanser skulle påverkas negativt av en sådan politik, som skulle innebära ett växande utanförskap.</p>
+    <p>När det gäller Socialdemokraternas yrkande om kvalitetskontor konstaterar utskottet att den 14 november överlämnades delbetänkandet Styr samverkan för bättre service till medborgarna (SOU 2008:97) till regeringen. Utredningen framhåller att det ska vara lätt för medborgarna att få tillgång till myndigheternas serviceutbud. De statliga myndigheterna och kommunerna måste utveckla sitt samarbete kring service i kontor och via telefon och IT. Utredningen föreslår att statliga och kommunala myndigheter ska samlokaliseras i servicekontor där medborgarna ska kunna träffa representanter för flera olika myndigheter. En ny funktion, servicevägledare, föreslås för att lotsa medborgare och företag rätt i den offentliga förvaltningen. Utredningens slutbetänkande väntas i november 2009.</p>
+    <p>Beträffande s.k. intraprenader finns det skäl att erinra om att riksdagen nyligen antagit en lag om valfrihetssystem. Finansutskottet anförde i sitt yttrande till socialutskottet i ärendet att det är angeläget att lagreglera valfrihetssystemen i syfte att tydliggöra rättsläget och underlätta för kommuner och landsting som vill öka valfriheten inom sina verksamheter. Som regeringen anförde i propositionen är lagen en del av strävandet mot att sätta brukaren i fokus, en maktförskjutning från politiker och tjänstemän till medborgare, ökad valfrihet och inflytande, fler utförare och större mångfald. Genom det ökade brukarinflytandet ökar också kvaliteten på tjänsterna (prop. 2008/09:29, yttr. FiU3y, bet. SoU5).</p>
+    <p>Vänsterpartiet satsar på skattesubventionerade anställningar i den offentliga sektorn i stället för sänkta skatter som gör det mer lönsamt att arbeta. Det innebär minskad sysselsättning och mindre skatteunderlag för kommunsektorn. Därmed skulle minskande skattebaser användas för att finansiera en växande offentlig sektor.</p>
+    <p>När det gäller Vänsterpartiets yrkanden om bidrag till kollektivtrafik kan utskottet konstatera att trafikutskottet har ställt sig bakom regeringens förslag inom utgiftsområde 22 Kommunikationer och avvisat oppositionens förslag (bet. 2008/09:TU1). Vänsterpartiet förespråkar, på samma sätt som med förslaget om anställningsstöd till kommunerna, att bidrag till kollektivtrafik ska läggas på statsbudgetens inkomstsida. Detta strider mot principen om bruttoredovisning på statsbudgeten, och kan ses som ännu ett exempel på Vänsterpartiets strävan att montera ned regelverket kring de offentliga finanserna.</p>
+    <p>Miljöpartiet accepterar huvuddelen av jobbskatteavdraget men föreslår en samlad politik som inte lägger grunden för en långsiktigt god och uthållig ekonomisk utveckling i kommunsektorn. Miljöpartiets i grunden bristande förståelse för vikten av att upprätthålla arbetslinjen innebär att finansieringsbasen för välfärdstjänsterna försvagas.</p>
+    <p>Utskottet vill också erinra om Socialdemokraternas och Vänsterpartiets förslag att den kommunala fastighetsavgiften åter ska göras till en statlig skatt. Det innebär i Socialdemokraternas alternativ att det beräknade resurstillskottet till kommunerna på ca 2 miljarder kronor per år från uppräkningen av fastighetsavgiften uteblir. I Vänsterpartiets förslag kompenseras kommunerna för den uppräkning som sker 2009 men inte för uppräkningarna åren därefter.</p>
+    <p>Oppositionspartierna avvisar vidare de nedsatta arbetsgivaravgifterna för ungdomar. Socialdemokraterna hävdar i sin motion att de i sitt förslag till riksdagen kompenserar kommunerna för detta. Socialdemokraterna har under beredningen i utskottet dock anmält att den uppgift som de har fått från riksdagens utredningstjänst och använt i motionen om effekten för konsoliderad offentlig sektor är felaktig. Utskottet kan konstatera att om beräkningen korrigeras försvagas de offentliga finanserna med knappt 2 miljarder kronor jämfört med de siffror som presenteras i motionen. Socialdemokraternas alternativ för den konsoliderade offentliga sektorn blir därmed knappt 2 miljarder kronor svagare än vad som framgår av deras ekonomisk-politiska motion.</p>
+    <p>Oavsett om kommunerna kompenseras för den statiska effekten av höjda socialavgifter för unga torde åtgärden leda till ökad ungdomsarbetslöshet och därigenom försämrade ekonomiska förutsättningar för kommunerna.</p>
+    <p>När det gäller det aktuella konjunkturläget konstaterar utskottet att utvecklingen av svensk ekonomi för närvarande är svårbedömd. Utskottet vill dock erinra om att budgetpropositionen innehåller förslag på åtgärder som både är konjunkturellt och strukturellt motiverade. 32 miljarder kronor satsas på skattesänkningar för individer och företag, välfärdssatsningar på pensionärer och sjuka samt framtidsinvesteringar på infrastruktur, utbildning och forskning. Satsningarna kommer också kommunsektorn till del. Utskottet noterar att finansministern i en interpellationsdebatt har anfört att regeringen följer utvecklingen noggrant och har beredskap att återkomma med ytterligare åtgärder som stabiliserar arbetsmarknaden (prot. 2008/09:34, 2008-11-24). Samtidigt är det viktigt att understryka att politiken inte får äventyra de offentliga finansernas långsiktiga hållbarhet.</p>
+    <p>Med hänvisning till det ovan anförda tillstyrker utskottet regeringens förslag till anslag inom utgiftsområde 25. Berörda motioner avstyrks.</p>
+    <p>Redogörelser för kommunernas ekonomi</p>
+    <p>Utskottets förslag i korthet</p>
+    <p>Riksdagen avslår motionärernas förslag om redogörelser för kommunernas ekonomi. Utskottet hänvisar till vikten av arbetsbefrämjande politik för utvecklingen av kommunernas ekonomi och till budgetpropositionens redogörelse med anledning av en rapport från Riksrevisionen om uppföljning av kommunernas ekonomi.</p>
+    <p>Jämför reservation 1 (s, v).</p>
+    <p>Motionerna</p>
+    <p>I motion Fi270 yrkande 95 framhåller Socialdemokraterna att kostnadstrycket har ökat på kommunsektorn genom regeringens övervältring av kostnader. Nedskärningarna i a-kassan innebär exempelvis att fler personer måste söka socialbidrag för att klara sin ekonomi, en kostnad som hamnar på kommunerna. I budgetpropositionen redovisas ingen konsekvensanalys för kommunsektorn av dessa förändringar. Socialdemokraterna anser att regeringen ska redovisa övervältringskostnaderna på kommunsektorn av förändringarna i arbetslöshetsförsäkringen och sjukförsäkringen.</p>
+    <p>I motion Fi276 av Håkan Juholt (s) anförs att av regeringens statsbudget framgår att vår offentliga sektor hela tiden krymper. Under åren 2007 till 2011 minskar de offentliga utgifterna från 50,0 % till 48,1 % av vår samlade ekonomi.</p>
+    <p>Det innebär inte att skolan, vården, omsorgen och socialförsäkringarna kostar mindre. Men som medborgare blir vi skyldiga att i större utsträckning betala för den utbildning, vård eller omsorg vi behöver. Den borgerliga regeringens överideologi verkar vara att krympa den del av ekonomin som står under demokratisk kontroll till förmån för privata. Motionären begär att regeringen ska återkomma och beskriva konsekvenserna för ekonomin i kommuner och landsting om de offentliga utgifterna ej drivs ned från 50 till 48 % åren 20072011.</p>
+    <p>Finansutskottets ställningstagande</p>
+    <p>Utskottet vill inledningsvis hänvisa till sitt resonemang ovan i avsnittet om anslagen för 2009 inom utgiftsområde 25 Allmänna bidrag till kommuner. Grunden för en god ekonomi i kommunsektorn är en politik som befrämjar arbete och därmed vidgar skattebasen. Regeringens politik innebär till skillnad från Socialdemokraternas en grund för en långsiktigt god och uthållig ekonomisk tillväxt, vilket gynnar kommunsektorn.</p>
+    <p>I motion Fi276 (s) tas den offentliga sektorns andel av bruttonationalprodukten upp. Motionären fokuserar på omfördelning av resurser men ser inte vikten av att öka de samlade resurserna. Utskottet vill framhålla att endast med en väl fungerande privat sektor finns förutsättningar för en uthållig välfärd. Motionärens statiska perspektiv innebär att betydelsen av en dynamisk och utvecklande ekonomi helt skjuts åt sidan.</p>
+    <p>Utskottet vill vidare erinra om att regeringen i budgetpropositionen kommenterar Riksrevisionens rapport Regeringens uppföljning av kommunernas ekonomi (prop. 2008/09:1, utgiftsområde 25, s. 1112). I förra årets betänkande om utgiftsområde 25 (bet. 2007/08:FiU3) behandlade utskottet en redogörelse från Riksrevisionens styrelse med anledning av denna rapport. Regeringen anför nu i budgetpropositionen att den kommer att fortsätta att utveckla analysen och bevakningen av utvecklingen i den kommunala sektorn. En särskild utredare har tillsatts av regeringen med uppdrag att lämna förslag till åtgärder som syftar till att statistiken om den kommunala sektorn bättre ska kunna användas som underlag för uppföljning, styrning och utveckling av verksamheten och ekonomin både på lokal och på nationell nivå. Senast den 1 mars 2009 ska uppdraget redovisas (dir. 2007:146). Enligt Riksrevisionen låter sig en redovisning av kommunernas beredskap inför framtiden inte göras lika enkelt som en uppföljning av den ekonomiska ställningen, utan bör snarare göras i form av en utredning. Regeringen erinrar i budgetpropositionen om att i den senaste långtidsutredningen (SOU 2004:19) stod välfärdstjänsterna, och möjligheterna att finansiera dem, i fokus. Långtidsutredningen 2008 kommer enligt budgetpropositionen att återkomma till denna fråga.</p>
+    <p>Med hänvisning till det anförda avstyrker utskottet motionerna Fi270 (s) yrkande 95 och Fi276 (s).</p>
+    <p>Jämställda löner i kommunsektorn</p>
+    <p>Utskottets förslag i korthet</p>
+    <p>Riksdagen avslår motionärernas förslag om ett statligt finansierat löneutjämningssystem i kommunsektorn. Utskottet hänvisar till regeringens politik för fler jobb, ökat företagande och mångfald i den offentliga sektorn.</p>
+    <p>Jämför reservationerna 2 (v) och 3 (s).</p>
+    <p>Motionen</p>
+    <p>Vänsterpartiet framhåller i motion Fi295 (v) yrkande 2 att man vill stimulera lönejämlikhet i offentlig sektor och premiera kommuner och landsting som kan visa att de når resultat i arbetet med att utjämna könsrelaterade löneskillnader. Partiet förespråkar en modell med viktade statsbidrag som ekonomiskt stimulerar offentliga arbetsgivare som aktivt arbetar för och har framgång i att systematiskt reducera osakliga löneskillnader mellan könen. Den kommande fyraårsperioden avsätts 10 miljarder i statens budget för detta ändamål. De totala utbetalningarna i systemet bör öka efter hand, varför partiet har budgeterat för 2 miljarder kronor 2009 och 2010, och 3 miljarder 2011 och 2012.</p>
+    <p>Systemet ska ge alla kommuner extra statsbidrag, men gynnar de kommuner som har lyckats med att minska löneskillnaderna mellan kvinnor och män. Fördelningen av statsbidraget ska baseras på ett jämställdhetsindex som omfattar hela kommunsektorn och där skillnaden i genomsnittlig löneinkomst för samtliga kvinnor och män mellan 20 och 64 år utgör grunden. Skillnaden uttrycks som en procentkvot där kommuner som ligger över 100 %, dvs. där skillnaden mellan kvinnors och mäns löner är mindre än i kommunsektorn i sin helhet, premieras. De kommuner som har större löneskillnader får mindre bidrag. Regeringen bör återkomma med förslag om ett statligt finansierat löneutjämningssystem för kommunsektorn i enlighet med vad som anförs i motionen.</p>
+    <p>Motionärerna hänvisar till att förslaget har beskrivits mer utförligt i tidigare riksdagsmotioner.</p>
+    <p>Tidigare behandling i finansutskottet</p>
+    <p>Finansutskottet behandlade ett liknande motionsförslag i förra årets betänkande om utgiftsområde 25 (bet. 2007/08:FiU3, s. 2829). Utskottet framhöll att det är viktigt att stärka kvinnors roll på arbetsmarknaden och motverka lönediskriminering. Osakliga löneskillnader mellan kvinnor och män är inte acceptabla. Bland de viktigaste åtgärderna såg utskottet satsningen på att öka mångfalden av producenter av välfärdstjänster. Samtidigt fann utskottet att Vänsterpartiets förslag saknar all öppenhet för mångfald i den offentliga sektorn.</p>
+    <p>Utskottet avstyrkte motionsyrkandena. Vänsterpartiet reserverade sig till förmån för bifall till motionerna, och Socialdemokraterna avgav en motivreservation.</p>
+    <p>Finansutskottets ställningstagande</p>
+    <p>Som motionärerna anför har förslaget beskrivits mer utförligt i tidigare motioner. Utskottet har också tidigare argumenterat utförligt med anledning av förslaget och avstyrkt det samma (bet. 2007/08:FiU3, s. 2829, jfr bet. 2006/07:AU10, s. 1521).</p>
+    <p>Finansutskottet vill ånyo framhålla att det är viktigt att stärka kvinnornas roll på arbetsmarknaden och motverka lönediskriminering. Osakliga löneskillnader mellan kvinnor och män är inte acceptabla. Även om lönefrågan ytterst avgörs genom förhandlingar mellan arbetsmarknadens parter kan flera politiska beslut spela stor roll. Därför ser utskottet positivt på att regeringens jämställdhetsarbete inriktas på strategiska åtgärder som bidrar till varaktiga samhällsförändringar som ökar jämställdheten mellan kvinnor och män i vårt samhälle.</p>
+    <p>Bland de viktigaste åtgärderna ser utskottet satsningen på att öka mångfalden av producenter av välfärdstjänster. Fler alternativ inom de kommunala verksamheterna gör det möjligt för kvinnor att byta arbetsplats och att starta eget i de kvinnodominerade branscherna. För anställda i välfärdssektorn ökar också möjligheterna att påverka arbetstid, arbetsvillkor och lön med mer än en arbetsgivare. Endast med ett ökat utrymme för enskilda initiativ och eget företagande inom välfärdsområdet kan de kvinnodominerade yrkena uppvärderas. Genom konkurrens mellan arbetsgivarna kan kvinnolöner höjas.</p>
+    <p>Med regeringens insatser för att stärka det kvinnliga företagandet får kvinnor chans att bli företagare inom sina kompetensområden som till stor del omfattar tjänster som i dag tillhandahålls av kommunerna och landstingen.</p>
+    <p>Med fler kvinnliga företagare ges alla kvinnor chans att avknoppa, att bli ägare och arbetsgivare, att förhandla om lönen och om de övriga arbetsmarknadsvillkoren med andra arbetsgivare än bara den offentliga sektorn. Detta stärker kvinnornas position på arbetsmarknaden.</p>
+    <p>Vänsterpartiets förslag om ett statligt finansierat löneutjämningssystem saknar enligt utskottet all öppenhet för mångfald i den offentliga sektorn. I stället inrutar den kommunerna i en ytterligare form av bidragsberoende. Ett tidsbegränsat statsbidrag till kommunernas löneutjämningsarbete bryter inte den stelbenta struktur i den offentliga sektorn som håller lönerna nere. Utan förändringar i arbetets organisation och de tankemönster som alltför ofta styr utformningen och utförandet av välfärdstjänsterna fastnar de kvinnodominerade yrkena i de mönster som skapar den strukturella diskrimineringen och segregationen på arbetsmarknaden.</p>
+    <p>Det räcker dock inte med att enbart fokusera på arbetsvillkoren eller löneskillnaderna i den offentliga sektorn. Det finns mycket mer att göra för att se till att kvinnor får bättre möjligheter och förutsättningar att på samma villkor som män verka såväl på arbetsmarknaden som i familjelivet. I det sammanhanget ser utskottet som särskilt viktiga reformer t.ex. jobbskatteavdrag, avdrag för hushållstjänster och jämställdhetsbonus i föräldraförsäkringen. Det handlar också om att driva en sund ekonomisk politik som skapar stabil grund för utvecklingen i näringslivet och på arbetsmarknaden. Regeringens politik för fler jobb utgör enligt utskottets mening just en sådan politik. Med denna politik läggs grunden för en gynnsam utveckling i kommunernas och landstingens ekonomi, en utveckling som också gynnar arbetsförhållandena för de kvinnor som väljer att jobba åt en offentlig arbetsgivare.</p>
+    <p>Med hänvisning till det ovan anförda avstyrker utskottet motion Fi295 (v) yrkande 2.</p>
+    <p>Reservationer</p>
+    <p>Utskottets förslag till riksdagsbeslut och ställningstaganden har föranlett följande reservationer. I rubriken anges vilken punkt i utskottets förslag till riksdagsbeslut som behandlas i avsnittet.</p>
+    <p>1.</p>
+    <p>Redogörelser för kommunernas ekonomi, punkt 3 (s, v)</p>
+    <p>av Sonia Karlsson (s), Monica Green (s), Hans Hoff (s), Ulla Andersson (v), Tommy Ternemar (s), Jörgen Hellman (s) och Christina Zedell (s).</p>
+    <p>Förslag till riksdagsbeslut</p>
+    <p>Vi anser att förslaget till riksdagsbeslut under punkt 3 borde ha följande lydelse:</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i reservationen om redogörelser för kommunernas ekonomi. Därmed bifaller riksdagen motion</p>
+    <p>2008/09:Fi270 av Mona Sahlin m.fl. (s) yrkande 95 och</p>
+    <p>bifaller delvis motion</p>
+    <p>2008/09:Fi276 av Håkan Juholt (s).</p>
+    <p>Ställningstagande</p>
+    <p>Regeringens politik innebär försämringar i socialförsäkringssystemen, vilket dels minskar kommunernas skatteinkomster, dels ökar kommunernas kostnader för försörjningsstöd.</p>
+    <p>Vi kan nu se att kommunernas ekonomi försämras snabbt och kraftigt. Enligt Sveriges Kommuner och Landsting räknar nära 60 kommuner med underskott i år, och ytterligare ett trettiotal är osäkra på om de klarar balans i finanserna. Det innebär att nära var tredje kommun riskerar underskott redan i år. Bland landstingen är situationen ännu värre. Kommunsektorn kommer att möta en ännu kärvare verklighet de närmaste åren.</p>
+    <p>Vi vill framhålla att kommuner och landsting måste ges rimliga villkor att planera sin verksamhet över tiden, så att de kan garantera den välfärd medborgarna efterfrågar. Vi avvisar därför regeringens ovilja att öka statsbidragen till kommunsektorn, liksom försämringarna av a-kassan och socialförsäkringarna.</p>
+    <p>Som Sveriges Kommuner och Landsting har framhållit borde regeringen redan nu ge besked om en rejäl höjning av statsbidragen. Kommunernas besvärliga situation innebär att de riskerar att förvärra lågkonjunkturen genom varsel och besparingar. Genom en aktiv politik där kommunerna tillförs medel kan problemen mildras.</p>
+    <p>Av regeringens statsbudget framgår att vår offentliga sektor hela tiden krymper. Under åren 2007 till 2011 minskar de offentliga utgifterna från 50,0% till 48,1 %. Det innebär inte att skolan, vården, omsorgen och socialförsäkringarna kostar mindre. Men som medborgare blir vi skyldiga att i större utsträckning betala för den utbildning, vård eller omsorg vi behöver. Vi anser att regeringen ska återkomma och beskriva konsekvenserna för ekonomin i kommuner och landsting om de offentliga utgifterna drivs ned från 50 till 48 % åren 20072011. Vi anser också att regeringen snarast bör återkomma med besked om höjda statsbidrag till kommunsektorn 2009 och 2010 för att undvika att kommuner och landsting börjar säga upp personal när konjunkturen viker. Regeringen behöver redovisa konsekvenserna av sin politik men den behöver också förändra politiken.</p>
+    <p>Vad vi här har anfört om redogörelser för kommunernas ekonomi bör riksdagen som sin mening ge regeringen till känna. Därmed bör riksdagen bifalla motion Fi270 (s) yrkande 95 och delvis bifalla motion Fi276 (s).</p>
+    <p>2.</p>
+    <p>Jämställda löner i kommunsektorn, punkt 4 (v)</p>
+    <p>av Ulla Andersson (v).</p>
+    <p>Förslag till riksdagsbeslut</p>
+    <p>Jag anser att förslaget till riksdagsbeslut under punkt 4 borde ha följande lydelse:</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i reservationen om ett statligt finansierat löneutjämningssystem för kommunsektorn. Därmed bifaller riksdagen motion</p>
+    <p>2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 2.</p>
+    <p>Ställningstagande</p>
+    <p>Jag anser att arbetsmarknadens parter har ett stort ansvar för att arbeta mot könsdiskriminerande löneskillnader. Det är alltså ett ofrånkomligt faktum att även den offentliga sektorn måste bli bättre på att ta ett övergripande ansvar för dessa frågor. Arbetet inom sektorn ska inriktas på att bryta med könsdiskriminerande strukturer i arbetslivet och skapa förutsättningar för både kvinnor och män att förvärvsarbeta på lika villkor och få lika betalt för likvärdigt arbete. Eftersom välfärdssektorn ägs och styrs av gemensamma medel har offentliga arbetsgivare särskilda krav på sig att vara en föregångare i jämställdhetsarbetet.</p>
+    <p>Skillnaderna i löneinkomster mellan kvinnor och män beror, i kommunsektorn liksom i den privata sektorn, dels på lönediskriminering i jämställdhetslagens mening, dels på undervärdering av kvinnodominerade yrken. Jag menar att kommuner och landsting har ett särskilt ansvar som arbetsgivare med demokratisk förankring att avskaffa löneskillnaderna mellan kvinnor och män också utöver det som är tvingande enligt jämställdhetslagen. Inom ramen för befintlig budget har kommunsektorn möjlighet att omfördela pengar så att detta mål kan nås. Ambitionsnivån i arbetet med att utjämna löneklyftan är dessvärre mycket varierande.</p>
+    <p>Mot den bakgrunden förordar jag att man inrättar ett statligt finansierat löneutjämningssystem för kommunsektorn. Systemet ska baseras på en modell med viktade statsbidrag till kommuner och landsting som ekonomiskt stimulerar offentliga arbetsgivare som är framgångsrika i att systematiskt reducera osakliga löneskillnader mellan könen. Modellen ska lägga fokus på kommuners och landstings ansvar att höja kvinnors löner i förhållande till mäns. Utbetalningarna ur systemet ska inte ses som en kompensation för högre lönekostnader, utan som ett incitament för att bedriva det omfördelningsarbete som är nödvändigt för att åstadkomma jämställda löner i offentlig sektor. Det ska vara upp till kommunerna själva att bestämma vilka verktyg som används för att höja kvinnors löner och på så sätt förbättra jämställdhetsindexet.</p>
+    <p>Vänsterpartiet avsätter i sitt budgetalternativ 10 miljarder kronor för detta ändamål de kommande fyra åren eftersom vi anser att denna satsning är av särskild vikt för hela arbetsmarknadens funktionssätt. Vi utgår från att de totala utbetalningarna i systemet bör öka efterhand, varför vi har budgeterat 2 miljarder kronor för 2009 respektive 2010 och 3 miljarder kronor för 2011 respektive 2012.</p>
+    <p>För att få till stånd en förändring av de orättvisa lönerna är det viktigt att utgå från en analys som tar in samtliga aspekter av hur löneklyftan uppstår och upprätthålls. Dessvärre saknar regeringen insikt om och vilja att förändra de strukturella missförhållanden som upprätthåller ojämlikheter mellan könen. De fackliga ansträngningar som gjorts för att höja lägstalönerna och bekämpa kvinnors strukturellt lägre löneläge har kritiserats av regeringen. Samtidigt vidgas samhällsklyftorna med regeringens politik som strävar efter en nedbantad offentlig service till förmån för privata alternativ. Erfarenheterna visar att privatiseringarna leder till försämrad service och prispress på bekostnad av de anställdas trygghet och arbetsvillkor. I de avknoppade verksamheterna bevaras dessutom den könstypiska organisationsstrukturen med flest manliga chefer. Jag anser därför att riksdagen bör begära att regeringen återkommer med förslag om att införa ett löneutjämningssystem för kommunsektorn i enlighet med det som Vänsterpartiet förespråkar. Ett sådant löneutjämningssystem ska utformas så att det får maximal effekt.</p>
+    <p>Vad jag här anfört om ett statligt finansierat löneutjämningssystem för kommunsektorn bör riksdagen som sin mening ge regeringen till känna. Därmed bör riksdagen bifalla motion Fi295 (v) yrkande 2.</p>
+    <p>3.</p>
+    <p>Jämställda löner i kommunsektorn, punkt 4 motiveringen (s)</p>
+    <p>av Sonia Karlsson (s), Monica Green (s), Hans Hoff (s), Tommy Ternemar (s), Jörgen Hellman (s) och Christina Zedell (s).</p>
+    <p>Ställningstagande</p>
+    <p>Vi anser att det är viktigt att stärka kvinnornas roll på arbetsmarknaden och motverka lönediskriminering. Osakliga löneskillnader mellan kvinnor och män är enligt vår mening inte acceptabla. Även om lönefrågan ytterst avgörs genom förhandlingar mellan arbetsmarknadens parter kan flera politiska beslut spela stor roll.</p>
+    <p>Vi anser att politiken måste vara inriktad på arbete åt alla. Arbete är grunden för välfärd, välstånd och människors personliga utveckling. Tyvärr är det i dag alltför många kvinnor som inte kan försörja sig genom eget arbete. Därför krävs det krafttag för att göra arbetsmarknaden jämställd och för att principen om lika lön för lika arbete ska gälla. Vägen till en jämställd arbetsmarknad går dock enligt vår mening inte genom privatiseringar av sjukhus och vårdinrättningar eller nedmontering av den sociala tryggheten i bl.a. arbetslöshetsförsäkringen och sjukförsäkringen. I stället krävs det åtgärder som påverkar anställningsvillkor, anställningsformer, yrkesval, befordringsmöjligheter och möjlighet till kompetensutveckling. Det krävs att rätten till heltidsanställning lagstadgas i enlighet med det lagförslag som våren 2006 utarbetades i Regeringskansliet, så att heltid blir en rättighet och deltid en möjlighet. Inriktningen ska också vara att könsmönstret ska brytas så att män i betydligt större omfattning ökar sin andel av det betalda vård- och omsorgsarbetet.</p>
+    <p>Vänsterpartiets förslag om ett statligt finansierat löneutjämningssystem i kommunsektorn saknar enligt vår mening den inriktning som kan leda till att de strukturella förhållandena på arbetsmarknaden långsiktigt förändras. En kamp mot könsbetingade löneskillnader i kommunsektorn behöver i stället bedrivas på ett bredare plan. Endast på ett sådant sätt kan man utveckla och upprätthålla sådana ekonomiska och könsrelaterade mekanismer på hela arbetsmarknaden som kan säkra jämställda löner i kommunsektorn.</p>
+    <p>Med hänvisning till det ovan anförda avstyrker vi motion Fi295 (v).</p>
+    <p>Särskilda yttranden</p>
+    <p>1.</p>
+    <p>Anslag för 2009 inom utgiftsområde 25, punkt 2 (s)</p>
+    <p>Sonia Karlsson (s), Monica Green (s), Hans Hoff (s), Tommy Ternemar (s), Jörgen Hellman (s) och Christina Zedell (s) anför:</p>
+    <p>Riksdagen har den 19 november 2008 i första steget av budgetprocessen ställt sig bakom den borgerliga regeringens budgetförslag för 2009. Det innebär att riksdagen har beslutat om ramar för de 27 utgiftsområdena samt fattat beslut om skatte- och avgiftsförändringar som ska träda i kraft nästa år.</p>
+    <p>För 2009 gäller därmed att de samlade utgifterna för utgiftsområde 25 inte får överstiga 67 040 miljoner kronor under riksdagens fortsatta behandling. Socialdemokraternas förslag på utgiftsområdet överstiger denna nivå med 10 595 miljoner kronor, och vi kan således inte yrka bifall till detta förslag.</p>
+    <p>Eftersom riksdagsmajoriteten i första steget av budgetprocessen givit budgetpolitiken en annan inriktning än den vi förespråkar, avstår vi från att redovisa något formellt motförslag till anslagsfördelningen inom utgiftsområdet. Vårt budgetalternativ bör ses som ett sammanhållet paket där olika delar inte kan brytas ut och behandlas isolerat.</p>
+    <p>Vi vill i detta sammanhang erinra om att vi socialdemokrater har presenterat en motion med hänvisning till att situationen på arbetsmarknaden radikalt förändrats sedan allmänna motionstiden, motion 2008/09:Fi7 av Mona Sahlin m.fl. (s). I den motionen föreslår vi en höjning av det generella statsbidraget till kommunerna och landstingen med 2 miljarder kronor 2009. Detta motsvarar ca 5 000 anställda. De ökade resurserna ska främst användas till att öka eller behålla antalet sysselsatta inom skolan och sjukvården. Resurserna föreslås tillkomma utöver de extra 4,8 miljarder kronor i riktade kommunsatsningar 2009 som redan finns med i vår budgetmotion. Därutöver anser vi att regeringen snarast bör återkomma med besked om statsbidragen till kommunsektorn för 2010 så att kommuner och landsting i god tid kan planera sin verksamhet. Risken är annars att kommuner och landsting nu börjar skjuta upp nyanställningar eller säger upp medarbetare när de nu ser hur skatteintäkterna viker. Vi följer noga utvecklingen i kommunsektorn och är beredda att återkomma med ytterligare förslag vid behov.</p>
+    <p>Kommunerna står inför en svagare ekonomisk utveckling än tidigare. De stora överskotten från 2006 och 2007 är på väg att minska kraftigt. Framtidsutsikterna är dystrare: De prognoser som regeringen gjorde i budgetpropositionen 2008 har reviderats ned. Samtidigt ökar socialbidragen. Regeringens egna prognoser som utarbetades före höstens alla varsel visar att antalet personer som uppbär socialbidrag kommer att öka år för år fram till 2011.</p>
+    <p>Vi socialdemokrater ser med stor oro på kommunernas ekonomiska utveckling. Kommunerna står för en central del av den svenska välfärden: skolan, sjukvården äldreomsorgen, barnomsorgen, biblioteken m.m.. När kommunerna får dålig ekonomi går det därför ut över välfärdens kärna. Regeringen bär ett stort ansvar för kommunernas svaga ekonomi. Genom att prioritera skattesänkningar framför välfärd står välfärdsverksamheterna sämre rustade för konjunkturnedgången än vad de annars hade gjort. Dessutom har kostnadstrycket ökat på kommunsektorn genom regeringens övervältring av kostnader. Nedskärningarna i a-kassan innebär exempelvis att fler personer måste söka socialbidrag för att klara sin ekonomi, och det är en kostnad som hamnar på kommunerna. Detsamma gäller alla de som under 2010 och framåt kommer att utförsäkras från sjukpenningen och aktivitets- och sjukersättningen. Regeringen borde snarast återkomma till riksdagen med en ordentlig genomgång av effekterna för kommunsektorn av förändringarna i arbetslöshetsförsäkringen, sjukpenningen och aktivitets- och sjukersättningen.</p>
+    <p>En bra välfärd är ett grundläggande mål. Vi socialdemokrater avsätter i vår motion med anledning av budgetpropositionen närmare 5 miljarder kronor mer än regeringen i särskilda satsningar i kommunsektorn under 2009.</p>
+    <p>En del av satsningarna sker genom anslag på andra utgiftsområden än utgiftsområde 25. Vi vill satsa medel på bättre kvalitet och tillgänglighet i sjukvården. Medel bör anvisas i syfte att stärka personalens kompetens inom äldreomsorgen. Statsbidragen till kollektivtrafikinvesteringar bör höjas. Satsningar bör ske på lärlingsutbildning för arbetssökande ungdomar och sommarjobb. Medel avsätts för en solidaritetsbonus för alla kommuner som tagit emot flyktingar i eget boende de senaste tre åren. Ett kvalitetsprogram för grundskolan bör genomföras. Fler platser på komvux bör tillskapas. Klimatinvesteringsprogrammen bör fortsätta.</p>
+    <p>I vår motion från allmänna motionstiden om utgiftsområde 25 Allmänna bidrag till kommuner lägger vi fram förslag som innebär att utgiftsområdet 2009 ökar med 10 595 miljoner kronor jämfört med regeringens förslag. Förskolan är samhällets första instans i det organiserade livslånga lärandet, och Socialdemokraternas långsiktiga målsättning är att den ska vara avgiftsfri. Därför föreslås allmän förskola för alla treåringar, avgiftsfritt tre timmar per dag fr.o.m. 2009. För 2009 avsätts 440 miljoner kronor till detta ändamål. Ju mer personal det finns i förskolan, desto större blir stödet till det enskilda barnet, och förmågan att senare göra bra ifrån sig i grundskolan ökar. För att hjälpa barnen till en bättre skolstart föreslår Socialdemokraterna 200 miljoner kronor per år till mer personal i förskolan. Den svenska förskolan är unik och ett internationellt föredöme. Men regeringen tar nu ytterligare ett steg som riskerar att urholka förskolans kvalitet: efter vårdnadsbidrag följer barnomsorgspeng. Barnomsorgspeng innebär att kommunerna tvingas använda resurser till verksamhet som inte har någon som helst pedagogisk inriktning eller utbildad personal. Socialdemokraterna motsätter sig barnomsorgspengen. 50 miljoner kronor föreslås i statsbidrag för särskilda insatser i kommuner och landsting vid t.ex. naturkatastrofer.</p>
+    <p>För 2011 aviserar vi socialdemokrater att sammanlagt 100 miljoner kronor ska investeras i en upprustning av miljonprogrammens ungdomar och äldre och det gäller inte bara den fysiska miljön utan även den sociala. Till exempel avsätter vi resurser för bättre fritidsgårdar för ungdomar. Medborgarna måste kunna få hjälp att hitta rätt bland välfärdens stora utbud och att hantera eventuella brister i den offentliga verksamhetens kvalitet. En försöksverksamhet bör påbörjas under 2009 i ett antal kommuner för att pröva kvalitetskontor. Här ska alla kunna få information om sina rättigheter, om sina möjligheter att välja såväl inriktning som utförare, kunna påverka och utöva inflytande samt få information om rättigheten att få delge sina synpunkter på verksamheterna. Här ska man få hjälp att rätta till brister och problem. Kvalitetskontoren kan vara en möjlighet att stärka medborgarens rätt till kvalitet och service utan omfattande rättighetslagstiftning. Dessa ska också medverka i uppbyggnaden av en gemensam webb där övergripande nationella frågor tas upp men där varje lokalt kvalitetskontor har sina egna sidor. I många kommuner pågår olika former av kvalitetsarbete, och ambitiösa insatser görs för att stödja medborgarna i att utkräva kvalitet. På flera ställen finns s.k. medborgarkontor med delar av den nu föreslagna verksamheten. Erfarenheter från dessa är viktiga att ta med i det fortsatta utvecklingsarbetet. 50 miljoner kronor per år 20092011 bör avsättas för verksamheten.</p>
+    <p>Kommuner och landsting bör ges möjlighet att prova att införa självförvaltande enheter i större skala. Statliga medel bör således anvisas för en försöksverksamhet med personalstyrda enheter, s.k. intraprenader, inom förskola, skola, äldreomsorg och primärvård. Det kan handla om olika verksamheter och om olika sätt att utforma dessa. Det viktiga är att enheterna får möjlighet att själva styra sina verksamheter, att man får ta ansvar för budgeten, att personal, brukare, föräldrar eller andra konstellationer av medborgare är med och tar ansvar för verksamheten samt att möjligheterna att utveckla olika incitament för att öka kvalitet och effektivitet i verksamheterna införs. I intraprenader prövas möjligheten för personalen i offentligt drivna verksamheter att få del av goda resultat i form av lönepåslag, extra kompetensutveckling eller gemensamma satsningar inom verksamheten. Detta kan innebära utveckling och förnyelse av själva verksamheten, inte bara av driftsformen. 50 miljoner kronor per år 20092011 avsätts för detta förslag.</p>
+    <p>Vi föreslår vidare tekniska justeringar av det generella statsbidraget till kommunerna med anledning av förslaget om statlig fastighetsskatt m.m. Vårt förslag om en statlig fastighetsskatt kompenserar vi kommunerna för genom en höjning av det generella statsbidraget som är lika stor som skatteintäkterna från fastighetsskatten. Det innebär att kommunsektorn inte går miste om några resurser till följd av detta. I motionen är såväl skatteintäkterna som kompensationen baserad på 2008 års nivå men vilket år man väljer är en teknikalitet. Kommunsektorn kompenseras krona för krona av vårt förslag om statlig fastighetsskatt.</p>
+    <p>Som framgår av vår ekonomisk-politiska motion Fi270 avvisar vi regeringens förslag om utvidgning av nedsättningen av socialavgifter för unga, och vi anser att även den tidigare nedsättningen ska avskaffas. I den ekonomisk-politiska motionen finns en tabell över våra skatteförändringar i relation till regeringens förslag (avsnitt 21 Skatter och övriga inkomster, s. 136). Som framgår av motionen kompenserar vi kommunerna för våra förslag. Följande anges i anslutning till nämnda tabell:</p>
+    <p>Skatteintäkterna som anges i tabellen är nettosiffror för offentlig sektor. Inom ramen för varje förslag är effekterna för kommunsektorn neutraliserade. Kommunsektorn påverkas alltså varken negativt eller positivt av dessa förslag.</p>
+    <p>Effekterna av förslaget är således neutraliserade för kommunsektorn, och neutraliseringen sker över statsbudgetens inkomstsida.</p>
+    <p>Under vårt budgetarbete har vi förlitat oss på beräkningar från riksdagens utredningstjänst. Dessvärre har utredningstjänsten räknat fel på detta område, vilket de har tagit fullt ansvar för. Dessvärre innebär felräkningen att intäkterna för konsoliderad offentlig sektor av förslaget om avskaffad nedsättning av socialavgifter för ungdomar är för högt skattade.</p>
+    <p>Trots att riksdagens utredningstjänst har räknat fel ger vår budgetmotion, vårt stimulanspaket och vårt besked om statsbidragen för 2010 totalt 5miljarder kronor mer än regeringens förslag till kommunerna, både 2009 och 2010. Därutöver kommer vi att återkomma med ytterligare resurser till kommunerna.</p>
+    <p>2.</p>
+    <p>Anslag för 2009 inom utgiftsområde 25, punkt 2 (v)</p>
+    <p>Ulla Andersson (v) anför:</p>
+    <p>Riksdagen har den 19 november 2008 i första steget av budgetprocessen ställt sig bakom den borgerliga regeringens budgetförslag för 2009. Det innebär att riksdagen har beslutat om ramar för de 27 utgiftsområdena samt fattat beslut om skatte- och avgiftsförändringar som ska träda i kraft nästa år.</p>
+    <p>För 2009 gäller därmed att de samlade utgifterna för utgiftsområde 25 inte får överstiga 67 040 miljoner kronor under riksdagens fortsatta behandling. Vänsterpartiets förslag på utgiftsområdet överstiger denna nivå med 49264miljoner kronor, och jag kan således inte yrka bifall till detta förslag.</p>
+    <p>Eftersom riksdagsmajoriteten i första steget av budgetprocessen givit budgetpolitiken en annan inriktning än den vi i Vänsterpartiet förespråkar, avstår jag från att redovisa något formellt motförslag till anslagsfördelningen inom utgiftsområdet. Vårt budgetalternativ bör ses som ett sammanhållet paket där olika delar inte kan brytas ut och behandlas isolerat.</p>
+    <p>Jag vill i detta sammanhang erinra om att Vänsterpartiet har, mot bakgrund av att den ekonomiska krisen i allmänhet och situationen på arbetsmarknaden i synnerhet på ett påtagligt sätt har förvärrats sedan den allmänna motionstidens utgång, väckt motion 2008/09:Fi9 av Lars Ohly m.fl. (v). I den motionen konstateras att kommunernas och landstingens totala investeringsutgifter under perioden 20022006 uppgick till drygt 167 miljarder kronor. Förutom investeringar i byggnader, t.ex. skolor och sjukhus, investerar kommuner och landsting även i infrastrukturen för el, vatten, fjärrvärme, vägar och bostäder.</p>
+    <p>Vänsterpartiet föreslår i motion 2008/09:Fi9 att ett konjunkturellt investeringsstöd införs under 2009. Vi avsätter därför 8 miljarder som medfinansiering till kommunsektorn. Stödet ska omfatta en investering som tidigareläggs eller annars riskerar att bli uppskjuten, och det beräknas kunna uppgå till omkring 20 % av investeringskostnaden. Bygginvesteringar för 8 miljarder kronor skulle skapa i storleksordningen 9 000 arbetstillfällen. I det här fallet handlar det dessutom om att undvika en risk för att kommunerna skjuter på sina investeringar när de ser skatteinkomsterna sjunka.</p>
+    <p>Vi anser vidare att regeringen ska undersöka möjligheterna att via Riksgälden ordna en kreditfacilitet för kommunsektorn. Utlåningen bör ske till statslåneränta. Det skulle avlasta banksektorn och även möjliggöra för de kommuner som i dag nekas lån via bankerna att få sina behövliga krediter.</p>
+    <p>När det gäller regeringens förslag i budgetpropositionen inom utgiftsområde 25 kan konstateras att regeringen å ena sidan håller presskonferenser om s.k. välfärdssatsningar, medan regeringen å andra sidan vägrar att räkna upp statsbidragen till kommunerna med den allmänna pris- och löneökningen. Vidare försämrar regeringen socialförsäkringssystemen, vilket dels minskar kommunernas skatteinkomster, dels ökar kommunernas kostnader för försörjningsstöd.</p>
+    <p>Kommunsektorn måste ges rimliga villkor att planera sin verksamhet över tiden, så att de kan garantera den välfärd medborgarna efterfrågar. Det finns ett stort stöd för en politik som möjliggör ökad kvalitet i kommunsektorns verksamheter. Vi avvisar därför frysningen av statsbidragen, liksom försämringarna av a-kassan och socialförsäkringarna.</p>
+    <p>Kommunsektorns konsumtion som andel av BNP beräknas i budgetpropositionen sjunka från 23,0 % 2009 till 22,3 % 2011. Det faktiska budskapet är tydligt: Hur starka finanser det offentliga än har, vill de borgerliga partierna att de verksamheter kommuner och landsting har ansvar för kontinuerligt ska minska i omfattning.</p>
+    <p>Vänsterpartiet gör en mycket kraftfull jobbsatsning i den offentliga sektorn i syfte att förstärka välfärden. Den är utformad som ett riktat sysselsättningsstöd med full kompensation till kommuner och landsting, som själva väljer i vilka verksamheter anställningarna behövs mest. Eftersom stödet ligger på inkomstsidan syns det inte som en utgift under utgiftsområde 25, men förslaget är centralt i Vänsterpartiets politik gentemot kommunsektorn.</p>
+    <p>Den politiska ambitionsnivån måste stämma överens med de behov och de förväntningar människor har och ställer. Kvalitetshöjningar av välfärdstjänsterna inom förskola, skolbarnsomsorg, skola och äldreomsorg har efterfrågats länge i Sverige, och det krävs fler anställda.</p>
+    <p>Vi anser att utgångspunkten bör vara en kontinuerlig uppräkning av statsbidragen för att täcka kommunsektorns kostnadsökningar. Baserat på en uppskattad kostnadsökningstakt på 4,5 % tillförs 2 915 miljoner kronor till anslag 1:1 Kommunalekonomisk utjämning för 2009.</p>
+    <p>Vänsterpartiet vill stimulera lönejämlikhet i offentlig sektor. En modell med viktade statsbidrag som ekonomiskt stimulerar offentliga arbetsgivare som aktivt arbetar för och har framgång i att systematiskt reducera osakliga löneskillnader mellan könen bör införas. Den kommande fyraårsperioden avsätts 10 miljarder kronor, varav 2 miljarder kronor 2009. Medlen anvisas på ett nytt anslag.</p>
+    <p>Vänsterpartiet vill återställa den besparing regeringen gjort på kommunernas möjligheter att erbjuda vuxenutbildning. Därför lägger partiet tillbaka 600 miljoner kronor i statsbidrag till kommunsektorn. Tillsammans med satsningen på fler anställda finansieras en utbyggnad av komvux med 9 000 platser.</p>
+    <p>En reform som ger asylsökande och papperslösa rätt till full sjukvård inom ramen för befintligt hälso- och sjukvårdssystem bör genomföras. 500 miljoner kronor avsätts från 2009.</p>
+    <p>Sedan 2006 tillförs kommunerna 50 miljoner kronor årligen inom ramen för det generella statsbidraget för att tillgodose behovet av att ordna skolgång för barn till papperslösa och till asylsökande som lever gömda. Detta gjordes i väntan på att en laglig reglering av gömda barns rätt till skolgång skyndsamt skulle färdigberedas. Regeringen föreslår, trots att någon reglering ännu inte kommit till stånd, att dessa medel slopas från 2010. Dessa medel bör finnas kvar och anslaget öka med 50 miljoner kronor 2010 och 2011.</p>
+    <p>Vänsterpartiet avvisar regeringens förslag om nationella prov i årskurs 3 och 5 och om en barnomsorgspeng. Därmed minskas anslagna medel med totalt 191 miljoner kronor 2009.</p>
+    <p>Flera av Vänsterpartiets förslag i budgetmotionen framför allt höjningen av grundavdraget påverkar kommunernas skatteinkomster, och effekterna gentemot kommunsektorn ska regleras. Vänsterpartiet avvisar omvandlingen av fastighetsskatten till en kommunalavgift och kompenserar kommunerna för den inkomst de förväntas få från den 2009.</p>
+    <p>Vänsterpartiet vill avsevärt öka utbudet av kollektivtrafik i glesbygd och vill avsätta 2,5 miljarder kronor under en treårsperiod för ändamålet (500 miljoner kronor 2009, 1 000 miljoner kronor 2010, 1000 miljoner kronor 2011). Medlen tillfaller kommuner och landsting som vidarebefordrar medlen till respektive huvudman. Rikstrafiken bör få i uppdrag att utreda hur ett lämpligt system för kreditering av medel från stat till trafikhuvudmännen via kommuner och landsting kan se ut. Eftersom förslaget bör utredas mer kan systemet inte vara möjligt att införa förrän den 1 juli 2009.</p>
+    <p>3.</p>
+    <p>Anslag för 2009 inom utgiftsområde 25, punkt 2 (mp)</p>
+    <p>Mikaela Valtersson (mp) anför:</p>
+    <p>Riksdagen har den 19 november 2008 i första steget av budgetprocessen ställt sig bakom den borgerliga regeringens budgetförslag för 2009. Det innebär att riksdagen har beslutat om ramar för de 27 utgiftsområdena samt fattat beslut om skatte- och avgiftsförändringar som ska träda i kraft nästa år.</p>
+    <p>För 2009 gäller därmed att de samlade utgifterna för utgiftsområde 25 inte får överstiga 67 040 miljoner kronor under riksdagens fortsatta behandling. Eftersom riksdagsmajoriteten i första steget av budgetprocessen givit budgetpolitiken en annan inriktning än den vi i Miljöpartiet förespråkar, avstår jag från att redovisa något formellt motförslag till anslagsfördelningen inom utgiftsområdet. Miljöpartiets budgetförslag inom utgiftsområde 25 ligger förvisso under den av riksdagen beslutade ramen, eftersom vi förespråkar en rad reformer som innebär ökade skatteintäkter för kommunerna. Dessa medel bör avräknas från statsbidragen, vilket innebär lägre utgifter inom utgiftsområde 25. Eftersom Miljöpartiets budgetalternativ bör ses som ett sammanhållet paket där olika delar inte kan brytas ut och behandlas isolerat avstår jag från att reservera mig rörande anslagsfördelningen inom utgiftsområde 25.</p>
+    <p>Jag vill i detta sammanhang erinra om att Miljöpartiet de gröna med anledning av den snabbt och kraftigt försämrade konjunkturutvecklingen har lagt fram motion 2008/09:Fi8 av Maria Wetterstrand m.fl. (mp). I den motionen förordar vi en permanent höjning av statsbidragen med 5 miljarder kronor årligen för att kommunerna inte ska börja planera för neddragningar i sin verksamhet som ytterligare kan driva ned konjunkturen och till insatser som höjer kvaliteten i den offentliga verksamheten.</p>
+    <p>När det gäller den övergripande politiken framhåller Miljöpartiet att lokala och globala ekologiska system hänger ihop. När människan håller sig inom de ramar naturen ger, finns grunden för goda livsförutsättningar och en hållbar välfärd. Ett av många exempel på en åtgärd med anknytning till den kommunala nivån som Miljöpartiet föreslår i sitt ekonomisk-politiska alternativ är att avsätta medel för att uppnå delmålet om hållbart brukande av kust- och skärgårdslandskapet. Arbetet med kommunala översiktsplaner och regionala utvecklingsprogram för kust- och skärgårdsområden är en grundförutsättning för att uppnå detta mål. Att regeringens miljömålsproposition sannolikt blir minst ett år försenad har redan orsakat osäkerhet i de myndigheter, regioner och kommuner som arbetar med miljömålen.</p>
+    <p>Regeringens politik har inneburit kraftiga försämringar i det sociala skyddsnätet. Ersättningsnivån i arbetslöshetsförsäkringen har sänkts samtidigt som avgifterna höjts och regelverket har stramats åt. Resultatet har blivit en sämre, men dyrare, försäkring och som resultat av detta har drygt 500 000 personer lämnat försäkringen. 1,4 miljoner människor saknar i dag en arbetslöshetsförsäkring och är hänvisade till kommunalt försörjningsstöd om de förlorar sitt arbete. Detta påverkar kommunernas ekonomi, vilket kommer att bli tydligt när arbetsmarknaden nu försämras.</p>
+    <p>Flera förslag i Miljöpartiets budgetalternativ innebär ökat stöd till verksamhet i kommunerna utan att det redovisas inom utgiftsområde 25. Till exempel får Kemikalieinspektionen och Naturvårdsverket ökade medel för att ge bättre stöd till kommunernas arbete med tillsyn av lagarna. Jämställdhetsarbetet i skolan måste stärkas, och Miljöpartiet föreslår därför en satsning på genuspedagoger. Det offentliga har ett ansvar för att alla har tillgång till kultur. Ett exempel är att staten har ett ansvar för åtgärder som kan öka incitamenten för kommunerna att bredda sin uppsökande verksamhet för att nå större grupper av barn på musik- och kulturskoleområdet. Vidare bör ökade medel satsas på kollektivtrafik.</p>
+    <p>Det är viktigt att fler kommuner solidariskt delar det nationella ansvaret för flyktingmottagande. För att öka drivkrafterna för fler kommuner att ta emot flyktingar föreslås att kommunersättningen vid flyktingmottagande höjs.</p>
+    <p>Inom utgiftsområde 25 Allmänna bidrag till kommuner lägger Miljöpartiet i vår motion med anledning av budgetpropositionen fram förslag som innebär att utgiftsområdet 2009 minskar med 230 miljoner kronor jämfört med regeringens förslag.</p>
+    <p>Barn har rätt till goda kunskaper såväl i svenska språket som i sitt modersmål, i de fall då det inte är svenska. Goda kunskaper i modersmålet ger dessutom bättre förutsättningar att lära sig ett andra språk bra. I grundskoleförordningen finns en begränsning som säger att elever har rätt till modersmålsundervisning i som mest sju år. Det är en begränsning som bör tas bort. Förslaget innebär att statsbidragen till kommunerna bör öka med 170 miljoner kronor årligen.</p>
+    <p>Vuxenutbildning är en viktig möjlighet för människor att utbilda sig vidare och få en ny chans på arbetsmarknaden. Neddragningarna av den kommunala vuxenutbildningen har varit omfattande, och även om regeringen backar nu kommer antalet komvuxplatser att vara tillbaka på 2006 års nivå med nuvarande politik först 2012. Det är fullständigt otillräckligt, och Miljöpartiet föreslår 4 700 fler komvuxplatser än regeringen 2009 och 7 000 fler platser 2010 och 2011, varav 4 500 yrkesvuxplatser. För detta ändamål avsätts 400 miljoner kronor till kommunerna 2009. För 2010 och 2011 avsätts 600 miljoner kronor.</p>
+    <p>Miljöpartiet föreslår en rad reformer avseende arbetslöshetsersättningen som innebär ökade skatteintäkter för kommunerna. Dessa medel föreslås avräknas från statsbidragen. Minskningen innebär att anslag 48:1 minskar med 800 miljoner kronor årligen.</p>
+    <p>Bilaga 1</p>
+    <p>Förteckning över behandlade förslag</p>
+    <p>Propositionen</p>
+    <p>Proposition 2008/09:1 Budgetpropositionen för 2009 utgiftsområde 25:</p>
+    <p>1.</p>
+    <p>Riksdagen godkänner det mål för utgiftsområdet Allmänna bidrag till kommuner som regeringen föreslår samt att nuvarande mål för politikområdet Allmänna bidrag till kommuner upphör att gälla (avsnitt 2.3).</p>
+    <p>2.</p>
+    <p>Riksdagen beslutar att för budgetåret 2009 anvisa anslagen under utgiftsområde 25 Allmänna bidrag till kommuner enligt följande uppställning:</p>
+    <p>Tusental kronor</p>
+    <p>Anslag (ramanslag)</p>
+    <p>Regeringens förslag</p>
+    <p>1:1 Kommunalekonomisk utjämning</p>
+    <p>64 771 941</p>
+    <p>1:2 Statligt utjämningsbidrag för LSS-kostnader</p>
+    <p>2 259 064</p>
+    <p>1:3 Bidrag till organisationer inom det kommunalekonomiska området</p>
+    <p>8 050</p>
+    <p>Summa</p>
+    <p>67 039 055</p>
+    <p>Motioner från allmänna motionstiden hösten 2008</p>
+    <p>2008/09:Fi270 av Mona Sahlin m.fl. (s):</p>
+    <p>95.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen under avsnitt Utgiftsområde 25 om att regeringen ska redovisa övervältringskostnaderna på kommunsektorn av förändringarna i arbetslöshetsförsäkringen och sjukförsäkringen.</p>
+    <p>2008/09:Fi276 av Håkan Juholt (s):</p>
+    <p>Riksdagen begär att regeringen ska återkomma och beskriva konsekvenserna för ekonomin i kommuner och landsting om de offentliga utgifterna ej drivs ned från 50 till 48 % åren 20072011.</p>
+    <p>2008/09:Fi285 av Peter Pedersen m.fl. (v):</p>
+    <p>3.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om statliga bidrag till kollektivtrafik i glesbygden.</p>
+    <p>4.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om att ge Rikstrafiken i uppdrag att utreda hur ett lämpligt fördelningssystem för att ge statliga bidrag till kollektivtrafik i glesbygd kan se ut.</p>
+    <p>2008/09:Fi291 av Mona Sahlin m.fl. (s):</p>
+    <p>7.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om försöksverksamhet med kvalitetskontor.</p>
+    <p>12.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om försöksverksamhet med intraprenader inom förskola, skola, vård och omsorg.</p>
+    <p>2008/09:Fi294 av Thomas Östros m.fl. (s):</p>
+    <p>Riksdagen anvisar med följande ändringar i förhållande till regeringens förslag anslagen under utgiftsområde 25 Allmänna bidrag till kommunerna enligt uppställning:</p>
+    <p>Tusental kronor</p>
+    <p>Anslag (ramanslag)</p>
+    <p>2009</p>
+    <p>1:1</p>
+    <p>Kommunalekonomisk utjämning</p>
+    <p>10595000</p>
+    <p>2008/09:Fi295 av Lars Ohly m.fl. (v):</p>
+    <p>1.</p>
+    <p>Riksdagen anvisar med följande ändringar i förhållande till regeringens förslag anslagen under utgiftsområde 25 Allmänna bidrag till kommuner enligt uppställning:</p>
+    <p>Anslag</p>
+    <p>Regeringens förslag (tkr)</p>
+    <p>Anslagsförändring (tkr)</p>
+    <p>1:1</p>
+    <p>Kommunalekonomisk utjämning</p>
+    <p>64 771 941</p>
+    <p>47264000</p>
+    <p>1:4</p>
+    <p>Viktat statsbidrag för höjning av kvinnors löner i offentlig sektor</p>
+    <p>0</p>
+    <p>2 000 000</p>
+    <p>Summa för utgiftsområdet:</p>
+    <p>49 264 000</p>
+    <p>2.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om att regeringen bör återkomma med förslag om ett statligt finansierat löneutjämningssystem för kommunsektorn.</p>
+    <p>2008/09:Fi298 av Mikaela Valtersson m.fl. (mp):</p>
+    <p>2.</p>
+    <p>Riksdagen beslutar med följande ändringar i förhållande till regeringens förslag anslagen under utgiftsområde 25 Allmänna statsbidrag till kommuner enligt uppställning:</p>
+    <p>Anslagsförändring</p>
+    <p>(miljoner kronor)</p>
+    <p>2009</p>
+    <p>2010</p>
+    <p>2011</p>
+    <p>Summa:</p>
+    <p>230</p>
+    <p>30</p>
+    <p>30</p>
+    <p>Anslag</p>
+    <p>1:1</p>
+    <p>Statsbidrag (utvidgad rätt modersmål)</p>
+    <p>170</p>
+    <p>170</p>
+    <p>170</p>
+    <p>1:1</p>
+    <p>Komvux</p>
+    <p>400</p>
+    <p>600</p>
+    <p>600</p>
+    <p>1:1</p>
+    <p>Avräkning statsbidrag p.g.a. höjd a-kassa</p>
+    <p>800</p>
+    <p>800</p>
+    <p>800</p>
+    <p>2008/09:Fi302 av Lars Ohly m.fl. (v):</p>
+    <p>29.</p>
+    <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om statliga medel till kollektivtrafik i glesbygd.</p>
+    <p>Bilaga 2</p>
+    <p>Förslag till beslut om anslag för 2009 inom utgiftsområde 25 Allmänna bidrag till kommuner</p>
+    <p>Utskottets förslag överensstämmer med regeringens förslag till anslagsfördelning.</p>
+    <p>Företrädare för Socialdemokraterna, Vänsterpartiet och Miljöpartiet de gröna redovisar sina ställningstaganden i särskilda yttranden.</p>
+    <p>Belopp i tusental kronor</p>
+    <p>Anslag (ramanslag)</p>
+    <p>Utskottets förslag</p>
+    <p>1:1</p>
+    <p>Kommunalekonomisk utjämning</p>
+    <p>64 771 941</p>
+    <p>1:2</p>
+    <p>Statligt utjämningsbidrag för LSS-kostnader</p>
+    <p>2 259 064</p>
+    <p>1:3</p>
+    <p>Bidrag till organisationer inom det kommunalekonomiska området</p>
+    <p>8 050</p>
+    <p>Summa för utgiftsområdet</p>
+    <p>67 039 055</p>
+  </text>
+  <text anf_video_id="1100120822229351122" beteckning="2008/09:54-12" datatyp="anforande" datum="2008-12-19 09:52:04" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735455" id="" intressent_id="" klockslag="09:52" kon="" nummer="12" parent_id="" parti="M" rm="2008/09" sekunder="158" talare="Ann-Charlotte Hammar Joh (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=0" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351222" beteckning="2008/09:54-13" datatyp="anforande" datum="2008-12-19 09:53:14" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735456" id="" intressent_id="" klockslag="09:53" kon="" nummer="13" parent_id="" parti="S" rm="2008/09" sekunder="673" talare="Tommy Ternemar (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=69" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351322" beteckning="2008/09:54-14" datatyp="anforande" datum="2008-12-19 10:02:57" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735457" id="" intressent_id="" klockslag="10:02" kon="" nummer="14" parent_id="" parti="V" rm="2008/09" sekunder="568" talare="Alice Åström (V)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=652" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351422" beteckning="2008/09:54-15" datatyp="anforande" datum="2008-12-19 10:10:56" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735458" id="" intressent_id="" klockslag="10:10" kon="" nummer="15" parent_id="" parti="Mp" rm="2008/09" sekunder="607" talare="Christopher Ödmann (Mp)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=1131" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351522" beteckning="2008/09:54-16" datatyp="anforande" datum="2008-12-19 10:19:35" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735459" id="" intressent_id="" klockslag="10:19" kon="" nummer="16" parent_id="" parti="M" rm="2008/09" sekunder="512" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=1650" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351622" beteckning="2008/09:54-17" datatyp="anforande" datum="2008-12-19 10:25:19" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735460" id="" intressent_id="" klockslag="10:25" kon="" nummer="17" parent_id="" parti="S" rm="2008/09" sekunder="264" talare="Tommy Ternemar (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=1994" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351722" beteckning="2008/09:54-18" datatyp="anforande" datum="2008-12-19 10:26:39" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735461" id="" intressent_id="" klockslag="10:26" kon="" nummer="18" parent_id="" parti="M" rm="2008/09" sekunder="236" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2074" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351822" beteckning="2008/09:54-19" datatyp="anforande" datum="2008-12-19 10:28:14" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735462" id="" intressent_id="" klockslag="10:28" kon="" nummer="19" parent_id="" parti="S" rm="2008/09" sekunder="141" talare="Tommy Ternemar (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2169" voteringspunkt=""/>
+  <text anf_video_id="1100120822229351922" beteckning="2008/09:54-20" datatyp="anforande" datum="2008-12-19 10:29:06" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735463" id="" intressent_id="" klockslag="10:29" kon="" nummer="20" parent_id="" parti="M" rm="2008/09" sekunder="221" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2221" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352022" beteckning="2008/09:54-21" datatyp="anforande" datum="2008-12-19 10:31:18" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735464" id="" intressent_id="" klockslag="10:31" kon="" nummer="21" parent_id="" parti="V" rm="2008/09" sekunder="313" talare="Alice Åström (V)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2353" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352122" beteckning="2008/09:54-22" datatyp="anforande" datum="2008-12-19 10:33:19" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735465" id="" intressent_id="" klockslag="10:33" kon="" nummer="22" parent_id="" parti="M" rm="2008/09" sekunder="192" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2474" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352222" beteckning="2008/09:54-23" datatyp="anforande" datum="2008-12-19 10:35:03" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735466" id="" intressent_id="" klockslag="10:35" kon="" nummer="23" parent_id="" parti="V" rm="2008/09" sekunder="192" talare="Alice Åström (V)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2578" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352322" beteckning="2008/09:54-24" datatyp="anforande" datum="2008-12-19 10:36:47" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735467" id="" intressent_id="" klockslag="10:36" kon="" nummer="24" parent_id="" parti="M" rm="2008/09" sekunder="190" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2682" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352422" beteckning="2008/09:54-25" datatyp="anforande" datum="2008-12-19 10:38:29" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735468" id="" intressent_id="" klockslag="10:38" kon="" nummer="25" parent_id="" parti="Mp" rm="2008/09" sekunder="276" talare="Christopher Ödmann (Mp)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2784" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352522" beteckning="2008/09:54-26" datatyp="anforande" datum="2008-12-19 10:40:19" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735469" id="" intressent_id="" klockslag="10:40" kon="" nummer="26" parent_id="" parti="M" rm="2008/09" sekunder="258" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2894" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352622" beteckning="2008/09:54-27" datatyp="anforande" datum="2008-12-19 10:41:37" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735470" id="" intressent_id="" klockslag="10:41" kon="" nummer="27" parent_id="" parti="Mp" rm="2008/09" sekunder="180" talare="Christopher Ödmann (Mp)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=2972" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352722" beteckning="2008/09:54-28" datatyp="anforande" datum="2008-12-19 10:43:09" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735471" id="" intressent_id="" klockslag="10:43" kon="" nummer="28" parent_id="" parti="M" rm="2008/09" sekunder="240" talare="Anna Lilliehöök (M)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=3064" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352822" beteckning="2008/09:54-29" datatyp="anforande" datum="2008-12-19 10:45:41" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735472" id="" intressent_id="" klockslag="10:45" kon="" nummer="29" parent_id="" parti="C" rm="2008/09" sekunder="803" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=3216" voteringspunkt=""/>
+  <text anf_video_id="1100120822229352922" beteckning="2008/09:54-30" datatyp="anforande" datum="2008-12-19 10:56:17" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735486" id="" intressent_id="" klockslag="10:56" kon="" nummer="30" parent_id="" parti="S" rm="2008/09" sekunder="259" talare="Tommy Ternemar (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=3852" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353022" beteckning="2008/09:54-31" datatyp="anforande" datum="2008-12-19 10:57:35" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735487" id="" intressent_id="" klockslag="10:57" kon="" nummer="31" parent_id="" parti="C" rm="2008/09" sekunder="225" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=3930" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353122" beteckning="2008/09:54-32" datatyp="anforande" datum="2008-12-19 10:58:51" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735488" id="" intressent_id="" klockslag="10:58" kon="" nummer="32" parent_id="" parti="S" rm="2008/09" sekunder="149" talare="Tommy Ternemar (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4007" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353222" beteckning="2008/09:54-33" datatyp="anforande" datum="2008-12-19 10:59:07" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735489" id="" intressent_id="" klockslag="10:59" kon="" nummer="33" parent_id="" parti="C" rm="2008/09" sekunder="133" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4022" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353322" beteckning="2008/09:54-34" datatyp="anforande" datum="2008-12-19 10:59:52" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735490" id="" intressent_id="" klockslag="10:59" kon="" nummer="34" parent_id="" parti="Mp" rm="2008/09" sekunder="214" talare="Christopher Ödmann (Mp)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4067" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353422" beteckning="2008/09:54-35" datatyp="anforande" datum="2008-12-19 11:01:57" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735473" id="" intressent_id="" klockslag="11:01" kon="" nummer="35" parent_id="" parti="C" rm="2008/09" sekunder="279" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4192" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353522" beteckning="2008/09:54-36" datatyp="anforande" datum="2008-12-19 11:03:40" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735474" id="" intressent_id="" klockslag="11:03" kon="" nummer="36" parent_id="" parti="Mp" rm="2008/09" sekunder="276" talare="Christopher Ödmann (Mp)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4295" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353622" beteckning="2008/09:54-37" datatyp="anforande" datum="2008-12-19 11:05:07" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735475" id="" intressent_id="" klockslag="11:05" kon="" nummer="37" parent_id="" parti="C" rm="2008/09" sekunder="189" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4382" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353722" beteckning="2008/09:54-38" datatyp="anforande" datum="2008-12-19 11:06:47" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735476" id="" intressent_id="" klockslag="11:06" kon="" nummer="38" parent_id="" parti="Kd" rm="2008/09" sekunder="355" talare="Emma Henriksson (Kd)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4482" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353822" beteckning="2008/09:54-39" datatyp="anforande" datum="2008-12-19 11:11:14" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735477" id="" intressent_id="" klockslag="11:11" kon="" nummer="39" parent_id="" parti="S" rm="2008/09" sekunder="436" talare="Agneta Gille (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=4749" voteringspunkt=""/>
+  <text anf_video_id="1100120822229353922" beteckning="2008/09:54-40" datatyp="anforande" datum="2008-12-19 11:17:02" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735478" id="" intressent_id="" klockslag="11:17" kon="" nummer="40" parent_id="" parti="C" rm="2008/09" sekunder="198" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=5097" voteringspunkt=""/>
+  <text anf_video_id="1100120822229354022" beteckning="2008/09:54-41" datatyp="anforande" datum="2008-12-19 11:18:52" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735479" id="" intressent_id="" klockslag="11:18" kon="" nummer="41" parent_id="" parti="S" rm="2008/09" sekunder="272" talare="Agneta Gille (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=5207" voteringspunkt=""/>
+  <text anf_video_id="1100120822229354122" beteckning="2008/09:54-42" datatyp="anforande" datum="2008-12-19 11:20:46" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735480" id="" intressent_id="" klockslag="11:20" kon="" nummer="42" parent_id="" parti="C" rm="2008/09" sekunder="158" talare="Jörgen Johansson (C)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=5321" voteringspunkt=""/>
+  <text anf_video_id="1100120822229354222" beteckning="2008/09:54-43" datatyp="anforande" datum="2008-12-19 11:21:56" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="2735481" id="" intressent_id="" klockslag="11:21" kon="" nummer="43" parent_id="" parti="S" rm="2008/09" sekunder="241" talare="Agneta Gille (S)" typ="ap" video_id="1100120822229362322" video_url="1100120822229362322#pos=5391" voteringspunkt=""/>
+  <text datatyp="uppgift" dok_id="" kod="notis" namn="Beslut i korthet">
+    <p>Riksdagen sa ja till regeringens förslag i budgetpropositionen om 67 miljarder kronor i anslag till allmänna bidrag till kommuner för 2009. Anslagen omfattar statens bidrag till kommuner och landsting samt bidrag och avgifter i det kommunala utjämningssystemet. Utjämningssystemet syftar till att skapa likvärdiga ekonomiska förutsättningar mellan kommuner respektive landsting. I anslagen ingår också bidrag för utjämning av kostnader enligt lagen om stöd och service till vissa funktionshindrade.</p>
+  </text>
+  <text datatyp="uppgift" dok_id="" kod="notisrubrik" namn="Rubrik - Beslut i korthet">
+    <p>Pengar till allmänna bidrag till kommuner (FiU3)</p>
+  </text>
+  <text datatyp="uppgift" dok_id="" kod="beslutssammanfattningusk" namn="Utskottets förslag till beslut">
+    <p>Bifall till propositionen. Avslag på motionerna.</p>
+  </text>
+  <text datatyp="uppgift" dok_id="" kod="rdbeslut" namn="Riksdagens beslut">
+    <p>Kammaren biföll utskottets förslag</p>
+  </text>
+  <text beslut="" beslutsregelkvot="" beslutsregelparagraf="" beslutstyp="acklamation" bet="FiU3" beteckning="1" datatyp="utskottforslag" motforslag_nummer="0" punkt="1" punkttyp="" rm="2008/09" rubrik="Mål för utgiftsområdet" vinnare="utskottet" votering_ledamot_url_xml="" votering_url_xml="" voteringskrav="">
+    <p>Riksdagen godkänner det mål för utgiftsområdet Allmänna bidrag till kommuner som regeringen föreslår samt att nuvarande mål för politikområdet Allmänna bidrag till kommuner upphör att gälla. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 1.</p>
+  </text>
+  <text beslut="" beslutsregelkvot="" beslutsregelparagraf="" beslutstyp="acklamation" bet="FiU3" beteckning="2" datatyp="utskottforslag" motforslag_nummer="0" punkt="2" punkttyp="" rm="2008/09" rubrik="Anslag för 2009 inom utgiftsområde 25" vinnare="utskottet" votering_ledamot_url_xml="" votering_url_xml="" voteringskrav="">
+    <p>Riksdagen anvisar anslagen för 2009 under utgiftsområde 25 Allmänna bidrag till kommuner enligt utskottets förslag i bilaga 2. Därmed bifaller riksdagen proposition 2008/09:1 utgiftsområde 25 punkt 2 och avslår motionerna 2008/09:Fi285 av Peter Pedersen m.fl. (v) yrkandena 3 och 4, 2008/09:Fi291 av Mona Sahlin m.fl. (s) yrkandena 7 och 12, 2008/09:Fi294 av Thomas Östros m.fl. (s), 2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 1, 2008/09:Fi298 av Mikaela Valtersson m.fl. (mp) yrkande 2 och 2008/09:Fi302 av Lars Ohly m.fl. (v) yrkande 29.</p>
+  </text>
+  <text beslut="" beslutsregelkvot="" beslutsregelparagraf="" beslutstyp="röstning" bet="FiU3" beteckning="3" datatyp="utskottforslag" motforslag_nummer="1" motforslag_partier="|S|V|" punkt="3" punkttyp="" rm="2008/09" rubrik="Redogörelser för kommunernas ekonomi" vinnare="utskottet" votering_ledamot_url_xml="http://data.riksdagen.se/votering/D70A4D24-59D0-45DE-8CD4-352A8E1B97E8" votering_url_xml="" voteringskrav="">
+    <p>Riksdagen avslår motionerna 2008/09:Fi270 av Mona Sahlin m.fl. (s) yrkande 95 och 2008/09:Fi276 av Håkan Juholt (s).</p>
+    <p>Omröstning i sakfrågan</p>
+    <p>Utskottets förslag mot reservation 1 (s, v)</p>
+    <p>Parti</p>
+    <p>Ja</p>
+    <p>Nej</p>
+    <p>Avstående</p>
+    <p>Frånvarande</p>
+    <p>s</p>
+    <p>0</p>
+    <p>105</p>
+    <p>0</p>
+    <p>25</p>
+    <p>m</p>
+    <p>86</p>
+    <p>0</p>
+    <p>0</p>
+    <p>11</p>
+    <p>c</p>
+    <p>23</p>
+    <p>0</p>
+    <p>0</p>
+    <p>6</p>
+    <p>fp</p>
+    <p>20</p>
+    <p>0</p>
+    <p>0</p>
+    <p>8</p>
+    <p>kd</p>
+    <p>18</p>
+    <p>0</p>
+    <p>0</p>
+    <p>6</p>
+    <p>v</p>
+    <p>0</p>
+    <p>20</p>
+    <p>0</p>
+    <p>2</p>
+    <p>mp</p>
+    <p>13</p>
+    <p>0</p>
+    <p>1</p>
+    <p>5</p>
+    <p>Totalt</p>
+    <p>160</p>
+    <p>125</p>
+    <p>1</p>
+    <p>63</p>
+    <p>Beslut: Kammaren biföll utskottets förslag</p>
+  </text>
+  <text beslut="" beslutsregelkvot="" beslutsregelparagraf="" beslutstyp="röstning" bet="FiU3" beteckning="4" datatyp="utskottforslag" motforslag_nummer="2" motforslag_partier="|V|" punkt="4" punkttyp="" rm="2008/09" rubrik="Jämställda löner i kommunsektorn" vinnare="utskottet" votering_ledamot_url_xml="http://data.riksdagen.se/votering/DF6121B6-F784-49DF-91C1-5F0E0048A1B3" votering_url_xml="" voteringskrav="">
+    <p>Riksdagen avslår motion 2008/09:Fi295 av Lars Ohly m.fl. (v) yrkande 2.</p>
+    <p>Omröstning i motivfrågan</p>
+    <p>Utskottets förslag mot reservation 3 (s)</p>
+    <p>Parti</p>
+    <p>Ja</p>
+    <p>Nej</p>
+    <p>Avstående</p>
+    <p>Frånvarande</p>
+    <p>s</p>
+    <p>0</p>
+    <p>105</p>
+    <p>0</p>
+    <p>25</p>
+    <p>m</p>
+    <p>86</p>
+    <p>0</p>
+    <p>0</p>
+    <p>11</p>
+    <p>c</p>
+    <p>23</p>
+    <p>0</p>
+    <p>0</p>
+    <p>6</p>
+    <p>fp</p>
+    <p>19</p>
+    <p>0</p>
+    <p>0</p>
+    <p>9</p>
+    <p>kd</p>
+    <p>18</p>
+    <p>0</p>
+    <p>0</p>
+    <p>6</p>
+    <p>v</p>
+    <p>0</p>
+    <p>0</p>
+    <p>20</p>
+    <p>2</p>
+    <p>mp</p>
+    <p>13</p>
+    <p>1</p>
+    <p>0</p>
+    <p>5</p>
+    <p>Totalt</p>
+    <p>159</p>
+    <p>106</p>
+    <p>20</p>
+    <p>64</p>
+    <p>Beslut: Kammaren biföll utskottets förslag</p>
+    <p>Omröstning i sakfrågan</p>
+    <p>Utskottets förslag mot reservation 2 (v)</p>
+    <p>Parti</p>
+    <p>Ja</p>
+    <p>Nej</p>
+    <p>Avstående</p>
+    <p>Frånvarande</p>
+    <p>s</p>
+    <p>95</p>
+    <p>2</p>
+    <p>7</p>
+    <p>26</p>
+    <p>m</p>
+    <p>86</p>
+    <p>0</p>
+    <p>0</p>
+    <p>11</p>
+    <p>c</p>
+    <p>23</p>
+    <p>0</p>
+    <p>0</p>
+    <p>6</p>
+    <p>fp</p>
+    <p>19</p>
+    <p>0</p>
+    <p>0</p>
+    <p>9</p>
+    <p>kd</p>
+    <p>18</p>
+    <p>0</p>
+    <p>0</p>
+    <p>6</p>
+    <p>v</p>
+    <p>0</p>
+    <p>19</p>
+    <p>0</p>
+    <p>3</p>
+    <p>mp</p>
+    <p>14</p>
+    <p>0</p>
+    <p>0</p>
+    <p>5</p>
+    <p>Totalt</p>
+    <p>255</p>
+    <p>21</p>
+    <p>7</p>
+    <p>66</p>
+    <p>Beslut: Kammaren biföll utskottets förslag</p>
+  </text>
+  <text datatyp="motforslag" id="{7391ACBC-326E-478E-9C60-5516BB40F00E}" nummer="1" partier="|S|V|" typ="reservation" utskottsforslag_punkt="3">
+    <p>Redogörelser för kommunernas ekonomi</p>
+  </text>
+  <text datatyp="motforslag" id="{4FAAC603-B629-4302-A5DE-71549D74B0A6}" nummer="2" partier="|V|" typ="reservation" utskottsforslag_punkt="4">
+    <p>Jämställda löner i kommunsektorn</p>
+  </text>
+  <text datatyp="motforslag" id="{02DC5368-6473-4780-8EBC-07C66D04F020}" nummer="3" partier="|S|" typ="reservation" utskottsforslag_punkt="4">
+    <p>Jämställda löner i kommunsektorn</p>
+  </text>
+  <text datatyp="motforslag" id="{7391ACBC-326E-478E-9C60-5516BB40F00E}" nummer="1" partier="|S|V|" typ="reservation" utskottsforslag_punkt="3">
+    <p>Redogörelser för kommunernas ekonomi</p>
+  </text>
+  <text datatyp="motforslag" id="{4FAAC603-B629-4302-A5DE-71549D74B0A6}" nummer="2" partier="|V|" typ="reservation" utskottsforslag_punkt="4">
+    <p>Jämställda löner i kommunsektorn</p>
+  </text>
+  <text datatyp="motforslag" id="{02DC5368-6473-4780-8EBC-07C66D04F020}" nummer="3" partier="|S|" typ="reservation" utskottsforslag_punkt="4">
+    <p>Jämställda löner i kommunsektorn</p>
+  </text>
+</dokument>

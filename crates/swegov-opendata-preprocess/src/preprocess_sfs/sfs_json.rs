@@ -1,17 +1,15 @@
 use std::{fs, io::Write};
 
 use chrono::NaiveDate;
-use error_stack::{Report, ResultExt};
 use minidom::{
     quick_xml::{events::Event, Reader, Writer},
     Element,
 };
-use minidom_extension::minidom;
+use minidom_extension::{attrib_query::attrib_equals, minidom};
 use once_cell::sync::Lazy;
 use regex::Regex;
 use swegov_opendata::{DokumentStatus, DokumentStatusPage};
 
-use super::shared::attrib_equals;
 use crate::shared::clean_element;
 
 use super::SfsPreprocessError;
@@ -19,15 +17,15 @@ use super::SfsPreprocessError;
 mod sfs_div_dok;
 mod sfs_standard;
 
-pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreprocessError> {
+pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     let DokumentStatusPage {
         dokumentstatus:
             DokumentStatus {
                 dokument,
-                dokbilaga: _,
                 dokuppgift,
+                ..
             },
-    } = serde_json::from_str(source).change_context(SfsPreprocessError::Json)?;
+    } = serde_json::from_str(source)?;
 
     // Build dokument
     let mut docelem = Element::builder("dokument", "")
@@ -52,46 +50,81 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     for (name, value) in [
         ("hangar_id", &dokument.hangar_id),
         ("rm", &dokument.rm),
-        ("beteckning", &dokument.beteckning),
+        // ("beteckning", &dokument.beteckning),
         ("dokumentnamn", &dokument.dokumentnamn),
         ("typ", &dokument.typ),
-        ("subtyp", &dokument.subtyp),
-        ("organ", &dokument.organ),
+        // ("subtyp", &dokument.subtyp),
+        // ("organ", &dokument.organ),
         ("nummer", &dokument.nummer),
         ("slutnummer", &dokument.slutnummer),
         ("title", &dokument.titel),
-        ("status", &dokument.status),
+        // ("status", &dokument.status),
     ] {
         textelem.set_attr(name, value.replace("\r\n", " "));
     }
-    for (name, value) in [
+    for (name, value_opt) in [
+        // ("hangar_id", &dokument.hangar_id),
+        // ("rm", &dokument.rm),
+        ("beteckning", &dokument.beteckning),
+        // ("dokumentnamn", &dokument.dokumentnamn),
+        // ("typ", &dokument.typ),
+        ("subtyp", &dokument.subtyp),
+        ("organ", &dokument.organ),
+        // ("nummer", &dokument.nummer),
+        // ("slutnummer", &dokument.slutnummer),
+        // ("title", &dokument.titel),
+        ("status", &dokument.status),
+    ] {
+        textelem.set_attr(
+            name,
+            value_opt
+                .as_ref()
+                .map(|s| s.replace("\r\n", " "))
+                .as_deref()
+                .unwrap_or(""),
+        );
+    }
+    for (name, value_opt) in [
         ("subtitle", &dokument.subtitel),
         ("tempbeteckning", &dokument.tempbeteckning),
     ] {
-        if !value.is_empty() {
-            textelem.set_attr(name, value.replace("\r\n", " "));
+        if let Some(value) = value_opt {
+            if !value.is_empty() {
+                textelem.set_attr(name, value.replace("\r\n", " "));
+            }
+        }
+    }
+    for (name, value_opt) in [
+        ("publicerad", &dokument.publicerad),
+        // ("systemdatum", &dokument.systemdatum),
+        // ("datum", &dokument.datum),
+    ] {
+        if let Some(value) = value_opt {
+            textelem.set_attr(name, value.to_string());
         }
     }
     for (name, value) in [
-        ("publicerad", &dokument.publicerad),
+        // ("publicerad", &dokument.publicerad),
         ("systemdatum", &dokument.systemdatum),
         ("datum", &dokument.datum),
     ] {
         textelem.set_attr(name, value.to_string());
     }
-    if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
-        let (upphavd_at, _remaining) =
-            NaiveDate::parse_and_remainder(upphavd_str, "%Y-%m-%d").unwrap();
-        textelem.set_attr("upphavd", upphavd_at.to_string());
-    }
-    if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
-        textelem.set_attr("upphnr", upphnr);
+    if let Some(dokuppgift) = &dokuppgift {
+        if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
+            let (upphavd_at, _remaining) =
+                NaiveDate::parse_and_remainder(upphavd_str, "%Y-%m-%d").unwrap();
+            textelem.set_attr("upphavd", upphavd_at.to_string());
+        }
+        if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
+            textelem.set_attr("upphnr", upphnr);
+        }
     }
 
-    if dokument.html.is_empty() {
-        return Err(Report::new(SfsPreprocessError::HtmlFieldIsEmpty));
+    if let Some(html) = dokument.html() {
+        process_html(html, &mut textelem)?;
     } else {
-        process_html(&dokument.html, &mut textelem)?;
+        return Err(SfsPreprocessError::HtmlFieldIsEmpty);
     }
     if !(textelem.has_child("p", "") || textelem.has_child("page", "")) {
         tracing::error!(docelem = ?docelem, textelem = ?textelem, "no p or page");
@@ -109,16 +142,11 @@ pub fn preprocess_json(source: &str) -> error_stack::Result<Vec<u8>, SfsPreproce
     // Serialize dokument
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
-    docelem
-        .to_writer(&mut writer)
-        .change_context(SfsPreprocessError::Write)?;
+    docelem.to_writer(&mut writer)?;
     Ok(result)
 }
 
-fn process_html(
-    contents: &str,
-    textelem: &mut Element,
-) -> error_stack::Result<(), SfsPreprocessError> {
+fn process_html(contents: &str, textelem: &mut Element) -> Result<(), SfsPreprocessError> {
     static DOUBLE_ANGLES: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"<<([\w\s]+)>>").expect("regex failed"));
     static NON_TAG: Lazy<Regex> = Lazy::new(|| Regex::new(r"<(gr|t)?>").expect("regex failed"));
@@ -165,10 +193,10 @@ fn process_html(
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(Report::new(SfsPreprocessError::XmlParsingError {
+                return Err(SfsPreprocessError::XmlParsingError {
                     pos: reader.buffer_position(),
                     err: e,
-                }))
+                })
             }
             Ok(Event::Eof) => break,
             Ok(Event::Start(e)) => match e.name().as_ref() {

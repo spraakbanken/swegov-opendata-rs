@@ -1,0 +1,21 @@
+[package]
+name = "preprocess-sfs"
+version = "0.1.0"
+edition = { workspace = true }
+authors = { workspace = true }
+rust-version = { workspace = true }
+license = { workspace = true }
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "preprocess-sfs"
+test = false
+doctest = false
+
+[dependencies]
+clap = { workspace = true, features = ["derive", "cargo"] }
+miette = { workspace = true, features = ["fancy"] }
+
+# local deps
+preprocess-ui = { workspace = true }
+swegov-opendata-preprocess = { workspace = true }

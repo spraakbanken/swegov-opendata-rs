@@ -1,0 +1,350 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="G3021833" dokument_url_html="http://data.riksdagen.se/dokument/G3021833" dokument_url_text="http://data.riksdagen.se/dokument/G3021833/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/G3021833">
+  <text beteckning="1833" datatyp="huvuddokument" datum="1980-01-25 00:00:00" dokumentnamn="" hangar_id="3094245" intressent_id="|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|" intressent_namn="|ANNA-GRETA SKANTZ|CURT BOSTRÖM|ESSEN LINDAHL|GÖRAN KARLSSON|HANS GUSTAFSSON|INGVAR CARLSSON|INGVAR SVANBERG|LARS ULANDER|LENA HJELM-WALLÉN|LILLY HANSSON|LISA MATTSON|MAJ-LIS LANDBERG|OLLE WESTBERG|OLOF PALME|PAUL JANSSON|THAGE PETERSON|VALTER KRISTENSON|on (s)|" intressent_namn_parti="|ANNA-GRETA SKANTZ (s)|CURT BOSTRÖM (s)|ESSEN LINDAHL (s)|GÖRAN KARLSSON (s)|HANS GUSTAFSSON (s)|INGVAR CARLSSON (s)|INGVAR SVANBERG (s)|LARS ULANDER (s)|LENA HJELM-WALLÉN (s)|LILLY HANSSON (s)|LISA MATTSON (s)|MAJ-LIS LANDBERG (s)|OLLE WESTBERG (s)|OLOF PALME (s)|PAUL JANSSON (s)|THAGE PETERSON (s)|VALTER KRISTENSON (s)|on (s) ()|" intressent_namn_parti_id_roll="|ANNA-GRETA SKANTZ (s), 0, undertecknare|CURT BOSTRÖM (s), 0, undertecknare|ESSEN LINDAHL (s), 0, undertecknare|GÖRAN KARLSSON (s), 0, undertecknare|HANS GUSTAFSSON (s), 0, undertecknare|INGVAR CARLSSON (s), 0, undertecknare|INGVAR SVANBERG (s), 0, undertecknare|LARS ULANDER (s), 0, undertecknare|LENA HJELM-WALLÉN (s), 0, undertecknare|LILLY HANSSON (s), 0, undertecknare|LISA MATTSON (s), 0, undertecknare|MAJ-LIS LANDBERG (s), 0, undertecknare|OLLE WESTBERG (s), 0, undertecknare|OLOF PALME (s), 0, undertecknare|PAUL JANSSON (s), 0, undertecknare|THAGE PETERSON (s), 0, undertecknare|VALTER KRISTENSON (s), 0, undertecknare|on (s) (), 0, undertecknare|" intressent_parti="||s|" nummer="1833" organ="" publicerad="2014-11-03 00:00:00" rm="1979/80" slutnummer="0" status="" subtyp="" systemdatum="2014-11-03 21:37:38" title="om den sociala bostadspolitiken" typ="mot">
+    <p>Mot. 1979/80:1833</p>
+    <p>Motion<br/> 1979/80:1833</p>
+    <p>av Olof Palme m. fl.</p>
+    <p>om den sociala bostadspolitiken</p>
+    <p>Innehåll</p>
+    <p>Bostadsförsörjningen nedrustas 2</p>
+    <p>De bostadssociala målen 3</p>
+    <p>Bostadsbyggandet 4</p>
+    <p>Omfattning 4</p>
+    <p>Oroande utveckling 6</p>
+    <p>Nedrustning av produktionsapparaten 6</p>
+    <p>Byggarbetskraft 7</p>
+    <p>Byggnads- och materialindustrin 7</p>
+    <p>Kostnadsutveckling 7</p>
+    <p>Åtgärder för ett ökat bostadsbyggande 8</p>
+    <p>Ekonomisk rättvisa 11</p>
+    <p>En avdragsreform 12</p>
+    <p>Rättvisa över tiden 12</p>
+    <p>Hyresförlustlån 13</p>
+    <p>Underhållslån 14</p>
+    <p>Boendemiljö 14</p>
+    <p>Social helhetssyn 14</p>
+    <p>Segregationen motverkas 15</p>
+    <p>Brister i boendemiljön 15</p>
+    <p>Risk för förslumning 16</p>
+    <p>Allmännyttiga bostadsföretag ett bostadssocialt instrument .. 17</p>
+    <p>Bidrag till förbättringar av boendemiljön 18</p>
+    <p>Anvisning av bostadslägenheter 18</p>
+    <p>Boendedemokrati 19</p>
+    <p>Bostadsrätt 19</p>
+    <p>Äganderätt 19</p>
+    <p>Hyresrätt 20</p>
+    <p>Försök med boendedemokrati 20</p>
+    <p>Boende och inte ägande grund för inflytande 20</p>
+    <p>Erfarenheter från folkrörelsekooperationen 21</p>
+    <p>Boendeinflytande för allmännyttan 21</p>
+    <p>Bostadsbidrag 22</p>
+    <p>Hemställan 23</p>
+    <p>1 Riksdagen 1979/80. 3 sami. Nr 1833</p>
+    <p>Mot. 1979/80: 1833</p>
+    <p>2</p>
+    <p>Bostadsförsörjningen nedrustas</p>
+    <p>Svensk bostadsförsörjning befinner sig i en djup kris, sorn tenderar att<br/> öka alltmer. De olika borgerliga regeringarna har under de gångna tre<br/> åren intagit en passiv hållning till de allt allvarligare problemen och därigenom<br/> medvetet låtit krisen drabba allt fler människor.</p>
+    <p>Bostadslösheten breder ut sig över allt större delar av landet. I allt<br/> fler kommuner växer köerna till hyres- och bostadsrättslägenheter.</p>
+    <p>Boendekostnaderna i framför allt nybyggda bostäder fortsätter att stiga<br/> kraftigt, samtidigt som de flesta löntagare drabbas av reallönesänkningar.<br/> Genom den borgerliga regeringspolitiken och borgerliga beslut i<br/> riksdagen har bostadsbidragen för stora grupper inte anpassats till de<br/> stigande boendekostnaderna och de sjunkande reallönerna. Många hushåll<br/> har härigenom förlorat eller fått kraftigt sänkt bostadsbidrag.</p>
+    <p>Byggnadskostnadernas fortsatta kraftiga ökning är den främsta orsaken<br/> till de höga boendekostnaderna i nyproducerade bostäder. Detta<br/> har bl. a. lett till svårigheter i vissa kommuner att klara en socialt nödvändig<br/> nyproduktion av hyres- och bostadsrättslägenheter och till höga<br/> kontantinsatser i bostäder med såväl bostadsrätt som äganderätt.</p>
+    <p>I vissa kommuner ligger man efter med bostadsbyggnadsplaneringen<br/> av nya områden. Regeringen har inte tagit tillräckliga initiativ för att<br/> förbättra planeringsläget i samverkan med berörda kommuner.</p>
+    <p>Den spekulativa handeln med bostäder fortsätter att öka. Allt fler<br/> bostäder omsätts varje år på bostadsmarknaden till allt högre priser.<br/> Denna spekulation måste brytas. Annars blir de ekonomiska och sociala<br/> följderna allvarliga. Genom att allt fler välbärgade människor binder<br/> allt mer kapital i sina bostäder, slår de också vakt om sin bostadsmiljö.<br/> Attityder hårdnar och fördomar förstärks gentemot dem som uppfattas<br/> som ett hot mot den ostörda miljön.</p>
+    <p>Resultatet av denna uppdelning och utslagning blir att allt större delar<br/> av bostadsmarknaden görs otillgängliga för stora grupper. Detta<br/> drabbar speciellt barnfamiljer med små inkomster, ungdomar, pensionärer,<br/> invandrare och dem med otrygga anställningsförhållanden. Dessa<br/> har ingen möjlighet att välja bostad, eftersom de inte kan betala vad<br/> det kostar att bo i de attraktivaste delarna av vårt bostadsbestånd. Valfriheten<br/> förbehålls dem som har pengar.</p>
+    <p>De ekonomiska orättvisorna inom boendet har förstärkts alltmer.<br/> Grunden till detta är förutom den ojämna kapitalbildningen de kraftigt<br/> ökande underskottsavdragen vid småhusboende med äganderätt men<br/> även vid bostadsrätter då lån är ställda på rättshavaren.</p>
+    <p>Vid utgången av år 1975 uppgick den totala avdragssumman vid<br/> schablontaxerade småhus sålunda till ca 5 miljarder kronor. Underskottet<br/> har sedan ökat kraftigt och kan vid utgången av år 1979 uppskattas<br/> till drygt 11 miljarder kronor, dvs. mer än en fördubbling på fyra år.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>3</p>
+    <p>Merparten av denna ökning hänför sig till beståndet i form av bl. a.<br/> rebelåning till diverse lyxbetonad konsumtion samt kvarvarande reverser<br/> i samband med villaförsäljning.</p>
+    <p>Vid en marginalskatt på 60 % innebär underskottet ett skattebortfall,<br/> dvs. en samhällssubvention på sammanlagt 7 miljarder kronor under<br/> 1979. Enbart ökningen under år 1979 uppgick till ca 1,5 miljarder kronor.</p>
+    <p>Denna subventionering är i hög grad ojämnt fördelad. Så exempelvis<br/> saknade inte mindre än 450 000 villaägare underskottsavdrag inkomståret<br/> 1977. Samtidigt redovisas avdrag vid nyproducerade privatfinansierade<br/> villor på i storleksordningen 60 000 kr. per hus. Detta motsvarar<br/> en subventionering på ca 50 000 kr. eller ca 4 000 kr. per månad.</p>
+    <p>Den ovan kort skisserade utvecklingen på bostadsmarknaden leder<br/> bort från den sociala bostadspolitikens mål. Under hela efterkrigstiden<br/> har däremot breda majoriteter i riksdagen med högern, sedermera<br/> moderaterna, som det ständiga undantaget slagit vakt om dessa mål.</p>
+    <p>Inför valet presenterade vi ett bostadspolitiskt program med mera<br/> långsiktiga lösningar för att skapa ekonomisk, demokratisk och miljömässig<br/> rättvisa mellan olika boende- och besittningsformer. I en riksdagsmotion<br/> om en solidarisk bostadspolitik 1978/79: 788 konkretiserade<br/> vi programmet. I denna motion anknyter vi till dessa förslag<br/> och kompletterar dem med ytterligare åtgärder för att undanröja bostadsbristen,<br/> förbättra de svaga gruppernas ställning på bostadsmarknaden,<br/> dämpa hyresutvecklingen samt förverkliga kraven på en god social<br/> boendemiljö.</p>
+    <p>De bostadssociala målen</p>
+    <p>Bostaden är en grundläggande social rättighet. Samhällets bostadspolitik<br/> måste därför utgå från en social målsättning. Solidaritet och rättvisa<br/> skall prägla det bostadspolitiska reformarbetet. Denna strävan mot<br/> jämlikhet inom boendet skall skapa frihet för människorna att styra<br/> sina livsvillkor. Ett förhållande där ägandet ger makt över människorna<br/> kan inte accepteras. Samhället, de boende och deras organisationer skall<br/> ha det avgörande inflytandet över bostadsförsörjningen.</p>
+    <p>Med utgångspunkt i denna syn på bostaden som en social rättighet<br/> satte arbetarrörelsen som mål för den sociala bostadspolitiken att undanröja<br/> den bostadsslum, trångboddhet och bostadsbrist som präglade boendeförhållandena<br/> före andra världskriget.</p>
+    <p>Handlingsprogram lades fram för förverkligandet av den sociala bostadspolitiken.<br/> Samhället skulle ha ansvaret för bostadsförsörjningen.<br/> Produktion skulle ske under spekulationsfria former. Nöd, brist och<br/> otrygghet inom boendet skulle avskaffas.</p>
+    <p>Under 1950- och 1960-talen vidareutvecklades denna politik mot mått<br/> Riksdagen 1979/80. 3 sami. Nr 1833</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>4</p>
+    <p>let att hela befolkningen skulle beredas sunda, rymliga, välplanerade och<br/> ändamålsenligt utrustade bostäder av god kvalitet till skäliga kostnader.</p>
+    <p>Detta bostadspolitiska mål har i väsentliga delar uppnåtts under 1960talet<br/> och första delen av 1970-talet. Genom kraftiga satsningar på nyproduktion<br/> av bostäder, bl. a. förverkligandet av miljonprogrammet, i<br/> kombination med fördelaktiga statliga lån samt bostadsbidrag har de<br/> flesta hushållen i landet kunnat efterfråga och erhålla rymliga och moderna<br/> bostäder.</p>
+    <p>Denna måluppfyllelse var en förutsättning för att ytterligare steg inom<br/> den sociala bostadspolitiken kunde tas under 1970-talet. Riktlinjerna<br/> för detta lades fast i jämlikhetsrapporten till 1969 års partikongress<br/> och vidareutvecklades bl. a. i de statliga boendeutredningama. År 1974<br/> genomförde socialdemokraterna i regeringsställning därför en råd bostadspolitiska<br/> reformer. Utgångspunkten för dessa var rättvisa mellan<br/> boende- och besittningsformer, frihet för alla att välja bostad efter behov,<br/> rättvis fördelning av boendemiljö samt förutsättningar för omsorg<br/> och gemenskap i boendet.</p>
+    <p>Bostadsbyggandet</p>
+    <p>Omfattning</p>
+    <p>Den offentliga statistik som beskriver bostadsbyggandets utveckling<br/> omfattar ett stort antal uppgifter om hur många lägenheter som färdigställts,<br/> som påbörjats, som är under byggnad, som har erhållit statliga<br/> bostadslån, antal rumsenheter etc. I denna mängd av siffror är det<br/> viktigt, förutom den allmänna varsamhet som behandling av statistiska<br/> uppgifter alltid kräver, att man inte sammanblandar de olika sifferserierna<br/> utan håller uppgifterna isär.</p>
+    <p>Vad beträffar färdigställandet av lägenheter framgår av bostadsbyggnadsstatistiken<br/> att man för 40 år sedan i Sverige färdigställde lika många<br/> lägenheter, så när som på 400, som i dag. Men 1938 års färdigställande<br/> var en toppnotering, medan 1978 års siffra är den lägsta i fredstid om<br/> man bortser ifrån Koreakrisen.</p>
+    <p>Antalet färdigställda lägenheter 19381978</p>
+    <p>År</p>
+    <p>Antal</p>
+    <p>År</p>
+    <p>Antal</p>
+    <p>1938</p>
+    <p>53 350</p>
+    <p>1965</p>
+    <p>96 843</p>
+    <p>1939</p>
+    <p>58 550</p>
+    <p>1970</p>
+    <p>109 843</p>
+    <p>1940</p>
+    <p>25 700</p>
+    <p>1975</p>
+    <p>74 499</p>
+    <p>1945</p>
+    <p>49 250</p>
+    <p>1976</p>
+    <p>55 812</p>
+    <p>1950</p>
+    <p>43 935</p>
+    <p>1977</p>
+    <p>54 878</p>
+    <p>1955</p>
+    <p>56 970</p>
+    <p>1978</p>
+    <p>53 7421</p>
+    <p>1960</p>
+    <p>68 293</p>
+    <p>1 Därav 13 573 i flerfamiljshus och 40 169 i småhus.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>5</p>
+    <p>Ser man enbart på antalet lägenheter i flerfamiljshus räcker inte<br/> Koreakrisen som förklaring; jämförbara siffror kan man endast finna<br/> från de värsta depressions- och krigsåren under 1900-talet. År 1978 färdigställdes<br/> nämligen inte ens 14 000 lägenheter i flerfamiljshus.</p>
+    <p>Även byggandet av småhus har gått ned. Under treårsperioden 1973<br/> 1975 färdigställdes i medeltal 45 784 småhus. Denna siffra har sedan<br/> sjunkit till 40 353 under de senaste tre åren. Att andelen småhus kraftigt<br/> ökat ca 75 % av det totala färdigställandet på grund av att<br/> antalet lägenheter i flerfamiljshus minskats är således ett helt missvisande<br/> mått på utvecklingen av produktionen av småhus. Samma sak<br/> gäller när man med motsvarande missbruk av statistik försöker ge sken<br/> av att antalet rumsenheter per lägenhet har ökat. Någon ökning har<br/> dock inte skett varken i småhus eller lägenheter i flerfamiljshus. Däremot<br/> har andelen småhus med relativt sett flera rumsenheter ökat.</p>
+    <p>Antalet påbörjade lägenheter nådde ett bottenläge år 1977 52 909<br/> lägenheter genom att kreditförsörjningen försvårades och byggkostnaderna<br/> tilläts stiga i höjden.</p>
+    <p>Påbörjade lägenheter 19701978</p>
+    <p>År</p>
+    <p>Antal</p>
+    <p>1970</p>
+    <p>106 690</p>
+    <p>1971</p>
+    <p>104 492</p>
+    <p>1972</p>
+    <p>97 357</p>
+    <p>1973</p>
+    <p>80 176</p>
+    <p>1974</p>
+    <p>80 9761</p>
+    <p>1975</p>
+    <p>51 3641</p>
+    <p>1976</p>
+    <p>57 132</p>
+    <p>1977</p>
+    <p>52 909</p>
+    <p>1978</p>
+    <p>56 8852</p>
+    <p>1 Påbörjandet påverkades av momskompensationen, som gällde för igångsättning<br/> t. o. m. utgången av 1974.</p>
+    <p>2 Därav 16 597 i flerfamiljshus och 40 288 i småhus.</p>
+    <p>I förhållande till 1977 års bottenläge skedde sedan en ökning av<br/> igångsättningen 1978 med totalt 3 976 lägenheter, dvs. drygt 7 %. Denna<br/> ökning är dock en fortsatt minskning om man sätter den i relation till<br/> 1976 års igångsättning.</p>
+    <p>Med hänsyn till den för 1978 redovisade igångsättningen är det skäl<br/> att förmoda att färdigställandet under 1979 kommer att öka något, till<br/> drygt 55 000 lägenheter, dvs. samma storleksordning som 1976.</p>
+    <p>Vad beträffar igångsättningen torde en realistisk bedömning, utgående<br/> från SCB-siffror samt material, som kan fås från bostadsstyrelsen<br/> om lånebeslut och inkomna ansökningar, vara att påbörjandet för 1979<br/> kommer att sjunka. I stället för den av bostadsministem utlovade ök</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>6</p>
+    <p>ningen i igångsättningen till 60 000 lägenheter kommer påbörjandet att<br/> i stället gå ner till ca 54 000 lägenheter. Som en konsekvens härav kommer<br/> färdigställandet under 1980 att åter sjunka.</p>
+    <p>Oroande utveckling</p>
+    <p>Denna nedgång i bostadsbyggandet har tillåtits ske i en situation där<br/> bostadslösheten okar i allt fler av landets kommuner. Vi ser med djup<br/> oro på denna utveckling. Vi gör det inte enbart på grund av att det<br/> byggs för lite utan också därför</p>
+    <p>att det som byggs inte riktar sig till de människor som saknar bostad,</p>
+    <p>att kostnaderna för det som byggs är för höga för vanliga inkomsttagare,</p>
+    <p>att ungdom utan rika föräldrar, ensamstående med barn och de som<br/> är otrygga på arbetsmarknaden har fått det svårare att få en bostad<br/> de senaste åren,</p>
+    <p>att de som har mest pengar och de bästa bankkontakterna samtidigt<br/> givits ökad valfrihet på bostadsmarknaden.</p>
+    <p>Våren 1979 var utvecklingen på bostadsmarknaden så oroande att en<br/> praktiskt taget enig riksdag folkpartiet undantaget uppmärksammade<br/> hur bostadsbyggandet gått ner och bostadsköerna ökat. Av civilutskottets<br/> betänkande 1978/79: 26 framgår följande: Regeringens uttalande<br/> om igångsättningen åren 1979, 1980 och 1981 röjer enligt utskottets<br/> mening en passiv inställning till en ökning av bostadsbyggandet.<br/> Utskottet ifrågasätter även regeringens bedömningsgrunder och</p>
+    <p>fastslår att en anpassningsplanering som endast hänvisar till</p>
+    <p>bristande kommunala initiativ tenderar alltid att dämpa både ambitionsnivån<br/> och utfallet. Om bostadsbyggandets omfattning framhåller<br/> civilutskottet: Målet måste vara att inte endast nå en årlig igångsättning<br/> om 65 000 lägenheter otillfredsställda grundbehov och önskvärd<br/> standardstegring bör leda till att målet sätts högre.</p>
+    <p>Nedrustning av produktionsapparaten</p>
+    <p>Förutom att bostadslösheten tilltagit på grund av det sjunkande bostadsbyggandet<br/> har också produktionsapparaten successivt kommit att<br/> rustas ned. Denna nedrustning har dessutom påskyndats av att bostadsbyggandet<br/> under den gångna treårsperioden tillåtits fluktuera kraftigt<br/> med hänsyn till årstiderna. Denna brist på övergripande planering från<br/> regeringens sida i form av ett näringspolitiskt program för byggsektorn<br/> har medfört allvarliga störningar såväl på arbetskraftssidan som inom<br/> byggnads- och materialindustrin.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>7</p>
+    <p>Byggarbetskraft</p>
+    <p>Genom det ständigt sjunkande bostadsbyggandet kombinerat med<br/> säsongvariationer har otryggheten i arbetssituationen för byggnadsarbetare<br/> påtagligt ökat. Om man till detta sedan lägger att arbetslösheten<br/> bland byggnadsarbetare i genomsnitt har varit två till tre gånger högre<br/> än bland exempelvis industriarbetare har resultatet blivit att byggnadsarbetarkåren<br/> under de senaste åren kraftigt minskat. Därför befinner vi<br/> oss i dag, efter tre år av borgerlig bostadspolitik, i en situation där det<br/> inte längre är möjligt att med den tillgängliga byggnadsarbetarkåren öka<br/> bostadsbyggandet till den mot den sociala bostadspolitiken svarande,<br/> nödvändiga nivån på ca 70 000 lägenheter per år.</p>
+    <p>Förutom att de borgerliga regeringarna under perioden successivt<br/> dragit in landet i en bostadsbrist, har man samtidigt försvårat ett framtida<br/> ökat bostadsbyggande för att undanröja den brist som den borgerliga<br/> bostadspolitiken själv åstadkommit. När sedan denna för bostadsförsörjningen<br/> katastrofala situation inträffat, lyfts i regeringens budgetproposition<br/> bristen på byggnadsarbetare fram som den främsta orsaken<br/> till det låga bostadsbyggandet, fast det i själva verket är underlåtenhet<br/> att föra en aktiv bostadspolitik som är den egentliga orsaken.</p>
+    <p>Byggnads- och materialindustrin</p>
+    <p>Det sjunkande byggandet kombinerat med ryckighet i produktionen<br/> har urholkat stora delar av byggnads- och materialindustrin. Möjligheten<br/> att optimalt utnyttja industrins resurser har försämrats på ett allvarligt<br/> sätt.</p>
+    <p>Denna utveckling är inte enbart ett hot mot vissa industrigrenar och<br/> sysselsättningen där utan innebär också i växande grad risk för en nedrustning<br/> av utvecklingskapaciteten på byggnadsmaterialområdet i landet.<br/> Följden av detta blir ett ökat importberoende på byggmaterialsidan.</p>
+    <p>Kostnadsutveckling</p>
+    <p>De sedan slutet av 1976 snabbt ökande byggnadskostnaderna är en<br/> grundläggande orsak till en minskad benägenhet hos olika byggherrar<br/> att ta på sig ansvaret för produktion av flerfamiljshus som skall upplåtas<br/> med hyres- och bostadsrätt. Byggnadskostnadsutvecklingen, som<br/> den kommit till uttryck i bl. a. aktuella anbud, kan inte accepteras.<br/> Prisökningen måste därför hejdas. Vi förordar en skärpt kontroll av<br/> entreprenadpriserna på bostadsmarknaden.</p>
+    <p>Olika analyser har genomförts för att belysa prisförändringarna. Gemensamt<br/> för dessa utredningar har dock varit att de inte på ett uttömmande<br/> sätt kunnat förklara prisutvecklingen. Ett enhälligt civilutskott</p>
+    <p>f2 Riksdagen 1979/80. 3 sami. Nr 1833</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>8</p>
+    <p>noterade redan 1977 att uppgången i byggnadskostnaderna inte helt kunde<br/> förklaras med bakomliggande mätbara faktorer.</p>
+    <p>Parallellt med prisuppgången föreligger dessutom en relativt stor<br/> spridning av byggprisema. Detta har inte minst visat sig i bostadsbyggandet.<br/> Det finns t. ex. stora och oförklarade prisskillnader mellan olika<br/> orter med i stort sett samma allmänna prisförutsättningar.</p>
+    <p>En viktig utgångspunkt för samhällets stöd till bostadsförsörjningen<br/> är självfallet att de pengar som avdelas primärt skall komma de boende<br/> till del. Ett effektivt byggande med sunda principer för prissättning av<br/> byggproduktema är en förutsättning för detta.</p>
+    <p>Upprepade motionsförslag från oss om att uppmärksamhet måste riktas<br/> mot utvecklingen av entreprenadpriserna i relation till normala kalkylpriser<br/> har lett till vissa resultat genom att statens pris- och kartellnämnd<br/> (SPK) inlett undersökningar. Dessa undersökningar bekräftar i<br/> hittills redovisad del att vår uppfattning varit riktig. De kan också redan<br/> i detta skede anses visa att förutsättningar för en effektiv och prispressande<br/> konkurrens inte föreligger i stora områden där produktionsapparatens<br/> struktur närmar sig monopolsituationen.</p>
+    <p>SPK:s arbete bör självfallet fortsätta och intensifieras med stöd av<br/> tillräckliga resurser. Den i budgetpropositionen aviserade enmansutredningen<br/> kan enligt vår mening inte ge underlag för politiska beslut.</p>
+    <p>En parlamentarisk utredning bör därför tillsättas så snart som möjligt.<br/> I avvaktan på resultat av utredningens arbete krävs att kontrollen<br/> av entreprenadprisema skärps inom det nuvarande systemets ram.</p>
+    <p>Åtgärder för ett ökat bostadsbyggande</p>
+    <p>Den nuvarande utvecklingen på bostadsbyggnadsmarknaden inger<br/> stor oro. Ett bostadsbyggande som knappt utgör tre fjärdedelar av behovet<br/> och som till drygt 70 % består av småhus kan inte tolereras. Därför<br/> måste bostadsbyggandet omedelbart ökas.</p>
+    <p>Med hänsyn till den nedrustning av byggnadsarbetarkåren sorn förekommit<br/> under de senaste åren kan målsättningen 70 000 lägenheter inte<br/> omedelbart uppnås. Vi kräver därför i stället en planerad successiv ökning<br/> av bostadsbyggandet med minst 5 000 lägenheter per år t. o. m.<br/> 1982.</p>
+    <p>Under de senaste åren har produktionen av lägenheter i flerfamiljshus<br/> varit så låg att en allvarlig social brist uppstått i allt fler kommuner.<br/> Bostadsproduktionens ökning bör därför i första hand ske i form<br/> av flerfamiljshus. Även i fortsättningen kommer ett betydande behov<br/> av enfamiljshus att finnas. Andelen av dessa som upplåts med hyresoch<br/> bostadsrätt bör ökas. Ökningen av bostadsproduktionen skall i huvudsak<br/> ske i de allmännyttiga och folkrörelsekooperativa företagens<br/> regi.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>9</p>
+    <p>För att tillgången till byggnadsarbetare skall kunna bli tillräcklig<br/> måste de kunna erbjudas en verklig anställningstrygghet. Bostadsbyggandet<br/> måste då planeras så, att det kan hållas på en jämn och mot behovet<br/> svarande nivå över tiden. Den nivån måste bestämmas utifrån ett<br/> mera långsiktigt behov av bostäder. Om företag och beställare skall<br/> kunna förbättra sin planering krävs en bättre samhällelig planering såväl<br/> lokalt och regionalt som centralt. Målet för en sådan planering<br/> måste vara ett heltäckande näringspolitiskt program för hela byggsektorn.</p>
+    <p>Naturligtvis måste ett sådant näringspolitiskt program ha ett nära<br/> samband med utvecklingen och målen inom andra samhällssektorer.<br/> Byggnadsverksamheten är i sin helhet ett resultat av aktiviteter inom<br/> samhället i övrigt.</p>
+    <p>Den socialdemokratiska regeringen inledde ett omfattande utredningsarbete<br/> för att ta fram det underlag som krävs när ett näringspolitiskt<br/> program formuleras. Efter regeringsskiftet har dock detta arbete<br/> i praktiken insomnat. Det är nödvändigt att arbetet med det näringspolitiska<br/> programmet snabbt upptas och slutförs.</p>
+    <p>För att en sådan planerad ökning av bostadsbyggandet skall kunna<br/> förverkligas krävs en bättre samlad kunskap om förutsättningarna för<br/> den kommunala bostadsförsörjningen. Detta gäller bl. a. planberedskap,<br/> det planerade bostadsbyggandet under de närmaste åren, förekomsten<br/> av tomma lägenheter resp. bostadslöshet.</p>
+    <p>Vidare bör särskild uppmärksamhet ägnas åt ungdomens möjligheter<br/> att erhålla bostad på hemorten. En av följderna av den låga nyproduktionen<br/> av flerfamiljshus har nämligen blivit att ungdomar som söker sig<br/> ut på bostadsmarknaden ställs inför stora svårigheter. Det socialdemokratiska<br/> ungdomsförbundet, SSU, har vid ett flertal tillfällen fäst regeringens<br/> uppmärksamhet på dessa förhållanden. Genom enkäter och inventeringar<br/> har man kunnat visa skrämmande bilder av de ungas bostadssituation.<br/> Kunskaper med kontinuerlig uppföljning av detta speciella<br/> bostadsbehov är nödvändiga. Regeringen bör därför omedelbart ta<br/> initiativ till att kartlägga de ungas bostadsbehov och därefter vidta åtgärder<br/> så att kommunerna inser att det är nödvändigt att bygga lägenheter<br/> för att angripa bostadslösheten bland ungdomen. Vidare måste<br/> uppgifter om arbetskraftssituationen, annat pågående och planerat byggande,<br/> pris- och kostnadsläget, konkurrensförhållanden etc. insamlas.<br/> Många av dessa uppgifter finns i och för sig sammanställda, men den<br/> totala bilden av förutsättningarna för den kommunala bostadsförsörjningen,<br/> anpassad till den enskilda kommunen eller till regionala förhållanden,<br/> är oklar.</p>
+    <p>Dt räcker inte med att materialet insamlas och ställs till kommunernas<br/> förfogande. De sporadiska och tillfälliga kontakter regeringen hittills<br/> haft med vissa kommuner för att diskutera aktuella bostadsbyggnadsproblem<br/> är inte heller tillräckliga.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>10</p>
+    <p>I det nuvarande krisläget är det i hög grad angeläget att tillvarata alla<br/> initiativ och inventera alla möjligheter till ett ökat bostadsbyggande. Vi<br/> föreslår därför att en speciell kommission tillkallas. Den skall dels kartlägga<br/> förhållandena på orter med ett lågt bostadsbyggande, dels framlägga<br/> förslag till åtgärder för de speciella förhållanden som kan finnas på<br/> skilda orter och till generella lösningar. En sådan bostadsbyggnadskommission<br/> skall ha en allsidig sammansättning med kommun- och rikspolitisk<br/> erfarenhet representerad.</p>
+    <p>Regeringens förslag i budgetpropositionen om en produktionsanpassad<br/> belåning för bostadsprojekt som upphandlas i konkurrens och som<br/> skall upplåtas med hyres- eller bostadsrätt ligger i linje med förslag som<br/> vi tidigare har framfört. Vi anser emellertid att det inte nu finns några<br/> skäl att utestänga andra upphandlingsformer från dessa nya lånevillkor,<br/> om byggnadskostnaderna hålls på en rimlig nivå. Enligt regeringens förslag<br/> får t. ex. inte ett egenregibygge av ett allmännyttigt företag eller ett<br/> bygge upphandlat genom förhandlingsentreprenad med måttliga och<br/> godkända överkostnader lån enligt de nya reglerna. Ett bygge upphandlat<br/> i konkurrens men med högre överkostnader skulle däremot kunna få<br/> det. Vi föreslår därför att även egenregibyggen och byggen upphandlade<br/> genom förhandlingsentreprenad skall kunna erhålla de nya lånen<br/> efter prövning i varje enskilt fall.</p>
+    <p>Civilutskottet behandlade i sitt yttrande CU 1979/80: 1 y bl. a dels<br/> förslag i kapitalmarknadspropositionen från den dåvarande folkpartiregeringen<br/> om att det nuvarande finansieringssystemet på bostadsmarknaden<br/> skulle bibehållas, m. m., dels förslag i en socialdemokratisk partimotion<br/> om vissa principuttalanden om integrerad och fullständig finansiering,<br/> dvs. statlig totalfinansiering. Utskottets majoritet (s, c) fann<br/> bl. a. att tanken på en integrerad finansiering inte kunde avvisas på i<br/> regeringsförslaget angivna skäl. Den fann också att kapitalmarknadsutredningens<br/> bakom regeringsförslaget liggande analys av de administrativa<br/> huvudformerna för integrerad och fullständig finansiering inte var<br/> fullföljd så långt, att man kunde godta regeringens slutsats att de administrativa<br/> vinsterna vid övergång till totalfinansiering var för små för<br/> att väga upp olägenheterna. Utskottsmajoriteten kunde därmed inte<br/> förorda ett direkt beslut som innebar att det nuvarande finansieringssystemet<br/> skulle behållas, den ansåg däremot fördelarna med en integrerad<br/> och samordnad finansiering belagda. Utskottsmajoriteten förordade<br/> i stället en ytterligare konkretisering av de administrativa och organisatoriska<br/> övervägandena i syfte att nå fram till en alternativ lösning<br/> med totalfinansiering av bostadsbyggandet. Utskottsmajoriteten ansåg<br/> vidare att något uttalande från riksdagens sida som binder de institutionella<br/> formerna inte då var påkallat.</p>
+    <p>Från vår sida har vi inte heller nu anledning att frånträda de redovisade<br/> bedömningarna och förslagen från civilutskottets (s, c)-majoritet</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>11</p>
+    <p>bedömningar som även förts vidare i reservation (s) till finansutskottets<br/> betänkande FiU 1979/80: 8. Vi för därför nu åter fram samma uppfattning<br/> och föreslår att riksdagen som sin mening ger regeringen till<br/> känna vad civilutskottets majoritet förordat om totalfinansiering i det<br/> ovan sammanfattningsvis redovisade yttrandet CU 1979/80: 1 y.</p>
+    <p>Ekonomisk rättvisa</p>
+    <p>Det råder ojämlika ekonomiska förutsättningar vid boende med hyres-,<br/> bostads- och äganderätt. Detta har medfört att relationerna i boendekostnaderna<br/> har förändrats på ett oacceptabelt sätt till hyresrättens<br/> nackdel. Samtidigt med denna utveckling har boende med äganderätt,<br/> men också i många fall med bostadsrätt, kunnat tillgodogöra sig ansenliga<br/> värdestegringsvinster, som i praktiken dessutom ofta varit skattefria.</p>
+    <p>Parallellt med denna utveckling har samhällets stöd till bostadsförsörjningen<br/> successivt förlorat sitt ursprungliga syfte att möjliggöra ett<br/> socialt nödvändigt bostadsbyggande till att i dag ha i väsentlig grad blivit<br/> ett sätt att subventionera det som ligger utanför det som motiveras<br/> av samhällets engagemang i bostadsfrågan. (Jfr med vad som sagts om<br/> underskottsavdragens utveckling och storlek.)</p>
+    <p>För att på sikt lösa problemet med spekulation i boendet måste strävan<br/> vara att fortsätta att kontinuerligt minska det ekonomiska utrymmet<br/> för spekulation genom att värdestegringar skapade genom samhällsbyggandet<br/> skall tillfalla medborgarna gemensamt. Vidare måste de<br/> bostadspolitiska instrumenten ses över så att deras ursprungliga syfte<br/> återställs.</p>
+    <p>Etapp ett</p>
+    <p>Med 1974 års bostadspolitiska reform lades grunden till ett mer långsiktigt<br/> bostadspolitiskt arbete för att skapa rättvisa mellan alla boende<br/> oavsett besittningsform. Genom samordning av skatte- och finansieringssystemen<br/> skapades bättre förutsättningar att till jämförbara kostnader<br/> producera lägenheter med olika besittningsformer. Även de ekonomiska<br/> förutsättningarna för redan byggda bostäder förändrades i riktning<br/> mot ökad rättvisa.</p>
+    <p>Dagens bostadspolitiska problem det låga bostadsbyggandet, de<br/> höga boendekostnaderna i nyproduktionen, den ökade spekulativa handeln<br/> med bostäder, urholkningen av bostadsbidragen leder sammantaget<br/> till en växande bostadssegregation. Uppdelningen av människor på<br/> olika bostadsområden med hänsyn till deras ekonomi, sociala ställning<br/> och nationalitet är ett av de allvarligaste problemen på dagens svenska<br/> bostadsmarknad. Stora grupper av bostadssökande ungdomar, barn</p>
+    <p>Mot. 1979/80: 1833</p>
+    <p>12</p>
+    <p>familjer, handikappade, pensionärer och invandrare blir genom denna<br/> utveckling utestängda från möjligheten att välja bostad. I stället har<br/> valfriheten alltmer kommit att begränsas till de människor som förfogar<br/> över kapital. Sedan 1974 års beslut har praktiskt taget samtliga då<br/> gällande förutsättningar för reformen förändrats. När det gäller bostadsfinansieringssystemet<br/> har bostadsräntan sänkts, den årliga ränteuppräkningen<br/> omprövats samt de av den kraftiga inflationen förorsakade<br/> överkostnaderna blivit större. Inom skattesystemet har intäktsprocentens<br/> storlek, gränserna vid vilka de olika intäktsprocenten skall tilllämpas,<br/> taxeringsvärdena samt det extra avdraget ändrats vid flera tillfällen.</p>
+    <p>De förändringar som skett har inte avsett att på något mer systematiskt<br/> sätt skapa bestående rättvisa mellan olika besittningsformer. För<br/> att få en klarare bild av vilka följder alla dessa förändringar fått behövs<br/> en särskild översyn, som en förutsättning för en vidareutveckling av<br/> det 1974 påbörjade bostadspolitiska arbetet mot en reell rättvisa i boendet.</p>
+    <p>Etapp två<br/> En avdragsreform</p>
+    <p>Ett viktigt led i återställandet av den rättvisa som eftersträvades genom<br/> 1974 års reform är att en avdragsreform genomförs. Först därefter<br/> är det möjligt att justera skatte- och finansieringssystemen så att<br/> samhällets ekonomiska stöd kan bli lika stort vid samtliga besittningsformer.<br/> I vår motion om inriktningen av skattepolitiken pekar vi på<br/> flera vägar att uppnå detta.</p>
+    <p>Rättvisa över tiden</p>
+    <p>För att rättvisa skall bestå över tiden fordras att höjningar av boendekostnaderna<br/> utvecklas lika vid samtliga besittningsformer. Därför behövs<br/> också en samordnad översyn av de olika metoder som används för<br/> att räkna upp kostnaderna, dvs. de årliga höjningarna av den garanterade<br/> bostadsräntan resp. justeringar av taxeringsvärdena vid intäktsberäkningen.<br/> Frågan är aktuell inte minst mot bakgrund av 1981 års fastighetstaxering.<br/> Denna kan på grund av de senaste årens mycket kraftiga<br/> inflation ge bostadssocialt oacceptabla följder i synnerhet för äldre<br/> människor i den gamla egnahemsbebyggelsen.</p>
+    <p>En samlad översyn kan naturligtvis inte begränsas enbart till småhus<br/> med äganderätt eller till de bostäder, byggda efter 1957, som berörs av<br/> det statliga räntebidragssystemet. Översynen måste av rättviseskäl omfatta<br/> alla typer av bostäder, oavsett när och var de har byggts. Resultatet<br/> av denna översyn måste bli socialt rimliga och samhällsekonomiskt</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>13</p>
+    <p>försvarbara boendekostnader. Samhällsstödet måste vara neutralt med<br/> avseende på besittningsform och utformas på ett fördelningspolitiskt<br/> rättvist sätt.</p>
+    <p>I budgetpropositionen aviseras även en översyn av reglerna för ränteavdragen.<br/> Vi förutsätter att resultatet av översynen blir föremål för remissbehandling.</p>
+    <p>Hyresförlustlån</p>
+    <p>I regeringens budgetproposition föreslås att hyresförlustlångivningen<br/> skall avvecklas för hyresförluster som uppkommer efter år 1980. Kommunernas<br/> eventuella kostnader för hyresförluster skall i framtiden i stället<br/> beaktas inom ramen för skatteutjämningssystemet. I budgetpropositionen<br/> framhålls att i de fall där det fortfarande finns ett stort antal<br/> tomma lägenheter är detta numera att betrakta som ett kommunalekonomiskt<br/> och inte som ett bostadspolitiskt problem. Det framhålls vidare<br/> att hyresförlustlångivningen med dessa utgångspunkter inte kan anses<br/> utgöra någon stimulans till ökat bostadsbyggande.</p>
+    <p>Förhållandena inom bostadsförsörjningen skiftar starkt mellan olika<br/> regioner i landet. I vissa regioner råder redan en svår bostadsbrist. I<br/> andra finns ett överskott på bostäder, som förefaller kunna bli varaktigt.<br/> Det finns även regioner där förutsättningarna för ett framtida bostadsbyggande<br/> är osäkra, bl. a. beroende på svårigheter att bedöma regionernas<br/> framtida näringspolitiska utveckling. Regeringens förslag om<br/> slopande av hyresförlustlångivningen innebär emellertid att kommunen<br/> får ta hela det ekonomiska ansvaret om tomma lägenheter skulle uppstå<br/> till följd av ett vikande näringsliv.</p>
+    <p>Anledningen till att vissa kommuner har tomma lägenheter är ju just<br/> att näringslivet på orten icke utvecklats på ett förutsett sätt. På flera av<br/> dessa orter har således problem med tomma lägenheter uppstått utan<br/> kommunens egen förskyllan. I dessa fall måste statsmakterna anses ha<br/> ett med kommunerna delat ansvar för de ekonomiska konsekvenserna.</p>
+    <p>En sådan utveckling kan befaras drabba ytterligare kommuner under<br/> 1980-talet. I dessa kommuner kan då nya problem med tomma lägenheter<br/> uppstå.</p>
+    <p>Vår bestämda uppfattning är således att hyresförlustlångivningen även<br/> fortsättningsvis har en viktig bostadspolitisk roll att spela. Vi anser också<br/> att beslut rörande dessa frågor skall fattas inom ramen för bostadspolitiken<br/> och således inte inom ramen för skatteutjämningen.</p>
+    <p>Vi föreslår att hyresförlustlån skall utgå enligt nu gällande regler för<br/> åren 1980 och 1981. Den tidigare föreslagna kommissionen föreslås<br/> dessutom få i uppdrag att bättre kartlägga kommunernas och bostadsföretagens<br/> problem med tomma lägenheter, se över nuvarande ordning<br/> med lån- och bidragsgivning samt föreslå eventuella åtgärder.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>14</p>
+    <p>Underhållslån</p>
+    <p>I budgetpropositionen konstateras att underhållslån till bostadsföretagen<br/> beslutats för åren 1979 och 1980. Regeringen kommenterar däremot<br/> inte de effekter som ett slopande av denna långivning kommer att<br/> få på hyresutvecklingen år 1981.</p>
+    <p>I anslutning till riksdagsbeslutet om underhållslånen underströk vi att<br/> detta inte var en lösning på bostadsföretagens problem med underhållskostnader.<br/> Det var bara ett sätt att skjuta problemen framför sig. En<br/> kraftig hyreshöjning skulle nämligen bli följden när lånen upphörde.</p>
+    <p>Denna hyreshöjning kommer nu att inträffa år 1981. Om inget görs<br/> kommer den att få svåra konsekvenser på hyresmarknaden. Dessa förstärks<br/> ytterligare av regeringens förslag om försämringar av bostadsbidragen.</p>
+    <p>Denna ansvarslösa passivitet kan inte accepteras. Det är därför nödvändigt<br/> att riksdagen i år får ta ställning till förslag från regeringen,<br/> eventuellt mot bakgrund av förslag från underhållsfondsutredningen, så<br/> att underhållslånen får en avlösning utan dramatiska störningar på hyresmarknaden.</p>
+    <p>Boendemiljö m. m.</p>
+    <p>Socialdemokratin vill att människorna som bostadskonsumenter skall<br/> kunna påverka bostadsproduktionens inriktning och i samverkan skapa<br/> en god boendemiljö.</p>
+    <p>Medlen för att förverkliga den grundläggande tesen, att bostadspolitiken<br/> uteslutande skall tjäna sociala behov, måste med nödvändighet prövas<br/> och utvecklas från tid till annan. Allteftersom olika delmål nås blir<br/> det möjligt att gå vidare i reformarbetet. Förändringar i samhället och<br/> i människors levnadsmönster skapar nya problem och behov som kräver<br/> aktiva och delvis nya bostadspolitiska insatser.</p>
+    <p>Det är också nödvändigt att genom fortsatta aktiva insatser på bostadspolitikens<br/> område slå vakt om de hittills uppnådda framstegen. I<br/> annat all riskerar resultaten av reformerna att snabbt urholkas. Vi ser<br/> med oro hur i dagens situation just en sådan urholkning är på väg.</p>
+    <p>Social helhetssyn</p>
+    <p>Uppfyllandet av det grundläggande målet för bostadspolitiken gör det<br/> sålunda nödvändigt att nu gå vidare och angripa andra angelägna bostadssociala<br/> problem. Mot bakgrund av de förutsättningar och behov<br/> som nu föreligger framstår det framför allt som nödvändigt att ägna<br/> särskild omsorg åt den sociala miljön i bostadsområdena.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>15</p>
+    <p>Det är mot bakgrund av de problem vi beskrivit nödvändigt att se bostadsmiljön<br/> i ett vidgat perspektiv. Bostadsmiljön utgörs inte enbart av<br/> den fysiska ramen, lägenheten, huset eller den yttre anläggningen. Minst<br/> lika väsentligt sorn dessa fysiska förutsättningar är den sociala miljön,<br/> dvs. kontakter som kan utvecklas mellan de människor som bor i bostadsområdet.<br/> Till bostadsmiljön måste också räknas verksamheter av<br/> olika slag, offentlig och privat service samt spontana eller organiserade<br/> aktiviteter av och för de boende inom området. Varje bostadsområde<br/> måste fungera så att människors behov av vård, service, kultur och gemenskap<br/> kan tillgodoses. Härför krävs att en social helhetssyn mer än<br/> hittills sätter sin prägel på kommunernas bostadsförsörjningsplanering<br/> vare sig det gäller planering av nya områden eller förvaltning och förbättring<br/> av redan färdiga områden.</p>
+    <p>Dessa frågor behandlar vi i en särskild motion i anslutning till energiplaneringen.</p>
+    <p>Segregationen motverkas</p>
+    <p>Ett annat viktigt krav är att segregation motverkas. Oavsett skillnader<br/> i inkomst, arbetsförhållanden och social ställning bör stora och små<br/> hushåll, ungdomar och äldre kunna bo i samma bostadsområde. Särskilt<br/> viktigt är det att barn från olika hemmiljöer får växa upp tillsammans<br/> och med goda kontakter med vuxna med olika ålder och livserfarenhet.<br/> Bostadsmiljön får inte heller utgöra hinder för människor med<br/> fysiska, sociala eller psykiska handikapp.</p>
+    <p>De nuvarande förhållandena på bostadsmarknaden har, som vi framhållit,<br/> i många områden lett till ökad segregation. Det har i sin tur medfört<br/> en ökad omsättning på hyresgäster. Många människor föredrar att<br/> flytta till andra områden, så länge åtgärder inte vidtas för att förbättra<br/> bostadsområden som börjar förslitas. Bostadssegregationen är självfallet<br/> inte enbart ett flerbostadshusproblem. Också många småhusområden<br/> präglas av en mycket ensidig hushållssammansättning med ett markant<br/> inslag av familjer med hög utbildning och höga inkomster.</p>
+    <p>Brister i boendemiljön</p>
+    <p>Det är uppenbart att brister i boendemiljön, t. ex. i vad gäller barnomsorg,<br/> social service i övrigt, kulturutbud, kollektivtrafik eller arbetsplatser<br/> nära bostaden, främst går ut över redan svaga grupper, som<br/> barn, äldre, handikappade, sjuka, invandrare, låginkomsttagare etc. Samma<br/> grupper drabbas hårdast av segregationen.</p>
+    <p>Genom ett målmedvetet arbete med att skapa en god social miljö<br/> och motverka segregeation i bondet kan därför mycket väsentliga insatser<br/> göras för att bekämpa orättvisor mellan olika samhällsgrupper, ska</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>16</p>
+    <p>pa trygghet och gemenskap mellan generationerna och höja levnadsvillkoren<br/> för dem som i särskilt hög grad är beroende av andras solidaritet.<br/> Härigenom kan t. ex. förutsättningar skapas för att tillgodose de äldres<br/> behov av god omvårdnad i en välkänd omgivning, för att ge alla barn<br/> och ungdomar trygga, jämlika och stimulerande uppväxtvillkor eller<br/> för att ge handikappade eller människor som hotas av social utslagning<br/> ett normalt liv i gemenskap med andra.</p>
+    <p>Brister i bostadsmiljön drabbar också främst kvinnor och småbarnsföräldrar<br/> med betungande dubbelarbete. De hindras därigenom att välja<br/> ett sådant livsmönster som de helst skulle önska. Det gör det svårt för<br/> unga föräldrar att förena yrkesroll och föräldraroll. Därför är en social<br/> helhetssyn på bostadsförsörjningen också ett viktigt medel för att skapa<br/> jämställdhet mellan män och kvinnor.</p>
+    <p>Behovet av fortsatta målmedvetna insatser på detta område är i dag<br/> mycket stort. Alltför många, både äldre, nyare och planerade bostadsområden,<br/> svarar inte mot de krav som här ställts upp i fråga om miljö<br/> eller allsidig hushållssammansättning. Skälen är flera. Så länge bostadsbristen<br/> var det dominerande problemet koncentrerades intresset till att<br/> undanröja denna. Vi ställer i dag helt andra krav på barns levnadsvillkor,<br/> äldreomsorg och handikappvård än tidigare. Kravet på jämställdhet<br/> och förändrade familjemönster är också nya faktorer.</p>
+    <p>I bostadsområden med sådana brister sorn vi här har beskrivit är det<br/> nödvändigt att få till stånd åtgärder för att förbättra det sociala livet<br/> och minska segregationen.</p>
+    <p>Det gäller t. ex. många på spekulation tillkomna, perifert belägna<br/> småhusområden där tillgången på social service, kollektivtrafik och arbetsplatser<br/> ofta är mycket dålig. Många av de nya småhusområdena<br/> kännetecknas också av en samtidig inflyttning av många människor utan<br/> tidigare gemenskap och/eller bekantskap samt med en åldersmässigt,<br/> ekonomiskt och socialt onaturlig befolkningssammansättning.</p>
+    <p>Avsaknaden av såväl social och kommersiell service som arbetsplatser<br/> i sådana områden bidrar dessutom till att konservera en föråldrad familjesyn,<br/> där i första hand kvinnorna tvingas avstå från arbete och gemenskap.</p>
+    <p>Risk för förstumning</p>
+    <p>När områden som från början haft en ensidig bostadsstruktur och<br/> befolkningssammansättning börjar åldras finns det en risk för en långsam<br/> förslumning och segregation. En sådan utveckling kan i dag iakttas<br/> bl. a. i vissa bostadsområden från 1940- och 1950-talen. I många kommuner<br/> ökar segregationen dessutom som en följd av det ensidiga småhusbyggandet<br/> och den ökande skillnaden i bostadsstandard och lägenhetsstorlek<br/> beroende på upplåtelseform. Den genomsnittliga lägenhets</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>17</p>
+    <p>storleken har totalt sett fortsatt att öka, men skillnaderna mellan de<br/> olika upplåtelseformerna är alltjämt mycket stora. För år 1978 var den<br/> genomsnittliga lägenhetsytan i flerbostadshus ca 73 m2, medan motsvarande<br/> uppgift för småhusen är ca 128 cm2. Endast 17 % av lägenheterna<br/> i flerbostadshusen innehöll 4 rum och kök eller mer, medan motsvarande<br/> andel för småhusen var omkring 89 %. Det betyder att det finns<br/> mycket små möjligheter för en familj med 34 barn att få tillgång till<br/> en tillräckligt stor bostad i ett flerbostadshusområde om hänsyn tas till<br/> de riktlinjer som gäller beträffande trångboddhet. Om denna utveckling<br/> får fortsätta förstärks de faktorer som orsakar segregation. Följden blir<br/> att segregationen byggs in i bostadsområdena för lång tid framåt, om<br/> inga motverkande åtgärder vidtas.</p>
+    <p>Allmännyttiga bostadsföretag ett bostadssocialt instrument</p>
+    <p>I detta sammanhang vill vi också peka på de allmännyttiga bostadsföretagens<br/> problem. Den utveckling som vi har beskrivit i det föregående<br/> och framför allt de ofördelaktiga ekonomiska förutsättningarna<br/> har bidragit till att den allmännyttiga hyresrätten hamnat i förvaltningsproblem.<br/> Dessa problem får emellertid inte tas till intäkt för en utförsäljning<br/> av denna besittningsform. En sådan utförsäljning skulle varken<br/> lösa demokratiseringen i boendet i stort eller segregationsproblemen.<br/> Skiktningen i boendet skulle i stället förstärkas. Det allmännyttiga boendet<br/> måste i stället utvecklas, bl. a. med ett ökat hyresgästinflytande,<br/> samtidigt som det bostadssociala ansvaret i samhället skall fördelas rättvist<br/> mellan samtliga besittningsformer. Attraktiviteten hos flerbostadshusen<br/> måste också öka genom olika kvalitetshöjande åtgärder i boendemiljö<br/> och standard.</p>
+    <p>Ett debattämne de senaste åren har varit om och i så fall i vilken omfattning<br/> de allmännyttiga bostadsföretagen i förhållande till andra bostadsföretag<br/> har extra kostnader på grund av en högre omflyttning och<br/> ett större slitage genom att företagen i betydligt större utsträckning än<br/> andra företag upplåter lägenheter till familjer med skilda sociala problem.</p>
+    <p>De allmännyttiga bostadsföretagen spelar en central roll i svensk bostadsförsörjning,<br/> och en debatt är därför både nyttig och nödvändig för<br/> att företagsformen skall kunna utvecklas och förnyas. För att en sådan<br/> debatt skall kunna resultera i konkreta åtgärder krävs emellertid att<br/> debatten förs mot bakgrund av kunskaper om de verkliga ekonomiska<br/> och andra förhållanden som bostadsföretagen arbetar under.</p>
+    <p>Mot denna bakgrund bör den tidigare föreslagna kommissionen få i<br/> uppdrag att kartlägga de allmännyttiga företagens sociala merkostnader<br/> och andra för dessa företag speciella förhållanden som kan påverka<br/> deras förvaltningskostnader. Resultatet av en sådan kartläggning bör</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>18</p>
+    <p>också utvärderas och resultera i förslag om vilka åtgärder som kan behöva<br/> vidtas.</p>
+    <p>Bidrag till förbättringar av boendemiljön</p>
+    <p>I budgetpropositionen framhålls att verksamheten med boendemiljöförbättringar<br/> nu har tagit fart och att den visat sig ha gynnsamma effekter<br/> på den sociala miljön i många bostadsområden. Efterfrågan på<br/> medel har ökat kraftigt, och köproblem har uppstått. I budgetpropositionen<br/> föreslår regeringen att ändringar vidtas av nu gällande finansieringsordning<br/> så att bidrag i fortsättningen enbart skall kunna utgå för<br/> åtgärder i bostadsområden med stora sociala problem och/eller minst<br/> 4 % outhyrda lägenheter. Samtidigt föreslås förbättringar i bidrags- och<br/> långivningen.</p>
+    <p>Mot bakgrund av vårt nuvarande ekonomiska läge, de stora behov<br/> som finns att tillgodose och det ökade intresset för miljöförbättringar<br/> sker redan i dag en prioritering av lån- och bidragsgivningen till de mest<br/> angelägna projekten. Den trubbiga regel som förordas i budgetpropositionen<br/> kommer att försvåra arbetet med lån- och bidragsgivningen. Yi<br/> föreslår därför att den i propositionen förordade spärregeln inte införs.</p>
+    <p>Beträffande de bostadslån till miljöförbättringar som skall kunna lämnas<br/> är det nödvändigt att räntebidrag i likhet med vad som gäller för<br/> bostadslån skall utgå för de områden som är i behov av en social upprustning.<br/> Nödvändiga miljöförbättringar i ett bostadsområde får ju inte<br/> ge högre kapitalkostnader än andra investeringar inom området.</p>
+    <p>I likhet med vad som gäller för energisparlån bör räntebidrag inte<br/> utgå för miljöförbättringar i områden där bostäderna bebos av ägarna.<br/> De avdragsregler som gäller i dessa fall är subventionerande i motsvarande<br/> grad som räntebidragen. Räntebidrag bör inte heller utgå till vissa<br/> bostadsrättsföreningar, där överlåtelsevärdena är höga och bidragen<br/> kan bidra till att ytterligare höja dem. Vid bostadslån till miljöförbättringar<br/> i dessa båda fall bör vanlig bostadsränta gälla. Det bör åvila regeringen<br/> att utfärda de regler som behövs för att långivningen skall<br/> uppnå det ovan redovisade syftet.</p>
+    <p>Anvisning av bostadslägenheter</p>
+    <p>Det är viktigt att understryka att bostadsförmedlingen kan och bör<br/> spela en aktiv roll för att skapa en jämn och allsidig social sammansättning<br/> i kommunens olika bostadsområden. Oavsett om det sorn f. n. råder<br/> bostadsbrist eller om det finns överskott på bostadsmarknaden är<br/> det angeläget att kommunerna har en väl fungerande bostadsförmedling.<br/> Dagens situation innebär ofta att ett stort antal s. k. problemfamil</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>19</p>
+    <p>jer anvisas bostäder i samma områden, vilket gör det svårare att klara<br/> en normal anpassning i dessa områden. Enligt vår mening bör bostadsförmedlingsverksamheten<br/> inriktas dels på att i samarbete med sociala<br/> myndigheter bereda särskilt behövande en god bostad och eftersträva<br/> en allsidig hushållssammansättning i alla bostadsområden, dels på att<br/> erbjuda de bostadssökande i kommunen bostadspolitisk konsumentupplysning<br/> i form av bl. a. information om aktuell bostadsproduktion och<br/> planerat bostadsbyggande. Genom en väl fungerande bostadsförmedling<br/> skall de bostadssökande kunna hjälpas till rätta på bostadsmarknaden.</p>
+    <p>Boendedemokrati</p>
+    <p>Demokratins fördjupning innebär respekt för människors vilja och<br/> förmåga att fatta avgörande beslut. En naturlig följd av detta är att<br/> samhället, de boende och deras organisationer skall kunna påverka inriktningen<br/> på bostadsbyggandet och därigenom i samverkan skapa goda<br/> bostadsmiljöer. Även bestämmanderätten över förvaltning av bostäder<br/> och bostadsområden skall ligga hos de boende, oavsett vem som är ägare.<br/> Denna grundläggande rätt till inflytande över de egna boendeförhållandena<br/> är en nödvändig och självklar förutsättning för ett demokratiskt<br/> samhällsliv.</p>
+    <p>Bostadsrätt</p>
+    <p>De som bor med bostadsrätt har möjligheter till ett mycket väl utvecklat<br/> inflytande över sin lägenhet. Tillsammans med övriga medlemmar i<br/> föreningen bestämmer de över skötseln av huset och närmiljön. De boende<br/> inom de rikskooperativa bostadsrätterna har också, genom de demokratiskt<br/> uppbyggda organisationerna HSB och Riksbyggen, möjlighet<br/> att verka för en utveckling och fördjupning av den sociala bostadspolitiken.</p>
+    <p>Äganderätt</p>
+    <p>Bor man med äganderätt i småhus har man också ett bra inflytande<br/> över sitt hus och sin tomt. Detta till den egna fastigheten knutna inflytandet<br/> har under senare år utvidgats. Genom att de boende, i synnerhet<br/> inom områden med gruppbyggda småhus, i samverkan med kommuner<br/> bildat ekonomiska föreningar eller samfälligheter kring någon gemensam<br/> anläggning av typ grönområde, lekplats eller fritidslokal har inflytandet<br/> över närmiljön kunnat förbättras. Det föreligger emellertid<br/> fortfarande stora brister för de flesta boende i äganderättssmåhus att i<br/> organiserad demokratisk form kunna utöva ett solidariskt inflytande<br/> över sin gemensamma boendemiljö.</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>20</p>
+    <p>Hyresrätt</p>
+    <p>Hyresgästernas ställning i förhållande till fastighetsägarna har successivt<br/> stärkts. Hyresgästerna påbörjade själva processen genom att organisera<br/> sig i hyresgästföreningar. Hyresgäströrelsen blev vapnet i kampen<br/> för hyresgästernas rättigheter. Rätten att få förhandla med fastighetsägarna<br/> om hyressättningen var ett förstahandskrav från hyresgäströrelsen.<br/> Rörelsen krävde också trygghet i boendet genom hyreslagstiftningen.<br/> Hyresgäströrelsens krav har i huvudsak tillgodosetts genom socialdemokratiska<br/> initiativ.</p>
+    <p>Försök med boendedemokrati</p>
+    <p>En huvudlinje i utvecklingen av boendedemokrati har varit satsningen<br/> på samhällsägda bostäder. De allmännyttiga bostadsföretagen har<br/> anförtrotts förvaltning av dessa. Satsningen har lett till att numera<br/> hälften av hyreslägenheterna i landet ägs av kommunerna. I det allmännyttiga<br/> bostadsbeståndet har sedan lång tid ett förhandlingssystem<br/> tillämpats, som givit hyresgästernas organisation ett direkt inflytande<br/> över hyressättningen. Erfarenheterna från det hittills tillämpade förhandlingssystemet<br/> visar att den fortlöpande demokratiseringen av boendet<br/> i hög grad har främjats genom den förhandlingsform som parterna<br/> på bostadsmarknaden har funnit. På en del håll pågår också försöksverksamhet<br/> med fördjupad boendedemokrati inom det allmännyttiga<br/> bostadsbeståndet, bl. a. i Stockholm, Göteborg och Malmö. Även i<br/> de allmännyttiga bostadsföretagen saknar hyresgästerna emellertid inflytande<br/> över beslut om hur hyresinkomsterna skall fördelas på skilda<br/> förvaltningssektorer samt över den dagliga skötseln av fastigheterna<br/> och utemiljön. Detta förhållande bör ändras genom det fortsatta arbetet<br/> med att utveckla boendedemokratin.</p>
+    <p>Boende och inte ägande grund för inflytande</p>
+    <p>Det framtida reformarbetet för att utvidga medbestämmandet för de<br/> boende måste baseras på socialdemokratins värdering att det är boendet<br/> och inte ägandet som utgör grunden för bestämmandet. En demokratisering<br/> utgående från denna värdering bygger på de boendes direkta<br/> medverkan i förvaltning och underhåll tillsammans med en stark och<br/> väl utbyggd hyresgäströrelse.</p>
+    <p>Hyresgästinflytandet måste även omfatta det privatägda beståndet.<br/> Man kan räkna med att hyresgäströrelsen kommer att pröva möjligheterna<br/> till att avtalsvägen öka inflytandet även på detta område. Om det<br/> visar sig att enskilda fastighetsägare är obenägna att medverka till en<br/> sådan utveckling, kan det bli nödvändigt med lagstiftningsåtgärder. I<br/> sådant fall torde det vara naturligt att man i första hand prövar en</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>21</p>
+    <p>komplettering av hyresförhandlingslagen. Prövningen bör dock anstå<br/> tills dess ytterligare erfarenheter av praktisk verksamhet vunnits.</p>
+    <p>Erfarenheter från folkrörelsekooperationen</p>
+    <p>Erfarenheter från den inom folkrörelsekooperationen fungerande boendedemokratin<br/> visar att meningsfullt medbestämmande måste innefatta<br/> beslut som har ekonomiska konsekvenser för den enskilde bostadskonsumenten.<br/> Inflytandet måste därför utformas så att de boende genom<br/> sina beslut, inom ramen för begränsade förvaltningsenheter, tar det direkta<br/> ansvaret för kostnadskonsekvenser resp. drar fördel av besparingar.<br/> Därför måste reformeringen av inflytandet inriktas på frågor<br/> som berör drift och underhåll.</p>
+    <p>Bostadsförvaltningama måste naturligtvis alltjämt ha möjligheten att<br/> ta sitt ansvar som arbetsgivare gentemot de anställda inom förvaltningen.<br/> Vår uppfattning är emellertid att boendeinflytandet kan stärkas utan<br/> att kollidera med lagfästa eller avtalade förpliktelser. Delegering av<br/> befogenheter sker redan nu inom förvaltningen. Det ökade boendeinflytandet<br/> blir därför bl. a. en fråga om att avgöra hur beslutanderätten<br/> skall delegeras och samordnas. Allt talar för att genomförandet av ett<br/> ökat boendeinflytande kommer att ske genom att parterna prövar sig<br/> fram till en lämplig beslutsfördelning och samordning.</p>
+    <p>Boendeinflytandeavtal för allmännyttan</p>
+    <p>Ett första viktigt steg i en sådan utveckling har tagits av Sveriges allmännyttiga<br/> bostadsföretag och Hyresgästernas riksförbund genom en<br/> gemensam rekommendation till sina resp. organisationer att sluta avtal<br/> om ett vidgat boendeinflytande enligt vissa riktlinjer.</p>
+    <p>Organisationerna slår i dessa riktlinjer fast att de allmännyttiga bostadsföretagen<br/> skapats genom samhällsbeslut för att lösa väsentliga bostadssociala<br/> uppgifter och att dessa företag är kommunens instrument<br/> för en social bostadsförsörjning. Man framhåller också hyressättningens<br/> självkostnadsprincip och att hyror skall solidariskt fördelas mellan olika<br/> lägenheter och bostadsområden efter deras värde för de boende.</p>
+    <p>Mot denna bakgrund utvecklar sedan de båda organisationerna sin<br/> syn på ett vidgat boendeinflytande. Man slår fast att avsikten är att<br/> beslut om förvaltning, underhåll och drift inom bostadsföretagets ansvarsområde<br/> skall fattas på ett sådant sätt och i sådana former att de<br/> boende kan påverka besluten och ha del i dessa.</p>
+    <p>Det framhålls vidare att det är de boende som bäst vet vad som fungerar<br/> bra eller dåligt i ett bostadsområde och att deras medverkan är<br/> nödvändig för en god boendemiljö och i övrigt goda boendeförhållanden.<br/> Man betonar även kopplingen mellan ansvar och inflytande.</p>
+    <p>Detta är en positiv utveckling och ett steg mot ett sådant boendeinflytande<br/> för hyresrättshavama som satts upp som målsättning i det so</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>22</p>
+    <p>cialdemokratiska bostadspolitiska programmet. Det pågår nu på skilda<br/> håll i landet tecknande av lokala boendeinflytandeavtal. Hur verksamheten<br/> med ett vidgat boendeinflytande för de boende i de allmännyttiga<br/> bostadsföretagen utvecklas bör noga följas och stimuleras av statsmakterna.</p>
+    <p>Bostadsbidrag</p>
+    <p>Under de senaste åren har boendekostnaderna stigit starkt, samtidigt<br/> som stora grupper löntagare fått reallönesänkningar. De borgerliga regeringarna<br/> har inte vidtagit tillräckligt kraftfulla åtgärder för att hindra<br/> denna negativa utveckling. Stora grupper av befolkningen har fått<br/> uppleva en drastisk standardförsämring. Ett medel att delvis bibehålla<br/> levnadsstandarden för barnfamiljer och för låginkomsttagare är bostadsstödet.<br/> De borgerliga regeringarnas brist på vilja att förbättra bostadsstödet<br/> har inneburit att många barnfamiljer, låginkomsttagare och<br/> pensionärer i ökande utsträckning fått ta konsekvenserna av de ökade<br/> boendekostnaderna. I socialdemokratiska förslag i riksdagen har vid<br/> flera tillfällen framhållits vikten av att bostadsstödet utformas så att de<br/> grupper för vilka detta stöd har stor betydelse verkligen får en reell förbättring.</p>
+    <p>Tyvärr måste vi konstatera att de förslag som nu presenteras i budgetpropositionen<br/> om bostadsbidragens utformning för år 1981 innebär<br/> ytterligare urholkning av dessa. Trots det kärva ekonomiska läget kan<br/> vi inte åse denna fortsatta nedrustning passivt. Vi måste slå vakt om<br/> barnfamiljerna.</p>
+    <p>I december 1977 utgick bostadsbidrag till 591 000 hushåll, varav<br/> 484 000 till hushåll med barn och 107 000 till hushåll utan barn. Från<br/> december 1977 till maj 1979 beräknas antalet bidragstagare ha minskat<br/> med ca 90 000. Den största minskningen har ägt rum inom gruppen makar<br/> med barn i vilken den uppgick till ca 75 000.</p>
+    <p>Den stora minskningen beror till inte ringa del på regeringens och<br/> riksdagens ovilja att höja den nedre inkomstgränsen. Den 1 januari 1979<br/> höjdes denna gräns med 3 000 kr. till 38 000 kr. för barnfamiljer. För<br/> hushåll utan barn är den f. n. 29 000 kr. I förra årets budgetproposition<br/> föreslog regeringen inga höjningar av den nedre inkomstgränsen.<br/> Inte heller i årets budgetproposition föreslås några höjningar av inkomstgränsen.<br/> I stället föreslås att den nedre inkomstgränsen sänks från<br/> 38 000 kr. till 30 000 kr. för ensamstående med barn, något som innebär<br/> ett minskat bostadsbidrag om 100 kr./månad. Vi kan inte acceptera<br/> att just de grupperna i samhället med redan stor försörjningsbörda i<br/> första hand skall vara de som först får sin standard sänkt på grund av<br/> regeringens oförmåga att föra en politik som ökar möjligheterna för</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>23</p>
+    <p>samhället att solidariskt stödja de grupper som ofta bäst behöver samhällets<br/> stöd. Under de senaste åren har antalet ensamstående med barn<br/> bland dem som får bostadsbidrag uppgått till ca 130 000. En sänkning<br/> av inkomstgränsen enligt förslaget i budgetpropositionen skulle innebära<br/> att antalet bidragstagare i denna grupp troligen minskade starkt. Vi kan<br/> alltså inte acceptera en sänkning av inkomstgränsen för denna grupp<br/> en grupp som mera än de flesta fått sin standard sänkt under de senaste<br/> åren.</p>
+    <p>Som framgått av ovanstående har några förslag från regeringens sida<br/> om höjning av de nedre inkomstgränserna inte lagts fram vare sig i årets<br/> eller i förra årets budgetproposition. Vi föreslog i den socialdemokratiska<br/> partimotionen förra året (1978/79: 788) en höjning av den nedre<br/> inkomstgränsen i avsikt att hindra att allt fler bidragstagare slogs ut ur<br/> systemet eller fick lägre bidrag. Den borgerliga riksdagsmajoriteten avslog<br/> dock vårt förslag. De uteblivna förslagen om höjda inkomstgränser<br/> i årets budgetproposition innebär om riksdagen accepterar förslagen<br/> att den nedre inkomstgränsen varit densamma i två år och att bostadsbidragens<br/> reella värde i många fall sjunkit till en nivå som inte kan<br/> accepteras. Den utredning om bostadsbidragen som riksdagen uttalat sig<br/> för och som nu tillsatts har som en av sina viktigaste uppgifter att se<br/> över konstruktionen av inkomstbegreppet. Att i detta läge så som nu<br/> sker i budgetpropositionen föreslå oförändrad eller t. o. m. en sänkning<br/> av den nedre inkomstgränsen är minst sagt förvånande och underlättar<br/> inte en konstruktiv lösning av det i och för sig komplicerade problemet.<br/> Vi kan inte heller i år medverka till att inkomstgränsema hålls oförändrade.<br/> Därför föreslår vi att dessa höjs för barnfamiljer med 2 000 kr.<br/> till 40 000 kr.</p>
+    <p>Statens kostnader för våra förslag ovan beräknas under nästa budgetår<br/> öka med 50 milj. kr. utöver vad som föreslagits i budgetpropositionen.<br/> Därvid har beaktats sänkningen av statsbidragsandelen från 72 till<br/> 43 % enligt riksdagens beslut.</p>
+    <p>Hemställan</p>
+    <p>Med hänvisning till det anförda hemställs</p>
+    <p>1. att riksdagen som sin mening ger regeringen till känna att bostadsbyggnadsplanen<br/> bör innebära en successiv ökning av påbörjandet<br/> av nya bostäder med minst 5 000 lägenheter per år<br/> under perioden 19801982 så att målsättningen, ett årligt<br/> påbörjande av 70 000 lägenheter, kan uppnås sistnämnda år,</p>
+    <p>2. att riksdagen sorn sin mening ger regeringen till känna</p>
+    <p>a) att ökningen av nyproduktionen av bostäder i första hand<br/> skall avse flerbostadshus,</p>
+    <p>Mot. 1979/80: 1833</p>
+    <p>24</p>
+    <p>b) att andelen nyproducerade enfamiljshus som upplåts med<br/> hyres- och bostadsrätt bör ökas,</p>
+    <p>c) att ökningen av bostadsproduktionen i huvudsak skall avse<br/> bostäder som ägs och förvaltas av de allmännyttiga och folkrörelsekooperativa<br/> företagen,</p>
+    <p>3. att riksdagen som sin mening ger regeringen till känna att de<br/> ungas bostadsbehov bör kartläggas och åtgärder snarast vidtas<br/> för att minska bostadslösheten bland ungdomen,</p>
+    <p>4. att riksdagen som sin mening ger regeringen till känna att en<br/> särskild bostadsbyggnadskommission bör tillkallas för att kartlägga<br/> förhållandena på orter med ett lågt bostadsbyggande och<br/> framlägga förslag till åtgärder enligt vad i motionen angetts,</p>
+    <p>5. att riksdagen som sin mening ger regeringen till känna vad i<br/> motionen anförts om utvidgning av produktionskostnadsanpassad<br/> belåning till att gälla även vid upphandling genom förhandling<br/> och i egen regi,</p>
+    <p>6. att riksdagen som sin mening ger regeringen till känna vad i<br/> motionen anförts om ytterligare överväganden i syfte att nå<br/> fram till en alternativ lösning med totalfinansiering av bostadsbyggandet,</p>
+    <p>7. att riksdagen medger att lån för täckande av hyresförluster<br/> skall utgå även för åren 1980 och 1981,</p>
+    <p>8. att riksdagen som sin mening ger regeringen till känna att förslag<br/> beträffande en avlösning av underhållslånen bör föreläggas<br/> riksdagen i år,</p>
+    <p>9. att riksdagen som sin mening ger regeringen till känna att<br/> överväganden om de allmännyttiga bostadsföretagens sociala<br/> merkostnader m. m. bör göras på sätt som angetts i motionen<br/> och att förslag om åtgärder därefter bör föreläggas riksdagen,</p>
+    <p>10. att riksdagen som sin mening ger regeringen till känna vad i<br/> motionen anförts om grunderna för lån och bidrag till förbättring<br/> av boendemiljö och därmed inte godkänner vad i<br/> motsvarande del förordats i regeringsprotokollet,</p>
+    <p>11. att riksdagen som sin mening ger regeringen till känna vad i<br/> motionen anförts om inriktningen av bostadsförmedlingen,</p>
+    <p>12. att riksdagen som sin mening ger regeringen till känna vad i<br/> motionen förordats i fråga om boendedemokrati,</p>
+    <p>13. att riksdagen godkänner de ändringar i fråga om inkomstgränserna<br/> som förordats i motionen,</p>
+    <p>Mot. 1979/80:1833</p>
+    <p>25</p>
+    <p>14. att riksdagen till Bostadsbidrag m. m. för budgetåret 1980/81<br/> anvisar ett i förhållande till regeringens förslag med 50 000 000<br/> kr. förhöjt förslagsanslag av 1 670 000 000 kr.</p>
+    <p>Stockholm den 25 januari 1980</p>
+    <p>OLOF PALME (s)</p>
+    <p>CURT BOSTRÖM (s)<br/> INGVAR CARLSSON (s)<br/> BENGT GUSTAVSSON s)<br/> HANS GUSTAFSSON (s)<br/> LILLY HANSSON (s)</p>
+    <p>LENA HJELM-WALLÉN (s)<br/> PAUL JANSSON (s)<br/> GÖRAN KARLSSON (s)<br/> OLLE WESTBERG (s)<br/> i Hofors</p>
+    <p>VALTER KRISTENSON (s)<br/> MAJ-LIS LANDBERG (s)<br/> ESSEN LINDAHL (s)</p>
+    <p>LISA MATTSON (s)</p>
+    <p>THAGE PETERSON (s)<br/> ANNA-GRETA SKANTZ (s)<br/> INGVAR SVANBERG (s)<br/> LARS ULANDER (s)</p>
+    <p>NORSTEDTS TRYCKERI STOCKHOLM 1980</p>
+  </text>
+</dokument>

@@ -2,17 +2,23 @@
 [workspace]
 resolver = "2"
 members = [
+    "crates/fetch-rd",
     "crates/fetch-sfs",
-    "crates/sfs-preprocess",
     "crates/minidom-extension",
+    "crates/opendata-rd-spider",
     "crates/opendata-spiders",
-    "crates/preprocessors",
+    "crates/preprocess-progress",
+    "crates/preprocess-progress",
+    "crates/preprocess-rd",
+    "crates/preprocess-rd-segreg",
+    "crates/preprocess-sfs",
+    "crates/preprocess-ui",
     "crates/sparv-extension",
     "crates/swegov-opendata",
     "crates/swegov-opendata-preprocess",
 ]
 [workspace.package]
-rust-version = "1.74"
+rust-version = "1.85"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 authors = [
@@ -23,8 +29,10 @@ authors = [
 [workspace.dependencies]
 # local crates
 minidom-extension = { path = "./crates/minidom-extension" }
+opendata-rd-spider = { path = "./crates/opendata-rd-spider" }
 opendata-spiders = { path = "./crates/opendata-spiders" }
-preprocessors = { path = "./crates/preprocessors" }
+preprocess-progress = { path = "./crates/preprocess-progress" }
+preprocess-ui = { path = "./crates/preprocess-ui" }
 sparv-extension = { path = "./crates/sparv-extension" }
 swegov-opendata = { path = "./crates/swegov-opendata" }
 swegov-opendata-preprocess = { path = "./crates/swegov-opendata-preprocess" }
@@ -35,12 +43,11 @@ async-trait = "0.1.82"
 chrono = "0.4.37"
 clap = { version = "4.4.11" }
 config = "0.13.3"
-deserx = { git = "https://github.com/kod-kristoff/deserx" }
-error-stack = "0.4.1"
 flate2 = "1.0.27"
 futures = "0.3.28"
 futures-core = "0.3"
 html5ever = "0.22.5"
+insta = "1.40.0"
 itertools = "0.11.0"
 memchr = "2"
 miette = "7.2.0"
@@ -50,7 +57,7 @@ once_cell = "1.18.0"
 pretty_assertions = "1.4.0"
 proc-macro2 = "1"
 prodash = { version = "26.2.2" }
-quick-xml = "0.28.2"
+quick-xml = "0.36"
 quote = "1"
 rand_core = { version = "0.6", default-features = false }
 regex = "1.9.5"
@@ -61,13 +68,14 @@ rstest = "0.18.2"
 serde = { version = "1.0.210" }
 serde-aux = "4.2.0"
 serde_json = "1.0.128"
-serde_with = "3.0.0"
+serde_with = "3.10.0"
 serde_yaml = "0.9.27"
+similar-asserts = "1.6.0"
 smallvec = { version = "1", default-features = false }
-soup = "0.5.1"
 syn = "2"
 thiserror = "1.0.64"
-tokio = "1.40.0"
+test-log = { version = "0.2.16" }
+tokio = "1.48.0"
 tokio-stream = "0.1.14"
 tracing = "0.1.40"
 tracing-core = "0.1"
@@ -75,4 +83,11 @@ tracing-forest = "0.1.6"
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
 ulid = "1.0.0"
 webcrawler = { git = "https://github.com/spraakbanken/webcrawler-rs" }
+yaserde = "0.12.0"
 zip = "0.6.6"
+
+[profile.dev.package.insta]
+opt-level = 3
+
+[profile.dev.package.similar]
+opt-level = 3

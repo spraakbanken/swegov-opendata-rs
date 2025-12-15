@@ -1,0 +1,1585 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="H2B643" dokument_url_html="http://data.riksdagen.se/dokument/H2B643" dokument_url_text="http://data.riksdagen.se/dokument/H2B643/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H2B643">
+  <text beteckning="43" datatyp="huvuddokument" datum="2014-01-30 00:00:00" dokumentnamn="" hangar_id="3586024" nummer="43" organ="" publicerad="2014-01-30 00:00:00" rm="2014" slutnummer="0" status="hämtad" subtyp="" systemdatum="2014-02-17 04:18:09" title="" typ="KOM">
+    <page id="1">
+      <p>EUROPEAN</p>
+      <p>COMMISSION</p>
+      <p>Brussels, 29.1.2014</p>
+      <p>COM(2014) 43 final</p>
+      <p>2014/0020 (COD)</p>
+      <p>Proposal for a</p>
+      <p>REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL</p>
+      <p>on structural measures improving the resilience of EU credit institutions</p>
+      <p>(Text with EEA relevance)</p>
+      <p>{SWD(2013) 30 final} {SWD(2013) 31 final}</p>
+      <p>EN</p>
+      <p>EN</p>
+    </page>
+    <page id="2">
+      <p>EXPLANATORY MEMORANDUM</p>
+      <p>1. CONTEXT OF THE PROPOSAL</p>
+      <p>Since the start of the financial crisis, the European Union (&quot;Union&quot;) and its Member States have engaged in a fundamental overhaul of financial regulation and supervision.</p>
+      <p>In the area of banking, the Union has initiated a number of reforms to create a safer, sounder, more transparent and responsible financial system that works for the economy and society as a whole. However, the Union banking sector remains large in absolute (EUR42.9 trillion) and relative terms (nearly 350 per cent of Union GDP). The individual size of the largest Union banks by assets is roughly similar or close to the GDP of its home country. These banks still remain<nobr>too-big-to-fail,</nobr>
+        <nobr>too-big-to-save</nobr> and<nobr>too-complex-to-resolve.</nobr>
+      </p>
+      <p>In this context, Commissioner Barnier announced in November 2011 the setting up of a High- Level Expert Group (&quot;HLEG&quot;) with a mandate to assess the need for structural reform of the Union banking sector, chaired by Erkki Liikanen, Governor of the Bank of Finland.1 The report was presented in October 2012 stating that bank restructuring is necessary to complement existing reforms and recommending the mandatory separation of proprietary trading and other<nobr>high-risk</nobr> trading activities into a separate legal entity within the banking group. The separation would be mandatory only for banks where the activities to be separated amounted to a significant share of the banks business.2 On 3 July 2013, by large majority the European Parliament (&quot;EP&quot;) adopted an own initiative report called &quot;Reforming the structure of the EU banking sector&quot; 3 that welcomes structural reform measures at Union level to tackle concerns on<nobr>Too-Big-To-Fail</nobr> (&quot;TBTF&quot;) banks4.</p>
+      <p>This proposal represents a critical part of the Union response to tackling the TBTF dilemma. It aims at preventing the residual unmanaged risks in the Union banking system from materialising. It will curtail the artificial expansion of banks&apos; balance sheets, particularly those activities of a purely speculative nature, thereby reducing the risk that tax payers have to step in to save failing banks, and reducing the cost and complexity of any resolution when required. It is also an important complement to the Directive establishing a framework for the recovery and resolution of credit institutions and investment firms (&quot;BRRD&quot;).5</p>
+      <p>Structural reform has so far not been part of the international reform agenda agreed by the G20. However, a number of jurisdictions around the world have enacted or proposed measures to address the above concerns. In the last years a number of Member States have engaged in reform initiatives (Germany, France, the United Kingdom and Belgium). The United States has recently adopted the<nobr>so-called</nobr> &quot;Volcker rule&quot; prohibiting proprietary trading</p>
+      <p>1 For a mandate and list of members, see http://ec.europa.eu/internal_market/bank/docs/high- level_expert_group/mandate_en.pdf</p>
+      <p>2 The other recommendations of HLEG included (2) that a separation of additional activities may be necessary conditional on the recovery and resolution plan; (3) the use of<nobr>bail-in</nobr> as a resolution tool; (4) a review of capital requirements on trading assets and real estate related loans; and (5) measures aimed at strengthening the governance and control of banks so as to strengthen bank scrutiny and market discipline.</p>
+      <p>3 European Parliament (McCarthy 2013), Reforming the structure of the EU banking sector, 2013/2021 (INI)</p>
+      <p>4<nobr>Too-big-to-fail</nobr> is meant to cover<nobr>too-important-to-fail,</nobr>
+        <nobr>too-interconnected-to-fail,</nobr> and<nobr>too-complex-to-</nobr> fail as well. See also European Commission (2013b).</p>
+      <p>5 Directive xx/xxxx/EU of the European Parliament and of the Council establishing a framework for the recovery and resolution of credit institutions and investments firms and amending Council Directives 77/91/EEC and 82/891/EC, Directives 2001/27/EC, 2002/47/EC, 2004/25/EC, 2005/56/EC, 2007/36/EC and 2011/35/EC and Regulation (EU) No 1093/2010 of the European Parliament and of the Council (OJ<nobr>L--xxx</nobr>
+      </p>
+      <p>EN</p>
+      <p>2</p>
+      <p>EN</p>
+    </page>
+    <page id="3">
+      <p>by banks. Furthermore, international organisations have called for a global debate on bank structures and business models. In view of the proliferation of reform initiatives in this context, and with a view to prevent overlapping or incompatible measures affecting internationally active banks, the G20 leaders at the last summit in Saint Petersburg called on the Financial Stability Board to assess<nobr>cross-border</nobr> consistencies and global financial stability implications of structural banking reforms. This proposal takes careful note of emerging international coordination efforts and recognises the need to prevent opportunities for regulatory arbitrages.</p>
+      <p>This proposal is accompanied by a directly related proposal to tackle another conduit for financial contagion – namely, interconnectedness among market participants including systemic banks through opaque trading links in securities financing transactions. The Green Paper on shadow banking presented by the Commission on 19 March 20126 recognises that any reinforced banking regulation could drive a substantial part of banking activities beyond the boundaries of traditional banking and towards shadow banking defined as &quot;the system of credit intermediation that involves entities and activities outside the regular banking system&quot; 7. On 20 November 2012, the EP adopted a resolution on shadow banking 8 where it underlined the need to ensure greater transparency in the structure and activities of financial institutions as well as the need for supervisors to have knowledge of the level of shadow banking activities like repurchase agreements and securities lending. On 4 September 2013, the Commission highlighted in its communication on shadow banking 9 that strengthening transparency of securities financing transactions, such as repurchase agreements and securities lending, other equivalent transactions and<nobr>re-hypothecation</nobr> will be essential to monitor the risks associated with interconnectedness, excessive leverage and<nobr>pro-cyclical</nobr> behaviours.</p>
+      <p>The remainder of this explanatory memorandum is confined to a presentation of the present proposal relating to structural separation of credit institutions.</p>
+      <p>2. RESULTS OF CONSULTATIONS WITH THE INTERESTED PARTIES AND IMPACT ASSESSMENTS</p>
+      <p>Stakeholders have been consulted on a number of occasions. The HLEG met with a variety of stakeholders during its mandate and held a public consultation targeting banks, corporate customers and retail clients and their associations.10 The Commission also held a public stakeholder consultation in October 2012. 11 Structural bank reform and the need for a coordinated action at Union level have also been subject to discussions with Member States.</p>
+      <p>In the course of preparing the Impact Assessment (&quot;IA&quot;), the Commission held an additional public stakeholder consultation in the spring of 2013 inviting banks to model the impact of</p>
+      <p>6 COM(2012) 102 final,<nobr>http://ec.europa.eu/internal_market/bank/docs/shadow/green-paper_en.pdf</nobr>
+      </p>
+      <p>7 This definition has been developed by the FSB Report of 27 October 2011 on strengthening oversight and regulation of shadow banking, http://www.financialstabilityboard.org/publications/r_111027a.pdf</p>
+      <p>8 P7_TA(2012)0427,<nobr>http://www.europarl.europa.eu/sides/getDoc.do?type=TA&amp;reference=P7-TA-2012-</nobr> 0427&amp;language=EN</p>
+      <p>9 Communication from the Commission to the Council and the European Parliament on Shadow Banking</p>
+      <p>– Addressing New Sources of Risk in the Financial Sector, COM(2013), 614 final</p>
+      <p>10 Consultation by the HLEG on reforming the structure of the EU banking sector, May/June 2012. http://ec.europa.eu/internal_market/consultations/2012/banking_sector_en.htm. The HLEG received 83 responses, the large majority of which were from banks and other financial institutions, followed by retail customers and their associations and, lastly, corporate customers.</p>
+      <p>11 Consultation on the recommendations of the HLEG the structure of the EU banking sector,<nobr>http://ec.europa.eu/internal_market/consultations/2012/hleg-banking_en.htm .</nobr> Out of the 89 replies received, almost half came from the banking industry.</p>
+      <p>EN</p>
+      <p>3</p>
+      <p>EN</p>
+    </page>
+    <page id="4">
+      <p>different types of structural reform options.12 The 500 consultation responses highlighted the divisions among banks, on the one hand, and consumers and<nobr>non-bank</nobr> financials on the other hand. The former were to an overwhelming extent against structural separation; the latter were largely in favour. The views of other categories were more balanced.</p>
+      <p>An<nobr>Inter-service</nobr> Steering Group (&quot;ISG&quot;) on bank structural reform was established in March 2013 with representatives from the Directorate Generals COMP, ECFIN, EMPL, ENTR, JUST, MARKT, SG, SJ, TAXUD and the JRC. This ISG met in March, April and September 2013 and supported the work on the IA.</p>
+      <p>The draft IA was submitted to the Impact Assessment Board (the IAB) of the Commission on 19 September 2013 and discussed with the IAB on 16 October 2013. The IAB provided its recommendations for improvement on 18 October 2013. The main recommendations were: (i) to improve the problem description and baseline scenario; (ii) to better describe and explain the reform options; (iii) to better assess impacts and better demonstrate the effectiveness of the retained reform options; (iv) to better present stakeholder views; and (v) to add a glossary. The Commission services resubmitted a revised IA on 18 December 2013, alongside with a separate document explaining to the IAB how the IAB recommendations had been incorporated. The IAB subsequently issued a positive opinion on 15 January 2014, whilst providing recommendations for further improvements, asking in particular to strengthen the analysis of the justification of the proposed measures, alternative reform options, impact, and stakeholder views with respect to the transparency measures that had only been introduced in the resubmission of the final IA. The IAB also recommended further strengthening the structural reform options presentation and the assessment of the impact and effectiveness of the retained reform options. The final version of the IA has significantly expanded the analysis of the transparency reform measures and has further elaborated on the other two IAB recommendations.</p>
+      <p>On the overall costs and benefits of this proposal, the impact assessment carried out in the context of this proposal has been subject to qualitative analysis and quantitative modelling. The impact assessment concluded that implicit subsidies are significant, while they depend on the size of the bank and the level of interconnectedness of the bank. While taking due account of the clear benefits derived from the diversity of banking models in Europe, this proposal intends to ensure that the delicate balance between the prevention of systemic risks and the financing of sustainable economic growth is maintained.</p>
+      <p>3. LEGAL ELEMENTS OF THE PROPOSAL</p>
+      <p>3.1. Legal basis and subsidiarity</p>
+      <p>The legal basis for this Regulation is Article 114(1) of the Treaty of the Functioning of the European Union (the &quot;TFEU&quot;), which allows the adoption of measures for the approximation of national provisions aiming at the establishment and good functioning of the internal market.</p>
+      <p>Uniform rules on banks structures will enhance financial stability within the Union, better integrate financial markets, facilitate the orderly resolution and recovery of the group,</p>
+      <p>12 &quot;Consultation by the Commission on the Structural Reform of the Banking Sector,&quot;<nobr>http://ec.europa.eu/internal_ market/consultations/2013/banking-structural-reform/index_en.htm .</nobr> The Commission services received more than 500 replies. These came from banks and other financial institutions, corporate clients, investors, public authorities, and consumer associations and individuals- responses from individuals (439) and consumer associations (11).</p>
+      <p>EN</p>
+      <p>4</p>
+      <p>EN</p>
+    </page>
+    <page id="5">
+      <p>enhance the<nobr>cross-border</nobr> provision of services and the establishment in other Member States, reduce distortions of competition and prevent regulatory arbitrage.</p>
+      <p>Some Member States have proposed or adopted structural reform measures for their national banking systems. Inconsistent national legislation that does not pursue the same policy goals, in a manner that is compatible and equivalent with the mechanisms envisaged in this Regulation, increases chances that capital movements and investment decisions are distorted. Without a<nobr>Union-wide</nobr> approach banks will be forced to adapt their structure and operation along national boundaries, thereby making them even more complex and increasing fragmentation.</p>
+      <p>Inconsistent national legislation would also undermine efforts to achieve a single rulebook applicable throughout the internal market and the creation of an effective banking union, as it would have the effect of limiting the effectiveness of the Single Supervisory Mechanism (&quot;SSM&quot;)13 and a future Single Resolution Mechanism (&quot;SRM&quot;). 14 Inconsistent legislation also makes the management of<nobr>cross-border</nobr> institutions more difficult and costly.</p>
+      <p>Harmonisation at Union level envisaged in this Regulation can ensure that Union banking groups, many of which operate in several Member States, are regulated by a common framework of structural requirements thereby ensuring a level playing field, reducing regulatory complexity, avoiding unwarranted compliance costs for<nobr>cross-border</nobr> activities, promoting further integration in the Union market place and contributing to the elimination of regulatory arbitrage opportunities.</p>
+      <p>Consistent with the goals of contributing to the functioning of the internal market, a Member State that has previously adopted legislation prohibiting credit institutions taking deposits from individuals and SMEs from engaging in the activity of dealing in investments as a principal and hold trading assets may make a request to the Commission to grant a derogation from the provisions laid down in Chapter III (separation of certain trading activities) for a credit institution that is subject to the national law compatible with provisions of that Chapter. This would allow Member States that are found to have already implemented super- equivalent measures to avoid costly alignment of existing, effective provisions with these provisions. To ensure that the impact of the national legislation does not jeopardize the aim or functioning of the internal market, the goals of the national legislation must be the same as those set out in this proposal; and the national legal, supervisory and enforcement arrangements must ensure that the credit institution comply with legally binding requirements that are compatible with this proposal.</p>
+      <p>This proposal takes due account of the rapidly evolving financial markets and financial innovation as well the evolution of the Union regulatory and supervisory frameworks. In order to ensure the effective and consistent supervision and the development of the single rule book in banking, this proposal envisages an important role for the European Banking Authority (&quot;EBA&quot;). The EBA will be consulted by competent authorities when taking certain decisions as set out in this proposal and will prepare draft regulatory and implementing technical standards, and submit reports to the Commission. This is particular important in the situations described in Articles 9, 10, 13 and 21.</p>
+      <p>13 Established through the adoption of Council Regulation (EU) No 1024/2013 of 15 October 2013 conferring specific tasks on the European Central Bank concerning policies relating to the prudential supervision of credit institutions (OJ L287, 29.10.2013, p. 63).</p>
+      <p>14 Established through the adoption of [SRM].</p>
+      <p>EN</p>
+      <p>5</p>
+      <p>EN</p>
+    </page>
+    <page id="6">
+      <p>3.2. Proportionality</p>
+      <p>Under the principle of proportionality set out in Article 5 of the TEU, the content and form of Union action must not exceed what is necessary to achieve the objectives of the Treaties.</p>
+      <p>The proposed Regulation prohibits large Union credit institutions and banking groups from carrying out proprietary trading and certain related activities.</p>
+      <p>Ownership separation has the potential to be the most effective structural reform tool in terms of achieving the specific objectives of facilitating resolution and limiting moral hazard, conflicts of interest and capital and resource misallocation. The potential benefits of prohibiting proprietary trading activities would be particularly strong in terms of mitigation of risks, complexity, interconnectedness and conflicts of interest. However in view of the challenges derived from the difficult distinction between proprietary trading and other similar trading activities, market making in particular, a narrow definition of activities subject to the prohibition underpins the proportionality of this measure. Excluding smaller banks from the scope of the prohibition is justified because of the disproportionate effects such a prohibition could entail for those banks if forced to divest parts of their portfolios.</p>
+      <p>The proposed Regulation also requires the competent authority to undertake a systematic review of certain other activities – namely,<nobr>market-making,</nobr> investment in/sponsoring of securitization and trading of certain derivatives. These have been identified as the activities where there is the greatest risk that proprietary trading could be performed in contravention of the prohibition, and which could give rise to risks for the stability of the core credit institution and the Union financial system. The competent authority is granted the power to require the separation. This power to require separation is not imposed as a blanket measure: instead, the competent authority is allowed to exercise judgment, using a set of harmonised metrics. Only under certain circumstances, when risks exceed levels to be defined using harmonised metrics, is the competent authority required to enforce separation. This approach is considered to be proportionate because separation is imposed only under certain conditions, and following an<nobr>in-depth</nobr> review of the impact of those activities on the risk profile and behaviour of the core credit institution.</p>
+      <p>The proposed Regulation targets large credit institutions and banking groups. Given that the main purpose of the proposal is to deal with residual systemic risks in the Union financial system, extending the measures of the proposal to all credit institutions would be disproportionate and could lead to<nobr>non-justified</nobr> costs, in particular for smaller credit institutions.</p>
+      <p>Credit institutions falling below the thresholds of the proposed Regulation are not subject to the structural measures foreseen. This implies that Member States or the competent authorities may decide to impose similar measures also on smaller credit institutions.</p>
+      <p>The proposed Regulation respects the fundamental rights and observes the principles recognised in the Charter of Fundamental Rights of the European Union, notably the right to the protection of personal data, the freedom to conduct a business, the right to property, the right to an effective remedy and to a fair trial, and has to be implemented in accordance with those rights and principles.</p>
+      <p>3.3. Detailed explanation of the proposal</p>
+      <p>This section briefly outlines the main components of this regulation.</p>
+      <p>3.3.1. Objectives and subject matter of structural separation</p>
+      <p>The proposed Regulation aims at enhancing financial stability in the Union by means of structural reform of large banks, thus complementing financial regulatory reforms already</p>
+      <p>EN</p>
+      <p>6</p>
+      <p>EN</p>
+    </page>
+    <page id="7">
+      <p>undertaken at Union level. Article 1 outlines the aim and the objectives underpinning the reform.</p>
+      <p>Article 2 outlines the subject matter, which is to lay down rules on structural changes on TBTF banks by imposing a proprietary trading prohibition and potential separation of certain trading activities.</p>
+      <p>3.3.2. Scope</p>
+      <p>Article 3 states that the proposed Regulation applies to banks that meet certain criteria and exceed certain thresholds:</p>
+      <p>(1) The requirements apply to the European banks that are identified as being of global systemic importance.</p>
+      <p>(2) The requirements apply to banks that exceed the following thresholds for three consecutive years: (a) the bank&apos;s total assets exceed 30 billion; 15 and (b) the bank&apos;s total trading assets and liabilities exceed 70 billion or 10 percent of their total assets.</p>
+      <p>Articles 22 and 23 provide further detail on how &quot;trading activities&quot; (for the purposes of competent authority review leading to possible separation from the credit institution) should be calculated. Given that the focus of bank structural reform is on banking activities, Article 23(2) states that for financial conglomerates, the activities of insurance and<nobr>non-financial</nobr> undertakings must not be included in the calculation.</p>
+      <p>The proposed Regulation will apply to Union credit institutions and their EU parents, their subsidiaries and branches, including in third countries. It will also apply to branches and subsidiaries in the Union of banks established in third countries. Such a broad territorial scope is justified to ensure a level playing field and avoid the transfer of activities outside the Union to circumvent these requirements. However, foreign subsidiaries of Union banks and EU branches of foreign banks could be exempted if they are subject to equivalent separation rules (Articles 4 and 27). Article 4(2) foresees another potential exemption: supervisors have been granted the power to exempt from separation foreign subsidiaries of groups with autonomous geographic decentralised structure pursuing a &quot;Multiple Point of Entry&quot; resolution strategy.</p>
+      <p>By applying the separation requirement throughout the global corporate group irrespective of geographic location, the potential for banks circumventing separation by locating particular activities outside the Union is eliminated. Furthermore, by supplementing the broad territorial coverage with a third country equivalence regime the possible extraterritorial concerns of third country jurisdictions are mitigated. By requiring foreign banks to separate their operations in the Union, a level playing field in the internal market is also ensured and thereby the risk of unfair competition is minimised.</p>
+      <p>3.3.3. Prohibition of proprietary trading (Chapter II)</p>
+      <p>Article 6(1) of the proposed Regulation provides that a credit institution and entities within the same group must not engage in proprietary trading in financial instruments and commodities. While consistent data at Union level with regard to specific banking activity is scarce, available evidence suggests that proprietary trading represents a limited part of banks balance sheets.16 However, the same evidence also highlights that such trading was significant prior to the crisis and, in the absence of regulatory intervention, there is no guarantee that it may not increase again in the future.</p>
+      <p>15 This is the threshold for &quot;significant institutions&quot; used in Regulation (EU) No 1024/2013.</p>
+      <p>16 See Annex 6 of the IA.</p>
+      <p>EN</p>
+      <p>7</p>
+      <p>EN</p>
+    </page>
+    <page id="8">
+      <p>It is difficult to define proprietary trading and distinguish it from<nobr>market-making.</nobr> According to Article 5(4), which defines proprietary trading narrowly, desks, units, divisions or individual traders activities specifically dedicated to taking positions for making a profit for own account, without any connection to client activity or hedging the entitys risk, would be prohibited.</p>
+      <p>Article 6(2) clarifies that where credit institutions falling within the scope of the proposed Regulation as defined in Articles 3 and 4, operate dedicated structures for buying and selling money market instruments for the purposes of cash management, they are not captured by this prohibition. Trading in Union government bonds is also exempted from the prohibition (Article 6(2)(a)) to prevent possible negative consequences in these crucial markets. This exemption mirrors the one provided for trading in government bonds in relation to the assessment of activities (Article 8(2)).</p>
+      <p>While in principle a proprietary trading prohibition could extend to all banks, it is proposed to apply the ban only to banks referred to in Article 3. To prevent banks from circumventing the prohibition by e.g. owning or investing in hedge funds, Article 6(1)(b) states that banks subject to the proprietary trading prohibition are also prohibited from investing in or holding shares in hedge funds (or certificates/derivatives linked to these), or entities that engage in proprietary trading or sponsor hedge funds. Unleveraged and<nobr>closed-ended</nobr> funds– mainly private equity, venture capital and social entrepreneurship funds – are exempted from this prohibition, given their role in supporting the financing of the real economy (Article 6(3)). Credit institutions covered by these prohibitions will be able to continue providing banking/custody services to hedge funds.</p>
+      <p>3.3.4. Potential separation of certain trading activities (Chapter III)</p>
+      <p>Banks engage in a number of other trading and investment banking activities, including market making, lending to venture capital and private equity funds, investment and sponsorship of risky securitisation, sales and trading of derivatives etc. Banking groups will be allowed to continue engaging in those other activities subject to the discretion of the competent authority who will be obliged to review trading activities and will have the power (as well as an obligation under certain circumstances) to separate a subset of activities (market making, risky securitisation, complex derivatives) if certain metrics are exceeded. This aims at avoiding the risk that banks would circumvent the ban in Article 6 by engaging in hidden proprietary trading activities and that the<nobr>non-prohibited</nobr> trading activities become too significant or highly leveraged. The basic principle of the proposed Regulation is that &quot;deposit taking entities&quot; within banking groups can only engage in these activities as long as the competent authority does not decide that they need to be performed within a distinct &quot;trading entity.&quot;</p>
+      <p>3.3.4.1. Scope of activities subject to separation</p>
+      <p>Article 8 defines trading activities broadly by stating that it means activities other than e.g. taking deposits eligible for deposit insurance, lending, retail payment services and a number of other activities. Article 8(2) furthermore exempts Union sovereign bonds from the obligation to review and power to separate. Such an exemption is consistent with the current practice of zero risk weights in the Capital Requirement Regulation and Directive17 (the</p>
+      <p>17 Regulation (EU) No 575/2013/EU of the European Parliament and of the Council on prudential requirements for credit institutions and investments firms and amending Regulation (EU) No 648/2012, OJ L 176, 27.6.2013, p.1; Directive 2013/36/EU of the European Parliament and of the Council on access to the activity of credit institutions and the prudential supervision of credit institutions and investment firms, amending Directive 2002/87/EC and repealing Directives 2006/48/EC and 2006/49/EC, OJ L 176, 27.6.2013, p. 338.</p>
+      <p>EN</p>
+      <p>8</p>
+      <p>EN</p>
+    </page>
+    <page id="9">
+      <p>&quot;CRR&quot;/&quot;CRDIV&quot;). Nevertheless, Article 8(3) states that the Commission may by delegated acts extend the scope of the exemption to<nobr>non-Union</nobr> sovereign bonds if they conform to certain conditions.</p>
+      <p>3.3.4.2. Duty to review activities</p>
+      <p>The proposed Regulation will oblige competent authority to review trading activities of banks exceeding the thresholds, including in particular three activities that are either especially close to proprietary trading, and hence susceptible to feature hidden proprietary trading (market making), or have played a key role during the financial crisis (e.g. investing and sponsoring activities in risky securitisation and trading in derivatives other than those that are specifically allowed for the purpose of prudent risk management). Competent authorities will assess these activities in light of certain metrics to be adjusted using supervisory data. The metrics indicate relative size, leverage, complexity, profitability, associated market risk, as well as interconnectedness (Article 9(2)). To ensure that these metrics are consistently measured and applied, Article 9(4) entrusts the EBA with developing a binding implementing technical standard to be adopted by the Commission.</p>
+      <p>3.3.4.3. Power to separate</p>
+      <p>Article 10(1) states that the competent authorities must require separation if the trading activities of banks (market making, investing in and sponsoring risky securitisation and trading in certain derivatives) and the related risks are found to exceed certain thresholds and meet certain conditions linked to the metrics. If the bank demonstrates to the satisfaction of the competent authority that these activities do not endanger the Union financial stability, taking into account the objectives of the proposed Regulation, the competent authority may decide not to require separation.</p>
+      <p>Article 10(2) states that a competent authority can require separation of a particular trading activity if it considers that the activity in question threatens the financial stability of the bank or of the Union, taking into account any of the objectives of the proposed Regulation.</p>
+      <p>The competent authority should consult the EBA prior to taking decisions referred to in Article 10 and should notify the EBA of its final decision.</p>
+      <p>Article 10(5) empowers the Commission to adopt a delegated act specifying the level not to be exceeded for each metrics as well as the conditions, including the number of metrics that need to be exceeded, for the separation to apply. In addition, the Commission will be empowered to specify which type of securitisation is not considered to pose a threat to financial stability according to a list of criteria and could therefore be carried out by a core credit institution.</p>
+      <p>3.3.4.4. Management of banks own risks (&quot;treasury management&quot;)</p>
+      <p>If further separation materialises, Article 11(1) clarifies that the<nobr>deposit-taking</nobr> bank is still allowed to manage its own risk. Nevertheless, as treasury management may give rise to proprietary trading and given that liquidity management involves taking certain speculative positions, this should be associated with certain safeguards.</p>
+      <p>3.3.4.5. Provision of risk management services to clients</p>
+      <p>Article 12 clarifies that the core credit institution is still able to sell certain risk management products (i.e., derivatives) to<nobr>non-financial,</nobr>
+        <nobr>non-banking</nobr> clients. However, the sale of derivatives to clients exposes the bank to more risks, which may notably make its resolution more complex and therefore it will be subject to different degrees of safeguards and control. To address these risks, it is stated that interest rate, foreign exchange, credit, emission allowance and commodity derivatives eligible for central counterparty clearing can be sold by</p>
+      <p>EN</p>
+      <p>9</p>
+      <p>EN</p>
+    </page>
+    <page id="10">
+      <p>the core credit institution to its<nobr>non-financial</nobr> clients, insurance undertakings and institutions for occupational retirement provision, but only to hedge interest rate, foreign exchange and credit risk, commodity risk and emission allowance risk and subject to caps on the resulting position risk. Recognising certain derivatives further encourages banks to standardise those derivatives and is thus in line with the policy objectives of the European Market Infrastructure Regulation (&quot;EMIR&quot;).18</p>
+      <p>3.3.4.6. Rules on separation of trading activities</p>
+      <p>If competent authorities require the separation of trading activities above and these activities will remain within the banking group, then these would have to be transferred to a distinct legal entity (a &quot;trading entity&quot;). The legal, economic, governance and operational links of that entity with the rest of the group would have to be curtailed to ensure effective separation. Article 13(3) states that if separation occurs, the group must be organised into homogeneous functional subgroups constituted on the one side by core credit institutions and on the other trading entities. Article 13(5) to (13) and of the proposed Regulation state the conditions that will apply to ensure a strong separation in legal, economic, governance and operational terms. After separation, the prudential requirements outlined in those Articles should apply on an individual or<nobr>sub-consolidated</nobr> basis to the respective<nobr>sub-groups.</nobr>
+      </p>
+      <p>Furthermore, Article 13(11) provides for derogations to the CRR as regards waiving certain requirements to ensure that prudential requirements (own funds, liquidity and disclosure) apply on a<nobr>sub-consolidated</nobr> basis to the respective subgroups. Groups that qualify as mutuals, cooperatives, savings institutions or the like do engage in risky trading activities and therefore are subject to the requirements in this proposal. However, these institutions have a very specific ownership and economic structure and play an important role in financing the local and regional economy. Imposing some of the rules related to separation could require far- reaching changes to the structural organisation of such entities. This could be disproportionate to the benefits if it would require these entities to completely change their corporate identity. Thus, the competent authority may decide to allow core credit institutions that meet the requirements set out in Article 49(3)(a) or (b) of Regulation (EU) No 575/2013 to hold capital instruments or voting rights in a trading entity where the competent authority considers that holding such capital instruments or voting rights is indispensable for the functioning of the group and that has taken sufficient measures in order to appropriately mitigate the relevant risks.</p>
+      <p>Another fundamental part of the economic separation between the core credit institution and the trading entity are the large exposure restrictions. Articles 14 to 17 accordingly lay down rules to that effect. These rules refer to limits on both intra and<nobr>extra-group,</nobr> individual and aggregate large exposures.</p>
+      <p>3.3.4.7. Separation plan</p>
+      <p>The actual separation of trading activities will be preceded by an obligation for relevant banks to submit a &quot;separation plan&quot; to competent authorities. Article 18 provides that this plan should be approved by the competent authority, with the latter having the possibility to require changes to the plan as appropriate, or setting out its own plan for separation in case of inaction by the relevant bank.</p>
+      <p>18 Regulation (EU) No 648/2012 of the European Parliament and of the Council of 4 July 2012 (OJ L201, 27.7.2012, p.1).</p>
+      <p>EN</p>
+      <p>10</p>
+      <p>EN</p>
+    </page>
+    <page id="11">
+      <p>3.3.4.8. Cooperation between competent authorities and resolution authorities</p>
+      <p>The BRRD foresees that resolution authorities may, as part of their resolution planning, require banks to make structural changes (e.g. to their legal and organisational structure) if the resolution authority believes that it is necessary to address impediments to effective resolution. While the proposed regulation addresses a broader range of objectives going beyond resolution, it is necessary to ensure that the respective authorities liaise with each other. Article 19 accordingly states that if a competent authority decides to require separation, it must notify resolution authorities (Article 19(1)) and take into account any ongoing or pre- existing resolvability assessment by resolution authorities as per Articles 13 and 13a of the BRRD. Likewise, the resolution authority must take into account the notification of a separation decision by a competent authority when assessing the resolvability of an institution.</p>
+      <p>3.3.4.9. Prohibited activities for the trading entity</p>
+      <p>Article 20 provides that there are certain activities that the trading entity may not carry out. Those are taking deposits eligible for protection under deposit guarantee schemes and provide retail payment services as defined in the Payment Services Directive19.</p>
+      <p>3.3.4.10. Derogation</p>
+      <p>Whereas the proposed Regulation sets out uniform rules on the aim, objectives and instruments of structural reform of banks in the internal market, Article 21 allows for a possible derogation from the separation requirements in Chapter III for credit institutions being covered by national legislation having an equivalent effect as the provisions of Chapter III of the proposal. This derogation will be granted by the Commission upon request of the Member State in question after the Member State has obtained a positive opinion from the competent authority responsible for the supervision of the banks for which the derogation is requested. To qualify for the derogation, the national primary legislation must have been adopted before 29 January 2014 and fulfil the criteria laid down in Article 21(1). This means that the aim of the national law, its material scope and provisions referring to the legal, economic and governance separation of the deposit taking entity must be similar to those in the proposed Regulation.</p>
+      <p>3.3.5. Compliance: entities and competent authorities (Chapter V)</p>
+      <p>Most banks covered by Article 3 are operating in several countries both by means of branches and subsidiaries. They are supervised by several different authorities, both home (parent, subsidiaries in different Member States) and host (branches). In order to ensure an effective and efficient group level application of structural reform, Article 26 gives the final say over structural separation decisions to the lead supervisor with responsibility over the consolidated group. This is the approach chosen by some national reform proposals. The lead supervisor should, prior to making any decisions, consult the home supervisor of significant group subsidiaries.</p>
+      <p>3.3.6. Relationships with third countries (Chapter VI)</p>
+      <p>Article 27 provides for the adoption of delegated acts to recognise third country structural reforms as being equivalent when they meet certain conditions.</p>
+      <p>19 Directive of the European Parliament and of the Council of 13 November 2007 on payment services in the internal market (OJ L 319 of 5.12.2007, p.<nobr>1–36).</nobr>
+      </p>
+      <p>EN</p>
+      <p>11</p>
+      <p>EN</p>
+    </page>
+    <page id="12">
+      <p>3.3.7. Administrative sanctions and measures (Chapter VII)</p>
+      <p>Chapter VII reflects current horizontal policies in the financial services sector concerning sanctions and measures. It defines a common approach to the main breaches of the proposed Regulation and lays down the administrative sanctions and measures that the competent authorities should be empowered to apply in case of the main breaches.</p>
+      <p>3.3.8. Report and Review (Chapter VIII)</p>
+      <p>The adoption of this proposal would constitute the first set of structural separation rules applying to banks at Union level. It is therefore important to assess whether the rules described above have proved to be an effective and efficient way of achieving the aim and the objectives of structural reform. To that end the final Chapter outlines a number of areas where the Commission will review the framework in both general and specific terms (Article 34). For example, reviews will focus on the application of thresholds, the application and the effectiveness of the prohibition foreseen in Article 6, the scope of activities subject to the review, and the suitability and application of the metrics.</p>
+      <p>3.3.9. Timeline</p>
+      <p>The following indicates the principal dates relating to the adoption and implementation of the key provisions of this proposal, on the basis that the final text of the Regulation is adopted by the EP and Council by June 2015:</p>
+      <p>the Commission adopts the required delegated acts for implementation of key provisions by 1 January 2016;</p>
+      <p>the list of covered and derogated banks is published 1 July 2016 and on a yearly basis thereafter;</p>
+      <p>the prohibition on proprietary trading becomes effective on 1 January 2017;</p>
+      <p>the provisions on separation of trading activities from credit institutions will become effective on July 1, 2018.</p>
+      <p>4. BUDGETARY IMPLICATIONS :</p>
+      <p>The financial and budgetary impact of the proposal is indicated in the legislative financial statement attached.</p>
+      <p>EN</p>
+      <p>12</p>
+      <p>EN</p>
+    </page>
+    <page id="13">
+      <p>2014/0020 (COD)</p>
+      <p>Proposal for a</p>
+      <p>REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL</p>
+      <p>on structural measures improving the resilience of EU credit institutions</p>
+      <p>(Text with EEA relevance)</p>
+      <p>THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN UNION,</p>
+      <p>Having regard to the Treaty on the Functioning of the European Union, and in particular Article 114 thereof,</p>
+      <p>Having regard to the proposal from the European Commission,</p>
+      <p>After transmission of the draft legislative act to the national Parliaments,</p>
+      <p>Having regard to the opinion of the European Economic and Social Committee20, Having regard to the opinion of the European Central Bank 21,</p>
+      <p>After consulting the European Data Protection Supervisor22, Acting in accordance with the ordinary legislative procedure, Whereas:</p>
+      <p>(1) The Unions financial system includes over 8,000 banks of different sizes, corporate structures and business models, a few of which exist in the form of large banking groups carrying out an<nobr>all-encompassing</nobr> set of activities. Those groups comprise a complex web of legal entities and<nobr>intra-group</nobr> relationships. They are highly connected to each other through interbank borrowing and lending and through derivatives markets. The impact of possible failures of these large banks can be extremely widespread and significant.</p>
+      <p>(2) The financial crisis has demonstrated the interconnected nature of Union banks and the resulting risk to the financial system. As a result, resolution has to date been challenging, involved entire banking groups, as opposed to only the<nobr>non-viable</nobr> parts, and has relied significantly on public support.</p>
+      <p>(3) Since the start of the financial crisis, the Union and its Member States have engaged in a fundamental overhaul of bank regulation and supervision including the setup of the first steps towards a banking union. Given the depth of the financial crisis and the need to ensure that all banks can be resolved, there was a need to assess whether more</p>
+      <p>20</p>
+      <p>21</p>
+      <p>22</p>
+      <p>measures are needed to further reduce the probability and impact of failure of the largest and most complex banks. A<nobr>High-Level</nobr> Expert Group (&quot;HLEG&quot;) chaired by Erkki Liikanen was mandated for this purpose. The HLEG recommended the</p>
+      <p>OJ C [], [], p. [].</p>
+      <p>OJ C [], [], p. [].</p>
+      <p>OJ C [], [], p. [].</p>
+      <p>EN</p>
+      <p>13</p>
+      <p>EN</p>
+    </page>
+    <page id="14">
+      <p>mandatory separation of proprietary trading and other<nobr>high-risk</nobr> trading activities into a separate legal entity within the banking group for the largest and most complex banks.</p>
+      <p>(4) The<nobr>on-going</nobr> banking regulatory reform agenda will significantly increase the resilience of both individual banks and the banking sector as a whole. However, a limited subset of the largest and most complex Union banking groups still remain too-<nobr>big-to-fail,</nobr>
+        <nobr>too-big-to-save</nobr> and<nobr>too-complex</nobr> to manage, supervise and resolve. Structural reform is therefore an important complement to other regulatory initiatives and measures, as it would offer one way of more directly addressing<nobr>intra-group</nobr> complexity,<nobr>intra-group</nobr> subsidies, and excessive<nobr>risk-taking</nobr> incentives. A number of Member States have adopted or are considering adopting measures to introduce structural reform in their respective banking systems.</p>
+      <p>(5) On 3 July 2013, the European Parliament called on the Commission to provide for a<nobr>principles-based</nobr> approach to structural reform of the European banking sector.</p>
+      <p>(6) The legal basis for this Regulation is Article 114(1) of the Treaty of the Functioning of the European Union (TFEU), which allows the adoption of measures for the approximation of national provisions aiming at the establishment and good functioning of the internal market.</p>
+      <p>(7) Inconsistent national legislation that does not pursue the same policy goals in a manner that is compatible and equivalent with the mechanisms envisaged in this Regulation increases chances that capital movements decisions of market participants are negatively affected because different and inconsistent rules and practices may significantly raise operational costs for credit institutions that are operating across borders and hence lead to a less efficient allocation of resources and capital compared to a situation where capital movement is subject to similar and consistent rules. For the same reasons, different and inconsistent rules will also negatively affect decisions of market participants relating to where and how to provide<nobr>cross-border</nobr> financial services. Different and inconsistent rules may also unintentionally encourage geographic arbitrage. The movement of capital and the provision of<nobr>cross-border</nobr> services are essential elements for the proper functioning of the Union internal market. Without a<nobr>Union-wide</nobr> approach credit institutions will be forced to adapt their structure and operations along national boundaries, thereby making them even more complex and leading to increased fragmentation of the internal market.</p>
+      <p>(8) Inconsistent national legislation also undermines efforts to achieve a single rulebook</p>
+      <p>applicable throughout the internal market. Such a development would also have the effect of limiting the effectiveness of the Single Supervisory Mechanism23 (SSM) because the European Central Bank (ECB) would have to apply a set of different and inconsistent legislation to credit institutions that are under its supervision which will increase supervisory costs and complexity. Inconsistent legislation also makes the management of<nobr>cross-border</nobr> credit institutions more difficult and costly, notably in</p>
+      <p>terms of ensuring compliance with divergent and possibly inconsistent rules. Similarly, the Single Resolution Mechanism24 (SRM) would have to resolve credit institutions subject to potentially different national requirements regarding their organisational and operational structure.</p>
+      <p>23 Established by Council Regulation (EU) No 1024/2013 of 15 October 2013 conferring specific tasks on the European Central Bank concerning policies relating to the prudential supervision of credit institutions (OJ L287, 29.10.2013, p. 63).</p>
+      <p>24 Established by [SRM].</p>
+      <p>EN</p>
+      <p>14</p>
+      <p>EN</p>
+    </page>
+    <page id="15">
+      <p>(9) Harmonisation at Union level can ensure that Union banking groups, many of which operate in several Member States, are regulated by a common framework of structural requirements thereby avoiding competitive distortions, reducing regulatory complexity, avoiding unwarranted compliance costs for<nobr>cross-border</nobr> activities, promoting further integration in the Union market place and contributing to the elimination of regulatory arbitrage opportunities.</p>
+      <p>(10) Consistent with the goals of contributing to the functioning of the internal market, it should be possible to grant a derogation for a credit institution from the provisions on separation of certain trading activities where a Member State has adopted national primary legislation prior to 29 January 2014 (including secondary legislation subsequently adopted) prohibiting credit institutions, which take deposits from individuals and Small and Medium sized Enterprises (SMEs) from dealing in investments as a principal and holding trading assets. The Member State should therefore be entitled to make a request to the Commission to grant a derogation from the provisions on separation of certain trading activities for a credit institution that is subject to the national legislation compatible with those provisions. This would allow Member States that already have primary legislation in place, the effects of which are equivalent to and consistent with this Regulation, to avoid alignment of existing, effective provisions. To ensure that the impact of that national legislation, as well as of subsequent implementing measures, does not jeopardise the aim or functioning of the internal market, the aim of that national legislation and related supervisory and enforcement arrangements must be able to ensure that credit institutions that take eligible deposits from individuals and from SMEs comply with legally binding requirements that are equivalent and compatible with the provisions provided in this Regulation. The competent authority supervising the credit institution subject to the national legislation in question should be responsible for providing an opinion that should accompany the request for the derogation.</p>
+      <p>(11) According to Article 4 (1)(i) of the Council regulation (EU) No 1024/2013 25 the ECB is empowered to carry out supervisory tasks in relation to structural changes required from credit institutions to prevent financial stress or failure when those tasks are explicitly stipulated by Union law for competent authorities.</p>
+      <p>(12) This Regulation intends to reduce excessive risk taking and rapid balance sheet growth, difficult resolution, difficult monitoring, conflicts of interest, competition distortions, and misallocation of capital. It also intends to shield institutions carrying out activities that deserve a public safety net from losses incurred as a result of other activities. Necessary rules should therefore contribute to refocusing banks on their core<nobr>relationship-oriented</nobr> role of serving the real economy, and avoid that bank capital be excessively allocated to trading at the expense of lending to the<nobr>non-financial</nobr> economy.</p>
+      <p>(13) This Regulation will apply only to credit institutions and groups with trading activities that meet thresholds set out in the Regulation. This is in line with the explicit focus on the limited subset of the largest and most complex credit institutions and groups that in spite of other legislative acts remain<nobr>too-big-to-fail,</nobr>
+        <nobr>too-big-to-save</nobr> and too complex to manage, supervise and resolve. The provisions of this Regulation should accordingly only apply to those Union credit institutions and groups that either are</p>
+      <p>25 Council Regulation (EU) No 1024/2013 of 15 October 2013 conferring specific tasks on the European Central Bank concerning policies relating to the prudential supervision of credit institutions (OJ L 287, 29.10.2013, p. 63).</p>
+      <p>EN</p>
+      <p>15</p>
+      <p>EN</p>
+    </page>
+    <page id="16">
+      <p>deemed of global systemic importance or exceed certain relative and absolute<nobr>accounting-based</nobr> thresholds in terms of trading activity or absolute size. Member States or the competent authorities may decide to impose similar measures also on smaller credit institutions.</p>
+      <p>(14) The territorial scope of this Regulation should be wide to ensure that competition is not distorted and circumvention is prevented. However, if the subsidiaries of EU parents in third countries or EU branches of credit institutions established in third countries falling within the scope of this Regulation are subject to measures that in the opinion of the Commission are deemed to have equivalent effect to those in this Regulation, they should be exempted. Competent authorities should be able also to exempt foreign subsidiaries of groups with an EU parent if those are autonomous and if the impact of their failure would have limited effects on the group as a whole.</p>
+      <p>(15) Credit institutions and entities belonging to the same group, should be prohibited from buying and selling financial instruments and commodities for their own account, as this activity has limited or no added value for the public good and is inherently risky.</p>
+      <p>(16) It is difficult to distinguish proprietary trading from market making. To overcome this difficulty, the prohibition of proprietary trading should be limited to desks, units, divisions or individual traders specifically dedicated to proprietary trading. Banks should not be able to circumvent the prohibition by running or benefiting from investments in<nobr>non-bank</nobr> entities engaging in proprietary trading.</p>
+      <p>(17) To ensure that the entities subject to the prohibition of proprietary trading can continue to contribute toward the financing of the economy, they should be allowed to invest in a closed list of funds. This exhaustive list should comprise<nobr>closed-ended</nobr> and unleveraged alternative investment funds (AIFs), European Venture Capital Funds, European Social Entrepreneurship Funds and European Long Term Investment Funds. To ensure that these funds do not endanger the viability and financial soundness of the credit institutions that invest in them, it is essential that<nobr>closed-ended</nobr> and unleveraged AIFs in which credit institutions can still invest are managed by AIF managers that are</p>
+      <p>authorised and supervised in accordance with the relevant provisions of Directive 2011/61/EU of the European Parliament and of the Council26, and that those AIFs are established in the Union or, if they are not established in the Union, they are marketed in the Union according to the rules of that Directive.</p>
+      <p>(18) The entities subject to the prohibition of proprietary trading should be allowed to use their own capital to make investments in the framework of their cash management. Cash management should be an activity aiming at preserving the value of own capital while spreading credit risk across multiple counterparties and maximising the liquidity of its own capital. In managing its cash, entities subject to the prohibition of proprietary trading should not pursue the objective of achieving returns greater than money market rates, using as a benchmark the rate of return of a<nobr>three-month</nobr> high quality government bond.</p>
+      <p>(19) Cash equivalent assets are instruments that are normally dealt on the money market, such as treasury and local authority bills, certificates of deposit, commercial paper, bankers&apos; acceptances,<nobr>short-term</nobr> notes or units or shares of regulated money market</p>
+      <p>26 Directive 2011/61/EU of the European Parliament and of the Council of 8 June 2011</p>
+      <p>on Alternative Investment Fund Managers and amending Directives 2003/41/EC and 2009/65/EC and Regulations (EC) No 1060/2009 and (EU) No 1095/2010</p>
+      <p>EN</p>
+      <p>16</p>
+      <p>EN</p>
+    </page>
+    <page id="17">
+      <p>funds. In order to prohibit short selling, a credit institution should hold cash equivalent assets before being able to sell these assets.</p>
+      <p>(20) Remuneration policies which encourage excessive<nobr>risk-taking</nobr> can undermine sound and effective risk management of banks. By complementing relevant existing Union law in this area, remuneration provisions should contribute to preventing circumvention of the prohibition of proprietary trading. Similarly, it should curtail any residual or hidden proprietary trading activity by core credit institutions when carrying out prudent risk management.</p>
+      <p>(21) The management body of the entities subject to the prohibition of proprietary trading should ensure compliance with this prohibition.</p>
+      <p>(22) Other than proprietary trading, large credit institutions engage in numerous other trading activities, such as market making, issuance, investment and sponsorship activity linked to risky securitisation, or the structuring, arranging, or execution of complex derivative transactions. These trading activities are often related to client activity but may nevertheless give rise to concerns. Considering, however, the potentially useful nature of these activities they should not be subject to a direct prohibition. Instead, such activities should remain subject to an ex post assessment by the competent authority and, potentially, to a requirement to be separated from the rest of the groups activities.</p>
+      <p>(23) If, when assessing the trading activities, the competent authority concludes that they exceed certain metrics in terms of relative size, leverage, complexity, profitability, associated market risk, as well as interconnectedness, it should require their separation from the core credit institution unless the core credit institution can demonstrate to the satisfaction of the competent authority that those trading activities do not pose a threat to the financial stability of the core credit institution or to the Union financial system as a whole, taking into account the objectives set out in this Regulation.</p>
+      <p>(24) There are particular concerns in relation to market making. The resolvability of a bank may be impeded by the presence of trading and inventory within a large banking group, as individual trading positions are treated the same way in a resolution process, whether they result from client activity driven market making or from speculation. Additionally, market makers are interconnected with other large banking groups. Furthermore, market makers can be exposed to substantial counterparty risk and the concrete functioning of market making can vary in relation to different financial instruments and market models. Therefore, particular attention to those activities should be made during the assessment of the competent authority.</p>
+      <p>(25) Certain activities involving securitisation have allowed credit institutions to build up risks quickly, to concentrate risks within the leveraged sector, to grow notably short- term debt reliance between financial intermediaries, and to make financial intermediaries significantly more interconnected. Unless securitisation fulfils certain minimum criteria to be considered as high quality, credit institutions still run significant liquidity risk. Further, investing in risky securitised products may give rise to interconnectedness of financial institutions which impedes orderly and swift resolution. As a consequence, these activities require particular attention during the assessment of the competent authority.</p>
+      <p>(26) To ensure an effective separation in legal, economic, governance and operational terms, core credit institutions and trading entities should meet capital, liquidity, and</p>
+      <p>EN</p>
+      <p>17</p>
+      <p>EN</p>
+    </page>
+    <page id="18">
+      <p>large exposure rules on a functional<nobr>sub-group</nobr> basis. They should have strong independent governance and separate management bodies.</p>
+      <p>(27) Groups that qualify as mutuals, cooperatives, savings institutions or similar have a specific ownership and economic structure. Imposing some of the rules related to separation could require<nobr>far-reaching</nobr> changes to the structural organisation of those entities the costs of which could be disproportionate to the benefits. To the extent that those groups fall within the scope of the Regulation, the competent authority may decide to allow core credit institutions that meet the requirements set out in Article 49(3)(a) or (b) of Regulation (EU) No 575/2013 to hold capital instruments or voting rights in a trading entity where the competent authority considers that holding such capital instruments or voting rights is indispensable for the functioning of the group and that the core credit institution has taken sufficient measures in order to appropriately mitigate the relevant risks.</p>
+      <p>(28) Large exposure limits aim at protecting credit institutions against the risk of incurring losses because of an excessive concentration on one client or a group of connected clients. Applying those restrictions between the separated parts within the credit institution or group, as well as between the core credit institution and external entities carrying out trading activities are an integral part of this Regulation. However, irrespective of individual exposure limits, aggregate large exposures can still be substantial. The individual limits should therefore be complemented by an aggregate large exposure limit. In order to limit the application of the public safety net to the activities subject to separation and to clearly distinguish the activities of a trading entity from the core credit institution, the trading entities should be prohibited from taking deposits eligible for deposit insurance. This prohibition should not prevent the exchange of collateral strictly relating to their trading activities. However, in order not to close down an additional source of credit, the trading entity should be allowed to extend credit to all clients. Furthermore, whereas the trading entity may need to provide wholesale payment, clearing and settlement services, it should not be involved in retail payment services.</p>
+      <p>(29) Irrespective of separation, the core credit institution should still be able to manage its own risk. Certain trading activities should therefore be allowed to the extent that they are aimed at the prudent management of the core credit institution&apos;s capital, liquidity and funding and do not pose concerns to its financial stability. Similarly, the core credit institutions needs to be able to provide certain necessary risk management services to its clients. However, that should be done without exposing the core credit institution to unnecessary risk and without posing concerns to its financial stability. Hedging activities eligible for the purpose of prudently managing own risk and for the provision of risk management services to clients can, but does not have to, qualify as hedge accounting under the International Financial Reporting Standards.</p>
+      <p>(30) To enhance the effectiveness of the decision making procedure envisaged by this Regulation as well as to ensure to greatest extent possible that there is consistency between measures imposed under this Regulation, Council Regulation (EU) No</p>
+      <p>1024/2013 of the European Parliament and of the Council, Directive [BRRD] and Directive 2013/36/EU of the European Parliament and of the Council27, competent</p>
+      <p>27 Directive 2013/36/EU of the European Parliament and of the Council of 26 June 2013 on access to the activity of credit institutions and the prudential supervision of credit institutions and investment firms, amending Directive 2002/87/EC and repealing Directives 2006/48/EC and 2006/49/EC (OJ L 176, 27.6.2013, p.338).</p>
+      <p>EN</p>
+      <p>18</p>
+      <p>EN</p>
+    </page>
+    <page id="19">
+      <p>authorities and relevant resolution authorities should closely cooperate in all circumstances having all powers conferred upon them in relevant Union law. The duty to cooperate should cover all stages of the procedure leading up to a competent authority&apos;s final decision to impose structural measures.</p>
+      <p>(31) Separation has a significant impact on banking groups legal, organisational and operational structure. To insure an effective and efficient application of separation and to prevent separation of groups along geographic lines, separation decisions should be taken at group level by the consolidating supervisor, having consulted the competent authorities of a banking groups significant subsidiaries as appropriate.</p>
+      <p>(32) In order to promote transparency and legal certainty for the benefit of all market stakeholders, the European Banking Authority (EBA) should publish and keep<nobr>up-to-</nobr> date on its website a list of credit institutions and groups subject to the requirements concerning the ban of proprietary trading and separation of certain trading activities.</p>
+      <p>(33) To the extent that the disclosure of information relating to prudential supervision and for the application of this Regulation involves processing of personal data, such data should be fully protected by the Union legal framework. In particular, personal data</p>
+      <p>shall be retained by the competent authority only for the period necessary, in accordance with the applicable data protection rules28.</p>
+      <p>(34) Separation entails changes to the legal, organisation and operational structure of affected banking groups, all of which generate costs. In order to limit the risk of costs being passed on to clients and grant the credit institutions the time necessary to execute a separation decision in an orderly fashion, separation should not be applicable immediately upon entry into force of the Regulation but apply as of [ OP please enter the exact date 18 months from the date of publication of this Regulation].</p>
+      <p>(35) The provision of all or part of the investment services or activities as a regular occupation or business on a professional basis by different entities identified under this Regulation as a result of structural changes imposed on large, complex and</p>
+      <p>interconnected credit institutions, should be performed in accordance with the provisions of Directive 2004/39/EC of the European Parliament and of the Council29. Where this Regulation provides further restrictions on the ability of these entities to perform investment services as compared to those defined in Directive 2004/39/EC, the provisions of this Regulation should prevail. The performance of these investment services or activities is subject to prior authorisation in accordance with the provisions of Directive 2004/39/EC with the exception of credit institutions that are authorised under Directive 2013/36/EU.</p>
+      <p>(36) The Commission should cooperate with<nobr>third-country</nobr> authorities in order to explore mutually supportive solutions to ensure consistency between the provisions in this Regulation and the requirements established by third countries. To that end, the Commission should be able to determine that a third country legal framework is equivalent to this Regulation, also with respect to its legal, supervisory and enforcement arrangements.</p>
+      <p>28 Regulation (EC) No 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data (OJ L 8, 12.1.2001, p.1).</p>
+      <p>29 Directive 2004/39/EC of the European Parliament and of the Council of 21 April 2004 on markets in financial instruments amending Council Directives 85/611/EEC and 93/6/EEC and Directive 2000/12/EC of the European Parliament and of the Council and repealing Council Directive 93/22/EEC, (OJ L 145, 30.4.2004, p.1).</p>
+      <p>EN</p>
+      <p>19</p>
+      <p>EN</p>
+    </page>
+    <page id="20">
+      <p>(37) In order to ensure that entities subject to this Regulation comply with the obligations deriving from it and to ensure that they are subject to similar treatment across the Union, administrative sanctions and measures which are effective, proportionate and dissuasive should be ensured. Therefore, administrative sanctions and measures set by this Regulation should satisfy certain essential requirements in relation to addressees, the criteria to be taken into account when applying a sanction or measure, publication of sanctions or measures, key sanctioning powers and the levels of administrative pecuniary sanctions.</p>
+      <p>(38) In order to specify the requirements set out in this Regulation, the power to adopt acts in accordance with Article 290 of the TFEU should be delegated to the Commission in respect of the following<nobr>non-essential</nobr> elements: expanding the type of government bonds that should not prohibited under Article 6 and which competent authorities do not have to review or consider for separation; setting the relevant limits and conditions for when a competent authority shall presume that certain trading activities must be separated; expanding the list of instruments that are allowed for the management of a credit institution&apos;s own risk; expanding the list of instruments that a credit institution may transact in to manage clients&apos; risks; calculating the limit above which derivatives may not be sold nor recorded on the balance sheet of a core credit institution; large exposures and the extent of recognition of credit risk mitigation techniques; amending the components of the concept of &quot;trading activities&quot; used for establishing the conditions of application of Chapter II and Chapter III of this Regulation; specifying the types of securitisations that do not pose a threat to the financial stability of a core credit institution or to the Union financial system; the criteria for assessing the equivalence of third country legal and supervisory frameworks. It is of particular importance that the Commission carries out appropriate consultations during its preparatory work, including at expert level. The Commission, when preparing and drawing up delegated acts, should ensure a simultaneous, timely and appropriate transmission of relevant documents to the European Parliament and to the Council.</p>
+      <p>(39) In order to ensure uniform conditions for the implementation of this Regulation, in particular with regard to the provisions set out in Articles 21 and 27, implementing powers should be conferred on the Commission.</p>
+      <p>(40) Technical standards in financial services should ensure consistent harmonisation and adequate protection of depositors, investors and consumers across the Union. As bodies with highly specialised expertise, it is efficient and appropriate to entrust the EBA with the elaboration of draft regulatory technical and implementing standards, which do not involve policy choices. EBA should ensure efficient administrative and reporting processes when drafting technical standards.</p>
+      <p>(41) The Commission should adopt regulatory technical standards developed by the EBA with regard to the methodology for the consistent measurement and application of the metrics relative to the calculation of the threshold above which separation of trading activities should take place by means of delegated acts pursuant to Article 290 of the</p>
+      <p>TFEU and in accordance with Articles 10 to 14 of Regulation (EU) No 1093/2010 of the European Parliament and of the Council30. The Commission and the EBA should ensure that those standards can be applied by all institutions concerned in a manner</p>
+      <p>30 Regulation (EU) No 1093/2010 of the European Parliament and of the Council of 24 November 2010 establishing a European Supervisory Authority (European Banking Authority), amending Decision No 716/2009/EC and repealing Commission Decision 2009/78/EC (OJ L 331, 15.12.2010, p. 12 ).</p>
+      <p>EN</p>
+      <p>20</p>
+      <p>EN</p>
+    </page>
+    <page id="21">
+      <p>that is proportionate to the nature, scale and complexity of those institutions and their activities.</p>
+      <p>(42) The Commission should be empowered to adopt implementing technical standards developed by the EBA with regard to the methodology for calculating the amount of trading activities engaged in by credit institutions and groups, the uniform template for disclosure of total amount and the components of credits institutions and parent companies&apos; trading activities and determining the procedures and forms for exchange of information on sanctions with the EBA by means of implementing acts pursuant to Article 291 of the TFEU and in accordance with Article 15 of Regulation (EU) No 1093/2010.</p>
+      <p>(43) In accordance with the principle of proportionality, it is necessary and appropriate for the achievement of the aim of preventing systemic risk, financial stress or failure of large, complex and interconnected credit institutions to lay down rules on prohibition on proprietary trading and separation of certain trading activities. This Regulation does not go beyond what is necessary in order to achieve the objectives pursued in accordance with Article 5(4) of the Treaty on the European Union.</p>
+      <p>(44) The freedom to conduct a business in accordance with Union law and national laws and practices is recognised under Article 16 of the Charter of Fundamental Rights of the European Union (the Charter). Each person within the Union has the right to start- up or to continue a business without being subject to either discrimination or unnecessary restriction. Moreover, share ownership is protected as property under Article 17 of the Charter. Shareholders have the right to own, use, and dispose of their property, and the right not to be deprived involuntarily of this property. The prohibition of proprietary trading and the separation of certain trading activities provided for in this Regulation may affect the freedom to conduct a business as well as the property rights of shareholders who, in such situation, cannot freely dispose of their property.</p>
+      <p>(45) The limitations on the freedom to conduct a business and the rights of shareholders should comply with Article 52 of the Charter. Interference with these rights should not be disproportionate. Accordingly, the banning or separation of trading activities should only be required when it is in the public interest promoting the good functioning of the Union banking market and financial stability. Affected shareholders should not be prevented from using their other legal rights, such as the right to an effective remedy and to a fair trial.</p>
+      <p>(46) This Regulation respects the fundamental rights and observes the principles recognised in the Charter, in particular the right to respect for private and family life, the right to the protection of personal data, the freedom to conduct a business, the right to property, the right to an effective remedy and to a fair trial as well as the right of defence and the respect of the ne bis in idem principle. This Regulation must be applied according to these rights and principles.</p>
+      <p>(47) Because entities concerned by the prohibition of proprietary trading will require sufficient time to implement the prohibition, this Regulation foresees that the prohibition shall apply [ OP please introduce exact date 18 months after publication of this Regulation]. Similarly, the procedures foreseen in this Regulation with regard to the provisions that lead to a decision by the competent authority that trading activities need to be separated from the core credit institution, and the procedures that apply to groups following the adoption of such a decision, are complex and require time not only to carry out but also to implement those measures in a responsible and sustainable</p>
+      <p>EN</p>
+      <p>21</p>
+      <p>EN</p>
+    </page>
+    <page id="22">
+      <p>manner. It is therefore appropriate that such provisions apply [OP please introduce exact date 36 months after publication of this Regulation].</p>
+      <p>HAVE ADOPTED THIS REGULATION:</p>
+      <p>Chapter I</p>
+      <p>General provisions</p>
+      <p>Article 1</p>
+      <p>Objectives</p>
+      <p>This Regulation aims at preventing systemic risk, financial stress or failure of large, complex and interconnected entities in the financial system, in particular credit institutions, and at meeting the following objectives:</p>
+      <p>(a) to reduce excessive risk taking within the credit institution;</p>
+      <p>(b) to remove material conflicts of interest between the different parts of the credit institution;</p>
+      <p>(c) to avoid misallocation of resources and to encourage lending to the real economy;</p>
+      <p>(d) to contribute to undistorted conditions of competition for all credit institutions within the internal market;</p>
+      <p>(e) to reduce interconnectedness within the financial sector leading to systemic risk;</p>
+      <p>(f) to facilitate efficient management, monitoring and supervision of the credit institution;</p>
+      <p>(g) to facilitate the orderly resolution and recovery of the group.</p>
+      <p>Article 2</p>
+      <p>Subject matter</p>
+      <p>This Regulation lays down rules on:</p>
+      <p>(a) the prohibition of proprietary trading;</p>
+      <p>(b) the separation of certain trading activities.</p>
+      <p>Article 3</p>
+      <p>Scope</p>
+      <p>1. This Regulation shall apply to the following entities:</p>
+      <p>(a) any credit institution or an EU parent, including all branches and subsidiaries irrespective of where they are located, when it is identified as a global systemically important institution<nobr>(G-SIIs)</nobr> in application of Article 131 of Directive 2013/36/EU;</p>
+      <p>EN</p>
+      <p>22</p>
+      <p>EN</p>
+    </page>
+    <page id="23">
+      <p>(b) any of the following entities that for a period of three consecutive years has total assets amounting at least to EUR 30 billion and has trading activities amounting at least to EUR 70 billion or 10 per cent of its total assets:</p>
+      <p>(i) any credit institution established in the Union which is neither a parent undertaking nor a subsidiary, including all its branches irrespective of where they are located;</p>
+      <p>(ii) an EU parent, including all branches and subsidiaries irrespective of where they are located, where one of the group entities is a credit institution established in the Union;</p>
+      <p>(iii) EU branches of credit institutions established in third countries.</p>
+      <p>Article 4</p>
+      <p>Negative scope</p>
+      <p>1. This Regulation shall not apply to:</p>
+      <p>(a) EU branches of credit institutions established in third countries if they are subject to a legal framework deemed equivalent in accordance with Article 27(1);</p>
+      <p>(b) subsidiaries of EU parents established in third countries if they are subject to a legal framework deemed equivalent in accordance with Article 27(1);</p>
+      <p>(c) entities referred to in points (2) to (23) of Article 2(5) of Directive 2013/36/EU.</p>
+      <p>2. In addition to point (b) of paragraph 1, a competent authority may exempt from the requirements of Chapter III subsidiaries of EU parents established in third countries where there are no rules deemed equivalent to Articles 10 to 16 and 20 if that competent authority is satisfied that:</p>
+      <p>(a) there is a resolution strategy agreed upon between the group level resolution authority in the Union and the third country host authority;</p>
+      <p>(b) the resolution strategy for the subsidiary of an EU parent established in a third country has no adverse effect on the financial stability of the Member State(s) where the EU parent and other group entities are established.</p>
+      <p>Article 5</p>
+      <p>Definitions</p>
+      <p>For the purposes of this Regulation, the following definitions shall apply:</p>
+      <p>1. &quot;credit institution&quot; means a credit institution as defined in point (1) of Article 4(1) of Regulation (EU) No 575/2013 of the European Parliament and of the Council 31;</p>
+      <p>2. &quot;group&quot; means a parent undertaking and its subsidiaries;</p>
+      <p>3. &quot;resolution&quot; means resolution as defined in Article 2(1) of Directive [BRRD];</p>
+      <p>31 Regulation (EU) No 575/2013 of the European Parliament and of the Council of 26 June 2013</p>
+      <p>on prudential requirements for credit institutions and investment firms and amending Regulation (EU) No 648/2012 (OJ L176, 27.6.2013, p.1).</p>
+      <p>EN</p>
+      <p>23</p>
+      <p>EN</p>
+    </page>
+    <page id="24">
+      <p>4. &quot;proprietary trading&quot; means using own capital or borrowed money to take positions in any type of transaction to purchase, sell or otherwise acquire or dispose of any financial instrument or commodities for the sole purpose of making a profit for own account, and without any connection to actual or anticipated client activity or for the purpose of hedging the entitys risk as result of actual or anticipated client activity, through the use of desks, units, divisions or individual traders specifically dedicated to such position taking and profit making, including through dedicated<nobr>web-based</nobr> proprietary trading platforms;</p>
+      <p>5. &quot;EU parent&quot; means a parent undertaking in a Member State which is not a subsidiary of another undertaking within any Member State;</p>
+      <p>6. &quot;subsidiary&quot; means a subsidiary undertaking as defined in point (10) of Article 2 of Directive 2013/34/EU of the European Parliament and of the Council 32;</p>
+      <p>7. &quot;competent authority&quot; means a competent authority as defined in point (40) of Article 4(1) of Regulation (EU) No 575/2013, including the ECB in accordance with Council Regulation (EU) No 1024/2013;</p>
+      <p>8. &quot;institution&quot; means an institution as defined in point (3) of Article 4(1) of Regulation (EU) No 575/2013;</p>
+      <p>9. &quot;parent undertaking&quot; means a parent undertaking as defined in point (9) of Article 2 of Directive 2013/34/EU, including an institution, a financial holding company, a mixed financial holding company and a mixed activity holding company;</p>
+      <p>10. &quot;financial instruments&quot; means financial instruments as defined in section C of Annex I of Directive 2004/39/EC;</p>
+      <p>11. &quot;management body&quot; means a management body as defined in point (7) of Article 3(1) of Directive 2013/36/EU or the equivalent body when the entity concerned is not an institution;</p>
+      <p>12. &quot;market making&quot; means a financial institution&apos;s commitment to provide market liquidity on a regular and<nobr>on-going</nobr> basis, by posting<nobr>two-way</nobr> quotes with regard to a certain financial instrument, or as part of its usual business, by fulfilling orders initiated by clients or in response to clients requests to trade, but in both cases without being exposed to material market risk;</p>
+      <p>13. &quot;sponsor&quot; means sponsor as defined in point (14) of Article 4(1) of Regulation (EU) No 575/2013;</p>
+      <p>14. &quot;securitisation&quot; means securitisation as defined in point (61) of Article 4(1) of Regulation (EU) No 575/2013;</p>
+      <p>15. &quot;trading in derivatives&quot; means to buy or sell derivatives;</p>
+      <p>16. &quot;core credit institution&quot; means a credit institution that at the minimum takes deposits</p>
+      <p>eligible under the Deposit Guarantee Scheme in accordance with Directive 94/19/EC33;</p>
+      <p>32 Directive 2013/34/EU of the European Parliament and of the Council of 26 June 2013 on the annual financial statements, consolidated financial statements and related reports of certain types of undertakings, amending Directive 2006/43/EC of the European Parliament and of the Council and repealing Council Directives 78/660/EEC and 83/349/EEC, OJ L 182, 29.6.2013, p. 19.</p>
+      <p>33 Directive 94/19/EC of the European Parliament and of the Council of 30 May 1994 on deposit- guarantee schemes, OJ L 135, 31.05.1994 pages 0005 to 0014.</p>
+      <p>EN</p>
+      <p>24</p>
+      <p>EN</p>
+    </page>
+    <page id="25">
+      <p>17. &quot;commodity&quot; means commodity as defined in point (1) of Article 2 of Commission Regulation (EC) No 1287/2006 34;</p>
+      <p>18. &quot;group entity&quot; means a legal entity that is part of a group;</p>
+      <p>19. &quot;financial entity&quot; means an entity which falls within one of the following categories:</p>
+      <p>– financial sector entity, as defined in point (27) of Article 4(1) of Regulation (EU) No 575/2013;</p>
+      <p>–<nobr>closed-ended</nobr> and unleveraged alternative investment funds (&quot;AIF&quot;) as defined in Directive 2011/61/EU, where those AIFs are established in the Union or, if they are not established in the Union, they are marketed in the Union according</p>
+      <p>to Articles 35 or 40 of Directive 2011/61/EU of the European Parliament and of the Council35, qualifying venture capital funds as defined in Article 3(b) of</p>
+      <p>Regulation (EU) No 345/2013 of the European Parliament and of the Council36, qualifying social entrepreneurship funds as defined in Article 3(b) of Regulation (EU) No 346/2013 37 and AIF authorized as European long term</p>
+      <p>investment funds (ELTIF) in accordance with Regulation (EU) No [XXX/XXXX]38];</p>
+      <p>– UCITS as defined by Article 1(2) of Directive 2009/65/EC 39;</p>
+      <p>– securitisation special purpose entity as defined in point (66) of Article 4(1) of Regulation (EU) No 575/2013;</p>
+      <p>20. &quot;SME&quot; means an undertaking which employ fewer than 250 persons and which have an annual turnover not exceeding EUR 50 million, and/or an annual balance sheet total not exceeding EUR 43 million;</p>
+      <p>21. &quot;dealing in investments as a principal&quot; means buying, selling, subscribing for or underwriting securities or contractually based investments as a principal;</p>
+      <p>22. &quot;consolidating supervisor&quot; means a competent authority responsible for the exercise of supervision of an EU parent and its subsidiaries on a consolidated basis as defined in point (48) of Article 4(1) of Regulation (EU) No 575/2013.</p>
+      <p>34 Commission Regulation (EC) No 1287/2006 of 10 August 2006 implementing Directive 2004/39/EC of the European Parliament and of the Council as regards recordkeeping obligations for investment firms, transaction reporting, market transparency, admission of financial instruments to trading, and defined terms for the purposes of that Directive (OJ L241, 2.9.2006, p. 1).</p>
+      <p>35 Directive 2011/61/EU of the European Parliament and of the Council of 8 June 2011 on Alternative Investment Fund Managers and amending Directives 2003/41/EC and 2009/65/EC and Regulations (EC) No 1060/2009 and (EU) No 1095/2010 (OJ L 174, 1.7.2011, p.1).</p>
+      <p>36 Regulation (EU) No 345/2013 of the European Parliament and of the Council of 17 April 2013 on European venture capital funds (OJ L 115, 25.4.2013, p.1).</p>
+      <p>37 Regulation (EU) No 346/2013 of the European Parliament and of the Council of 17 April 2013 on European social entrepreneurship funds (OJ L 115, 25.4.2013, p. 18).</p>
+      <p>38 Regulation (EU) No xx/xxxx of the European Parliament and of the Council on European<nobr>Long-term</nobr> Investment funds, OJ L xx/xx.</p>
+      <p>39 Directive 2009/65/EC of the European Parliament and of the Council of 13 July 2009 on the coordination of laws, regulations and administrative provisions relating to undertakings for collective investment in transferable securities (UCITS) (OJ L302, 17.11.2009, p.32).</p>
+      <p>EN</p>
+      <p>25</p>
+      <p>EN</p>
+    </page>
+    <page id="26">
+      <p>Chapter II</p>
+      <p>Prohibited activities</p>
+      <p>Article 6</p>
+      <p>Prohibition of certain trading activities</p>
+      <p>1. Entities referred to in Article 3 shall not:</p>
+      <p>(a) engage in proprietary trading;</p>
+      <p>(b) with its own capital or borrowed money and for the sole purpose of making a profit for own account:</p>
+      <p>(i) acquire or retain units or shares of AIFs as defined by Article 4(1)(a) of Directive 2011/61/EU;</p>
+      <p>(ii) invest in derivatives, certificates, indices or any other financial instrument the performance of which is linked to shares or units of AIFs;</p>
+      <p>(iii) hold any units or shares in an entity that engages in proprietary trading or acquires units or shares in AIFs.</p>
+      <p>2. The prohibition in point (a) of paragraph 1 shall not apply to:</p>
+      <p>(a) financial instruments issued by Member States central governments or by entities listed in point (2) of Article 117 and in Article 118 of Regulation (EU) No 575/2013;</p>
+      <p>(b) a situation where an entity referred to in Article 3 meets all of the following conditions:</p>
+      <p>(i) it uses its own capital as part of its cash management processes;</p>
+      <p>(ii) it exclusively holds, purchases sells or otherwise acquires or disposes of cash or cash equivalent assets. Cash equivalent assets must be highly liquid investments held in the base currency of the own capital, be readily convertible to a known amount of cash, be subject to an insignificant risk of a change in value, have maturity which does not exceed 397 days and provide a return no greater than the rate of return of a<nobr>three-month</nobr> high quality government bond.</p>
+      <p>3. The restrictions laid down in point (b) of paragraph 1 shall not apply with regard to<nobr>closed-ended</nobr> and unleveraged AIFs as defined in Directive 2011/61/EU where those AIFs are established in the Union or, if they are not established in the Union, they are marketed in the Union according to Articles 35 or 40 of Directive 2011/61/EU , to qualifying venture capital funds as defined in Article 3(b) of Regulation (EU) No 345/2013, to qualifying social entrepreneurship funds as defined in Article 3(b) of Regulation (EU) No 346/2013, and to AIFs authorized as ELTIFs in accordance with Regulation (EU) No [XXX/XXXX].</p>
+      <p>4. The management body of each entity referred to in Article 3 shall ensure that the requirements set out in paragraph 1 are complied with.</p>
+      <p>5. The requirements in paragraphs 1 to 4 shall apply as of [ OP please introduce exact date, 18 months after publication of the Regulation].</p>
+      <p>EN</p>
+      <p>26</p>
+      <p>EN</p>
+    </page>
+    <page id="27">
+      <p>6. The Commission shall be empowered to adopt delegated acts in accordance with Article 36 to exempt from the prohibition referred to in point (a) of paragraph 1:</p>
+      <p>(a) financial instruments other than those referred to in point (a) of paragraph 2 issued by governments of third countries that apply supervisory and regulatory arrangements at least equivalent to those applied within the Union, exposures to which are assigned a 0 per cent risk weight in accordance with Article 115 of Regulation (EU) No 575/2013;</p>
+      <p>(b) financial instruments issued by Member States&apos; regional governments, exposures to which are assigned a 0 per cent risk weight in accordance with Article 115 of Regulation (EU) No 575/2013.</p>
+      <p>Article 7</p>
+      <p>Rules on remuneration</p>
+      <p>Without prejudice to the remuneration rules laid down in Directive 2013/36/EU, the remuneration policy of the entities referred to in Article 3 shall be designed and implemented in such a way that it does not, directly or indirectly, encourage or reward the carrying out by any staff member of activities prohibited in Article 6(1).</p>
+      <p>Chapter III</p>
+      <p>Separation of certain trading activities</p>
+      <p>Article 8</p>
+      <p>Scope of activities</p>
+      <p>1. For the purposes of this Chapter, trading activities shall include activities other than:</p>
+      <p>(a) taking deposits that are eligible under the Deposit Guarantee Scheme in</p>
+      <p>accordance with Directive 94/19/EC of the European Parliament and of the Council40;</p>
+      <p>(b) lending including, consumer credit, credit agreements relating to immovable property, factoring with or without recourse, financing of commercial transactions (including forfeiting);</p>
+      <p>(c) financial leasing;</p>
+      <p>(d) payment services as defined in Article 4(3) of Directive 2007/64/EC of the European Parliament and of the Council 41;</p>
+      <p>(e) issuing and administering other means of payment such as travellers&apos; cheques and bankers&apos; drafts insofar as such activity is not covered by point (d);</p>
+      <p>(f) money broking, safekeeping and administration of securities;</p>
+      <p>40 Directive 94/19/EC of the European Parliament and of the Council of 30 May 1994 on deposit- guarantee schemes (OJ L 135, 31/05/1994, pages 0005 to 0014).</p>
+      <p>41 Directive of the European Parliament and of the Council of 13 November 2007 on payment services in the internal market (OJ L 319 of 5.12.2007, pages 1 to 36).</p>
+      <p>EN</p>
+      <p>27</p>
+      <p>EN</p>
+    </page>
+    <page id="28">
+      <p>(g) credit reference services;</p>
+      <p>(h) safe custody services;</p>
+      <p>(i) issuing electronic money.</p>
+      <p>2. The requirements of this Chapter shall not apply to the buying or selling of financial instruments issued by Member States central governments or by entities listed in point (2) of Article 117 and in Article 118 of Regulation (EU) No 575/2013.</p>
+      <p>3. The Commission shall be empowered to adopt delegated acts in accordance with Article 35 to exempt financial instruments:</p>
+      <p>(a) other than those referred to in paragraph 2 issued by governments of third countries that apply supervisory and regulatory arrangements at least equivalent to those applied within the Union, exposures to which are assigned a 0 per cent risk weight in accordance with Article 115 of Regulation (EU) No 575/2013;</p>
+      <p>(b) issued by Member States&apos; regional governments, exposures to which are assigned a 0 per cent risk weight in accordance with Article 115 of Regulation (EU) No 575/2013.</p>
+      <p>Article 9</p>
+      <p>Duty to review activities</p>
+      <p>1. The competent authority shall assess trading activities including in particular: market making, investments in and acting as a sponsor for securitisation, and trading in derivatives other than those derivatives permitted under Articles 11 and 12 of the following entities:</p>
+      <p>(a) a core credit institution established in the Union, which is neither a parent undertaking nor a subsidiary, including all its branches irrespective of where they are located;</p>
+      <p>(b) an EU parent, including all branches and subsidiaries irrespective of where they are located, where one of the group entities is a core credit institution established in the Union;</p>
+      <p>(c) EU branches of credit institutions established in third countries.</p>
+      <p>2. When performing the assessment referred to in paragraph 1, the competent authority shall use the following metrics:</p>
+      <p>(a) the relative size of trading assets, as measured by trading assets divided by total assets;</p>
+      <p>(b) the leverage of trading assets as measured by trading assets divided by core Tier 1 capital;</p>
+      <p>(c) the relative importance of counterparty credit risk, as measured by the fair value of derivatives divided by total trading assets;</p>
+      <p>(d) the relative complexity of trading derivatives, as measured by level 2 and 3 trading derivatives assets divided by trading derivatives and by trading assets;</p>
+      <p>(e) the relative profitability of trading income, as measured by trading income divided by total net income;</p>
+      <p>EN</p>
+      <p>28</p>
+      <p>EN</p>
+    </page>
+    <page id="29">
+      <p>(f) the relative importance of market risk, as measured by computing the difference between trading assets and liabilities in absolute value and dividing it by the simple average between trading assets and trading liabilities;</p>
+      <p>(g) the interconnectedness, as measured by the methodology referred to in Article 131(18) of Directive 2013/36/EU;</p>
+      <p>(h) credit and liquidity risk arising from commitments and guarantees provided by the core credit institution.</p>
+      <p>3. The competent authority shall have finalised its assessment by [ OP – please introduce 18 months from the day of publication of the Regulation], and shall carry out assessments on a regular basis, at least yearly, thereafter.</p>
+      <p>4. EBA shall develop draft regulatory technical standards to specify how the metrics shall be measured and, where appropriate, specify the details of the metrics referred to in paragraph 2 and their measurement using supervisory data. The draft regulatory technical standards shall also provide the competent authority with a methodology for the consistent measurement and application of the metrics.</p>
+      <p>EBA shall submit those draft regulatory technical standards to the Commission by [OP – please introduce 1 month from the day of publication of the Regulation.]</p>
+      <p>Power is delegated to the Commission to adopt the draft regulatory technical standards referred to in the first subparagraph in accordance with Articles 10 to 14 of Regulation (EU) No 1093/2010.</p>
+      <p>Article 10</p>
+      <p>Power of competent authority to require that a core credit institution does not carry out certain activities</p>
+      <p>1. Where the competent authority concludes that, following the assessment referred to in Article 9(1), the limits and conditions linked to the metrics referred to in points (a) to (h) of Article 9(2) and specified in the delegated act referred to in paragraph 5 are met, and it therefore deems that there is a threat to the financial stability of the core credit institution or to the Union financial system as a whole, taking into account the objectives referred to in Article 1, it shall, no later than two months after the finalisation of that assessment, start the procedure leading to a decision as referred to in the second subparagraph of paragraph 3.</p>
+      <p>2. Where the limits and conditions referred to in paragraph 1 are not met, the competent authority may still start the procedure leading to a decision as referred to in the third subparagraph of paragraph 3 where it concludes, following the assessment referred to in Article 9(1), that any trading activity, with the exception of trading in derivatives other than those permitted under Article 11 and 12, carried out by the core credit institution, poses a threat to the financial stability of the core credit institution or to the Union financial system as a whole taking into account the objectives referred to in Article 1.</p>
+      <p>3. The competent authority shall notify its conclusions referred to in paragraphs 1 or 2 to the core credit institution and provide the core credit institution with the opportunity to submit written comments within two months from the date of the notification.</p>
+      <p>EN</p>
+      <p>29</p>
+      <p>EN</p>
+    </page>
+    <page id="30">
+      <p>Unless the core credit institution demonstrates, within the time limit referred to in the first subparagraph, to the satisfaction of the competent authority, that the reasons leading to the conclusions are not justified, the competent authority shall adopt a decision addressing the core credit institution and requiring it not to carry out the trading activities specified in those conclusions. The competent authority shall state the reasons for its decision and publicly disclose it.</p>
+      <p>For purpose of paragraph 1, where the competent authority decides to allow the core credit institution to carry out those trading activities it shall also state the reasons for that decision and publicly disclose it.</p>
+      <p>For purpose of paragraph 2, where the competent authority decides to allow the core credit institution to carry out trading activities the competent authority shall adopt a decision addressed to the core credit institution to that effect.</p>
+      <p>Prior to adopting any decision referred to in this paragraph the competent authority shall consult the EBA on the reasons underlying its envisaged decision and on the potential impact of such a decision on the financial stability of the Union and the functioning of the internal market. The competent authority shall also notify the EBA of its final decision.</p>
+      <p>The competent authority shall adopt its final decision within two months from having received the written comments referred to in the first subparagraph.</p>
+      <p>4. The decisions referred to in the second subparagraph of paragraph 3 will be subject to review by the competent authority every 5 years.</p>
+      <p>5. The Commission shall, [ OP insert the correct date by 6 months of publication of this Regulation] adopt delegated acts in accordance with Article 35 to:</p>
+      <p>(a) specify, with regard to the metrics:</p>
+      <p>(a) the relevant limit of each of the metrics provided in points (a) to (h) of Article 9(1), above which the risk level of the trading activity concerned is deemed individually significant;</p>
+      <p>(ii) the conditions, including how many of the metrics need to exceed the relevant limit, and in what combination, in order for the competent authority to start the procedure referred to in Article 10(1).</p>
+      <p>(iii) The specification of the conditions in point (ii) shall include an indication of the level of the aggregate significant risk of the trading activity concerned that results from several metrics having exceeded the relevant limits referred to in point (i);</p>
+      <p>(b) specify which type of securitisation is not considered to pose a threat to the financial stability of the core credit institution or to the Union financial system as a whole with regard to each of the following aspects:</p>
+      <p>(i) the structural features, such as the embedded maturity transformation and simplicity of the structure;</p>
+      <p>(ii) the quality of the underlying assets and related collateral characteristics;</p>
+      <p>(iii) the listing and transparency features of the securitisation and its underlying assets;</p>
+      <p>(iv) the robustness and quality of the underwriting processes.</p>
+      <p>EN</p>
+      <p>30</p>
+      <p>EN</p>
+    </page>
+    <page id="31">
+      <p>Article 11</p>
+      <p>Prudent management of own risk</p>
+      <p>1. A core credit institution that has been subject to a decision referred to in Article 10(3) may carry out trading activities to the extent that the purpose is limited to only prudently managing its capital, liquidity and funding.</p>
+      <p>As part of the prudent management of its capital, liquidity and funding, a core credit institution may only use interest rate derivatives, foreign exchange derivatives and credit derivatives eligible for central counterparty clearing to hedge its overall balance sheet risk. The core credit institution shall demonstrate to the competent supervisor that the hedging activity is designed to reduce, and demonstrably reduces or significantly mitigates, specific, identifiable risks of individual or aggregated positions of the core credit institution.</p>
+      <p>2. Without prejudice to the remuneration rules laid down in Directive 2013/36/EU, the remuneration policy applicable to staff of the core credit institution engaged in hedging activities shall:</p>
+      <p>(a) aim at preventing any residual or hidden proprietary trading activities, whether disguised as risk management or otherwise;</p>
+      <p>(b) reflect the legitimate hedging objectives of the core credit institution as a whole and ensure that remuneration awarded is not directly determined by reference to the profits generated by such activities but takes account of the overall effectiveness of the activities in reducing or mitigating risk.</p>
+      <p>The management body shall ensure that the remuneration policy of the core credit institution is in line with the provisions set out in the first subparagraph, acting on the advice of the risk committee, where such a committee is established in accordance with Article 76(3) of Directive 2013/36/EU.</p>
+      <p>3. The Commission shall be empowered to adopt delegated acts in accordance with Article 35 of this Regulation to supplement the financial instruments referred to in paragraph 1 by adding other financial instruments including other types of</p>
+      <p>derivatives, in particular those subject to the obligations set out in Article 11 of Regulation (EU) No 648/2012 of the European Parliament and of the Council42, in order to take into account financial instruments, which have the same effect on financial stability as those mentioned in paragraph 1 for the purpose of prudent management of capital, liquidity and funding.</p>
+      <p>Article 12</p>
+      <p>Provision of risk management services to customers</p>
+      <p>1. A core credit institution that has been subject to a decision referred to in Article 10(3) may sell interest rate derivatives, foreign exchange derivatives, credit derivatives, emission allowances derivatives and commodity derivatives eligible for central counterparty clearing and emission allowances to its<nobr>non-financial</nobr> clients, to financial entities referred to in the second and third indents of point (19) of Article 5,</p>
+      <p>42 Regulation (EU) No 648/2012 of the European Parliament and of the Council of 4 July 2012 on OTC derivatives, central counterparties and trade repositories.</p>
+      <p>EN</p>
+      <p>31</p>
+      <p>EN</p>
+    </page>
+    <page id="32">
+      <p>to insurance undertakings and to institutions providing for occupational retirement benefits when the following conditions have been satisfied:</p>
+      <p>(a) the sole purpose of the sale is to hedge interest rate risk, foreign exchange risk, credit risk, commodity risk or emissions allowance risk;</p>
+      <p>(b) the core credit institution&apos;s own funds requirements for position risk arising from the derivatives and emission allowances does not exceed a proportion of its total risk capital requirement to be specified in a Commission delegated act in accordance with paragraph 2.</p>
+      <p>When the requirement in point (b) is not fulfilled, the derivatives and emission allowances may neither be sold by the core credit institution nor be recorded on its balance sheet.</p>
+      <p>2. The Commission shall be empowered to adopt delegated acts in accordance with Article 35 to:</p>
+      <p>(a) permit other financial instruments than those mentioned in paragraph 1, in particular those subject to the obligations set out in Article 11 of Regulation (EU) No 648/2012, for purpose of hedging risk to be sold to the type of clients listed in paragraph 1 of this Article;</p>
+      <p>(b) specify the proportion of the core credit institution&apos;s own funds requirements above which derivatives and emission allowances referred to in paragraph 1 of this Article may not be sold nor recorded on the balance sheet of the core credit institution.</p>
+      <p>Article 13</p>
+      <p>Rules on separate group entities</p>
+      <p>1. When a competent authority has made a decision in accordance with Article 10(3) that a core credit institution cannot carry out certain trading activities and if the core credit institution belongs to a group, then the trading activities to be separated may be carried out only by a group entity that is legally, economically and operationally separate (&quot;trading entity&quot;) from the core credit institution.</p>
+      <p>2. When an entity referred to in Article 9(1) has decided on its own initiative to separate trading activities covered by Article 9 from the core credit institution and received the approval of its separation plan in accordance with the procedure set out in Article 18, then the requirements set out in paragraphs 3 to 13 of this Article and Articles 14 to 17 and 20 shall apply to the separated entities.</p>
+      <p>3. The EU parent shall ensure that a group containing core credit institutions and trading entities shall be structured so that on a<nobr>sub-consolidated</nobr> basis two distinct<nobr>sub-groups</nobr> are created, only one of which contains core credit institutions.</p>
+      <p>4. The EU parent of the core credit institution shall ensure to the extent necessary that the core credit institution can carry on its activities in the event of the insolvency of the trading entity.</p>
+      <p>5. The core credit institution shall not hold capital instruments or voting rights in a trading entity.</p>
+      <p>Notwithstanding the first subparagraph, the competent authority may decide to allow core credit institutions that meet the requirements set out in Article 49(3)(a) or (b) of</p>
+      <p>EN</p>
+      <p>32</p>
+      <p>EN</p>
+    </page>
+    <page id="33">
+      <p>Regulation (EU) No 575/2013 to hold capital instruments or voting rights in a trading entity where the competent authority considers that holding such capital instruments or voting rights is indispensable for the functioning of the group and that the core credit institution has taken sufficient measures in order to appropriately mitigate the relevant risks.</p>
+      <p>A core credit institution, which is neither a central nor a regional credit institution, shall not, in any case, be allowed to directly hold capital instruments or voting rights in any trading entity.</p>
+      <p>Prior to adopting a decision in accordance with this paragraph, the competent authority shall consult EBA.</p>
+      <p>The competent authority shall notify its decision to EBA.EBA shall publish a list of those institutions to which this paragraph has been applied.</p>
+      <p>6. The core credit institution and the trading entity shall issue their own debt on an individual or<nobr>sub-consolidated</nobr> basis provided that this is not inconsistent with the resolution plan agreed by the relevant resolution authorities in accordance with Directive [BRRD].</p>
+      <p>7. All contracts and other transactions entered into between the core credit institution and the trading entity shall be as favourable to the core credit institution as are comparable contracts and transactions with or involving entities not belonging to the same<nobr>sub-group.</nobr>
+      </p>
+      <p>8. A majority of the members of the management body of the core credit institution and of the trading entity respectively shall consist of persons who are not members of the management body of the other entity. No member of the management body of either entity shall perform an executive function in both entities with the exception for the risk management officer of the parent undertaking.</p>
+      <p>9. The management body of the core credit institution, of the trading entity and of their parents shall have a duty to uphold the objectives of the separation.</p>
+      <p>10. In accordance with the applicable national law, the name or the designation of the trading entity and of the core credit institution shall be such that the public can easily identify which entity is a trading entity and which entity is a core credit institution.</p>
+      <p>11. The structurally separated institutions shall comply with the obligations laid down in Parts Two, Three and Four and Parts Six, Seven and Eight of Regulation (EU) No 575/2013 and in Title VII of Directive 2013/36/EU on a<nobr>sub-consolidated</nobr> basis in conformity with paragraph 3 of this Article.</p>
+      <p>12. By way of derogation from Article 6(1) and Article 7 of Regulation (EU) No 575/2013, the obligations laid down in Parts Two to Four and Eight of that Regulation shall apply on<nobr>sub-consolidated</nobr> basis in conformity with paragraph 3 of this Article.</p>
+      <p>13. By way of derogation from Article 6(4) and Article 8 of Regulation (EU) No 575/2013, the requirements of Part Six of that Regulation shall apply on sub- consolidated basis in conformity with paragraph 3 of this Article.</p>
+      <p>EN</p>
+      <p>33</p>
+      <p>EN</p>
+    </page>
+    <page id="34">
+      <p>Article 14</p>
+      <p>
+        <nobr>Intra-group</nobr> large exposure limits</p>
+      <p>1. For the purpose of the calculation of the intragroup large exposure limit under paragraph 2, all entities belonging to the same subgroup pursuant to Article 13(3) are considered as one client or one group of connected clients within the meaning of point (39) of Article 4(1) of Regulation (EU) No 575/2013.</p>
+      <p>2. When measures have been imposed in accordance with this Chapter the core credit institution shall not incur an<nobr>intra-group</nobr> exposure that exceeds 25 per cent of the core credit institution&apos;s eligible capital to an entity that does not belong to the same sub- group as the core credit institution. The<nobr>intra-group</nobr> exposure limit shall apply on a<nobr>sub-consolidated</nobr> basis, and after taking into account the effect of the credit risk mitigation and exemptions in accordance with Articles 399 to 403 of Regulation (EU) No 575/2013 and Article 16 of this Regulation.</p>
+      <p>Article 15</p>
+      <p>
+        <nobr>Extra-group</nobr> large exposure limits</p>
+      <p>1. In addition to the provisions of paragraph 1 of Article 395 of Regulation (EU) No 575/2013 when measures have been imposed in accordance with this Chapter of this Regulation the core credit institution shall not incur the following exposures:</p>
+      <p>(a) a large exposure that exceeds 25 per cent of the core credit institution&apos;s eligible capital to a financial entity. That exposure limit shall apply on an individual and on a<nobr>sub-consolidated</nobr> basis, and after taking into account the effect of the credit risk mitigation and exemptions in accordance with Articles 399 to 403 of Regulation (EU) No 575/2013 and Article 16 of this Regulation;</p>
+      <p>(b) large exposures that in total exceed 200 per cent of the core credit institution&apos;s eligible capital to financial entities. That exposure limit shall apply on an individual and on a<nobr>sub-consolidated</nobr> basis, and after taking into account the effect of the credit risk mitigation and exemptions in accordance with Articles 399 to 403 of Regulation (EU) No 575/2013 and Article 16 of this Regulation.</p>
+      <p>2. The Commission shall be empowered to adopt delegated acts in accordance with Article 35 to adjust the level of the<nobr>extra-group</nobr> aggregate large exposure limit as set out in point (b) of paragraph 1, in line with the extent to which the credit risk mitigation has been recognised.</p>
+      <p>Article 16</p>
+      <p>Credit risk mitigation techniques</p>
+      <p>In addition to the provisions of Articles 399 to 403 of Regulation (EU) No 575/2013, when measures have been imposed in accordance with this Chapter of this Regulation, restrictions with respect to the recognition of credit mitigation techniques shall apply to the computation of exposure values for the purposes of compliance with the large exposure limits as referred to in Articles 14 and 15 of this Regulation.</p>
+      <p>EN</p>
+      <p>34</p>
+      <p>EN</p>
+    </page>
+    <page id="35">
+      <p>The Commission shall be empowered to adopt delegated acts in accordance with Article 35 to specify the extent to which credit risk mitigation techniques including types of and limits to eligible credit protection shall be recognised for the purposes of the first<nobr>sub-paragraph</nobr> with the purpose of ensuring that credit risk mitigation techniques do not fail when risks materialise so that there can be effective recovery of credit protection.</p>
+      <p>Article 17</p>
+      <p>Derogation from transitional provisions for large exposures</p>
+      <p>As an exception to paragraph 3 of Article 493 of Regulation (EU) No 575/2013, the derogations provided for in that paragraph shall not apply to exposures incurred by core credit institutions that have been subject to structural measures in accordance with this Regulation.</p>
+      <p>Article 18</p>
+      <p>Separation plan</p>
+      <p>1. When a competent authority has made a decision in accordance with Article 10(3) that a core credit institution cannot carry out certain trading activities, the core credit institution or, where appropriate, its EU parent shall submit a separation plan to the competent authority within 6 months from the date of the decision referred to in the second<nobr>sub-paragraph</nobr> of Article 10(3).</p>
+      <p>Similarly, when an entity referred to in Article 9(1) has decided to separate trading activities covered by the duty to review in Article 9 from the core credit institution, it shall submit a plan detailing its separation at the start of the assessment period referred to Article 9. The plan shall contain at least the information required in points</p>
+      <p>(a) and (b) of paragraph 2 of this Article.</p>
+      <p>2. The separation plan shall explain in detail how the separation will be carried out. That plan shall contain at least the following:</p>
+      <p>(a) specification of assets and activities that will be separated from the core credit institution;</p>
+      <p>(b) details on how the rules referred to in Article 13 are applied;</p>
+      <p>(c) a timeline for the separation.</p>
+      <p>3. The competent authority shall assess the plans referred to in paragraph 1 and 2 and, within six months of its submission, adopt a decision approving the plan or require changes to the separation plan.</p>
+      <p>4. Where the competent authority requires changes to the separation plan the core credit institution or, where appropriate its EU parent, shall resubmit the separation plan with the required changes within three months from the request of the competent authority.</p>
+      <p>5. The competent authority shall adopt a decision approving or rejecting the plan within one month of resubmission. Where the competent authority rejects the plan it shall, within one month of the rejection, adopt a decision setting out a plan for separation introducing any necessary adjustments.</p>
+      <p>EN</p>
+      <p>35</p>
+      <p>EN</p>
+    </page>
+    <page id="36">
+      <p>6. Where the core credit institution or, where appropriate, its EU parent does not submit a separation plan as required in paragraph 1, the competent authority shall, no later than 3 months after the deadline referred to in paragraph 1 has lapsed, adopt a decision setting out a plan for separation.</p>
+      <p>7. Where the core credit institution or, where appropriate, its EU parents does not resubmit the separation plan with the changes required by the competent authority, the competent authority shall adopt a decision setting out a plan for separation no later than one month after the deadline in the first subparagraph of paragraph 4 has lapsed.</p>
+      <p>8. The core credit institution or, where appropriate, its EU parent shall demonstrate to the competent authority that it has implemented the approved plan.</p>
+      <p>9. The management body of a credit institution or an EU parent shall ensure that the separation plan has been implemented in accordance with the approval of the competent authority.</p>
+      <p>Article 19</p>
+      <p>Cooperation between competent authorities and relevant resolution authorities</p>
+      <p>1. Before taking the decision referred to in Article 10(3), the competent authority shall notify the relevant resolution authority designated in accordance with Article 3 of Directive [BRRD] thereof.</p>
+      <p>2. When carrying out the assessment in accordance with Article 9 and when requiring the core credit institution not to carry out certain activities in accordance with Article 10, the competent authority shall take into account any ongoing or<nobr>pre-existing</nobr> resolvability assessments carried out by any relevant resolution authority pursuant to Article 13 and 13(a) of Directive [BRRD].</p>
+      <p>3. The competent authority shall cooperate with the relevant resolution authority and exchange relevant information that is deemed necessary in carrying out its duties.</p>
+      <p>4. The competent authority shall ensure that measures imposed pursuant to this Chapter, are consistent with the measures imposed pursuant to Article 13(b) of Regulation (EU) No 1024/2013, Article 8(9) of Regulation (EU) No [SRM], Article 13 and 13(a), Articles 14 and 15 of Directive [BRRD] and Article 104 of Directive 2013/36/EU.</p>
+      <p>Article 20</p>
+      <p>Prohibited activities for the trading entity</p>
+      <p>The trading entity shall not:</p>
+      <p>(a) take deposits that are eligible under the Deposit Guarantee Scheme in accordance with Directive 94/19/EC except where the said deposit relates to the exchange of collateral relating to trading activities;</p>
+      <p>(b) provide payment services as defined in Article 4(3) of Directive 2007/64/EC associated with the activities referred to in point (a) except where the said payment services are ancillary and strictly necessary for the exchange of collateral relating to trading activities.</p>
+      <p>EN</p>
+      <p>36</p>
+      <p>EN</p>
+    </page>
+    <page id="37">
+      <p>Article 21</p>
+      <p>Derogation from the requirements of Chapter III</p>
+      <p>1. At the request of a Member State, the Commission may grant a derogation from the requirements of this Chapter to a credit institution taking deposits from individuals and SMEs that are subject to national primary legislation adopted before 29 January 2014 when the national legislation complies with the following requirements:</p>
+      <p>(a) it aims at preventing financial stress or failure and systemic risk referred to in Article 1;</p>
+      <p>(b) it prevents credit institutions taking eligible deposits from individuals and SMEs from engaging in the regulated activity of dealing in investments as principal and holding trading assets; however, the national legislation may provide for limited exceptions to allow the credit institution taking deposits from individuals and SMEs to undertake<nobr>risk-mitigating</nobr> activities for the purpose of prudently managing its capital, liquidity and funding and to provide limited risk management services to customers;</p>
+      <p>(c) if the credit institution taking eligible deposits from individuals and SMEs belongs to a group, it ensures that the credit institution is legally separated from group entities that engage in the regulated activity of dealing in investments as a principal or hold trading assets, and the national legislation specifies the following:</p>
+      <p>(i) the credit institution taking eligible deposits from individuals and SMEs is able to make decisions independently of other group entities;</p>
+      <p>(ii) the credit institution taking eligible deposits from individuals and SMEs has a management body that is independent of other group entities and independent of the credit institution itself;</p>
+      <p>(iii) the credit institution taking eligible deposits from individuals and SMEs is subject to capital and liquidity requirements in its own right;</p>
+      <p>(iv) the credit institution taking eligible deposits from individuals and SMEs may not enter into contracts or transactions with other group entities other than on terms similar to those referred to in Article 13(7).</p>
+      <p>2. A Member State wishing to obtain a derogation for a credit institution subject to the national legislation in question, shall send a request for derogation, accompanied by a positive opinion issued by the competent authority supervising the credit institution that is subject to the request for derogation, to the Commission. That request shall provide all the necessary information for the appraisal of the national legislation and specify the credit institutions the derogation is applied for. Where the Commission considers that it does not have all the necessary information, it shall contact the Member State concerned within two months of receipt of the request and specify what additional information is required.</p>
+      <p>Once the Commission has all the information it considers necessary for appraisal of the request for derogation, it shall within one month notify the requesting Member State that it is satisfied with the information.</p>
+      <p>Within five months of issuing the notification referred to in the second subparagraph, the Commission shall, after having consulted the EBA on the reasons underlying its</p>
+      <p>EN</p>
+      <p>37</p>
+      <p>EN</p>
+    </page>
+    <page id="38">
+      <p>envisaged decision and on the potential impact of such a decision on the financial stability of the Union and the functioning of the internal market, adopt an implementing decision declaring the national legislation not incompatible with this Chapter and granting the derogation to the credit institutions specified in the request referred to in paragraph 1. Where the Commission intends to declare the national legislation incompatible and to not grant the derogation it shall set out its objections in detail and provide the requesting Member State with the opportunity to submit written comments within one month from the date of notification of the Commission objections. The Commission shall within three months from the end of the time limit for submission adopt an implementing decision granting or rejecting the derogation.</p>
+      <p>Where the national legislation is amended, the Member State shall notify the amendments to the Commission. The Commission may review the implementing decision referred to in the third subparagraph.</p>
+      <p>Where the national legislation not declared incompatible with this Chapter no longer applies to a credit institution that has been granted derogation from the requirements of this Chapter, that derogation shall be withdrawn with regard to that credit institution.</p>
+      <p>The Commission shall notify its decisions to the EBA. The EBA shall publish a list of the credit institutions that have been granted a derogation in accordance with this Article. The list shall be continuously kept<nobr>up-to-date.</nobr>
+      </p>
+      <p>Chapter IV</p>
+      <p>Entities subject to the requirements of Chapters II and III</p>
+      <p>Article 22</p>
+      <p>Rules governing the calculation of thresholds</p>
+      <p>1. For the purpose of Article 3(b)(ii), the calculation of the thresholds shall be based on the consolidated accounts of the EU parent.</p>
+      <p>2. For the purpose of Article 3(b)(iii), the calculation of the thresholds shall be based on the activities carried out in the Union.</p>
+      <p>3. Assets and liabilities of insurance and reinsurance undertakings and other non- financial undertakings shall not be included in the calculation.</p>
+      <p>4. By [ OP insert the correct date by 12 months of publication of this Regulation], the competent authority shall identify credit institutions and groups that are subject to this Regulation in accordance with Article 3 and notify them immediately to the EBA.</p>
+      <p>After having been notified by the competent authority, the EBA shall immediately publish the list referred to in the first subparagraph. The list shall be continuously kept<nobr>up-to-date.</nobr>
+      </p>
+      <p>EN</p>
+      <p>38</p>
+      <p>EN</p>
+    </page>
+    <page id="39">
+      <p>Article 23</p>
+      <p>Calculation of trading activities</p>
+      <p>1. For the purposes of Article 3, trading activities shall be calculated as follows in accordance with the applicable accounting regime.</p>
+      <p>Trading Activities = (TSA + TSL + DA + DL)/2, where:</p>
+      <p>(a) Trading Securities Assets (TSA) are assets that are part of a portfolio managed as a whole and for which there is evidence of a recent actual pattern of short- term profit taking, excluding derivative assets;</p>
+      <p>(b) Trading Securities Liabilities (TSL) are liabilities taken with the intent of repurchasing in the near term, part of a portfolio managed as a whole, and for which there is evidence of a recent actual pattern of<nobr>short-term</nobr>
+        <nobr>profit-taking,</nobr> excluding derivative liabilities;</p>
+      <p>(c) Derivative Assets (DA) are derivatives with positive replacement values not identified as hedging or embedded derivatives;</p>
+      <p>(d) Derivative Liabilities (DL) are derivatives with negative replacement values not identified as hedging instruments.</p>
+      <p>2. Assets and liabilities of insurance and reinsurance undertakings and other non- financial undertakings shall not be included in the calculation of trading activities.</p>
+      <p>3. EBA shall draft implementing technical standards to lay down the methodology for calculating the trading activities referred to in paragraph 1 taking into account the differences in the applicable accounting regimes.</p>
+      <p>EBA shall submit those draft implementing technical standards to the Commission by [OP please introduce exact date 1 month from the day of publication of the Regulation.]</p>
+      <p>Power is conferred on the Commission to adopt the implementing technical standards referred to in the first subparagraph in accordance with Article 15 of Regulation (EU) No 1093/2010.</p>
+      <p>4. The Commission shall be empowered to amend, by means of delegated acts in accordance with Article 35, the components of trading activities referred to in points</p>
+      <p>(a) to (d) of paragraph 1 of this Article to take into account changes in the applicable accounting regimes.</p>
+      <p>Article 24</p>
+      <p>Submission of information on the trading activities to the competent authority</p>
+      <p>1. Entities referred to in Article 3 shall submit, for the first time [ PO to insert a date 9 months after the date of publication of this Regulation] and on a yearly basis thereafter, the relevant information concerning the total amount of their trading activities and the components thereof, as provided for in Article 23(1), to the competent authority.</p>
+      <p>EN</p>
+      <p>39</p>
+      <p>EN</p>
+    </page>
+    <page id="40">
+      <p>2. EBA shall develop draft implementing technical standards to determine the uniform template for the reporting referred to in paragraph 1 and the instructions on how to use that template.</p>
+      <p>EBA shall submit those draft implementing technical standards to the Commission by [OP please introduce exact date, 1 month from the day of publication of the Regulation].</p>
+      <p>Power is conferred on the Commission to adopt the implementing technical standards referred to in the first subparagraph in accordance with Article 15 of Regulation (EU) No 1093/2010.</p>
+      <p>Chapter V</p>
+      <p>Compliance</p>
+      <p>SECTION ONE</p>
+      <p>Entities</p>
+      <p>Article 25</p>
+      <p>Duties of entities subject to this Regulation</p>
+      <p>1. The entities subject to this Regulation shall have appropriate measures in place to enable the competent authorities to obtain information needed to assess the compliance with this Regulation.</p>
+      <p>2. The entities subject to this Regulation shall provide the competent authority with all the information necessary, including the information necessary for the<nobr>metrics-based</nobr> assessment referred to in Article 9(2), for the assessment of their compliance with this Regulation. Those entities shall also ensure that their internal control mechanisms and administrative and accounting procedures permit the monitoring of their compliance with this Regulation at all times.</p>
+      <p>3. The entities subject to this Regulation shall register all their transactions and document systems and processes used for purposes of this Regulation in such a manner that the competent authority is able to monitor compliance with this Regulation at all times.</p>
+      <p>EN</p>
+      <p>40</p>
+      <p>EN</p>
+    </page>
+    <page id="41">
+      <p>SECTION TWO</p>
+      <p>Competent authorities</p>
+      <p>Article 26</p>
+      <p>Powers and duties of competent authorities</p>
+      <p>1. In carrying out the duties assigned to them according to this Regulation, the competent authorities shall exercise the powers assigned to them in accordance with relevant Union law.</p>
+      <p>2. The competent authority shall monitor the activities of the entities subject to this Regulation, and assess and ensure compliance with this Regulation on a continuous basis.</p>
+      <p>3. Competent authorities shall have the power to request an EU parent, that is not a regulated entity but that has at least one subsidiary which is a regulated entity, to ensure that its regulated subsidiaries comply with this Regulation.</p>
+      <p>4. For the purposes of this Regulation, the consolidating supervisor shall be deemed to be the competent authority with regard to all group entities that belong to the same group as the EU parent and that are subject to this Regulation.</p>
+      <p>When the subsidiary of an EU parent is established in another Member State and supervised by a different supervisor than the EU parent and when the subsidiary is significant in accordance with Article 6(4) of Regulation (EU) No 1024/2013, the consolidating supervisor shall consult with the competent authority of the home Member State of the significant subsidiary with regard to any decision to be made by the consolidating supervisor pursuant to this Regulation.</p>
+      <p>Chapter VI</p>
+      <p>Relationships with third countries</p>
+      <p>Article 27</p>
+      <p>Equivalence of the legal framework of a third country</p>
+      <p>1. At the request of a competent authority of a Member State or a third country, or on its own initiative, the Commission may adopt implementing acts determining that:</p>
+      <p>(a) the legal, supervisory and enforcement arrangements of a third country ensures that credit institutions and parent companies in that third country comply with binding requirements which are equivalent to the requirements laid down in Articles 6, 10 to 16 and 20;</p>
+      <p>EN</p>
+      <p>41</p>
+      <p>EN</p>
+    </page>
+    <page id="42">
+      <p>(b) the legal framework of that third country provides for an effective equivalent system for the recognition of structural measures provided under<nobr>third-country</nobr> national law regimes.</p>
+      <p>2. The Commission may amend or withdraw its decision if the conditions on the basis of which the decision has been taken are no longer fulfilled.</p>
+      <p>3. The Commission shall be empowered to adopt delegated acts in accordance with Article 35 of this Regulation to set the criteria for assessing whether or not a third country legal and supervisory framework is equivalent to this Regulation.</p>
+      <p>The Commission shall adopt the delegated act [OP please introduce the exact date within 24 months from the entry into force of this Regulation].</p>
+      <p>4. The EBA shall establish cooperation arrangements with the relevant competent authorities of third countries whose legal and supervisory frameworks have been considered equivalent to this Regulation in accordance with paragraphs 1 to 3. Such arrangements shall specify at least a minimum information sharing regime between relevant competent authorities of both jurisdictions.</p>
+      <p>Chapter VII</p>
+      <p>Administrative sanctions and measures</p>
+      <p>Article 28</p>
+      <p>Administrative sanctions and measures</p>
+      <p>1. Without prejudice to the supervisory powers of competent authorities under Article 26 and the right of Member States to provide for and impose criminal sanctions, Member States shall, in conformity with national law, provide for competent authorities to have the power to impose administrative sanctions and other administrative measures in relation to at least the following breaches:</p>
+      <p>(a) breach of the prohibition laid down in Article 6;</p>
+      <p>(b) any manipulation of information to be submitted in accordance with Article 24(1).</p>
+      <p>Member States shall provide for competent authorities the power to impose administrative sanctions and measures on a credit institution and on any group entity, including a mixed activity holding company, an insurance undertaking or reinsurance undertaking.</p>
+      <p>Where the provisions referred to in the first subparagraph apply to legal persons, in case of a breach Member States shall provide for competent authorities the power to apply sanctions, subject to the conditions laid down in national law, to members of the management body and to other individuals who under national law are responsible for the breach.</p>
+      <p>2. The administrative sanctions and measures taken for the purpose of paragraph 1 shall be effective, proportionate and dissuasive.</p>
+      <p>EN</p>
+      <p>42</p>
+      <p>EN</p>
+    </page>
+    <page id="43">
+      <p>3. Where Member States have chosen to lay down criminal sanctions for the breaches of the provisions referred to in paragraph 1, they shall ensure that appropriate measures are in place so that a competent authority has all the necessary powers to liaise with judicial authorities within their jurisdiction to receive specific information related to criminal investigations or proceedings commenced for possible violations of Article 6 and for manipulating information to be submitted in accordance with 24(1), and to provide the same to other competent authorities and EBA to fulfil their obligation to cooperate with each other and, where relevant with EBA for the purposes of paragraph 1.</p>
+      <p>Competent authorities may also cooperate with competent authorities of other Member States with respect to facilitating the exercise of their sanctioning powers.</p>
+      <p>4. Member States shall, in conformity with national law, confer on competent authorities the power to apply at least the following administrative sanctions and other measures in the event of the breaches referred to in paragraph 1:</p>
+      <p>(a) an order requiring the person responsible for the breach to cease the unlawful conduct and to desist from a repetition of that conduct;</p>
+      <p>(b) the disgorgement of the profits gained or losses avoided due to the breach in so far as they can be determined;</p>
+      <p>(c) a public warning which indicates the person responsible and the nature of the breach;</p>
+      <p>(d) withdrawal or suspension of the authorisation;</p>
+      <p>(e) a temporary ban of any natural person, who is deemed responsible, from exercising management functions of an entity referred to in Article 3;</p>
+      <p>(f) in the event of repeated breaches, permanent ban of any natural person who is deemed responsible, from exercising management functions in an entity referred to in Article 3;</p>
+      <p>(g) maximum administrative pecuniary sanctions of at least three times the amount of the profits gained or losses avoided because of the breach where those can be determined;</p>
+      <p>(h) in respect of a natural person, a maximum administrative pecuniary sanction of at least EUR 5 000 000 or in the Member States whose currency is not the euro, the corresponding value in the national currency on the date of entry to force of this Regulation;</p>
+      <p>(i) in respect of legal persons, maximum administrative pecuniary sanctions of at least 10 per cent of the total annual turnover of the legal person according to the last available accounts approved by the management body; where the legal person is a parent undertaking or a subsidiary of the parent undertaking which has to prepare consolidated financial accounts according to Directive 2013/34/EU, the relevant total annual turnover shall be the total annual turnover or the corresponding type of income according to the relevant accounting regime according to the last available consolidated accounts approved by the management body of the ultimate parent undertaking.</p>
+      <p>Member States may provide that competent authorities may have powers in addition to those referred to in this paragraph and may provide for a wider scope of sanctions and higher levels of sanctions than those established in this paragraph.</p>
+      <p>EN</p>
+      <p>43</p>
+      <p>EN</p>
+    </page>
+    <page id="44">
+      <p>5. By [ OP please introduce the exact date 12 months after entry into force of this Regulation] Member States shall notify the rules regarding paragraph 1 to the Commission and the EBA. They shall notify the Commission and the EBA without delay of any subsequent amendment thereto.</p>
+      <p>Article 29</p>
+      <p>Exercise of supervisory powers and sanctions</p>
+      <p>1. Member States shall ensure that when determining the type and level of administrative sanctions and other measures, competent authorities shall take into account all relevant circumstances, including, where appropriate:</p>
+      <p>(a) the gravity and duration of the breach;</p>
+      <p>(b) the degree of responsibility of the person responsible for the breach;</p>
+      <p>(c) the financial strength of the person responsible for the breach, by considering factors such as the total turnover in the case of a legal person, or the annual income in the case of a natural person;</p>
+      <p>(d) the importance of the profits gained or losses avoided by the person responsible for the breach, insofar as they can be determined;</p>
+      <p>(e) the level of cooperation of the person responsible for the breach with the competent authority, without prejudice to the need to ensure disgorgement of profits gained or losses avoided by that person;</p>
+      <p>(f) previous breaches by the person responsible for the breach;</p>
+      <p>(g) measures taken by the person responsible for the breach to prevent its repetition;</p>
+      <p>(h) any potential systemic consequences of the breach.</p>
+      <p>Article 30</p>
+      <p>Reporting of breaches</p>
+      <p>1. A competent authority shall establish effective mechanisms to enable reporting of actual or potential breaches referred to in Article 28(1).</p>
+      <p>2. The mechanisms referred to in paragraph 1 shall include at least:</p>
+      <p>(a) specific procedures for the receipt of reports of breaches and their<nobr>follow-up,</nobr> including the establishment of secure communication channels for such reports;</p>
+      <p>(b) appropriate protection for persons working under a contract of employment, who report breaches or who are accused of breaches, against retaliation, discrimination or other types of unfair treatment;</p>
+      <p>(c) protection of personal data both of the person who reports the breach and the natural person who allegedly committed the breach, including protection in relation to preserving the confidentiality of their identity, at all stages of the procedure without prejudice to disclosure of information being required by national law in the context of investigations or subsequent judicial proceedings.</p>
+      <p>EN</p>
+      <p>44</p>
+      <p>EN</p>
+    </page>
+    <page id="45">
+      <p>3. Member States shall require employers to have in place appropriate internal procedures for their employees to report breaches referred to in Article 28(1).</p>
+      <p>4. Member States may provide for financial incentives to persons who offer relevant information about potential breaches of this Regulation to be granted in accordance with national law where such persons do not have other<nobr>pre-existing</nobr> legal or contractual duties to report such information, and provided that the information is new, and it results in the imposition of an administrative sanction or other measure taken for a breach of this Regulation or a criminal sanction.</p>
+      <p>Article 31</p>
+      <p>Exchange of information with EBA</p>
+      <p>1. Competent authorities shall provide the EBA annually with aggregated information regarding all administrative measures and sanctions imposed by them in accordance with Article 28. EBA shall publish that information in an annual report.</p>
+      <p>2. Where Member States have chosen to lay down criminal sanctions for the breaches of the provisions referred to in Article 28(1), their competent authorities shall provide EBA annually with anonymised and aggregated data regarding all criminal investigations undertaken and criminal sanctions imposed. EBA shall publish that information in an annual report.</p>
+      <p>3. Where the competent authority has disclosed administrative sanctions, fines and other measures, as well as criminal sanctions to the public, it shall simultaneously notify EBA thereof.</p>
+      <p>4. EBA shall develop draft implementing technical standards to determine the procedures and forms for exchange of information as referred to in paragraphs 1 and 2.</p>
+      <p>EBA shall submit those draft implementing technical standards to the Commission [OP please introduce exact date by 12 months after the publication of the Regulation].</p>
+      <p>Power is conferred to the Commission to adopt the implementing technical standards referred to in the first subparagraph in accordance with Article 15 of Regulation (EU) No 1095/2010.</p>
+      <p>Article 32</p>
+      <p>Publication of decisions</p>
+      <p>1. Subject to the third subparagraph, a competent authority shall publish any decision imposing an administrative sanction or other measure in relation to a breach of Article 6 and for manipulating financial reporting referred to in Article 28(1) on its website immediately after the person subject to that decision has been informed of that decision.</p>
+      <p>The information published pursuant to the first subparagraphs shall specify at least the type and nature of the breach and the identity of the person subject to the decision.</p>
+      <p>EN</p>
+      <p>45</p>
+      <p>EN</p>
+    </page>
+    <page id="46">
+      <p>The first and second subparagraphs do not apply to decisions imposing measures that are of an investigatory nature.</p>
+      <p>Where a competent authority considers, following a<nobr>case-by-case</nobr> assessment, that the publication of the identity of the legal person subject to the decision, or the personal data of a natural person, would be disproportionate, or where such publication would jeopardise an ongoing investigation or the stability of the financial markets or an<nobr>on-going</nobr> investigation, it shall do one of the following:</p>
+      <p>(a) defer publication of the decision until the reasons for that deferral cease to exist;</p>
+      <p>(b) publish the decision on an anonymous basis in a manner which is in accordance with national law where such publication ensures the effective protection of the personal data concerned and, where appropriate, postpone publication of the relevant data for a reasonable period of time where it is foreseeable that the reasons for anonymous publication will cease to exist during that period;</p>
+      <p>(c) not publish the decision in the event that the competent authority is of the opinion that publication in accordance with point (a) or (b) will be insufficient to ensure:</p>
+      <p>(i) that the stability of financial markets is not jeopardised;</p>
+      <p>(ii) the proportionality of the publication of such decisions with regard to measures which are deemed to be of a minor nature.</p>
+      <p>2. Where the decision is subject to an appeal before a national judicial, administrative or other authority, a competent authority shall also publish immediately on their website such information and any subsequent information on the outcome of such an appeal. Moreover, any decision annulling a decision subject to appeal shall also be published.</p>
+      <p>3. A competent authority shall ensure that any decision that is published in accordance with this Article shall remain accessible on their website for a period of at least five years after its publication. Personal data contained in those decisions shall be kept on the website of the competent authority for the period which is necessary in accordance with the applicable data protection rules.</p>
+      <p>Chapter VIII</p>
+      <p>Reports and review</p>
+      <p>Article 33</p>
+      <p>Reports by EBA</p>
+      <p>EBA shall, in cooperation with ESMA, prepare the following reports and submit them to the Commission within [OP please introduce exact date, 12 months from the publication of the Regulation.]:</p>
+      <p>EN</p>
+      <p>46</p>
+      <p>EN</p>
+    </page>
+    <page id="47">
+      <p>(a) a report on the possible limit of the metrics in points (a) to (h) in Article 9(2) and the types of securitisation that in the view of EBA do not pose a threat to the financial stability of the core credit institution or to the Union financial system;</p>
+      <p>(b) a report on whether other types of derivatives and other types of financial instruments than those listed in Article 11(1) should be included for the purpose of the prudent management of a core credit institutions own risk;</p>
+      <p>(c) a report on whether other financial instruments for hedging purposes than those listed in Article 12(1) could be permitted to be sold to clients and the proportion of own funds requirements above which derivatives may not be sold as referred to in point</p>
+      <p>(b) of Article 12(2).</p>
+      <p>Article 34</p>
+      <p>Review</p>
+      <p>The Commission shall, on a regular basis, monitor the effect of rules laid down in this Regulation in respect of the achievement of the objectives referred to in Article 1 and on the stability of the Union financial system as a whole, taking into account market structure developments as well as the development and activities of the entities regulated by this Regulation, and make any appropriate proposals. The review shall in particular focus on the application of the thresholds referred to in Article 3, the application and effectiveness of the prohibition foreseen in Article 6, the scope of activities referred to in Article 8 and the suitability of the metrics set out in Article 9. By 1 January 2020 and on a regular basis thereafter, the Commission shall, after taking into account the views of the competent authorities, submit to the European Parliament and to the Council a report, including the issues mentioned above, if appropriate accompanied by a legislative proposal.</p>
+      <p>Chapter IX</p>
+      <p>Final provisions</p>
+      <p>Article 35</p>
+      <p>Exercise of delegated powers</p>
+      <p>1. The power to adopt delegated acts is conferred on the Commission subject to the conditions laid down in this Article.</p>
+      <p>2. The delegation of power referred to in Articles 6(6), 8(3), 10(5), 11(3), 12(2), 15(2), second<nobr>sub-paragraph</nobr> of Article 16, Articles 23(4) and 27(3) shall be conferred on the Commission for an indeterminate period of time from the date referred to in Article 38.</p>
+      <p>3. The delegation of power referred to in Articles 6(6), 8(3), 10(5), 11(3), 12(2), 15(2), second<nobr>sub-paragraph</nobr> of Article 16, Article 23(4) and 27(3) may be revoked at any time by the European Parliament or by the Council. A decision of revocation shall put an end to the delegation of the power specified in that decision. It shall take effect the day following the publication of the decision in the Official Journal of the</p>
+      <p>EN</p>
+      <p>47</p>
+      <p>EN</p>
+    </page>
+    <page id="48">
+      <p>European Union or at a later date specified therein. It shall not affect the validity of any delegated acts already in force.</p>
+      <p>4. As soon as it adopts a delegated act, the Commission shall notify it simultaneously to the European Parliament and to the Council.</p>
+      <p>5. A delegated act adopted pursuant to Articles 6(6), 8(3), 10(5), 11(3), 12(2), 15(2), second<nobr>sub-paragraph</nobr> of Article 16, Article 23(4) and 27(3) shall enter into force only if no objection has been expressed either by the European Parliament or the Council within a period of 2 months of notification of that act to the European Parliament and the Council or if, before the expiry of that period, the European Parliament and the Council have both informed the Commission that they will not object. That period shall be extended by 2 months at the initiative of the European Parliament or the Council.</p>
+      <p>Article 36</p>
+      <p>Entry into force and date of application</p>
+      <p>This Regulation shall enter into force on the twentieth day following that of its publication in the Official Journal of the European Union.</p>
+      <p>It shall apply from the date of entry into force, with the exception of Article 6 that shall apply [OP please introduce exact date, 18 months after publication of this Regulation] and Articles 13 to 18 and 20 that shall apply [ OP please introduce exact date, 36 months after publication of this Regulation].</p>
+      <p>This Regulation shall be binding in its entirety and directly applicable in all Member States. Done at Brussels,</p>
+      <p>For the European Parliament</p>
+      <p>For the Council</p>
+      <p>The President</p>
+      <p>The President</p>
+      <p>EN</p>
+      <p>48</p>
+      <p>EN</p>
+    </page>
+    <page id="49">
+      <p>LEGISLATIVE FINANCIAL STATEMENT</p>
+      <p>1. FRAMEWORK OF THE PROPOSAL/INITIATIVE</p>
+      <p>1.1. Title of the proposal/initiative</p>
+      <p>1.2. Policy area(s) concerned in the ABM/ABB structure</p>
+      <p>1.3. Nature of the proposal/initiative</p>
+      <p>1.4. Objective(s)</p>
+      <p>1.5. Grounds for the proposal/initiative</p>
+      <p>1.6. Duration and financial impact</p>
+      <p>1.7. Management mode(s) envisaged</p>
+      <p>2. MANAGEMENT MEASURES</p>
+      <p>2.1. Monitoring and reporting rules</p>
+      <p>2.2. Management and control system</p>
+      <p>2.3. Measures to prevent fraud and irregularities</p>
+      <p>3. ESTIMATED FINANCIAL IMPACT OF THE PROPOSAL/INITIATIVE</p>
+      <p>3.1. Heading(s) of the multiannual financial framework and expenditure budget line(s) affected</p>
+      <p>3.2. Estimated impact on expenditure</p>
+      <p>3.2.1. Summary of estimated impact on expenditure</p>
+      <p>3.2.2. Estimated impact on operational appropriations</p>
+      <p>3.2.3. Estimated impact on appropriations of an administrative nature</p>
+      <p>3.2.4. Compatibility with the current multiannual financial framework</p>
+      <p>3.2.5.<nobr>Third-party</nobr> contributions</p>
+      <p>3.3. Estimated impact on revenue</p>
+      <p>EN</p>
+      <p>49</p>
+      <p>EN</p>
+    </page>
+    <page id="50">
+      <p>LEGISLATIVE FINANCIAL STATEMENT</p>
+      <p>1. FRAMEWORK OF THE PROPOSAL/INITIATIVE</p>
+      <p>1.1. Title of the proposal/initiative</p>
+      <p>Regulation of the European Parliament and of the Council on structural measures improving the resilience of EU banks</p>
+      <p>1.2. Policy area(s) concerned in the ABM/ABB structure 43</p>
+      <p>Internal Market – Financial markets</p>
+      <p>1.3. Nature of the proposal/initiative</p>
+      <p>: The proposal/initiative relates to a new action</p>
+      <p>1.4. Objective(s)</p>
+      <p>1.4.1. The Commission&apos;s multiannual strategic objective(s) targeted by the proposal/initiative</p>
+      <p>Contribute to reducing the risks to financial stability and restoring investor and other market participants&apos; confidence in financial markets</p>
+      <p>1.4.2. Specific objective(s) and ABM/ABB activity(ies) concerned</p>
+      <p>In the light of the general objectives above, the regulation aims at preventing systemic risk, financial stress or failure large, complex and interconnected banks and to meet a number of objectives:</p>
+      <p>To reduce excessive risk taking within the credit institution;</p>
+      <p>To remove material conflicts of interest between the different parts of the credit institution;</p>
+      <p>To avoid misallocation of resources and to encourage lending to the real economy;</p>
+      <p>To ensure undistorted conditions of competition for all institutions within the internal market;</p>
+      <p>To reduce interconnectedness within the financial sector leading to systemic risk;</p>
+      <p>To facilitate efficient management, monitoring and supervision of a credit institution; and</p>
+      <p>To facilitate the orderly resolution and recovery of the group.</p>
+      <p>43</p>
+      <p>ABM:<nobr>activity-based</nobr> management – ABB:<nobr>activity-based</nobr> budgeting.</p>
+      <p>EN</p>
+      <p>50</p>
+      <p>EN</p>
+    </page>
+    <page id="51">
+      <p>1.4.3. Expected result(s) and impact</p>
+      <p>Specify the effects which the proposal/initiative should have on the beneficiaries/groups targeted.</p>
+      <p>Reduction of risk taking within the credit institution;</p>
+      <p>Reduction of conflicts of interest between the different parts of the credit institution; Reduced misallocation of resources and more lending to the real economy;</p>
+      <p>Less distortion of competition within the internal market; Reduced interconnectedness within the financial sector;</p>
+      <p>More efficient management, monitoring and supervision of a credit institution;</p>
+      <p>More orderly resolution and recovery of the largest and most complex banking groups.</p>
+      <p>1.4.4. Indicators of results and impact</p>
+      <p>Specify the indicators for monitoring implementation of the proposal/initiative.</p>
+      <p>Relevant indicators to evaluate the proposal could include:</p>
+      <p>Number and size of banks subjected to structural separation requirements;</p>
+      <p>Allocation of activities to<nobr>deposit-taking</nobr> or trading entity;</p>
+      <p>Transaction volumes, spreads or liquidity in relevant markets;</p>
+      <p>Trends in market shares of banks subject to structural separation;</p>
+      <p>Market concentration in activities subject to structural separation;</p>
+      <p>New entrants in activities subject to structural separation;</p>
+      <p>Trends in profitability of banks subject to structural separation;</p>
+      <p>Measures of the size of implicit public subsidies;</p>
+      <p>Measures of TBTF banks funding cost advantage;</p>
+      <p>Measures of trading and loan activity by TBTF banks.</p>
+      <p>1.5. Grounds for the proposal/initiative</p>
+      <p>1.5.1.</p>
+      <p>Requirement(s) to be met in the short or long term</p>
+      <p>Since the start of the financial crisis, the European Union (the &quot;EU&quot;) and its Member States</p>
+      <p>have engaged in a fundamental overhaul of bank regulation and supervision.</p>
+      <p>In the area of banking, the EU has initiated a number of reforms to increase the resilience of</p>
+      <p>banks and to reduce the impact of potential bank failures, the objectives being to create a</p>
+      <p>safer, sounder, more transparent and responsible financial system that works for the economy</p>
+      <p>and society as a whole (see in particular the new Capital Requirement Regulation and</p>
+      <p>Directive (the &quot;CRR&quot;/&quot;CRDIV&quot;) as well as the proposed Bank Recovery and Resolution</p>
+      <p>Directive (the &quot;BRRD&quot;).</p>
+      <p>However, the EU banking sector and individual banks remain large in absolute and relative</p>
+      <p>terms. The largest banks are also more active in complex trading activities and more active</p>
+      <p>
+        <nobr>cross-border</nobr> through a very high number of legal entities.</p>
+      <p>Several EU Member States as well as third countries have therefore taken a step further and</p>
+      <p>have enacted, or are in the process of enacting, structural reforms of their respective banking</p>
+      <p>sectors to address concerns related to the largest and most complex financial institutions. Also</p>
+      <p>international institutions such as the G20, the Financial Stability Board, the Bank for</p>
+      <p>EN</p>
+      <p>51</p>
+      <p>EN</p>
+    </page>
+    <page id="52">
+      <p>International Settlements, the International Monetary Fund, and the Organisation for Economic Cooperation and Development have highlighted the role of such reforms as regards e.g. resolvability and have called for a broad and global debate on bank business models.</p>
+      <p>1.5.2. Added value of EU involvement</p>
+      <p>In light of these developments, there is a strong justification to act at EU level. While the national reforms broadly share the same objective, they differ in detail. This will distort establishment decisions, as TBTF banks may transfer activities to, or locate, in another Member State. A common EU response would therefore be a more effective response. The need for uniform rules is particularly important for the banking union in order to facilitate the supervisory tasks of the SSM and the resolution actions of the SRM.</p>
+      <p>1.5.3. Lessons learned from similar experiences in the past</p>
+      <p>n/a</p>
+      <p>1.5.4. Compatibility and possible synergy with other appropriate instruments</p>
+      <p>The EU has already initiated a number of reforms to increase the resilience of banks and to reduce the probability and impact of bank failure. These reforms include measures to strengthen banks&apos; solvency (the capital and liquidity requirements part of the CRR/CRDIV package); measures to strengthen bank resolvability (the proposed BRRD); measures to better guarantee deposits (the revision of the Deposit Guarantee Schemes directive (the &quot;DGS&quot;); measures to improve transparency and address the risks of derivatives and to improve market infrastructures (European Market Infrastructure Regulation (the &quot;EMIR&quot;) and related revisions to the Markets in Financial Instruments Directive (&quot;MiFID&quot;)). Additionally, in order to break the negative feedback cycle between the sovereign and banking risks and to restore confidence in the euro and the banking system, the European Commission has called for further development of a Banking Union, building on the single rule book that will be applicable to all banks in the entire EU. This include a Single Supervisory Mechanism (SSM) and a Single Resolution Mechanism (&quot;SRM), which will be mandatory for members of the euro area but open to voluntary participation for all other Member States.</p>
+      <p>Despite this<nobr>broad-ranging</nobr> reform agenda further measures are needed to reduce the probability and impact of failure of TBTF banks. Such measures have global support, as evidenced by recent statements by G20 leaders and ministers.</p>
+      <p>As regards impact of failure, implementation of the BRRD will pave the way for the orderly resolution of normal EU banks and thus significantly reduce the impact of failure of such banks on public finances. The resolution powers will be challenging to exercise for TBTF banks, given their particularly large, complex and integrated balance sheets and corporate structures. As a result, while the potential for eventual public support is certainly reduced, it may still not be eradicated if the powers are not in all instances fully applied. The impact of a failure of a large and complex bank may therefore still be significant. All this may explain market perceptions of remaining implicit subsidies and call for further clarity as regards potential additional structural measures. Structural reform will increase the options available to authorities when dealing with failing banking groups. By increasing orderly resolution credibility, it will also improve market discipline and bank balance sheet dynamics ex ante. Structural reforms could make the newly granted powers in BRRD more effective for TBTF banks, as resolution authorities would deal with separate, segregated and simpler balance sheets. This would make it easier to monitor and assess the different entities of a banking group and it expands the range of options at the disposal of resolution authorities. Additional measures for TBTF banks would be in line with the BRRDs proportionality principle.</p>
+      <p>EN</p>
+      <p>52</p>
+      <p>EN</p>
+    </page>
+    <page id="53">
+      <p>1.6. Duration and financial impact</p>
+      <p>: Proposal/initiative of unlimited duration</p>
+      <p>Entry into force and start of application foreseen for 2015/2017 with compliance with proprietary trading ban as of January 2017 and potential separation requirements as of July 2018.</p>
+      <p>1.7. Management mode(s) planned 44</p>
+      <p>From the 2014 budget</p>
+      <p>Direct management by the Commission</p>
+      <p>– by its departments, including by its staff in the Union delegations;</p>
+      <p>– by the executive agencies;</p>
+      <p>Shared management with the Member States</p>
+      <p>: Indirect management by delegating implementation tasks to:</p>
+      <p>– third countries or the bodies they have designated;</p>
+      <p>– international organisations and their agencies (to be specified);</p>
+      <p>– the EIB and the European Investment Fund;</p>
+      <p>– bodies referred to in Articles 208 and 209 of the Financial Regulation;</p>
+      <p>– public law bodies;</p>
+      <p>– bodies governed by private law with a public service mission to the extent that they provide adequate financial guarantees;</p>
+      <p>– bodies governed by the private law of a Member State that are entrusted with the implementation of a<nobr>public-private</nobr> partnership and that provide adequate financial guarantees;</p>
+      <p>– persons entrusted with the implementation of specific actions in the CFSP pursuant to Title V of the TEU, and identified in the relevant basic act.</p>
+      <p>– If more than one management mode is indicated, please provide details in the &quot;Comments&quot; section.</p>
+      <p>Comments</p>
+      <p>EBA is a regulatory agency acting under the oversight of the Commission.</p>
+      <p>44 Details of management modes and references to the Financial Regulation may be found on the BudgWeb site: http://www.cc.cec/budg/man/budgmanag/budgmanag_en.html</p>
+      <p>EN</p>
+      <p>53</p>
+      <p>EN</p>
+    </page>
+    <page id="54">
+      <p>2. MANAGEMENT MEASURES</p>
+      <p>2.1. Monitoring and reporting rules</p>
+      <p>The proposal foresees that the Commission should review the effectiveness of the proposed measures on a periodic basis.</p>
+      <p>2.2. Management and control system</p>
+      <p>2.2.1. Risk(s) identified</p>
+      <p>In relation to the legal, economical, efficient and effective use of appropriations resulting from the proposal, it is expected that the proposal would not bring about new risks that would not be currently covered by EBA&apos;s existing internal control framework.</p>
+      <p>2.2.2. Information concerning the internal control system set up</p>
+      <p>n.a.</p>
+      <p>2.2.3. Estimate of the costs and benefits of the controls and assessment of the expected level of risk of error</p>
+      <p>n.a.</p>
+      <p>2.3. Measures to prevent fraud and irregularities</p>
+      <p>For the purposes of combating fraud, corruption and any other illegal activity, the provisions of Regulation (EC) No 1073/1999 of the European Parliament and of the Council of 25 May 1999 concerning investigations conducted by the European<nobr>Anti-Fraud</nobr> Office (OLAF) shall apply to the EBA without any restriction.</p>
+      <p>EBA shall accede to the Interinstitutional Agreement of 25 May 1999 between the European Parliament, the Council of the European Union and the Commission of the European Communities concerning internal investigations by the European<nobr>Anti-Fraud</nobr> Office (OLAF) and shall immediately adopt appropriate provisions for all EBA staff.</p>
+      <p>The funding decisions and the agreements and the implementing instruments resulting from them shall explicitly stipulate that the Court of Auditors and OLAF may, if need be, carry out<nobr>on-the-spot</nobr> checks on the beneficiaries of monies disbursed by EBA as well as on the staff responsible for allocating these monies.</p>
+      <p>Articles 64 and 65 of the Regulation establishing EBA set out the provisions on implementation and control of the EBA budget and applicable financial rules.</p>
+      <p>EN</p>
+      <p>54</p>
+      <p>EN</p>
+    </page>
+    <page id="55">
+      <p>3. ESTIMATED FINANCIAL IMPACT OF THE PROPOSAL/INITIATIVE</p>
+      <p>3.1. Heading(s) of the multiannual financial framework and expenditure budget line(s) affected</p>
+      <p>Existing budget lines</p>
+      <p>In order of multiannual financial framework headings and budget lines.</p>
+      <p>Budget line</p>
+      <p>Type of</p>
+      <p>Contribution</p>
+      <p>expenditure</p>
+      <p>Heading of</p>
+      <p>Diff./non-</p>
+      <p>from</p>
+      <p>multiannual</p>
+      <p>from</p>
+      <p>within the</p>
+      <p>EFTA</p>
+      <p>financial</p>
+      <p>diff.</p>
+      <p>candidate</p>
+      <p>from third</p>
+      <p>meaning of Article</p>
+      <p>countries</p>
+      <p>framework</p>
+      <p>(45)</p>
+      <p>countries47</p>
+      <p>21(2)(b) of the</p>
+      <p>46</p>
+      <p>countries</p>
+      <p>Financial</p>
+      <p>Regulation</p>
+      <p>12.0302</p>
+      <p>1.a</p>
+      <p>European Banking Authority (EBA)</p>
+      <p>DIFF</p>
+      <p>YES</p>
+      <p>YES</p>
+      <p>NO</p>
+      <p>NO</p>
+      <p>New budget lines requested</p>
+      <p>45 Diff. = Differentiated appropriations /<nobr>Non-Diff.</nobr> =<nobr>Non-differentiated</nobr> appropriations.</p>
+      <p>46 EFTA: European Free Trade Association.</p>
+      <p>47 Candidate countries and, where applicable, potential candidate countries from the Western Balkans.</p>
+      <p>EN</p>
+      <p>55</p>
+      <p>EN</p>
+    </page>
+    <page id="56">
+      <p>3.2. Estimated impact on expenditure</p>
+      <p>This legislative initiative will have the following impacts on expenditures:</p>
+      <p>The hiring of two new temporary agents (TA) at EBA (2 TA as from January 2016) - See in Annex for more information on their roles and the way their costs were calculated (of which 40% will be funded by the EU and 60% by the Member States).</p>
+      <p>The new tasks will be carried out with the human resources available within the annual budgetary allocation procedure, in the light of budgetary constraints which are applicable to all EU bodies and in line with the financial programming for agencies. Notably, the resources needed by the agency for the new tasks will be consistent and compatible with the human and financing programming for EBA set by the recent Communication to the European Parliament and the Council – Programming of human and financial resources for decentralised agencies<nobr>2014-2020&apos;</nobr> (COM(2013)519).</p>
+      <p>3.2.1. Summary of estimated impact on expenditure</p>
+      <p>EUR million (to three decimal places)</p>
+      <p>Heading of multiannual financial</p>
+      <p>Number 1a Smart and Inclusive Growth – Economic, Social and Territorial Cohesion</p>
+      <p>framework</p>
+      <p>DG: MARKT</p>
+      <p>2014</p>
+      <p>2015</p>
+      <p>2016</p>
+      <p>2017</p>
+      <p>2018</p>
+      <p>2019</p>
+      <p>2020</p>
+      <p>TOTAL</p>
+      <p>y Operational appropriations</p>
+      <p>12.0302</p>
+      <p>Commitments</p>
+      <p>(1)</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,16</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,76</p>
+      <p>European Banking Authority (EBA)</p>
+      <p>Payments</p>
+      <p>(2)</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,16</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,76</p>
+      <p>Appropriations of an administrative nature financed from the envelope of specific programmes48</p>
+      <p>48 Technical and/or administrative assistance and expenditure in support of the implementation of EU programmes and/or actions (former &quot;BA&quot; lines), indirect research, direct research.</p>
+      <p>EN</p>
+      <p>56</p>
+      <p>EN</p>
+    </page>
+    <page id="57">
+      <p>Number of budget line</p>
+      <p>(3)</p>
+      <p>Commitments</p>
+      <p>=1+1a</p>
+      <p>TOTAL appropriations</p>
+      <p>+3</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,16</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,76</p>
+      <p>for DG MARKT</p>
+      <p>Payments</p>
+      <p>=2+2a</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,16</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,76</p>
+      <p>+3</p>
+      <p>y</p>
+      <p>TOTAL operational appropriations</p>
+      <p>Commitments</p>
+      <p>(4)</p>
+      <p>Payments</p>
+      <p>(5)</p>
+      <p>y</p>
+      <p>TOTAL appropriations of an administrative nature</p>
+      <p>(6)</p>
+      <p>financed from the envelope for specific programmes</p>
+      <p>TOTAL appropriations</p>
+      <p>Commitments</p>
+      <p>=4+ 6</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,16</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,76</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,16</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,15</p>
+      <p>0,76</p>
+      <p>for HEADING 1.a</p>
+      <p>Payments</p>
+      <p>=5+ 6</p>
+      <p>of the multiannual financial framework</p>
+      <p>Payments</p>
+      <p>=5+ 6</p>
+      <p>EN</p>
+      <p>57</p>
+      <p>EN</p>
+    </page>
+    <page id="58">
+      <p>Heading of multiannual financial</p>
+      <p>5</p>
+      <p>&quot; Administrative expenditure &quot;</p>
+      <p>framework</p>
+      <p>DG:</p>
+      <p>y Human resources</p>
+      <p>y Other administrative expenditure</p>
+      <p>TOTAL DG &lt;.&gt;</p>
+      <p>TOTAL appropriations for HEADING 5</p>
+      <p>of the multiannual financial framework</p>
+      <p>TOTAL appropriations under HEADINGS 1 to 5</p>
+      <p>of the multiannual financial framework</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>N</p>
+      <p>N+1</p>
+      <p>N+2</p>
+      <p>N+3</p>
+      <p>Appropriations</p>
+      <p>(Total commitments = Total payments)</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>N49</p>
+      <p>N+1</p>
+      <p>N+2</p>
+      <p>N+3</p>
+      <p>Commitments</p>
+      <p>Payments</p>
+      <p>EUR million (to three decimal places)</p>
+      <p>Enter as many years as</p>
+      <p>necessary to show the duration TOTAL of the impact (see point 1.6)</p>
+      <p>EUR million (to three decimal places)</p>
+      <p>Enter as many years as</p>
+      <p>necessary to show the duration TOTAL of the impact (see point 1.6)</p>
+      <p>49</p>
+      <p>Year N is the year in which implementation of the proposal/initiative starts.</p>
+      <p>EN</p>
+      <p>58</p>
+      <p>EN</p>
+    </page>
+    <page id="59">
+      <p>3.2.2. Estimated impact on operational appropriations</p>
+      <p>– The proposal/initiative does not require the use of operational appropriations</p>
+      <p>– : The proposal/initiative requires the use of operational appropriations, as explained below:</p>
+      <p>Commitment appropriations in EUR million (to three decimal places)</p>
+      <p>Indicate</p>
+      <p>objectives and</p>
+      <p>outputs</p>
+      <p>Type50</p>
+      <p>Avera</p>
+      <p>Ø</p>
+      <p>ge</p>
+      <p>cost</p>
+      <p>SPECIFIC OBJECTIVE No 151 ...</p>
+      <p>- Output</p>
+      <p>- Output</p>
+      <p>- Output</p>
+      <p>Subtotal for specific objective No 1</p>
+      <p>SPECIFIC OBJECTIVE NO 2 ...</p>
+      <p>- Output</p>
+      <p>Subtotal for specific objective No 2</p>
+      <p>Year</p>
+      <p>N</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>Year</p>
+      <p>N+1</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>Year</p>
+      <p>N+2</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>Year</p>
+      <p>Enter as many years as necessary to show the</p>
+      <p>TOTAL</p>
+      <p>N+3</p>
+      <p>duration of the impact (see point 1.6)</p>
+      <p>OUTPUTS</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>No</p>
+      <p>Cost</p>
+      <p>No</p>
+      <p>Total</p>
+      <p>total</p>
+      <p>cost</p>
+      <p>TOTAL COST</p>
+      <p>50</p>
+      <p>51</p>
+      <p>Outputs are products and services to be supplied (e.g.: number of student exchanges financed, number of km of roads built, etc.). As described in point 1.4.2. Specific objective(s)</p>
+      <p>EN</p>
+      <p>59</p>
+      <p>EN</p>
+    </page>
+    <page id="60">
+      <p>3.2.3. Estimated impact on appropriations of an administrative nature</p>
+      <p>3.2.3.1. Summary</p>
+      <p>– : The proposal/initiative does not require the use of appropriations of an administrative nature</p>
+      <p>– The proposal/initiative requires the use of appropriations of an administrative nature, as explained below:</p>
+      <p>EUR million (to three decimal places)</p>
+      <p>Year</p>
+      <p>N52</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>Enter as many years as necessary to show the</p>
+      <p>TOTAL</p>
+      <p>N+1</p>
+      <p>N+2</p>
+      <p>N+3</p>
+      <p>duration of the impact (see point 1.6)</p>
+      <p>HEADING 5</p>
+      <p>of the multiannual</p>
+      <p>financial framework</p>
+      <p>Human resources</p>
+      <p>Other</p>
+      <p>administrative</p>
+      <p>expenditure</p>
+      <p>Subtotal HEADING 5</p>
+      <p>of the multiannual</p>
+      <p>financial framework</p>
+      <p>Outside HEADING 553 of</p>
+      <p>the multiannual financial</p>
+      <p>framework</p>
+      <p>Human resources</p>
+      <p>Other</p>
+      <p>expenditure</p>
+      <p>of</p>
+      <p>an administrative</p>
+      <p>nature</p>
+      <p>Subtotal</p>
+      <p>outside HEADING 5</p>
+      <p>of the multiannual</p>
+      <p>financial framework</p>
+      <p>TOTAL</p>
+      <p>The human resources appropriations required will be met by appropriations from the DG that are already assigned to management of the action and/or have been redeployed within the DG, together if necessary with any additional allocation which may be granted to the managing DG under the annual allocation procedure and in the light of budgetary constraints.</p>
+      <p>52 Year N is the year in which implementation of the proposal/initiative starts.</p>
+      <p>53 Technical and/or administrative assistance and expenditure in support of the implementation of EU programmes and/or actions (former &quot;BA&quot; lines), indirect research, direct research.</p>
+      <p>EN</p>
+      <p>60</p>
+      <p>EN</p>
+    </page>
+    <page id="61">
+      <p>3.2.3.2. Estimated requirements of human resources</p>
+      <p>– : The proposal/initiative does not require the use of human resources.</p>
+      <p>– The proposal/initiative requires the use of human resources, as explained below:</p>
+      <p>Estimate to be expressed in full time equivalent units</p>
+      <p>Enter</p>
+      <p>as</p>
+      <p>many</p>
+      <p>years</p>
+      <p>as</p>
+      <p>Ye</p>
+      <p>necessa</p>
+      <p>Year</p>
+      <p>Year</p>
+      <p>ry to</p>
+      <p>Year N+2</p>
+      <p>ar</p>
+      <p>show</p>
+      <p>N</p>
+      <p>N+1</p>
+      <p>N+</p>
+      <p>the</p>
+      <p>3</p>
+      <p>duratio</p>
+      <p>n of the</p>
+      <p>impact</p>
+      <p>(see</p>
+      <p>point</p>
+      <p>1.6)</p>
+      <p>y Establishment plan posts (officials and temporary staff)</p>
+      <p>XX 01 01 01 (Headquarters and Commissions</p>
+      <p>Representation Offices)</p>
+      <p>XX 01 01 02 (Delegations)</p>
+      <p>XX 01 05 01 (Indirect research)</p>
+      <p>10 01 05 01 (Direct research)</p>
+      <p>y External staff (in Full Time Equivalent unit: FTE) 54</p>
+      <p>XX 01 02 01 (CA, SNE, INT from the &quot;global</p>
+      <p>envelope&quot;)</p>
+      <p>XX 01 02 02 (CA, LA, SNE, INT and JED in the</p>
+      <p>delegations)</p>
+      <p>XX 01 04 yy55</p>
+      <p>- at Headquarters</p>
+      <p>- Delegations</p>
+      <p>XX 01 05 02 (CA, SNE, INT - Indirect research) 10 01 05 02 (CA, INT, SNE - Direct research) Other budget lines (specify)</p>
+      <p>TOTAL</p>
+      <p>XX is the policy area or budget title concerned.</p>
+      <p>The human resources required will be met by staff from the DG who are already assigned to management of the action and/or have been redeployed within the DG, together if necessary with any additional allocation which may be granted to the managing DG under the annual allocation procedure and in the light of budgetary constraints.</p>
+      <p>Description of tasks to be carried out:</p>
+      <p>Officials and temporary staff</p>
+      <p>External staff</p>
+      <p>54 CA= Contract Staff; LA = Local Staff; SNE= Seconded National Expert; INT = agency staff; JED= Junior Experts in Delegations).</p>
+      <p>55<nobr>Sub-ceiling</nobr> for external staff covered by operational appropriations (former &quot;BA&quot; lines).</p>
+      <p>EN</p>
+      <p>61</p>
+      <p>EN</p>
+    </page>
+    <page id="62">
+      <p>3.2.4. Compatibility with the current multiannual financial framework</p>
+      <p>– : Proposal/initiative is compatible the current multiannual financial framework.</p>
+      <p>– The resources needed by EBA for the new tasks will be consistent and compatible with the MFF<nobr>2014-2020</nobr> and the human and financing programming for EBA set by the recent Communication to the European Parliament and the Council – Programming of human and financial resources for decentralised agencies 2014- 2020 (COM(2013)519).&quot;</p>
+      <p>– Proposal/initiative will entail reprogramming of the relevant heading in the multiannual financial framework.</p>
+      <p>Explain what reprogramming is required, specifying the budget lines concerned and the corresponding amounts.</p>
+      <p>[]</p>
+      <p>– Proposal/initiative requires application of the flexibility instrument or revision of the multiannual financial framework 56.</p>
+      <p>Explain what is required, specifying the headings and budget lines concerned and the corresponding amounts.</p>
+      <p>[]</p>
+      <p>3.2.5.<nobr>Third-party</nobr> contributions</p>
+      <p>– The proposal/initiative provides for the<nobr>co-financing</nobr> estimated below:</p>
+      <p>Appropriations in EUR million (to 3 decimal places)</p>
+      <p>2014</p>
+      <p>2015</p>
+      <p>2016</p>
+      <p>2017</p>
+      <p>2018</p>
+      <p>2019</p>
+      <p>2020</p>
+      <p>Total</p>
+      <p>Member States</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>TOTAL appropriations</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>0,00</p>
+      <p>cofinanced</p>
+      <p>56</p>
+      <p>See points 19 and 24 of the Interinstitutional Agreement (for the period<nobr>2007-2013).</nobr>
+      </p>
+      <p>EN</p>
+      <p>62</p>
+      <p>EN</p>
+    </page>
+    <page id="63">
+      <p>3.3. Estimated impact on revenue</p>
+      <p>– Proposal/initiative has no financial impact on revenue.</p>
+      <p>– Proposal/initiative has the following financial impact:</p>
+      <p>on own resources</p>
+      <p>on miscellaneous revenue</p>
+      <p>EUR million (to three decimal places)</p>
+      <p>Appropriation</p>
+      <p>Impact of the proposal/initiative57</p>
+      <p>Budget revenue line:</p>
+      <p>s available for</p>
+      <p>the current</p>
+      <p>financial year</p>
+      <p>2014</p>
+      <p>2015</p>
+      <p>2016</p>
+      <p>2017</p>
+      <p>2018</p>
+      <p>2019</p>
+      <p>2020</p>
+      <p>Article .</p>
+      <p>0.00</p>
+      <p>0.00</p>
+      <p>0.00</p>
+      <p>0.00</p>
+      <p>0.00</p>
+      <p>0.00</p>
+      <p>0.00</p>
+      <p>For miscellaneous assigned revenue, specify the budget expenditure line(s) affected.</p>
+      <p>[]</p>
+      <p>Specify the method for calculating the impact on revenue.</p>
+      <p>57 As regards traditional own resources (customs duties, sugar levies), the amounts indicated must be net amounts, i.e. gross amounts after deduction of 25% for collection costs.</p>
+      <p>EN</p>
+      <p>63</p>
+      <p>EN</p>
+    </page>
+    <page id="64">
+      <p>Annex on structural measures improving the resilience of EU credit institutions</p>
+      <p>Estimation for EBA</p>
+      <p>The proposal of the Commission includes provisions for EBA to develop four delegated acts and six technical standards that should ensure that provisions of a highly technical nature are consistently implemented across the EU.</p>
+      <p>The Commission should adopt regulatory technical standards developed by the EBA with regard to the methodology for the consistent measurement and application of the metrics relative to the calculation of the threshold above which separation of trading activities should take place. The Commission and the EBA should ensure that those standards can be applied by all institutions concerned in a manner that is proportionate to the nature, scale and complexity of those institutions and their activities. Additionally, the Commission should adopt implementing technical standards developed by the EBA with regard to the methodology for calculating the amount of trading activities engaged in by credit institutions and parent companies and the uniform template for disclosure of total amount and the components of credits institutions and parent companies&apos; trading activities by means of implementing acts. The work foreseen requires bilateral and multilateral meetings with stakeholders, analysis and assessment of options and drafting of consultation documents, public consultation of stakeholders, setting up and management of standing expert groups composed of supervisors from Member States, setting up and management of ad hoc expert groups, analysis of the responses to consultations, drafting of cost/benefit analysis and drafting of the legal text.</p>
+      <p>It has been assumed that the Regulation will enter into force in the end of 2015. The additional EBA resources are therefore only required from 2016. Two temporary agents&apos; posts will be needed to carry out the required tasks in the long term:</p>
+      <p>Commission delegated acts:</p>
+      <p>Metrics: rebuttable presumption level, number;</p>
+      <p>Provision of risk management products : cap above which RM products have to be provided by trading entity;</p>
+      <p>Rules of separation – large exposures: eligible credit risk mitigation techniques.</p>
+      <p>Territorial scope: criteria for equivalence</p>
+      <p>Commission Technical Standards:</p>
+      <p>Propriety trading ban – methodology for calculating trading activities for purposes of general threshold;</p>
+      <p>Proprietary trading ban – uniform template for disclosure of trading activities;</p>
+      <p>Separation - metrics: consistent measurement and application.</p>
+      <p>Reporting obligation details and entry into force)</p>
+      <p>Registration of trade repositories</p>
+      <p>Authorities having access to trade repositories&apos; data.</p>
+      <p>Additional resources assumption:</p>
+      <p>EN</p>
+      <p>64</p>
+      <p>EN</p>
+    </page>
+    <page id="65">
+      <p>The two additional posts are assumed to be a temporary agents of functional group and grade AD7.</p>
+      <p>Average salary costs for different categories of personnel are based on DG BUDG guidance;</p>
+      <p>Salary correction coefficient for London is 1.344.</p>
+      <p>Mission costs estimated at 10,000.</p>
+      <p>
+        <nobr>Recruiting-related</nobr> costs (travel, hotel, medical examinations, installation and other allowances, removal costs, etc) estimated at 12,700.</p>
+      <p>The method of calculating the increase in the required budget for the next three years is presented in more detail in table below. The calculation reflects the fact that that the Union budget funds 40% of the costs.</p>
+      <p>Cost type</p>
+      <p>Calculation</p>
+      <p>Amount (in thousands)</p>
+      <p>2016</p>
+      <p>2017</p>
+      <p>2018</p>
+      <p>Total</p>
+      <p>Staff expenditure</p>
+      <p>11 Salaries and allowances</p>
+      <p>=2 x 132 x1.344</p>
+      <p>355</p>
+      <p>355</p>
+      <p>355</p>
+      <p>1.064</p>
+      <p>12 Expenditure related to</p>
+      <p>=2 x 13</p>
+      <p>25</p>
+      <p>25</p>
+      <p>recruitment</p>
+      <p>13 Mission expenses</p>
+      <p>=2 x 10</p>
+      <p>20</p>
+      <p>20</p>
+      <p>20</p>
+      <p>60</p>
+      <p>Total : Staff expenditure</p>
+      <p>400</p>
+      <p>375</p>
+      <p>375</p>
+      <p>1.150</p>
+      <p>Of which Community</p>
+      <p>460</p>
+      <p>contribution (40%)</p>
+      <p>160</p>
+      <p>150</p>
+      <p>150</p>
+      <p>Of which Member State</p>
+      <p>240</p>
+      <p>225</p>
+      <p>225</p>
+      <p>690</p>
+      <p>contribution (60%)</p>
+      <p>EN</p>
+      <p>65</p>
+      <p>EN</p>
+    </page>
+  </text>
+</dokument>

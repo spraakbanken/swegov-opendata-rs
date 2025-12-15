@@ -17,3 +17,51 @@ target/
 /logs/
 swegov-opendata-preprocess/assets/gen/
 swegov-opendata-preprocess/assets/*.html
+visited.json
+stdout.txt
+stderr.jsonl
+stdout.log
+stderr.txt
+stderr.log
+processed-rd-segreg.json
+processed-rd-segreg.bak.json
+err.log
+assets/Övrigt-2014-2017
+assets/Övrigt-2010-2013
+assets/yttr-2018-2021
+assets/utskottsdokument-2002-2005
+assets/utskottsdokument-1998-2001
+assets/prot-2018-2021
+assets/prot-1990-1997
+assets/prop-2018-2021
+assets/prop-2014-2017
+assets/prop-2014-2017
+assets/prop-1980-1989
+assets/mot-2014-2017-h5022487.json
+assets/mot-2014-2017-h4023494.json
+assets/mot-2014-2017-h3023199.json
+assets/mot-2014-2017
+assets/mot-2014-2017
+assets/mot-2010-2013
+assets/mot-1998-2001-gp02bo320.json
+assets/mot-1998-2001
+assets/Riksdagens diarium-2014-2017
+assets/Skriftliga frågor-1990-1997
+assets/Skriftliga frågor-1998-2001
+assets/Skriftliga frågor-1998-2001
+assets/anforande-200405
+assets/bet-1990-1997
+assets/bet-1998-2001
+assets/bet-2006-2009
+assets/bet-2010-2013
+assets/bet-2018-2021
+assets/bet-2022-2025
+assets/ds-1990-1999
+assets/frsrdg-2018-2021
+assets/ip-2002-2005
+assets/ip-2006-2009
+assets/ip-2014-2017
+assets/kammakt-2018-2021
+assets/kom-2010-2014
+assets/kom-2020-
+assets/mot-1971-1979

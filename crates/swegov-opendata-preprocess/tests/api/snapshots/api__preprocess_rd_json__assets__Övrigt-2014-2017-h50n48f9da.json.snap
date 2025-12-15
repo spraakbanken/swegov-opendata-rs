@@ -1,0 +1,87 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="H50N48F9DA" dokument_url_html="http://data.riksdagen.se/dokument/H50N48F9DA" dokument_url_text="http://data.riksdagen.se/dokument/H50N48F9DA/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H50N48F9DA">
+  <text beteckning="48F9DA" datatyp="huvuddokument" datum="2017-11-27 00:00:00" dokumentnamn="Bilaga till dokument från EU-nämnden" hangar_id="0" nummer="0" organ="" publicerad="2017-11-27 00:00:00" rm="2017/18" slutnummer="0" status="hämtad" subtyp="" systemdatum="2017-11-27 18:16:42" title="Dagordning för rådet sysselsättning, socialpolitik, hälso-och sjukvård samt konsumentfrågor" typ="eunbil">
+    <p>Godkännande av dagordningen</p>
+    <p>(ev.) Godkännande av A-punkter<br/>
+      <br/> a) Icke-lagstiftning<br/> b) Lagstiftning (Offentlig överläggning i enlighet med artikel 16.8 i fördraget om Europeiska unionen)<br/>
+      <br/> SYSSELSÄTTNING OCH SOCIALPOLITIK<br/>
+      <br/>
+      <b>Lagstiftningsöverläggningar</b>
+      <br/> (Offentlig överläggning i enlighet med artikel 16.8 i fördraget om Europeiska unionen)</p>
+    <p>Översyn av förordningarna om samordning av de sociala trygghetssystemen (883/2004 och 987/2009)<br/> - Partiell allmän riktlinje<br/>
+      <i>Socialminister Annika Strandhäll<br/>
+      </i>
+    </p>
+    <p>Direktivet om tillgänglighetskrav för produkter och tjänster<br/> - Allmän riktlinje<br/>
+      <i>Statsrådet Åsa Regnér<br/>
+      </i>
+    </p>
+    <p>Direktivet om likabehandling (art. 19)<br/> - Lägesrapport<br/>
+      <i>Kultur- och demokratiminister Alice Bah Kuhnke</i>
+      <br/>
+    </p>
+    <p>Direktivet om balans mellan arbete och privatliv<br/> - Lägesrapport<br/>
+      <i>Arbetsmarknads- och etableringsminister</i>
+      <i>Ylva Johansson</i>
+      <br/>
+      <br/>
+      <br/>
+      <i>forts.</i>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <b>Icke lagstiftande verksamhet</b>
+    </p>
+    <p>Direktivet om sjöarbetskonventionen (genomförande av ett avtal mellan arbetsmarknadens parter)<br/> (Kommissionens förslag till rättslig grund: artikel 155.2 i EUF-fördraget)<br/> - Politisk överenskommelse<br/>
+      <i>Statsrådet Tomas Eneroth</i>
+      <br/>
+    </p>
+    <p>Europeiska planeringsterminen 2018<br/> - Diskussion<br/> a) Den årliga tillväxtöversikten, rapporten om förvarningsmekanismen, utkastet till gemensam sysselsättningsrapport samt utkastet till rekommendation om den ekonomiska politiken för euroområdet<br/> - Föredragning av kommissionen<br/> b) Rekommendationen om euroområdet<br/> - Godkännande av bidraget till de sysselsättningsrelaterade och sociala aspekterna<br/>
+      <i>Arbetsmarknads- och etableringsminister</i>
+      <i>Ylva Johansson<br/>
+      </i>
+    </p>
+    <p>Rådets slutsatser om framtidens arbete: Making it e-Easy<br/> - Antagande<br/>
+      <i>Arbetsmarknads- och etableringsminister</i>
+      <i>Ylva Johansson</i>
+      <br/>
+    </p>
+    <p>Rådets slutsatser om förbättring av samhällsbaserat stöd och samhällsbaserad vård för ett självständigt liv<br/> - Antagande<br/>
+      <i>Statsrådet Åsa Regnér</i>
+      <br/>
+    </p>
+    <p>Rådets slutsatser om förstärkta åtgärder för att minska den horisontella könssegregeringen inom utbildning och sysselsättning<br/> - Antagande<br/>
+      <i>Statsrådet Åsa Regnér</i>
+      <br/>
+      <br/>
+      <br/>
+      <b>Övriga frågor</b>
+    </p>
+    <p>a) EU:s handlingsplan 2017?2019 ? Åtgärda löneklyftan mellan kvinnor och män<br/> - Information från kommissionen<br/> b) Avslutande av året med riktade insatser för att utrota könsrelaterat våld<br/> - Information från kommissionen<br/>
+      <br/>
+      <i>forts.</i>
+      <br/>
+      <br/> c) Toppmöte om rättvisa jobb och tillväxt (Göteborg den 17 november 2017)<br/> - Information från den svenska delegationen och kommissionen<br/> d) Det kommande ordförandeskapets arbetsprogram<br/> - Information från den bulgariska delegationen<br/>
+      <br/>
+      <br/> HÄLSO- OCH SJUKVÅRD<br/>
+      <i>Socialminister Annika Strandhäll</i>
+      <br/>
+      <br/>
+      <b>Icke lagstiftande verksamhet</b>
+    </p>
+    <p>Rådets slutsatser om digital hälsa<br/> - Antagande<br/>
+    </p>
+    <p>Rådets slutsatser om gränsöverskridande aspekter av alkoholpolitiken<br/> - Antagande<br/>
+    </p>
+    <p>Läkemedelspolitiken i EU ? i dag och i framtiden<br/> - Diskussion<br/>
+      <br/>
+      <br/>
+      <b>Övriga frågor</b>
+    </p>
+    <p>a) Tillståndet för hälso- och sjukvård i EU<br/> - Information från kommissionen, OECD och det europeiska observationsorganet för hälso- och sjukvård<br/> b) Den årliga tillväxtöversikten 2018<br/> - Information från kommissionen<br/> c) Lägesrapport om pediatriska läkemedel i EU ? tio år efter förordningen om läkemedel för pediatrisk användning<br/> - Information från kommissionen<br/> d) Frågor som rör europeiska patienters tillgång till behandling<br/> - Information från den rumänska delegationen<br/> e) Resultatet av högnivåmötet om antimikrobiell resistens: One Health-handlingsplan och evidensbaserat beslutsfattande (Bryssel den 23 november 2017)<br/> - Information från ordförandeskapet<br/> f) Styrgruppen för främjande av hälsa, förebyggande av sjukdomar och hantering av icke-överförbara sjukdomar<br/> - Information från kommissionen<br/> g) Valproat och teratogena läkemedel<br/> - Information från den belgiska delegationen<br/> h) Bristande tillgång till läkemedel i Grekland<br/> - Information från den grekiska delegationen<br/> i) Det kommande ordförandeskapets arbetsprogram<br/> - Information från den bulgariska delegationen</p>
+  </text>
+</dokument>

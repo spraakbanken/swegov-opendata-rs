@@ -1,6 +1,6 @@
 [package]
 name = "swegov-opendata"
-version = "0.2.0"
+version = "0.2.1"
 edition = { workspace = true }
 authors = { workspace = true }
 rust-version = { workspace = true }
@@ -11,14 +11,22 @@ license = { workspace = true }
 doctest = false
 
 [dependencies]
-anyhow = { workspace = true }
 chrono = { workspace = true, features = ["serde"] }
-deserx = { workspace = true }
-quick-xml = { workspace = true }
+miette = { workspace = true }
+quick-xml = { workspace = true, features = ["serde-types"] }
 serde = { workspace = true, features = ["derive"] }
 serde-aux = { workspace = true }
 serde_json = { workspace = true }
 serde_with = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+uuid = { version = "1.10.0", features = ["serde"] }
+xml-rs = "0.8.27"
+yaserde = { workspace = true, features = ["derive"] }
 
 [dev-dependencies]
+anyhow = { workspace = true }
+insta = { version = "1.40.0", features = ["yaml"] }
 quick-xml = { workspace = true, features = ["serialize"] }
+rstest.workspace = true
+similar-asserts = { workspace = true }

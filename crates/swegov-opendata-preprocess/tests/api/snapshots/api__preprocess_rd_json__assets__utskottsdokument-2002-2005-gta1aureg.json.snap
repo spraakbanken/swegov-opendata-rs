@@ -1,0 +1,585 @@
+---
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
+expression: xmlstring
+---
+<dokument xmlns="" dok_id="GTA1AUReg" dokument_url_html="http://data.riksdagen.se/dokument/GTA1AUReg" dokument_url_text="http://data.riksdagen.se/dokument/GTA1AUReg/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GTA1AUReg">
+  <text beteckning="AUReg" datatyp="huvuddokument" datum="2005-01-01 00:00:00" dokumentnamn="" hangar_id="2687711" nummer="0" organ="AU" publicerad="2007-10-19 10:06:08" rm="2005/06" slutnummer="0" status="" subtyp="" systemdatum="2007-10-19 10:08:09" title="[Titel saknas]" typ="bet">
+    <p>Arbetsmarknadsutskottets register vid riksmötet 2006/07</p>
+    <p>Betänkanden</p>
+    <p>AU1</p>
+    <p>Utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv</p>
+    <p>(prop. 2006/07:1, 28 motioner) (jfr AU5)</p>
+    <p>Utskottets justering 2006-12-14</p>
+    <p>Förslag till beslut: Delvis bifall till proposition 2006/07:1 utgiftsområde 13 punkt 13. I övrigt bifall till propositionen</p>
+    <p>Avslag på motionerna</p>
+    <p>Debatt i kammaren 2006-12-20</p>
+    <p>Protokollsnummer 2006/07:44</p>
+    <p>Riksdagens beslut: 2006-12-20</p>
+    <p>Återförvisning: 2006-12-20</p>
+    <p>Protokollsnummer 2006/07:44</p>
+    <p>AU2</p>
+    <p>Skäliga stöd- och anpassningsåtgärder för arbetstagare med funktionshinder</p>
+    <p>(prop. 2005/06:207)</p>
+    <p>Utskottets justering 2006-10-26</p>
+    <p>Förslag till beslut: Bifall till propositionen</p>
+    <p>Debatt i kammaren 2006-11-15</p>
+    <p>Protokollsnummer 2006/07:21</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2006-11-15</p>
+    <p>Protokollsnummer 2006/07:21</p>
+    <p>Riksdagsskrivelse 2006/07:3</p>
+    <p>AU3</p>
+    <p>Ändringar i arbetslöshetsförsäkringen</p>
+    <p>(prop. 2006/07:15, 39 motioner) (jfr AU4)</p>
+    <p>Utskottets justering 2006-12-12</p>
+    <p>Förslag till beslut: Bifall till propositionen. Avslag på motionerna. Initiativ beträffande ändring i lagen om arbetslöshetsförsäkring</p>
+    <p>Debatt i kammaren 2006-12-20</p>
+    <p>Protokollsnummer 2006/07:44</p>
+    <p>Riksdagens beslut: 2006-12-20</p>
+    <p>Återförvisning: 2006-12-20</p>
+    <p>Protokollsnummer 2006/07:44</p>
+    <p>AU4</p>
+    <p>Ändringar i arbetslöshetsförsäkringen (förnyad behandling) (jfr AU3)</p>
+    <p>(prop. 2006/07:15, 39 motioner)</p>
+    <p>Utskottets justering 2006-12-20</p>
+    <p>Förslag till beslut: Bifall till propositionen. Avslag på motionerna. Initiativ beträffande ändring i lagen om arbetslöshetsförsäkring</p>
+    <p>Debatt i kammaren 2006-12-21</p>
+    <p>Protokollsnummer 2006/07:45</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2006-12-21</p>
+    <p>Protokollsnummer 2006/07:45</p>
+    <p>Riksdagsskrivelse 2006/07:86</p>
+    <p>AU5</p>
+    <p>Utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv (förnyad behandling) (jfr AU1)</p>
+    <p>(prop. 2006/07:1, 28 motioner)</p>
+    <p>Utskottets justering 2006-12-20</p>
+    <p>Förslag till beslut: Delvis bifall till proposition 2006/07:1 utgiftsområde 13 punkt 13. I övrigt bifall till propositionen</p>
+    <p>Avslag på motionerna</p>
+    <p>Debatt i kammaren 2006-12-21</p>
+    <p>Protokollsnummer 2006/07:45</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2006-12-21</p>
+    <p>Protokollsnummer 2006/07:45</p>
+    <p>Riksdagsskrivelse 2006/07:8788</p>
+    <p>AU6</p>
+    <p>Integrationsfrågor</p>
+    <p>(framst. 2006/07:RRS13, 12 motioner)</p>
+    <p>Utskottets justering 2007-02-13</p>
+    <p>Förslag till beslut: Bifall till Riksrevisionens styrelses framställning. Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-02-21</p>
+    <p>Protokollsnummer 2006/07:64</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-02-21</p>
+    <p>Protokollsnummer 2006/07:64</p>
+    <p>Riksdagsskrivelse 2006/07:99100</p>
+    <p>AU7</p>
+    <p>Arbetsmiljöfrågor</p>
+    <p>(30 motioner)</p>
+    <p>Utskottets justering 2007-02-01</p>
+    <p>Förslag till beslut: Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-02-21</p>
+    <p>Protokollsnummer 2006/07:64</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-02-21</p>
+    <p>Protokollsnummer 2006/07:64</p>
+    <p>AU8</p>
+    <p>Protokoll till ILO:s konvention om arbetarskydd och arbetsmiljö m.m.</p>
+    <p>(prop. 2006/07:44, 1 motion)</p>
+    <p>Utskottets justering 2007-03-13</p>
+    <p>Förslag till beslut: Bifall till propositionen. Avslag på motionen</p>
+    <p>Debatt i kammaren 2007-03-28</p>
+    <p>Protokollsnummer 2006/07:83</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-03-28</p>
+    <p>Protokollsnummer 2006/07:83</p>
+    <p>Riksdagsskrivelse 2006/07:123</p>
+    <p>AU9</p>
+    <p>Arbetsrätt</p>
+    <p>(55 motioner)</p>
+    <p>Utskottets justering 2007-03-20</p>
+    <p>Förslag till beslut: Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-03-29</p>
+    <p>Protokollsnummer 2006/07:84</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-04-11</p>
+    <p>Protokollsnummer 2006/07:88</p>
+    <p>AU10</p>
+    <p>Jämställdhet</p>
+    <p>(15 motioner)</p>
+    <p>Utskottets justering 2007-03-20</p>
+    <p>Förslag till beslut: Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-03-29</p>
+    <p>Protokollsnummer 2006/07:84</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-04-11</p>
+    <p>Protokollsnummer 2006/07:88</p>
+    <p>AU11</p>
+    <p>Diskriminering</p>
+    <p>(12 motioner)</p>
+    <p>Utskottets justering 2007-04-12</p>
+    <p>Förslag till beslut: Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-04-25</p>
+    <p>Protokollsnummer 2006/07:98</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-04-25</p>
+    <p>Protokollsnummer 2006/07:98</p>
+    <p>AU12</p>
+    <p>Utlåtande om grönboken En modern arbetsrätt för att möta 2000-talets utmaningar</p>
+    <p>Utskottets justering 2007-03-20</p>
+    <p>Förslag till beslut: Utlåtande 2006/07:AU12 läggs till handlingarna</p>
+    <p>Debatt i kammaren 2007-03-28</p>
+    <p>Protokollsnummer 2006/07:83</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-03-28</p>
+    <p>Protokollsnummer 2006/07:83</p>
+    <p>AU13</p>
+    <p>Ytterligare reformer inom arbetsmarknadspolitiken</p>
+    <p>(framst. 2005/06:RRS22, prop. 2006/07:89, framst. 2006/07:RRS5, framst. 2006/07:RRS15, framst. 2006/07:RRS18, 33 motioner)</p>
+    <p>Utskottets justering 2007-05-15</p>
+    <p>Förslag till beslut: Delvis bifall till propositionen punkterna 1 och 19. I övrigt bifall till propositionen. Avslag på framställningarna. Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-05-30</p>
+    <p>Protokollsnummer 2006/07:116</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-05-30</p>
+    <p>Protokollsnummer 2006/07:116</p>
+    <p>Riksdagsskrivelse 2006/07:179180</p>
+    <p>AU14</p>
+    <p>Bättre möjligheter till tidsbegränsad anställning</p>
+    <p>(prop. 2006/07:111, 11 motioner)</p>
+    <p>Utskottets justering 2007-05-15</p>
+    <p>Förslag till beslut: Bifall till propositionen. Avslag på motionerna</p>
+    <p>Debatt i kammaren 2007-05-31</p>
+    <p>Protokollsnummer 2006/07:117</p>
+    <p>Riksdagens beslut: Kammaren biföll utskottets förslag 2007-05-31</p>
+    <p>Protokollsnummer 2006/07:117</p>
+    <p>Riksdagsskrivelse 2006/07:185</p>
+    <p>Yttranden</p>
+    <p>AU1y till FiU (FiU1)</p>
+    <p>Ramar för utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv</p>
+    <p>Utskottets justering 2006-11-14</p>
+    <p>AU2y till FiU (FiU21)</p>
+    <p>Tilläggsbudget 2007 utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv</p>
+    <p>Utskottets justering 2007-05-22</p>
+    <p>AU3y till KU (KU22)</p>
+    <p>Indelning i utgiftsområden</p>
+    <p>Utskottets justering 2007-05-22</p>
+    <p>AU4y till FiU (FiU20)</p>
+    <p>Riktlinjer för den ekonomiska politiken och budgetpolitiken utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv</p>
+    <p>Utskottets justering 2007-05-22</p>
+    <p>Sakregister</p>
+    <p>A</p>
+    <p>akademikerjobb 1</p>
+    <p>aktiva åtgärder 10, 11</p>
+    <p>aktivitetsgarantin 13</p>
+    <p>aktivitetsstöd 13</p>
+    <p>aktivitetsstöd, samordning med dagar med arbetslöshetsersättning 13</p>
+    <p>AKU (Arbetskraftsundersökningen) 1y</p>
+    <p>ALI (Arbetslivsinstitutet) 1, 1y, 2y</p>
+    <p>allmän visstidsanställning 14</p>
+    <p>Almi 13</p>
+    <p>AMS (Arbetsmarknadsstyrelsen) 1, 6, 13, 1y, 4y</p>
+    <p>AMV (Arbetsmarknadsverket) 1, 6, 13, 1y, 2y</p>
+    <p>anställningsskyddslagen (LAS) 9, 10, 14</p>
+    <p>anställningsstöd 1, 13</p>
+    <p>anställningstid, beräkning av 14</p>
+    <p>arbetsförmedling 13</p>
+    <p>Arbetsförmedlingen (ny sammanhållen arbetsmarknadsmyndighet) 13</p>
+    <p>Arbetskraftsundersökningen (AKU) 1y</p>
+    <p>arbetslivsdemokrati 9</p>
+    <p>arbetslivsdirektivet 2</p>
+    <p>Arbetslivsfonden 7</p>
+    <p>Arbetslivsinstitutet (ALI) 1, 1y, 2y</p>
+    <p>Arbetslivsresurs AR AB 2y</p>
+    <p>arbetsvillkor 3</p>
+    <p>arbetslöshetsersättning 3, 13</p>
+    <p>arbetslöshetsersättning, föräldrar till barn under 18 år 13</p>
+    <p>arbetslöshetsersättning, samordning med dagar med ersättning från aktivitetsstöd 13</p>
+    <p>arbetslöshetsförsäkring 3, 13, 1y</p>
+    <p>arbetslöshetsersättning 3, 13</p>
+    <p>arbetslöshetsersättning, föräldrar till barn under 18 år 13</p>
+    <p>arbetslöshetsersättning, samordning med dagar med ersättning från aktivitetsstöd 13</p>
+    <p>arbetsvillkor 3</p>
+    <p>bisyssla 13</p>
+    <p>dagpenning 3, 13</p>
+    <p>deltidsarbetslösa 3, 13</p>
+    <p>ersättningsgrad 3, 13</p>
+    <p>ersättningsgrad, föräldrar till barn under 18 år 13</p>
+    <p>ersättningsgrad, jobb- och utvecklingsgarantin 13</p>
+    <p>ersättningsnivå 3</p>
+    <p>ersättningsperiod 3, 13</p>
+    <p>ersättningsperiod, samordning mellan arbetslöshetsersättning och ersättning med aktivitetsstöd 13</p>
+    <p>finansieringsavgift 3</p>
+    <p>100-dagarsregeln 13</p>
+    <p>indexering av högsta dagpenning 3</p>
+    <p>inkomstrelaterad arbetslöshetsersättning 3</p>
+    <p>lagen (1997:238) om arbetslöshetsförsäkring 3, 13, 1y</p>
+    <p>lagen (1997:239) om arbetslöshetskassor 3, 1 y</p>
+    <p>lämpligt arbete 13</p>
+    <p>normalarbetstid 3, 13</p>
+    <p>omställningsförsäkring 1</p>
+    <p>samordning med aktivitetsstöd 3</p>
+    <p>studerandevillkoret 3</p>
+    <p>utjämningsavgift 3</p>
+    <p>utjämningsbidrag 3</p>
+    <p>överhoppningsbar tid 3</p>
+    <p>arbetsmarknadspolitiska program 1, 13, 1y</p>
+    <p>funktionshindrade 13</p>
+    <p>kriminalvårdens klienter 13</p>
+    <p>personer med utländsk bakgrund 13</p>
+    <p>ungdomar 13</p>
+    <p>arbetsmarknadsstatistik 13, 1y</p>
+    <p>Arbetsmarknadsstyrelsen (AMS) 1, 6, 13, 1y, 4y</p>
+    <p>arbetsmarknadsutbildning 1, 13, 2y</p>
+    <p>Arbetsmarknadsverket (AMV) 1, 6, 13, 1y, 2y</p>
+    <p>arbetsmiljö 7, 8</p>
+    <p>arbetsmiljödeklaration 7</p>
+    <p>arbetsmiljölagen (AML) 7</p>
+    <p>Arbetsmiljöverket 1, 7, 10, 1y, 2y</p>
+    <p>arbetsolycka 8</p>
+    <p>arbetsrätt 12, 14</p>
+    <p>arbetssjukdom 7, 8</p>
+    <p>arbetsskada 7, 8</p>
+    <p>arbetstid 7</p>
+    <p>arbetsutbud 1y</p>
+    <p>asylsökande 1</p>
+    <p>au pair 9</p>
+    <p>avvecklingsmyndigheten för Arbetslivsinstitutet 2y</p>
+    <p>avvecklingsmyndigheten för Integrationsverket 2y</p>
+    <p>B</p>
+    <p>bemanningsföretag 13</p>
+    <p>beräkning av anställningstid 14</p>
+    <p>bisyssla och arbetslöshetsersättning 13</p>
+    <p>Brottsförebyggande rådet (Brå) 6</p>
+    <p>Brottsofferfonden 6</p>
+    <p>Brå (Brottsförebyggande rådet) 6</p>
+    <p>C</p>
+    <p>certifiering 7</p>
+    <p>D</p>
+    <p>dagpenning 3, 13</p>
+    <p>datortek 1</p>
+    <p>delegationen för fördelning av statsbidrag för kvinnors organisering och jämställdhets-<br/> projekt 10</p>
+    <p>delegationen för jämställdhet i förskolan 10</p>
+    <p>delegationen för mänskliga rättigheter i Sverige 10</p>
+    <p>delmål i jämställdhetspolitiken 10</p>
+    <p>deltidsarbete 9</p>
+    <p>deltidsarbetslösa 3, 13</p>
+    <p>direktiv 2000/78/EG om inrättande av en allmän ram för likabehandling (arbetslivsdirektivet) 2, 11</p>
+    <p>diskriminering 1, 6, 11, 1y, 3y</p>
+    <p>av kvinnor med utländsk bakgrund 6</p>
+    <p>av lesbiska eller bisexuella kvinnor 6</p>
+    <p>av transpersoner 11</p>
+    <p>av äldre 11</p>
+    <p>direkt diskriminering 10</p>
+    <p>Diskrimineringskommittén 6, 11</p>
+    <p>diskrimineringsmål, rättegångskostnader 11</p>
+    <p>diskrimineringsmål, skadestånd 11</p>
+    <p>Diskrimineringsombudsmannen (DO) 1, 11, 1y</p>
+    <p>DO (Diskrimineringsombudsmannen) 1, 11, 1y</p>
+    <p>etnisk diskriminering 6, 11</p>
+    <p>forskning 11</p>
+    <p>indirekt diskriminering 10</p>
+    <p>lönediskriminering 10</p>
+    <p>Nämnden mot diskriminering 11</p>
+    <p>Ombudsmannen mot diskriminering på grund av sexuell läggning (HomO) 1, 11, 1y, 3y</p>
+    <p>på grund av etnisk tillhörighet 6, 11</p>
+    <p>på grund av funktionshinder 11</p>
+    <p>på grund av kön 10</p>
+    <p>på grund av könsidentitet 11</p>
+    <p>på grund av ålder 11</p>
+    <p>kompetensstrategier 6</p>
+    <p>sammanhållen diskrimineringslagstiftning 3y</p>
+    <p>samordnad diskrimineringslag 6, 10</p>
+    <p>samordnad diskrimineringsmyndighet 6, 10</p>
+    <p>samhällskostnader 6</p>
+    <p>strukturell diskriminering 10</p>
+    <p>drifts- och ägandeformer i offentlig verksamhet 10</p>
+    <p>dygnsvila 7</p>
+    <p>döva och hörselskadade 13</p>
+    <p>E</p>
+    <p>EG-domstolen 10</p>
+    <p>EG-rätten 10</p>
+    <p>ensamarbete 7</p>
+    <p>ensamkommande barn 2y</p>
+    <p>ersättningsförordningen (förordningen [1990:927] om statlig ersättning för flyktingmottagande m.m.) 6</p>
+    <p>ersättningsgrad 3, 13</p>
+    <p>ersättningsgrad, föräldrar till barn under 18 år 13</p>
+    <p>ersättningsgrad, jobb- och utvecklingsgarantin 13</p>
+    <p>ersättningsnivå 3</p>
+    <p>ersättningsperiod 3, 13</p>
+    <p>ersättningsperiod, samordning mellan arbetslöshetsersättning och ersättning med aktivitetsstöd 13</p>
+    <p>etnisk diskriminering 6, 11</p>
+    <p>etnisk segregering 6</p>
+    <p>EU:s sysselsättningsriktlinjer 1</p>
+    <p>EU-kommissionens grönbok om en modern arbetsrätt för 2000-talets utmaningar 14</p>
+    <p>europeisk strejkrätt 9</p>
+    <p>Europeiska året för lika möjligheter för alla 10</p>
+    <p>Eurostat 1y</p>
+    <p>F</p>
+    <p>facklig vetorätt 9</p>
+    <p>finansieringsavgift 3</p>
+    <p>flexicurity 9, 12</p>
+    <p>flyktingmottagande 6, 2y</p>
+    <p>forskning om diskriminering 11</p>
+    <p>friskvård 7</p>
+    <p>frivillig försvarsverksamhet 9</p>
+    <p>friår 1</p>
+    <p>främlingsfientlighet 6</p>
+    <p>funktionshinder 2</p>
+    <p>färdolycka 8</p>
+    <p>företrädesrätt till återanställning 14</p>
+    <p>företagshälsovård 7</p>
+    <p>företagsnedläggning 9</p>
+    <p>förordningen (1990:927) om statlig ersättning för flyktingmottagande m.m. (ersättningsförordningen) 6</p>
+    <p>förordningen (1996:1100) om aktivitetsstöd 13</p>
+    <p>förordningen (2005:1089) om statsbidrag för kvinnors organisering 10</p>
+    <p>förordningen (2006:390) om statsbidrag till jämställdhetsprojekt 10</p>
+    <p>Försäkringskassans uppgiftsskyldighet 13</p>
+    <p>föräldraförsäkring 10</p>
+    <p>föräldraledighet 9, 10</p>
+    <p>föräldraledighetslagen (1995:584) 10</p>
+    <p>G</p>
+    <p>gemensam ombudsmannamyndighet 3y</p>
+    <p>globalisering 1, 9, 12</p>
+    <p>Grensetjänsten 13</p>
+    <p>gränsvärden 7</p>
+    <p>gränsöverskridande fackliga rättigheter 9</p>
+    <p>grönbok 12</p>
+    <p>H</p>
+    <p>Handikappombudsmannen (HO) 11, 1y, 3y</p>
+    <p>handlingsplan för att motverka mäns våld mot kvinnor 10</p>
+    <p>handlingsplan för jämställda löner 10</p>
+    <p>harmoniserad arbetslöshet 1</p>
+    <p>HBT-personer 7, 3y</p>
+    <p>hedersrelaterat våld 3y</p>
+    <p>HO (Handikappombudsmannen) 11, 1y, 3y</p>
+    <p>HomO (Ombudsmannen mot diskriminering på grund av sexuell läggning) 1, 11, 1y, 3y</p>
+    <p>homofobi 11</p>
+    <p>hushållstjänster 10</p>
+    <p>I</p>
+    <p>ideella organisationer 6, 10</p>
+    <p>ILO (International Labour Organization) 8</p>
+    <p>ILO:s konvention (nr 155) om arbetsskydd och arbetsmiljö 8</p>
+    <p>ILO:s rekommendation (nr 193) om främjande av kooperativ 8</p>
+    <p>ILO:s rekommendation (nr 194) om förteckning över arbetssjukdomar 8</p>
+    <p>ILO:s rekommendation (nr 195) om utveckling av människors resurser 8</p>
+    <p>indelning i utgiftsområden 3y</p>
+    <p>indexering av högsta dagpenning 3</p>
+    <p>individuell handlingsplan 6</p>
+    <p>inkomstrelaterad arbetslöshetsersättning 3</p>
+    <p>inlåsningseffekter 6</p>
+    <p>instegsjobb 4y</p>
+    <p>integrationspaket 13, 4y</p>
+    <p>integrationspolitik 1, 6</p>
+    <p>Integrationsverket 1, 6, 1y, 2y, 3y</p>
+    <p>International Standard Classification of Occupations (ISCO) 10</p>
+    <p>interpraktikstipendier 1</p>
+    <p>introduktion av nyanlända 6</p>
+    <p>invandrarorganisationer 6</p>
+    <p>J</p>
+    <p>jobb- och utvecklingsgarantin 13, 4y</p>
+    <p>jobbgaranti för ungdomar 1</p>
+    <p>jobbpaket 4y</p>
+    <p>jobbprogram 1</p>
+    <p>jobbskatteavdrag 1, 3</p>
+    <p>Jämställdhet 1, 3, 10, 11, 1y, 2y, 3y</p>
+    <p>JämO (Jämställdhetsombudsmannen) 1, 10, 11, 1y, 3y</p>
+    <p>Jämrum 10</p>
+    <p>jämställdhetsanalys 10</p>
+    <p>jämställdhetsbonus 3, 10</p>
+    <p>jämställdhetsförordning 10</p>
+    <p>jämställdhetsintegrering 10, 2y</p>
+    <p>jämställdhetslagen (1991:433) 10, 11</p>
+    <p>jämställdhetsmyndighet 10</p>
+    <p>Jämställdhetsombudsmannen (JämO) 1, 10, 11, 1y, 3y</p>
+    <p>jämställdhetsplan 10, 11</p>
+    <p>jämställdhetspolitiska mål 10</p>
+    <p>jämställdhetsrevision 10</p>
+    <p>jämställdhetssakkunniga 10</p>
+    <p>jämställdhetsutbildning 10</p>
+    <p>JämStöd (Utredningen om stöd för jämställdhetsintegrering i staten) 10</p>
+    <p>semidispositiv jämställdhetslag 10</p>
+    <p>K</p>
+    <p>KLYS (Konstnärliga och litterära yrkesutövares samarbetsnämnd) 13</p>
+    <p>kollektiv arbetsrätt 12</p>
+    <p>kollektivavtal 9, 10, 12</p>
+    <p>kommunala ungdomsprogrammet (KUP) 13</p>
+    <p>kommunansvar 6</p>
+    <p>kommunersättningar 2y</p>
+    <p>kompetensutveckling 9</p>
+    <p>kompletterande arbetsförmedlingar 1</p>
+    <p>Konstnärliga och litterära yrkesutövares samarbetsnämnd (KLYS) 13</p>
+    <p>kooperativa företag 8</p>
+    <p>kreditering av skattekonto 1y</p>
+    <p>Kriminalvårdskommittén 13</p>
+    <p>kränkande särbehandling 7</p>
+    <p>kulturarbetare 13</p>
+    <p>kulturarbetsmarknad 3, 13</p>
+    <p>KUP, kommunala ungdomsprogrammet 13</p>
+    <p>kvalitetssäkring 10</p>
+    <p>kvinnors företagande 10</p>
+    <p>kvinnors organisering 10</p>
+    <p>kvotflyktingar 1</p>
+    <p>könsdiskriminering 10</p>
+    <p>könsmaktsordning 10</p>
+    <p>könsroller 10</p>
+    <p>könssegregerad arbetsmarknad 10</p>
+    <p>L</p>
+    <p>Lagar</p>
+    <p>lagen (1976:157) om skyldighet för arbetsgivare att anmäla ledig plats till den offentliga arbetsförmedlingen (platsanmälningslagen) 13</p>
+    <p>lagen (1997:1144) om försöksverksamhet med vidgad samordnad länsförvaltning i Gotlands län 13</p>
+    <p>lagen (1997:238) om arbetslöshetsförsäkring 3, 13, 1y</p>
+    <p>lagen (1997:239) om arbetslöshetskassor 3, 1y</p>
+    <p>lagen (1999:130) om åtgärder mot diskriminering i arbetslivet på grund av etnisk tillhörighet, religion eller annan trosuppfattning 11</p>
+    <p>lagen (1999:132) om förbud mot diskriminering i arbetslivet på grund av funktionshinder 2, 11</p>
+    <p>lagen (1999:133) om förbud mot diskriminering i arbetslivet på grund av sexuell läggning 11</p>
+    <p>lagen (2001:1286) om likabehandling av studenter i högskolan 11</p>
+    <p>lagen (2003:307) om förbud mot diskriminering 11</p>
+    <p>lagen (2006:67) om förbud mot diskriminering och annan kränkande behandling av barn och elever 11</p>
+    <p>lagen (1982:80) om anställningsskydd (LAS) 9, 10, 14</p>
+    <p>lagen (1976:580) om medbestämmande i arbetslivet 9</p>
+    <p>LAS (lagen om anställningsskydd) 9, 10, 14</p>
+    <p>semesterlagen (1977:480) 14</p>
+    <p>ledighet för vård av sjukt barn 14</p>
+    <p>ledningssystem för arbetsmiljö 7</p>
+    <p>Lissabonmålen 12</p>
+    <p>LKU (lokala kooperativa utvecklingscentrum) 13</p>
+    <p>lokala arbetsmarknadsområden 13</p>
+    <p>lokala kooperativa utvecklingscentrum (LKU) 13</p>
+    <p>lokala utvecklingsavtal 6</p>
+    <p>låglönemarknad 1y</p>
+    <p>långtidsarbetslösa 1, 13</p>
+    <p>lämpligt arbete 13</p>
+    <p>länsarbetsnämnd 1, 13, 1y</p>
+    <p>länsexperter i integrationsfrågor 6</p>
+    <p>länsstyrelser 3y</p>
+    <p>löneanalys 10</p>
+    <p>lönebidrag 1, 13, 2y</p>
+    <p>lönediskriminering 10</p>
+    <p>lönekartläggning 10</p>
+    <p>löneskillnader 10</p>
+    <p>löneutjämningssystem 10</p>
+    <p>löntagarägande 9</p>
+    <p>M</p>
+    <p>mansroll 10</p>
+    <p>matchning 13, 4y</p>
+    <p>medbestämmandelagen (MBL) (1976:580) 9</p>
+    <p>medlemsavgifter till arbetslöshetskassa 3</p>
+    <p>Medlingsinstitutet (MI) 1, 10</p>
+    <p>MI (Medlingsinstitutet) 1, 10</p>
+    <p>Migrationsverket 6, 3y</p>
+    <p>mobbning 7</p>
+    <p>mål för integrationspolitiken 6</p>
+    <p>mål i jämställdhetspolitiken 10</p>
+    <p>mäns organisering i jämställdhetsarbetet 10</p>
+    <p>mäns våld mot kvinnor 3y</p>
+    <p>mänskliga rättigheter 11</p>
+    <p>N</p>
+    <p>nationell handlingsplan mot prostitution och människohandel för sexuella ändamål 10</p>
+    <p>nattarbete 7</p>
+    <p>normalarbetstid 3, 13</p>
+    <p>ny sammanhållen arbetsmarknadsmyndighet (Arbetsförmedlingen) 13</p>
+    <p>nyanlända invandrare 6</p>
+    <p>nystartscentrum 13, 4y</p>
+    <p>nystartsjobb 1, 6, 1y, 4y</p>
+    <p>Nämnden mot diskriminering 11</p>
+    <p>O</p>
+    <p>obetalt arbete 10</p>
+    <p>offentlig arbetsförmedling 13</p>
+    <p>Offentligt tillfälligt arbete för äldre arbetslösa (OTA) 13</p>
+    <p>officiell arbetsmarknadsstatistik 13, 1y</p>
+    <p>olycksfall i arbetet 8</p>
+    <p>Ombudsmannen mot diskriminering på grund av sexuell läggning (HomO) 1, 11, 1y, 3y</p>
+    <p>omställningsförsäkring 1, 3, 13</p>
+    <p>OSA (skyddat arbete hos offentliga arbetsgivare) 1</p>
+    <p>OTA (offentligt tillfälligt arbete för äldre arbetslösa) 13</p>
+    <p>P</p>
+    <p>pendlingsstöd 13</p>
+    <p>personligt biträde för funktionshindrade 13</p>
+    <p>platsanmälninglagen (lagen [1976:157] om skyldighet för arbetsgivare att anmäla ledig plats till den offentliga arbetsförmedlingen) 13</p>
+    <p>plusjobb 1</p>
+    <p>politisk information på arbetsplatsen 9</p>
+    <p>politiska partiers kvinnoorganisationer 10</p>
+    <p>positiv särbehandling 11</p>
+    <p>provanställning 14</p>
+    <p>R</p>
+    <p>ramar för utgiftsområdena 13 Arbetsmarknad och 14 Arbetsliv 1y</p>
+    <p>rasism 6</p>
+    <p>rasistiska brott 6</p>
+    <p>regelförenklingsarbete 13</p>
+    <p>regionalt skyddsombud 7</p>
+    <p>regionalt utvecklingsarbete 6</p>
+    <p>repressalier 11</p>
+    <p>Riksrevisionens styrelses framställningar 6, 13</p>
+    <p>riktlinjer för den ekonomiska politiken 4y</p>
+    <p>rätt till heltidsarbete 9, 10</p>
+    <p>S</p>
+    <p>sammanhållen diskrimineringslagstiftning 3y</p>
+    <p>Samhall AB 1, 13, 2y, 4y</p>
+    <p>samhällsinformation 6</p>
+    <p>samordnad diskrimineringslag 6, 10</p>
+    <p>samordnad diskrimineringsmyndighet 6, 10</p>
+    <p>samordnad länsförvaltning i Gotlands län 13</p>
+    <p>samordning med aktivitetsstöd 3</p>
+    <p>samverkansregler 10</p>
+    <p>SCB (Statistiska centralbyrån) 10, 13, 1y, 3y</p>
+    <p>semesterlagen (1977:480) 14</p>
+    <p>semesterlönegrundande frånvaro 14</p>
+    <p>sfi (svenska för invandrare) 6</p>
+    <p>SIUS-konsulent 13</p>
+    <p>SKL (Sveriges Kommuner och Landsting) 10</p>
+    <p>skyddat arbete hos offentliga arbetsgivare (OSA) 1</p>
+    <p>skyddskommitté 7</p>
+    <p>skyddsombud 7</p>
+    <p>skyddsombudsregister 7</p>
+    <p>skäliga stöd- och anpassningsåtgärder 2</p>
+    <p>sociala dialogen 12</p>
+    <p>sociala företag 13, 8</p>
+    <p>SSYK (standard för svensk yrkesklassificering) 10</p>
+    <p>standard för svensk yrkesklassificering (SSYK) 10</p>
+    <p>start av näringsverksamhet 1, 13</p>
+    <p>Statistiska centralbyrån (SCB) 10, 13, 1y, 3y</p>
+    <p>statligt finansierade feriearbeten 1</p>
+    <p>Storstadsdelegationen 6</p>
+    <p>strukturell diskriminering 10</p>
+    <p>studerandevillkoret 3</p>
+    <p>stängslingsgrupper 13</p>
+    <p>stöd- och anpassningsåtgärder för funktionshindrade 2, 11</p>
+    <p>stöd till start av näringsverksamhet 1, 13</p>
+    <p>Svenska ESF-rådet 1, 3y</p>
+    <p>svenska för invandrare (sfi) 6</p>
+    <p>svenska modellen 9, 12</p>
+    <p>sympatiåtgärder 9</p>
+    <p>systematiska arbetsmiljöarbeten (SAM) 7</p>
+    <p>säsongsarbete 3, 14</p>
+    <p>T</p>
+    <p>tidsbegränsad anställning 14</p>
+    <p>tillsvidareanställning 14</p>
+    <p>tilläggsbudget 2y</p>
+    <p>timanställda 13</p>
+    <p>tjänstledighet 9</p>
+    <p>tolkservice 6</p>
+    <p>transpersoner 11</p>
+    <p>transsexuella 11</p>
+    <p>turordning i LAS 9</p>
+    <p>U</p>
+    <p>UG (ungdomsgarantin) 13</p>
+    <p>undersysselsatta 13</p>
+    <p>ungdomar 1</p>
+    <p>ungdomsarbetslöshet 13, 4y</p>
+    <p>ungdomsgarantin (UG) 13</p>
+    <p>Ungdomsstyrelsen 3y</p>
+    <p>utanförskap 1y</p>
+    <p>utbildningsvikariat 1</p>
+    <p>utjämningsavgift 3</p>
+    <p>utjämningsbidrag 3</p>
+    <p>Utredningen om stöd och jämställdhets-<br/> integrering i staten (JämStöd) 10</p>
+    <p>utstationering av arbetstagare 9</p>
+    <p>V</p>
+    <p>veckoarbetstid 7</p>
+    <p>vikariat 14</p>
+    <p>visstidsanställningar 14</p>
+    <p>våld mot kvinnor 10</p>
+    <p>våld och hot i arbetslivet 7</p>
+    <p>Y</p>
+    <p>yrkesklassificering 10</p>
+    <p>yrkespraktik 2</p>
+    <p>yttranden 1y, 2y, 3y, 4y</p>
+    <p>Ä</p>
+    <p>äldre 1, 7</p>
+    <p>Ö</p>
+    <p>övergång av verksamhet 9</p>
+    <p>övergång av vikariat till tillsvidareanställning 14</p>
+    <p>överhoppningsbar tid 3</p>
+    <p>översättningstjänster 6</p>
+    <p>Elanders Gotab, Stockholm 2007</p>
+  </text>
+</dokument>

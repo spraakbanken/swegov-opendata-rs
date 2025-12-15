@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 #[derive(Debug, clap::Parser)]
-#[clap(name = "fetch-sfs",author,version,about,long_about=None)]
+#[clap(author,version,about,long_about=None)]
 pub struct Args {
     /// Display verbose messages and progress information
     #[clap(long, short = 'v')]

@@ -15,9 +15,9 @@ test = false
 doctest = false
 
 [dependencies]
-anyhow = { workspace = true }
 clap = { workspace = true, features = ["derive", "cargo"] }
 config = { workspace = true }
+miette = { workspace = true, features = ["fancy"] }
 serde = { workspace = true, features = ["derive"] }
 tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
@@ -25,5 +25,3 @@ tracing-subscriber = { workspace = true }
 webcrawler = { workspace = true }
 # local deps
 opendata-spiders = { workspace = true }
-
-preprocessors.workspace = true
