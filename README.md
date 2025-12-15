@@ -21,7 +21,6 @@ Tools used for collecting SFS (Svensk Författningssamling) from [Riksdagens öp
 [scorecard-badge]: https://img.shields.io/badge/Maturity-Level%201%20--%20New%20Project-yellow.svg
 [scorecard-url]: https://github.com/spraakbanken/getting-started/blob/main/scorecard.md
 
-
 ## fetch-sfs
 
 Binary to run for collecting SFS.
@@ -49,17 +48,15 @@ All fetched pages are stored to disk in JSON-format, except for the pages with h
 This spider handles the following inconsistencies in the api.
 
 - Fetching the data in JSON format sometimes doesn't include text field.
-    - Instead the documents are fetch with xml and translated to JSON in the process step.
+  - Instead the documents are fetch with xml and translated to JSON in the process step.
 - `data.riksdagen.se/dokument/<dok_id>` is supposed to get the document with `dok_id`.
-    - sometimes, an empty document with no data is returned
-    - sometimes, the `html` field of a document is returned
-    - for both problems above , the path `data.riksdagen.se/dokumentstatus/<dok_id>` is needed
+  - sometimes, an empty document with no data is returned
+  - sometimes, the `html` field of a document is returned
+  - for both problems above , the path `data.riksdagen.se/dokumentstatus/<dok_id>` is needed
 -
 
-
-
-
 ## sfs-corpus
+
 Uses [`swegov-opendata`](#swegov-opendata).
 Build corpus files for processing with sparv.
 
@@ -68,15 +65,15 @@ Build corpus files for processing with sparv.
 Data model for the documents and document lists from riksdagens öppna data with [`serde`](https://serde.rs) serialization and deserialization.
 
 ## webcrawler
+
 Lives in [`webcrawler`](./webcrawler/).
 
 Generic web crawler that defines an interface for spiders.
 
 The spiders work in 2 steps,
+
 - scraping an url for new urls and/or data
 - processing the fetched data
-
-
 
 ## References
 
@@ -90,7 +87,7 @@ from 1.0 to 1.1 allows us to increase the MSRV. Users unable to increase their
 Rust version can use an older minor version instead. Below is a list of swegov-opendata-rs versions
 and their MSRV:
 
- * v0.1: Rust 1.74.
+- v0.1: Rust 1.85.
 
 Note however that swegov-opendata-rs also has dependencies, which might have different MSRV
 policies. We try to stick to the above policy when updating dependencies, but
