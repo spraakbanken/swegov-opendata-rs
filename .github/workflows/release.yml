@@ -52,7 +52,7 @@ jobs:
           # Note that glob pattern is not supported yet.
           # TODO: enter bin[s]
           bin: fetch-rd,fetch-sfs,preprocess-rd,preprocess-sfs
-          archive: $bin-$tag-$target
+          archive: swegov-opendata-$tag-$target
           # (optional) Target triple, default is host triple.
           target: ${{ matrix.target }}
           # (optional) Comma-separated list of additional files to be uploaded separately.
