@@ -1,19 +1,39 @@
-.PHONY: opendata-quick-dev
-opendata-quick-dev:
-	cargo watch -q -c -w swegov-opendata -x 'run -p swegov-opendata --example quick_dev'
+.default: help
 
-.PHONY: sfs-corpus-quick-dev
-sfs-corpus-quick-dev:
-	cargo watch -q -c -w sfs-corpus-2 -x 'run -p sfs-corpus-2 --example quick_dev'
+.PHONY: help
+help:
+	@echo "usage:"
+	@echo ""
+	@echo "bumpversion [part=]"
+	@echo "   bumps the given part of the version of the project. (Default: part='patch')"
+	@echo ""
+	@echo "bumpversion-show"
+	@echo "   shows the bump path that is possible"
+	@echo ""
+	@echo "publish [branch=]"
+	@echo "   pushes the given branch including tags to origin, for CI to publish based on tags. (Default: branch='main')"
+	@echo "   Typically used after 'make bumpversion'"
+	@echo ""
+	@echo "prepare-release"
+	@echo "   run tasks to prepare a release"
+	@echo ""
+part := "patch"
+bumpversion:
+	${INVENV} bump-my-version bump ${part}
 
-.PHONY: spiders-quick-dev
-spiders-quick-dev:
-	cargo watch -q -c -w opendata-spiders -x 'run -p opendata-spiders --example quick_dev'
+bumpversion-show:
+	${INVENV} bump-my-version show-bump
 
-.PHONY: quick-dev
-quick-dev:
-	cargo watch -q -c -w src -w sfs-corpus-core -x 'run -- generate xml data/sfs/output/sfs'
+branch := "main"
+publish:
+	git push origin ${branch} --tags
 
-.PHONY: sfs-preprocess2-quick-dev
-sfs-preprocess2-quick-dev:
-	cargo watch -q -c -w swegov-opendata-preprocess -x 'run -p swegov-opendata-preprocess --bin sfs-preprocess2 -- data/data_raw/sfs/sfs data/sfs-corpus'
+.PHONY: prepare-release
+prepare-release: update-changelog
+
+.PHONY: update-changelog
+update-changelog: CHANGELOG.md
+
+.PHONY: CHANGELOG.md
+CHANGELOG.md:
+	git cliff --unreleased --prepend $@
