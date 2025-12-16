@@ -6,26 +6,17 @@ use crate::date_formats;
 use crate::one_or_many;
 use crate::shared::optionals;
 
-pub use self::aktivitet::{Aktivitet, DokAktivitet, DokAktivitetRef};
-pub use self::bilaga::{Bilaga, DokBilaga, DokBilagaRef};
-pub use self::debatt::Debatt;
-pub use self::forslag::{
+pub use crate::dokument::aktivitet::{Aktivitet, DokAktivitet, DokAktivitetRef};
+pub use crate::dokument::bilaga::{Bilaga, DokBilaga, DokBilagaRef};
+pub use crate::dokument::debatt::Debatt;
+pub use crate::dokument::forslag::{
     DokForslag, DokMotForslag, DokMotForslagRef, DokUtskottsForslag, DokUtskottsForslagRef, Forslag,
 };
-pub use self::intressent::{DokIntressent, DokIntressentRef, Intressent, IntressentRef};
-pub use self::media::{WebbMedia, WebbMediaRef};
-pub use self::referens::{DokReferens, DokReferensRef, Referens};
-pub use self::uppgift::{DokUppgift, DokUppgiftRef, Uppgift};
-pub use self::{debatt::DebattRef, forslag::DokForslagRef};
-
-mod aktivitet;
-mod bilaga;
-mod debatt;
-mod forslag;
-mod intressent;
-mod media;
-mod referens;
-mod uppgift;
+pub use crate::dokument::intressent::{DokIntressent, DokIntressentRef, Intressent, IntressentRef};
+pub use crate::dokument::media::{WebbMedia, WebbMediaRef};
+pub use crate::dokument::referens::{DokReferens, DokReferensRef, Referens};
+pub use crate::dokument::uppgift::{DokUppgift, DokUppgiftRef, Uppgift};
+pub use crate::dokument::{debatt::DebattRef, forslag::DokForslagRef};
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
