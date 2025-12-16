@@ -125,6 +125,7 @@ pub struct DokumentListaDokument {
     debattnamn: String,
 
     dokumentnamn: String,
+    avdelningar: Avdelningar,
 }
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
@@ -132,6 +133,11 @@ pub struct DokumentListaDokument {
 pub struct FilBilaga {
     #[serde(skip_serializing_if = "Option::is_none")]
     fil: Option<Fil>,
+}
+
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+pub struct Avdelningar {
+    avdelning: Vec<String>,
 }
 
 impl Default for FilBilaga {

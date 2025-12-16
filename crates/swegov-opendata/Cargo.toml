@@ -12,6 +12,7 @@ doctest = false
 
 [dependencies]
 chrono = { workspace = true, features = ["serde"] }
+fs-err = { version = "3.2.1", features = ["tokio", "expose_original_error"] }
 miette = { workspace = true }
 quick-xml = { workspace = true, features = ["serde-types"] }
 serde = { workspace = true, features = ["derive"] }

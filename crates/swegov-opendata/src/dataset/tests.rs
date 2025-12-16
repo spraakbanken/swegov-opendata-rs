@@ -23,7 +23,7 @@ fn dataset_anforande_202324() -> DataSet {
                 .unwrap(),
         ),
         url: "/dataset/anforande/anforande-202324.csv.zip".into(),
-        description: "Anföranden som ledamöter hållit i kammaren.".into(),
+        description: Some("Anföranden som ledamöter hållit i kammaren.".into()),
         beskrivning: Some("Anföranden för riksmöte 2023/24".into()),
         upplysning: upplysning_anforande_202334().into(),
     }
@@ -45,7 +45,7 @@ fn dataset_anforande_202223() -> DataSet {
                 .unwrap(),
         ),
         url: "/dataset/anforande/anforande-202223.csvt.zip".into(),
-        description: "Anföranden som ledamöter hållit i kammaren.".into(),
+        description: Some("Anföranden som ledamöter hållit i kammaren.".into()),
         beskrivning: None,
         upplysning: None,
     }
@@ -67,7 +67,8 @@ fn dataset_bet_1971_1979() -> DataSet {
             .unwrap()),
         url: "/dataset/dokument/bet-1971-1979.xml.zip".into(),
         description:
-        "Utskottens betänkanden och utlåtanden, inklusive rksdagens beslut, en sammanfattning av voteringsresultaten och Beslut i korthet. I vissa årgångar finns även debatten med i formaten JSON, SQL och XML.".into(),
+        Some("Utskottens betänkanden och utlåtanden, inklusive rksdagens beslut, en sammanfattning av voteringsresultaten och Beslut i korthet. I vissa årgångar finns även debatten med i formaten JSON, SQL och XML.".into())
+        ,
         beskrivning: None,
         upplysning: Some(upplysning_bet_1971_1979())
 

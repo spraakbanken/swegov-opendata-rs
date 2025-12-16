@@ -1,9 +1,9 @@
-use std::fs;
+use fs_err as fs;
 
 use anyhow::Context;
 use rstest::rstest;
 
-use swegov_opendata::{DokumentStatusPage, DokumentStatusPageRef};
+use swegov_opendata::{DatasetLista, DokumentStatusPage, DokumentStatusPageRef};
 
 #[rstest]
 #[case("assets/Riksdagens diarium-2014-2017-h5d2467.json")]
@@ -91,10 +91,20 @@ fn rd_example_ref(#[case] filename: &str) -> anyhow::Result<()> {
     Ok(())
 }
 
+#[rstest]
+#[case("assets/datasetlista.xml")]
+fn rd_datasetlista(#[case] filename: &str) -> anyhow::Result<()> {
+    let source = fs::read_to_string(filename)?;
+
+    let datasetlista: DatasetLista = yaserde::de::from_str(&source).unwrap();
+    dbg!(&datasetlista);
+    Ok(())
+}
+
 pub fn without_bom(s: &str) -> &str {
     if &s[0..3] == "\u{feff}" {
         &s[3..]
     } else {
-        &s[..]
+        s
     }
 }

@@ -48,7 +48,7 @@ pub struct DataSet {
     #[yaserde(rename = "uppdaterad")]
     pub uppdaterad: date_formats::SweDateTime,
     pub url: String,
-    pub description: String,
+    pub description: Option<String>,
     pub beskrivning: Option<String>,
     // pub upplysning: String,
     pub upplysning: Option<Upplysning>,
@@ -132,7 +132,7 @@ impl DatasetBuilder {
             typ: typ.ok_or("field 'typ' is missing")?,
             upplysning,
             beskrivning,
-            description: description.ok_or("field 'description' is missing")?,
+            description,
             url: url.ok_or("field 'url' is missing")?,
             uppdaterad: uppdaterad.ok_or("field 'uppdaterad' is missing")?,
             filformat: filformat.ok_or("field 'filformat' is missing")?,

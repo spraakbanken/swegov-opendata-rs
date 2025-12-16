@@ -43,6 +43,7 @@ chrono = "0.4.37"
 clap = { version = "4.4.11" }
 config = "0.13.3"
 flate2 = "1.0.27"
+fs-err = { version = "3.2.1", features = ["expose_original_error"] }
 futures = "0.3.28"
 futures-core = "0.3"
 html5ever = "0.22.5"
