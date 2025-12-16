@@ -23,7 +23,6 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 authors = [
     "Språkbanken Text <sb-info@svenska.gu.se>",
-    "Kristoffer Andersson <kristoffer.andersson@gu.se>",
 ]
 
 [workspace.dependencies]
