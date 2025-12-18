@@ -24,7 +24,7 @@ license = "MIT OR Apache-2.0"
 authors = [
     "Språkbanken Text <sb-info@svenska.gu.se>",
 ]
-version = "0.2.0"
+version = "0.2.1"
 
 [workspace.dependencies]
 # local crates
