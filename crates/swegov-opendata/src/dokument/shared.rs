@@ -1,8 +1,3 @@
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-pub struct DokumentBase {
-    avdelningar: Option<Avdelningar>,
-}
-
 #[derive(
     Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
 )]

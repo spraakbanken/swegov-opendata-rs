@@ -149,7 +149,13 @@ pub struct DokumentListaDokument {
 }
 
 #[derive(
-    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+    Debug,
+    Clone,
+    Default,
+    serde::Deserialize,
+    serde::Serialize,
+    yaserde::YaDeserialize,
+    yaserde::YaSerialize,
 )]
 #[serde(deny_unknown_fields)]
 pub struct FilBilaga {
@@ -157,11 +163,6 @@ pub struct FilBilaga {
     fil: Option<Fil>,
 }
 
-impl Default for FilBilaga {
-    fn default() -> Self {
-        Self { fil: None }
-    }
-}
 #[derive(
     Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
 )]

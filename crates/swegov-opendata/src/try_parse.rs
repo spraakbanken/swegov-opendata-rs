@@ -7,8 +7,6 @@ use std::str::FromStr;
 use xml::writer::XmlEvent;
 use yaserde::{YaDeserialize, YaSerialize};
 
-use crate::DokumentListaDokument;
-
 #[derive(Debug)]
 pub enum TryParse<T> {
     Parsed(T),
@@ -25,20 +23,6 @@ impl<T: Clone> Clone for TryParse<T> {
         }
     }
 }
-
-// #[derive(Deserialize, Debug)]
-// struct Foo4 {
-//     inner: TryParse<Inner>,
-
-//     #[serde(flatten)]
-//     other: HashMap<String, Value>,
-// }
-
-// #[derive(Deserialize, Debug, Default)]
-// struct Inner {
-//     i1: i32,
-//     i2: i32,
-// }
 
 impl<'de, T: DeserializeOwned> Deserialize<'de> for TryParse<T> {
     fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {

@@ -120,28 +120,6 @@ pub struct UtskottsForslag {
     pub punkttyp: Option<String>,
 }
 
-#[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct SammanfattningHtml {
-    // #[serde_as(as = "OneOrMany<_, PreferMany>")]
-    pub table: serde_json::Value,
-    #[serde_as(as = "OneOrMany<_, PreferMany>")]
-    pub br: Vec<Option<String>>,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct SammanfattningHtmlTable {
-    pub tr: Vec<serde_json::Value>,
-}
-
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(deny_unknown_fields)]
-pub struct SammanfattningHtmlTableRow {
-    pub tr: Vec<SammanfattningHtmlTableRow>,
-}
-
 #[derive(
     Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
 )]

@@ -38,7 +38,6 @@ use swegov_opendata::{DatasetLista, DokumentStatusPage, DokumentStatusPageRef};
 #[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]
 #[case("assets/yttr-2018-2021-h605au1y.json")]
 fn rd_example(#[case] filename: &str) -> anyhow::Result<()> {
-    dbg!(filename);
     let source = fs::read_to_string(filename)?;
     let source = without_bom(&source);
 
@@ -81,12 +80,11 @@ fn rd_example(#[case] filename: &str) -> anyhow::Result<()> {
 #[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]
 #[case("assets/yttr-2018-2021-h605au1y.json")]
 fn rd_example_ref(#[case] filename: &str) -> anyhow::Result<()> {
-    dbg!(filename);
     let source = fs::read_to_string(filename)?;
     let source = without_bom(&source);
 
-    let dokumentstatus: DokumentStatusPageRef<'_> = serde_json::from_str(&source)
-        .with_context(|| "Failed deserialize to DokumentStatusPage")?;
+    let dokumentstatus: DokumentStatusPageRef<'_> =
+        serde_json::from_str(source).with_context(|| "Failed deserialize to DokumentStatusPage")?;
     dbg!(&dokumentstatus);
     Ok(())
 }

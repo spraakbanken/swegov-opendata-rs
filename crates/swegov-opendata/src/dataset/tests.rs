@@ -77,16 +77,18 @@ fn dataset_bet_1971_1979() -> DataSet {
 fn upplysning_bet_1971_1979() -> Upplysning {
     Upplysning {
         upplysning: "Saknade dokument: ".into(),
-        year_comment: YearCommentMap::new(vec![
-            YearComment {
-                year: "1975/76".into(),
-                comment: "alla".into(),
-            },
-            YearComment {
-                year: "1976/77".into(),
-                comment: "FiU,NU".into(),
-            },
-        ]),
+        year_comment: YearCommentMap {
+            year_comments: vec![
+                YearComment {
+                    year: "1975/76".into(),
+                    comment: "alla".into(),
+                },
+                YearComment {
+                    year: "1976/77".into(),
+                    comment: "FiU,NU".into(),
+                },
+            ],
+        },
     }
 }
 

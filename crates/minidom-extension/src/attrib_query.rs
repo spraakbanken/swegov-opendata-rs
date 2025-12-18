@@ -13,5 +13,5 @@ pub fn attrib_equals(elem: &BytesStart<'_>, name: &[u8], value: &[u8]) -> bool {
             }
         }
     }
-    return false;
+    false
 }

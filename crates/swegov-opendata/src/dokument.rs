@@ -1,6 +1,7 @@
 mod aktivitet;
 mod bilaga;
 mod debatt;
+#[allow(clippy::module_inception)]
 mod dokument;
 mod dokument_lista;
 mod forslag;
