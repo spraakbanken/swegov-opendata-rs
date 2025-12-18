@@ -3,14 +3,18 @@ use serde_with::serde_as;
 use serde_with::{formats::PreferMany, OneOrMany};
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokReferens {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
     pub referens: Vec<Referens>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Referens {
     // #[serde(deserialize_with = "deserialize_number_from_string")]

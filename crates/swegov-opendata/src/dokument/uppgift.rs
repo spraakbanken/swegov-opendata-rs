@@ -4,10 +4,12 @@ use chrono::NaiveDateTime;
 use serde_with::serde_as;
 use serde_with::{formats::PreferMany, OneOrMany};
 
-use crate::date_formats;
+use crate::date_formats::{self, SweDateTime};
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokUppgift {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
@@ -25,7 +27,9 @@ impl DokUppgift {
     }
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Uppgift {
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -34,10 +38,10 @@ pub struct Uppgift {
     pub namn: String,
     #[serde(
         skip_serializing_if = "Option::is_none",
-        with = "date_formats::option_swe_date_format",
+        // with = "date_formats::option_swe_date_format",
         default
     )]
-    pub systemdatum: Option<NaiveDateTime>,
+    pub systemdatum: Option<SweDateTime>,
     pub text: Option<String>,
 }
 

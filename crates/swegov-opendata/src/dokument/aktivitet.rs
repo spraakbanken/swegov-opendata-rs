@@ -1,22 +1,26 @@
 use chrono::NaiveDateTime;
 
-use crate::date_formats;
+use crate::date_formats::{self, SweDateTime};
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokAktivitet {
     pub aktivitet: Vec<Aktivitet>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Aktivitet {
     // #[serde(deserialize_with = "deserialize_number_from_string")]
     pub hangar_id: Option<String>,
     pub kod: String,
     pub namn: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub datum: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub datum: SweDateTime,
     pub status: Option<String>,
     pub ordning: String,
     pub process: Option<String>,

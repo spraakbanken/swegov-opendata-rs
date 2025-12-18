@@ -3,7 +3,6 @@ use std::{fmt::Debug, path::PathBuf};
 use async_trait::async_trait;
 
 use flate2::Compression;
-use quick_xml::de as quick_xml_de;
 use reqwest::Client;
 
 use std::fs;
@@ -131,7 +130,7 @@ impl webcrawler::Spider for SfsSpider {
             err
         })?;
         // println!("{}", text);
-        let item: Item = match quick_xml_de::from_str(&text) {
+        let item: Item = match yaserde::de::from_str(&text) {
             Err(err) if url.contains("dokument/") => {
                 tracing::error!(error=?err,text=text,"Failed parsing XML");
                 let new_url = url.replace("dokument", "dokumentstatus");
@@ -145,7 +144,7 @@ impl webcrawler::Spider for SfsSpider {
             }
             Err(err) => {
                 tracing::error!(error=?err,text=text,"Failed parsing XML");
-                return Err(err.into());
+                return Err(Error::XmlDe { msg: err });
             }
             Ok(item) => item,
         };

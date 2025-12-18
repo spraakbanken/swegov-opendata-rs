@@ -11,7 +11,9 @@ use crate::shared::optionals;
 mod tests;
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokForslag {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
@@ -19,7 +21,9 @@ pub struct DokForslag {
 }
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokUtskottsForslag {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
@@ -27,7 +31,9 @@ pub struct DokUtskottsForslag {
 }
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokMotForslag {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
@@ -58,13 +64,15 @@ pub struct DokMotForslagRef<'a> {
     pub motforslag: Vec<MotForslagRef<'a>>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Forslag {
     // #[serde(deserialize_with = "deserialize_number_from_string")]
     pub hangar_id: Option<String>,
     #[serde(deserialize_with = "deserialize_number_from_string")]
-    pub nummer: usize,
+    pub nummer: u64,
     pub beteckning: Option<String>,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
     pub lydelse: String,
@@ -82,7 +90,9 @@ pub struct Forslag {
     pub andringsforfattning: Option<String>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct UtskottsForslag {
     #[serde(deserialize_with = "deserialize_number_from_string")]
@@ -96,8 +106,9 @@ pub struct UtskottsForslag {
     #[serde(deserialize_with = "deserialize_number_from_string")]
     pub motforslag_nummer: u64,
     pub motforslag_partier: Option<String>,
-    pub votering_id: Option<Uuid>,
-    pub votering_sammanfattning_html: Option<serde_json::Value>,
+    pub votering_id: Option<String>,
+    // pub votering_sammanfattning_html: Option<serde_json::Value>,
+    pub votering_sammanfattning_html: Option<AnyValue>,
     pub votering_ledamot_url_xml: Option<String>,
     pub votering_url_xml: Option<String>,
     pub rm: String,
@@ -131,7 +142,9 @@ pub struct SammanfattningHtmlTableRow {
     pub tr: Vec<SammanfattningHtmlTableRow>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct MotForslag {
     #[serde(deserialize_with = "deserialize_number_from_string")]
@@ -234,4 +247,37 @@ pub struct MotForslagRef<'a> {
     #[serde(deserialize_with = "deserialize_number_from_string")]
     pub utskottsforslag_punkt: u64,
     pub id: Option<&'a str>,
+}
+
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+pub struct AnyValue(serde_json::Value);
+
+impl yaserde::YaDeserialize for AnyValue {
+    fn deserialize<R: std::io::Read>(
+        reader: &mut yaserde::de::Deserializer<R>,
+    ) -> Result<Self, String> {
+        todo!()
+    }
+}
+
+impl yaserde::YaSerialize for AnyValue {
+    fn serialize<W: std::io::Write>(
+        &self,
+        writer: &mut yaserde::ser::Serializer<W>,
+    ) -> Result<(), String> {
+        todo!()
+    }
+    fn serialize_attributes(
+        &self,
+        attributes: Vec<xml::attribute::OwnedAttribute>,
+        namespace: xml::namespace::Namespace,
+    ) -> Result<
+        (
+            Vec<xml::attribute::OwnedAttribute>,
+            xml::namespace::Namespace,
+        ),
+        String,
+    > {
+        Ok((attributes, namespace))
+    }
 }

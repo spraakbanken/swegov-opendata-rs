@@ -1,21 +1,17 @@
-use std::{fmt, str::FromStr};
+use std::str::FromStr;
 
-use chrono::{NaiveDate, NaiveDateTime};
-
-mod swe_date;
-
-pub use crate::date_formats::swe_date::SweDate;
+use chrono::NaiveDate;
 
 #[derive(Debug, Clone, Copy, PartialEq)]
-pub struct SweDateTime(NaiveDateTime);
+pub struct SweDate(NaiveDate);
 
-impl From<NaiveDateTime> for SweDateTime {
-    fn from(value: NaiveDateTime) -> Self {
+impl From<NaiveDate> for SweDate {
+    fn from(value: NaiveDate) -> Self {
         Self(value)
     }
 }
 
-impl FromStr for SweDateTime {
+impl FromStr for SweDate {
     type Err = chrono::ParseError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
@@ -23,21 +19,12 @@ impl FromStr for SweDateTime {
     }
 }
 
-impl SweDateTime {
-    pub fn as_inner(&self) -> NaiveDateTime {
+impl SweDate {
+    pub fn as_inner(&self) -> NaiveDate {
         self.0
     }
-    pub fn date(&self) -> NaiveDate {
-        self.0.date()
-    }
 }
-
-impl fmt::Display for SweDateTime {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        f.write_str(&swe_date_format::to_string(&self.0))
-    }
-}
-impl serde::Serialize for SweDateTime {
+impl serde::Serialize for SweDate {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: serde::Serializer,
@@ -46,25 +33,25 @@ impl serde::Serialize for SweDateTime {
     }
 }
 
-impl<'de> serde::Deserialize<'de> for SweDateTime {
+impl<'de> serde::Deserialize<'de> for SweDate {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: serde::Deserializer<'de>,
     {
         let s = String::deserialize(deserializer)?;
         let date = swe_date_format::parse_from_str(&s).map_err(serde::de::Error::custom)?;
-        Ok(SweDateTime(date))
+        Ok(SweDate(date))
     }
 }
 
-impl yaserde::YaSerialize for SweDateTime {
+impl yaserde::YaSerialize for SweDate {
     fn serialize<W: std::io::Write>(
         &self,
         writer: &mut yaserde::ser::Serializer<W>,
     ) -> Result<(), String> {
         let name = writer
             .get_start_event_name()
-            .unwrap_or_else(|| "SweDateTime".to_string());
+            .unwrap_or_else(|| "SweDate".to_string());
         if !writer.skip_start_end() {
             let event = xml::writer::XmlEvent::start_element(name.as_str());
             writer.write(event).map_err(|e| e.to_string())?;
@@ -95,7 +82,7 @@ impl yaserde::YaSerialize for SweDateTime {
     }
 }
 
-impl yaserde::YaDeserialize for SweDateTime {
+impl yaserde::YaDeserialize for SweDate {
     fn deserialize<R: std::io::Read>(
         reader: &mut yaserde::de::Deserializer<R>,
     ) -> Result<Self, String> {
@@ -103,7 +90,7 @@ impl yaserde::YaDeserialize for SweDateTime {
             match reader.next_event()? {
                 xml::reader::XmlEvent::StartElement { .. } => {}
                 xml::reader::XmlEvent::Characters(ref text_content) => {
-                    return SweDateTime::from_str(text_content).map_err(|e| e.to_string());
+                    return SweDate::from_str(text_content).map_err(|e| e.to_string());
                 }
                 _ => {
                     break;
@@ -115,19 +102,19 @@ impl yaserde::YaDeserialize for SweDateTime {
 }
 
 pub mod swe_date_format {
-    use chrono::NaiveDateTime;
+    use chrono::NaiveDate;
     use serde::{self, Deserialize, Deserializer, Serializer};
-    const FORMAT: &str = "%Y-%m-%d %H:%M:%S";
+    const FORMAT: &str = "%Y-%m-%d";
 
-    pub fn to_string(date: &NaiveDateTime) -> String {
+    pub fn to_string(date: &NaiveDate) -> String {
         date.format(FORMAT).to_string()
     }
 
-    pub fn parse_from_str(s: &str) -> chrono::ParseResult<NaiveDateTime> {
-        NaiveDateTime::parse_from_str(s, FORMAT)
+    pub fn parse_from_str(s: &str) -> chrono::ParseResult<NaiveDate> {
+        NaiveDate::parse_from_str(s, FORMAT)
     }
 
-    pub fn serialize<S>(date: &NaiveDateTime, serializer: S) -> Result<S::Ok, S::Error>
+    pub fn serialize<S>(date: &NaiveDate, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
     {
@@ -141,7 +128,7 @@ pub mod swe_date_format {
     //        D: Deserializer<'de>
     //
     // although it may also be generic over the output types T.
-    pub fn deserialize<'de, D>(deserializer: D) -> Result<NaiveDateTime, D::Error>
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<NaiveDate, D::Error>
     where
         D: Deserializer<'de>,
     {
@@ -151,11 +138,11 @@ pub mod swe_date_format {
 }
 
 pub mod option_swe_date_format {
-    use chrono::NaiveDateTime;
+    use chrono::NaiveDate;
     use serde::{self, Deserialize, Deserializer, Serializer};
 
     use super::swe_date_format;
-    pub fn serialize<S>(opt_date: &Option<NaiveDateTime>, serializer: S) -> Result<S::Ok, S::Error>
+    pub fn serialize<S>(opt_date: &Option<NaiveDate>, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
     {
@@ -165,7 +152,7 @@ pub mod option_swe_date_format {
         }
     }
 
-    pub fn deserialize<'de, D>(deserializer: D) -> Result<Option<NaiveDateTime>, D::Error>
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<Option<NaiveDate>, D::Error>
     where
         D: Deserializer<'de>,
     {
@@ -181,23 +168,21 @@ pub mod option_swe_date_format {
 }
 
 pub mod swe_date_format_or_empty_to_option {
-    use std::str::FromStr;
-
+    use chrono::NaiveDate;
     use serde::{self, Deserialize, Deserializer, Serializer};
 
-    use crate::date_formats::SweDateTime;
-
-    pub fn serialize<S>(opt_date: &Option<SweDateTime>, serializer: S) -> Result<S::Ok, S::Error>
+    use super::swe_date_format;
+    pub fn serialize<S>(opt_date: &Option<NaiveDate>, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
     {
         match opt_date {
             None => serializer.serialize_none(),
-            Some(date) => serializer.serialize_str(&date.to_string()),
+            Some(date) => serializer.serialize_str(&swe_date_format::to_string(date)),
         }
     }
 
-    pub fn deserialize<'de, D>(deserializer: D) -> Result<Option<SweDateTime>, D::Error>
+    pub fn deserialize<'de, D>(deserializer: D) -> Result<Option<NaiveDate>, D::Error>
     where
         D: Deserializer<'de>,
     {
@@ -206,7 +191,7 @@ pub mod swe_date_format_or_empty_to_option {
             None => Ok(None),
             Some(s) if s.is_empty() => Ok(None),
             Some(s) => {
-                let date = SweDateTime::from_str(&s).map_err(serde::de::Error::custom)?;
+                let date = swe_date_format::parse_from_str(&s).map_err(serde::de::Error::custom)?;
                 Ok(Some(date))
             }
         }

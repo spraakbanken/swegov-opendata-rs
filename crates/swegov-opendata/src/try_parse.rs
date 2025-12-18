@@ -2,8 +2,12 @@
 
 use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
 use serde_json::Value;
-use std::fmt;
+use std::fmt::{self, Display};
 use std::str::FromStr;
+use xml::writer::XmlEvent;
+use yaserde::{YaDeserialize, YaSerialize};
+
+use crate::DokumentListaDokument;
 
 #[derive(Debug)]
 pub enum TryParse<T> {
@@ -70,6 +74,79 @@ impl<T: Serialize> Serialize for TryParse<T> {
             TryParse::Parsed(t) => t.serialize(serializer),
             TryParse::Unparsed(v) => v.serialize(serializer),
         }
+    }
+}
+
+impl<T: Display> YaSerialize for TryParse<T> {
+    fn serialize<W: std::io::Write>(
+        &self,
+        writer: &mut yaserde::ser::Serializer<W>,
+    ) -> Result<(), String> {
+        let name = writer
+            .get_start_event_name()
+            .unwrap_or_else(|| "TryParse".to_string());
+        if !writer.skip_start_end() {
+            writer
+                .write(XmlEvent::start_element(name.as_str()))
+                .map_err(|e| e.to_string())?;
+        }
+        match self {
+            TryParse::NotPresent => {}
+            TryParse::Parsed(v) => {
+                writer
+                    .write(XmlEvent::characters(&v.to_string()))
+                    .map_err(|e| e.to_string())?;
+            }
+            TryParse::Unparsed(v) => {
+                writer
+                    .write(XmlEvent::characters(&v.to_string()))
+                    .map_err(|e| e.to_string())?;
+            }
+        }
+        if !writer.skip_start_end() {
+            writer
+                .write(XmlEvent::end_element())
+                .map_err(|e| e.to_string())?;
+        }
+        Ok(())
+    }
+
+    fn serialize_attributes(
+        &self,
+        attributes: Vec<xml::attribute::OwnedAttribute>,
+        namespace: xml::namespace::Namespace,
+    ) -> Result<
+        (
+            Vec<xml::attribute::OwnedAttribute>,
+            xml::namespace::Namespace,
+        ),
+        String,
+    > {
+        Ok((attributes, namespace))
+    }
+}
+
+impl<T: FromStr> YaDeserialize for TryParse<T>
+where
+    T: FromStr,
+    T::Err: Display,
+{
+    fn deserialize<R: std::io::Read>(
+        reader: &mut yaserde::de::Deserializer<R>,
+    ) -> Result<Self, String> {
+        loop {
+            match reader.peek()? {
+                xml::reader::XmlEvent::StartElement { .. } => {}
+                xml::reader::XmlEvent::Characters(ref text) => {
+                    return TryParse::<T>::from_str(text).map_err(|e| e.to_string());
+                }
+                _ => {
+                    break;
+                }
+            }
+            let _next = reader.next_event();
+        }
+        Err("Unable to parse TryParse".to_string())
     }
 }
 

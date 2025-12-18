@@ -42,8 +42,8 @@ fn rd_example(#[case] filename: &str) -> anyhow::Result<()> {
     let source = fs::read_to_string(filename)?;
     let source = without_bom(&source);
 
-    let dokumentstatus: DokumentStatusPage = serde_json::from_str(&source)
-        .with_context(|| "Failed deserialize to DokumentStatusPage")?;
+    let dokumentstatus: DokumentStatusPage =
+        serde_json::from_str(source).with_context(|| "Failed deserialize to DokumentStatusPage")?;
     dbg!(&dokumentstatus);
     Ok(())
 }

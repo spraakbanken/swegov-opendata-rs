@@ -2,14 +2,18 @@ use serde_with::serde_as;
 use serde_with::{formats::PreferMany, OneOrMany};
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokIntressent {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
     pub intressent: Vec<Intressent>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Intressent {
     pub roll: String,

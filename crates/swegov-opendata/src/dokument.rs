@@ -7,6 +7,7 @@ mod forslag;
 mod intressent;
 mod media;
 mod referens;
+mod shared;
 mod uppgift;
 
 pub use crate::dokument::aktivitet::Aktivitet;

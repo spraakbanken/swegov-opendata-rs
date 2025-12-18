@@ -6,14 +6,18 @@ use serde_with::{formats::PreferMany, OneOrMany};
 use crate::shared::optionals;
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DokBilaga {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
     pub bilaga: Vec<Bilaga>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Bilaga {
     pub dok_id: String,

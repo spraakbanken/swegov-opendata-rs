@@ -8,7 +8,8 @@ pub enum Error {
     UnexpectedJsonFormat(String),
     StdIo(std::io::Error),
     JsonParsing(serde_json::Error),
-    XmlDe(quick_xml::DeError),
+    XmlDe { msg: String },
+    // XmlDe(quick_xml::DeError),
 }
 
 impl Display for Error {
@@ -20,7 +21,8 @@ impl Display for Error {
             Self::JsonParsing(_) => write!(f, "json parsing error"),
             Self::StdIo(_) => write!(f, "io error"),
             Self::UnexpectedJsonFormat(msg) => write!(f, "unexpected json format: {}", msg),
-            Self::XmlDe(_) => write!(f, "xml deserialisation error"),
+            Self::XmlDe { msg } => write!(f, "xml deserialisation error: '{msg}'"),
+            // Self::XmlDe(_) => write!(f, "xml deserialisation error"),
         }
     }
 }
@@ -31,7 +33,7 @@ impl std::error::Error for Error {
             Self::Reqwest(err) => Some(err),
             Self::JsonParsing(err) => Some(err),
             Self::StdIo(err) => Some(err),
-            Self::XmlDe(err) => Some(err),
+            // Self::XmlDe(err) => Some(err),
             _ => None,
         }
     }
@@ -55,8 +57,8 @@ impl From<serde_json::Error> for Error {
     }
 }
 
-impl From<quick_xml::DeError> for Error {
-    fn from(value: quick_xml::DeError) -> Self {
-        Self::XmlDe(value)
-    }
-}
+// impl From<quick_xml::DeError> for Error {
+//     fn from(value: quick_xml::DeError) -> Self {
+//         Self::XmlDe(value)
+//     }
+// }

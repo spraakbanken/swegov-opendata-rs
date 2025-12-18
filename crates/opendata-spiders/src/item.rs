@@ -1,6 +1,6 @@
 use swegov_opendata::{DokumentLista, DokumentStatus};
 
-#[derive(Debug, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, Default)]
 #[serde(rename_all = "snake_case")]
 #[allow(clippy::large_enum_variant)]
 pub enum Item {
@@ -10,4 +10,6 @@ pub enum Item {
     DokumentLista(DokumentLista),
     // Other(String),
     Div(String),
+    #[default]
+    Empty,
 }

@@ -7,25 +7,29 @@ use serde_aux::field_attributes::{
 use serde_with::serde_as;
 use serde_with::{formats::PreferMany, OneOrMany};
 
-use crate::date_formats;
+use crate::date_formats::{self, SweDateTime};
 use crate::one_or_many::{
     string_or_seq_or_none_to_opt_cow_str, string_or_seq_or_none_to_opt_string,
 };
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Debatt {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
     pub anforande: Vec<DebattAnforande>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct DebattAnforande {
     pub anf_beteckning: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub anf_datum: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub anf_datum: SweDateTime,
     #[serde(deserialize_with = "deserialize_number_from_string")]
     pub anf_hangar_id: u64,
     pub anf_id: Option<String>,
@@ -39,8 +43,8 @@ pub struct DebattAnforande {
     pub anf_typ: String,
     pub anf_video_id: String,
     // pub anf_video_id: Uuid,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub datumtid: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub datumtid: SweDateTime,
     pub debatt_id: Option<String>,
     // pub debatt_id: Uuid,
     pub debatt_titel: Option<String>,
@@ -56,8 +60,8 @@ pub struct DebattAnforande {
     pub parti: String,
     #[serde(deserialize_with = "deserialize_option_number_from_string", default)]
     pub startpos: Option<u64>,
-    #[serde(with = "date_formats::option_swe_date_format", default)]
-    pub systemdatum: Option<NaiveDateTime>,
+    #[serde(default)]
+    pub systemdatum: Option<SweDateTime>,
     pub talare: String,
     pub talare_kort: Option<String>,
     #[serde(

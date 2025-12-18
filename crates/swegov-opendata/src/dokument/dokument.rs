@@ -1,21 +1,22 @@
 use std::borrow::Cow;
 
-use chrono::{NaiveDate, NaiveDateTime};
+use chrono::NaiveDate;
 
-use crate::date_formats;
+use crate::date_formats::{self, SweDateTime};
+use crate::dokument::shared;
 use crate::one_or_many;
 use crate::shared::optionals;
 
-pub use crate::dokument::aktivitet::{Aktivitet, DokAktivitet, DokAktivitetRef};
-pub use crate::dokument::bilaga::{Bilaga, DokBilaga, DokBilagaRef};
+pub use crate::dokument::aktivitet::{DokAktivitet, DokAktivitetRef};
+pub use crate::dokument::bilaga::{DokBilaga, DokBilagaRef};
 pub use crate::dokument::debatt::Debatt;
 pub use crate::dokument::forslag::{
-    DokForslag, DokMotForslag, DokMotForslagRef, DokUtskottsForslag, DokUtskottsForslagRef, Forslag,
+    DokForslag, DokMotForslag, DokMotForslagRef, DokUtskottsForslag, DokUtskottsForslagRef,
 };
-pub use crate::dokument::intressent::{DokIntressent, DokIntressentRef, Intressent, IntressentRef};
+pub use crate::dokument::intressent::{DokIntressent, DokIntressentRef};
 pub use crate::dokument::media::{WebbMedia, WebbMediaRef};
-pub use crate::dokument::referens::{DokReferens, DokReferensRef, Referens};
-pub use crate::dokument::uppgift::{DokUppgift, DokUppgiftRef, Uppgift};
+pub use crate::dokument::referens::{DokReferens, DokReferensRef};
+pub use crate::dokument::uppgift::{DokUppgift, DokUppgiftRef};
 pub use crate::dokument::{debatt::DebattRef, forslag::DokForslagRef};
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
@@ -28,8 +29,10 @@ pub struct DokumentStatusPage {
 pub struct DokumentStatusPageRef<'a> {
     pub dokumentstatus: DokumentStatusRef<'a>,
 }
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
-#[serde(rename = "dokumentstatus", deny_unknown_fields)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
+#[serde(rename = "dokumentstatus")]
 pub struct DokumentStatus {
     pub dokument: Dokument,
     pub dokuppgift: Option<DokUppgift>,
@@ -71,12 +74,14 @@ pub struct DokumentStatusRef<'a> {
 }
 
 // #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Dokument {
     pub dok_id: String,
     // #[serde(deserialize_with = "deserialize_number_from_string")]
-    pub hangar_id: String,
+    pub hangar_id: Option<String>,
     pub rm: String,
     pub beteckning: Option<String>,
     pub typ: String,
@@ -103,12 +108,12 @@ pub struct Dokument {
     pub nummer: String,
     // #[serde(deserialize_with = "deserialize_number_from_string")]
     pub slutnummer: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub datum: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub datum: SweDateTime,
     #[serde(with = "date_formats::swe_date_format_or_empty_to_option")]
-    pub publicerad: Option<NaiveDateTime>,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub systemdatum: NaiveDateTime,
+    pub publicerad: Option<SweDateTime>,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub systemdatum: SweDateTime,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
     pub titel: String,
     pub subtitel: Option<String>,
@@ -141,6 +146,7 @@ pub struct Dokument {
     pub images: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub metadata: Option<String>,
+    avdelningar: Option<shared::Avdelningar>,
 }
 
 impl Dokument {
@@ -151,7 +157,7 @@ impl Dokument {
         &self.rm
     }
     pub fn datum(&self) -> NaiveDate {
-        self.datum.date()
+        self.datum.as_inner().date()
     }
     pub fn titel(&self) -> &str {
         &self.titel
@@ -198,12 +204,12 @@ pub struct DokumentRef<'a> {
     pub nummer: &'a str,
     // #[serde(deserialize_with = "deserialize_number_from_string")]
     pub slutnummer: &'a str,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub datum: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub datum: SweDateTime,
     #[serde(with = "date_formats::swe_date_format_or_empty_to_option")]
-    pub publicerad: Option<NaiveDateTime>,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub systemdatum: NaiveDateTime,
+    pub publicerad: Option<SweDateTime>,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub systemdatum: SweDateTime,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
     pub titel: String,
     pub subtitel: Option<Cow<'a, str>>,
@@ -240,10 +246,10 @@ pub struct DokumentRef<'a> {
 
 impl<'a> DokumentRef<'a> {
     pub fn dok_id(&self) -> &str {
-        &self.dok_id
+        self.dok_id
     }
     pub fn rm(&self) -> &str {
-        &self.rm
+        self.rm
     }
     pub fn datum(&self) -> NaiveDate {
         self.datum.date()

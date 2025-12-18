@@ -3,17 +3,21 @@ use serde_aux::field_attributes::deserialize_number_from_string;
 use serde_with::serde_as;
 use serde_with::{formats::PreferMany, OneOrMany};
 
-use crate::date_formats;
+use crate::date_formats::{self, SweDateTime};
 
 #[serde_as]
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct WebbMedia {
     #[serde_as(as = "OneOrMany<_, PreferMany>")]
     pub media: Vec<Media>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(
+    Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
+)]
 #[serde(deny_unknown_fields)]
 pub struct Media {
     pub dok_id: String,
@@ -28,16 +32,16 @@ pub struct Media {
     pub debatt_rm: String,
     pub debatt_typ: String,
     pub dok_beteckning: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub datum: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub datum: SweDateTime,
     // #[serde(default, deserialize_with = "deserialize_option_number_from_string")]
     // pub videostatus: Option<u64>,
     #[serde(deserialize_with = "deserialize_number_from_string")]
     pub videostatus: u64,
     pub source: String,
     pub inspelningstyp: String,
-    #[serde(with = "date_formats::swe_date_format")]
-    pub systemdatum: NaiveDateTime,
+    // #[serde(with = "date_formats::swe_date_format")]
+    pub systemdatum: SweDateTime,
 }
 
 #[serde_as]
