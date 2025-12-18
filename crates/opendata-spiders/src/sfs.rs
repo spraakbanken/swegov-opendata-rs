@@ -152,7 +152,6 @@ impl webcrawler::Spider for SfsSpider {
         };
         // println!("item={:#?}", item);
         // println!("url={url}");
-
         if let Item::DokumentLista(dokumentlista) = &item {
             if let Some(nasta_sida) = &dokumentlista.nasta_sida {
                 new_urls.push(nasta_sida.clone());

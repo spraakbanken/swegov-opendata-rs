@@ -22,7 +22,7 @@ serde_with = { workspace = true }
 thiserror = { workspace = true }
 tracing = { workspace = true }
 uuid = { version = "1.10.0", features = ["serde"] }
-xml-rs = "0.8.27"
+xml-rs = { workspace = true }
 yaserde = { workspace = true, features = ["derive"] }
 
 [dev-dependencies]

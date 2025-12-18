@@ -30,4 +30,8 @@ tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
 ulid = { workspace = true }
 webcrawler = { workspace = true }
+xml-rs.workspace = true
 yaserde = { workspace = true, features = ["derive"] }
+
+[dev-dependencies]
+rstest.workspace = true

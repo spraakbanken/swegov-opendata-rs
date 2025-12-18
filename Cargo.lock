@@ -1442,6 +1442,7 @@ dependencies = [
  "fs-err",
  "quick-xml 0.36.2",
  "reqwest",
+ "rstest",
  "serde",
  "serde_json",
  "swegov-opendata",
@@ -1449,6 +1450,7 @@ dependencies = [
  "tracing",
  "ulid",
  "webcrawler",
+ "xml-rs",
  "yaserde",
 ]
 
