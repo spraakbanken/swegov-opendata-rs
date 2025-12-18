@@ -200,24 +200,26 @@ impl webcrawler::Spider for SfsSpider {
                 path.push("unknown");
             }
         }
-        tokio::fs::create_dir_all(&path).await.inspect_err(|_err| {
-            tracing::error!("failed creating path='{}', url={}", path.display(), url);
-        })?;
+        fs_err::tokio::create_dir_all(&path)
+            .await
+            .inspect_err(|_err| {
+                tracing::error!("failed creating path='{}', url={}", path.display(), url);
+            })?;
         if file_name.is_empty() {
             path.push(
-                format!("unknown-{}-{}", url, Ulid::new())
-                    .replace(':', "")
-                    .replace([' ', '.', '/'], "_"),
+                format!("unknown-{}", Ulid::new()), // .replace(':', "")
+                                                    // .replace([' ', '.', '/'], "_"),
             );
         } else {
-            path.push(&file_name);
+            path.push(Ulid::new().to_string());
+            // path.push(&file_name);
         }
         // let file_name = format!("{file_name}.json");
         path.set_extension("json.gz");
         let span = tracing::info_span!("writing output", "{}", path.display());
         let _enter = span.enter();
         tracing::info!("creating file");
-        let file = std::fs::File::create(&path).inspect_err(|_err| {
+        let file = fs::File::create(&path).inspect_err(|_err| {
             tracing::error!("failed creating file, url={}", url);
         })?;
         let compress_writer = flate2::write::GzEncoder::new(file, Compression::default());

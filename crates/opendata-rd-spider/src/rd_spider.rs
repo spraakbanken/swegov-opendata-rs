@@ -266,22 +266,21 @@ impl webcrawler::Spider for RdSpider {
         if let Some(parent) = path.parent() {
             if !parent.exists() {
                 tracing::info!("creating folder {}", parent.display());
-                tokio::fs::create_dir_all(parent).await.map_err(|source| {
-                    Error::CouldNotCreateFolder {
+                fs_err::tokio::create_dir_all(parent)
+                    .await
+                    .map_err(|source| Error::CouldNotCreateFolder {
                         path: parent.display().to_string(),
                         source,
-                    }
-                })?;
+                    })?;
             }
         }
         tracing::info!("writing to path {}", path.display());
-        let mut file =
-            tokio::fs::File::create(&path)
-                .await
-                .map_err(|source| Error::CouldNotCreateFile {
-                    path: path.display().to_string(),
-                    source,
-                })?;
+        let mut file = fs_err::tokio::File::create(&path).await.map_err(|source| {
+            Error::CouldNotCreateFile {
+                path: path.display().to_string(),
+                source,
+            }
+        })?;
         file.write_all(&data)
             .await
             .map_err(|source| Error::CouldNotWriteFile {
