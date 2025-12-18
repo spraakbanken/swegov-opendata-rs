@@ -1,4 +1,6 @@
-use std::{borrow::Cow, collections::HashMap, fs, io::Read, path::Path, sync::atomic::Ordering};
+use std::{borrow::Cow, collections::HashMap, io::Read, path::Path, sync::atomic::Ordering};
+
+use fs_err as fs;
 
 use preprocess_progress::prodash::{Count, NestedProgress, Progress};
 use regex::Regex;

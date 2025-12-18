@@ -1,6 +1,6 @@
-use std::{fs, path::Path};
-
 use crate::{shared::io_ext, PreprocessError};
+use fs_err as fs;
+use std::path::Path;
 
 use super::sfs_json;
 use sparv_extension::XmlSourceWriter;

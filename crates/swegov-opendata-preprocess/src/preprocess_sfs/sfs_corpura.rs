@@ -1,6 +1,7 @@
+use fs_err as fs;
+use std::path::Path;
 use std::path::PathBuf;
 use std::sync::atomic::Ordering;
-use std::{fs, path::Path};
 
 use preprocess_progress::prodash::{Count, Progress};
 use sparv_extension::make_corpus_config;

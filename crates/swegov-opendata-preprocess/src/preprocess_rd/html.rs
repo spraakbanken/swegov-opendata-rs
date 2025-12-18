@@ -265,7 +265,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
     }
     Ok(())
 }
-const IGNORED_TAG_PREFIXES: &[&'static [u8]] = &[b"v:", b"w:", b"o:"];
+const IGNORED_TAG_PREFIXES: &[&[u8]] = &[b"v:", b"w:", b"o:"];
 fn process_div_bad(
     reader: &mut Reader<&[u8]>,
     textelem: &mut Element,

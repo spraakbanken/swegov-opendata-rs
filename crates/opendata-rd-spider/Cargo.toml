@@ -9,6 +9,7 @@ authors = { workspace = true }
 [dependencies]
 async-trait = { workspace = true }
 chrono = { workspace = true, features = ["serde"] }
+fs-err = { workspace = true, features = ["tokio"] }
 miette = { workspace = true }
 quick-xml = { workspace = true, features = ["serde", "serialize"] }
 reqwest = { workspace = true, features = [

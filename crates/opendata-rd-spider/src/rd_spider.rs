@@ -1,3 +1,4 @@
+use fs_err::{self as fs, PathExt};
 use std::{
     collections::HashMap,
     fmt,
@@ -42,11 +43,10 @@ pub struct Metadata {
 impl Metadata {
     pub fn open(path: &Path) -> Result<Self, Error> {
         tracing::debug!("loading metadata from {}", path.display());
-        let file_data =
-            std::fs::read_to_string(path).map_err(|source| Error::CouldNotReadFile {
-                path: path.display().to_string(),
-                source,
-            })?;
+        let file_data = fs::read_to_string(path).map_err(|source| Error::CouldNotReadFile {
+            path: path.display().to_string(),
+            source,
+        })?;
         let metadata =
             serde_json::from_str(&file_data).map_err(|source| Error::CouldNotParseJson {
                 path: path.display().to_string(),
@@ -126,16 +126,17 @@ impl RdSpider {
     ) -> Result<Self, Error> {
         let user_agent = user_agent_opt.as_deref().unwrap_or(crate::APP_USER_AGENT);
 
-        std::fs::create_dir_all(&output_path).map_err(|source| Error::CouldNotCreateFolder {
+        fs::create_dir_all(&output_path).map_err(|source| Error::CouldNotCreateFolder {
             path: output_path.display().to_string(),
             source,
         })?;
-        let output_path = output_path
-            .canonicalize()
-            .map_err(|source| Error::GeneralIoError {
-                path: output_path.display().to_string(),
-                source,
-            })?;
+        let output_path =
+            output_path
+                .fs_err_canonicalize()
+                .map_err(|source| Error::GeneralIoError {
+                    path: output_path.display().to_string(),
+                    source,
+                })?;
         tracing::warn!(user_agent, "configuring SfsSpider {:?}", output_path);
         let metadata = Metadata::open_or_default(&Self::metadata_path(&output_path))?;
         let http_client = reqwest::Client::builder()

@@ -1,6 +1,7 @@
-use std::{fs, io, path::Path};
+use std::{io, path::Path};
 
 use super::error::SparvError;
+use fs_err as fs;
 
 pub struct XmlSourceWriter<'a> {
     target_dir: &'a Path,
@@ -72,8 +73,7 @@ impl<'a> XmlSourceWriter<'a> {
         self.stub.unwrap_or_else(|| {
             self.target_dir
                 .file_name()
-                .map(|s| s.to_str())
-                .flatten()
+                .and_then(|s| s.to_str())
                 .unwrap_or("no-stub")
         })
     }

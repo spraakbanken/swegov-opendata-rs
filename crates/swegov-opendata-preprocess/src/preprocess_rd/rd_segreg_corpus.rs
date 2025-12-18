@@ -1,7 +1,8 @@
 use std::{
-    borrow::Cow, collections::HashMap, fs, io::Read, path::Path, sync::atomic::Ordering,
-    time::Duration,
+    borrow::Cow, collections::HashMap, io::Read, path::Path, sync::atomic::Ordering, time::Duration,
 };
+
+use fs_err as fs;
 
 use once_cell::sync::Lazy;
 use preprocess_progress::{
@@ -23,7 +24,7 @@ pub struct PreprocessRdSegregCorpusOptions<'a> {
     pub processed_json_path: &'a Path,
 }
 
-const CORPUS_ID: &'static str = "rd-segreg";
+const CORPUS_ID: &str = "rd-segreg";
 /// Preprocess RD-SEGREG corpus.
 ///
 pub fn preprocess_rd_segreg_corpus(

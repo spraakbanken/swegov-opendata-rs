@@ -13,6 +13,7 @@ doctest = false
 [dependencies]
 chrono = { workspace = true }
 flate2 = { workspace = true }
+fs-err.workspace = true
 html5ever = { workspace = true }
 itertools = { workspace = true }
 miette = { workspace = true }

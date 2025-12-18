@@ -1,3 +1,4 @@
+use fs_err::PathExt;
 use std::{fmt::Debug, path::PathBuf};
 
 use async_trait::async_trait;
@@ -5,7 +6,8 @@ use async_trait::async_trait;
 use flate2::Compression;
 use reqwest::Client;
 
-use std::fs;
+// use std::fs;
+use fs_err as fs;
 use ulid::Ulid;
 
 use crate::item::Item;
@@ -26,7 +28,7 @@ impl SfsSpider {
         let user_agent = user_agent_opt.as_deref().unwrap_or(crate::APP_USER_AGENT);
         fs::create_dir_all(&output_path).expect("spiders/sfs: can't create output_path");
         let output_path = output_path
-            .canonicalize()
+            .fs_err_canonicalize()
             .expect("spiders/sfs: output_path error");
         tracing::warn!(user_agent, "configuring SfsSpider {:?}", output_path);
         let http_client = reqwest::Client::builder()

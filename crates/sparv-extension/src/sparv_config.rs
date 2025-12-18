@@ -1,8 +1,9 @@
 use std::collections::HashMap;
+use std::io;
 use std::path::Path;
-use std::{fs, io};
 
 use crate::SparvError;
+use fs_err as fs;
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
 pub struct SparvConfig {
@@ -89,7 +90,7 @@ impl SparvMetadata {
 
 /// Write Sparv corpus config file for sub corpus.
 pub fn make_corpus_config(sparv_config: &SparvConfig, path: &Path) -> Result<(), SparvError> {
-    fs::create_dir_all(&path).map_err(|source| SparvError::CouldNotCreateFolder {
+    fs::create_dir_all(path).map_err(|source| SparvError::CouldNotCreateFolder {
         path: path.display().to_string(),
         source,
     })?;

@@ -14,6 +14,7 @@ doctest = false
 anyhow = { workspace = true }
 async-trait = { workspace = true }
 flate2 = { workspace = true }
+fs-err = { workspace = true, features = ["tokio"] }
 quick-xml = { workspace = true, features = ["serde", "serialize"] }
 reqwest = { workspace = true, features = [
     "rustls",
@@ -29,3 +30,4 @@ tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
 ulid = { workspace = true }
 webcrawler = { workspace = true }
+yaserde = { workspace = true, features = ["derive"] }

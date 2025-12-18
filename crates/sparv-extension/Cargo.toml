@@ -16,3 +16,4 @@ serde = { workspace = true, features = ["derive"] }
 tracing = { workspace = true }
 miette = { workspace = true }
 thiserror = { workspace = true }
+fs-err.workspace = true

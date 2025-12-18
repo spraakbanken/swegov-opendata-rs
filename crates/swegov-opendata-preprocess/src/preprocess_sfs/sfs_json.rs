@@ -48,7 +48,7 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
 
     // text attributes
     for (name, value) in [
-        ("hangar_id", &dokument.hangar_id),
+        // ("hangar_id", &dokument.hangar_id),
         ("rm", &dokument.rm),
         // ("beteckning", &dokument.beteckning),
         ("dokumentnamn", &dokument.dokumentnamn),
@@ -63,7 +63,7 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
         textelem.set_attr(name, value.replace("\r\n", " "));
     }
     for (name, value_opt) in [
-        // ("hangar_id", &dokument.hangar_id),
+        ("hangar_id", &dokument.hangar_id),
         // ("rm", &dokument.rm),
         ("beteckning", &dokument.beteckning),
         // ("dokumentnamn", &dokument.dokumentnamn),
@@ -170,7 +170,7 @@ fn process_html(contents: &str, textelem: &mut Element) -> Result<(), SfsPreproc
     static UNEXPECTED_BANG: Lazy<Regex> =
         Lazy::new(|| Regex::new(r"<!([^-])").expect("regex failed"));
 
-    let contents_processed = contents.replace('\"', r#"""#);
+    let contents_processed = contents.replace("\\\"", r#"""#);
     let contents_processed = contents_processed.replace("\r\n", " ");
     let contents_processed = contents_processed.replace('&', "&amp;");
 
