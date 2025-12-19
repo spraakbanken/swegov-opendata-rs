@@ -5,7 +5,6 @@ use crate::date_formats::SweDate;
 use crate::date_formats::SweDateTime;
 use crate::dokument::shared;
 use crate::shared::optionals;
-use crate::try_parse::TryParse;
 
 #[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 #[serde(deny_unknown_fields)]
@@ -18,6 +17,7 @@ pub struct DokumentListaPage {
     Debug, Clone, serde::Deserialize, serde::Serialize, yaserde::YaDeserialize, yaserde::YaSerialize,
 )]
 #[serde(deny_unknown_fields, rename = "dokumentlista")]
+#[yaserde(rename = "dokumentlista")]
 pub struct DokumentLista {
     #[serde(rename = "@dDt")]
     #[yaserde(rename = "dDt", attribute = true)]
@@ -118,13 +118,13 @@ pub struct DokumentListaDokument {
     subtyp: String,
     beteckning: Option<String>,
     tempbeteckning: Option<String>,
-    nummer: TryParse<u64>,
+    nummer: Option<String>,
     status: Option<String>,
     score: String,
     sokdata: SokData,
-    summary: String,
+    summary: Option<String>,
     notisrubrik: String,
-    notis: String,
+    notis: Option<String>,
     dokintressent: Option<String>,
     #[serde(deserialize_with = "optionals::deserialize_null_default")]
     filbilaga: FilBilaga,
