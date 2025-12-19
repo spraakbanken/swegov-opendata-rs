@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H603101" dokument_url_html="http://data.riksdagen.se/dokument/H603101" dokument_url_text="http://data.riksdagen.se/dokument/H603101/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H603101">
-  <text beteckning="101" datatyp="huvuddokument" datum="2019-04-15 00:00:00" dokumentnamn="Skrivelse" hangar_id="5031498" intressent_id="|0218878014918|0956444284814|" intressent_namn="|Stefan Löfven|Per Bolund|" intressent_namn_parti="|Stefan Löfven (S)|Per Bolund (MP)|" intressent_namn_parti_id_roll="|Stefan Löfven (S), 0218878014918, Statsråd1|Per Bolund (MP), 0956444284814, Statsråd2|" intressent_parti="|MP|S|" nummer="101" organ="Finansdepartementet" publicerad="2019-04-15 00:00:00" rm="2018/19" slutnummer="0" status="Hänvisad" subtyp="skr" systemdatum="2019-04-24 14:42:51" title="Årsredovisning för staten 2018" typ="prop">
+  <text beteckning="101" datatyp="huvuddokument" datum="2019-04-15 00:00:00" dokumentnamn="Skrivelse" hangar_id="5031498" intressent_id="|0218878014918|0956444284814|" intressent_namn="|Stefan Löfven|Per Bolund|" intressent_namn_parti="|Stefan Löfven (S)|Per Bolund (MP)|" intressent_namn_parti_id_roll="|Stefan Löfven (S), 0218878014918, Statsråd1|Per Bolund (MP), 0956444284814, Statsråd2|" intressent_parti="|MP|S|" nummer="101" organ="Finansdepartementet" publicerad="2019-04-15 00:00:00" rm="2018/19" segreg="true" slutnummer="0" status="Hänvisad" subtyp="skr" systemdatum="2019-04-24 14:42:51" title="Årsredovisning för staten 2018" typ="prop">
     <page id="1">
       <p>Regeringens skrivelse</p>
       <p>2018/19:101</p>

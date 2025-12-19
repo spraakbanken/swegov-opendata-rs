@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GE091" dokument_url_html="http://data.riksdagen.se/dokument/GE091" dokument_url_text="http://data.riksdagen.se/dokument/GE091/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GE091">
-  <text beteckning="1" datatyp="huvuddokument" datum="1990-10-02 00:00:00" dokumentnamn="" hangar_id="2438890" nummer="1" organ="" publicerad="1990-10-02 00:00:00" rm="1990/91" slutnummer="0" status="" subtyp="" systemdatum="2010-02-17 00:00:00" title="Riksdagens snabbprotokoll 1990/91:1 Tisdagen den 2 oktober" typ="prot">
+  <text beteckning="1" datatyp="huvuddokument" datum="1990-10-02 00:00:00" dokumentnamn="" hangar_id="2438890" nummer="1" organ="" publicerad="1990-10-02 00:00:00" rm="1990/91" segreg="true" slutnummer="0" status="" subtyp="" systemdatum="2010-02-17 00:00:00" title="Riksdagens snabbprotokoll 1990/91:1 Tisdagen den 2 oktober" typ="prot">
     <p>1 § Välkomstord</p>
     <p>Anf. 1 TALMANNEN:</p>
     <p>Ärade ledamöter! Jag hälsar er alla varmt välkomna tillbaka till riksdagen och till ett nytt arbetsår. Ett år som kommer att bli extra slitsamt eftersom det också är upptakten till valrörelsen.</p>

@@ -4,7 +4,7 @@ use itertools::Itertools;
 use minidom_extension::minidom::{quick_xml::Writer, Element, Error as MinidomError};
 use swegov_opendata::{DataSet, DokumentStatusPageRef, DokumentStatusRef};
 
-use crate::shared::{clean_element, io_ext};
+use crate::shared::{clean_element, io_ext, is_segreg};
 
 use super::html::{process_html, ProcessHtmlError};
 
@@ -48,6 +48,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
         .attr("datatyp", "huvuddokument")
         .build();
 
+    textelem.set_attr("segreg", is_segreg(source).to_string());
     // text attributes
     for (name, value) in [
         ("hangar_id", dokument.hangar_id),

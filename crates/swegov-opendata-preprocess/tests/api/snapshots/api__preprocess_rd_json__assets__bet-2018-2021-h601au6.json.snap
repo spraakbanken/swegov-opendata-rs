@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H601AU6" dokument_url_html="http://data.riksdagen.se/dokument/H601AU6" dokument_url_text="http://data.riksdagen.se/dokument/H601AU6/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H601AU6">
-  <text beteckning="AU6" datatyp="huvuddokument" datum="2019-03-22 00:00:00" dokumentnamn="Betänkande" hangar_id="5019710" nummer="6" organ="AU" publicerad="2019-01-21 14:09:04" rm="2018/19" slutnummer="0" status="Webbpublicering" subtyp="bet" systemdatum="2019-08-21 13:32:06" title="Arbetsmarknad och arbetslöshetsförsäkringen" typ="bet">
+  <text beteckning="AU6" datatyp="huvuddokument" datum="2019-03-22 00:00:00" dokumentnamn="Betänkande" hangar_id="5019710" nummer="6" organ="AU" publicerad="2019-01-21 14:09:04" rm="2018/19" segreg="true" slutnummer="0" status="Webbpublicering" subtyp="bet" systemdatum="2019-08-21 13:32:06" title="Arbetsmarknad och arbetslöshetsförsäkringen" typ="bet">
     <p>Arbetsmarknadsutskottet s betänkande</p>
     <p>2018/19 :AU6</p>
     <p>Arbetsmarknad och arbetslöshetsförsäkringen</p>

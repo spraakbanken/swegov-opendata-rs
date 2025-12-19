@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GM11284" dokument_url_html="http://data.riksdagen.se/dokument/GM11284" dokument_url_text="http://data.riksdagen.se/dokument/GM11284/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GM11284">
-  <text beteckning="284" datatyp="huvuddokument" datum="1999-01-01 00:00:00" dokumentnamn="" hangar_id="2429132" nummer="284" organ="s" publicerad="1999-01-01 00:00:00" rm="1998/99" slutnummer="0" status="" subtyp="" systemdatum="2009-03-31 14:21:14" title="tillsättande av storstadsdelegation" typ="fr">
+  <text beteckning="284" datatyp="huvuddokument" datum="1999-01-01 00:00:00" dokumentnamn="" hangar_id="2429132" nummer="284" organ="s" publicerad="1999-01-01 00:00:00" rm="1998/99" segreg="true" slutnummer="0" status="" subtyp="" systemdatum="2009-03-31 14:21:14" title="tillsättande av storstadsdelegation" typ="fr">
     <p>
       <b>Fråga 1998/99:284</b> av<i>Marie Granlund</i> (s) till statsrådet Ulrica Messing om tillsättande av storstadsdelegation</p>
     <p>den 26 januari</p>

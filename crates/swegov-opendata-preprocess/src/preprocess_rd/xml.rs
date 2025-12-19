@@ -7,6 +7,7 @@ use minidom::Element;
 use minidom_extension::{minidom, minidom_collect_texts};
 
 use crate::shared::clean_text;
+use crate::shared::is_segreg;
 
 use super::html::process_html;
 
@@ -20,6 +21,8 @@ pub fn preprocess_xml(xml_string: &str, filename: Cow<'_, str>) -> Result<Vec<u8
     let mut textelem = Element::builder("text", "")
         .attr("datatyp", "huvuddokument")
         .build();
+
+    textelem.set_attr("segreg", is_segreg(xml_string).to_string());
 
     //     docelem = etree.Element("dokument")
     //     textelem = etree.SubElement(docelem, "text")

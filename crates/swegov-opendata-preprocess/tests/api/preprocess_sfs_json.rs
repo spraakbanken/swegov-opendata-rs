@@ -1,6 +1,7 @@
+use fs_err as fs;
 use std::io::BufReader;
+use std::io::Read;
 use std::path::PathBuf;
-use std::{fs, io::Read};
 
 use minidom_extension::asserts::assert_elem_equal_with_cleaning;
 use minidom_extension::minidom::{quick_xml::reader::Reader, Element};
@@ -58,7 +59,7 @@ fn test_preprocess_sfs_json() -> PreprocessResult<()> {
 }
 
 #[test]
-fn test_build_sparv_source_sfs_1976() -> PreprocessResult<()> {
+fn test_build_sparv_source_sfs_1976() -> anyhow::Result<()> {
     // Arrange
     let assets_path = [env!("CARGO_MANIFEST_DIR"), "assets"]
         .iter()
@@ -71,35 +72,14 @@ fn test_build_sparv_source_sfs_1976() -> PreprocessResult<()> {
 
     // Assert
     let actual_path = "assets/gen/sfs-1976/sfs-1976-1.xml";
-    let actual_file = fs::File::open(actual_path).map_err(|error| {
-        PreprocessError::custom(format!(
-            "failed to read actual from '{}': {:?}",
-            actual_path, error
-        ))
-    })?;
-    let reader = BufReader::new(actual_file);
-    let mut reader = Reader::from_reader(reader);
-    let actual = Element::from_reader(&mut reader)
-        .map_err(|error| PreprocessError::custom(format!("failed to read actual: {:?}", error)))?;
+    let actual_content = fs::read_to_string(actual_path)?;
+    insta::assert_snapshot!(actual_content);
 
-    let example1_expected_path = "assets/sfs-1976-257.expected.xml";
-    let example1_expected_file = fs::File::open(example1_expected_path).map_err(|error| {
-        PreprocessError::CouldNotReadFile {
-            path: example1_expected_path.into(),
-            error,
-        }
-    })?;
-    let reader = BufReader::new(example1_expected_file);
-    let mut reader = Reader::from_reader(reader);
-    let expected = Element::from_reader(&mut reader)
-        .map_err(|error| PreprocessError::custom(format!("Failed read expecting: {:?}", error)))?;
-
-    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
     Ok(())
 }
 
 #[test]
-fn test_build_sparv_source_sfs_1994() -> PreprocessResult<()> {
+fn test_build_sparv_source_sfs_1994() -> anyhow::Result<()> {
     // Arrange
     let assets_path = [env!("CARGO_MANIFEST_DIR"), "assets"]
         .iter()
@@ -112,35 +92,15 @@ fn test_build_sparv_source_sfs_1994() -> PreprocessResult<()> {
 
     // Assert
     let actual_path = "assets/gen/sfs-1994/sfs-1994-1.xml";
-    let actual_file = fs::File::open(actual_path).map_err(|error| {
-        PreprocessError::custom(format!(
-            "failed to read actual from '{}': {:?}",
-            actual_path, error
-        ))
-    })?;
-    let reader = BufReader::new(actual_file);
-    let mut reader = Reader::from_reader(reader);
-    let actual = Element::from_reader(&mut reader)
-        .map_err(|error| PreprocessError::custom(format!("failed to read actual: {:?}", error)))?;
+    let actual_content = fs::read_to_string(actual_path)?;
 
-    let example1_expected_path = "assets/sfs-1994-448.expected.xml";
-    let example1_expected_file = fs::File::open(example1_expected_path).map_err(|error| {
-        PreprocessError::CouldNotReadFile {
-            path: example1_expected_path.into(),
-            error,
-        }
-    })?;
-    let reader = BufReader::new(example1_expected_file);
-    let mut reader = Reader::from_reader(reader);
-    let expected = Element::from_reader(&mut reader)
-        .map_err(|error| PreprocessError::custom(format!("Failed read expecting: {:?}", error)))?;
+    insta::assert_snapshot!(actual_content);
 
-    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
     Ok(())
 }
 
 #[test]
-fn test_build_sparv_source_cks6riksg() -> PreprocessResult<()> {
+fn test_build_sparv_source_cks6riksg() -> anyhow::Result<()> {
     // Arrange
     let assets_path = [env!("CARGO_MANIFEST_DIR"), "assets"]
         .iter()
@@ -153,29 +113,9 @@ fn test_build_sparv_source_cks6riksg() -> PreprocessResult<()> {
 
     // Assert
     let actual_path = "assets/gen/cks6riksg/cks6riksg-1.xml";
-    let actual_file = fs::File::open(actual_path).map_err(|error| {
-        PreprocessError::custom(format!(
-            "failed to read actual from '{}': {:?}",
-            actual_path, error
-        ))
-    })?;
-    let reader = BufReader::new(actual_file);
-    let mut reader = Reader::from_reader(reader);
-    let actual = Element::from_reader(&mut reader)
-        .map_err(|error| PreprocessError::custom(format!("failed to read actual: {:?}", error)))?;
+    let actual_content = fs::read_to_string(actual_path)?;
 
-    let example1_expected_path = "assets/cks6riksg.expected.xml";
-    let example1_expected_file = fs::File::open(example1_expected_path).map_err(|error| {
-        PreprocessError::CouldNotReadFile {
-            path: example1_expected_path.into(),
-            error,
-        }
-    })?;
-    let reader = BufReader::new(example1_expected_file);
-    let mut reader = Reader::from_reader(reader);
-    let expected = Element::from_reader(&mut reader)
-        .map_err(|error| PreprocessError::custom(format!("Failed read expecting: {:?}", error)))?;
-    let expected = clean_element(&expected);
-    assert_elem_equal_with_cleaning(&actual, &expected, &clean_text);
+    insta::assert_snapshot!(actual_content);
+
     Ok(())
 }

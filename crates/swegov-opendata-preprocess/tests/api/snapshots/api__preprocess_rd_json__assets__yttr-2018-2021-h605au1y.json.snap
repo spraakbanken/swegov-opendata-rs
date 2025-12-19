@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H605AU1y" dokument_url_html="http://data.riksdagen.se/dokument/H605AU1y" dokument_url_text="http://data.riksdagen.se/dokument/H605AU1y/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H605AU1y">
-  <text beteckning="AU1y" datatyp="huvuddokument" datum="2019-04-25 00:00:00" dokumentnamn="Yttrande" hangar_id="5022669" nummer="1" organ="AU" publicerad="2019-03-27 15:54:51" rm="2018/19" slutnummer="0" status="Webbpublicering" subtyp="yttr" systemdatum="2019-04-25 16:52:04" title="Extra ändringsbudget för 2019 – Sänkt mervärdesskatt på elektroniska publikationer" typ="yttr">
+  <text beteckning="AU1y" datatyp="huvuddokument" datum="2019-04-25 00:00:00" dokumentnamn="Yttrande" hangar_id="5022669" nummer="1" organ="AU" publicerad="2019-03-27 15:54:51" rm="2018/19" segreg="true" slutnummer="0" status="Webbpublicering" subtyp="yttr" systemdatum="2019-04-25 16:52:04" title="Extra ändringsbudget för 2019 – Sänkt mervärdesskatt på elektroniska publikationer" typ="yttr">
     <p>Arbetsmarknadsutskottet s yttrande</p>
     <p>2018/19 :AU1y</p>
     <p>Extra ändringsbudget för 2019 – Sänkt mervärdesskatt på elektroniska publikationer</p>

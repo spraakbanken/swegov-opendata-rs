@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GMA1CC3" dokument_url_html="http://data.riksdagen.se/dokument/GMA1CC3" dokument_url_text="http://data.riksdagen.se/dokument/GMA1CC3/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GMA1CC3">
-  <text beteckning="CC3" datatyp="huvuddokument" datum="1999-09-23 00:00:00" dokumentnamn="" hangar_id="2409167" nummer="0" organ="AU" publicerad="2007-09-28 11:51:09" rm="1998/99" slutnummer="0" status="" subtyp="Verksamhetsberättelser" systemdatum="2007-09-28 11:44:48" title="Arbetsmarknadsutskottets verksamhet riksmötet 1998/99" typ="utskottsdokument">
+  <text beteckning="CC3" datatyp="huvuddokument" datum="1999-09-23 00:00:00" dokumentnamn="" hangar_id="2409167" nummer="0" organ="AU" publicerad="2007-09-28 11:51:09" rm="1998/99" segreg="true" slutnummer="0" status="" subtyp="Verksamhetsberättelser" systemdatum="2007-09-28 11:44:48" title="Arbetsmarknadsutskottets verksamhet riksmötet 1998/99" typ="utskottsdokument">
     <p>Arbetsmarknadsutskottets verksamhet riksmötet 1998/99</p>
     <p>1998/99</p>
     <p>AU</p>

@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H101FöU11" dokument_url_html="http://data.riksdagen.se/dokument/H101FöU11" dokument_url_text="http://data.riksdagen.se/dokument/H101FöU11/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H101FöU11">
-  <text beteckning="FöU11" datatyp="huvuddokument" datum="2014-06-04 00:00:00" dokumentnamn="Betänkande" hangar_id="2903051" nummer="11" organ="FöU" publicerad="2014-06-09 13:37:48" rm="2013/14" slutnummer="0" status="DokTextExtraktor" subtyp="bet" systemdatum="2017-06-19 07:47:27" title="Lag om sprängämnesprekursorer och redovisning av krisberedskapens utveckling" typ="bet">
+  <text beteckning="FöU11" datatyp="huvuddokument" datum="2014-06-04 00:00:00" dokumentnamn="Betänkande" hangar_id="2903051" nummer="11" organ="FöU" publicerad="2014-06-09 13:37:48" rm="2013/14" segreg="true" slutnummer="0" status="DokTextExtraktor" subtyp="bet" systemdatum="2017-06-19 07:47:27" title="Lag om sprängämnesprekursorer och redovisning av krisberedskapens utveckling" typ="bet">
     <page id="1">
       <p>Försvarsutskottets betänkande 2013/14:FöU11</p>
       <p>Lag om sprängämnesprekursorer och redovisning av krisberedskapens utveckling</p>

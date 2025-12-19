@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GW01FiU3" dokument_url_html="http://data.riksdagen.se/dokument/GW01FiU3" dokument_url_text="http://data.riksdagen.se/dokument/GW01FiU3/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GW01FiU3">
-  <text beteckning="FiU3" datatyp="huvuddokument" datum="2008-12-12 00:00:00" dokumentnamn="" hangar_id="2222289" nummer="3" organ="FiU" publicerad="2008-12-12 09:26:34" rm="2008/09" slutnummer="0" status="" subtyp="bet" systemdatum="2008-12-12 09:26:54" title="Utgiftsområde 25 Allmänna bidrag till kommuner" typ="bet">
+  <text beteckning="FiU3" datatyp="huvuddokument" datum="2008-12-12 00:00:00" dokumentnamn="" hangar_id="2222289" nummer="3" organ="FiU" publicerad="2008-12-12 09:26:34" rm="2008/09" segreg="true" slutnummer="0" status="" subtyp="bet" systemdatum="2008-12-12 09:26:54" title="Utgiftsområde 25 Allmänna bidrag till kommuner" typ="bet">
     <p>Finansutskottets betänkande</p>
     <p>2008/09:FiU3</p>
     <p>Utgiftsområde 25 Allmänna bidrag till kommuner</p>

@@ -229,7 +229,7 @@ fn build_sparv_source(
         return Ok(());
         // return Err(PreprocessError::NoValidPrefix(zippath_name.to_string()));
     };
-    let (corpus_id, names, short_descrs) = match corpusinfo(&prefix) {
+    let corpus = match corpusinfo(&prefix) {
         Ok(corpus_info) => corpus_info,
         Err(err) => {
             tracing::error!(
@@ -241,7 +241,7 @@ fn build_sparv_source(
             return Ok(());
         }
     };
-    let corpus_id = format!("segreg-{corpus_id}");
+    let corpus_id = format!("segreg-{}", corpus.id);
     let corpus_source_base = Path::new(path.file_stem().unwrap()).file_stem().unwrap();
     // todo!("handle {:?} from {:?}", corpus_source_base, path);
     let corpus_source_dir = output
@@ -251,8 +251,8 @@ fn build_sparv_source(
     let sparv_config = SparvConfig::with_parent_and_metadata(
         "../config.yaml",
         SparvMetadata::new(&corpus_id)
-            .names(names)
-            .short_descriptions(short_descrs),
+            .names(corpus.names)
+            .short_descriptions(corpus.descriptions),
     );
     make_corpus_config(&sparv_config, &output.join(corpus_id))?;
     let counter = processed_zip_dict.len() + 1;

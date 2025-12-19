@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="G40310" dokument_url_html="http://data.riksdagen.se/dokument/G40310" dokument_url_text="http://data.riksdagen.se/dokument/G40310/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/G40310">
-  <text beteckning="10" datatyp="huvuddokument" datum="1980-12-31 00:00:00" dokumentnamn="" hangar_id="2450440" nummer="10" organ="" publicerad="2008-06-13 08:08:55" rm="1980/81" slutnummer="0" status="importerad" subtyp="prop" systemdatum="2008-06-13 08:08:56" title="om ändring i kreditupplysningslagen (1973:1173), m.m." typ="prop">
+  <text beteckning="10" datatyp="huvuddokument" datum="1980-12-31 00:00:00" dokumentnamn="" hangar_id="2450440" nummer="10" organ="" publicerad="2008-06-13 08:08:55" rm="1980/81" segreg="true" slutnummer="0" status="importerad" subtyp="prop" systemdatum="2008-06-13 08:08:56" title="om ändring i kreditupplysningslagen (1973:1173), m.m." typ="prop">
     <p>Prop. 1980/81:10 Regeringens proposition</p>
     <p>1980/81:10</p>
     <p>

@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GIB472" dokument_url_html="http://data.riksdagen.se/dokument/GIB472" dokument_url_text="http://data.riksdagen.se/dokument/GIB472/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GIB472">
-  <text beteckning="72" datatyp="huvuddokument" datum="1995-01-01 00:00:00" dokumentnamn="" hangar_id="2421625" nummer="72" organ="" publicerad="1995-01-01 00:00:00" rm="1994" slutnummer="0" status="hämtad" subtyp="" systemdatum="2015-09-09 16:10:36" title="ds 1994 72 " typ="ds">
+  <text beteckning="72" datatyp="huvuddokument" datum="1995-01-01 00:00:00" dokumentnamn="" hangar_id="2421625" nummer="72" organ="" publicerad="1995-01-01 00:00:00" rm="1994" segreg="true" slutnummer="0" status="hämtad" subtyp="" systemdatum="2015-09-09 16:10:36" title="ds 1994 72 " typ="ds">
     <page id="1">
       <p>33</p>
       <p>5 Sammanfattning och slutsatser</p>

@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H2B643" dokument_url_html="http://data.riksdagen.se/dokument/H2B643" dokument_url_text="http://data.riksdagen.se/dokument/H2B643/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H2B643">
-  <text beteckning="43" datatyp="huvuddokument" datum="2014-01-30 00:00:00" dokumentnamn="" hangar_id="3586024" nummer="43" organ="" publicerad="2014-01-30 00:00:00" rm="2014" slutnummer="0" status="hämtad" subtyp="" systemdatum="2014-02-17 04:18:09" title="" typ="KOM">
+  <text beteckning="43" datatyp="huvuddokument" datum="2014-01-30 00:00:00" dokumentnamn="" hangar_id="3586024" nummer="43" organ="" publicerad="2014-01-30 00:00:00" rm="2014" segreg="true" slutnummer="0" status="hämtad" subtyp="" systemdatum="2014-02-17 04:18:09" title="" typ="KOM">
     <page id="1">
       <p>EUROPEAN</p>
       <p>COMMISSION</p>

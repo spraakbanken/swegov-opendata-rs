@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H604NR1" dokument_url_html="http://data.riksdagen.se/dokument/H604NR1" dokument_url_text="http://data.riksdagen.se/dokument/H604NR1/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H604NR1">
-  <text beteckning="NR1" datatyp="huvuddokument" datum="2019-03-14 00:00:00" dokumentnamn="Redogörelse" hangar_id="5025570" nummer="1" organ="NR" publicerad="2019-03-14 00:00:00" rm="2018/19" slutnummer="0" status="Hänvisad" subtyp="redog" systemdatum="2019-03-26 08:47:15" title="Nordiska rådets svenska delegations berättelse om verksamheten under 2018" typ="frsrdg">
+  <text beteckning="NR1" datatyp="huvuddokument" datum="2019-03-14 00:00:00" dokumentnamn="Redogörelse" hangar_id="5025570" nummer="1" organ="NR" publicerad="2019-03-14 00:00:00" rm="2018/19" segreg="true" slutnummer="0" status="Hänvisad" subtyp="redog" systemdatum="2019-03-26 08:47:15" title="Nordiska rådets svenska delegations berättelse om verksamheten under 2018" typ="frsrdg">
     <page id="1">
       <p>Rapport till riksdagen 2018/19:NR1</p>
       <p>Nordiska rådets svenska delegations berättelse om verksamheten under 2018</p>

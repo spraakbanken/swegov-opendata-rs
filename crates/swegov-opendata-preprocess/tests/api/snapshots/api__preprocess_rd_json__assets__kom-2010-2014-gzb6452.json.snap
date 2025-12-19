@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GZB6452" dokument_url_html="http://data.riksdagen.se/dokument/GZB6452" dokument_url_text="http://data.riksdagen.se/dokument/GZB6452/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GZB6452">
-  <text beteckning="452" datatyp="huvuddokument" datum="2011-08-16 00:00:00" dokumentnamn="" hangar_id="2717044" nummer="452" organ="EU-kom" publicerad="2011-08-16 00:00:00" rm="2011" slutnummer="0" status="hämtad" subtyp="" systemdatum="2013-02-24 22:26:26" title="Proposal for a regulation of the European Parliament and of the Council on prudential requirements for credit institutions and investement firms PART I (Text with EEA relevance)" typ="KOM">
+  <text beteckning="452" datatyp="huvuddokument" datum="2011-08-16 00:00:00" dokumentnamn="" hangar_id="2717044" nummer="452" organ="EU-kom" publicerad="2011-08-16 00:00:00" rm="2011" segreg="true" slutnummer="0" status="hämtad" subtyp="" systemdatum="2013-02-24 22:26:26" title="Proposal for a regulation of the European Parliament and of the Council on prudential requirements for credit institutions and investement firms PART I (Text with EEA relevance)" typ="KOM">
     <page id="1">
       <p>EUROPEAN COMMISSION</p>
       <p>Brussels, 20.7.2011</p>
