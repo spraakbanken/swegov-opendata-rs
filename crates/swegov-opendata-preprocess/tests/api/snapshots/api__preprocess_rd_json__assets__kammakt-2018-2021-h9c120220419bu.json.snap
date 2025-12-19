@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H9C120220419bu" dokument_url_html="http://data.riksdagen.se/dokument/H9C120220419bu" dokument_url_text="http://data.riksdagen.se/dokument/H9C120220419bu/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H9C120220419bu">
-  <text beteckning="20220419bu" datatyp="huvuddokument" datum="2022-04-19 00:00:00" dokumentnamn="Budgetdebatt" hangar_id="5128115" nummer="0" organ="kamm" publicerad="2022-04-19 00:00:00" rm="2021/22" slutnummer="0" status="inträffat" subtyp="bu" systemdatum="2022-04-19 15:19:42" title="Debatt med anledning av vårpropositionens avlämnande" typ="kammakt">
+  <text beteckning="20220419bu" datatyp="huvuddokument" datum="2022-04-19 00:00:00" dokumentnamn="Budgetdebatt" hangar_id="5128115" nummer="0" organ="kamm" publicerad="2022-04-19 00:00:00" rm="2021/22" segreg="true" slutnummer="0" status="inträffat" subtyp="bu" systemdatum="2022-04-19 15:19:42" title="Debatt med anledning av vårpropositionens avlämnande" typ="kammakt">
     <p>Debatt med anledning av vårpropositionens avlämnande</p>
   </text>
   <text anf_video_id="1100220419493037922" beteckning="2021/22:98-1" datatyp="anforande" datum="2022-04-19 12:31:31" debatt_id="" debatt_titel="" debatt_typ="" dok_beteckning="" dok_id="" dok_intressent="" hangar_id="5128116" id="" intressent_id="014744660015" klockslag="12:31" kon="" nummer="1" parent_id="" parti="S" rm="2021/22" sekunder="820" talare="Finansminister Mikael Damberg (S)" typ="bu" video_id="1100220419493037722" video_url="1100220419493037722#pos=84" voteringspunkt="">

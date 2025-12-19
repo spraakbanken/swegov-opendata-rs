@@ -10,7 +10,7 @@ use once_cell::sync::Lazy;
 use regex::Regex;
 use swegov_opendata::{DokumentStatus, DokumentStatusPage};
 
-use crate::shared::clean_element;
+use crate::shared::{clean_element, is_segreg};
 
 use super::SfsPreprocessError;
 
@@ -45,7 +45,7 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     let mut textelem = Element::builder("text", "")
         .attr("datatyp", "huvuddokument")
         .build();
-
+    textelem.set_attr("segreg", is_segreg(source).to_string());
     // text attributes
     for (name, value) in [
         // ("hangar_id", &dokument.hangar_id),

@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H50N48F9DA" dokument_url_html="http://data.riksdagen.se/dokument/H50N48F9DA" dokument_url_text="http://data.riksdagen.se/dokument/H50N48F9DA/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H50N48F9DA">
-  <text beteckning="48F9DA" datatyp="huvuddokument" datum="2017-11-27 00:00:00" dokumentnamn="Bilaga till dokument från EU-nämnden" hangar_id="0" nummer="0" organ="" publicerad="2017-11-27 00:00:00" rm="2017/18" slutnummer="0" status="hämtad" subtyp="" systemdatum="2017-11-27 18:16:42" title="Dagordning för rådet sysselsättning, socialpolitik, hälso-och sjukvård samt konsumentfrågor" typ="eunbil">
+  <text beteckning="48F9DA" datatyp="huvuddokument" datum="2017-11-27 00:00:00" dokumentnamn="Bilaga till dokument från EU-nämnden" hangar_id="0" nummer="0" organ="" publicerad="2017-11-27 00:00:00" rm="2017/18" segreg="true" slutnummer="0" status="hämtad" subtyp="" systemdatum="2017-11-27 18:16:42" title="Dagordning för rådet sysselsättning, socialpolitik, hälso-och sjukvård samt konsumentfrågor" typ="eunbil">
     <p>Godkännande av dagordningen</p>
     <p>(ev.) Godkännande av A-punkter<br/>
       <br/> a) Icke-lagstiftning<br/> b) Lagstiftning (Offentlig överläggning i enlighet med artikel 16.8 i fördraget om Europeiska unionen)<br/>

@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H1B512" dokument_url_html="http://data.riksdagen.se/dokument/H1B512" dokument_url_text="http://data.riksdagen.se/dokument/H1B512/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H1B512">
-  <text beteckning="12" datatyp="huvuddokument" datum="2013-10-29 00:00:00" dokumentnamn="" hangar_id="2896621" nummer="12" organ="RR" publicerad="2013-10-29 00:00:00" rm="2013" slutnummer="0" status="hämtad" subtyp="" systemdatum="2013-11-18 04:09:16" title="Skattekontroll - en fråga om förtroendet för offentlig förvaltning" typ="rir">
+  <text beteckning="12" datatyp="huvuddokument" datum="2013-10-29 00:00:00" dokumentnamn="" hangar_id="2896621" nummer="12" organ="RR" publicerad="2013-10-29 00:00:00" rm="2013" segreg="true" slutnummer="0" status="hämtad" subtyp="" systemdatum="2013-11-18 04:09:16" title="Skattekontroll - en fråga om förtroendet för offentlig förvaltning" typ="rir">
     <page id="1">
       <p>RIKSREVISIONEN GRANSKAR: OFFENTLIGA FINANSER</p>
       <p>RiR 2013:12</p>

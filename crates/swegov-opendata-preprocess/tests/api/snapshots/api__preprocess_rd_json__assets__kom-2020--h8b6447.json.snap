@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H8B6447" dokument_url_html="http://data.riksdagen.se/dokument/H8B6447" dokument_url_text="http://data.riksdagen.se/dokument/H8B6447/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H8B6447">
-  <text beteckning="447" datatyp="huvuddokument" datum="2020-05-28 00:00:00" dokumentnamn="EU-dokument" hangar_id="5165683" nummer="447" organ="Europeiska kommissionen" rm="2020" slutnummer="0" status="" subtyp="COM" systemdatum="2023-02-07 11:34:52" title="Ändrat förslag till Europaparlamentets och rådets förordning om Europeiska socialfonden+ (ESF+) " typ="eu-dokument">
+  <text beteckning="447" datatyp="huvuddokument" datum="2020-05-28 00:00:00" dokumentnamn="EU-dokument" hangar_id="5165683" nummer="447" organ="Europeiska kommissionen" rm="2020" segreg="true" slutnummer="0" status="" subtyp="COM" systemdatum="2023-02-07 11:34:52" title="Ändrat förslag till Europaparlamentets och rådets förordning om Europeiska socialfonden+ (ESF+) " typ="eu-dokument">
     <page id="1">
       <p>EUROPEISKA</p>
       <p>KOMMISSIONEN</p>

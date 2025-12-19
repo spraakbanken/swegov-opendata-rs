@@ -2,12 +2,13 @@ use std::{borrow::Cow, collections::HashMap, io::Read, path::Path, sync::atomic:
 
 use fs_err as fs;
 
+use once_cell::sync::Lazy;
 use preprocess_progress::prodash::{Count, NestedProgress, Progress};
 use regex::Regex;
 use sparv_extension::{make_corpus_config, SparvConfig, SparvMetadata, XmlSourceWriter};
 use zip::ZipArchive;
 
-use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, PreprocessError};
+use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, shared::is_segreg, PreprocessError};
 
 use super::shared::read_json_or_default;
 
@@ -45,7 +46,8 @@ pub fn preprocess_rd_corpura(
     let mut processed_json: HashMap<String, HashMap<String, String>> =
         read_json_or_default(processed_json_path)?;
 
-    let corpus_re = Regex::new(r"(\S+)\s?-\d{4}-.+").expect("valid regex");
+    static CORPUS_RE: Lazy<Regex> =
+        Lazy::new(|| Regex::new(r"(\S+)\s?-\d{4}-.+").expect("valid regex"));
 
     let mut zippaths = Vec::new();
     for zippath in fs::read_dir(input).map_err(|error| PreprocessError::CouldNotReadFolder {
@@ -90,7 +92,7 @@ pub fn preprocess_rd_corpura(
             .to_str()
             .expect("valid utf8");
 
-        let prefix = if let Some(matches) = corpus_re.captures(zippath_name) {
+        let prefix = if let Some(matches) = CORPUS_RE.captures(zippath_name) {
             if let Some(prefix) = matches.get(1) {
                 prefix.as_str()
             } else {
@@ -101,11 +103,12 @@ pub fn preprocess_rd_corpura(
         };
 
         writeln!(out, "prefix={prefix}")?;
-        let (corpus_id, names, descrs) = corpusinfo(prefix)?;
+        let corpus = corpusinfo(prefix)?;
+
         // Process only if in 'corpora'
-        if !corpura.is_empty() && !corpura.contains(&corpus_id) {
+        if !corpura.is_empty() && !corpura.contains(&corpus.id) {
             if verbose {
-                eprintln!("skipping corpus '{corpus_id}'");
+                eprintln!("skipping corpus '{}'", corpus.id);
             }
             continue;
         }
@@ -117,16 +120,16 @@ pub fn preprocess_rd_corpura(
             .to_str()
             .unwrap();
         let corpus_source_dir = Path::new(output)
-            .join(corpus_id)
+            .join(corpus.id)
             .join("source")
             .join(corpus_source_base);
         let sparv_config = SparvConfig::with_parent_and_metadata(
             "../config.yaml",
-            SparvMetadata::new(corpus_id)
-                .names(names)
-                .short_descriptions(descrs),
+            SparvMetadata::new(corpus.id)
+                .names(corpus.names)
+                .short_descriptions(corpus.descriptions),
         );
-        make_corpus_config(&sparv_config, &output.join(corpus_id))?;
+        make_corpus_config(&sparv_config, &output.join(corpus.id))?;
         let mut processed_zip_dict = processed_json.remove(zippath_name).unwrap_or_default();
 
         let child_progress = progress.add_child("Building sparv source");
@@ -200,6 +203,8 @@ fn build_sparv_source(
                 error,
             }
         })?;
+
+        let filecontents = filecontents.replace("{/* RESERVATIONSTEXT */}", r#""""#);
 
         let xmlstring =
             preprocess_xml(&filecontents, Cow::from(zipobj.name())).map_err(|error| {

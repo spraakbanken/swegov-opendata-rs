@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GY02A245" dokument_url_html="http://data.riksdagen.se/dokument/GY02A245" dokument_url_text="http://data.riksdagen.se/dokument/GY02A245/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GY02A245">
-  <text beteckning="A245" datatyp="huvuddokument" datum="2010-10-19 00:00:00" dokumentnamn="" hangar_id="2412901" intressent_id="|0308306375022|" intressent_namn="|Roger Haddad|" intressent_namn_parti="|Roger Haddad (FP)|" intressent_namn_parti_id_roll="|Roger Haddad (FP), 0308306375022, undertecknare|" intressent_parti="|FP|" nummer="245" organ="AU" publicerad="2010-10-25 14:26:33" rm="2010/11" slutnummer="0" status="Ank T" subtyp="Enskild motion" systemdatum="2010-12-18 08:39:25" title="En solidarisk flyktingintroduktion" typ="mot">
+  <text beteckning="A245" datatyp="huvuddokument" datum="2010-10-19 00:00:00" dokumentnamn="" hangar_id="2412901" intressent_id="|0308306375022|" intressent_namn="|Roger Haddad|" intressent_namn_parti="|Roger Haddad (FP)|" intressent_namn_parti_id_roll="|Roger Haddad (FP), 0308306375022, undertecknare|" intressent_parti="|FP|" nummer="245" organ="AU" publicerad="2010-10-25 14:26:33" rm="2010/11" segreg="true" slutnummer="0" status="Ank T" subtyp="Enskild motion" systemdatum="2010-12-18 08:39:25" title="En solidarisk flyktingintroduktion" typ="mot">
     <p>En solidarisk flyktingintroduktion</p>
     <p>Förslag till riksdagsbeslut</p>
     <p>Riksdagen tillkännager för regeringen som sin mening vad som anförs i motionen om en solidarisk flyktingintroduktion.</p>

@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H4D1AMT" dokument_url_html="http://data.riksdagen.se/dokument/H4D1AMT" dokument_url_text="http://data.riksdagen.se/dokument/H4D1AMT/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H4D1AMT">
-  <text beteckning="AMT" datatyp="huvuddokument" datum="2017-01-11 00:00:00" dokumentnamn="Uttag" hangar_id="0" nummer="0" organ="rd" publicerad="2017-01-11 00:00:00" rm="2016/17" slutnummer="0" status="" subtyp="lista" systemdatum="2017-01-11 15:07:55" title="Allmänna motionstiden 2016" typ="uttag">
+  <text beteckning="AMT" datatyp="huvuddokument" datum="2017-01-11 00:00:00" dokumentnamn="Uttag" hangar_id="0" nummer="0" organ="rd" publicerad="2017-01-11 00:00:00" rm="2016/17" segreg="true" slutnummer="0" status="" subtyp="lista" systemdatum="2017-01-11 15:07:55" title="Allmänna motionstiden 2016" typ="uttag">
     <p>Totalt 3409 motioner i listan.<br/>
     </p>
     <p>Sök i motionerna från allmänna motionstiden 2016<br/>

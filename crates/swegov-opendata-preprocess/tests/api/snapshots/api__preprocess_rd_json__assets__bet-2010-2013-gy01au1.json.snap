@@ -3,7 +3,7 @@ source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="GY01AU1" dokument_url_html="http://data.riksdagen.se/dokument/GY01AU1" dokument_url_text="http://data.riksdagen.se/dokument/GY01AU1/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/GY01AU1">
-  <text beteckning="AU1" datatyp="huvuddokument" datum="2010-12-03 00:00:00" dokumentnamn="Betänkande" hangar_id="2370715" nummer="1" organ="AU" publicerad="2010-12-06 09:18:22" rm="2010/11" slutnummer="0" status="" subtyp="bet" systemdatum="2010-12-06 09:18:22" title="Utgiftsområde 13 Integration och jämställdhet" typ="bet">
+  <text beteckning="AU1" datatyp="huvuddokument" datum="2010-12-03 00:00:00" dokumentnamn="Betänkande" hangar_id="2370715" nummer="1" organ="AU" publicerad="2010-12-06 09:18:22" rm="2010/11" segreg="true" slutnummer="0" status="" subtyp="bet" systemdatum="2010-12-06 09:18:22" title="Utgiftsområde 13 Integration och jämställdhet" typ="bet">
     <p>Arbetsmarknadsutskottets betänkande</p>
     <p>2010/11:AU1</p>
     <p>Utgiftsområde 13 Integration och jämställdhet</p>

@@ -1,7 +1,7 @@
 ---
-source: crates/swegov-opendata-preprocess/tests/it/preprocess_rd_json.rs
+source: crates/swegov-opendata-preprocess/tests/api/preprocess_rd_json.rs
 expression: xmlstring
 ---
 <dokument xmlns="" dok_id="H5D2467" dokument_url_html="http://data.riksdagen.se/dokument/H5D2467" dokument_url_text="http://data.riksdagen.se/dokument/H5D2467/text" dokumentstatus_url_xml="http://data.riksdagen.se/dokumentstatus/H5D2467">
-  <text beteckning="" datatyp="huvuddokument" datum="2017-11-02 16:00:33" dokumentnamn="diarie" hangar_id="0" nummer="467" organ="Arbetsmarknadsutskottet" rm="2017/18" slutnummer="0" status="" subtyp="" systemdatum="2017-11-21 07:00:05" title="Överläggningspromemoria om utkast till rådsslutsatser gällande könssegregering i utbildning och på arbetsmarknaden" typ="diarie"/>
+  <text beteckning="" datatyp="huvuddokument" datum="2017-11-02 16:00:33" dokumentnamn="diarie" hangar_id="0" nummer="467" organ="Arbetsmarknadsutskottet" rm="2017/18" segreg="true" slutnummer="0" status="" subtyp="" systemdatum="2017-11-21 07:00:05" title="Överläggningspromemoria om utkast till rådsslutsatser gällande könssegregering i utbildning och på arbetsmarknaden" typ="diarie"/>
 </dokument>

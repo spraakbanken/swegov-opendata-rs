@@ -1,6 +1,8 @@
 use itertools::Itertools;
 use minidom::{Element, Node};
 use minidom_extension::{elem_is_empty, minidom};
+use once_cell::sync::Lazy;
+use regex::Regex;
 
 pub mod io_ext;
 
@@ -64,6 +66,11 @@ pub fn clean_text(text: &str) -> String {
     //     .intersperse(" ")
     //     // .filter(|part| !part.trim().is_empty())
     //     .collect()
+}
+
+pub fn is_segreg(s: &str) -> bool {
+    static SEGREG: Lazy<Regex> = Lazy::new(|| Regex::new(r"[Ss][Ee][Gg][Rr][Ee][Gg]").unwrap());
+    SEGREG.is_match(s)
 }
 
 #[cfg(test)]
