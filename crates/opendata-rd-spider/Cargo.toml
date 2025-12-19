@@ -25,6 +25,7 @@ swegov-opendata = { workspace = true }
 thiserror = { workspace = true }
 tokio = { workspace = true, features = ["fs"] }
 tracing = { workspace = true }
+tracing_log_error.workspace = true
 url = "2.5.2"
 webcrawler = { workspace = true }
 yaserde.workspace = true

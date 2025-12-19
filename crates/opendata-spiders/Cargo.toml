@@ -28,6 +28,7 @@ serde_json = { workspace = true }
 swegov-opendata = { workspace = true }
 tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
+tracing_log_error.workspace = true
 ulid = { workspace = true }
 webcrawler = { workspace = true }
 xml-rs.workspace = true

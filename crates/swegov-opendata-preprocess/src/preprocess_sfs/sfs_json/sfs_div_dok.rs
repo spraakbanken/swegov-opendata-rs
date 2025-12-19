@@ -172,7 +172,7 @@ pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocess
                 let text = match content.unescape() {
                     Ok(text) => text.to_string(),
                     Err(err) => {
-                        tracing::error!(error = ?err, "making text of error");
+                        tracing_log_error::log_error!(err, "making text of error");
                         let err_content = content.into_inner();
                         match String::from_utf8(err_content.to_vec()) {
                             Ok(text) => text,

@@ -169,7 +169,7 @@ pub fn extract_paragraphs(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, Sf
     loop {
         match reader.read_event() {
             Err(err) => {
-                tracing::error!(error= ?err, pos = reader.buffer_position(), "handle err ");
+                tracing_log_error::log_error!(err, pos = reader.buffer_position(), "handle err ");
                 todo!("handle err {:?}, pos={}", err, reader.buffer_position());
             }
             Ok(Event::Start(e)) => match e.name().as_ref() {
@@ -211,7 +211,7 @@ pub fn extract_paragraphs(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, Sf
                 let text = match content.unescape() {
                     Ok(text) => text.to_string(),
                     Err(err) => {
-                        tracing::error!(error = ?err, "making text of error");
+                        tracing_log_error::log_error!(err, "making text of error");
                         let err_content = content.into_inner();
                         match String::from_utf8(err_content.to_vec()) {
                             Ok(text) => text,

@@ -232,11 +232,11 @@ fn build_sparv_source(
     let corpus = match corpusinfo(&prefix) {
         Ok(corpus_info) => corpus_info,
         Err(err) => {
-            tracing::error!(
-                "Failed to get corpusinfo for prefix='{}' for file='{}': error={}: skipping ...",
+            tracing_log_error::log_error!(
+                err,
+                "Failed to get corpusinfo for prefix='{}' for file='{}': skipping ...",
                 prefix,
                 path.display(),
-                err,
             );
             return Ok(());
         }
@@ -292,11 +292,11 @@ fn build_sparv_source(
             let xmlstring = match preprocess_json(&filecontents, &metadata) {
                 Ok(xmlstring) => xmlstring,
                 Err(err) => {
-                    tracing::error!(
-                        "Failed to convert document '{}:{}'. Error: {:?}",
+                    tracing_log_error::log_error!(
+                        err,
+                        "Failed to convert document '{}:{}'.",
                         path.display(),
                         zipobj.name(),
-                        err
                     );
                     count.fetch_add(1, Ordering::Relaxed);
                     continue;
