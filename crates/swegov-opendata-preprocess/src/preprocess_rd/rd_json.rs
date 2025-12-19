@@ -388,7 +388,7 @@ pub fn preprocess_json(source: &str, metadata: &DataSet) -> Result<Vec<u8>, Prep
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
     docelem.to_writer(&mut writer).map_err(|error| {
-        tracing::error!("Error writing xml: {:?}", error);
+        tracing_log_error::log_error!(error, "Error writing xml");
         PreprocessJsonError::XmlWrite(error)
     })?;
     Ok(result)

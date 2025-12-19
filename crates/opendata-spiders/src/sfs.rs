@@ -112,7 +112,7 @@ impl webcrawler::Spider for SfsSpider {
         let dokument_url = "https://data.riksdagen.se/dokument";
         tracing::info!("calling {}", url);
         let response = self.http_client.get(&url).send().await.map_err(|err| {
-            tracing::error!("Failed fetching: {:?}", err);
+            tracing_log_error::log_error!(err, url = url, "Failed fetching url");
             err
         })?;
 
@@ -128,13 +128,13 @@ impl webcrawler::Spider for SfsSpider {
             return Err(Error::RequestReturnedError(status_code));
         }
         let text = response.text().await.map_err(|err| {
-            tracing::error!("Failed getting text: {}", err);
+            tracing_log_error::log_error!(err, url = url, "Failed getting text");
             err
         })?;
         // println!("{}", text);
         let item: Item = match yaserde::de::from_str(&text) {
             Err(err) if url.contains("dokument/") => {
-                tracing::error!(error=?err,text=text,"Failed parsing XML");
+                tracing::error!(error.msg = err, text = text, "Failed parsing XML");
                 let new_url = url.replace("dokument", "dokumentstatus");
                 tracing::info!("Trying {} instead", new_url);
                 new_urls.push(new_url);
@@ -145,7 +145,7 @@ impl webcrawler::Spider for SfsSpider {
                 return Ok((items, new_urls));
             }
             Err(err) => {
-                tracing::error!(error=?err,text=text,"Failed parsing XML");
+                tracing::error!(error.msg = err, text = text, "Failed parsing XML");
                 return Err(Error::XmlDe { msg: err });
             }
             Ok(item) => item,
@@ -201,8 +201,8 @@ impl webcrawler::Spider for SfsSpider {
         }
         fs_err::tokio::create_dir_all(&path)
             .await
-            .inspect_err(|_err| {
-                tracing::error!("failed creating path='{}', url={}", path.display(), url);
+            .inspect_err(|err| {
+                tracing_log_error::log_error!(err, url = url, "failed creating folder",);
             })?;
         if file_name.is_empty() {
             path.push(
@@ -218,14 +218,14 @@ impl webcrawler::Spider for SfsSpider {
         let span = tracing::info_span!("writing output", "{}", path.display());
         let _enter = span.enter();
         tracing::info!("creating file");
-        let file = fs::File::create(&path).inspect_err(|_err| {
-            tracing::error!("failed creating file, url={}", url);
+        let file = fs::File::create(&path).inspect_err(|err| {
+            tracing_log_error::log_error!(err, url = url, "failed creating file");
         })?;
         let compress_writer = flate2::write::GzEncoder::new(file, Compression::default());
         let writer = std::io::BufWriter::new(compress_writer);
         tracing::info!("writing JSON");
-        serde_json::to_writer(writer, &item).inspect_err(|_err| {
-            tracing::error!("failed writing JSON, url={}", url);
+        serde_json::to_writer(writer, &item).inspect_err(|err| {
+            tracing_log_error::log_error!(err, url = url, "failed writing JSON");
         })?;
         Ok(path.display().to_string())
     }

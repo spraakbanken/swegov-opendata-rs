@@ -29,6 +29,7 @@ sparv-extension = { workspace = true }
 swegov-opendata = { workspace = true }
 thiserror = { workspace = true }
 tracing = { workspace = true }
+tracing_log_error = { workspace = true }
 zip = { workspace = true }
 
 [dev-dependencies]

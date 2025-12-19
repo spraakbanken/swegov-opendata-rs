@@ -9,7 +9,7 @@ pub fn attrib_equals(elem: &BytesStart<'_>, name: &[u8], value: &[u8]) -> bool {
                 }
             }
             Err(err) => {
-                tracing::error!("Error reading attrubute: {:?}", err);
+                tracing_log_error::log_error!(err, "Error reading attribute",);
             }
         }
     }

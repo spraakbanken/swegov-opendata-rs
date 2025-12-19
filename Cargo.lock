@@ -1477,6 +1477,7 @@ dependencies = [
  "minidom-14",
  "pretty_assertions",
  "tracing",
+ "tracing_log_error",
 ]
 
 [[package]]
@@ -1595,6 +1596,7 @@ dependencies = [
  "thiserror 2.0.17",
  "tokio",
  "tracing",
+ "tracing_log_error",
  "url",
  "webcrawler",
  "yaserde",
@@ -1616,6 +1618,7 @@ dependencies = [
  "swegov-opendata",
  "tokio",
  "tracing",
+ "tracing_log_error",
  "ulid",
  "webcrawler",
  "xml-rs",
@@ -2817,6 +2820,7 @@ dependencies = [
  "test-log",
  "thiserror 2.0.17",
  "tracing",
+ "tracing_log_error",
  "zip",
 ]
 
@@ -3184,6 +3188,15 @@ dependencies = [
  "tracing-core",
  "tracing-log",
  "tracing-serde",
+]
+
+[[package]]
+name = "tracing_log_error"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "acc88373b516b143fd79ef5109b9c077ade5bfcbdc566d63e2d827fb951b6849"
+dependencies = [
+ "tracing",
 ]
 
 [[package]]
