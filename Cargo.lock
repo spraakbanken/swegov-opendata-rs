@@ -703,7 +703,7 @@ checksum = "37909eebbb50d72f9059c3b6d82c0463f2ff062c9e95845c43a6c9c0355411be"
 
 [[package]]
 name = "fetch-rd"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "clap",
  "miette",
@@ -716,7 +716,7 @@ dependencies = [
 
 [[package]]
 name = "fetch-sfs"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "clap",
  "config",
@@ -1861,14 +1861,14 @@ checksum = "925383efa346730478fb4838dbe9137d2a47675ad789c546d150a6e1dd4ab31c"
 
 [[package]]
 name = "preprocess-progress"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "prodash",
 ]
 
 [[package]]
 name = "preprocess-rd"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "clap",
  "miette",
