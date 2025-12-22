@@ -3,10 +3,8 @@ use std::io::BufReader;
 use std::io::Read;
 use std::path::PathBuf;
 
-use minidom_extension::asserts::assert_elem_equal_with_cleaning;
 use minidom_extension::minidom::{quick_xml::reader::Reader, Element};
 use swegov_opendata_preprocess::preprocess_sfs::{build_sparv_source, sfs_json};
-use swegov_opendata_preprocess::shared::{clean_element, clean_text};
 use swegov_opendata_preprocess::{PreprocessError, PreprocessResult};
 
 #[test]
