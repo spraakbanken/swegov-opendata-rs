@@ -1855,16 +1855,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "preprocess-rd-segreg"
-version = "0.1.0"
-dependencies = [
- "clap",
- "miette",
- "preprocess-ui",
- "swegov-opendata-preprocess",
-]
-
-[[package]]
 name = "preprocess-sfs"
 version = "0.1.0"
 dependencies = [

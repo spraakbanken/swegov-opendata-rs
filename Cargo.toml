@@ -10,7 +10,6 @@ members = [
     "crates/preprocess-progress",
     "crates/preprocess-progress",
     "crates/preprocess-rd",
-    "crates/preprocess-rd-segreg",
     "crates/preprocess-sfs",
     "crates/preprocess-ui",
     "crates/sparv-extension",
