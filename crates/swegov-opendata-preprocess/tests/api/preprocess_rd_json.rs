@@ -1,4 +1,4 @@
-use std::fs;
+use fs_err as fs;
 
 use minidom_extension::minidom::Element;
 use rstest::rstest;
@@ -26,13 +26,12 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/ip-2014-2017-h410591.json")]
 #[case("assets/kammakt-2018-2021-h6c120190118zz.json")]
 #[case("assets/kammakt-2018-2021-h9c120220419bu.json")]
-#[case("assets/mot-1998-2001-gp02fi39.json")]
 #[case("assets/kom-2010-2014-gzb6452.json")]
 #[case("assets/kom-2010-2014-h2b643.json")]
 #[case("assets/kom-2020--h8b6447.json")]
 #[case("assets/mot-1971-1979-g3021833.json")]
 #[case("assets/mot-1998-2001-gm02bo208.json")]
-#[case("assets/mot-1998-2001-gp02fi39.json")]
+#[case::gp02fi39("assets/mot-1998-2001-gp02fi39.json")]
 #[case("assets/mot-1998-2001-gp02kr419.json")]
 #[case("assets/mot-2010-2013-gy02a1.json")]
 #[case("assets/mot-2010-2013-gy02a245.json")]
@@ -56,7 +55,7 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/Riksdagens diarium-2014-2017-h5d2467.json")]
 #[case("assets/Skriftliga frågor-1990-1997-gl11103.json")]
 #[case("assets/Skriftliga frågor-1990-1997-gl12229.json")]
-#[case("assets/Skriftliga frågor-1998-2001-gm11284.json")]
+#[case::gm11284("assets/Skriftliga frågor-1998-2001-gm11284.json")]
 #[case("assets/Skriftliga frågor-1998-2001-gn121309.json")]
 #[case("assets/utskottsdokument-1998-2001-gma1cc3.json")]
 #[case("assets/utskottsdokument-2002-2005-gta1aureg.json")]

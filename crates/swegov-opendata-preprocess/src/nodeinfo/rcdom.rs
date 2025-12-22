@@ -1,4 +1,5 @@
-use html5ever::rcdom::{self, NodeData};
+use markup5ever_rcdom as rcdom;
+use rcdom::NodeData;
 
 pub fn dbg_rcdom_node(node: &rcdom::Handle) -> String {
     match &node.data {

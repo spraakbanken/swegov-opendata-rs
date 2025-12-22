@@ -66,7 +66,7 @@ enum ParseHtmlState {
 }
 
 pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocessError> {
-    reader.check_end_names(false);
+    reader.config_mut().check_end_names = false;
     let mut elem = Element::bare("page", "");
     let mut curr: Option<Element> = Some(Element::bare("p", ""));
     let mut state = ExtractPageState::InSida;
@@ -229,7 +229,7 @@ pub fn extract_page(reader: &mut Reader<&[u8]>) -> Result<Element, SfsPreprocess
             elem.append_child(p);
         }
     }
-    reader.check_end_names(true);
+    reader.config_mut().check_end_names = true;
 
     Ok(elem)
 }

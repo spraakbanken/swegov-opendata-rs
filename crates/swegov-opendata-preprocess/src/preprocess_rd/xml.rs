@@ -138,7 +138,7 @@ pub fn preprocess_xml(xml_string: &str, filename: Cow<'_, str>) -> Result<Vec<u8
 pub enum XmlError {
     #[error("Error reading xml at position {pos}: {error:?}")]
     Read {
-        pos: usize,
+        pos: u64,
         #[source]
         error: minidom::quick_xml::Error,
     },

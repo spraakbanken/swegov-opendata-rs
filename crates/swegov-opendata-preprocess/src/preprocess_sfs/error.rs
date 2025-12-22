@@ -20,19 +20,19 @@ pub enum SfsPreprocessError {
     HtmlFieldIsEmpty,
     #[error("xml parse error for string at position {pos}: {err:?}")]
     XmlParsingError {
-        pos: usize,
+        pos: u64,
         #[source]
         err: quick_xml::Error,
     },
     #[error("xml parse error for string at position {pos}: {err:?}")]
     XmlParsingAttrError {
-        pos: usize,
+        pos: u64,
         #[source]
         err: quick_xml::events::attributes::AttrError,
     },
     #[error("[XML] bad UTF8 at pos {pos}: {err:?}")]
     XmlFromUtf8Error {
-        pos: usize,
+        pos: u64,
         #[source]
         err: FromUtf8Error,
     },

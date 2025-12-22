@@ -29,7 +29,7 @@ fn remove_cdata<'a>(text: &'a str) -> Cow<'a, str> {
 pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
     static LT: Lazy<Regex> = Lazy::new(|| {
         Regex::new(
-            r#"<(\d|<|\.|;|:|\*| |http|www|sir|Q|i[t\d)-]|[uU] |-|/\.|[oO][nost]|en|r[i\.]|[j]?~|/-|L\)|[\()]|c[mo]|£|[nN]?[|']|l[ I]|jv|\w[!])"#,
+            r#"<(\d|<|\.|;|:|\*| |http|www|sir|Q|i[t\d)-]|[uU] |-|/\.|[oO][nost]|en|r[i\.]|[j]?~|/-|L\)|[\()]|c[mo][^l]|£|[nN]?[|']|l[ I]|jv|\w[!])"#,
         )
         .unwrap()
     });
@@ -38,6 +38,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
         Lazy::new(|| Regex::new(r#"<(/?[nrDJNS\"«][\w,]? )"#).unwrap());
 
     let contents_processed = contents.replace("\r\n", " ");
+    let contents_processed = contents_processed.replace(r#"\""#, r#"""#);
     let contents_processed = contents_processed.replace("STYLEREF Kantrubrik \\* MERGEFORMAT", "");
     let contents_processed = contents_processed.replace("\u{a0}", "");
     let contents_processed = contents_processed.replace("&nbsp;", " ");
@@ -79,12 +80,13 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
     let contents_processed = remove_cdata(&contents_processed);
 
     let mut reader = Reader::from_str(&contents_processed);
-    reader.check_end_names(false);
+    reader.config_mut().allow_unmatched_ends = true;
+    reader.config_mut().check_end_names = false;
 
     let mut state = ParseHtmlState::Start;
 
     loop {
-        match reader.read_event() {
+        match dbg!(reader.read_event()) {
             Err(e) => {
                 return Err(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
@@ -138,7 +140,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         }
                     }
                     b"table" | b"TABLE" => {
-                        let paragraphs = extract_table(&mut reader)?;
+                        let paragraphs = extract_table(&mut reader).unwrap();
                         for p in paragraphs {
                             textelem.append_child(p);
                         }
@@ -180,12 +182,12 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                     }
                     b"b" | b"B" | b"i" | b"I" => {
                         if let ParseHtmlState::Paragraph(ref mut elem) = &mut state {
-                            elem.append_child(extract_elem(&mut reader, e.name().as_ref())?);
+                            elem.append_child(dbg!(extract_elem(&mut reader, e.name().as_ref()))?);
                             continue;
                         }
                         if let ParseHtmlState::Start = state {
                             let mut p = Element::bare("p", "");
-                            p.append_child(extract_elem(&mut reader, e.name().as_ref())?);
+                            p.append_child(dbg!(extract_elem(&mut reader, e.name().as_ref()))?);
                             state = ParseHtmlState::Paragraph(p);
                         }
                     }
@@ -406,7 +408,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(),
     let mut state = ParseHtmlState::Start;
     let mut div_count = 1;
     loop {
-        match reader.read_event() {
+        match dbg!(reader.read_event()) {
             Err(e) => {
                 return Err(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
@@ -421,7 +423,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(),
                 }
                 b"div" | b"DIV" => {
                     if let Some(id) = extract_page_id_from_attributes(e.attributes()) {
-                        let page = extract_page(reader, id)?;
+                        let page = dbg!(extract_page(reader, id))?;
                         textelem.append_child(page);
                         state = ParseHtmlState::Start;
                     } else {
@@ -987,7 +989,7 @@ fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Result<Element, Proce
     let mut curr_child: Option<Element> = None;
     let mut div_count = 1;
     loop {
-        match reader.read_event() {
+        match dbg!(reader.read_event()) {
             Err(e) => {
                 return Err(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
@@ -1081,8 +1083,9 @@ fn extract_page_id_from_attributes(attrs: Attributes) -> Option<String> {
 
 fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, ProcessHtmlError> {
     let mut elem = Element::bare(String::from_utf8_lossy(tag).to_lowercase(), "");
+    dbg!(&elem);
     loop {
-        match reader.read_event() {
+        match dbg!(reader.read_event()) {
             Err(e) => {
                 return Err(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
@@ -1125,7 +1128,7 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, Proce
             Ok(e) => todo!("handle {:?}", e),
         }
     }
-    Ok(elem)
+    Ok(dbg!(elem))
 }
 
 fn unescape<'a>(text: &'a BytesText) -> Cow<'a, str> {
@@ -1151,12 +1154,15 @@ fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
 fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtmlError> {
     let mut table = Vec::new();
     loop {
-        match reader.read_event() {
+        let event = reader.read_event();
+        dbg!(&event);
+        match event {
             Err(e) => {
+                todo!("handle {e:?}");
                 return Err(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
-                })
+                });
             }
             Ok(Event::End(e)) => match e.name().as_ref() {
                 b"table" | b"TABLE" => break,
@@ -1204,33 +1210,33 @@ pub enum ProcessHtmlError {
     UnexpectedEndTag(UnexpectedTag),
     #[error("Xml error at position {pos}")]
     XmlError {
-        pos: usize,
+        pos: u64,
         #[source]
         err: quick_xml::Error,
     },
 }
 
 impl ProcessHtmlError {
-    pub fn unexpected_start_tag<S: Into<String>>(pos: usize, tag: &[u8], context: S) -> Self {
+    pub fn unexpected_start_tag<S: Into<String>>(pos: u64, tag: &[u8], context: S) -> Self {
         Self::UnexpectedStartTag(UnexpectedTag::new(pos, tag, context.into()))
     }
-    pub fn unexpected_empty_tag<S: Into<String>>(pos: usize, tag: &[u8], context: S) -> Self {
+    pub fn unexpected_empty_tag<S: Into<String>>(pos: u64, tag: &[u8], context: S) -> Self {
         Self::UnexpectedEmptyTag(UnexpectedTag::new(pos, tag, context.into()))
     }
-    pub fn unexpected_end_tag<S: Into<String>>(pos: usize, tag: &[u8], context: S) -> Self {
+    pub fn unexpected_end_tag<S: Into<String>>(pos: u64, tag: &[u8], context: S) -> Self {
         Self::UnexpectedEndTag(UnexpectedTag::new(pos, tag, context.into()))
     }
 }
 
 #[derive(Debug)]
 pub struct UnexpectedTag {
-    pos: usize,
+    pos: u64,
     tag: String,
     context: String,
 }
 
 impl UnexpectedTag {
-    pub fn new<S: Into<String>>(pos: usize, tag: &[u8], context: S) -> Self {
+    pub fn new<S: Into<String>>(pos: u64, tag: &[u8], context: S) -> Self {
         Self {
             pos,
             tag: String::from_utf8_lossy(tag).to_string(),
