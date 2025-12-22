@@ -66,7 +66,7 @@ similar-asserts = "1.6.0"
 thiserror = "2.0.17"
 test-log = { version = "0.2.16" }
 tokio = "1.48.0"
-tracing = "0.1.40"
+tracing = "0.1.41"
 tracing-forest = "0.1.6"
 tracing_log_error = "0.1.4"
 tracing-subscriber = { version = "0.3.17", features = ["env-filter", "json"] }
