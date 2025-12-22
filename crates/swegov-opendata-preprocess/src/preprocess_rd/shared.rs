@@ -1,4 +1,5 @@
-use std::{fs, io, path::Path};
+use fs_err as fs;
+use std::{io, path::Path};
 
 use crate::PreprocessError;
 
