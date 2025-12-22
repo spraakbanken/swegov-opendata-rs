@@ -1,6 +1,6 @@
 [package]
 name = "opendata-spiders"
-version = "0.1.0"
+version = { workspace = true }
 edition = { workspace = true }
 authors = { workspace = true }
 rust-version = { workspace = true }
@@ -17,7 +17,6 @@ flate2 = { workspace = true }
 fs-err = { workspace = true, features = ["tokio"] }
 quick-xml = { workspace = true, features = ["serde", "serialize"] }
 reqwest = { workspace = true, features = [
-    "rustls",
     "json",
     "rustls-tls",
     "brotli",
@@ -26,7 +25,6 @@ reqwest = { workspace = true, features = [
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
 swegov-opendata = { workspace = true }
-tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
 tracing = { workspace = true }
 tracing_log_error.workspace = true
 ulid = { workspace = true }

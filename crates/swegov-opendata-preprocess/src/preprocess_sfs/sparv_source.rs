@@ -1,7 +1,5 @@
 use crate::{shared::io_ext, PreprocessError};
 use fs_err as fs;
-use once_cell::sync::Lazy;
-use regex::Regex;
 use std::path::Path;
 
 use super::sfs_json;

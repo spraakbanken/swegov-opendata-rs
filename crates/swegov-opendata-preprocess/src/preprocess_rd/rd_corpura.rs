@@ -8,7 +8,7 @@ use regex::Regex;
 use sparv_extension::{make_corpus_config, SparvConfig, SparvMetadata, XmlSourceWriter};
 use zip::ZipArchive;
 
-use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, shared::is_segreg, PreprocessError};
+use crate::{corpusinfo, preprocess_rd::xml::preprocess_xml, PreprocessError};
 
 use super::shared::read_json_or_default;
 

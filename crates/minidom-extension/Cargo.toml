@@ -1,6 +1,6 @@
 [package]
 name = "minidom-extension"
-version = "0.1.0"
+version = { workspace = true }
 edition = { workspace = true }
 authors = { workspace = true }
 rust-version = { workspace = true }
@@ -18,4 +18,7 @@ tracing.workspace = true
 tracing_log_error.workspace = true
 
 [package.metadata.cargo-machete]
-ignored = ["minidom-14"]
+ignored = ["tracing"]
+
+[package.metadata.cargo-machete.renamed]
+minidom-14 = "minidom"

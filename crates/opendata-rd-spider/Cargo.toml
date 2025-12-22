@@ -1,6 +1,6 @@
 [package]
 name = "opendata-rd-spider"
-version = "0.1.0"
+version = { workspace = true }
 rust-version = { workspace = true }
 edition = { workspace = true }
 license = { workspace = true }
@@ -11,10 +11,7 @@ async-trait = { workspace = true }
 chrono = { workspace = true, features = ["serde"] }
 fs-err = { workspace = true, features = ["tokio"] }
 miette = { workspace = true }
-quick-xml = { workspace = true, features = ["serde", "serialize"] }
 reqwest = { workspace = true, features = [
-    "rustls",
-    # "json",
     "rustls-tls",
     "brotli",
     "gzip",
@@ -25,7 +22,6 @@ swegov-opendata = { workspace = true }
 thiserror = { workspace = true }
 tokio = { workspace = true, features = ["fs"] }
 tracing = { workspace = true }
-tracing_log_error.workspace = true
-url = "2.5.2"
+url.workspace = true
 webcrawler = { workspace = true }
 yaserde.workspace = true

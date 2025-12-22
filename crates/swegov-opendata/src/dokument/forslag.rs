@@ -232,7 +232,7 @@ pub struct AnyValue(serde_json::Value);
 
 impl yaserde::YaDeserialize for AnyValue {
     fn deserialize<R: std::io::Read>(
-        reader: &mut yaserde::de::Deserializer<R>,
+        _reader: &mut yaserde::de::Deserializer<R>,
     ) -> Result<Self, String> {
         todo!()
     }
@@ -241,7 +241,7 @@ impl yaserde::YaDeserialize for AnyValue {
 impl yaserde::YaSerialize for AnyValue {
     fn serialize<W: std::io::Write>(
         &self,
-        writer: &mut yaserde::ser::Serializer<W>,
+        _writer: &mut yaserde::ser::Serializer<W>,
     ) -> Result<(), String> {
         todo!()
     }
