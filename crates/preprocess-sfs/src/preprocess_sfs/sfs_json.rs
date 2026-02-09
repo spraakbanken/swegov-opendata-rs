@@ -10,14 +10,19 @@ use once_cell::sync::Lazy;
 use regex::Regex;
 use swegov_opendata::{DokumentStatus, DokumentStatusPage};
 
-use crate::shared::{clean_element, is_segreg};
+use swegov_opendata_preprocess::shared::{clean_element, is_segreg};
 
 use super::SfsPreprocessError;
 
 mod sfs_div_dok;
 mod sfs_standard;
 
-pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
+pub enum PreprocessJsonResponse {
+    Actual(Vec<u8>),
+    Former(Vec<u8>),
+}
+
+pub fn preprocess_json(source: &str) -> Result<PreprocessJsonResponse, SfsPreprocessError> {
     let DokumentStatusPage {
         dokumentstatus:
             DokumentStatus {
@@ -110,14 +115,17 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     ] {
         textelem.set_attr(name, value.to_string());
     }
+    let mut is_actual = true;
     if let Some(dokuppgift) = &dokuppgift {
         if let Some(upphavd_str) = dokuppgift.get_by_kod("upphavd") {
             let (upphavd_at, _remaining) =
                 NaiveDate::parse_and_remainder(upphavd_str, "%Y-%m-%d").unwrap();
             textelem.set_attr("upphavd", upphavd_at.to_string());
+            is_actual = false;
         }
         if let Some(upphnr) = dokuppgift.get_by_kod("upphnr") {
             textelem.set_attr("upphnr", upphnr);
+            is_actual = false;
         }
     }
 
@@ -143,7 +151,11 @@ pub fn preprocess_json(source: &str) -> Result<Vec<u8>, SfsPreprocessError> {
     let mut result = Vec::new();
     let mut writer = Writer::new_with_indent(&mut result, b' ', 2);
     docelem.to_writer(&mut writer)?;
-    Ok(result)
+    Ok(if is_actual {
+        PreprocessJsonResponse::Actual(result)
+    } else {
+        PreprocessJsonResponse::Former(result)
+    })
 }
 
 fn process_html(contents: &str, textelem: &mut Element) -> Result<(), SfsPreprocessError> {

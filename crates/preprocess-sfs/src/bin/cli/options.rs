@@ -15,8 +15,28 @@ pub struct Args {
     #[clap(long, conflicts_with("verbose"))]
     pub no_verbose: bool,
 
+    #[clap(subcommand)]
+    pub cmd: Subcommand,
+}
+
+#[derive(Debug, clap::Subcommand)]
+pub enum Subcommand {
+    Preprocess(Preprocess),
+    SyncDownloads(SyncDownloads),
+}
+
+#[derive(Debug, clap::Args)]
+pub struct Preprocess {
     /// The directory to read input files from.
     pub input: PathBuf,
     /// The directory to output preprocessed corpus.
     pub output: PathBuf,
+}
+
+#[derive(Debug, clap::Args)]
+pub struct SyncDownloads {
+    /// The directory to read input files from.
+    pub input: PathBuf,
+    /// The directory to output preprocessed corpus.
+    pub output: Option<PathBuf>,
 }

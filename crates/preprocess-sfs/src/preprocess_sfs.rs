@@ -7,4 +7,4 @@ pub use self::sfs_corpura::{preprocess_sfs_corpus, PreprocessSfsCorpuraOptions};
 
 pub use self::error::SfsPreprocessError;
 
-pub use self::sparv_source::build_sparv_source;
+pub use self::sparv_source::{build_sparv_source, SfsSparvSourceOptions};

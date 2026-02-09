@@ -1,5 +1,5 @@
 use minidom_extension::minidom;
-use std::string::FromUtf8Error;
+use std::{io, string::FromUtf8Error};
 
 use minidom::quick_xml;
 
@@ -36,4 +36,6 @@ pub enum SfsPreprocessError {
         #[source]
         err: FromUtf8Error,
     },
+    #[error(transparent)]
+    Io(#[from] io::Error),
 }
