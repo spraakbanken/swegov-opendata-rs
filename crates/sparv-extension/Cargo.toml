@@ -2,7 +2,6 @@
 name = "sparv-extension"
 version = { workspace = true }
 edition = { workspace = true }
-authors = { workspace = true }
 rust-version = { workspace = true }
 license = { workspace = true }
 
@@ -11,9 +10,9 @@ license = { workspace = true }
 doctest = false
 
 [dependencies]
-serde_yaml = { workspace = true }
-serde = { workspace = true, features = ["derive"] }
-tracing = { workspace = true }
-miette = { workspace = true }
-thiserror = { workspace = true }
 fs-err.workspace = true
+miette = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_yaml = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }

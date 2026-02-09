@@ -1,18 +1,21 @@
 [package]
 name = "preprocess-rd"
 version.workspace = true
-rust-version.workspace = true
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
-authors.workspace = true
+
+[package.metadata.cargo-machete]
+ignored = ["exn"]
 
 [[bin]]
+doctest = false
 name = "preprocess-rd"
 test = false
-doctest = false
 
 [dependencies]
-clap = { workspace = true, features = ["derive", "cargo"] }
+clap = { workspace = true, features = ["cargo", "derive"] }
+exn.workspace = true
 miette = { workspace = true, features = ["fancy"] }
 preprocess-ui = { workspace = true }
 swegov-opendata-preprocess = { workspace = true }

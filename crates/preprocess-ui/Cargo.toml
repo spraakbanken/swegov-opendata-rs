@@ -1,17 +1,19 @@
 [package]
 name = "preprocess-ui"
 version.workspace = true
-rust-version.workspace = true
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
-authors.workspace = true
+
+[package.metadata.cargo-machete]
+ignored = ["exn"]
 
 [dependencies]
-miette = { workspace = true }
+exn.workspace = true
 preprocess-progress = { workspace = true }
 prodash = { workspace = true, features = [
-    "render-line",
-    "render-line-crossterm",
+  "render-line",
+  "render-line-crossterm",
 ] }
 tracing = { workspace = true }
 tracing-forest = { workspace = true }
