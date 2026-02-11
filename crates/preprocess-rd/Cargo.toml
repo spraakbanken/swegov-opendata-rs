@@ -16,6 +16,5 @@ test = false
 [dependencies]
 clap = { workspace = true, features = ["cargo", "derive"] }
 exn.workspace = true
-miette = { workspace = true, features = ["fancy"] }
 preprocess-ui = { workspace = true }
 swegov-opendata-preprocess = { workspace = true }

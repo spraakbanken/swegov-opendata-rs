@@ -1,16 +1,17 @@
 use std::path::{Path, PathBuf};
 
 use clap::Parser;
-use preprocess_ui::ui::pretty::prepare_and_run;
-use swegov_opendata_preprocess::preprocess_rd::{
-    preprocess_rd_corpura, PreprocessRdCorpuraOptions,
+use preprocess_ui::ui::pretty::{prepare_and_run, AppError};
+use swegov_opendata_preprocess::{
+    preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions},
+    ALL_CORPUSES,
 };
 
 use crate::options::Args;
 
 mod options;
 
-fn main() -> miette::Result<()> {
+fn main() -> exn::Result<(), AppError> {
     let args = Args::parse();
 
     let trace = args.trace;
@@ -34,12 +35,13 @@ fn main() -> miette::Result<()> {
                 err,
                 progress,
                 PreprocessRdCorpuraOptions {
-                    corpura: &["rd-bet"],
+                    corpura: ALL_CORPUSES,
                     skip_files: &[],
                     processed_json_path: Path::new("processed.json"),
                     verbose,
                 },
             )
         },
-    )
+    )?;
+    Ok(())
 }

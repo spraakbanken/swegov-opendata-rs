@@ -10,7 +10,6 @@ license = { workspace = true }
 doctest = false
 
 [dependencies]
-chrono = { workspace = true }
 exn = { workspace = true }
 flate2 = { workspace = true }
 fs-err.workspace = true
