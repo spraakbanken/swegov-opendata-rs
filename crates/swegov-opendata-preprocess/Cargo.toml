@@ -10,24 +10,16 @@ license = { workspace = true }
 doctest = false
 
 [dependencies]
-exn = { workspace = true }
 flate2 = { workspace = true }
-fs-err.workspace = true
 itertools = { workspace = true }
 markup5ever_rcdom = { workspace = true }
-miette = { workspace = true }
 minidom-extension = { workspace = true }
 once_cell = { workspace = true }
-preprocess-progress = { workspace = true }
 pretty_assertions = { workspace = true }
 regex = { workspace = true }
-serde = { workspace = true }
 serde_json = { workspace = true }
 sparv-extension = { workspace = true }
-swegov-opendata = { workspace = true }
 thiserror = { workspace = true }
-tracing = { workspace = true }
-tracing_log_error = { workspace = true }
 zip = { workspace = true }
 
 [dev-dependencies]

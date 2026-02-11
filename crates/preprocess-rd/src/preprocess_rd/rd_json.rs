@@ -4,7 +4,7 @@ use itertools::Itertools;
 use minidom_extension::minidom::{quick_xml::Writer, Element, Error as MinidomError};
 use swegov_opendata::{DataSet, DokumentStatusPageRef, DokumentStatusRef};
 
-use crate::shared::{clean_element, io_ext, is_segreg};
+use swegov_opendata_preprocess::shared::{clean_element, io_ext, is_segreg};
 
 use super::html::{process_html, ProcessHtmlError};
 
@@ -422,14 +422,13 @@ fn split_and_format_parties(text: &str) -> String {
     format_multi_value(parties.iter().peekable())
 }
 
-#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[derive(Debug, thiserror::Error)]
 pub enum PreprocessJsonError {
     #[error("Error reading JSON")]
     JsonError(#[from] serde_json::Error),
     #[error("Failed write XML")]
     XmlWrite(#[source] MinidomError),
     #[error("Document contains no html")]
-    #[diagnostic(severity(Warning))]
     HtmlFieldIsEmpty,
     #[error("Error processing HTML")]
     HtmlError(#[from] ProcessHtmlError),

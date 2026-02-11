@@ -1,9 +1,14 @@
+use exn::{Exn, ResultExt};
 use fs_err as fs;
 
 use minidom_extension::minidom::Element;
 use rstest::rstest;
 use swegov_opendata::{DataSet, DokumentStatusPageRef, DokumentStatusRef};
-use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
+use swegov_opendata_preprocess::shared::io_ext;
+
+use preprocess_rd::preprocess_rd;
+
+use crate::shared::TestError;
 
 #[rstest]
 #[case("assets/bet-1998-2001-gp01bou1.json")]
@@ -63,10 +68,11 @@ use swegov_opendata_preprocess::{preprocess_rd, shared::io_ext};
 #[case("assets/Övrigt-2010-2013-h1b512.json")]
 #[case("assets/Övrigt-2014-2017-h4d1amt.json")]
 #[case("assets/Övrigt-2014-2017-h50n48f9da.json")]
-fn preprocess_rd_json(#[case] filename: &str) -> anyhow::Result<()> {
+fn preprocess_rd_json(#[case] filename: &str) -> Result<(), Exn<TestError>> {
+    let make_err = || TestError;
     let metadata_path = format!("{}.metadata.json", filename.rsplit_once('-').unwrap().0);
     println!("reading test data from '{}'", filename);
-    let file_data = fs::read_to_string(filename)?;
+    let file_data = fs::read_to_string(filename).or_raise(make_err)?;
     println!("reading metadata from '{}'", metadata_path);
     let metadata_data = match fs::read_to_string(&metadata_path) {
         Ok(data) => data,
@@ -77,13 +83,13 @@ fn preprocess_rd_json(#[case] filename: &str) -> anyhow::Result<()> {
                 metadata_path.rsplit_once('-').unwrap().0
             );
             println!("reading metadata from '{}'", new_metadata_path);
-            fs::read_to_string(new_metadata_path)?
+            fs::read_to_string(new_metadata_path).or_raise(make_err)?
         }
     };
-    let metadata: DataSet = serde_json::from_str(&metadata_data)?;
+    let metadata: DataSet = serde_json::from_str(&metadata_data).or_raise(make_err)?;
 
-    let xmlstring = preprocess_rd::preprocess_json(&file_data, &metadata)?;
-    let xmlstring = String::from_utf8(xmlstring)?;
+    let xmlstring = preprocess_rd::preprocess_json(&file_data, &metadata).or_raise(make_err)?;
+    let xmlstring = String::from_utf8(xmlstring).or_raise(make_err)?;
     insta::assert_snapshot!(filename, xmlstring);
 
     Ok(())
@@ -92,16 +98,18 @@ fn preprocess_rd_json(#[case] filename: &str) -> anyhow::Result<()> {
 #[rstest]
 #[case("assets/bet-1998-2001-gp01bou1.json")]
 #[case("assets/bet-2010-2013-h101föu11.json")]
-fn preprocess_rd_html(#[case] filename: &str) -> anyhow::Result<()> {
+fn preprocess_rd_html(#[case] filename: &str) -> Result<(), Exn<TestError>> {
+    let make_err = || TestError;
     println!("reading test data from '{}'", filename);
-    let source = fs::read_to_string(filename)?;
+    let source = fs::read_to_string(filename).or_raise(make_err)?;
     let source = io_ext::without_bom(&source);
     let DokumentStatusPageRef {
         dokumentstatus: DokumentStatusRef { dokument, .. },
-    } = serde_json::from_str(source)?;
+    } = serde_json::from_str(source).or_raise(make_err)?;
 
     let mut textelem = Element::bare("text", "");
-    preprocess_rd::process_html(dokument.html().expect("valid html"), &mut textelem)?;
+    preprocess_rd::process_html(dokument.html().expect("valid html"), &mut textelem)
+        .or_raise(make_err)?;
 
     insta::assert_debug_snapshot!(format!("html-{}", filename), textelem);
     Ok(())

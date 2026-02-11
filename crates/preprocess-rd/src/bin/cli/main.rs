@@ -1,11 +1,9 @@
 use std::path::{Path, PathBuf};
 
 use clap::Parser;
+use preprocess_rd::preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions};
 use preprocess_ui::ui::pretty::{prepare_and_run, AppError};
-use swegov_opendata_preprocess::{
-    preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions},
-    ALL_CORPUSES,
-};
+use swegov_opendata_preprocess::ALL_CORPORA;
 
 use crate::options::Args;
 
@@ -35,7 +33,7 @@ fn main() -> exn::Result<(), AppError> {
                 err,
                 progress,
                 PreprocessRdCorpuraOptions {
-                    corpura: ALL_CORPUSES,
+                    corpura: ALL_CORPORA,
                     skip_files: &[],
                     processed_json_path: Path::new("processed.json"),
                     verbose,

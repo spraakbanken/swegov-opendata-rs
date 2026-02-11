@@ -21,7 +21,6 @@ miette.workspace = true
 minidom-extension.workspace = true
 once_cell.workspace = true
 preprocess-progress.workspace = true
-# local deps
 preprocess-ui = { workspace = true }
 regex.workspace = true
 serde_json.workspace = true

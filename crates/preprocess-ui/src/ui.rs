@@ -6,8 +6,9 @@ pub type ProgressRange = std::ops::RangeInclusive<prodash::progress::key::Level>
 pub const STANDARD_RANGE: ProgressRange = 2..=2;
 
 pub mod pretty {
-    use miette::IntoDiagnostic;
+    use exn::{Exn, ResultExt};
     use std::error::Error;
+    use std::fmt;
     use std::io::{stderr, stdout};
     use std::time::Instant;
     use tracing_subscriber::EnvFilter;
@@ -15,10 +16,21 @@ pub mod pretty {
     use crate::ui::ProgressRange;
     use preprocess_progress;
 
+    #[derive(Debug, Clone)]
+    pub struct AppError;
+
+    impl fmt::Display for AppError {
+        fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+            f.write_str("Application failed to run")
+        }
+    }
+
+    impl std::error::Error for AppError {}
+
     pub fn init_tracing(
         enable: bool,
         progress: &preprocess_progress::prodash::tree::Root,
-    ) -> miette::Result<()> {
+    ) -> exn::Result<(), AppError> {
         if enable {
             let processor = tracing_forest::Printer::new().formatter({
                 let progress = std::sync::Mutex::new(progress.add_child("tracing"));
@@ -36,7 +48,7 @@ pub mod pretty {
             use tracing_subscriber::layer::SubscriberExt;
             let subscriber = tracing_subscriber::Registry::default()
                 .with(tracing_forest::ForestLayer::from(processor));
-            tracing::subscriber::set_global_default(subscriber).into_diagnostic()?;
+            tracing::subscriber::set_global_default(subscriber).or_raise(|| AppError)?;
         } else {
             let subscriber = tracing_subscriber::fmt()
                 // .with(fmt::layer())
@@ -47,12 +59,12 @@ pub mod pretty {
                 )
                 .finish();
             // tracing::subscriber::set_global_default(tracing_subscriber::Registry::default())
-            tracing::subscriber::set_global_default(subscriber).into_diagnostic()?;
+            tracing::subscriber::set_global_default(subscriber).or_raise(|| AppError)?;
         }
         Ok(())
     }
 
-    pub fn prepare_and_run<E: Error + Send + Sync + 'static>(
+    pub fn prepare_and_run<E>(
         name: &str,
         trace: bool,
         verbose: bool,
@@ -61,8 +73,11 @@ pub mod pretty {
             preprocess_progress::DoOrDiscard<prodash::tree::Item>,
             &mut dyn std::io::Write,
             &mut dyn std::io::Write,
-        ) -> Result<(), E>,
-    ) -> miette::Result<()> {
+        ) -> Result<(), Exn<E>>,
+    ) -> exn::Result<(), AppError>
+    where
+        E: Error + Send + Sync + 'static,
+    {
         let start = Instant::now();
         let res = match verbose {
             false => {
@@ -80,7 +95,7 @@ pub mod pretty {
                 use crate::ui::{self, STANDARD_RANGE};
                 let progress = ui::progress_tree(trace);
                 let sub_progress = progress.add_child(name);
-                init_tracing(trace, &progress)?;
+                init_tracing(trace, &progress).or_raise(|| AppError)?;
                 let handle = ui::setup_line_renderer_range(
                     &progress,
                     range.into().unwrap_or(STANDARD_RANGE),
@@ -93,13 +108,14 @@ pub mod pretty {
                     &mut stderr(),
                 );
                 handle.shutdown_and_wait();
-                std::io::Write::write_all(&mut stdout(), &out).into_diagnostic()?;
+                std::io::Write::write_all(&mut stdout(), &out).or_raise(|| AppError)?;
                 res
             }
         };
         let time_elapsed = start.elapsed();
         tracing::info!(?time_elapsed, "elapsed time");
-        res.into_diagnostic()
+        res.or_raise(|| AppError)?;
+        Ok(())
     }
 }
 pub fn progress_tree(trace: bool) -> std::sync::Arc<prodash::tree::Root> {

@@ -1752,8 +1752,24 @@ version = "0.2.2"
 dependencies = [
  "clap",
  "exn",
+ "fs-err",
+ "insta",
+ "itertools",
+ "minidom-extension",
+ "once_cell",
+ "preprocess-progress",
  "preprocess-ui",
+ "regex",
+ "rstest",
+ "serde",
+ "serde_json",
+ "sparv-extension",
+ "swegov-opendata",
  "swegov-opendata-preprocess",
+ "thiserror",
+ "tracing",
+ "tracing_log_error",
+ "zip",
 ]
 
 [[package]]
@@ -2559,27 +2575,19 @@ name = "swegov-opendata-preprocess"
 version = "0.2.2"
 dependencies = [
  "anyhow",
- "exn",
  "flate2",
- "fs-err",
  "insta",
  "itertools",
  "markup5ever_rcdom",
- "miette",
  "minidom-extension",
  "once_cell",
- "preprocess-progress",
  "pretty_assertions",
  "regex",
  "rstest",
- "serde",
  "serde_json",
  "sparv-extension",
- "swegov-opendata",
  "test-log",
  "thiserror",
- "tracing",
- "tracing_log_error",
  "zip",
 ]
 

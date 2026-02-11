@@ -7,7 +7,7 @@ pub fn corpusinfo(prefix: &str) -> Result<&CorpusInfo, UnknownCorpus> {
     Err(UnknownCorpus(prefix.to_string()))
 }
 
-#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[derive(Debug, thiserror::Error)]
 #[error("Unknown corpus '{0}'")]
 pub struct UnknownCorpus(String);
 
@@ -34,8 +34,7 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
     (
         "ds",
         CorpusInfo {
-            id:
-            "rd-ds",
+            id: "rd-ds",
             names:&[
                 ("swe", "Riksdagens öppna data: Departementsserien"),
                 ("eng", "Riksdag's open data: Ministry Publications Series")
@@ -43,14 +42,12 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
             descriptions:&[
                 ("swe", "Utredningar från regeringens departement")
             ]
-}
-
+        }
     ),
     (
         "EUN",
         CorpusInfo {
-            id:
-            "rd-eun",
+            id: "rd-eun",
             names:&[
                 ("swe", "Riksdagens öppna data: EUN"),
                 ("eng", "Riksdag's open data: Committee on EU Affairs")
@@ -59,14 +56,12 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Dokument från EU-nämnden, bland annat möteskallelser, föredragningslistor, protokoll och skriftliga samråd med regeringen"),
                 ("eng", "Documents from the Committee on EU Affairs")
             ]
-}
-
+        }
     ),
     (
         "f-lista",
         CorpusInfo {
-            id:
-            "rd-flista",
+            id:"rd-flista",
             names:&[
                 ("swe", "Riksdagens öppna data: Föredragningslista"),
                 ("eng", "Riksdag's open data: Order papers")
@@ -74,42 +69,36 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
             descriptions:&[
                 ("swe", "Föredragningslistor för kammarens sammanträden")
             ]
-}
-
+        }
     ),
     (
         "fpm",
         CorpusInfo {
-            id:
-            "rd-fpm",
+            id: "rd-fpm",
             names:&[
                 ("swe", "Riksdagens öppna data: Faktapromemoria"),
                 ("eng", "Riksdag's open data: Explanatory memorandums on EU proposals")],
             descriptions:&[
                 ("swe", "Regeringens faktapromemorior om EU-kommissionens förslag")
             ]
-}
-
+        }
     ),
     (
         "frsrdg",
         CorpusInfo {
-            id:
-            "rd-frsrdg",
+            id:"rd-frsrdg",
             names:&[
                 ("swe", "Riksdagens öppna data: Framställning/redogörelse"),
                 ("eng", "Riksdag's open data: Reports")],
             descriptions:&[
                 ("swe", "Framställningar och redogörelser från organ som utsetts av riksdagen")
             ]
-}
-
+        }
     ),
     (
         "ip",
         CorpusInfo {
-            id:
-            "rd-ip",
+            id:  "rd-ip",
             names:&[
                 ("swe", "Riksdagens öppna data: Interpellation"),
                 ("eng", "Riksdag's open data: Interpellations")],
@@ -117,27 +106,24 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Interpellationer från ledamöterna till regeringen"),
                 ("eng", "Interpellations from members of the Riksdag to the government"),
             ]
-}
+        }
     ),
     (
         "kammakt",
         CorpusInfo {
-            id:
-            "rd-kammakt",
+            id:"rd-kammakt",
             names:&[
                 ("swe", "Riksdagens öppna data: Kammaraktiviteter"),
                 ("eng", "Riksdag's open data: Activities in the Chamber")],
             descriptions:&[
                 ("swe", "")
             ]
-}
-
+        }
     ),
     (
         "kom",
         CorpusInfo {
-            id:
-            "rd-kom",
+            id:"rd-kom",
             names:&[
                 ("swe", "Riksdagens öppna data: KOM"),
                 ("eng", "Riksdag's open data: EU initiatives")],
@@ -145,14 +131,12 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "EU-kommissionens förslag och redogörelser, så kallade KOM-dokument"),
                 ("eng", "EU initiatives are documents from the European Commission, “COM documents”. ")
             ]
-}
-
+        }
     ),
     (
         "mot",
         CorpusInfo {
-            id:
-            "rd-mot",
+            id:"rd-mot",
             names:&[
                 ("swe", "Riksdagens öppna data: Motion"),
                 ("eng", "Riksdag's open data: Motions")],
@@ -160,28 +144,24 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Motioner från riksdagens ledamöter"),
                 ("eng", "Motions from the members of the Riksdag"),
             ]
-}
-
+        }
     ),
     (
         "prop",
         CorpusInfo {
-            id:
-            "rd-prop",
+            id:"rd-prop",
             names:&[
                 ("swe", "Riksdagens öppna data: Proposition"),
                 ("eng", "Riksdag's open data: Government bills")],
             descriptions:&[
                 ("swe", "Propositioner och skrivelser från regeringen")
             ]
-}
-
+        }
     ),
     (
         "prot",
         CorpusInfo {
-            id:
-            "rd-prot",
+            id:            "rd-prot",
             names:&[
                 ("swe", "Riksdagens öppna data: Protokoll"),
                 ("eng", "Riksdag's open data: Records of proceedings in the Chamber")],
@@ -189,14 +169,12 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Protokoll från kammarens sammanträden"),
                 ("eng", "Records of proceedings in the Chamber"),
             ]
-}
-
+        }
     ),
     (
         "rskr",
         CorpusInfo {
-            id:
-            "rd-rskr",
+            id:            "rd-rskr",
             names:&[
                 ("swe", "Riksdagens öppna data: Riksdagsskrivelse"),
                 ("eng", "Riksdag's open data: Written communications from the Riksdag")],
@@ -204,28 +182,24 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Skrivelser från riksdagen till regeringen"),
                 ("eng", "Written communications from the Riksdag to the Government"),
             ]
-}
-
+        }
     ),
     (
         "samtr",
         CorpusInfo {
-            id:
-            "rd-samtr",
+            id:"rd-samtr",
             names:&[
                 ("swe", "Riksdagens öppna data: Sammanträden"),
                 ("eng", "Riksdag's open data: Meetings")],
             descriptions:&[
                 ("swe", "")
             ]
-}
-
+        }
     ),
     (
         "Skriftliga+frågor",
         CorpusInfo {
-            id:
-            "rd-skfr",
+            id:"rd-skfr",
             names:&[
                 ("swe", "Riksdagens öppna data: Skriftliga frågor"),
                 ("eng", "Riksdag's open data: Written questions")],
@@ -233,28 +207,24 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Skriftliga frågor från ledamöterna till regeringen och svaren på dessa"),
                 ("eng", "Written questions from members of the Riksdag to the Government and the answer to these")
             ]
-}
-
+        }
     ),
     (
         "sou",
         CorpusInfo {
-            id:
-            "rd-sou",
+            id:"rd-sou",
             names:&[
                 ("swe", "Riksdagens öppna data: Statens offentliga utredningar"),
                 ("eng", "Riksdag's open data: Swedish Government Official Reports (SOU series)")],
             descriptions:&[
                 ("swe", "Olika utredningars förslag till regeringen")
             ]
-}
-
+        }
     ),
     (
         "t-lista",
         CorpusInfo {
-            id:
-            "rd-tlista",
+            id:"rd-tlista",
             names:&[
                 ("swe", "Riksdagens öppna data: Talarlista"),
                 ("eng", "Riksdag's open data: List of speakers")],
@@ -262,50 +232,43 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Talarlistor för kammarens sammanträden"),
                 ("eng", "List of speakers at meetings of the Chamber")
             ]
-}
-
+        }
     ),
     (
         "Utredningar",
         CorpusInfo {
-            id:
-            "rd-utr",
+            id: "rd-utr",
             names:&[
                 ("swe", "Riksdagens öppna data: Utredningar"),
             ],
             descriptions:&[
                 ("swe", "Kommittédirektiv och kommittéberättelser för utredningar som regeringen tillsätter")
             ]
-}
-
+        }
     ),
     (
         "utskottsdokument",
         CorpusInfo {
-            id:
-            "rd-utsk",
+            id: "rd-utsk",
             names:&[
                 ("swe", "Riksdagens öppna data: Utskottsdokument"),
                 ("eng", "Riksdag's open data: Documents from Committees")],
             descriptions:&[
                 ("swe", "Dokument från utskotten, bland annat KU-anmälningar, protokoll, verksamhetsberättelser och den gamla dokumentserien Utredningar från riksdagen")
             ]
-}
-
+        }
     ),
     (
         "yttr",
         CorpusInfo {
-            id:
-            "rd-yttr",
+            id: "rd-yttr",
             names:&[
                 ("swe", "Riksdagens öppna data: Yttrande"),
                 ("eng", "Riksdag's open data: Statements of opinion")],
             descriptions:&[
                 ("swe", "Utskottens yttranden")
             ]
-}
-
+        }
     ),
     (
         "Övrigt",
@@ -318,6 +281,57 @@ const CORPUSINFO: &[(&str, CorpusInfo)] = &[
                 ("swe", "Dokumentserierna Riksrevisionens granskningsrapporter, Utredningar från Riksdagsförvaltningen och Rapporter från riksdagen samt planeringsdokument, bilagor till dokument och uttag ur riksdagens databaser och de gamla dokumentserierna Utredningar från riksdag")
             ]
         }
-
     ),
 ];
+
+pub const ALL_CORPORA: &[&str] = &[
+    "rd-bet",
+    "rd-ds",
+    "rd-eun",
+    "rd-flista",
+    "rd-fpm",
+    "rd-frsrdg",
+    "rd-ip",
+    "rd-kammakt",
+    "rd-kom",
+    "rd-mot",
+    "rd-prop",
+    "rd-prot",
+    "rd-rskr",
+    "rd-samtr",
+    "rd-skfr",
+    "rd-sou",
+    "rd-tlista",
+    "rd-utr",
+    "rd-utsk",
+    "rd-yttr",
+    "rd-ovr",
+];
+
+#[cfg(test)]
+mod tests {
+    use crate::corpusinfo::{CorpusInfo, ALL_CORPORA, CORPUSINFO};
+
+    fn find_corpus_by_id(corpus_id: &str) -> Option<&CorpusInfo> {
+        for (_, corpusinfo) in CORPUSINFO {
+            if corpusinfo.id == corpus_id {
+                return Some(corpusinfo);
+            }
+        }
+        None
+    }
+
+    #[test]
+    fn all_corpora_are_valid_ids() {
+        for corpus in ALL_CORPORA {
+            assert!(find_corpus_by_id(corpus).is_some());
+        }
+    }
+
+    #[test]
+    fn all_corpus_ids_are_in_all_corpora() {
+        for (_, corpusinfo) in CORPUSINFO {
+            assert!(ALL_CORPORA.contains(&corpusinfo.id));
+        }
+    }
+}

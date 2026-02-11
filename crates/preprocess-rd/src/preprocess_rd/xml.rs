@@ -6,8 +6,8 @@ use minidom::quick_xml::Writer;
 use minidom::Element;
 use minidom_extension::{minidom, minidom_collect_texts};
 
-use crate::shared::clean_text;
-use crate::shared::is_segreg;
+use swegov_opendata_preprocess::shared::clean_text;
+use swegov_opendata_preprocess::shared::is_segreg;
 
 use super::html::process_html;
 
@@ -134,7 +134,7 @@ pub fn preprocess_xml(xml_string: &str, filename: Cow<'_, str>) -> Result<Vec<u8
     Ok(result)
 }
 
-#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[derive(Debug, thiserror::Error)]
 pub enum XmlError {
     #[error("Error reading xml at position {pos}: {error:?}")]
     Read {

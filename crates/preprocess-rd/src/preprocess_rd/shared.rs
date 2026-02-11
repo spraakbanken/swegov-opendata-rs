@@ -1,7 +1,7 @@
 use fs_err as fs;
 use std::{io, path::Path};
 
-use crate::PreprocessError;
+use swegov_opendata_preprocess::PreprocessError;
 
 pub fn read_json_or_default<T>(path: &Path) -> Result<T, PreprocessError>
 where

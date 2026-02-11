@@ -11,10 +11,29 @@ ignored = ["exn"]
 [[bin]]
 doctest = false
 name = "preprocess-rd"
+path = "src/bin/cli/main.rs"
 test = false
 
 [dependencies]
 clap = { workspace = true, features = ["cargo", "derive"] }
 exn.workspace = true
+fs-err.workspace = true
+itertools.workspace = true
+minidom-extension.workspace = true
+once_cell.workspace = true
+preprocess-progress.workspace = true
 preprocess-ui = { workspace = true }
+regex.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+sparv-extension.workspace = true
+swegov-opendata.workspace = true
 swegov-opendata-preprocess = { workspace = true }
+thiserror.workspace = true
+tracing.workspace = true
+tracing_log_error.workspace = true
+zip.workspace = true
+
+[dev-dependencies]
+insta.workspace = true
+rstest.workspace = true

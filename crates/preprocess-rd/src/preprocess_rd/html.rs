@@ -1196,7 +1196,7 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtml
     Ok(table)
 }
 
-#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[derive(Debug, thiserror::Error)]
 pub enum ProcessHtmlError {
     #[error("Unexpected start {0}")]
     UnexpectedStartTag(UnexpectedTag),

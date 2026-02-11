@@ -32,7 +32,7 @@ pub fn main() -> exn::Result<(), AppError> {
                     },
                 )
             },
-        )?,
+        ),
         options::Subcommand::SyncDownloads(cmd) => prepare_and_run(
             "sync-downloads",
             trace,
@@ -41,7 +41,6 @@ pub fn main() -> exn::Result<(), AppError> {
             |progress, out, err| {
                 sync_sfs_downloads(&cmd.input, cmd.output.as_ref(), out, err, progress)
             },
-        )?,
+        ),
     }
-    Ok(())
 }

@@ -3,7 +3,7 @@ use std::{io, string::FromUtf8Error};
 
 use minidom::quick_xml;
 
-#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[derive(Debug, thiserror::Error)]
 pub enum SfsPreprocessError {
     #[error("Internal error: {0}")]
     Internal(String),
