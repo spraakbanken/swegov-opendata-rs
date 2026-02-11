@@ -313,12 +313,11 @@ mod tests {
     use crate::corpusinfo::{CorpusInfo, ALL_CORPORA, CORPUSINFO};
 
     fn find_corpus_by_id(corpus_id: &str) -> Option<&CorpusInfo> {
-        for (_, corpusinfo) in CORPUSINFO {
-            if corpusinfo.id == corpus_id {
-                return Some(corpusinfo);
-            }
-        }
-        None
+        CORPUSINFO
+            .iter()
+            .map(|(_, corpusinfo)| corpusinfo)
+            .find(|&corpusinfo| corpusinfo.id == corpus_id)
+            .map(|v| v as _)
     }
 
     #[test]
