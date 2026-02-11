@@ -15,8 +15,10 @@ target/
 
 # Log dir
 /logs/
-swegov-opendata-preprocess/assets/gen/
-swegov-opendata-preprocess/assets/*.html
+crates/swegov-opendata-preprocess/assets/gen/
+crates/swegov-opendata-preprocess/assets/*.html
+crates/preprocess-sfs/assets/gen/
+crates/preprocess-sfs/assets/*.html
 visited.json
 stdout.txt
 stderr.jsonl
