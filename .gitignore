@@ -17,6 +17,7 @@ target/
 /logs/
 crates/swegov-opendata-preprocess/assets/gen/
 crates/swegov-opendata-preprocess/assets/*.html
+crates/swegov-opendata-preprocess/*.html
 crates/preprocess-sfs/assets/gen/
 crates/preprocess-sfs/assets/*.html
 visited.json
@@ -32,3 +33,5 @@ assets/*/
 resources
 swegov_opendata.expanded.rs
 
+err_contents.html
+test.log
