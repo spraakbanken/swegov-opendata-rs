@@ -76,7 +76,7 @@ url = "2.5.2"
 webcrawler = { git = "https://github.com/spraakbanken/webcrawler-rs" }
 xml-rs = "0.8.27"
 yaserde = "0.12.0"
-zip = "7.0"
+zip = "8.0"
 
 [workspace.metadata.cargo-machete.renamed]
 xml-rs = "xml"
