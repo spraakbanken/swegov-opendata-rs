@@ -1,10 +1,9 @@
 mod corpusinfo;
 mod error;
 pub mod nodeinfo;
-pub mod preprocess_rd;
-pub mod preprocess_sfs;
 pub mod shared;
 
-pub use self::corpusinfo::corpusinfo;
-pub use self::error::PreprocessError;
+pub use crate::corpusinfo::corpusinfo;
+pub use crate::corpusinfo::ALL_CORPORA;
+pub use crate::error::PreprocessError;
 pub type PreprocessResult<T> = Result<T, PreprocessError>;

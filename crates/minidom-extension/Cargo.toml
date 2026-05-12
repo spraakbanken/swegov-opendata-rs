@@ -1,24 +1,23 @@
 [package]
 name = "minidom-extension"
-version = { workspace = true }
-edition = { workspace = true }
-authors = { workspace = true }
-rust-version = { workspace = true }
-license = { workspace = true }
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-[lib]
-doctest = false
-
-[dependencies]
-minidom-14 = { workspace = true }
-pretty_assertions = { workspace = true }
-itertools = { workspace = true }
-tracing.workspace = true
-tracing_log_error.workspace = true
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
 
 [package.metadata.cargo-machete]
 ignored = ["tracing"]
 
 [package.metadata.cargo-machete.renamed]
 minidom-14 = "minidom"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+doctest = false
+
+[dependencies]
+itertools = { workspace = true }
+minidom-14 = { workspace = true }
+pretty_assertions = { workspace = true }
+tracing.workspace = true
+tracing_log_error.workspace = true

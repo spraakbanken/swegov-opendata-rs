@@ -2,24 +2,23 @@
 name = "fetch-sfs"
 version.workspace = true
 edition = { workspace = true }
-authors = { workspace = true }
 rust-version = { workspace = true }
 license = { workspace = true }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [[bin]]
-name = "fetch-sfs"
 doc = false
-test = false
 doctest = false
+name = "fetch-sfs"
+test = false
 
 [dependencies]
-clap = { workspace = true, features = ["derive", "cargo"] }
+clap = { workspace = true, features = ["cargo", "derive"] }
 miette = { workspace = true, features = ["fancy"] }
-tokio = { workspace = true, features = ["macros", "rt-multi-thread", "fs"] }
+# local deps
+opendata-spiders = { workspace = true }
+tokio = { workspace = true, features = ["fs", "macros", "rt-multi-thread"] }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 webcrawler = { workspace = true }
-# local deps
-opendata-spiders = { workspace = true }

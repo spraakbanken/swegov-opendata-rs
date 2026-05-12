@@ -1,13 +1,9 @@
 use core::fmt;
 use std::{io, path::PathBuf};
 
-use crate::{
-    corpusinfo::UnknownCorpus,
-    preprocess_rd::{self, PreprocessJsonError},
-    preprocess_sfs::SfsPreprocessError,
-};
+use crate::corpusinfo::UnknownCorpus;
 
-#[derive(Debug, thiserror::Error, miette::Diagnostic)]
+#[derive(Debug, thiserror::Error)]
 pub enum PreprocessError {
     #[error("{0}")]
     Custom(String),
@@ -71,29 +67,27 @@ pub enum PreprocessError {
         error: zip::result::ZipError,
     },
     #[error(transparent)]
-    #[diagnostic(transparent)]
     UnknownCorpus(#[from] UnknownCorpus),
     #[error(transparent)]
-    #[diagnostic(transparent)]
     SparvError(#[from] sparv_extension::SparvError),
-    #[error("SFS processing error when processing {path}")]
-    SfsPreprocessError {
-        path: PathBuf,
-        #[source]
-        error: SfsPreprocessError,
-    },
-    #[error("Xml error when processing {path}")]
-    XmlError {
-        path: String,
-        #[source]
-        error: preprocess_rd::XmlError,
-    },
-    #[error("Error when preprocessing rd-json from path '{path}'")]
-    RdPreprocessJsonError {
-        path: String,
-        #[source]
-        error: PreprocessJsonError,
-    },
+    // #[error("SFS processing error when processing {path}")]
+    // SfsPreprocessError {
+    //     path: PathBuf,
+    //     #[source]
+    //     error: SfsPreprocessError,
+    // },
+    // #[error("Xml error when processing {path}")]
+    // XmlError {
+    //     path: String,
+    //     #[source]
+    //     error: preprocess_rd::XmlError,
+    // },
+    // #[error("Error when preprocessing rd-json from path '{path}'")]
+    // RdPreprocessJsonError {
+    //     path: String,
+    //     #[source]
+    //     error: PreprocessJsonError,
+    // },
 }
 
 impl PreprocessError {

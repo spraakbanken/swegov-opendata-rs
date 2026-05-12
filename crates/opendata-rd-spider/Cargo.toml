@@ -1,10 +1,9 @@
 [package]
 name = "opendata-rd-spider"
 version = { workspace = true }
-rust-version = { workspace = true }
 edition = { workspace = true }
+rust-version = { workspace = true }
 license = { workspace = true }
-authors = { workspace = true }
 
 [dependencies]
 async-trait = { workspace = true }
@@ -12,9 +11,9 @@ chrono = { workspace = true, features = ["serde"] }
 fs-err = { workspace = true, features = ["tokio"] }
 miette = { workspace = true }
 reqwest = { workspace = true, features = [
-    "rustls-tls",
-    "brotli",
-    "gzip",
+  "brotli",
+  "gzip",
+  "rustls-tls",
 ] }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true }
