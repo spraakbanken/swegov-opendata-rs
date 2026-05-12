@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [unreleased]
+
+### Added
+
+- Add segreg attribute to text by [@kod-kristoff](https://github.com/kod-kristoff)
+- Improve error reporting by [@kod-kristoff](https://github.com/kod-kristoff)
+- Use exn by [@kod-kristoff](https://github.com/kod-kristoff)
+- Add Anforande model by [@kod-kristoff](https://github.com/kod-kristoff)
+- Add three level of html parsing by [@kod-kristoff](https://github.com/kod-kristoff)
+- Update sfs spider to use 2026 by [@kod-kristoff](https://github.com/kod-kristoff)
+- Rd update by [@kod-kristoff](https://github.com/kod-kristoff)
+
+### Changed
+
+- Remove preprocess-segreg-corpus by [@kod-kristoff](https://github.com/kod-kristoff)
+- Move preprocess-sfs to that crate by [@kod-kristoff](https://github.com/kod-kristoff)
+- Move preprocess-rd code to preprocess-rd crate by [@kod-kristoff](https://github.com/kod-kristoff)
+- Fix imports for preprocess-rd by [@kod-kristoff](https://github.com/kod-kristoff)
+
+### Fixed
+
+- Handle summary and nummer correct by [@kod-kristoff](https://github.com/kod-kristoff)
+
+### Miscellaneous Tasks
+
+- Use same version for all crates by [@kod-kristoff](https://github.com/kod-kristoff)
+- Add pre-commit config by [@kod-kristoff](https://github.com/kod-kristoff)
+- Set MSRV to 1.91 by [@kod-kristoff](https://github.com/kod-kristoff)
+
+### Testing
+
+- Add test assets by [@kod-kristoff](https://github.com/kod-kristoff)
+- Refactor code to use find by [@kod-kristoff](https://github.com/kod-kristoff)
+
 ## [0.2.2] - 2025-12-19
 
 ### Added
@@ -34,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Use yaserde for xml deserialization
-- *(opendata-spider)* Impl yaserde::Deserialize for Item
+- _(opendata-spider)_ Impl yaserde::Deserialize for Item
 
 ## [0.1.1] - 2025-12-16
 
