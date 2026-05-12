@@ -1,6 +1,7 @@
 use core::fmt;
 use std::borrow::Cow;
 
+use exn::{Exn, ResultExt};
 use minidom_extension::{
     attrib_query::attrib_equals,
     elem_is_empty,
@@ -26,7 +27,7 @@ fn remove_cdata<'a>(text: &'a str) -> Cow<'a, str> {
     static CDATA: Lazy<Regex> = Lazy::new(|| Regex::new(r"<!.+?>").unwrap());
     CDATA.replace_all(text, "")
 }
-pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
+pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Exn<ProcessHtmlError>> {
     static LT: Lazy<Regex> = Lazy::new(|| {
         Regex::new(
             r#"<(\d|<|\.|;|:|\*| |http|www|sir|Q|i[t\d)-]|[uU] |-|/\.|[oO][nost]|en|r[i\.]|[j]?~|/-|L\)|[\()]|c[mo][^l]|£|[nN]?[|']|l[ I]|jv|\w[!])"#,
@@ -70,6 +71,8 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
     let contents_processed = contents_processed.replace("<=", "&lt;=");
     let contents_processed = contents_processed.replace("<>", "&lt;&gt;");
     let contents_processed = contents_processed.replace("<L>", "&lt;L&gt;");
+    let contents_processed = contents_processed.replace("<?", "&lt;?");
+    let contents_processed = contents_processed.replace("?>", "?&gt;");
     let contents_processed = contents_processed.replace("<t<", "&lt;t&lt;");
     // let contents_processed = contents_processed.replace("Portfolio Size <", "Portfolio Size &lt;");
     let contents_processed = contents_processed.replace("<B><P>", "<P><B>");
@@ -85,11 +88,13 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
 
     let mut state = ParseHtmlState::Start;
 
+    let make_error = || ProcessHtmlError::Failure;
+
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
-                    pos: reader.buffer_position(),
+                exn::bail!(ProcessHtmlError::XmlError {
+                    pos: reader.error_position(),
                     err: e,
                 })
             }
@@ -100,7 +105,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                 match e.name().as_ref() {
                     b"br" | b"BR" | b"hr" | b"v" => (),
                     _ => {
-                        return Err(ProcessHtmlError::unexpected_empty_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_empty_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             "process_html",
@@ -140,7 +145,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         }
                     }
                     b"table" | b"TABLE" => {
-                        let paragraphs = extract_table(&mut reader).unwrap();
+                        let paragraphs = extract_table(&mut reader).or_raise(make_error)?;
                         for p in paragraphs {
                             textelem.append_child(p);
                         }
@@ -192,7 +197,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         }
                     }
                     _ => {
-                        return Err(ProcessHtmlError::unexpected_start_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_start_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             format!("process_html: textelem={:?}", textelem),
@@ -230,7 +235,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                         if let ParseHtmlState::Paragraph(_p) = &state {
                             // dbg!(&p);
                         }
-                        return Err(ProcessHtmlError::unexpected_end_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_end_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             format!("process_html, End={:?}", e),
@@ -239,7 +244,7 @@ pub fn process_html(contents: &str, textelem: &mut Element) -> Result<(), Proces
                     // skip errounues </I>
                     b"I" => (),
                     _ => {
-                        return Err(ProcessHtmlError::unexpected_end_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_end_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             "process_html",
@@ -271,7 +276,7 @@ const IGNORED_TAG_PREFIXES: &[&[u8]] = &[b"v:", b"w:", b"o:"];
 fn process_div_bad(
     reader: &mut Reader<&[u8]>,
     textelem: &mut Element,
-) -> Result<(), ProcessHtmlError> {
+) -> Result<(), Exn<ProcessHtmlError>> {
     // println!("process_div_bad");
     let mut div_count = 1;
     let mut p_count = 0;
@@ -280,7 +285,7 @@ fn process_div_bad(
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -328,7 +333,7 @@ fn process_div_bad(
                         }
                     }
                     tag if tag.len() < 2 => {
-                        return Err(ProcessHtmlError::unexpected_start_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_start_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             format!("process_div_bad: last={:?}", stack.last()),
@@ -336,7 +341,7 @@ fn process_div_bad(
                     }
                     tag if IGNORED_TAG_PREFIXES.contains(&&tag[0..2]) => (),
                     _ => {
-                        return Err(ProcessHtmlError::unexpected_start_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_start_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             format!("process_div_bad: last={:?}", stack.last()),
@@ -370,7 +375,7 @@ fn process_div_bad(
                     }
                 }
                 tag if tag.len() < 2 => {
-                    return Err(ProcessHtmlError::unexpected_end_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_end_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!("process_div_bad: last={:?}", stack.last()),
@@ -378,7 +383,7 @@ fn process_div_bad(
                 }
                 tag if IGNORED_TAG_PREFIXES.contains(&&tag[0..2]) => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_end_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_end_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!("process_div_bad: last={:?}", stack.last()),
@@ -388,14 +393,23 @@ fn process_div_bad(
             Ok(Event::Empty(e)) => match e.name().as_ref() {
                 tag if IGNORED_TAG_PREFIXES.contains(&&tag[0..2]) => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_empty_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_empty_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!("process_div_bad: last={:?}", stack.last()),
                     ));
                 }
             },
-            Ok(e) => todo!("handle {:?}", e),
+            // Ok(Event::PI(pi)) => {
+
+            // }
+            // Ok(e) => todo!("handle {:?}", e),
+            Ok(e) => {
+                exn::bail!(ProcessHtmlError::UnhandledXmlEvent {
+                    pos: reader.error_position(),
+                    msg: format!("handle {:?}", e),
+                })
+            }
         }
     }
     for elem in stack {
@@ -404,13 +418,16 @@ fn process_div_bad(
     Ok(())
 }
 
-fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(), ProcessHtmlError> {
+fn process_div(
+    reader: &mut Reader<&[u8]>,
+    textelem: &mut Element,
+) -> Result<(), Exn<ProcessHtmlError>> {
     let mut state = ParseHtmlState::Start;
     let mut div_count = 1;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -454,7 +471,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(),
                 b"o:p" => (),
                 b"span" | b"a" | b"font" | b"td" | b"tr" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "process_div",
@@ -490,7 +507,7 @@ fn process_div(reader: &mut Reader<&[u8]>, textelem: &mut Element) -> Result<(),
                     b"o:p" => (),
                     b"span" | b"a" | b"font" | b"p" => (),
                     _ => {
-                        return Err(ProcessHtmlError::unexpected_end_tag(
+                        exn::bail!(ProcessHtmlError::unexpected_end_tag(
                             reader.buffer_position(),
                             e.name().as_ref(),
                             "process_div",
@@ -513,14 +530,17 @@ enum ParseHtmlState {
     Skip { tag: Vec<u8> },
 }
 
-fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, ProcessHtmlError> {
+fn extract_paragraph(
+    reader: &mut Reader<&[u8]>,
+    tag: &[u8],
+) -> Result<Element, Exn<ProcessHtmlError>> {
     let mut elem = Element::bare("p", "");
     let mut curr_node: Option<Node> = None;
     let mut just_seen_span = false;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -554,7 +574,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
                 tag if &tag[0..2] == b"o:" => just_seen_span = false,
                 tag if &tag[0..2] == b"v:" => just_seen_span = false,
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_end_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_end_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!(
@@ -593,10 +613,10 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
                     }
                 }
                 b"p" | b"P" | b"hanvisning" | b"kant" | b"h4" | b"font" | b"." | b"div"
-                | b"pre" | b"INGENBILD" | b"img" | b"h3" => (),
+                | b"pre" | b"INGENBILD" | b"img" | b"IMG" | b"h3" => (),
                 b"table" | b"tr" | b"td" | b"xml" => (),
                 tag if tag.len() < 2 => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!(
@@ -608,7 +628,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
                 tag if &tag[0..2] == b"o:" => (),
                 tag if &tag[0..2] == b"v:" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "extract_paragraph",
@@ -627,7 +647,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
                 b"w:wrap" | b"o:lock" => (),
                 tag if &tag[0..2] == b"v:" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_empty_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_empty_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "extract_paragraph",
@@ -647,7 +667,7 @@ fn extract_paragraph(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, 
 fn extract_paragraph_or_list(
     reader: &mut Reader<&[u8]>,
     tag: &[u8],
-) -> Result<Vec<Element>, ProcessHtmlError> {
+) -> Result<Vec<Element>, Exn<ProcessHtmlError>> {
     let mut res = Vec::new();
     let mut curr_opt: Option<Element> = None;
     let mut just_seen_span = false;
@@ -656,7 +676,7 @@ fn extract_paragraph_or_list(
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -725,7 +745,7 @@ fn extract_paragraph_or_list(
                 // Handle errornous </NOBR> in at least one document
                 b"nobr" | b"NOBR" => just_seen_span = false,
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_end_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_end_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "extract_paragraph_or_list",
@@ -775,7 +795,7 @@ fn extract_paragraph_or_list(
                 b"div" | b"hanvisning" | b"kant" | b"h4" => (),
                 b"ul" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!(
@@ -807,7 +827,7 @@ fn extract_paragraph_or_list(
                 // b"w:wrap" | b"o:lock" => (),
                 tag if &tag[0..2] == b"v:" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_empty_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_empty_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "extract_paragraph",
@@ -833,13 +853,13 @@ fn extract_paragraph_or_list(
 fn process_rd_lista(
     reader: &mut Reader<&[u8]>,
     textelem: &mut Element,
-) -> Result<(), ProcessHtmlError> {
+) -> Result<(), Exn<ProcessHtmlError>> {
     let mut curr_elem = Some(Element::bare("p", ""));
     let mut span_count = 1;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -860,7 +880,7 @@ fn process_rd_lista(
                 }
                 b"span" => span_count += 1,
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "process_rd_lista",
@@ -889,14 +909,17 @@ fn process_rd_lista(
     }
     Ok(())
 }
-fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Vec<Element>, ProcessHtmlError> {
+fn extract_list(
+    reader: &mut Reader<&[u8]>,
+    tag: &[u8],
+) -> Result<Vec<Element>, Exn<ProcessHtmlError>> {
     let mut items = Vec::new();
     let mut curr_item = None;
     let mut tag_count = 1;
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -930,7 +953,7 @@ fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Vec<Element>, 
                     items.extend(table);
                 }
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "extract_list",
@@ -968,7 +991,7 @@ fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Vec<Element>, 
                 }
                 b"img" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_empty_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_empty_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         "extract_list",
@@ -983,7 +1006,7 @@ fn extract_list(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Vec<Element>, 
     }
     Ok(items)
 }
-fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Result<Element, ProcessHtmlError> {
+fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Result<Element, Exn<ProcessHtmlError>> {
     let mut elem = Element::bare("page", "");
     elem.set_attr("id", &id);
     let mut curr_child: Option<Element> = None;
@@ -991,7 +1014,7 @@ fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Result<Element, Proce
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -1007,7 +1030,7 @@ fn extract_page(reader: &mut Reader<&[u8]>, id: String) -> Result<Element, Proce
                 b"table" | b"TABLE" => (),
                 b"SPAN" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_end_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_end_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!("extract_page elem={:?}, curr_child={:?}", elem, curr_child),
@@ -1081,12 +1104,12 @@ fn extract_page_id_from_attributes(attrs: Attributes) -> Option<String> {
     None
 }
 
-fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, ProcessHtmlError> {
+fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, Exn<ProcessHtmlError>> {
     let mut elem = Element::bare(String::from_utf8_lossy(tag).to_lowercase(), "");
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
+                exn::bail!(ProcessHtmlError::XmlError {
                     pos: reader.buffer_position(),
                     err: e,
                 })
@@ -1099,7 +1122,7 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, Proce
                 b"a" | b"A" | b"span" | b"SPAN" | b"o:p" | b"font" | b"FONT" | b"P"
                 | b"INGENBILD" => (),
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_end_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_end_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!("extract elem for tag {}", String::from_utf8_lossy(tag)),
@@ -1117,7 +1140,7 @@ fn extract_elem(reader: &mut Reader<&[u8]>, tag: &[u8]) -> Result<Element, Proce
                     elem.append_child(child);
                 }
                 _ => {
-                    return Err(ProcessHtmlError::unexpected_start_tag(
+                    exn::bail!(ProcessHtmlError::unexpected_start_tag(
                         reader.buffer_position(),
                         e.name().as_ref(),
                         format!("extract elem for tag {}", String::from_utf8_lossy(tag)),
@@ -1150,13 +1173,13 @@ fn extract_href_from_attributes(attrs: Attributes) -> Option<String> {
     None
 }
 
-fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtmlError> {
+fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, Exn<ProcessHtmlError>> {
     let mut table = Vec::new();
     loop {
         match reader.read_event() {
             Err(e) => {
-                return Err(ProcessHtmlError::XmlError {
-                    pos: reader.buffer_position(),
+                exn::bail!(ProcessHtmlError::XmlError {
+                    pos: reader.error_position(),
                     err: e,
                 });
             }
@@ -1185,12 +1208,17 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtml
                     }
                 }
                 b"span" | b"SPAN" => (),
-                b"colgroup" => (),
+                b"col" | b"colgroup" => (),
                 _ => todo!("handle Start({:?})", e),
             },
             Ok(Event::Text(_text)) => (),
             Ok(Event::Empty(_e)) => (),
-            Ok(e) => todo!("handle {:?}", e),
+            Ok(e) => {
+                exn::bail!(ProcessHtmlError::UnhandledXmlEvent {
+                    pos: reader.buffer_position(),
+                    msg: format!("handle {:?}", e)
+                })
+            } // Ok(e) => todo!("handle {:?}", e),
         }
     }
     Ok(table)
@@ -1198,6 +1226,8 @@ fn extract_table(reader: &mut Reader<&[u8]>) -> Result<Vec<Element>, ProcessHtml
 
 #[derive(Debug, thiserror::Error)]
 pub enum ProcessHtmlError {
+    #[error("Failed to process HTML")]
+    Failure,
     #[error("Unexpected start {0}")]
     UnexpectedStartTag(UnexpectedTag),
     #[error("Unexpected empty {0}")]
@@ -1210,6 +1240,8 @@ pub enum ProcessHtmlError {
         #[source]
         err: quick_xml::Error,
     },
+    #[error("Unhandled XML at position {pos}\n{msg}")]
+    UnhandledXmlEvent { pos: u64, msg: String },
 }
 
 impl ProcessHtmlError {

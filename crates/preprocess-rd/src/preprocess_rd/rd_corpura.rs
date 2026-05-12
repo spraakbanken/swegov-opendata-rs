@@ -5,12 +5,11 @@ use exn::Exn;
 use exn::ResultExt;
 use fs_err as fs;
 
-use once_cell::sync::Lazy;
 use preprocess_progress::prodash::{Count, NestedProgress, Progress};
-use regex::Regex;
 use sparv_extension::{make_corpus_config, SparvConfig, SparvMetadata, XmlSourceWriter};
 use zip::ZipArchive;
 
+use crate::preprocess_rd::shared;
 use crate::preprocess_rd::xml::preprocess_xml;
 use swegov_opendata_preprocess::corpusinfo;
 use swegov_opendata_preprocess::PreprocessError;
@@ -24,6 +23,7 @@ pub struct PreprocessRdCorpuraOptions<'a> {
     pub processed_json_path: &'a Path,
     pub verbose: bool,
 }
+
 #[derive(Debug, thiserror::Error)]
 pub enum PreprocessRdCorpuraError {
     #[error("failed to preprocess sfs corpora")]
@@ -31,6 +31,7 @@ pub enum PreprocessRdCorpuraError {
     // #[error("failed to preprocess sfs corpora: {message}")]
     // WithMsg { message: String },
 }
+
 /// Preprocess RD corpora.
 ///
 /// corpora: List that specifies which corpora (corpus-IDs) to process (default: all)
@@ -98,10 +99,16 @@ pub fn preprocess_rd_corpura(
             .to_str()
             .expect("valid utf8");
 
-        let prefix = find_prefix(zippath_name).or_raise(make_error)?;
+        let Some(prefix) = shared::find_prefix(zippath_name).or_raise(make_error)? else {
+            tracing::warn!(
+                "Filename '{}' contains no valid corpus prefix: skipping ...",
+                zippath_name
+            );
+            return Ok(());
+        };
 
         writeln!(out, "prefix={prefix}").or_raise(make_error)?;
-        let corpus = corpusinfo(prefix).or_raise(make_error)?;
+        let corpus = corpusinfo(&prefix).or_raise(make_error)?;
 
         // Process only if in 'corpora'
         if !corpura.is_empty() && !corpura.contains(&corpus.id) {
@@ -146,21 +153,6 @@ pub fn preprocess_rd_corpura(
         count.fetch_add(1, Ordering::Relaxed);
     }
     Ok(())
-}
-
-#[derive(Debug, thiserror::Error)]
-#[error("Found no prefix in '{0}'")]
-struct FindPrefixError(String);
-
-fn find_prefix(zippath_name: &str) -> Result<&str, Exn<FindPrefixError>> {
-    static CORPUS_RE: Lazy<Regex> =
-        Lazy::new(|| Regex::new(r"(\S+)\s?-\d{4}-.+").expect("valid regex"));
-    if let Some(matches) = CORPUS_RE.captures(zippath_name) {
-        if let Some(prefix) = matches.get(1) {
-            return Ok(prefix.as_str());
-        }
-    }
-    exn::bail!(FindPrefixError(zippath_name.to_string()))
 }
 
 #[derive(Debug, thiserror::Error)]

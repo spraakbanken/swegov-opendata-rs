@@ -10,11 +10,16 @@ pub struct SparvConfig {
     #[serde(skip_serializing_if = "Option::is_none")]
     parent: Option<String>,
     metadata: SparvMetadata,
+    sbx_metadata: Option<SbxMetadata>,
 }
 
 impl SparvConfig {
     pub fn new(parent: Option<String>, metadata: SparvMetadata) -> SparvConfig {
-        Self { parent, metadata }
+        Self {
+            parent,
+            metadata,
+            sbx_metadata: None,
+        }
     }
 
     pub fn with_metadata(metadata: SparvMetadata) -> SparvConfig {
@@ -26,6 +31,11 @@ impl SparvConfig {
         metadata: SparvMetadata,
     ) -> SparvConfig {
         Self::new(Some(parent.into()), metadata)
+    }
+
+    pub fn doi<S: Into<String>>(mut self, doi: S) -> Self {
+        self.sbx_metadata = Some(SbxMetadata::new(doi.into()));
+        self
     }
 }
 
@@ -85,6 +95,17 @@ impl SparvMetadata {
                 .map(|(l, d)| (l.to_string(), d.to_string())),
         );
         self
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize)]
+pub struct SbxMetadata {
+    doi: String,
+}
+
+impl SbxMetadata {
+    pub fn new(doi: String) -> Self {
+        Self { doi }
     }
 }
 

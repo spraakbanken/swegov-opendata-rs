@@ -1,13 +1,11 @@
 use std::path::{Path, PathBuf};
 
 use clap::Parser;
-use preprocess_rd::preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions};
 use preprocess_ui::ui::pretty::{prepare_and_run, AppError};
 use swegov_opendata_preprocess::ALL_CORPORA;
 
-use crate::options::Args;
-
-mod options;
+use preprocess_rd::cli::options::Args;
+use preprocess_rd::preprocess_rd::{preprocess_rd_corpura, PreprocessRdCorpuraOptions};
 
 fn main() -> exn::Result<(), AppError> {
     let args = Args::parse();

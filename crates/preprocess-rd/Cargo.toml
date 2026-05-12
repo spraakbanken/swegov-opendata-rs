@@ -11,7 +11,13 @@ ignored = ["exn"]
 [[bin]]
 doctest = false
 name = "preprocess-rd"
-path = "src/bin/cli/main.rs"
+path = "src/bin/preprocess-rd/main.rs"
+test = false
+
+[[bin]]
+doctest = false
+name = "preprocess-rd-segreg"
+path = "src/bin/preprocess-rd-segreg/main.rs"
 test = false
 
 [dependencies]
