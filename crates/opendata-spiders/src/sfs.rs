@@ -95,7 +95,7 @@ impl webcrawler::Spider for SfsSpider {
             (1961, 1980),
             (1981, 2000),
             (2001, 2020),
-            (2021, 2025),
+            (2021, 2026),
         ] {
             urls.push(format!(
                 "{base_url}&from={from_year}-01-01&tom={to_year}-12-31{base_suffix}"
