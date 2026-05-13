@@ -4,6 +4,7 @@ use fs_err as fs;
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::atomic::Ordering;
+use swegov_opendata_preprocess::corpusinfo;
 
 use preprocess_progress::prodash::{Count, Progress};
 use sparv_extension::make_corpus_config;
@@ -42,13 +43,16 @@ pub fn preprocess_sfs_corpus(
     const CORPUS_ID_ACTUAL: &str = "sfs-aktuella";
     const CORPUS_ID_FORMER: &str = "sfs-upphävda";
     for corpus_id in [CORPUS_ID_ACTUAL, CORPUS_ID_FORMER] {
-        let sparv_config = SparvConfig::with_parent_and_metadata(
+        let corpus = corpusinfo(corpus_id).or_raise(make_error)?;
+        let mut sparv_config = SparvConfig::with_parent_and_metadata(
             "../config.yaml",
-            SparvMetadata::new(corpus_id)
-                .name("swe", "Riksdagens öppna data: Svensk Författningssamling")
-                .description("swe", "Svensk Författningssamling")
-                .description("eng", "Swedish Code of Statues"),
+            SparvMetadata::new(corpus.id)
+                .names(corpus.names)
+                .short_descriptions(corpus.descriptions),
         );
+        if let Some(doi) = corpus.doi {
+            sparv_config = sparv_config.doi(doi);
+        }
         make_corpus_config(&sparv_config, &output_path.join(corpus_id)).or_raise(make_error)?;
     }
     let mut progress = progress.add_child("traverse input path");

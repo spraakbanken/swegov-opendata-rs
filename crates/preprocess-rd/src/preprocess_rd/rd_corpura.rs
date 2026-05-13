@@ -119,6 +119,22 @@ pub fn preprocess_rd_corpura(
         }
 
         writeln!(out, "Processing {} ...", zippath.display()).or_raise(make_error)?;
+
+        let mut sparv_config = SparvConfig::with_parent_and_metadata(
+            "../config.yaml",
+            SparvMetadata::new(corpus.id)
+                .names(corpus.names)
+                .short_descriptions(corpus.descriptions),
+        );
+        if let Some(doi) = corpus.doi {
+            sparv_config = sparv_config.doi(doi);
+        }
+        make_corpus_config(&sparv_config, &output.join(corpus.id)).or_raise(make_error)?;
+
+        let mut processed_zip_dict = processed_json.remove(zippath_name).unwrap_or_default();
+
+        let child_progress = progress.add_child("Building sparv source");
+
         let corpus_source_base = Path::new(zippath.file_stem().unwrap())
             .file_stem()
             .unwrap()
@@ -128,16 +144,6 @@ pub fn preprocess_rd_corpura(
             .join(corpus.id)
             .join("source")
             .join(corpus_source_base);
-        let sparv_config = SparvConfig::with_parent_and_metadata(
-            "../config.yaml",
-            SparvMetadata::new(corpus.id)
-                .names(corpus.names)
-                .short_descriptions(corpus.descriptions),
-        );
-        make_corpus_config(&sparv_config, &output.join(corpus.id)).or_raise(make_error)?;
-        let mut processed_zip_dict = processed_json.remove(zippath_name).unwrap_or_default();
-
-        let child_progress = progress.add_child("Building sparv source");
 
         build_sparv_source(
             &mut processed_zip_dict,
